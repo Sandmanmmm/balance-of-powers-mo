@@ -21,7 +21,12 @@ export function useGameState() {
   const [localGameState, setLocalGameState] = useState<GameState>(gameState);
 
   useEffect(() => {
-    setLocalGameState(gameState);
+    // Ensure currentDate is always a Date object (in case it was serialized as a string)
+    const stateWithDate = {
+      ...gameState,
+      currentDate: new Date(gameState.currentDate)
+    };
+    setLocalGameState(stateWithDate);
   }, [gameState]);
 
   const updateGameState = useCallback((updates: Partial<GameState>) => {
@@ -51,7 +56,9 @@ export function useGameState() {
   }, [updateGameState]);
 
   const advanceTime = useCallback((days: number) => {
-    const newDate = new Date(localGameState.currentDate);
+    // Ensure we're working with a proper Date object
+    const currentDate = new Date(localGameState.currentDate);
+    const newDate = new Date(currentDate);
     newDate.setDate(newDate.getDate() + days);
     updateGameState({ currentDate: newDate });
   }, [localGameState.currentDate, updateGameState]);

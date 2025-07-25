@@ -32,8 +32,9 @@ function formatLargeNumber(num: number): string {
   return `$${num.toLocaleString()}`;
 }
 
-function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', { 
+function formatDate(date: Date | string): string {
+  const dateObj = new Date(date);
+  return dateObj.toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
