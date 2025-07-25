@@ -1,0 +1,109 @@
+export interface Province {
+  id: string;
+  name: string;
+  country: string;
+  coordinates: [number, number];
+  population: {
+    total: number;
+    ethnicGroups: Array<{
+      group: string;
+      percent: number;
+    }>;
+  };
+  unrest: number;
+  infrastructure: {
+    roads: number;
+    internet: number;
+    healthcare: number;
+    education: number;
+  };
+  military: {
+    stationedUnits: string[];
+    fortificationLevel: number;
+  };
+  resourceOutput: {
+    energy: number;
+    iron: number;
+    food: number;
+    technology: number;
+  };
+  politics: {
+    partySupport: Record<string, number>;
+    governorApproval: number;
+  };
+  economy: {
+    gdpPerCapita: number;
+    unemployment: number;
+    inflation: number;
+  };
+}
+
+export interface Nation {
+  id: string;
+  name: string;
+  capital: string;
+  flag: string;
+  government: {
+    type: 'democracy' | 'authoritarian' | 'totalitarian' | 'theocracy';
+    leader: string;
+    approval: number;
+    stability: number;
+  };
+  economy: {
+    gdp: number;
+    debt: number;
+    inflation: number;
+    tradeBalance: number;
+  };
+  military: {
+    manpower: number;
+    equipment: number;
+    doctrine: string;
+    nuclearCapability: boolean;
+  };
+  technology: {
+    researchPoints: number;
+    currentResearch: string[];
+    completedTech: string[];
+  };
+  diplomacy: {
+    allies: string[];
+    enemies: string[];
+    tradePartners: string[];
+  };
+}
+
+export interface GameEvent {
+  id: string;
+  type: 'political' | 'economic' | 'military' | 'natural' | 'technological';
+  title: string;
+  description: string;
+  affectedProvinces: string[];
+  effects: Array<{
+    target: string;
+    property: string;
+    change: number;
+  }>;
+  choices?: Array<{
+    text: string;
+    effects: Array<{
+      target: string;
+      property: string;
+      change: number;
+    }>;
+  }>;
+  triggerDate: Date;
+  duration?: number;
+}
+
+export interface GameState {
+  currentDate: Date;
+  timeSpeed: number;
+  isPaused: boolean;
+  selectedProvince?: string;
+  selectedNation: string;
+  mapOverlay: 'none' | 'political' | 'economic' | 'military' | 'unrest' | 'resources';
+  notifications: GameEvent[];
+}
+
+export type MapOverlayType = GameState['mapOverlay'];

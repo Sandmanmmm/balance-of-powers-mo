@@ -1,0 +1,315 @@
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
+import { Separator } from '@/components/ui/separator';
+import { 
+  Play, 
+  Pause, 
+  SkipForward,
+  Calendar,
+  Flag,
+  TrendingUp,
+  TrendingDown,
+  Shield,
+  Zap,
+  Users,
+  DollarSign
+} from '@phosphor-icons/react';
+import { Nation, GameState } from '../lib/types';
+
+interface GameDashboardProps {
+  nation: Nation;
+  gameState: GameState;
+  onTogglePause: () => void;
+  onSpeedChange: (speed: number) => void;
+}
+
+function formatLargeNumber(num: number): string {
+  if (num >= 1000000000000) return `$${(num / 1000000000000).toFixed(1)}T`;
+  if (num >= 1000000000) return `$${(num / 1000000000).toFixed(1)}B`;
+  if (num >= 1000000) return `$${(num / 1000000).toFixed(1)}M`;
+  return `$${num.toLocaleString()}`;
+}
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+}
+
+function getApprovalColor(approval: number): string {
+  if (approval > 70) return 'text-green-600';
+  if (approval > 50) return 'text-blue-600';
+  if (approval > 30) return 'text-yellow-600';
+  return 'text-red-600';
+}
+
+function getStabilityColor(stability: number): string {
+  if (stability > 80) return 'text-green-600';
+  if (stability > 60) return 'text-blue-600';
+  if (stability > 40) return 'text-yellow-600';
+  return 'text-red-600';
+}
+
+export function GameDashboard({ 
+  nation, 
+  gameState, 
+  onTogglePause, 
+  onSpeedChange 
+}: GameDashboardProps) {
+  const speedOptions = [0.5, 1, 2, 4];
+
+  return (
+    <div className="w-80 space-y-4">
+      {/* Time Controls */}
+      <Card>
+        <CardHeader className="pb-3">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-lg">Game Controls</CardTitle>
+            <div className="flex items-center space-x-1">
+              <Calendar size={16} className="text-muted-foreground" />
+              <span className="text-sm text-muted-foreground">
+                {formatDate(gameState.currentDate)}
+              </span>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {/* Play/Pause Controls */}
+          <div className="flex items-center space-x-2">
+            <Button
+              variant={gameState.isPaused ? "default" : "secondary"}
+              size="sm"
+              onClick={onTogglePause}
+              className="flex-1"
+            >
+              {gameState.isPaused ? (
+                <>
+                  <Play size={14} className="mr-1" />
+                  Resume
+                </>
+              ) : (
+                <>
+                  <Pause size={14} className="mr-1" />
+                  Pause
+                </>
+              )}
+            </Button>
+          </div>
+
+          {/* Speed Controls */}
+          <div className="space-y-2">
+            <div className="text-xs text-muted-foreground">Game Speed</div>
+            <div className="grid grid-cols-4 gap-1">
+              {speedOptions.map((speed) => (
+                <Button
+                  key={speed}
+                  variant={gameState.timeSpeed === speed ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => onSpeedChange(speed)}
+                  disabled={gameState.isPaused}
+                >
+                  {speed}x
+                </Button>
+              ))}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Nation Overview */}
+      <Card>
+        <CardHeader className="pb-3">
+          <div className="flex items-center space-x-2">
+            <span className="text-2xl">{nation.flag}</span>
+            <div>
+              <CardTitle className="text-lg">{nation.name}</CardTitle>
+              <div className="text-sm text-muted-foreground">
+                {nation.government.leader} • {nation.government.type}
+              </div>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {/* Government Status */}
+          <div className="space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Leader Approval</span>
+              <span className={`text-sm font-medium ${getApprovalColor(nation.government.approval)}`}>
+                {nation.government.approval.toFixed(1)}%
+              </span>
+            </div>
+            <Progress value={nation.government.approval} className="h-2" />
+
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Political Stability</span>
+              <span className={`text-sm font-medium ${getStabilityColor(nation.government.stability)}`}>
+                {nation.government.stability.toFixed(1)}%
+              </span>
+            </div>
+            <Progress value={nation.government.stability} className="h-2" />
+          </div>
+
+          <Separator />
+
+          {/* Key Metrics */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center space-x-1">
+                <DollarSign size={14} className="text-muted-foreground" />
+                <span className="text-xs text-muted-foreground">GDP</span>
+              </div>
+              <div className="text-sm font-medium">
+                {formatLargeNumber(nation.economy.gdp)}
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="flex items-center space-x-1">
+                <TrendingUp size={14} className="text-muted-foreground" />
+                <span className="text-xs text-muted-foreground">Trade</span>
+              </div>
+              <div className={`text-sm font-medium ${
+                nation.economy.tradeBalance >= 0 ? 'text-green-600' : 'text-red-600'
+              }`}>
+                {nation.economy.tradeBalance >= 0 ? '+' : ''}
+                {formatLargeNumber(nation.economy.tradeBalance)}
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="flex items-center space-x-1">
+                <Shield size={14} className="text-muted-foreground" />
+                <span className="text-xs text-muted-foreground">Military</span>
+              </div>
+              <div className="text-sm font-medium">
+                {nation.military.manpower.toLocaleString()}
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="flex items-center space-x-1">
+                <Zap size={14} className="text-muted-foreground" />
+                <span className="text-xs text-muted-foreground">Research</span>
+              </div>
+              <div className="text-sm font-medium">
+                {nation.technology.researchPoints}
+              </div>
+            </div>
+          </div>
+
+          <Separator />
+
+          {/* Quick Stats */}
+          <div className="space-y-2">
+            <div className="flex justify-between text-xs">
+              <span className="text-muted-foreground">Debt Ratio</span>
+              <span className={`font-medium ${
+                nation.economy.debt / nation.economy.gdp > 0.8 ? 'text-red-600' : 'text-foreground'
+              }`}>
+                {((nation.economy.debt / nation.economy.gdp) * 100).toFixed(1)}%
+              </span>
+            </div>
+
+            <div className="flex justify-between text-xs">
+              <span className="text-muted-foreground">Inflation</span>
+              <span className={`font-medium ${
+                nation.economy.inflation > 4 ? 'text-red-600' : 
+                nation.economy.inflation > 2 ? 'text-yellow-600' : 'text-green-600'
+              }`}>
+                {nation.economy.inflation.toFixed(1)}%
+              </span>
+            </div>
+
+            <div className="flex justify-between text-xs">
+              <span className="text-muted-foreground">Military Equipment</span>
+              <span className="font-medium">{nation.military.equipment}%</span>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Current Research */}
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg flex items-center">
+            <Zap size={18} className="mr-2" />
+            Current Research
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {nation.technology.currentResearch.length > 0 ? (
+            <div className="space-y-2">
+              {nation.technology.currentResearch.map((tech, index) => (
+                <div key={index} className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm">{tech}</span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-sm text-muted-foreground">No active research</div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Diplomacy Status */}
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg flex items-center">
+            <Flag size={18} className="mr-2" />
+            Diplomacy
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {nation.diplomacy.allies.length > 0 && (
+            <div className="space-y-2">
+              <div className="text-sm font-medium text-green-600">Allies</div>
+              <div className="flex flex-wrap gap-1">
+                {nation.diplomacy.allies.map((ally, index) => (
+                  <Badge key={index} variant="secondary" className="text-xs">
+                    {ally}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {nation.diplomacy.enemies.length > 0 && (
+            <div className="space-y-2">
+              <div className="text-sm font-medium text-red-600">Tensions</div>
+              <div className="flex flex-wrap gap-1">
+                {nation.diplomacy.enemies.map((enemy, index) => (
+                  <Badge key={index} variant="destructive" className="text-xs">
+                    {enemy}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {nation.diplomacy.tradePartners.length > 0 && (
+            <div className="space-y-2">
+              <div className="text-sm font-medium text-blue-600">Trade Partners</div>
+              <div className="flex flex-wrap gap-1">
+                {nation.diplomacy.tradePartners.slice(0, 4).map((partner, index) => (
+                  <Badge key={index} variant="outline" className="text-xs">
+                    {partner}
+                  </Badge>
+                ))}
+                {nation.diplomacy.tradePartners.length > 4 && (
+                  <Badge variant="outline" className="text-xs">
+                    +{nation.diplomacy.tradePartners.length - 4} more
+                  </Badge>
+                )}
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
