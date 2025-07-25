@@ -1,0 +1,95 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "GER_001",
+        "name": "Lower Saxony",
+        "country": "Germany"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [8.5, 53.5],
+          [11.5, 53.5],
+          [11.5, 51.5],
+          [8.5, 51.5],
+          [8.5, 53.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "GER_002",
+        "name": "Bavaria",
+        "country": "Germany"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9.0, 50.5],
+          [13.5, 50.5],
+          [13.5, 47.0],
+          [9.0, 47.0],
+          [9.0, 50.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "USA_001",
+        "name": "California",
+        "country": "United States"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-124.4, 42.0],
+          [-114.1, 42.0],
+          [-114.1, 32.5],
+          [-124.4, 32.5],
+          [-124.4, 42.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "USA_002",
+        "name": "Texas",
+        "country": "United States"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-106.6, 36.5],
+          [-93.5, 36.5],
+          [-93.5, 25.8],
+          [-106.6, 25.8],
+          [-106.6, 36.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CHN_001",
+        "name": "Guangdong",
+        "country": "China"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [109.6, 25.4],
+          [117.2, 25.4],
+          [117.2, 20.1],
+          [109.6, 20.1],
+          [109.6, 25.4]
+        ]]
+      }
+    }
+  ]
+}

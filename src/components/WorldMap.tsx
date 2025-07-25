@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -16,6 +16,8 @@ import {
 } from '@phosphor-icons/react';
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
+import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates } from '../lib/mapProjection';
+import provinceBoundariesData from '../data/province-boundaries.json';
 
 interface WorldMapProps {
   provinces: Province[];
@@ -89,6 +91,26 @@ export function WorldMap({
   onOverlayChange 
 }: WorldMapProps) {
   const [zoomLevel, setZoomLevel] = useState(1);
+  const [hoveredProvince, setHoveredProvince] = useState<string | null>(null);
+
+  // Memoize projection configuration
+  const projectionConfig: ProjectionConfig = useMemo(() => {
+    return calculateOptimalProjection(
+      provinceBoundariesData.features,
+      1000,
+      600,
+      50
+    );
+  }, []);
+
+  // Create a map of province data for quick lookup
+  const provinceDataMap = useMemo(() => {
+    const map = new Map<string, Province>();
+    provinces.forEach(province => {
+      map.set(province.id, province);
+    });
+    return map;
+  }, [provinces]);
 
   const handleZoomIn = useCallback(() => {
     setZoomLevel(prev => Math.min(prev + 0.2, 3));
@@ -96,6 +118,14 @@ export function WorldMap({
 
   const handleZoomOut = useCallback(() => {
     setZoomLevel(prev => Math.max(prev - 0.2, 0.5));
+  }, []);
+
+  const handleProvinceClick = useCallback((provinceId: string) => {
+    onProvinceSelect(selectedProvince === provinceId ? undefined : provinceId);
+  }, [selectedProvince, onProvinceSelect]);
+
+  const handleProvinceHover = useCallback((provinceId: string | null) => {
+    setHoveredProvince(provinceId);
   }, []);
 
   return (
@@ -120,6 +150,9 @@ export function WorldMap({
             >
               <ZoomOut size={16} />
             </Button>
+          </div>
+          <div className="text-xs text-muted-foreground mt-1 text-center">
+            Zoom: {(zoomLevel * 100).toFixed(0)}%
           </div>
         </Card>
 
@@ -151,55 +184,148 @@ export function WorldMap({
         className="w-full h-full relative"
         style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center' }}
       >
-        {/* Simplified World Map using positioned provinces */}
+        {/* Interactive Province Map */}
         <svg
-          viewBox="0 0 1000 500"
+          viewBox={`0 0 ${projectionConfig.width} ${projectionConfig.height}`}
           className="w-full h-full"
+          style={{ background: '#e0f2fe' }}
         >
-          {/* World outline (simplified) */}
+          {/* Ocean/background */}
           <rect
             x="0"
             y="0"
-            width="1000"
-            height="500"
+            width={projectionConfig.width}
+            height={projectionConfig.height}
             fill="#e0f2fe"
-            stroke="#0369a1"
-            strokeWidth="1"
           />
 
-          {/* Province representations */}
-          {provinces.map((province) => {
-            const x = ((province.coordinates[1] + 180) / 360) * 1000;
-            const y = ((90 - province.coordinates[0]) / 180) * 500;
-            const isSelected = selectedProvince === province.id;
+          {/* Province polygons */}
+          {provinceBoundariesData.features.map((feature) => {
+            const provinceId = feature.properties.id;
+            const province = provinceDataMap.get(provinceId);
+            
+            if (!province) return null;
+
+            const isSelected = selectedProvince === provinceId;
+            const isHovered = hoveredProvince === provinceId;
             const color = getProvinceColor(province, mapOverlay);
+            
+            // Convert coordinates to SVG path
+            const pathData = coordinatesToPath(
+              feature.geometry.coordinates[0],
+              projectionConfig
+            );
 
             return (
-              <g key={province.id}>
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={isSelected ? 12 : 8}
+              <g key={provinceId}>
+                {/* Province boundary */}
+                <path
+                  d={pathData}
                   fill={color}
-                  stroke={isSelected ? "#1f2937" : "#374151"}
-                  strokeWidth={isSelected ? 3 : 1}
-                  className="cursor-pointer hover:stroke-accent transition-all duration-200"
-                  onClick={() => onProvinceSelect(isSelected ? undefined : province.id)}
+                  stroke={isSelected ? "#1f2937" : isHovered ? "#374151" : "#9ca3af"}
+                  strokeWidth={isSelected ? 3 : isHovered ? 2 : 1}
+                  className="cursor-pointer transition-all duration-200"
+                  onClick={() => handleProvinceClick(provinceId)}
+                  onMouseEnter={() => handleProvinceHover(provinceId)}
+                  onMouseLeave={() => handleProvinceHover(null)}
                 />
-                <text
-                  x={x}
-                  y={y - 15}
-                  textAnchor="middle"
-                  className="text-xs font-medium fill-foreground pointer-events-none"
-                  style={{ fontSize: isSelected ? '12px' : '10px' }}
-                >
-                  {province.name}
-                </text>
+                
+                {/* Province label (visible when zoomed in or selected) */}
+                {(zoomLevel > 1.5 || isSelected || isHovered) && (
+                  <text
+                    x={(() => {
+                      const [x, y] = projectCoordinates(
+                        province.coordinates[1], 
+                        province.coordinates[0], 
+                        projectionConfig
+                      );
+                      return x;
+                    })()}
+                    y={(() => {
+                      const [x, y] = projectCoordinates(
+                        province.coordinates[1], 
+                        province.coordinates[0], 
+                        projectionConfig
+                      );
+                      return y;
+                    })()}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    className={cn(
+                      "font-medium pointer-events-none",
+                      isSelected ? "fill-primary text-sm" : "fill-foreground text-xs"
+                    )}
+                    style={{ 
+                      fontSize: isSelected ? '14px' : '12px',
+                      fontWeight: isSelected ? 'bold' : 'normal'
+                    }}
+                  >
+                    {province.name}
+                  </text>
+                )}
               </g>
+            );
+          })}
+
+          {/* Province centers for reference when not showing boundaries */}
+          {mapOverlay === 'none' && zoomLevel < 1.5 && provinces.map((province) => {
+            const [x, y] = projectCoordinates(
+              province.coordinates[1], 
+              province.coordinates[0], 
+              projectionConfig
+            );
+            const isSelected = selectedProvince === province.id;
+            const isHovered = hoveredProvince === province.id;
+
+            return (
+              <circle
+                key={`${province.id}-center`}
+                cx={x}
+                cy={y}
+                r={isSelected ? 6 : isHovered ? 5 : 4}
+                fill={isSelected ? "#1f2937" : isHovered ? "#374151" : "#6b7280"}
+                stroke="#ffffff"
+                strokeWidth="1"
+                className="cursor-pointer"
+                onClick={() => handleProvinceClick(province.id)}
+                onMouseEnter={() => handleProvinceHover(province.id)}
+                onMouseLeave={() => handleProvinceHover(null)}
+              />
             );
           })}
         </svg>
       </div>
+
+      {/* Hover Tooltip */}
+      {hoveredProvince && (
+        <div className="absolute top-4 right-4 z-20 pointer-events-none">
+          <Card className="p-3 bg-card/95 backdrop-blur-sm border shadow-lg">
+            {(() => {
+              const province = provinceDataMap.get(hoveredProvince);
+              if (!province) return null;
+              
+              return (
+                <div className="space-y-2">
+                  <div className="font-semibold text-sm">{province.name}</div>
+                  <div className="text-xs text-muted-foreground">{province.country}</div>
+                  <div className="space-y-1 text-xs">
+                    <div>Population: {(province.population.total / 1000000).toFixed(1)}M</div>
+                    <div>GDP/capita: ${province.economy.gdpPerCapita.toLocaleString()}</div>
+                    <div>Unrest: {province.unrest.toFixed(1)}</div>
+                    {mapOverlay !== 'none' && (
+                      <div className="pt-1 border-t border-border">
+                        <Badge variant="outline" className="text-xs">
+                          {overlayConfig[mapOverlay].label} View
+                        </Badge>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
+          </Card>
+        </div>
+      )}
 
       {/* Legend */}
       {mapOverlay !== 'none' && (
