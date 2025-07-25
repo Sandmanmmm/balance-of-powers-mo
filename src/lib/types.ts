@@ -39,6 +39,8 @@ export interface Province {
     unemployment: number;
     inflation: number;
   };
+  buildings: ProvinceBuilding[];
+  constructionProjects: ConstructionProject[];
 }
 
 export interface Nation {
@@ -57,6 +59,7 @@ export interface Nation {
     debt: number;
     inflation: number;
     tradeBalance: number;
+    treasury: number;
   };
   military: {
     manpower: number;
@@ -159,6 +162,36 @@ export interface Technology {
     type: string;
     allowed?: string[];
   }>;
+}
+
+export interface Building {
+  id: string;
+  name: string;
+  description: string;
+  category: 'industrial' | 'military' | 'infrastructure' | 'research' | 'civilian' | 'energy' | 'agriculture';
+  cost: number;
+  buildTime: number; // in ticks
+  effects: Record<string, number>;
+  requirements: Record<string, any>;
+  icon: string;
+}
+
+export interface ConstructionProject {
+  id: string;
+  buildingId: string;
+  provinceId: string;
+  startDate: Date;
+  completionDate: Date;
+  remainingTime: number; // in ticks
+  cost: number;
+  status: 'planned' | 'in_progress' | 'completed' | 'cancelled';
+}
+
+export interface ProvinceBuilding {
+  buildingId: string;
+  level: number;
+  constructedDate: Date;
+  effects: Record<string, number>;
 }
 
 export type MapOverlayType = GameState['mapOverlay'];

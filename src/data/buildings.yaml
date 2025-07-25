@@ -1,0 +1,140 @@
+buildings:
+  - id: "civilian_factory"
+    name: "Civilian Factory"
+    description: "Increases industrial capacity and GDP output"
+    category: "industrial"
+    cost: 1000
+    buildTime: 120 # ticks (about 2 years)
+    effects:
+      industry: 2
+      gdp_modifier: 0.1
+    requirements:
+      infrastructure: 2
+    icon: "🏭"
+
+  - id: "military_factory"
+    name: "Military Factory"
+    description: "Produces military equipment and vehicles"
+    category: "military"
+    cost: 1500
+    buildTime: 180
+    effects:
+      military_production: 3
+      employment: 500
+    requirements:
+      infrastructure: 2
+      technology: "industrial_production"
+    icon: "⚙️"
+
+  - id: "infrastructure"
+    name: "Infrastructure"
+    description: "Roads, communications, and basic utilities"
+    category: "infrastructure"
+    cost: 800
+    buildTime: 90
+    effects:
+      infrastructure: 1
+      stability: 2
+      gdp_modifier: 0.05
+    requirements: {}
+    icon: "🛣️"
+
+  - id: "university"
+    name: "University"
+    description: "Advances research and technology development"
+    category: "research"
+    cost: 2000
+    buildTime: 240
+    effects:
+      research_speed: 0.15
+      stability: 1
+      employment: 800
+    requirements:
+      infrastructure: 3
+    icon: "🎓"
+
+  - id: "hospital"
+    name: "Hospital"
+    description: "Improves public health and population growth"
+    category: "civilian"
+    cost: 1200
+    buildTime: 150
+    effects:
+      population_growth: 0.02
+      stability: 3
+      healthcare_level: 1
+    requirements:
+      infrastructure: 2
+    icon: "🏥"
+
+  - id: "power_plant"
+    name: "Power Plant"
+    description: "Generates electricity for industrial development"
+    category: "energy"
+    cost: 3000
+    buildTime: 300
+    effects:
+      energy_output: 10
+      industry: 1
+      pollution: 2
+    requirements:
+      infrastructure: 3
+      technology: "power_generation"
+    icon: "⚡"
+
+  - id: "port"
+    name: "Port"
+    description: "Facilitates trade and naval operations"
+    category: "infrastructure"
+    cost: 2500
+    buildTime: 200
+    effects:
+      trade_efficiency: 0.2
+      naval_capacity: 5
+      gdp_modifier: 0.08
+    requirements:
+      coastal: true
+      infrastructure: 2
+    icon: "⚓"
+
+  - id: "airport"
+    name: "Airport"
+    description: "Enables air transport and military aviation"
+    category: "infrastructure"
+    cost: 4000
+    buildTime: 250
+    effects:
+      air_capacity: 10
+      trade_efficiency: 0.1
+      stability: 1
+    requirements:
+      infrastructure: 3
+      technology: "aviation"
+    icon: "✈️"
+
+  - id: "farm"
+    name: "Agricultural Complex"
+    description: "Produces food and supports population"
+    category: "agriculture"
+    cost: 600
+    buildTime: 60
+    effects:
+      food_production: 5
+      employment: 300
+      rural_stability: 2
+    requirements:
+      rural: true
+    icon: "🚜"
+
+  - id: "bunker"
+    name: "Fortification"
+    description: "Defensive structures for military protection"
+    category: "military"
+    cost: 800
+    buildTime: 100
+    effects:
+      defense_bonus: 15
+      entrenchment: 2
+    requirements:
+      infrastructure: 1
+    icon: "🏰"

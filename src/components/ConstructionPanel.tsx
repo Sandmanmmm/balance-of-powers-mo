@@ -1,0 +1,265 @@
+import { useState } from 'react';
+import { Province, Nation, Building, ConstructionProject } from '@/lib/types';
+import { gameBuildings, getAvailableBuildings } from '@/lib/gameData';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Separator } from '@/components/ui/separator';
+import { Clock, Coins, Hammer, CheckCircle2, AlertCircle, Building2 } from '@phosphor-icons/react';
+import { toast } from 'sonner';
+
+interface ConstructionPanelProps {
+  province: Province;
+  nation: Nation;
+  onStartConstruction: (buildingId: string, provinceId: string) => void;
+  onCancelConstruction: (projectId: string) => void;
+  isPlayerControlled: boolean;
+}
+
+export function ConstructionPanel({ 
+  province, 
+  nation, 
+  onStartConstruction, 
+  onCancelConstruction,
+  isPlayerControlled 
+}: ConstructionPanelProps) {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  
+  // Get available buildings for this province
+  const availableBuildings = getAvailableBuildings(province, nation, nation.technology.completedTech);
+  
+  // Filter buildings by category
+  const filteredBuildings = selectedCategory === 'all' 
+    ? availableBuildings 
+    : availableBuildings.filter(building => building.category === selectedCategory);
+  
+  // Get building categories for tabs
+  const categories = Array.from(new Set(gameBuildings.map(b => b.category)));
+  
+  const handleConstructBuilding = (building: Building) => {
+    if (!isPlayerControlled) {
+      toast.error("You can only build in provinces you control");
+      return;
+    }
+    
+    if (nation.economy.treasury < building.cost) {
+      toast.error(`Insufficient funds. Need ${building.cost.toLocaleString()} but only have ${nation.economy.treasury.toLocaleString()}`);
+      return;
+    }
+    
+    // Check if already building this type
+    const existingProject = province.constructionProjects.find(p => p.buildingId === building.id && p.status === 'in_progress');
+    if (existingProject) {
+      toast.error(`Already constructing ${building.name} in this province`);
+      return;
+    }
+    
+    onStartConstruction(building.id, province.id);
+    toast.success(`Started construction of ${building.name}`);
+  };
+
+  const formatTimeRemaining = (ticks: number) => {
+    const weeks = Math.ceil(ticks);
+    if (weeks < 52) {
+      return `${weeks} week${weeks !== 1 ? 's' : ''}`;
+    }
+    const years = Math.floor(weeks / 52);
+    const remainingWeeks = weeks % 52;
+    return `${years}y${remainingWeeks > 0 ? ` ${remainingWeeks}w` : ''}`;
+  };
+
+  const formatCost = (cost: number) => {
+    if (cost >= 1e9) return `$${(cost / 1e9).toFixed(1)}B`;
+    if (cost >= 1e6) return `$${(cost / 1e6).toFixed(1)}M`;
+    if (cost >= 1e3) return `$${(cost / 1e3).toFixed(1)}K`;
+    return `$${cost}`;
+  };
+
+  const canAfford = (cost: number) => nation.economy.treasury >= cost;
+
+  return (
+    <div className="space-y-4">
+      {/* Province Header */}
+      <div className="flex items-center gap-2">
+        <Building2 className="w-5 h-5 text-primary" />
+        <h3 className="text-lg font-semibold">Construction - {province.name}</h3>
+        {!isPlayerControlled && (
+          <Badge variant="secondary">View Only</Badge>
+        )}
+      </div>
+
+      {/* Current Buildings */}
+      {province.buildings.length > 0 && (
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm font-medium flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-green-600" />
+              Existing Buildings
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 gap-2">
+              {province.buildings.map((building, index) => {
+                const buildingData = gameBuildings.find(b => b.id === building.buildingId);
+                return (
+                  <div key={index} className="flex items-center justify-between p-2 bg-muted rounded text-sm">
+                    <div className="flex items-center gap-2">
+                      <span>{buildingData?.icon || '🏗️'}</span>
+                      <span>{buildingData?.name || 'Unknown Building'}</span>
+                      {building.level > 1 && (
+                        <Badge variant="outline" className="text-xs">
+                          Lv.{building.level}
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Active Construction Projects */}
+      {province.constructionProjects.length > 0 && (
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm font-medium flex items-center gap-2">
+              <Hammer className="w-4 h-4 text-orange-600" />
+              Under Construction
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {province.constructionProjects
+                .filter(project => project.status === 'in_progress')
+                .map((project) => {
+                  const building = gameBuildings.find(b => b.id === project.buildingId);
+                  const progress = ((building?.buildTime || 0) - project.remainingTime) / (building?.buildTime || 1) * 100;
+                  
+                  return (
+                    <div key={project.id} className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span>{building?.icon || '🏗️'}</span>
+                          <span className="font-medium">{building?.name}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Clock className="w-3 h-3" />
+                          {formatTimeRemaining(project.remainingTime)}
+                        </div>
+                      </div>
+                      <Progress value={progress} className="h-2" />
+                      {isPlayerControlled && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => onCancelConstruction(project.id)}
+                          className="h-6 text-xs"
+                        >
+                          Cancel
+                        </Button>
+                      )}
+                    </div>
+                  );
+                })}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Available Buildings */}
+      {isPlayerControlled && (
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm font-medium">Available Buildings</CardTitle>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Coins className="w-4 h-4" />
+              Treasury: {formatCost(nation.economy.treasury)}
+            </div>
+          </CardHeader>
+          <CardContent>
+            <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
+              <TabsList className="grid grid-cols-4 w-full mb-4">
+                <TabsTrigger value="all" className="text-xs">All</TabsTrigger>
+                <TabsTrigger value="infrastructure" className="text-xs">Infra</TabsTrigger>
+                <TabsTrigger value="industrial" className="text-xs">Industry</TabsTrigger>
+                <TabsTrigger value="military" className="text-xs">Military</TabsTrigger>
+              </TabsList>
+              
+              <ScrollArea className="h-[300px]">
+                <div className="space-y-3">
+                  {filteredBuildings.length === 0 ? (
+                    <div className="text-center py-8 text-muted-foreground">
+                      <AlertCircle className="w-8 h-8 mx-auto mb-2" />
+                      <p>No buildings available</p>
+                      <p className="text-xs">Check requirements or research new technologies</p>
+                    </div>
+                  ) : (
+                    filteredBuildings.map((building) => {
+                      const affordable = canAfford(building.cost);
+                      
+                      return (
+                        <Card key={building.id} className={`p-3 ${!affordable ? 'opacity-60' : ''}`}>
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex-1 space-y-1">
+                              <div className="flex items-center gap-2">
+                                <span className="text-lg">{building.icon}</span>
+                                <div>
+                                  <div className="font-medium text-sm">{building.name}</div>
+                                  <Badge variant="outline" className="text-xs">
+                                    {building.category}
+                                  </Badge>
+                                </div>
+                              </div>
+                              
+                              <p className="text-xs text-muted-foreground line-clamp-2">
+                                {building.description}
+                              </p>
+                              
+                              <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                                <div className="flex items-center gap-1">
+                                  <Coins className="w-3 h-3" />
+                                  {formatCost(building.cost)}
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <Clock className="w-3 h-3" />
+                                  {formatTimeRemaining(building.buildTime)}
+                                </div>
+                              </div>
+                              
+                              {/* Effects */}
+                              <div className="flex flex-wrap gap-1">
+                                {Object.entries(building.effects).map(([effect, value]) => (
+                                  <Badge key={effect} variant="secondary" className="text-xs">
+                                    {effect}: +{value}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            <Button
+                              size="sm"
+                              onClick={() => handleConstructBuilding(building)}
+                              disabled={!affordable}
+                              className="shrink-0"
+                            >
+                              Build
+                            </Button>
+                          </div>
+                        </Card>
+                      );
+                    })
+                  )}
+                </div>
+              </ScrollArea>
+            </Tabs>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}

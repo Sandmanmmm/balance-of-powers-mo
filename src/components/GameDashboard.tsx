@@ -332,7 +332,6 @@ export function GameDashboard({
         {selectedTab === 'nation' && (
           <NationOverviewPanel
             nation={nation}
-            gameState={gameState}
             isPlayerNation={gameState.selectedNation === nation.id}
             onPolicyChange={onPolicyChange}
             onDecisionMake={onDecisionMake}

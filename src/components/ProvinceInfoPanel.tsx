@@ -12,13 +12,19 @@ import {
   WifiHigh,
   Heart,
   GraduationCap,
-  Warning
+  Warning,
+  Hammer
 } from '@phosphor-icons/react';
-import { Province } from '../lib/types';
+import { Province, Nation } from '../lib/types';
 import { cn } from '../lib/utils';
+import { ConstructionPanel } from './ConstructionPanel';
 
 interface ProvinceInfoPanelProps {
   province: Province;
+  nation?: Nation;
+  onStartConstruction?: (buildingId: string, provinceId: string) => void;
+  onCancelConstruction?: (projectId: string) => void;
+  isPlayerControlled?: boolean;
 }
 
 function formatNumber(num: number | undefined): string {
@@ -57,7 +63,13 @@ function getUnrestLabel(unrest: number | undefined): string {
   return 'Stable';
 }
 
-export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
+export function ProvinceInfoPanel({ 
+  province, 
+  nation, 
+  onStartConstruction, 
+  onCancelConstruction, 
+  isPlayerControlled = false 
+}: ProvinceInfoPanelProps) {
   const dominantParty = Object.entries(province.politics?.partySupport || {})
     .reduce((a, b) => a[1] > b[1] ? a : b, ['Unknown', 0]);
 
@@ -79,11 +91,14 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
 
       <CardContent className="flex-1 overflow-y-auto">
         <Tabs defaultValue="overview" className="space-y-4">
-          <TabsList className="grid w-full grid-cols-4 text-xs">
+          <TabsList className="grid w-full grid-cols-5 text-xs">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="politics">Politics</TabsTrigger>
             <TabsTrigger value="economy">Economy</TabsTrigger>
             <TabsTrigger value="military">Military</TabsTrigger>
+            <TabsTrigger value="construction">
+              <Hammer size={12} />
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-4">
@@ -282,6 +297,23 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
                 <div className="text-xs text-muted-foreground">No units stationed</div>
               )}
             </div>
+          </TabsContent>
+
+          <TabsContent value="construction" className="space-y-4">
+            {nation && onStartConstruction && onCancelConstruction ? (
+              <ConstructionPanel
+                province={province}
+                nation={nation}
+                onStartConstruction={onStartConstruction}
+                onCancelConstruction={onCancelConstruction}
+                isPlayerControlled={isPlayerControlled}
+              />
+            ) : (
+              <div className="text-center py-8 text-muted-foreground">
+                <Hammer className="w-8 h-8 mx-auto mb-2" />
+                <p>Construction data unavailable</p>
+              </div>
+            )}
           </TabsContent>
         </Tabs>
       </CardContent>

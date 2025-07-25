@@ -1,4 +1,4 @@
-import { Province, Nation, GameEvent, Unit, Technology } from './types';
+import { Province, Nation, GameEvent, Unit, Technology, Building } from './types';
 
 // Define inline data instead of loading from YAML files for now
 // This will be replaced with proper YAML loading once the import issues are resolved
@@ -48,7 +48,9 @@ const provincesData = {
         gdp_per_capita: 42000,
         unemployment: 5.1,
         inflation: 2.8
-      }
+      },
+      buildings: [],
+      construction_projects: []
     },
     "USA_001": {
       name: "California",
@@ -94,7 +96,9 @@ const provincesData = {
         gdp_per_capita: 75000,
         unemployment: 7.3,
         inflation: 4.2
-      }
+      },
+      buildings: [],
+      construction_projects: []
     },
     "CHN_001": {
       name: "Guangdong",
@@ -136,7 +140,9 @@ const provincesData = {
         gdp_per_capita: 28000,
         unemployment: 3.8,
         inflation: 1.9
-      }
+      },
+      buildings: [],
+      construction_projects: []
     },
     "GER_002": {
       name: "Bavaria",
@@ -182,7 +188,9 @@ const provincesData = {
         gdp_per_capita: 48000,
         unemployment: 3.9,
         inflation: 2.6
-      }
+      },
+      buildings: [],
+      construction_projects: []
     },
     "USA_002": {
       name: "Texas",
@@ -228,7 +236,9 @@ const provincesData = {
         gdp_per_capita: 62000,
         unemployment: 4.1,
         inflation: 3.8
-      }
+      },
+      buildings: [],
+      construction_projects: []
     }
   }
 };
@@ -254,6 +264,7 @@ const nationsData = {
         debt: 2800000000000,
         inflation: 2.8,
         trade_balance: 285000000000,
+        treasury: 850000000000,
         currency: "EUR",
         interest_rate: 2.1,
         sectors: {
@@ -318,6 +329,7 @@ const nationsData = {
         debt: 31400000000000,
         inflation: 4.2,
         trade_balance: -945000000000,
+        treasury: 2100000000000,
         currency: "USD",
         interest_rate: 5.25,
         sectors: {
@@ -404,7 +416,9 @@ function convertProvinces(): Province[] {
       gdpPerCapita: data.economy.gdp_per_capita,
       unemployment: data.economy.unemployment,
       inflation: data.economy.inflation
-    }
+    },
+    buildings: data.buildings || [],
+    constructionProjects: data.construction_projects || []
   }));
 }
 
@@ -419,7 +433,8 @@ function convertNations(): Nation[] {
       gdp: data.economy.gdp,
       debt: data.economy.debt,
       inflation: data.economy.inflation,
-      tradeBalance: data.economy.trade_balance
+      tradeBalance: data.economy.trade_balance,
+      treasury: data.economy.treasury
     },
     military: {
       manpower: data.military.manpower,
@@ -531,6 +546,140 @@ function convertEvents(): GameEvent[] {
 function convertUnits(): Unit[] {
   // For now, return empty units array 
   return [];
+}
+
+function convertBuildings(): Building[] {
+  const buildingData = [
+    {
+      id: "civilian_factory",
+      name: "Civilian Factory",
+      description: "Increases industrial capacity and GDP output",
+      category: "industrial" as const,
+      cost: 1000,
+      buildTime: 120,
+      effects: {
+        industry: 2,
+        gdp_modifier: 0.1
+      },
+      requirements: {
+        infrastructure: 2
+      },
+      icon: "🏭"
+    },
+    {
+      id: "military_factory",
+      name: "Military Factory",
+      description: "Produces military equipment and vehicles",
+      category: "military" as const,
+      cost: 1500,
+      buildTime: 180,
+      effects: {
+        military_production: 3,
+        employment: 500
+      },
+      requirements: {
+        infrastructure: 2,
+        technology: "industrial_production"
+      },
+      icon: "⚙️"
+    },
+    {
+      id: "infrastructure",
+      name: "Infrastructure",
+      description: "Roads, communications, and basic utilities",
+      category: "infrastructure" as const,
+      cost: 800,
+      buildTime: 90,
+      effects: {
+        infrastructure: 1,
+        stability: 2,
+        gdp_modifier: 0.05
+      },
+      requirements: {},
+      icon: "🛣️"
+    },
+    {
+      id: "university",
+      name: "University",
+      description: "Advances research and technology development",
+      category: "research" as const,
+      cost: 2000,
+      buildTime: 240,
+      effects: {
+        research_speed: 0.15,
+        stability: 1,
+        employment: 800
+      },
+      requirements: {
+        infrastructure: 3
+      },
+      icon: "🎓"
+    },
+    {
+      id: "hospital",
+      name: "Hospital",
+      description: "Improves public health and population growth",
+      category: "civilian" as const,
+      cost: 1200,
+      buildTime: 150,
+      effects: {
+        population_growth: 0.02,
+        stability: 3,
+        healthcare_level: 1
+      },
+      requirements: {
+        infrastructure: 2
+      },
+      icon: "🏥"
+    },
+    {
+      id: "power_plant",
+      name: "Power Plant",
+      description: "Generates electricity for industrial development",
+      category: "energy" as const,
+      cost: 3000,
+      buildTime: 300,
+      effects: {
+        energy_output: 10,
+        industry: 1,
+        pollution: 2
+      },
+      requirements: {
+        infrastructure: 3,
+        technology: "power_generation"
+      },
+      icon: "⚡"
+    },
+    {
+      id: "farm",
+      name: "Agricultural Complex",
+      description: "Produces food and supports population",
+      category: "agriculture" as const,
+      cost: 600,
+      buildTime: 60,
+      effects: {
+        food_production: 5,
+        employment: 300,
+        rural_stability: 2
+      },
+      requirements: {
+        rural: true
+      },
+      icon: "🚜"
+    }
+  ];
+
+  return buildingData.map(building => ({
+    id: building.id,
+    name: building.name,
+    description: building.description,
+    category: building.category,
+    cost: building.cost,
+    buildTime: building.buildTime,
+    effects: building.effects,
+    requirements: building.requirements,
+    icon: building.icon
+  }));
 }
 
 function convertTechnologies(): Technology[] {
@@ -683,9 +832,10 @@ export const sampleNations: Nation[] = convertNations();
 export const sampleEvents: GameEvent[] = convertEvents();
 export const gameUnits: Unit[] = convertUnits();
 export const sampleTechnologies: Technology[] = convertTechnologies();
+export const gameBuildings: Building[] = convertBuildings();
 
 // Log successful data loading
-console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies`);
+console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies, ${gameBuildings.length} buildings`);
 
 // Export data access functions
 export function getProvinceById(id: string): Province | undefined {
@@ -726,6 +876,51 @@ export function getAvailableTechnologies(currentYear: number, completedTech: str
     !completedTech.includes(tech.id) &&
     tech.prerequisites.every(prereq => completedTech.includes(prereq))
   );
+}
+
+export function getBuildingById(id: string): Building | undefined {
+  return gameBuildings.find(building => building.id === id);
+}
+
+export function getBuildingsByCategory(category: string): Building[] {
+  return gameBuildings.filter(building => building.category === category);
+}
+
+export function getAvailableBuildings(province: Province, nation: Nation, completedTech: string[]): Building[] {
+  return gameBuildings.filter(building => {
+    // Check basic requirements
+    if (building.requirements.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
+      return false;
+    }
+    
+    // Check technology requirements
+    if (building.requirements.technology && !completedTech.includes(building.requirements.technology)) {
+      return false;
+    }
+    
+    // Check special requirements (coastal, rural, etc.)
+    if (building.requirements.coastal && !isCoastalProvince(province)) {
+      return false;
+    }
+    
+    if (building.requirements.rural && !isRuralProvince(province)) {
+      return false;
+    }
+    
+    return true;
+  });
+}
+
+function isCoastalProvince(province: Province): boolean {
+  // Simple heuristic - in a real game this would be in province data
+  return province.name.toLowerCase().includes('coast') || 
+         province.name.toLowerCase().includes('port') ||
+         province.id.includes('coastal');
+}
+
+function isRuralProvince(province: Province): boolean {
+  // Simple heuristic - in a real game this would be in province data  
+  return province.population.total < 5000000;
 }
 
 export function validateGameData(): { valid: boolean; errors: string[] } {

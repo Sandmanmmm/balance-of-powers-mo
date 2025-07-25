@@ -10,6 +10,7 @@ interface UseSimulationEngineProps {
   onAdvanceTime: (days: number) => void;
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void;
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void;
+  onProcessConstructionTick?: () => void;
 }
 
 interface SimulationContext {
@@ -26,7 +27,8 @@ export function useSimulationEngine({
   nations,
   onAdvanceTime,
   onUpdateProvince,
-  onUpdateNation
+  onUpdateNation,
+  onProcessConstructionTick
 }: UseSimulationEngineProps) {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const lastUpdateRef = useRef<number>(Date.now());
@@ -72,6 +74,11 @@ export function useSimulationEngine({
         simulateProvinces(context, Math.floor(weeksToAdvance), onUpdateProvince);
         simulateNations(context, Math.floor(weeksToAdvance), onUpdateNation);
         
+        // Process construction projects
+        if (onProcessConstructionTick) {
+          onProcessConstructionTick();
+        }
+        
         // Run technology progression
         progressTechnology(context, Math.floor(weeksToAdvance), onUpdateNation);
         
@@ -96,7 +103,7 @@ export function useSimulationEngine({
         clearInterval(intervalRef.current);
       }
     };
-  }, [gameState.isPaused, gameState.timeSpeed, provinces, nations, onAdvanceTime, onUpdateProvince, onUpdateNation]);
+  }, [gameState.isPaused, gameState.timeSpeed, provinces, nations, onAdvanceTime, onUpdateProvince, onUpdateNation, onProcessConstructionTick]);
 }
 
 function simulateProvinces(

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useKV } from './useKV';
-import { GameState, Province, Nation, GameEvent, MapOverlayType } from '../lib/types';
-import { sampleProvinces, sampleNations, sampleEvents } from '../lib/gameData';
+import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
+import { sampleProvinces, sampleNations, sampleEvents, getBuildingById } from '../lib/gameData';
 
 const initialGameState: GameState = {
   currentDate: new Date('1990-01-01'),
@@ -108,6 +108,129 @@ export function useGameState() {
     });
   }, [localGameState.notifications, updateGameState]);
 
+  const startConstruction = useCallback((buildingId: string, provinceId: string) => {
+    const building = getBuildingById(buildingId);
+    const province = getProvince(provinceId);
+    const nation = province ? getNation(localGameState.selectedNation) : null;
+    
+    if (!building || !province || !nation) {
+      throw new Error('Invalid building, province, or nation');
+    }
+    
+    if (nation.economy.treasury < building.cost) {
+      throw new Error('Insufficient funds');
+    }
+    
+    // Create construction project
+    const project: ConstructionProject = {
+      id: `construction_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      buildingId,
+      provinceId,
+      startDate: new Date(localGameState.currentDate),
+      completionDate: new Date(new Date(localGameState.currentDate).getTime() + building.buildTime * 7 * 24 * 60 * 60 * 1000), // buildTime is in weeks
+      remainingTime: building.buildTime,
+      cost: building.cost,
+      status: 'in_progress'
+    };
+    
+    // Deduct cost from treasury
+    updateNation(localGameState.selectedNation, {
+      economy: {
+        ...nation.economy,
+        treasury: nation.economy.treasury - building.cost
+      }
+    });
+    
+    // Add construction project to province
+    updateProvince(provinceId, {
+      constructionProjects: [...province.constructionProjects, project]
+    });
+  }, [getProvince, getNation, localGameState.selectedNation, localGameState.currentDate, updateNation, updateProvince]);
+
+  const cancelConstruction = useCallback((projectId: string) => {
+    // Find the project to cancel
+    let foundProject: ConstructionProject | null = null;
+    let provinceId: string | null = null;
+    
+    for (const province of provinces) {
+      const project = province.constructionProjects.find(p => p.id === projectId);
+      if (project) {
+        foundProject = project;
+        provinceId = province.id;
+        break;
+      }
+    }
+    
+    if (!foundProject || !provinceId) {
+      throw new Error('Construction project not found');
+    }
+    
+    const nation = getNation(localGameState.selectedNation);
+    if (!nation) {
+      throw new Error('Nation not found');
+    }
+    
+    // Refund 50% of the cost
+    const refund = Math.floor(foundProject.cost * 0.5);
+    updateNation(localGameState.selectedNation, {
+      economy: {
+        ...nation.economy,
+        treasury: nation.economy.treasury + refund
+      }
+    });
+    
+    // Remove the project from the province
+    const province = getProvince(provinceId);
+    if (province) {
+      updateProvince(provinceId, {
+        constructionProjects: province.constructionProjects.filter(p => p.id !== projectId)
+      });
+    }
+  }, [provinces, getNation, localGameState.selectedNation, updateNation, getProvince, updateProvince]);
+
+  const processConstructionTick = useCallback(() => {
+    // Process all construction projects
+    provinces.forEach(province => {
+      const updatedProjects: ConstructionProject[] = [];
+      const completedBuildings: any[] = [...province.buildings];
+      
+      province.constructionProjects.forEach(project => {
+        if (project.status === 'in_progress') {
+          const updatedProject = {
+            ...project,
+            remainingTime: project.remainingTime - 1
+          };
+          
+          if (updatedProject.remainingTime <= 0) {
+            // Construction completed
+            const building = getBuildingById(project.buildingId);
+            if (building) {
+              completedBuildings.push({
+                buildingId: project.buildingId,
+                level: 1,
+                constructedDate: new Date(localGameState.currentDate),
+                effects: building.effects
+              });
+            }
+          } else {
+            updatedProjects.push(updatedProject);
+          }
+        } else {
+          updatedProjects.push(project);
+        }
+      });
+      
+      // Update province if there were changes
+      if (updatedProjects.length !== province.constructionProjects.length || 
+          completedBuildings.length !== province.buildings.length) {
+        updateProvince(province.id, {
+          constructionProjects: updatedProjects,
+          buildings: completedBuildings
+        });
+      }
+    });
+  }, [provinces, localGameState.currentDate, updateProvince]);
+
   return {
     gameState: localGameState,
     provinces,
@@ -126,6 +249,9 @@ export function useGameState() {
     updateProvince,
     updateNation,
     addEvent,
-    removeNotification
+    removeNotification,
+    startConstruction,
+    cancelConstruction,
+    processConstructionTick
   };
 }

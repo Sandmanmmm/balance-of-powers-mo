@@ -20,7 +20,10 @@ function App() {
     getSelectedProvince,
     getSelectedNation,
     updateProvince,
-    updateNation
+    updateNation,
+    startConstruction,
+    cancelConstruction,
+    processConstructionTick
   } = useGameState();
 
   const selectedProvince = getSelectedProvince();
@@ -55,7 +58,8 @@ function App() {
     nations,
     onAdvanceTime: advanceTime,
     onUpdateProvince: updateProvince,
-    onUpdateNation: updateNation
+    onUpdateNation: updateNation,
+    onProcessConstructionTick: processConstructionTick
   });
 
   if (!selectedNation) {
@@ -98,7 +102,13 @@ function App() {
         {/* Right Sidebar - Province Info (when selected) */}
         {selectedProvince && (
           <div className="w-80 border-l border-border bg-card p-4 overflow-y-auto">
-            <ProvinceInfoPanel province={selectedProvince} />
+            <ProvinceInfoPanel 
+              province={selectedProvince} 
+              nation={selectedNation}
+              onStartConstruction={startConstruction}
+              onCancelConstruction={cancelConstruction}
+              isPlayerControlled={selectedProvince.country === selectedNation?.name}
+            />
           </div>
         )}
       </div>
