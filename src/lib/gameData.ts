@@ -373,7 +373,7 @@ function convertProvinces(): Province[] {
     id,
     name: data.name,
     country: data.country,
-    coordinates: data.coordinates,
+    coordinates: data.coordinates as [number, number],
     population: {
       total: data.population.total,
       ethnicGroups: data.population.ethnic_groups.map(group => ({

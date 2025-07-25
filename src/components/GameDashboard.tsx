@@ -9,12 +9,12 @@ import {
   SkipForward,
   Calendar,
   Flag,
-  TrendingUp,
-  TrendingDown,
+  TrendUp,
+  TrendDown,
   Shield,
-  Zap,
+  Lightning,
   Users,
-  DollarSign
+  CurrencyDollar
 } from '@phosphor-icons/react';
 import { Nation, GameState } from '../lib/types';
 
@@ -25,7 +25,8 @@ interface GameDashboardProps {
   onSpeedChange: (speed: number) => void;
 }
 
-function formatLargeNumber(num: number): string {
+function formatLargeNumber(num: number | undefined): string {
+  if (num === undefined || num === null || isNaN(num)) return '$0';
   if (num >= 1000000000000) return `$${(num / 1000000000000).toFixed(1)}T`;
   if (num >= 1000000000) return `$${(num / 1000000000).toFixed(1)}B`;
   if (num >= 1000000) return `$${(num / 1000000).toFixed(1)}M`;
@@ -48,14 +49,16 @@ function formatDate(date: Date | string): string {
   }
 }
 
-function getApprovalColor(approval: number): string {
+function getApprovalColor(approval: number | undefined): string {
+  if (approval === undefined || approval === null || isNaN(approval)) return 'text-muted-foreground';
   if (approval > 70) return 'text-green-600';
   if (approval > 50) return 'text-blue-600';
   if (approval > 30) return 'text-yellow-600';
   return 'text-red-600';
 }
 
-function getStabilityColor(stability: number): string {
+function getStabilityColor(stability: number | undefined): string {
+  if (stability === undefined || stability === null || isNaN(stability)) return 'text-muted-foreground';
   if (stability > 80) return 'text-green-600';
   if (stability > 60) return 'text-blue-600';
   if (stability > 40) return 'text-yellow-600';
@@ -150,19 +153,19 @@ export function GameDashboard({
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-sm">Leader Approval</span>
-              <span className={`text-sm font-medium ${getApprovalColor(nation.government.approval)}`}>
-                {nation.government.approval.toFixed(1)}%
+              <span className={`text-sm font-medium ${getApprovalColor(nation.government?.approval)}`}>
+                {(nation.government?.approval ?? 0).toFixed(1)}%
               </span>
             </div>
-            <Progress value={nation.government.approval} className="h-2" />
+            <Progress value={nation.government?.approval ?? 0} className="h-2" />
 
             <div className="flex justify-between items-center">
               <span className="text-sm">Political Stability</span>
-              <span className={`text-sm font-medium ${getStabilityColor(nation.government.stability)}`}>
-                {nation.government.stability.toFixed(1)}%
+              <span className={`text-sm font-medium ${getStabilityColor(nation.government?.stability)}`}>
+                {(nation.government?.stability ?? 0).toFixed(1)}%
               </span>
             </div>
-            <Progress value={nation.government.stability} className="h-2" />
+            <Progress value={nation.government?.stability ?? 0} className="h-2" />
           </div>
 
           <Separator />
@@ -171,24 +174,24 @@ export function GameDashboard({
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
               <div className="flex items-center space-x-1">
-                <DollarSign size={14} className="text-muted-foreground" />
+                <CurrencyDollar size={14} className="text-muted-foreground" />
                 <span className="text-xs text-muted-foreground">GDP</span>
               </div>
               <div className="text-sm font-medium">
-                {formatLargeNumber(nation.economy.gdp)}
+                {formatLargeNumber(nation.economy?.gdp)}
               </div>
             </div>
 
             <div className="space-y-1">
               <div className="flex items-center space-x-1">
-                <TrendingUp size={14} className="text-muted-foreground" />
+                <TrendUp size={14} className="text-muted-foreground" />
                 <span className="text-xs text-muted-foreground">Trade</span>
               </div>
               <div className={`text-sm font-medium ${
-                nation.economy.tradeBalance >= 0 ? 'text-green-600' : 'text-red-600'
+                (nation.economy?.tradeBalance ?? 0) >= 0 ? 'text-green-600' : 'text-red-600'
               }`}>
-                {nation.economy.tradeBalance >= 0 ? '+' : ''}
-                {formatLargeNumber(nation.economy.tradeBalance)}
+                {(nation.economy?.tradeBalance ?? 0) >= 0 ? '+' : ''}
+                {formatLargeNumber(nation.economy?.tradeBalance)}
               </div>
             </div>
 
@@ -198,27 +201,27 @@ export function GameDashboard({
                 <span className="text-xs text-muted-foreground">Military</span>
               </div>
               <div className="text-sm font-medium">
-                {nation.military.manpower.toLocaleString()}
+                {(nation.military?.manpower ?? 0).toLocaleString()}
               </div>
             </div>
 
             <div className="space-y-1">
               <div className="flex items-center space-x-1">
-                <Zap size={14} className="text-muted-foreground" />
+                <Lightning size={14} className="text-muted-foreground" />
                 <span className="text-xs text-muted-foreground">Tech Level</span>
               </div>
               <div className="text-sm font-medium">
-                {nation.technology.level.toFixed(1)}
+                {(nation.technology?.level ?? 0).toFixed(1)}
               </div>
             </div>
 
             <div className="space-y-1">
               <div className="flex items-center space-x-1">
-                <Zap size={14} className="text-muted-foreground" />
+                <Lightning size={14} className="text-muted-foreground" />
                 <span className="text-xs text-muted-foreground">Research</span>
               </div>
               <div className="text-sm font-medium">
-                {nation.technology.researchPoints.toLocaleString()}
+                {(nation.technology?.researchPoints ?? 0).toLocaleString()}
               </div>
             </div>
           </div>
@@ -230,25 +233,25 @@ export function GameDashboard({
             <div className="flex justify-between text-xs">
               <span className="text-muted-foreground">Debt Ratio</span>
               <span className={`font-medium ${
-                nation.economy.debt / nation.economy.gdp > 0.8 ? 'text-red-600' : 'text-foreground'
+                (nation.economy?.debt ?? 0) / (nation.economy?.gdp ?? 1) > 0.8 ? 'text-red-600' : 'text-foreground'
               }`}>
-                {((nation.economy.debt / nation.economy.gdp) * 100).toFixed(1)}%
+                {(((nation.economy?.debt ?? 0) / (nation.economy?.gdp ?? 1)) * 100).toFixed(1)}%
               </span>
             </div>
 
             <div className="flex justify-between text-xs">
               <span className="text-muted-foreground">Inflation</span>
               <span className={`font-medium ${
-                nation.economy.inflation > 4 ? 'text-red-600' : 
-                nation.economy.inflation > 2 ? 'text-yellow-600' : 'text-green-600'
+                (nation.economy?.inflation ?? 0) > 4 ? 'text-red-600' : 
+                (nation.economy?.inflation ?? 0) > 2 ? 'text-yellow-600' : 'text-green-600'
               }`}>
-                {nation.economy.inflation.toFixed(1)}%
+                {(nation.economy?.inflation ?? 0).toFixed(1)}%
               </span>
             </div>
 
             <div className="flex justify-between text-xs">
               <span className="text-muted-foreground">Military Equipment</span>
-              <span className="font-medium">{nation.military.equipment}%</span>
+              <span className="font-medium">{nation.military?.equipment ?? 0}%</span>
             </div>
           </div>
         </CardContent>
@@ -258,7 +261,7 @@ export function GameDashboard({
       <Card>
         <CardHeader className="pb-3">
           <CardTitle className="text-lg flex items-center">
-            <Zap size={18} className="mr-2" />
+            <Lightning size={18} className="mr-2" />
             Technology Progress
           </CardTitle>
         </CardHeader>
@@ -266,9 +269,9 @@ export function GameDashboard({
           <div className="space-y-3">
             <div>
               <div className="text-sm font-medium mb-1">Current Research</div>
-              {nation.technology.currentResearch.length > 0 ? (
+              {(nation.technology?.currentResearch ?? []).length > 0 ? (
                 <div className="space-y-2">
-                  {nation.technology.currentResearch.map((tech, index) => (
+                  {(nation.technology?.currentResearch ?? []).map((tech, index) => (
                     <div key={index} className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                       <span className="text-sm">{tech}</span>
@@ -282,10 +285,10 @@ export function GameDashboard({
             
             <div>
               <div className="text-sm font-medium mb-1">Completed Technologies</div>
-              {nation.technology.completedTech.length > 0 ? (
+              {(nation.technology?.completedTech ?? []).length > 0 ? (
                 <div className="text-xs text-muted-foreground">
-                  {nation.technology.completedTech.slice(-3).join(', ')}
-                  {nation.technology.completedTech.length > 3 && ` +${nation.technology.completedTech.length - 3} more`}
+                  {(nation.technology?.completedTech ?? []).slice(-3).join(', ')}
+                  {(nation.technology?.completedTech ?? []).length > 3 && ` +${(nation.technology?.completedTech ?? []).length - 3} more`}
                 </div>
               ) : (
                 <div className="text-xs text-muted-foreground">None completed</div>
@@ -304,11 +307,11 @@ export function GameDashboard({
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          {nation.diplomacy.allies.length > 0 && (
+          {(nation.diplomacy?.allies ?? []).length > 0 && (
             <div className="space-y-2">
               <div className="text-sm font-medium text-green-600">Allies</div>
               <div className="flex flex-wrap gap-1">
-                {nation.diplomacy.allies.map((ally, index) => (
+                {(nation.diplomacy?.allies ?? []).map((ally, index) => (
                   <Badge key={index} variant="secondary" className="text-xs">
                     {ally}
                   </Badge>
@@ -317,11 +320,11 @@ export function GameDashboard({
             </div>
           )}
 
-          {nation.diplomacy.enemies.length > 0 && (
+          {(nation.diplomacy?.enemies ?? []).length > 0 && (
             <div className="space-y-2">
               <div className="text-sm font-medium text-red-600">Tensions</div>
               <div className="flex flex-wrap gap-1">
-                {nation.diplomacy.enemies.map((enemy, index) => (
+                {(nation.diplomacy?.enemies ?? []).map((enemy, index) => (
                   <Badge key={index} variant="destructive" className="text-xs">
                     {enemy}
                   </Badge>
@@ -330,18 +333,18 @@ export function GameDashboard({
             </div>
           )}
 
-          {nation.diplomacy.tradePartners.length > 0 && (
+          {(nation.diplomacy?.tradePartners ?? []).length > 0 && (
             <div className="space-y-2">
               <div className="text-sm font-medium text-blue-600">Trade Partners</div>
               <div className="flex flex-wrap gap-1">
-                {nation.diplomacy.tradePartners.slice(0, 4).map((partner, index) => (
+                {(nation.diplomacy?.tradePartners ?? []).slice(0, 4).map((partner, index) => (
                   <Badge key={index} variant="outline" className="text-xs">
                     {partner}
                   </Badge>
                 ))}
-                {nation.diplomacy.tradePartners.length > 4 && (
+                {(nation.diplomacy?.tradePartners ?? []).length > 4 && (
                   <Badge variant="outline" className="text-xs">
-                    +{nation.diplomacy.tradePartners.length - 4} more
+                    +{(nation.diplomacy?.tradePartners ?? []).length - 4} more
                   </Badge>
                 )}
               </div>

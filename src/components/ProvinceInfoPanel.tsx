@@ -5,14 +5,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { 
   Users, 
-  TrendingUp, 
+  TrendUp, 
   Shield, 
-  Zap, 
-  Road,
-  Wifi,
+  Lightning, 
+  CarProfile,
+  WifiHigh,
   Heart,
   GraduationCap,
-  AlertTriangle
+  Warning
 } from '@phosphor-icons/react';
 import { Province } from '../lib/types';
 import { cn } from '../lib/utils';
@@ -21,14 +21,16 @@ interface ProvinceInfoPanelProps {
   province: Province;
 }
 
-function formatNumber(num: number): string {
+function formatNumber(num: number | undefined): string {
+  if (num === undefined || num === null || isNaN(num)) return '0';
   if (num >= 1000000000) return `${(num / 1000000000).toFixed(1)}B`;
   if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
   if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
   return num.toString();
 }
 
-function formatCurrency(num: number): string {
+function formatCurrency(num: number | undefined): string {
+  if (num === undefined || num === null || isNaN(num)) return '$0';
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -37,7 +39,8 @@ function formatCurrency(num: number): string {
   }).format(num);
 }
 
-function getUnrestColor(unrest: number): string {
+function getUnrestColor(unrest: number | undefined): string {
+  if (unrest === undefined || unrest === null || isNaN(unrest)) return 'text-muted-foreground';
   if (unrest > 8) return 'text-red-600';
   if (unrest > 6) return 'text-orange-600';
   if (unrest > 4) return 'text-yellow-600';
@@ -45,7 +48,8 @@ function getUnrestColor(unrest: number): string {
   return 'text-green-600';
 }
 
-function getUnrestLabel(unrest: number): string {
+function getUnrestLabel(unrest: number | undefined): string {
+  if (unrest === undefined || unrest === null || isNaN(unrest)) return 'Unknown';
   if (unrest > 8) return 'Critical';
   if (unrest > 6) return 'High';
   if (unrest > 4) return 'Moderate';
@@ -54,11 +58,11 @@ function getUnrestLabel(unrest: number): string {
 }
 
 export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
-  const dominantParty = Object.entries(province.politics.partySupport)
-    .reduce((a, b) => a[1] > b[1] ? a : b);
+  const dominantParty = Object.entries(province.politics?.partySupport || {})
+    .reduce((a, b) => a[1] > b[1] ? a : b, ['Unknown', 0]);
 
-  const dominantEthnicGroup = province.population.ethnicGroups
-    .reduce((a, b) => a.percent > b.percent ? a : b);
+  const dominantEthnicGroup = (province.population?.ethnicGroups || [])
+    .reduce((a, b) => a.percent > b.percent ? a : b, { group: 'Unknown', percent: 0 });
 
   return (
     <Card className="w-80 h-full flex flex-col">
@@ -69,7 +73,7 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
         </div>
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
           <Users size={14} />
-          <span>{formatNumber(province.population.total)} people</span>
+          <span>{formatNumber(province.population?.total)} people</span>
         </div>
       </CardHeader>
 
@@ -88,7 +92,7 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">Stability</span>
                 <div className="flex items-center space-x-2">
-                  <AlertTriangle 
+                  <Warning 
                     size={14} 
                     className={cn(getUnrestColor(province.unrest))} 
                   />
@@ -98,11 +102,11 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
                 </div>
               </div>
               <Progress 
-                value={Math.max(0, 100 - province.unrest * 10)} 
+                value={Math.max(0, 100 - (province.unrest ?? 0) * 10)} 
                 className="h-2"
               />
               <div className="text-xs text-muted-foreground">
-                Unrest Level: {province.unrest.toFixed(1)}/10
+                Unrest Level: {(province.unrest ?? 0).toFixed(1)}/10
               </div>
             </div>
 
@@ -112,7 +116,7 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
             <div className="space-y-2">
               <h4 className="text-sm font-medium">Demographics</h4>
               <div className="space-y-1">
-                {province.population.ethnicGroups.map((group, index) => (
+                {(province.population?.ethnicGroups || []).map((group, index) => (
                   <div key={index} className="flex justify-between text-xs">
                     <span>{group.group}</span>
                     <span className="font-medium">{group.percent}%</span>
@@ -129,23 +133,23 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
                   <div className="flex items-center space-x-1">
-                    <Road size={12} />
+                    <CarProfile size={12} />
                     <span className="text-xs">Roads</span>
                   </div>
-                  <Progress value={province.infrastructure.roads * 20} className="h-1" />
+                  <Progress value={(province.infrastructure?.roads ?? 0) * 20} className="h-1" />
                   <div className="text-xs text-muted-foreground">
-                    Level {province.infrastructure.roads}/5
+                    Level {province.infrastructure?.roads ?? 0}/5
                   </div>
                 </div>
                 
                 <div className="space-y-1">
                   <div className="flex items-center space-x-1">
-                    <Wifi size={12} />
+                    <WifiHigh size={12} />
                     <span className="text-xs">Internet</span>
                   </div>
-                  <Progress value={province.infrastructure.internet * 20} className="h-1" />
+                  <Progress value={(province.infrastructure?.internet ?? 0) * 20} className="h-1" />
                   <div className="text-xs text-muted-foreground">
-                    Level {province.infrastructure.internet}/5
+                    Level {province.infrastructure?.internet ?? 0}/5
                   </div>
                 </div>
 
@@ -154,9 +158,9 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
                     <Heart size={12} />
                     <span className="text-xs">Healthcare</span>
                   </div>
-                  <Progress value={province.infrastructure.healthcare * 20} className="h-1" />
+                  <Progress value={(province.infrastructure?.healthcare ?? 0) * 20} className="h-1" />
                   <div className="text-xs text-muted-foreground">
-                    Level {province.infrastructure.healthcare}/5
+                    Level {province.infrastructure?.healthcare ?? 0}/5
                   </div>
                 </div>
 
@@ -165,9 +169,9 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
                     <GraduationCap size={12} />
                     <span className="text-xs">Education</span>
                   </div>
-                  <Progress value={province.infrastructure.education * 20} className="h-1" />
+                  <Progress value={(province.infrastructure?.education ?? 0) * 20} className="h-1" />
                   <div className="text-xs text-muted-foreground">
-                    Level {province.infrastructure.education}/5
+                    Level {province.infrastructure?.education ?? 0}/5
                   </div>
                 </div>
               </div>
@@ -179,9 +183,9 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
             <div className="space-y-2">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium">Governor Approval</span>
-                <span className="text-sm font-bold">{province.politics.governorApproval.toFixed(1)}%</span>
+                <span className="text-sm font-bold">{(province.politics?.governorApproval ?? 0).toFixed(1)}%</span>
               </div>
-              <Progress value={province.politics.governorApproval} className="h-2" />
+              <Progress value={province.politics?.governorApproval ?? 0} className="h-2" />
             </div>
 
             <Separator />
@@ -190,7 +194,7 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
             <div className="space-y-3">
               <h4 className="text-sm font-medium">Party Support</h4>
               <div className="space-y-2">
-                {Object.entries(province.politics.partySupport)
+                {Object.entries(province.politics?.partySupport || {})
                   .sort((a, b) => b[1] - a[1])
                   .map(([party, support]) => (
                     <div key={party} className="space-y-1">
@@ -213,21 +217,21 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
               <div className="space-y-1">
                 <span className="text-xs text-muted-foreground">GDP per Capita</span>
                 <div className="text-sm font-medium">
-                  {formatCurrency(province.economy.gdpPerCapita)}
+                  {formatCurrency(province.economy?.gdpPerCapita)}
                 </div>
               </div>
               
               <div className="space-y-1">
                 <span className="text-xs text-muted-foreground">Unemployment</span>
                 <div className="text-sm font-medium">
-                  {province.economy.unemployment.toFixed(1)}%
+                  {(province.economy?.unemployment ?? 0).toFixed(1)}%
                 </div>
               </div>
 
               <div className="space-y-1">
                 <span className="text-xs text-muted-foreground">Inflation</span>
                 <div className="text-sm font-medium">
-                  {province.economy.inflation.toFixed(1)}%
+                  {(province.economy?.inflation ?? 0).toFixed(1)}%
                 </div>
               </div>
             </div>
@@ -238,7 +242,7 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
             <div className="space-y-3">
               <h4 className="text-sm font-medium">Resource Output</h4>
               <div className="space-y-2">
-                {Object.entries(province.resourceOutput).map(([resource, amount]) => (
+                {Object.entries(province.resourceOutput || {}).map(([resource, amount]) => (
                   <div key={resource} className="flex justify-between text-xs">
                     <span className="capitalize">{resource}</span>
                     <span className="font-medium">{formatNumber(amount)}</span>
@@ -254,10 +258,10 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium">Fortification Level</span>
                 <span className="text-sm font-bold">
-                  {province.military.fortificationLevel}/5
+                  {(province.military?.fortificationLevel ?? 0)}/5
                 </span>
               </div>
-              <Progress value={province.military.fortificationLevel * 20} className="h-2" />
+              <Progress value={(province.military?.fortificationLevel ?? 0) * 20} className="h-2" />
             </div>
 
             <Separator />
@@ -265,12 +269,12 @@ export function ProvinceInfoPanel({ province }: ProvinceInfoPanelProps) {
             {/* Stationed Units */}
             <div className="space-y-2">
               <h4 className="text-sm font-medium">Stationed Units</h4>
-              {province.military.stationedUnits.length > 0 ? (
+              {(province.military?.stationedUnits || []).length > 0 ? (
                 <div className="space-y-1">
-                  {province.military.stationedUnits.map((unit, index) => (
+                  {(province.military?.stationedUnits || []).map((unit, index) => (
                     <div key={index} className="flex items-center space-x-2">
                       <Shield size={12} className="text-muted-foreground" />
-                      <span className="text-xs">{unit}</span>
+                      <span className="text-xs">{typeof unit === 'string' ? unit : unit.id}</span>
                     </div>
                   ))}
                 </div>

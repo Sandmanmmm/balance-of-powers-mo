@@ -113,33 +113,33 @@ function simulateProvinces(
 
     // 1. Population growth (yearly rate applied proportionally per week)
     const baseGrowthRate = 0.01; // 1% per year base rate
-    const infrastructureBonus = (province.infrastructure.healthcare + province.infrastructure.education) * 0.001;
-    const economicBonus = province.economy.gdpPerCapita > 50000 ? 0.002 : 
-                         province.economy.gdpPerCapita > 30000 ? 0.001 : 0;
-    const unrestPenalty = province.unrest > 5 ? -0.002 : 0;
+    const infrastructureBonus = ((province.infrastructure?.healthcare ?? 0) + (province.infrastructure?.education ?? 0)) * 0.001;
+    const economicBonus = (province.economy?.gdpPerCapita ?? 0) > 50000 ? 0.002 : 
+                         (province.economy?.gdpPerCapita ?? 0) > 30000 ? 0.001 : 0;
+    const unrestPenalty = (province.unrest ?? 0) > 5 ? -0.002 : 0;
     
     // Technology effects on population growth
-    const techLevel = owningNation.technology.level;
+    const techLevel = owningNation.technology?.level ?? 0;
     const techBonus = techLevel > 8 ? 0.001 : techLevel > 6 ? 0.0005 : 0;
     
     const annualGrowthRate = baseGrowthRate + infrastructureBonus + economicBonus + unrestPenalty + techBonus;
     const weeklyGrowthRate = annualGrowthRate / 52;
     
-    const populationGrowth = province.population.total * weeklyGrowthRate * weeksElapsed;
+    const populationGrowth = (province.population?.total ?? 0) * weeklyGrowthRate * weeksElapsed;
     if (Math.abs(populationGrowth) >= 1) {
       updates.population = {
-        ...province.population,
-        total: Math.floor(province.population.total + populationGrowth)
+        ...(province.population || { total: 0, ethnicGroups: [] }),
+        total: Math.floor((province.population?.total ?? 0) + populationGrowth)
       };
     }
 
     // 2. GDP updates (based on population + infrastructure + technology)
-    const infrastructureLevel = (province.infrastructure.roads + 
-                               province.infrastructure.internet + 
-                               province.infrastructure.healthcare + 
-                               province.infrastructure.education) / 4;
+    const infrastructureLevel = ((province.infrastructure?.roads ?? 0) + 
+                               (province.infrastructure?.internet ?? 0) + 
+                               (province.infrastructure?.healthcare ?? 0) + 
+                               (province.infrastructure?.education ?? 0)) / 4;
     
-    const baseGdpPerCapita = province.economy.gdpPerCapita;
+    const baseGdpPerCapita = province.economy?.gdpPerCapita ?? 0;
     const techMultiplier = 1 + (techLevel - 5) * 0.05; // Technology boost/penalty
     const expectedGdpPerCapita = baseGdpPerCapita * (1 + (infrastructureLevel - 2.5) * 0.05) * techMultiplier;
     
@@ -149,14 +149,14 @@ function simulateProvinces(
     
     if (Math.abs(gdpChange) >= 10) {
       updates.economy = {
-        ...province.economy,
+        ...(province.economy || { gdpPerCapita: 0, unemployment: 0, inflation: 0 }),
         gdpPerCapita: Math.max(1000, baseGdpPerCapita + gdpChange)
       };
     }
 
     // 3. Unrest changes based on multiple factors
     const monthsElapsed = weeksElapsed / 4.33;
-    const currentGdp = updates.economy?.gdpPerCapita || province.economy.gdpPerCapita;
+    const currentGdp = updates.economy?.gdpPerCapita || (province.economy?.gdpPerCapita ?? 0);
     
     let unrestChange = 0;
     
@@ -168,22 +168,23 @@ function simulateProvinces(
     }
     
     // Government approval effects
-    if (owningNation.government.approval < 30) {
+    if ((owningNation.government?.approval ?? 0) < 30) {
       unrestChange += 0.08 * monthsElapsed;
-    } else if (owningNation.government.approval > 70) {
+    } else if ((owningNation.government?.approval ?? 0) > 70) {
       unrestChange -= 0.03 * monthsElapsed;
     }
     
     // Military presence effects (if stationed units exist)
-    if (province.military.stationedUnits && province.military.stationedUnits.length > 0) {
-      const totalUnits = province.military.stationedUnits.reduce((sum, unit) => sum + unit.strength, 0);
-      if (totalUnits > province.population.total / 1000) { // Heavy military presence
+    if (province.military?.stationedUnits && province.military.stationedUnits.length > 0) {
+      const totalUnits = province.military.stationedUnits.reduce((sum, unit) => 
+        sum + (typeof unit === 'object' ? unit.strength : 50), 0);
+      if (totalUnits > (province.population?.total ?? 0) / 1000) { // Heavy military presence
         unrestChange += 0.05 * monthsElapsed;
       }
     }
     
     if (Math.abs(unrestChange) > 0.01) {
-      updates.unrest = Math.max(0, Math.min(10, province.unrest + unrestChange));
+      updates.unrest = Math.max(0, Math.min(10, (province.unrest ?? 0) + unrestChange));
     }
 
     // 4. Resource output changes based on technology and infrastructure
@@ -191,29 +192,29 @@ function simulateProvinces(
     let resourcesChanged = false;
     
     // Energy output affected by technology
-    if (owningNation.technology.currentResearch.includes('Renewable Energy') || 
-        owningNation.technology.currentResearch.includes('Green Energy')) {
+    if ((owningNation.technology?.currentResearch ?? []).includes('Renewable Energy') || 
+        (owningNation.technology?.currentResearch ?? []).includes('Green Energy')) {
       const energyBonus = Math.floor(10 * weeksElapsed);
       if (energyBonus > 0) {
-        resourceUpdates.energy = (province.resourceOutput.energy || 0) + energyBonus;
+        resourceUpdates.energy = (province.resourceOutput?.energy || 0) + energyBonus;
         resourcesChanged = true;
       }
     }
     
     // Technology output affected by infrastructure and tech level
-    const internetLevel = province.infrastructure.internet;
-    const educationLevel = province.infrastructure.education;
+    const internetLevel = province.infrastructure?.internet ?? 0;
+    const educationLevel = province.infrastructure?.education ?? 0;
     if (internetLevel >= 3 && educationLevel >= 3) {
       const techBonus = Math.floor((internetLevel + educationLevel) * 2 * weeksElapsed);
       if (techBonus > 0) {
-        resourceUpdates.technology = (province.resourceOutput.technology || 0) + techBonus;
+        resourceUpdates.technology = (province.resourceOutput?.technology || 0) + techBonus;
         resourcesChanged = true;
       }
     }
     
     if (resourcesChanged) {
       updates.resourceOutput = {
-        ...province.resourceOutput,
+        ...(province.resourceOutput || {}),
         ...resourceUpdates
       };
     }
@@ -222,19 +223,19 @@ function simulateProvinces(
     if (Math.random() < 0.05 * weeksElapsed) { // 5% chance per week
       const randomEvents = [
         () => { // Local economic boom
-          if (!updates.economy) updates.economy = { ...province.economy };
-          updates.economy.gdpPerCapita = (updates.economy.gdpPerCapita || province.economy.gdpPerCapita) * 1.02;
+          if (!updates.economy) updates.economy = { ...(province.economy || { gdpPerCapita: 0, unemployment: 0, inflation: 0 }) };
+          updates.economy.gdpPerCapita = (updates.economy.gdpPerCapita || (province.economy?.gdpPerCapita ?? 0)) * 1.02;
           return "Economic activity increases in " + province.name;
         },
         () => { // Infrastructure improvement
           const infraTypes = ['roads', 'internet', 'healthcare', 'education'];
           const randomType = infraTypes[Math.floor(Math.random() * infraTypes.length)];
-          if (!updates.infrastructure) updates.infrastructure = { ...province.infrastructure };
-          (updates.infrastructure as any)[randomType] = Math.min(5, (province.infrastructure as any)[randomType] + 0.1);
+          if (!updates.infrastructure) updates.infrastructure = { ...(province.infrastructure || { roads: 0, internet: 0, healthcare: 0, education: 0 }) };
+          (updates.infrastructure as any)[randomType] = Math.min(5, ((province.infrastructure as any)?.[randomType] ?? 0) + 0.1);
           return `Infrastructure improvement in ${province.name}: ${randomType}`;
         },
         () => { // Temporary unrest
-          updates.unrest = Math.min(10, province.unrest + 0.5);
+          updates.unrest = Math.min(10, (province.unrest ?? 0) + 0.5);
           return `Minor civil disturbance in ${province.name}`;
         }
       ];
@@ -268,35 +269,36 @@ function simulateNations(
     if (nationProvinces.length === 0) return;
 
     // Calculate aggregate metrics from provinces
-    const totalPopulation = nationProvinces.reduce((sum, p) => sum + p.population.total, 0);
-    const avgUnrest = nationProvinces.reduce((sum, p) => sum + p.unrest, 0) / nationProvinces.length;
-    const avgGdpPerCapita = nationProvinces.reduce((sum, p) => sum + (p.economy.gdpPerCapita * p.population.total), 0) / totalPopulation;
+    const totalPopulation = nationProvinces.reduce((sum, p) => sum + (p.population?.total ?? 0), 0);
+    const avgUnrest = nationProvinces.reduce((sum, p) => sum + (p.unrest ?? 0), 0) / nationProvinces.length;
+    const avgGdpPerCapita = totalPopulation > 0 ? 
+      nationProvinces.reduce((sum, p) => sum + ((p.economy?.gdpPerCapita ?? 0) * (p.population?.total ?? 0)), 0) / totalPopulation : 0;
 
     // 1. Government approval changes based on multiple factors
     if (Math.random() < 0.3 * weeksElapsed) {
       let approvalChange = (Math.random() - 0.5) * 0.5; // Base random change
       
       // Economic conditions affect approval
-      const economicFactor = nation.economy.inflation > 4 ? -0.4 : 
-                           nation.economy.inflation < 2 ? 0.2 :
-                           nation.economy.tradeBalance > 0 ? 0.3 : -0.2;
+      const economicFactor = (nation.economy?.inflation ?? 0) > 4 ? -0.4 : 
+                           (nation.economy?.inflation ?? 0) < 2 ? 0.2 :
+                           (nation.economy?.tradeBalance ?? 0) > 0 ? 0.3 : -0.2;
       
       // Unrest affects approval
       const unrestFactor = avgUnrest > 6 ? -0.5 : avgUnrest < 3 ? 0.3 : 0;
       
       // Technology progress affects approval
-      const techFactor = nation.technology.level > 8 ? 0.2 : 
-                        nation.technology.level < 4 ? -0.2 : 0;
+      const techFactor = (nation.technology?.level ?? 0) > 8 ? 0.2 : 
+                        (nation.technology?.level ?? 0) < 4 ? -0.2 : 0;
       
       // Military strength relative to threats
-      const militaryFactor = nation.military.equipment > 80 ? 0.1 : 
-                           nation.military.equipment < 40 ? -0.3 : 0;
+      const militaryFactor = (nation.military?.equipment ?? 0) > 80 ? 0.1 : 
+                           (nation.military?.equipment ?? 0) < 40 ? -0.3 : 0;
       
       const totalChange = (approvalChange + economicFactor + unrestFactor + techFactor + militaryFactor) * weeksElapsed;
-      const newApproval = Math.max(0, Math.min(100, nation.government.approval + totalChange));
+      const newApproval = Math.max(0, Math.min(100, (nation.government?.approval ?? 0) + totalChange));
       
       updates.government = {
-        ...nation.government,
+        ...(nation.government || { type: 'democracy' as const, leader: '', approval: 0, stability: 0 }),
         approval: newApproval
       };
       
@@ -305,7 +307,7 @@ function simulateNations(
       if (Math.abs(stabilityChange) > 0.1) {
         updates.government = {
           ...updates.government,
-          stability: Math.max(0, Math.min(100, nation.government.stability + stabilityChange))
+          stability: Math.max(0, Math.min(100, (nation.government?.stability ?? 0) + stabilityChange))
         };
       }
     }
@@ -313,12 +315,12 @@ function simulateNations(
     // 2. National GDP update based on provincial GDP
     const expectedGdp = totalPopulation * avgGdpPerCapita;
     const gdpAdjustmentRate = 0.015; // 1.5% adjustment per week
-    const gdpChange = (expectedGdp - nation.economy.gdp) * gdpAdjustmentRate * weeksElapsed;
+    const gdpChange = (expectedGdp - (nation.economy?.gdp ?? 0)) * gdpAdjustmentRate * weeksElapsed;
     
-    if (Math.abs(gdpChange) >= nation.economy.gdp * 0.001) {
+    if (Math.abs(gdpChange) >= (nation.economy?.gdp ?? 0) * 0.001) {
       updates.economy = {
-        ...nation.economy,
-        gdp: Math.max(nation.economy.gdp * 0.3, nation.economy.gdp + gdpChange)
+        ...(nation.economy || { gdp: 0, debt: 0, inflation: 0, tradeBalance: 0 }),
+        gdp: Math.max((nation.economy?.gdp ?? 0) * 0.3, (nation.economy?.gdp ?? 0) + gdpChange)
       };
     }
 
@@ -442,17 +444,17 @@ function progressTechnology(
         // Check for available follow-up technologies
         const availableTechs = context.technologies.filter(tech => 
           tech.yearAvailable <= new Date(context.gameState.currentDate).getFullYear() &&
-          !updates.technology.completedTech.includes(tech.name) &&
-          !updates.technology.currentResearch.includes(tech.name) &&
-          tech.prerequisites.every(prereq => updates.technology.completedTech.includes(prereq))
+          !(updates.technology?.completedTech ?? []).includes(tech.name) &&
+          !(updates.technology?.currentResearch ?? []).includes(tech.name) &&
+          tech.prerequisites.every(prereq => (updates.technology?.completedTech ?? []).includes(prereq))
         );
         
         // Auto-select next research if none queued and techs available
-        if (updates.technology.currentResearch.length === 0 && availableTechs.length > 0) {
+        if ((updates.technology?.currentResearch?.length ?? 0) === 0 && availableTechs.length > 0) {
           // AI picks research based on nation priorities
           const selectedTech = selectNextResearch(nation, availableTechs);
-          if (selectedTech) {
-            updates.technology.currentResearch.push(selectedTech.name);
+          if (selectedTech && updates.technology) {
+            updates.technology.currentResearch = [...(updates.technology.currentResearch || []), selectedTech.name];
           }
         }
       }
@@ -537,13 +539,13 @@ function checkAndTriggerEvents(
       switch (condition.type) {
         case 'tech_level':
           const nation = context.nations.find(n => n.id === condition.target);
-          if (!nation || nation.technology.level < condition.threshold) {
+          if (!nation || (nation.technology?.level ?? 0) < (condition.threshold ?? 0)) {
             shouldTrigger = false;
           }
           break;
           
         case 'random':
-          if (Math.random() > condition.probability) {
+          if (Math.random() > (condition.probability ?? 0)) {
             shouldTrigger = false;
           }
           break;
@@ -560,7 +562,7 @@ function checkAndTriggerEvents(
           
         case 'province_unrest':
           const province = context.provinces.find(p => p.id === condition.target);
-          if (!province || province.unrest < condition.threshold) {
+          if (!province || (province.unrest ?? 0) < (condition.threshold ?? 0)) {
             shouldTrigger = false;
           }
           break;
@@ -570,8 +572,8 @@ function checkAndTriggerEvents(
             const nation1 = context.nations.find(n => n.id === condition.nations![0]);
             const nation2 = context.nations.find(n => n.id === condition.nations![1]);
             if (!nation1 || !nation2 || 
-                !nation1.diplomacy.allies.includes(nation2.name) ||
-                !nation2.diplomacy.allies.includes(nation1.name)) {
+                !(nation1.diplomacy?.allies ?? []).includes(nation2.name) ||
+                !(nation2.diplomacy?.allies ?? []).includes(nation1.name)) {
               shouldTrigger = false;
             }
           }
@@ -737,13 +739,18 @@ function makeAIDecision(
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void
 ) {
   const nationProvinces = context.provinces.filter(p => p.country === nation.name);
-  const avgUnrest = nationProvinces.reduce((sum, p) => sum + p.unrest, 0) / nationProvinces.length;
+  const avgUnrest = nationProvinces.reduce((sum, p) => sum + (p.unrest ?? 0), 0) / nationProvinces.length;
   
   // Decision matrix based on current conditions
-  const decisions = [];
+  const decisions: Array<{
+    type: string;
+    action: string;
+    priority: number;
+    execute: () => void;
+  }> = [];
   
   // Economic decisions
-  if (nation.economy.inflation > 5) {
+  if ((nation.economy?.inflation ?? 0) > 5) {
     decisions.push({
       type: 'economic_policy',
       action: 'reduce_inflation',
@@ -751,9 +758,9 @@ function makeAIDecision(
       execute: () => {
         const updates: Partial<Nation> = {
           economy: {
-            ...nation.economy,
-            inflation: Math.max(0, nation.economy.inflation - 0.5),
-            debt: nation.economy.debt * 1.02 // Cost of intervention
+            ...(nation.economy || { gdp: 0, debt: 0, inflation: 0, tradeBalance: 0 }),
+            inflation: Math.max(0, (nation.economy?.inflation ?? 0) - 0.5),
+            debt: (nation.economy?.debt ?? 0) * 1.02 // Cost of intervention
           }
         };
         onUpdateNation(nation.id, updates);
@@ -766,7 +773,7 @@ function makeAIDecision(
   }
   
   // Military decisions
-  if (nation.military.equipment < 50) {
+  if ((nation.military?.equipment ?? 0) < 50) {
     decisions.push({
       type: 'military_buildup',
       action: 'increase_equipment',
@@ -774,12 +781,12 @@ function makeAIDecision(
       execute: () => {
         const updates: Partial<Nation> = {
           military: {
-            ...nation.military,
-            equipment: Math.min(100, nation.military.equipment + 5)
+            ...(nation.military || { manpower: 0, equipment: 0, doctrine: '', nuclearCapability: false }),
+            equipment: Math.min(100, (nation.military?.equipment ?? 0) + 5)
           },
           economy: {
-            ...nation.economy,
-            debt: nation.economy.debt + nation.economy.gdp * 0.01 // 1% of GDP
+            ...(nation.economy || { gdp: 0, debt: 0, inflation: 0, tradeBalance: 0 }),
+            debt: (nation.economy?.debt ?? 0) + (nation.economy?.gdp ?? 0) * 0.01 // 1% of GDP
           }
         };
         onUpdateNation(nation.id, updates);
@@ -800,13 +807,13 @@ function makeAIDecision(
       execute: () => {
         // Reduce unrest in worst affected provinces
         const worstProvinces = nationProvinces
-          .filter(p => p.unrest > 5)
-          .sort((a, b) => b.unrest - a.unrest)
+          .filter(p => (p.unrest ?? 0) > 5)
+          .sort((a, b) => (b.unrest ?? 0) - (a.unrest ?? 0))
           .slice(0, 2);
           
         worstProvinces.forEach(province => {
           const updates: Partial<Province> = {
-            unrest: Math.max(0, province.unrest - 1.5)
+            unrest: Math.max(0, (province.unrest ?? 0) - 1.5)
           };
           onUpdateProvince(province.id, updates);
         });
@@ -814,8 +821,8 @@ function makeAIDecision(
         // Cost to nation
         const nationUpdates: Partial<Nation> = {
           economy: {
-            ...nation.economy,
-            debt: nation.economy.debt + nation.economy.gdp * 0.005 // 0.5% of GDP
+            ...(nation.economy || { gdp: 0, debt: 0, inflation: 0, tradeBalance: 0 }),
+            debt: (nation.economy?.debt ?? 0) + (nation.economy?.gdp ?? 0) * 0.005 // 0.5% of GDP
           }
         };
         onUpdateNation(nation.id, nationUpdates);

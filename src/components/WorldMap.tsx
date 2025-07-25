@@ -3,16 +3,16 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { 
-  ZoomIn, 
-  ZoomOut, 
+  MagnifyingGlassPlus, 
+  MagnifyingGlassMinus, 
   Play, 
   Pause, 
   SkipForward,
   MapPin,
   Users,
-  TrendingUp,
+  TrendUp,
   Shield,
-  Zap
+  Lightning
 } from '@phosphor-icons/react';
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
@@ -30,10 +30,10 @@ interface WorldMapProps {
 const overlayConfig = {
   none: { label: 'None', color: 'bg-gray-200', icon: MapPin },
   political: { label: 'Political', color: 'bg-blue-500', icon: Users },
-  economic: { label: 'Economic', color: 'bg-green-500', icon: TrendingUp },
+  economic: { label: 'Economic', color: 'bg-green-500', icon: TrendUp },
   military: { label: 'Military', color: 'bg-red-500', icon: Shield },
   unrest: { label: 'Unrest', color: 'bg-orange-500', icon: Users },
-  resources: { label: 'Resources', color: 'bg-purple-500', icon: Zap }
+  resources: { label: 'Resources', color: 'bg-purple-500', icon: Lightning }
 };
 
 function getProvinceColor(province: Province, overlay: MapOverlayType): string {
@@ -148,7 +148,7 @@ export function WorldMap({
               onClick={handleZoomIn}
               disabled={zoomLevel >= 3}
             >
-              <ZoomIn size={16} />
+              <MagnifyingGlassPlus size={16} />
             </Button>
             <Button
               variant="outline"
@@ -156,7 +156,7 @@ export function WorldMap({
               onClick={handleZoomOut}
               disabled={zoomLevel <= 0.5}
             >
-              <ZoomOut size={16} />
+              <MagnifyingGlassMinus size={16} />
             </Button>
           </div>
           <div className="text-xs text-muted-foreground mt-1 text-center">

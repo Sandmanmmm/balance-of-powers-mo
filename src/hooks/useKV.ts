@@ -46,7 +46,7 @@ export function useKV<T>(key: string, defaultValue: T): [
     async function loadValue() {
       try {
         const storage = getStorageBackend();
-        const stored = await storage.get<T>(key);
+        const stored = await storage.get(key) as T;
         if (stored !== undefined) {
           setValue(stored);
         }
