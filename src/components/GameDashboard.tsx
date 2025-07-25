@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { 
   Play, 
   Pause, 
@@ -14,15 +16,20 @@ import {
   Shield,
   Lightning,
   Users,
-  CurrencyDollar
+  CurrencyDollar,
+  ChartBar,
+  Globe
 } from '@phosphor-icons/react';
 import { Nation, GameState } from '../lib/types';
+import { NationOverviewPanel } from './NationOverviewPanel';
 
 interface GameDashboardProps {
   nation: Nation;
   gameState: GameState;
   onTogglePause: () => void;
   onSpeedChange: (speed: number) => void;
+  onPolicyChange?: (policy: string, value: string) => void;
+  onDecisionMake?: (decisionId: string, choiceIndex: number) => void;
 }
 
 function formatLargeNumber(num: number | undefined): string {
@@ -69,10 +76,19 @@ export function GameDashboard({
   nation, 
   gameState, 
   onTogglePause, 
-  onSpeedChange 
+  onSpeedChange,
+  onPolicyChange,
+  onDecisionMake
 }: GameDashboardProps) {
+  const [selectedTab, setSelectedTab] = useState<'summary' | 'nation' | 'diplomacy'>('summary');
   const speedOptions = [0.5, 1, 2, 4];
   const currentYear = new Date(gameState.currentDate).getFullYear();
+
+  const tabs = [
+    { id: 'summary', label: 'Summary', icon: ChartBar },
+    { id: 'nation', label: 'Nation', icon: Flag },
+    { id: 'diplomacy', label: 'Diplomacy', icon: Globe }
+  ];
 
   return (
     <div className="w-80 space-y-4">
@@ -135,223 +151,253 @@ export function GameDashboard({
         </CardContent>
       </Card>
 
-      {/* Nation Overview */}
-      <Card>
-        <CardHeader className="pb-3">
-          <div className="flex items-center space-x-2">
-            <span className="text-2xl">{nation.flag}</span>
-            <div>
-              <CardTitle className="text-lg">{nation.name}</CardTitle>
-              <div className="text-sm text-muted-foreground">
-                {nation.government.leader} • {nation.government.type}
-              </div>
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Government Status */}
-          <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-sm">Leader Approval</span>
-              <span className={`text-sm font-medium ${getApprovalColor(nation.government?.approval)}`}>
-                {(nation.government?.approval ?? 0).toFixed(1)}%
-              </span>
-            </div>
-            <Progress value={nation.government?.approval ?? 0} className="h-2" />
+      {/* Tab Navigation */}
+      <div className="flex space-x-1 p-1 bg-muted rounded-lg">
+        {tabs.map(tab => {
+          const Icon = tab.icon;
+          return (
+            <Button
+              key={tab.id}
+              variant={selectedTab === tab.id ? "default" : "ghost"}
+              size="sm"
+              onClick={() => setSelectedTab(tab.id as any)}
+              className="flex-1"
+            >
+              <Icon size={14} className="mr-1" />
+              {tab.label}
+            </Button>
+          );
+        })}
+      </div>
 
-            <div className="flex justify-between items-center">
-              <span className="text-sm">Political Stability</span>
-              <span className={`text-sm font-medium ${getStabilityColor(nation.government?.stability)}`}>
-                {(nation.government?.stability ?? 0).toFixed(1)}%
-              </span>
-            </div>
-            <Progress value={nation.government?.stability ?? 0} className="h-2" />
-          </div>
-
-          <Separator />
-
-          {/* Key Metrics */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-1">
-              <div className="flex items-center space-x-1">
-                <CurrencyDollar size={14} className="text-muted-foreground" />
-                <span className="text-xs text-muted-foreground">GDP</span>
-              </div>
-              <div className="text-sm font-medium">
-                {formatLargeNumber(nation.economy?.gdp)}
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <div className="flex items-center space-x-1">
-                <TrendUp size={14} className="text-muted-foreground" />
-                <span className="text-xs text-muted-foreground">Trade</span>
-              </div>
-              <div className={`text-sm font-medium ${
-                (nation.economy?.tradeBalance ?? 0) >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
-                {(nation.economy?.tradeBalance ?? 0) >= 0 ? '+' : ''}
-                {formatLargeNumber(nation.economy?.tradeBalance)}
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <div className="flex items-center space-x-1">
-                <Shield size={14} className="text-muted-foreground" />
-                <span className="text-xs text-muted-foreground">Military</span>
-              </div>
-              <div className="text-sm font-medium">
-                {(nation.military?.manpower ?? 0).toLocaleString()}
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <div className="flex items-center space-x-1">
-                <Lightning size={14} className="text-muted-foreground" />
-                <span className="text-xs text-muted-foreground">Tech Level</span>
-              </div>
-              <div className="text-sm font-medium">
-                {(nation.technology?.level ?? 0).toFixed(1)}
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <div className="flex items-center space-x-1">
-                <Lightning size={14} className="text-muted-foreground" />
-                <span className="text-xs text-muted-foreground">Research</span>
-              </div>
-              <div className="text-sm font-medium">
-                {(nation.technology?.researchPoints ?? 0).toLocaleString()}
-              </div>
-            </div>
-          </div>
-
-          <Separator />
-
-          {/* Quick Stats */}
-          <div className="space-y-2">
-            <div className="flex justify-between text-xs">
-              <span className="text-muted-foreground">Debt Ratio</span>
-              <span className={`font-medium ${
-                (nation.economy?.debt ?? 0) / (nation.economy?.gdp ?? 1) > 0.8 ? 'text-red-600' : 'text-foreground'
-              }`}>
-                {(((nation.economy?.debt ?? 0) / (nation.economy?.gdp ?? 1)) * 100).toFixed(1)}%
-              </span>
-            </div>
-
-            <div className="flex justify-between text-xs">
-              <span className="text-muted-foreground">Inflation</span>
-              <span className={`font-medium ${
-                (nation.economy?.inflation ?? 0) > 4 ? 'text-red-600' : 
-                (nation.economy?.inflation ?? 0) > 2 ? 'text-yellow-600' : 'text-green-600'
-              }`}>
-                {(nation.economy?.inflation ?? 0).toFixed(1)}%
-              </span>
-            </div>
-
-            <div className="flex justify-between text-xs">
-              <span className="text-muted-foreground">Military Equipment</span>
-              <span className="font-medium">{nation.military?.equipment ?? 0}%</span>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Current Research */}
-      <Card>
-        <CardHeader className="pb-3">
-          <CardTitle className="text-lg flex items-center">
-            <Lightning size={18} className="mr-2" />
-            Technology Progress
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-3">
-            <div>
-              <div className="text-sm font-medium mb-1">Current Research</div>
-              {(nation.technology?.currentResearch ?? []).length > 0 ? (
-                <div className="space-y-2">
-                  {(nation.technology?.currentResearch ?? []).map((tech, index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-sm">{tech}</span>
+      {/* Tab Content */}
+      <ScrollArea className="h-[calc(100vh-200px)]">
+        {selectedTab === 'summary' && (
+          <div className="space-y-4">
+            {/* Nation Overview Card */}
+            <Card>
+              <CardHeader className="pb-3">
+                <div className="flex items-center space-x-2">
+                  <span className="text-2xl">{nation.flag}</span>
+                  <div>
+                    <CardTitle className="text-lg">{nation.name}</CardTitle>
+                    <div className="text-sm text-muted-foreground">
+                      {nation.government.leader} • {nation.government.type}
                     </div>
-                  ))}
+                  </div>
                 </div>
-              ) : (
-                <div className="text-sm text-muted-foreground">No active research</div>
-              )}
-            </div>
-            
-            <div>
-              <div className="text-sm font-medium mb-1">Completed Technologies</div>
-              {(nation.technology?.completedTech ?? []).length > 0 ? (
-                <div className="text-xs text-muted-foreground">
-                  {(nation.technology?.completedTech ?? []).slice(-3).join(', ')}
-                  {(nation.technology?.completedTech ?? []).length > 3 && ` +${(nation.technology?.completedTech ?? []).length - 3} more`}
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {/* Government Status */}
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm">Leader Approval</span>
+                    <span className={`text-sm font-medium ${getApprovalColor(nation.government?.approval)}`}>
+                      {(nation.government?.approval ?? 0).toFixed(1)}%
+                    </span>
+                  </div>
+                  <Progress value={nation.government?.approval ?? 0} className="h-2" />
+
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm">Political Stability</span>
+                    <span className={`text-sm font-medium ${getStabilityColor(nation.government?.stability)}`}>
+                      {(nation.government?.stability ?? 0).toFixed(1)}%
+                    </span>
+                  </div>
+                  <Progress value={nation.government?.stability ?? 0} className="h-2" />
                 </div>
-              ) : (
-                <div className="text-xs text-muted-foreground">None completed</div>
-              )}
-            </div>
+
+                <Separator />
+
+                {/* Key Metrics */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center space-x-1">
+                      <CurrencyDollar size={14} className="text-muted-foreground" />
+                      <span className="text-xs text-muted-foreground">GDP</span>
+                    </div>
+                    <div className="text-sm font-medium">
+                      {formatLargeNumber(nation.economy?.gdp)}
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center space-x-1">
+                      <TrendUp size={14} className="text-muted-foreground" />
+                      <span className="text-xs text-muted-foreground">Trade</span>
+                    </div>
+                    <div className={`text-sm font-medium ${
+                      (nation.economy?.tradeBalance ?? 0) >= 0 ? 'text-green-600' : 'text-red-600'
+                    }`}>
+                      {(nation.economy?.tradeBalance ?? 0) >= 0 ? '+' : ''}
+                      {formatLargeNumber(nation.economy?.tradeBalance)}
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center space-x-1">
+                      <Shield size={14} className="text-muted-foreground" />
+                      <span className="text-xs text-muted-foreground">Military</span>
+                    </div>
+                    <div className="text-sm font-medium">
+                      {(nation.military?.manpower ?? 0).toLocaleString()}
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center space-x-1">
+                      <Lightning size={14} className="text-muted-foreground" />
+                      <span className="text-xs text-muted-foreground">Tech Level</span>
+                    </div>
+                    <div className="text-sm font-medium">
+                      {(nation.technology?.level ?? 0).toFixed(1)}
+                    </div>
+                  </div>
+                </div>
+
+                <Separator />
+
+                {/* Quick Stats */}
+                <div className="space-y-2">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">Debt Ratio</span>
+                    <span className={`font-medium ${
+                      (nation.economy?.debt ?? 0) / (nation.economy?.gdp ?? 1) > 0.8 ? 'text-red-600' : 'text-foreground'
+                    }`}>
+                      {(((nation.economy?.debt ?? 0) / (nation.economy?.gdp ?? 1)) * 100).toFixed(1)}%
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">Inflation</span>
+                    <span className={`font-medium ${
+                      (nation.economy?.inflation ?? 0) > 4 ? 'text-red-600' : 
+                      (nation.economy?.inflation ?? 0) > 2 ? 'text-yellow-600' : 'text-green-600'
+                    }`}>
+                      {(nation.economy?.inflation ?? 0).toFixed(1)}%
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">Military Equipment</span>
+                    <span className="font-medium">{nation.military?.equipment ?? 0}%</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Current Research */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center">
+                  <Lightning size={18} className="mr-2" />
+                  Technology Progress
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div>
+                    <div className="text-sm font-medium mb-1">Current Research</div>
+                    {(nation.technology?.currentResearch ?? []).length > 0 ? (
+                      <div className="space-y-2">
+                        {(nation.technology?.currentResearch ?? []).map((tech, index) => (
+                          <div key={index} className="flex items-center space-x-2">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <span className="text-sm">{tech}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-sm text-muted-foreground">No active research</div>
+                    )}
+                  </div>
+                  
+                  <div>
+                    <div className="text-sm font-medium mb-1">Completed Technologies</div>
+                    {(nation.technology?.completedTech ?? []).length > 0 ? (
+                      <div className="text-xs text-muted-foreground">
+                        {(nation.technology?.completedTech ?? []).slice(-3).join(', ')}
+                        {(nation.technology?.completedTech ?? []).length > 3 && ` +${(nation.technology?.completedTech ?? []).length - 3} more`}
+                      </div>
+                    ) : (
+                      <div className="text-xs text-muted-foreground">None completed</div>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
-        </CardContent>
-      </Card>
+        )}
 
-      {/* Diplomacy Status */}
-      <Card>
-        <CardHeader className="pb-3">
-          <CardTitle className="text-lg flex items-center">
-            <Flag size={18} className="mr-2" />
-            Diplomacy
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {(nation.diplomacy?.allies ?? []).length > 0 && (
-            <div className="space-y-2">
-              <div className="text-sm font-medium text-green-600">Allies</div>
-              <div className="flex flex-wrap gap-1">
-                {(nation.diplomacy?.allies ?? []).map((ally, index) => (
-                  <Badge key={index} variant="secondary" className="text-xs">
-                    {ally}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          )}
+        {selectedTab === 'nation' && (
+          <NationOverviewPanel
+            nation={nation}
+            gameState={gameState}
+            isPlayerNation={gameState.selectedNation === nation.id}
+            onPolicyChange={onPolicyChange}
+            onDecisionMake={onDecisionMake}
+          />
+        )}
 
-          {(nation.diplomacy?.enemies ?? []).length > 0 && (
-            <div className="space-y-2">
-              <div className="text-sm font-medium text-red-600">Tensions</div>
-              <div className="flex flex-wrap gap-1">
-                {(nation.diplomacy?.enemies ?? []).map((enemy, index) => (
-                  <Badge key={index} variant="destructive" className="text-xs">
-                    {enemy}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {(nation.diplomacy?.tradePartners ?? []).length > 0 && (
-            <div className="space-y-2">
-              <div className="text-sm font-medium text-blue-600">Trade Partners</div>
-              <div className="flex flex-wrap gap-1">
-                {(nation.diplomacy?.tradePartners ?? []).slice(0, 4).map((partner, index) => (
-                  <Badge key={index} variant="outline" className="text-xs">
-                    {partner}
-                  </Badge>
-                ))}
-                {(nation.diplomacy?.tradePartners ?? []).length > 4 && (
-                  <Badge variant="outline" className="text-xs">
-                    +{(nation.diplomacy?.tradePartners ?? []).length - 4} more
-                  </Badge>
+        {selectedTab === 'diplomacy' && (
+          <div className="space-y-4">
+            {/* Diplomacy Status */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center">
+                  <Flag size={18} className="mr-2" />
+                  International Relations
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {(nation.diplomacy?.allies ?? []).length > 0 && (
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-green-600">Allies</div>
+                    <div className="flex flex-wrap gap-1">
+                      {(nation.diplomacy?.allies ?? []).map((ally, index) => (
+                        <Badge key={index} variant="secondary" className="text-xs">
+                          {ally}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
                 )}
-              </div>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+
+                {(nation.diplomacy?.enemies ?? []).length > 0 && (
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-red-600">Tensions</div>
+                    <div className="flex flex-wrap gap-1">
+                      {(nation.diplomacy?.enemies ?? []).map((enemy, index) => (
+                        <Badge key={index} variant="destructive" className="text-xs">
+                          {enemy}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {(nation.diplomacy?.tradePartners ?? []).length > 0 && (
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-blue-600">Trade Partners</div>
+                    <div className="flex flex-wrap gap-1">
+                      {(nation.diplomacy?.tradePartners ?? []).slice(0, 4).map((partner, index) => (
+                        <Badge key={index} variant="outline" className="text-xs">
+                          {partner}
+                        </Badge>
+                      ))}
+                      {(nation.diplomacy?.tradePartners ?? []).length > 4 && (
+                        <Badge variant="outline" className="text-xs">
+                          +{(nation.diplomacy?.tradePartners ?? []).length - 4} more
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+        )}
+      </ScrollArea>
     </div>
   );
 }

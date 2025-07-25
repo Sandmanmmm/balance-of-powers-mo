@@ -4,6 +4,7 @@ import { WorldMap } from './components/WorldMap';
 import { ProvinceInfoPanel } from './components/ProvinceInfoPanel';
 import { GameDashboard } from './components/GameDashboard';
 import { Toaster } from '@/components/ui/sonner';
+import { toast } from 'sonner';
 
 function App() {
   const {
@@ -24,6 +25,28 @@ function App() {
 
   const selectedProvince = getSelectedProvince();
   const selectedNation = getSelectedNation();
+
+  // Policy and decision handlers
+  const handlePolicyChange = (policy: string, value: string) => {
+    if (!selectedNation) return;
+    
+    // In a real game, this would apply policy effects to the nation
+    toast.success(`Policy "${policy}" changed to "${value}"`);
+    
+    // Example: Update nation based on policy change
+    // This is where you'd implement actual policy effects
+    console.log(`Policy ${policy} changed to ${value} for nation ${selectedNation.id}`);
+  };
+
+  const handleDecisionMake = (decisionId: string, choiceIndex: number) => {
+    if (!selectedNation) return;
+    
+    // In a real game, this would execute the decision effects
+    toast.success(`Decision "${decisionId}" executed`);
+    
+    // Example: Apply decision effects to the nation/provinces
+    console.log(`Decision ${decisionId} executed for nation ${selectedNation.id}`);
+  };
 
   // Initialize simulation engine
   useSimulationEngine({
@@ -56,6 +79,8 @@ function App() {
             gameState={gameState}
             onTogglePause={togglePause}
             onSpeedChange={setTimeSpeed}
+            onPolicyChange={handlePolicyChange}
+            onDecisionMake={handleDecisionMake}
           />
         </div>
 
