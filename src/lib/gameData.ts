@@ -384,7 +384,10 @@ function convertProvinces(): Province[] {
     unrest: data.unrest,
     infrastructure: data.infrastructure,
     military: {
-      stationedUnits: data.military.stationed_units,
+      stationedUnits: data.military.stationed_units.map(unitId => ({
+        id: unitId,
+        strength: Math.floor(Math.random() * 100) + 50 // Random strength 50-150
+      })),
       fortificationLevel: data.military.fortification_level
     },
     resourceOutput: {
@@ -427,7 +430,8 @@ function convertNations(): Nation[] {
     technology: {
       researchPoints: data.technology.research_points,
       currentResearch: data.technology.current_research,
-      completedTech: data.technology.completed_tech
+      completedTech: data.technology.completed_tech,
+      level: data.technology.tech_level
     },
     diplomacy: {
       allies: data.diplomacy.allies,
@@ -438,8 +442,89 @@ function convertNations(): Nation[] {
 }
 
 function convertEvents(): GameEvent[] {
-  // For now, return empty events array since we don't have event data inline
-  return [];
+  const eventData = [
+    {
+      id: "EVENT_001",
+      type: "economic" as const,
+      title: "Tech Sector Boom",
+      description: "A breakthrough in quantum computing has sparked massive investment in the technology sector, attracting global talent and capital.",
+      affectedProvinces: ["USA_001"],
+      effects: [
+        { target: "USA_001", property: "economy.gdp_per_capita", change: 2500 },
+        { target: "USA_001", property: "resource_output.technology", change: 200 },
+        { target: "USA_001", property: "unrest", change: -0.5 }
+      ],
+      triggerConditions: [
+        { type: "tech_level", target: "USA", threshold: 9.0 },
+        { type: "random", probability: 0.15 }
+      ],
+      duration: 90,
+      frequency: "rare"
+    },
+    {
+      id: "EVENT_002",
+      type: "political" as const,
+      title: "Environmental Protests",
+      description: "Large-scale climate protests sweep across major cities, demanding immediate action on carbon emissions and renewable energy transition.",
+      affectedProvinces: ["GER_001", "GER_002"],
+      effects: [
+        { target: "GER_001", property: "unrest", change: 2.5 },
+        { target: "GER_002", property: "unrest", change: 1.8 }
+      ],
+      triggerConditions: [
+        { type: "season", value: "spring" },
+        { type: "province_unrest", target: "GER_001", threshold: 3.0 }
+      ],
+      duration: 30,
+      frequency: "common"
+    },
+    {
+      id: "EVENT_003",
+      type: "military" as const,
+      title: "Joint Military Exercise",
+      description: "NATO allies conduct large-scale joint military exercises, testing new equipment and coordination protocols.",
+      affectedProvinces: ["GER_001", "USA_002"],
+      effects: [
+        { target: "GER", property: "military.equipment", change: 5 },
+        { target: "USA", property: "military.equipment", change: 3 }
+      ],
+      triggerConditions: [
+        { type: "diplomatic_status", nations: ["GER", "USA"], status: "allied" },
+        { type: "random", probability: 0.25 }
+      ],
+      duration: 14,
+      frequency: "uncommon"
+    },
+    {
+      id: "EVENT_004",
+      type: "economic" as const,
+      title: "Energy Crisis",
+      description: "Global energy prices spike due to supply chain disruptions and geopolitical tensions, affecting industrial production.",
+      affectedProvinces: ["GER_001", "GER_002", "USA_002"],
+      effects: [
+        { target: "GER_001", property: "economy.inflation", change: 1.8 },
+        { target: "GER_002", property: "economy.inflation", change: 1.5 },
+        { target: "USA_002", property: "economy.inflation", change: 2.1 }
+      ],
+      triggerConditions: [
+        { type: "random", probability: 0.1 }
+      ],
+      duration: 120,
+      frequency: "uncommon"
+    }
+  ];
+
+  return eventData.map(event => ({
+    id: event.id,
+    type: event.type,
+    title: event.title,
+    description: event.description,
+    affectedProvinces: event.affectedProvinces,
+    effects: event.effects,
+    triggerConditions: event.triggerConditions,
+    duration: event.duration,
+    frequency: event.frequency
+  }));
 }
 
 // Convert additional data types
@@ -449,8 +534,144 @@ function convertUnits(): Unit[] {
 }
 
 function convertTechnologies(): Technology[] {
-  // For now, return empty technologies array
-  return [];
+  const techData = [
+    {
+      id: "internet",
+      name: "Internet Infrastructure",
+      category: "computing",
+      tier: 1,
+      researchCost: 500,
+      yearAvailable: 1990,
+      prerequisites: [],
+      description: "Global network communication infrastructure enabling data exchange and connectivity.",
+      effects: [
+        { type: "province_modifier", target: "infrastructure.internet", value: 1 },
+        { type: "research_speed", value: 0.05 }
+      ],
+      unlocks: ["advanced_computing", "digital_communications"]
+    },
+    {
+      id: "advanced_computing",
+      name: "Advanced Computing",
+      category: "computing",
+      tier: 2,
+      researchCost: 800,
+      yearAvailable: 1995,
+      prerequisites: ["internet"],
+      description: "High-performance computing systems and advanced processors.",
+      effects: [
+        { type: "resource_output", target: "technology", value: 50 },
+        { type: "research_speed", value: 0.1 }
+      ],
+      unlocks: ["ai_systems", "quantum_computing"]
+    },
+    {
+      id: "ai_systems",
+      name: "AI Systems",
+      category: "computing",
+      tier: 3,
+      researchCost: 1200,
+      yearAvailable: 2000,
+      prerequisites: ["advanced_computing"],
+      description: "Artificial intelligence systems for automation and decision support.",
+      effects: [
+        { type: "resource_output", target: "technology", value: 100 },
+        { type: "military_efficiency", value: 0.15 },
+        { type: "economic_efficiency", value: 0.08 }
+      ],
+      unlocks: ["machine_learning", "autonomous_systems"]
+    },
+    {
+      id: "renewable_energy",
+      name: "Renewable Energy",
+      category: "energy",
+      tier: 1,
+      researchCost: 600,
+      yearAvailable: 1990,
+      prerequisites: [],
+      description: "Solar, wind, and other renewable energy sources.",
+      effects: [
+        { type: "resource_output", target: "energy", value: 100 },
+        { type: "environmental_impact", value: -0.2 }
+      ],
+      unlocks: ["advanced_solar", "wind_technology"]
+    },
+    {
+      id: "green_energy",
+      name: "Green Energy",
+      category: "energy",
+      tier: 2,
+      researchCost: 900,
+      yearAvailable: 2000,
+      prerequisites: ["renewable_energy"],
+      description: "Efficient and environmentally friendly energy systems.",
+      effects: [
+        { type: "resource_output", target: "energy", value: 200 },
+        { type: "environmental_impact", value: -0.4 },
+        { type: "public_approval", value: 0.05 }
+      ],
+      unlocks: ["fusion_power", "energy_storage"]
+    },
+    {
+      id: "precision_manufacturing",
+      name: "Precision Manufacturing",
+      category: "manufacturing",
+      tier: 1,
+      researchCost: 400,
+      yearAvailable: 1990,
+      prerequisites: [],
+      description: "High-precision automated manufacturing processes.",
+      effects: [
+        { type: "resource_output", target: "iron", value: 50 },
+        { type: "manufacturing_efficiency", value: 0.1 }
+      ],
+      unlocks: ["advanced_manufacturing", "robotics"]
+    },
+    {
+      id: "stealth_technology",
+      name: "Stealth Technology",
+      category: "military",
+      tier: 2,
+      researchCost: 1000,
+      yearAvailable: 1995,
+      prerequisites: ["advanced_materials"],
+      description: "Technology to reduce detection by radar and other sensors.",
+      effects: [
+        { type: "military_effectiveness", value: 0.2 },
+        { type: "air_superiority", value: 0.3 }
+      ],
+      unlocks: ["advanced_stealth", "electronic_warfare"]
+    },
+    {
+      id: "biotechnology",
+      name: "Biotechnology",
+      category: "medical",
+      tier: 3,
+      researchCost: 1400,
+      yearAvailable: 2000,
+      prerequisites: ["genetic_research", "advanced_computing"],
+      description: "Advanced biological and genetic engineering technologies.",
+      effects: [
+        { type: "healthcare_quality", value: 0.3 },
+        { type: "life_expectancy", value: 2.5 },
+        { type: "agricultural_yield", value: 0.2 }
+      ],
+      unlocks: ["gene_therapy", "synthetic_biology"]
+    }
+  ];
+
+  return techData.map(tech => ({
+    id: tech.id,
+    name: tech.name,
+    category: tech.category,
+    tier: tech.tier,
+    researchCost: tech.researchCost,
+    yearAvailable: tech.yearAvailable,
+    prerequisites: tech.prerequisites,
+    description: tech.description,
+    effects: tech.effects,
+    unlocks: tech.unlocks
+  }));
 }
 
 // Data validation and initialization
@@ -461,10 +682,10 @@ export const sampleProvinces: Province[] = convertProvinces();
 export const sampleNations: Nation[] = convertNations();
 export const sampleEvents: GameEvent[] = convertEvents();
 export const gameUnits: Unit[] = convertUnits();
-export const gameTechnologies: Technology[] = convertTechnologies();
+export const sampleTechnologies: Technology[] = convertTechnologies();
 
 // Log successful data loading
-console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${gameTechnologies.length} technologies`);
+console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies`);
 
 // Export data access functions
 export function getProvinceById(id: string): Province | undefined {
@@ -492,15 +713,15 @@ export function getUnitsByProvince(provinceId: string): Unit[] {
 }
 
 export function getTechnologyById(id: string): Technology | undefined {
-  return gameTechnologies.find(tech => tech.id === id);
+  return sampleTechnologies.find(tech => tech.id === id);
 }
 
 export function getTechnologiesByCategory(category: string): Technology[] {
-  return gameTechnologies.filter(tech => tech.category === category);
+  return sampleTechnologies.filter(tech => tech.category === category);
 }
 
 export function getAvailableTechnologies(currentYear: number, completedTech: string[]): Technology[] {
-  return gameTechnologies.filter(tech => 
+  return sampleTechnologies.filter(tech => 
     tech.yearAvailable <= currentYear && 
     !completedTech.includes(tech.id) &&
     tech.prerequisites.every(prereq => completedTech.includes(prereq))

@@ -33,12 +33,19 @@ function formatLargeNumber(num: number): string {
 }
 
 function formatDate(date: Date | string): string {
-  const dateObj = new Date(date);
-  return dateObj.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  });
+  try {
+    const dateObj = new Date(date);
+    if (isNaN(dateObj.getTime())) {
+      return 'Invalid Date';
+    }
+    return dateObj.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  } catch (error) {
+    return 'Invalid Date';
+  }
 }
 
 function getApprovalColor(approval: number): string {
@@ -62,6 +69,7 @@ export function GameDashboard({
   onSpeedChange 
 }: GameDashboardProps) {
   const speedOptions = [0.5, 1, 2, 4];
+  const currentYear = new Date(gameState.currentDate).getFullYear();
 
   return (
     <div className="w-80 space-y-4">
@@ -76,6 +84,9 @@ export function GameDashboard({
                 {formatDate(gameState.currentDate)}
               </span>
             </div>
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Year {currentYear} • {gameState.isPaused ? 'Paused' : `${gameState.timeSpeed}x Speed`}
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
@@ -194,10 +205,20 @@ export function GameDashboard({
             <div className="space-y-1">
               <div className="flex items-center space-x-1">
                 <Zap size={14} className="text-muted-foreground" />
+                <span className="text-xs text-muted-foreground">Tech Level</span>
+              </div>
+              <div className="text-sm font-medium">
+                {nation.technology.level.toFixed(1)}
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="flex items-center space-x-1">
+                <Zap size={14} className="text-muted-foreground" />
                 <span className="text-xs text-muted-foreground">Research</span>
               </div>
               <div className="text-sm font-medium">
-                {nation.technology.researchPoints}
+                {nation.technology.researchPoints.toLocaleString()}
               </div>
             </div>
           </div>
@@ -238,22 +259,39 @@ export function GameDashboard({
         <CardHeader className="pb-3">
           <CardTitle className="text-lg flex items-center">
             <Zap size={18} className="mr-2" />
-            Current Research
+            Technology Progress
           </CardTitle>
         </CardHeader>
         <CardContent>
-          {nation.technology.currentResearch.length > 0 ? (
-            <div className="space-y-2">
-              {nation.technology.currentResearch.map((tech, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm">{tech}</span>
+          <div className="space-y-3">
+            <div>
+              <div className="text-sm font-medium mb-1">Current Research</div>
+              {nation.technology.currentResearch.length > 0 ? (
+                <div className="space-y-2">
+                  {nation.technology.currentResearch.map((tech, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <span className="text-sm">{tech}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              ) : (
+                <div className="text-sm text-muted-foreground">No active research</div>
+              )}
             </div>
-          ) : (
-            <div className="text-sm text-muted-foreground">No active research</div>
-          )}
+            
+            <div>
+              <div className="text-sm font-medium mb-1">Completed Technologies</div>
+              {nation.technology.completedTech.length > 0 ? (
+                <div className="text-xs text-muted-foreground">
+                  {nation.technology.completedTech.slice(-3).join(', ')}
+                  {nation.technology.completedTech.length > 3 && ` +${nation.technology.completedTech.length - 3} more`}
+                </div>
+              ) : (
+                <div className="text-xs text-muted-foreground">None completed</div>
+              )}
+            </div>
+          </div>
         </CardContent>
       </Card>
 

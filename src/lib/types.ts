@@ -18,7 +18,10 @@ export interface Province {
     education: number;
   };
   military: {
-    stationedUnits: string[];
+    stationedUnits: Array<{
+      id: string;
+      strength: number;
+    }>;
     fortificationLevel: number;
   };
   resourceOutput: {
@@ -65,6 +68,7 @@ export interface Nation {
     researchPoints: number;
     currentResearch: string[];
     completedTech: string[];
+    level: number;
   };
   diplomacy: {
     allies: string[];
@@ -78,11 +82,13 @@ export interface GameEvent {
   type: 'political' | 'economic' | 'military' | 'natural' | 'technological';
   title: string;
   description: string;
-  affectedProvinces: string[];
+  affectedProvinces?: string[];
   effects: Array<{
     target: string;
     property: string;
     change: number;
+    action?: string;
+    value?: any;
   }>;
   choices?: Array<{
     text: string;
@@ -90,10 +96,21 @@ export interface GameEvent {
       target: string;
       property: string;
       change: number;
+      action?: string;
+      value?: any;
     }>;
   }>;
-  triggerDate: Date;
+  triggerConditions: Array<{
+    type: string;
+    target?: string;
+    threshold?: number;
+    probability?: number;
+    value?: string;
+    nations?: string[];
+    status?: string;
+  }>;
   duration?: number;
+  frequency?: string;
 }
 
 export interface GameState {
