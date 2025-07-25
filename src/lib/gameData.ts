@@ -1,287 +1,349 @@
-import { Province, Nation, GameEvent } from './types';
+import yaml from 'js-yaml';
+import { Province, Nation, GameEvent, Unit, Technology } from './types';
 
-export const sampleProvinces: Province[] = [
-  {
-    id: "GER_001",
-    name: "Lower Saxony",
-    country: "Germany",
-    coordinates: [52.6367, 9.8451],
+// Import YAML files as text
+import provincesYaml from '../data/provinces.yaml?raw';
+import nationsYaml from '../data/nations.yaml?raw';
+import eventsYaml from '../data/events.yaml?raw';
+import unitsYaml from '../data/units.yaml?raw';
+import technologiesYaml from '../data/technologies.yaml?raw';
+
+// Define YAML data structure interfaces
+interface ProvinceYamlData {
+  provinces: Record<string, {
+    name: string;
+    country: string;
+    coordinates: [number, number];
     population: {
-      total: 7800000,
-      ethnicGroups: [
-        { group: "German", percent: 93 },
-        { group: "Turkish", percent: 5 },
-        { group: "Other", percent: 2 }
-      ]
-    },
-    unrest: 4.2,
+      total: number;
+      ethnic_groups: Array<{
+        group: string;
+        percent: number;
+      }>;
+    };
+    unrest: number;
     infrastructure: {
-      roads: 3,
-      internet: 4,
-      healthcare: 4,
-      education: 4
-    },
+      roads: number;
+      internet: number;
+      healthcare: number;
+      education: number;
+    };
     military: {
-      stationedUnits: ["GER_INF_4"],
-      fortificationLevel: 2
-    },
-    resourceOutput: {
-      energy: 1400,
-      iron: 230,
-      food: 850,
-      technology: 180
-    },
+      stationed_units: string[];
+      fortification_level: number;
+    };
+    resource_output: {
+      energy: number;
+      iron: number;
+      food: number;
+      technology: number;
+    };
     politics: {
-      partySupport: {
-        "Social Democrats": 28.5,
-        "Christian Democrats": 24.3,
-        "Greens": 23.3,
-        "Free Democrats": 9.2,
-        "Nationalists": 14.7
-      },
-      governorApproval: 67.3
-    },
+      party_support: Record<string, number>;
+      governor_approval: number;
+    };
     economy: {
-      gdpPerCapita: 42000,
-      unemployment: 5.1,
-      inflation: 2.8
-    }
-  },
-  {
-    id: "USA_001",
-    name: "California",
-    country: "United States",
-    coordinates: [36.7783, -119.4179],
-    population: {
-      total: 39500000,
-      ethnicGroups: [
-        { group: "White", percent: 36.5 },
-        { group: "Hispanic", percent: 39.4 },
-        { group: "Asian", percent: 15.5 },
-        { group: "Black", percent: 6.5 },
-        { group: "Other", percent: 2.1 }
-      ]
-    },
-    unrest: 6.8,
-    infrastructure: {
-      roads: 3,
-      internet: 5,
-      healthcare: 3,
-      education: 4
-    },
+      gdp_per_capita: number;
+      unemployment: number;
+      inflation: number;
+    };
+  }>;
+}
+
+interface NationYamlData {
+  nations: Record<string, {
+    name: string;
+    capital: string;
+    flag: string;
+    government: {
+      type: 'democracy' | 'authoritarian' | 'totalitarian' | 'theocracy';
+      leader: string;
+      approval: number;
+      stability: number;
+    };
+    economy: {
+      gdp: number;
+      debt: number;
+      inflation: number;
+      trade_balance: number;
+    };
     military: {
-      stationedUnits: ["USA_MAR_1", "USA_AF_12"],
-      fortificationLevel: 3
-    },
-    resourceOutput: {
-      energy: 2100,
-      iron: 45,
-      food: 1850,
-      technology: 1250
-    },
-    politics: {
-      partySupport: {
-        "Democrats": 62.1,
-        "Republicans": 31.2,
-        "Green Party": 4.1,
-        "Libertarian": 2.6
-      },
-      governorApproval: 54.7
-    },
-    economy: {
-      gdpPerCapita: 75000,
-      unemployment: 7.3,
-      inflation: 4.2
-    }
-  },
-  {
-    id: "CHN_001",
-    name: "Guangdong",
-    country: "China",
-    coordinates: [23.3417, 113.4244],
-    population: {
-      total: 126000000,
-      ethnicGroups: [
-        { group: "Han Chinese", percent: 97.8 },
-        { group: "Zhuang", percent: 1.2 },
-        { group: "Other", percent: 1.0 }
-      ]
-    },
-    unrest: 2.1,
-    infrastructure: {
-      roads: 4,
-      internet: 4,
-      healthcare: 3,
-      education: 3
-    },
-    military: {
-      stationedUnits: ["CHN_INF_7", "CHN_INF_8"],
-      fortificationLevel: 2
-    },
-    resourceOutput: {
-      energy: 1800,
-      iron: 340,
-      food: 950,
-      technology: 890
-    },
-    politics: {
-      partySupport: {
-        "Communist Party": 89.4,
-        "Independent": 10.6
-      },
-      governorApproval: 78.2
-    },
-    economy: {
-      gdpPerCapita: 28000,
-      unemployment: 3.8,
-      inflation: 1.9
-    }
+      manpower: number;
+      equipment: number;
+      doctrine: string;
+      nuclear_capability: boolean;
+    };
+    technology: {
+      research_points: number;
+      current_research: string[];
+      completed_tech: string[];
+    };
+    diplomacy: {
+      allies: string[];
+      enemies: string[];
+      trade_partners: string[];
+    };
+  }>;
+}
+
+interface EventYamlData {
+  events: Record<string, {
+    type: 'political' | 'economic' | 'military' | 'natural' | 'technological';
+    title: string;
+    description: string;
+    affected_provinces: string[];
+    effects: Array<{
+      target: string;
+      property: string;
+      change: number;
+    }>;
+    choices?: Array<{
+      text: string;
+      effects: Array<{
+        target: string;
+        property: string;
+        change: number;
+      }>;
+    }>;
+    duration?: number;
+  }>;
+}
+
+// Additional interfaces for new data types
+
+// Data loading with error handling
+function loadYamlData<T>(yamlContent: string, dataName: string): T {
+  try {
+    return yaml.load(yamlContent) as T;
+  } catch (error) {
+    console.error(`Failed to parse ${dataName} YAML:`, error);
+    throw new Error(`Invalid YAML structure in ${dataName}`);
   }
-];
+}
 
-export const sampleNations: Nation[] = [
-  {
-    id: "GER",
-    name: "Germany",
-    capital: "Berlin",
-    flag: "🇩🇪",
-    government: {
-      type: "democracy",
-      leader: "Olaf Scholz",
-      approval: 45.2,
-      stability: 82.1
+// Parse YAML data with error handling
+const provincesData = loadYamlData<ProvinceYamlData>(provincesYaml, 'provinces');
+const nationsData = loadYamlData<NationYamlData>(nationsYaml, 'nations');
+const eventsData = loadYamlData<EventYamlData>(eventsYaml, 'events');
+
+// Convert YAML data to TypeScript interfaces
+function convertProvinces(): Province[] {
+  return Object.entries(provincesData.provinces).map(([id, data]) => ({
+    id,
+    name: data.name,
+    country: data.country,
+    coordinates: data.coordinates,
+    population: {
+      total: data.population.total,
+      ethnicGroups: data.population.ethnic_groups.map(group => ({
+        group: group.group,
+        percent: group.percent
+      }))
+    },
+    unrest: data.unrest,
+    infrastructure: data.infrastructure,
+    military: {
+      stationedUnits: data.military.stationed_units,
+      fortificationLevel: data.military.fortification_level
+    },
+    resourceOutput: {
+      energy: data.resource_output.energy,
+      iron: data.resource_output.iron,
+      food: data.resource_output.food,
+      technology: data.resource_output.technology
+    },
+    politics: {
+      partySupport: data.politics.party_support,
+      governorApproval: data.politics.governor_approval
     },
     economy: {
-      gdp: 4200000000000,
-      debt: 2800000000000,
-      inflation: 2.8,
-      tradeBalance: 285000000000
-    },
-    military: {
-      manpower: 184000,
-      equipment: 78,
-      doctrine: "Modern Combined Arms",
-      nuclearCapability: false
-    },
-    technology: {
-      researchPoints: 1250,
-      currentResearch: ["Green Energy", "AI Systems", "Advanced Manufacturing"],
-      completedTech: ["Internet", "Renewable Energy", "Precision Manufacturing"]
-    },
-    diplomacy: {
-      allies: ["USA", "FRA", "GBR"],
-      enemies: [],
-      tradePartners: ["USA", "CHN", "FRA", "ITA", "GBR"]
+      gdpPerCapita: data.economy.gdp_per_capita,
+      unemployment: data.economy.unemployment,
+      inflation: data.economy.inflation
     }
-  },
-  {
-    id: "USA",
-    name: "United States",
-    capital: "Washington D.C.",
-    flag: "🇺🇸",
-    government: {
-      type: "democracy",
-      leader: "Joe Biden",
-      approval: 42.8,
-      stability: 68.5
-    },
+  }));
+}
+
+function convertNations(): Nation[] {
+  return Object.entries(nationsData.nations).map(([id, data]) => ({
+    id,
+    name: data.name,
+    capital: data.capital,
+    flag: data.flag,
+    government: data.government,
     economy: {
-      gdp: 25400000000000,
-      debt: 31400000000000,
-      inflation: 4.2,
-      tradeBalance: -945000000000
+      gdp: data.economy.gdp,
+      debt: data.economy.debt,
+      inflation: data.economy.inflation,
+      tradeBalance: data.economy.trade_balance
     },
     military: {
-      manpower: 1400000,
-      equipment: 95,
-      doctrine: "Global Force Projection",
-      nuclearCapability: true
+      manpower: data.military.manpower,
+      equipment: data.military.equipment,
+      doctrine: data.military.doctrine,
+      nuclearCapability: data.military.nuclear_capability
     },
     technology: {
-      researchPoints: 4850,
-      currentResearch: ["Quantum Computing", "Space Technology", "Biotechnology"],
-      completedTech: ["Internet", "GPS", "Stealth Technology", "Nuclear Technology"]
+      researchPoints: data.technology.research_points,
+      currentResearch: data.technology.current_research,
+      completedTech: data.technology.completed_tech
     },
     diplomacy: {
-      allies: ["GER", "FRA", "GBR", "JPN"],
-      enemies: ["CHN", "RUS"],
-      tradePartners: ["CHN", "MEX", "CAN", "GER", "JPN"]
+      allies: data.diplomacy.allies,
+      enemies: data.diplomacy.enemies,
+      tradePartners: data.diplomacy.trade_partners
     }
-  },
-  {
-    id: "CHN",
-    name: "China",
-    capital: "Beijing",
-    flag: "🇨🇳",
-    government: {
-      type: "authoritarian",
-      leader: "Xi Jinping",
-      approval: 78.2,
-      stability: 91.3
-    },
-    economy: {
-      gdp: 17700000000000,
-      debt: 15800000000000,
-      inflation: 1.9,
-      tradeBalance: 676000000000
-    },
-    military: {
-      manpower: 2100000,
-      equipment: 72,
-      doctrine: "Anti-Access/Area Denial",
-      nuclearCapability: true
-    },
-    technology: {
-      researchPoints: 3200,
-      currentResearch: ["5G Technology", "High-Speed Rail", "Renewable Energy"],
-      completedTech: ["Internet", "Solar Technology", "Electric Vehicles"]
-    },
-    diplomacy: {
-      allies: ["RUS", "PAK"],
-      enemies: ["USA", "IND"],
-      tradePartners: ["USA", "GER", "JPN", "KOR", "AUS"]
-    }
+  }));
+}
+
+function convertEvents(): GameEvent[] {
+  return Object.entries(eventsData.events).map(([id, data]) => ({
+    id,
+    type: data.type,
+    title: data.title,
+    description: data.description,
+    affectedProvinces: data.affected_provinces,
+    effects: data.effects,
+    choices: data.choices,
+    triggerDate: new Date('2024-01-01'), // Default trigger date
+    duration: data.duration
+  }));
+}
+
+// Convert additional data types
+function convertUnits(): Unit[] {
+  try {
+    const unitsData = loadYamlData<{ units: Record<string, any> }>(unitsYaml, 'units');
+    return Object.entries(unitsData.units).map(([id, data]) => ({
+      id,
+      name: data.name,
+      type: data.type,
+      nation: data.nation,
+      stationedProvince: data.stationed_province,
+      strength: data.strength,
+      equipmentLevel: data.equipment_level,
+      experience: data.experience,
+      morale: data.morale,
+      maintenanceCost: data.maintenance_cost,
+      unitType: data.unit_type,
+      capabilities: data.capabilities,
+      doctrine: data.doctrine,
+      aircraftType: data.aircraft_type
+    }));
+  } catch (error) {
+    console.warn('Failed to load units data:', error);
+    return [];
   }
-];
+}
 
-export const sampleEvents: GameEvent[] = [
-  {
-    id: "EVENT_001",
-    type: "economic",
-    title: "Tech Sector Boom",
-    description: "A breakthrough in quantum computing has sparked massive investment in the technology sector.",
-    affectedProvinces: ["USA_001"],
-    effects: [
-      { target: "USA_001", property: "economy.gdpPerCapita", change: 2500 },
-      { target: "USA_001", property: "resourceOutput.technology", change: 200 }
-    ],
-    choices: [
-      {
-        text: "Increase research funding",
-        effects: [
-          { target: "USA", property: "technology.researchPoints", change: 500 },
-          { target: "USA", property: "economy.debt", change: 50000000000 }
-        ]
-      },
-      {
-        text: "Maintain current policy",
-        effects: []
+function convertTechnologies(): Technology[] {
+  try {
+    const techData = loadYamlData<{ technologies: Record<string, any> }>(technologiesYaml, 'technologies');
+    return Object.entries(techData.technologies).map(([id, data]) => ({
+      id,
+      name: data.name,
+      category: data.category,
+      tier: data.tier,
+      researchCost: data.research_cost,
+      yearAvailable: data.year_available,
+      prerequisites: data.prerequisites || [],
+      description: data.description,
+      effects: data.effects || [],
+      unlocks: data.unlocks || [],
+      restrictions: data.restrictions
+    }));
+  } catch (error) {
+    console.warn('Failed to load technologies data:', error);
+    return [];
+  }
+}
+
+// Data validation and initialization
+console.log('Initializing Balance of Powers game data...');
+
+// Export the converted data
+export const sampleProvinces: Province[] = convertProvinces();
+export const sampleNations: Nation[] = convertNations();
+export const sampleEvents: GameEvent[] = convertEvents();
+export const gameUnits: Unit[] = convertUnits();
+export const gameTechnologies: Technology[] = convertTechnologies();
+
+// Log successful data loading
+console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${gameTechnologies.length} technologies`);
+
+// Export data access functions
+export function getProvinceById(id: string): Province | undefined {
+  return sampleProvinces.find(province => province.id === id);
+}
+
+export function getNationById(id: string): Nation | undefined {
+  return sampleNations.find(nation => nation.id === id);
+}
+
+export function getProvincesByCountry(country: string): Province[] {
+  return sampleProvinces.filter(province => province.country === country);
+}
+
+export function getEventById(id: string): GameEvent | undefined {
+  return sampleEvents.find(event => event.id === id);
+}
+
+export function getUnitById(id: string): Unit | undefined {
+  return gameUnits.find(unit => unit.id === id);
+}
+
+export function getUnitsByProvince(provinceId: string): Unit[] {
+  return gameUnits.filter(unit => unit.stationedProvince === provinceId);
+}
+
+export function getTechnologyById(id: string): Technology | undefined {
+  return gameTechnologies.find(tech => tech.id === id);
+}
+
+export function getTechnologiesByCategory(category: string): Technology[] {
+  return gameTechnologies.filter(tech => tech.category === category);
+}
+
+export function getAvailableTechnologies(currentYear: number, completedTech: string[]): Technology[] {
+  return gameTechnologies.filter(tech => 
+    tech.yearAvailable <= currentYear && 
+    !completedTech.includes(tech.id) &&
+    tech.prerequisites.every(prereq => completedTech.includes(prereq))
+  );
+}
+
+// Data validation functions
+export function validateGameData(): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+
+  // Validate provinces
+  if (sampleProvinces.length === 0) {
+    errors.push('No provinces loaded');
+  }
+
+  // Validate nations
+  if (sampleNations.length === 0) {
+    errors.push('No nations loaded');
+  }
+
+  // Check that each province references a valid nation
+  sampleProvinces.forEach(province => {
+    if (!sampleNations.find(nation => nation.name === province.country)) {
+      errors.push(`Province ${province.id} references unknown country: ${province.country}`);
+    }
+  });
+
+  // Check that stationed units exist
+  sampleProvinces.forEach(province => {
+    province.military.stationedUnits.forEach(unitId => {
+      if (!gameUnits.find(unit => unit.id === unitId)) {
+        errors.push(`Province ${province.id} references unknown unit: ${unitId}`);
       }
-    ],
-    triggerDate: new Date('2024-03-15'),
-    duration: 90
-  },
-  {
-    id: "EVENT_002",
-    type: "political",
-    title: "Environmental Protests",
-    description: "Large-scale protests demand stronger action on climate change.",
-    affectedProvinces: ["GER_001"],
-    effects: [
-      { target: "GER_001", property: "unrest", change: 2.5 },
-      { target: "GER_001", property: "politics.partySupport.Greens", change: 5.2 }
-    ],
-    triggerDate: new Date('2024-02-20'),
-    duration: 30
-  }
-];
+    });
+  });
+
+  return {
+    valid: errors.length === 0,
+    errors
+  };
+}

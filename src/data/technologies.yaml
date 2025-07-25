@@ -1,0 +1,382 @@
+# Technology tree for Balance of Powers
+# Format: tech_id -> tech data
+
+technologies:
+  # Computing & AI Technologies
+  internet:
+    name: "Internet Infrastructure"
+    category: "computing"
+    tier: 1
+    research_cost: 500
+    year_available: 1990
+    prerequisites: []
+    description: "Global network communication infrastructure enabling data exchange and connectivity."
+    effects:
+      - type: "province_modifier"
+        target: "infrastructure.internet"
+        value: 1
+      - type: "research_speed"
+        value: 0.05
+    unlocks:
+      - "advanced_computing"
+      - "digital_communications"
+
+  advanced_computing:
+    name: "Advanced Computing"
+    category: "computing"
+    tier: 2
+    research_cost: 800
+    year_available: 1995
+    prerequisites: ["internet"]
+    description: "High-performance computing systems and advanced processors."
+    effects:
+      - type: "resource_output"
+        target: "technology"
+        value: 50
+      - type: "research_speed"
+        value: 0.1
+    unlocks:
+      - "ai_systems"
+      - "quantum_computing"
+
+  ai_systems:
+    name: "AI Systems"
+    category: "computing"
+    tier: 3
+    research_cost: 1200
+    year_available: 2000
+    prerequisites: ["advanced_computing"]
+    description: "Artificial intelligence systems for automation and decision support."
+    effects:
+      - type: "resource_output"
+        target: "technology"
+        value: 100
+      - type: "military_efficiency"
+        value: 0.15
+      - type: "economic_efficiency"
+        value: 0.08
+    unlocks:
+      - "machine_learning"
+      - "autonomous_systems"
+
+  quantum_computing:
+    name: "Quantum Computing"
+    category: "computing"
+    tier: 4
+    research_cost: 2000
+    year_available: 2010
+    prerequisites: ["ai_systems"]
+    description: "Revolutionary computing using quantum mechanical phenomena."
+    effects:
+      - type: "research_speed"
+        value: 0.25
+      - type: "resource_output"
+        target: "technology"
+        value: 200
+      - type: "cybersecurity"
+        value: 0.3
+    unlocks:
+      - "quantum_encryption"
+      - "quantum_simulation"
+
+  # Energy Technologies
+  renewable_energy:
+    name: "Renewable Energy"
+    category: "energy"
+    tier: 1
+    research_cost: 600
+    year_available: 1990
+    prerequisites: []
+    description: "Solar, wind, and other renewable energy sources."
+    effects:
+      - type: "resource_output"
+        target: "energy"
+        value: 100
+      - type: "environmental_impact"
+        value: -0.2
+    unlocks:
+      - "advanced_solar"
+      - "wind_technology"
+
+  green_energy:
+    name: "Green Energy"
+    category: "energy"
+    tier: 2
+    research_cost: 900
+    year_available: 2000
+    prerequisites: ["renewable_energy"]
+    description: "Efficient and environmentally friendly energy systems."
+    effects:
+      - type: "resource_output"
+        target: "energy"
+        value: 200
+      - type: "environmental_impact"
+        value: -0.4
+      - type: "public_approval"
+        value: 0.05
+    unlocks:
+      - "fusion_power"
+      - "energy_storage"
+
+  fusion_power:
+    name: "Fusion Power"
+    category: "energy"
+    tier: 4
+    research_cost: 3000
+    year_available: 2030
+    prerequisites: ["green_energy", "advanced_materials"]
+    description: "Clean fusion energy generation technology."
+    effects:
+      - type: "resource_output"
+        target: "energy"
+        value: 500
+      - type: "environmental_impact"
+        value: -0.8
+      - type: "energy_independence"
+        value: 0.6
+    unlocks:
+      - "portable_fusion"
+      - "space_propulsion"
+
+  # Manufacturing Technologies
+  precision_manufacturing:
+    name: "Precision Manufacturing"
+    category: "manufacturing"
+    tier: 1
+    research_cost: 400
+    year_available: 1990
+    prerequisites: []
+    description: "High-precision automated manufacturing processes."
+    effects:
+      - type: "resource_output"
+        target: "iron"
+        value: 50
+      - type: "manufacturing_efficiency"
+        value: 0.1
+    unlocks:
+      - "advanced_manufacturing"
+      - "robotics"
+
+  advanced_manufacturing:
+    name: "Advanced Manufacturing"
+    category: "manufacturing"
+    tier: 2
+    research_cost: 700
+    year_available: 1995
+    prerequisites: ["precision_manufacturing"]
+    description: "Sophisticated manufacturing techniques and automation."
+    effects:
+      - type: "resource_output"
+        target: "iron"
+        value: 100
+      - type: "manufacturing_efficiency"
+        value: 0.2
+      - type: "equipment_production"
+        value: 0.15
+    unlocks:
+      - "nanotechnology"
+      - "3d_printing"
+
+  nanotechnology:
+    name: "Nanotechnology"
+    category: "manufacturing"
+    tier: 3
+    research_cost: 1500
+    year_available: 2005
+    prerequisites: ["advanced_manufacturing"]
+    description: "Manipulation of matter at the molecular and atomic scale."
+    effects:
+      - type: "material_science"
+        value: 0.3
+      - type: "medical_advancement"
+        value: 0.2
+      - type: "manufacturing_efficiency"
+        value: 0.25
+    unlocks:
+      - "molecular_assembly"
+      - "advanced_materials"
+
+  # Military Technologies
+  stealth_technology:
+    name: "Stealth Technology"
+    category: "military"
+    tier: 2
+    research_cost: 1000
+    year_available: 1995
+    prerequisites: ["advanced_materials"]
+    description: "Technology to reduce detection by radar and other sensors."
+    effects:
+      - type: "military_effectiveness"
+        value: 0.2
+      - type: "air_superiority"
+        value: 0.3
+    unlocks:
+      - "advanced_stealth"
+      - "electronic_warfare"
+
+  nuclear_technology:
+    name: "Nuclear Technology"
+    category: "military"
+    tier: 3
+    research_cost: 2500
+    year_available: 1990
+    prerequisites: ["advanced_physics"]
+    description: "Nuclear weapons and power generation technology."
+    effects:
+      - type: "nuclear_capability"
+        value: true
+      - type: "diplomatic_influence"
+        value: 0.4
+      - type: "resource_output"
+        target: "energy"
+        value: 300
+    unlocks:
+      - "advanced_nuclear"
+      - "nuclear_submarines"
+    restrictions:
+      - type: "government_type"
+        allowed: ["democracy", "authoritarian", "totalitarian"]
+
+  hypersonic_weapons:
+    name: "Hypersonic Weapons"
+    category: "military"
+    tier: 4
+    research_cost: 2200
+    year_available: 2020
+    prerequisites: ["advanced_propulsion", "guidance_systems"]
+    description: "Weapons systems capable of hypersonic speeds."
+    effects:
+      - type: "military_effectiveness"
+        value: 0.35
+      - type: "strategic_deterrence"
+        value: 0.5
+    unlocks:
+      - "hypersonic_defense"
+      - "space_weapons"
+
+  # Space Technologies
+  satellite_communications:
+    name: "Satellite Communications"
+    category: "space"
+    tier: 2
+    research_cost: 800
+    year_available: 1990
+    prerequisites: ["space_program"]
+    description: "Global communication through satellite networks."
+    effects:
+      - type: "communications"
+        value: 0.3
+      - type: "intelligence_gathering"
+        value: 0.2
+    unlocks:
+      - "gps_systems"
+      - "satellite_surveillance"
+
+  space_technology:
+    name: "Space Technology"
+    category: "space"
+    tier: 3
+    research_cost: 1800
+    year_available: 2005
+    prerequisites: ["satellite_communications", "advanced_propulsion"]
+    description: "Advanced space exploration and utilization technologies."
+    effects:
+      - type: "resource_access"
+        target: "rare_minerals"
+        value: 0.4
+      - type: "technological_prestige"
+        value: 0.3
+    unlocks:
+      - "space_stations"
+      - "mars_exploration"
+
+  space_stations:
+    name: "Space Stations"
+    category: "space"
+    tier: 4
+    research_cost: 3500
+    year_available: 2015
+    prerequisites: ["space_technology"]
+    description: "Permanent human presence in space for research and industry."
+    effects:
+      - type: "research_speed"
+        value: 0.2
+      - type: "resource_output"
+        target: "technology"
+        value: 150
+      - type: "space_industry"
+        value: 0.5
+    unlocks:
+      - "orbital_manufacturing"
+      - "deep_space_exploration"
+
+  # Biotechnology
+  biotechnology:
+    name: "Biotechnology"
+    category: "medical"
+    tier: 3
+    research_cost: 1400
+    year_available: 2000
+    prerequisites: ["genetic_research", "advanced_computing"]
+    description: "Advanced biological and genetic engineering technologies."
+    effects:
+      - type: "healthcare_quality"
+        value: 0.3
+      - type: "life_expectancy"
+        value: 2.5
+      - type: "agricultural_yield"
+        value: 0.2
+    unlocks:
+      - "gene_therapy"
+      - "synthetic_biology"
+
+  gene_therapy:
+    name: "Gene Therapy"
+    category: "medical"
+    tier: 4
+    research_cost: 2800
+    year_available: 2020
+    prerequisites: ["biotechnology"]
+    description: "Treatment of diseases through genetic modification."
+    effects:
+      - type: "healthcare_quality"
+        value: 0.5
+      - type: "life_expectancy"
+        value: 5.0
+      - type: "population_growth"
+        value: 0.1
+    unlocks:
+      - "genetic_enhancement"
+      - "personalized_medicine"
+
+# Technology categories for organization
+categories:
+  computing:
+    name: "Computing & AI"
+    description: "Information technology, artificial intelligence, and computing systems"
+    color: "#3B82F6"
+
+  energy:
+    name: "Energy Systems"
+    description: "Power generation, storage, and distribution technologies"
+    color: "#10B981"
+
+  manufacturing:
+    name: "Manufacturing"
+    description: "Production, materials science, and industrial technologies"
+    color: "#F59E0B"
+
+  military:
+    name: "Military Technology"
+    description: "Defense systems, weapons, and military equipment"
+    color: "#EF4444"
+
+  space:
+    name: "Space Technology"
+    description: "Space exploration, satellites, and extraterrestrial technologies"
+    color: "#8B5CF6"
+
+  medical:
+    name: "Biotechnology"
+    description: "Medical advances, genetics, and biological technologies"
+    color: "#EC4899"

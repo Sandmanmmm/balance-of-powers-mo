@@ -1,0 +1,298 @@
+# Game events for Balance of Powers
+# Format: event_id -> event data
+
+events:
+  EVENT_001:
+    type: "economic"
+    title: "Tech Sector Boom"
+    description: "A breakthrough in quantum computing has sparked massive investment in the technology sector, attracting global talent and capital."
+    affected_provinces:
+      - "USA_001"
+    effects:
+      - target: "USA_001"
+        property: "economy.gdp_per_capita"
+        change: 2500
+      - target: "USA_001"
+        property: "resource_output.technology"
+        change: 200
+      - target: "USA_001"
+        property: "unrest"
+        change: -0.5
+    choices:
+      - text: "Increase research funding and tax incentives"
+        effects:
+          - target: "USA"
+            property: "technology.research_points"
+            change: 500
+          - target: "USA"
+            property: "economy.debt"
+            change: 50000000000
+          - target: "USA_001"
+            property: "resource_output.technology"
+            change: 300
+      - text: "Regulate tech sector expansion"
+        effects:
+          - target: "USA_001"
+            property: "unrest"
+            change: 1.2
+          - target: "USA_001"
+            property: "politics.party_support.Democrats"
+            change: -2.1
+      - text: "Maintain current policy"
+        effects: []
+    trigger_conditions:
+      - type: "tech_level"
+        target: "USA"
+        threshold: 9.0
+      - type: "random"
+        probability: 0.15
+    duration: 90
+    frequency: "rare"
+
+  EVENT_002:
+    type: "political"
+    title: "Environmental Protests"
+    description: "Large-scale climate protests sweep across major cities, demanding immediate action on carbon emissions and renewable energy transition."
+    affected_provinces:
+      - "GER_001"
+      - "GER_002"
+    effects:
+      - target: "GER_001"
+        property: "unrest"
+        change: 2.5
+      - target: "GER_001"
+        property: "politics.party_support.Greens"
+        change: 5.2
+      - target: "GER_002"
+        property: "unrest"
+        change: 1.8
+      - target: "GER_002"
+        property: "politics.party_support.Greens"
+        change: 3.7
+    choices:
+      - text: "Accelerate green energy transition"
+        effects:
+          - target: "GER"
+            property: "economy.debt"
+            change: 150000000000
+          - target: "GER_001"
+            property: "unrest"
+            change: -3.0
+          - target: "GER_002"
+            property: "unrest"
+            change: -2.2
+          - target: "GER"
+            property: "government.approval"
+            change: 8.5
+      - text: "Increase police presence and disperse protests"
+        effects:
+          - target: "GER_001"
+            property: "unrest"
+            change: 3.2
+          - target: "GER_002"
+            property: "unrest"
+            change: 2.1
+          - target: "GER"
+            property: "government.approval"
+            change: -12.3
+          - target: "GER"
+            property: "government.stability"
+            change: -5.8
+      - text: "Promise future environmental reforms"
+        effects:
+          - target: "GER_001"
+            property: "unrest"
+            change: -1.2
+          - target: "GER_002"
+            property: "unrest"
+            change: -0.8
+          - target: "GER"
+            property: "government.approval"
+            change: 2.1
+    trigger_conditions:
+      - type: "season"
+        value: "spring"
+      - type: "province_unrest"
+        target: "GER_001"
+        threshold: 3.0
+    duration: 30
+    frequency: "common"
+
+  EVENT_003:
+    type: "military"
+    title: "Joint Military Exercise"
+    description: "NATO allies conduct large-scale joint military exercises, testing new equipment and coordination protocols."
+    affected_provinces:
+      - "GER_001"
+      - "USA_002"
+    effects:
+      - target: "GER"
+        property: "military.equipment"
+        change: 5
+      - target: "USA"
+        property: "military.equipment"
+        change: 3
+      - target: "GER_001"
+        property: "military.fortification_level"
+        change: 1
+    choices:
+      - text: "Expand military cooperation"
+        effects:
+          - target: "GER"
+            property: "diplomacy.allies"
+            action: "strengthen_relations"
+            value: "USA"
+          - target: "USA"
+            property: "diplomacy.allies"
+            action: "strengthen_relations"
+            value: "GER"
+      - text: "Focus on defensive capabilities"
+        effects:
+          - target: "GER_001"
+            property: "military.fortification_level"
+            change: 2
+          - target: "GER_002"
+            property: "military.fortification_level"
+            change: 1
+      - text: "Minimal participation"
+        effects:
+          - target: "GER"
+            property: "government.approval"
+            change: -1.5
+    trigger_conditions:
+      - type: "diplomatic_status"
+        nations: ["GER", "USA"]
+        status: "allied"
+      - type: "random"
+        probability: 0.25
+    duration: 14
+    frequency: "uncommon"
+
+  EVENT_004:
+    type: "economic"
+    title: "Energy Crisis"
+    description: "Global energy prices spike due to supply chain disruptions and geopolitical tensions, affecting industrial production."
+    affected_provinces:
+      - "GER_001"
+      - "GER_002"
+      - "USA_002"
+    effects:
+      - target: "GER_001"
+        property: "economy.inflation"
+        change: 1.8
+      - target: "GER_002"
+        property: "economy.inflation"
+        change: 1.5
+      - target: "USA_002"
+        property: "economy.inflation"
+        change: 2.1
+      - target: "GER_001"
+        property: "resource_output.energy"
+        change: -200
+      - target: "USA_002"
+        property: "resource_output.energy"
+        change: -400
+    choices:
+      - text: "Subsidize energy costs for consumers"
+        effects:
+          - target: "GER"
+            property: "economy.debt"
+            change: 80000000000
+          - target: "GER"
+            property: "government.approval"
+            change: 6.2
+          - target: "GER_001"
+            property: "unrest"
+            change: -1.5
+      - text: "Accelerate renewable energy projects"
+        effects:
+          - target: "GER"
+            property: "economy.debt"
+            change: 120000000000
+          - target: "GER_001"
+            property: "resource_output.energy"
+            change: 300
+          - target: "GER_002"
+            property: "resource_output.energy"
+            change: 200
+      - text: "Let market forces determine prices"
+        effects:
+          - target: "GER_001"
+            property: "unrest"
+            change: 3.2
+          - target: "GER_002"
+            property: "unrest"
+            change: 2.8
+          - target: "GER"
+            property: "government.approval"
+            change: -8.7
+    trigger_conditions:
+      - type: "global_tension"
+        threshold: 0.6
+      - type: "resource_shortage"
+        resource: "energy"
+        severity: "moderate"
+    duration: 120
+    frequency: "uncommon"
+
+  EVENT_005:
+    type: "technological"
+    title: "AI Research Breakthrough"
+    description: "Scientists achieve a major breakthrough in artificial general intelligence, raising both excitement and concerns about the future of work."
+    affected_provinces:
+      - "USA_001"
+      - "GER_001"
+    effects:
+      - target: "USA_001"
+        property: "resource_output.technology"
+        change: 400
+      - target: "GER_001"
+        property: "resource_output.technology"
+        change: 250
+      - target: "USA"
+        property: "technology.research_points"
+        change: 800
+      - target: "GER"
+        property: "technology.research_points"
+        change: 500
+    choices:
+      - text: "Regulate AI development strictly"
+        effects:
+          - target: "USA_001"
+            property: "resource_output.technology"
+            change: -100
+          - target: "USA_001"
+            property: "unrest"
+            change: -2.1
+          - target: "USA"
+            property: "government.approval"
+            change: 3.4
+      - text: "Promote unrestricted AI research"
+        effects:
+          - target: "USA_001"
+            property: "resource_output.technology"
+            change: 300
+          - target: "USA_001"
+            property: "unrest"
+            change: 2.8
+          - target: "USA_001"
+            property: "economy.unemployment"
+            change: 1.5
+      - text: "Create international AI governance framework"
+        effects:
+          - target: "USA"
+            property: "diplomacy.allies"
+            action: "strengthen_relations"
+            value: "GER"
+          - target: "GER"
+            property: "diplomacy.allies"
+            action: "strengthen_relations"
+            value: "USA"
+    trigger_conditions:
+      - type: "tech_research"
+        tech: "AI Systems"
+        progress: 0.8
+      - type: "random"
+        probability: 0.1
+    duration: 60
+    frequency: "rare"

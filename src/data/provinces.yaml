@@ -1,0 +1,221 @@
+# Province data for Balance of Powers
+# Format: province_id -> province data
+
+provinces:
+  GER_001:
+    name: "Lower Saxony"
+    country: "Germany"
+    coordinates: [52.6367, 9.8451]
+    population:
+      total: 7800000
+      ethnic_groups:
+        - group: "German"
+          percent: 93
+        - group: "Turkish"
+          percent: 5
+        - group: "Other"
+          percent: 2
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 4
+      education: 4
+    military:
+      stationed_units:
+        - "GER_INF_4"
+        - "GER_LOG_2"
+      fortification_level: 2
+    resource_output:
+      energy: 1400
+      iron: 230
+      food: 850
+      technology: 180
+    politics:
+      party_support:
+        "Social Democrats": 28.5
+        "Christian Democrats": 24.3
+        "Greens": 23.3
+        "Free Democrats": 9.2
+        "Nationalists": 14.7
+      governor_approval: 67.3
+    economy:
+      gdp_per_capita: 42000
+      unemployment: 5.1
+      inflation: 2.8
+
+  USA_001:
+    name: "California"
+    country: "United States"
+    coordinates: [36.7783, -119.4179]
+    population:
+      total: 39500000
+      ethnic_groups:
+        - group: "White"
+          percent: 36.5
+        - group: "Hispanic"
+          percent: 39.4
+        - group: "Asian"
+          percent: 15.5
+        - group: "Black"
+          percent: 6.5
+        - group: "Other"
+          percent: 2.1
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 5
+      healthcare: 3
+      education: 4
+    military:
+      stationed_units:
+        - "USA_MAR_1"
+        - "USA_AF_12"
+        - "USA_NAVY_PAC_3"
+      fortification_level: 3
+    resource_output:
+      energy: 2100
+      iron: 45
+      food: 1850
+      technology: 1250
+    politics:
+      party_support:
+        "Democrats": 62.1
+        "Republicans": 31.2
+        "Green Party": 4.1
+        "Libertarian": 2.6
+      governor_approval: 54.7
+    economy:
+      gdp_per_capita: 75000
+      unemployment: 7.3
+      inflation: 4.2
+
+  CHN_001:
+    name: "Guangdong"
+    country: "China"
+    coordinates: [23.3417, 113.4244]
+    population:
+      total: 126000000
+      ethnic_groups:
+        - group: "Han Chinese"
+          percent: 97.8
+        - group: "Zhuang"
+          percent: 1.2
+        - group: "Other"
+          percent: 1.0
+    unrest: 2.1
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    military:
+      stationed_units:
+        - "CHN_INF_7"
+        - "CHN_INF_8"
+        - "CHN_MISSILE_1"
+      fortification_level: 2
+    resource_output:
+      energy: 1800
+      iron: 340
+      food: 950
+      technology: 890
+    politics:
+      party_support:
+        "Communist Party": 89.4
+        "Independent": 10.6
+      governor_approval: 78.2
+    economy:
+      gdp_per_capita: 28000
+      unemployment: 3.8
+      inflation: 1.9
+
+  GER_002:
+    name: "Bavaria"
+    country: "Germany"
+    coordinates: [48.7904, 11.4979]
+    population:
+      total: 13200000
+      ethnic_groups:
+        - group: "German"
+          percent: 91.2
+        - group: "Turkish"
+          percent: 3.8
+        - group: "Austrian"
+          percent: 2.1
+        - group: "Other"
+          percent: 2.9
+    unrest: 3.7
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 5
+      education: 5
+    military:
+      stationed_units:
+        - "GER_INF_2"
+        - "GER_AIR_1"
+      fortification_level: 1
+    resource_output:
+      energy: 980
+      iron: 120
+      food: 1200
+      technology: 340
+    politics:
+      party_support:
+        "Christian Democrats": 35.2
+        "Social Democrats": 22.1
+        "Greens": 18.7
+        "Free Democrats": 12.3
+        "Nationalists": 11.7
+      governor_approval: 71.8
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 3.9
+      inflation: 2.6
+
+  USA_002:
+    name: "Texas"
+    country: "United States"
+    coordinates: [31.9686, -99.9018]
+    population:
+      total: 30000000
+      ethnic_groups:
+        - group: "White"
+          percent: 41.2
+        - group: "Hispanic"
+          percent: 40.2
+        - group: "Black"
+          percent: 12.9
+        - group: "Asian"
+          percent: 4.9
+        - group: "Other"
+          percent: 0.8
+    unrest: 5.3
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 2
+      education: 3
+    military:
+      stationed_units:
+        - "USA_INF_5"
+        - "USA_AF_7"
+        - "USA_BORDER_1"
+      fortification_level: 2
+    resource_output:
+      energy: 3200
+      iron: 180
+      food: 2100
+      technology: 420
+    politics:
+      party_support:
+        "Republicans": 52.7
+        "Democrats": 43.8
+        "Libertarian": 2.1
+        "Green Party": 1.4
+      governor_approval: 49.2
+    economy:
+      gdp_per_capita: 62000
+      unemployment: 4.1
+      inflation: 3.8

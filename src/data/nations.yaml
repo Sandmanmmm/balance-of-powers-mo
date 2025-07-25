@@ -1,0 +1,169 @@
+# Nation data for Balance of Powers
+# Format: nation_id -> nation data
+
+nations:
+  GER:
+    name: "Germany"
+    capital: "Berlin"
+    flag: "🇩🇪"
+    government:
+      type: "democracy"
+      leader: "Olaf Scholz"
+      approval: 45.2
+      stability: 82.1
+      ruling_party: "Social Democrats"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2021-09-26"
+    economy:
+      gdp: 4200000000000
+      debt: 2800000000000
+      inflation: 2.8
+      trade_balance: 285000000000
+      currency: "EUR"
+      interest_rate: 2.1
+      sectors:
+        manufacturing: 23.2
+        services: 69.1
+        agriculture: 0.9
+        technology: 6.8
+    military:
+      manpower: 184000
+      equipment: 78
+      doctrine: "Modern Combined Arms"
+      nuclear_capability: false
+      military_spending_gdp: 1.53
+      conscription: false
+      reserve_forces: 30000
+    technology:
+      research_points: 1250
+      current_research:
+        - "Green Energy"
+        - "AI Systems"
+        - "Advanced Manufacturing"
+      completed_tech:
+        - "Internet"
+        - "Renewable Energy"
+        - "Precision Manufacturing"
+        - "Industrial Automation"
+        - "Nuclear Power"
+      tech_level: 8.5
+      research_spending_gdp: 3.1
+    diplomacy:
+      allies:
+        - "USA"
+        - "FRA"
+        - "GBR"
+        - "ITA"
+        - "POL"
+      enemies: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "FRA"
+        - "ITA"
+        - "GBR"
+        - "NLD"
+        - "AUT"
+      international_relations:
+        EU: "member"
+        NATO: "member"
+        UN_Security_Council: false
+    provinces:
+      - "GER_001"
+      - "GER_002"
+    demographics:
+      population: 83200000
+      median_age: 47.8
+      birth_rate: 1.59
+      life_expectancy: 81.2
+      literacy_rate: 99.0
+      urbanization: 77.5
+
+  USA:
+    name: "United States"
+    capital: "Washington D.C."
+    flag: "🇺🇸"
+    government:
+      type: "democracy"
+      leader: "Joe Biden"
+      approval: 42.8
+      stability: 68.5
+      ruling_party: "Democrats"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2020-11-03"
+    economy:
+      gdp: 25400000000000
+      debt: 31400000000000
+      inflation: 4.2
+      trade_balance: -945000000000
+      currency: "USD"
+      interest_rate: 5.25
+      sectors:
+        manufacturing: 12.1
+        services: 80.2
+        agriculture: 0.9
+        technology: 6.8
+    military:
+      manpower: 1400000
+      equipment: 95
+      doctrine: "Global Force Projection"
+      nuclear_capability: true
+      military_spending_gdp: 3.5
+      conscription: false
+      reserve_forces: 800000
+      nuclear_warheads: 5550
+    technology:
+      research_points: 4850
+      current_research:
+        - "Quantum Computing"
+        - "Space Technology"
+        - "Biotechnology"
+        - "Advanced AI"
+        - "Hypersonic Weapons"
+      completed_tech:
+        - "Internet"
+        - "GPS"
+        - "Stealth Technology"
+        - "Nuclear Technology"
+        - "Satellite Communications"
+        - "Advanced Semiconductors"
+      tech_level: 9.2
+      research_spending_gdp: 3.4
+    diplomacy:
+      allies:
+        - "GER"
+        - "FRA"
+        - "GBR"
+        - "JPN"
+        - "KOR"
+        - "AUS"
+        - "CAN"
+      enemies:
+        - "CHN"
+        - "RUS"
+        - "IRN"
+        - "PRK"
+      trade_partners:
+        - "CHN"
+        - "MEX"
+        - "CAN"
+        - "GER"
+        - "JPN"
+        - "GBR"
+        - "KOR"
+      international_relations:
+        EU: "partner"
+        NATO: "founding_member"
+        UN_Security_Council: true
+    provinces:
+      - "USA_001"
+      - "USA_002"
+    demographics:
+      population: 333000000
+      median_age: 38.5
+      birth_rate: 1.7
+      life_expectancy: 78.9
+      literacy_rate: 99.0
+      urbanization: 82.7

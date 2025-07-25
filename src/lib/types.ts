@@ -106,4 +106,42 @@ export interface GameState {
   notifications: GameEvent[];
 }
 
+export interface Unit {
+  id: string;
+  name: string;
+  type: string;
+  nation: string;
+  stationedProvince: string;
+  strength: number;
+  equipmentLevel: number;
+  experience: number;
+  morale: number;
+  maintenanceCost: number;
+  unitType: string;
+  capabilities: string[];
+  doctrine?: string;
+  aircraftType?: string;
+}
+
+export interface Technology {
+  id: string;
+  name: string;
+  category: string;
+  tier: number;
+  researchCost: number;
+  yearAvailable: number;
+  prerequisites: string[];
+  description: string;
+  effects: Array<{
+    type: string;
+    target?: string;
+    value: number | boolean;
+  }>;
+  unlocks: string[];
+  restrictions?: Array<{
+    type: string;
+    allowed?: string[];
+  }>;
+}
+
 export type MapOverlayType = GameState['mapOverlay'];

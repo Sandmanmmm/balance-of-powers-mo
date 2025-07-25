@@ -1,0 +1,275 @@
+# Military and civilian units for Balance of Powers
+# Format: unit_id -> unit data
+
+units:
+  # German Military Units
+  GER_INF_4:
+    name: "4th Infantry Division"
+    type: "infantry"
+    nation: "Germany"
+    stationed_province: "GER_001"
+    strength: 12000
+    equipment_level: 78
+    experience: 65
+    morale: 82
+    maintenance_cost: 45000
+    unit_type: "mechanized_infantry"
+    doctrine: "Modern Combined Arms"
+    capabilities:
+      - "urban_warfare"
+      - "defensive_operations"
+      - "peacekeeping"
+
+  GER_LOG_2:
+    name: "2nd Logistics Battalion"
+    type: "logistics"
+    nation: "Germany"
+    stationed_province: "GER_001"
+    strength: 3500
+    equipment_level: 85
+    experience: 70
+    morale: 75
+    maintenance_cost: 28000
+    unit_type: "logistics_support"
+    capabilities:
+      - "supply_lines"
+      - "transport"
+      - "medical_support"
+
+  GER_INF_2:
+    name: "2nd Mountain Infantry"
+    type: "infantry"
+    nation: "Germany"
+    stationed_province: "GER_002"
+    strength: 8500
+    equipment_level: 80
+    experience: 72
+    morale: 88
+    maintenance_cost: 42000
+    unit_type: "mountain_infantry"
+    capabilities:
+      - "mountain_warfare"
+      - "alpine_operations"
+      - "border_patrol"
+
+  GER_AIR_1:
+    name: "1st Fighter Wing"
+    type: "air_force"
+    nation: "Germany"
+    stationed_province: "GER_002"
+    strength: 48
+    equipment_level: 90
+    experience: 85
+    morale: 92
+    maintenance_cost: 180000
+    unit_type: "fighter_aircraft"
+    aircraft_type: "Eurofighter Typhoon"
+    capabilities:
+      - "air_superiority"
+      - "interception"
+      - "air_defense"
+
+  # US Military Units
+  USA_MAR_1:
+    name: "1st Marine Expeditionary Unit"
+    type: "marines"
+    nation: "United States"
+    stationed_province: "USA_001"
+    strength: 2200
+    equipment_level: 95
+    experience: 90
+    morale: 94
+    maintenance_cost: 125000
+    unit_type: "marine_expeditionary"
+    capabilities:
+      - "amphibious_assault"
+      - "rapid_deployment"
+      - "urban_warfare"
+      - "special_operations"
+
+  USA_AF_12:
+    name: "12th Fighter Squadron"
+    type: "air_force"
+    nation: "United States"
+    stationed_province: "USA_001"
+    strength: 24
+    equipment_level: 98
+    experience: 92
+    morale: 89
+    maintenance_cost: 240000
+    unit_type: "stealth_fighter"
+    aircraft_type: "F-22 Raptor"
+    capabilities:
+      - "air_superiority"
+      - "stealth_operations"
+      - "deep_strike"
+      - "electronic_warfare"
+
+  USA_NAVY_PAC_3:
+    name: "Pacific Fleet 3rd Carrier Group"
+    type: "navy"
+    nation: "United States"
+    stationed_province: "USA_001"
+    strength: 5500
+    equipment_level: 96
+    experience: 88
+    morale: 86
+    maintenance_cost: 450000
+    unit_type: "carrier_strike_group"
+    capabilities:
+      - "naval_supremacy"
+      - "power_projection"
+      - "sea_control"
+      - "amphibious_support"
+
+  USA_INF_5:
+    name: "5th Armored Division"
+    type: "armor"
+    nation: "United States"
+    stationed_province: "USA_002"
+    strength: 14000
+    equipment_level: 92
+    experience: 85
+    morale: 81
+    maintenance_cost: 185000
+    unit_type: "heavy_armor"
+    capabilities:
+      - "tank_warfare"
+      - "breakthrough_operations"
+      - "desert_warfare"
+      - "combined_arms"
+
+  USA_AF_7:
+    name: "7th Tactical Fighter Wing"
+    type: "air_force"
+    nation: "United States"
+    stationed_province: "USA_002"
+    strength: 72
+    equipment_level: 94
+    experience: 87
+    morale: 84
+    maintenance_cost: 320000
+    unit_type: "multirole_fighter"
+    aircraft_type: "F-35A Lightning II"
+    capabilities:
+      - "multirole_operations"
+      - "ground_attack"
+      - "air_defense"
+      - "intelligence_gathering"
+
+  USA_BORDER_1:
+    name: "Border Security Unit Alpha"
+    type: "special_forces"
+    nation: "United States"
+    stationed_province: "USA_002"
+    strength: 1200
+    equipment_level: 88
+    experience: 75
+    morale: 78
+    maintenance_cost: 95000
+    unit_type: "border_patrol"
+    capabilities:
+      - "border_security"
+      - "counternarcotics"
+      - "surveillance"
+      - "rapid_response"
+
+  # Chinese Military Units
+  CHN_INF_7:
+    name: "7th Combined Arms Brigade"
+    type: "infantry"
+    nation: "China"
+    stationed_province: "CHN_001"
+    strength: 18000
+    equipment_level: 72
+    experience: 68
+    morale: 85
+    maintenance_cost: 85000
+    unit_type: "combined_arms_brigade"
+    capabilities:
+      - "conventional_warfare"
+      - "urban_operations"
+      - "defensive_positions"
+
+  CHN_INF_8:
+    name: "8th Mechanized Infantry"
+    type: "infantry"
+    nation: "China"
+    stationed_province: "CHN_001"
+    strength: 15500
+    equipment_level: 75
+    experience: 70
+    morale: 87
+    maintenance_cost: 92000
+    unit_type: "mechanized_infantry"
+    capabilities:
+      - "mechanized_warfare"
+      - "rapid_advance"
+      - "combined_operations"
+
+  CHN_MISSILE_1:
+    name: "1st Missile Brigade"
+    type: "artillery"
+    nation: "China"
+    stationed_province: "CHN_001"
+    strength: 2800
+    equipment_level: 85
+    experience: 75
+    morale: 89
+    maintenance_cost: 150000
+    unit_type: "ballistic_missile"
+    capabilities:
+      - "long_range_strike"
+      - "precision_bombardment"
+      - "area_denial"
+      - "strategic_deterrence"
+
+# Unit Templates for recruitment
+unit_templates:
+  basic_infantry:
+    name: "Infantry Battalion"
+    type: "infantry"
+    base_strength: 800
+    recruitment_cost: 25000
+    maintenance_cost: 8000
+    training_time: 90
+    equipment_requirements:
+      small_arms: 800
+      vehicles: 12
+      communications: 8
+
+  mechanized_infantry:
+    name: "Mechanized Infantry"
+    type: "infantry"
+    base_strength: 1200
+    recruitment_cost: 45000
+    maintenance_cost: 15000
+    training_time: 120
+    equipment_requirements:
+      small_arms: 1200
+      armored_vehicles: 24
+      support_vehicles: 8
+
+  tank_battalion:
+    name: "Tank Battalion"
+    type: "armor"
+    base_strength: 600
+    recruitment_cost: 120000
+    maintenance_cost: 35000
+    training_time: 180
+    equipment_requirements:
+      main_battle_tanks: 40
+      support_vehicles: 16
+      maintenance_equipment: 8
+
+  fighter_squadron:
+    name: "Fighter Squadron"
+    type: "air_force"
+    base_strength: 24
+    recruitment_cost: 250000
+    maintenance_cost: 80000
+    training_time: 360
+    equipment_requirements:
+      fighter_aircraft: 24
+      pilots: 36
+      ground_crew: 180
