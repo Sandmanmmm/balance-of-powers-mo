@@ -129,3 +129,39 @@ export function calculateOptimalProjection(
     scale
   };
 }
+
+/**
+ * Calculate the centroid of a polygon for label positioning
+ */
+export function calculatePolygonCentroid(coordinates: number[][]): [number, number] {
+  if (!coordinates || coordinates.length === 0) {
+    return [0, 0];
+  }
+
+  let totalX = 0;
+  let totalY = 0;
+  let totalArea = 0;
+
+  for (let i = 0; i < coordinates.length - 1; i++) {
+    const [x1, y1] = coordinates[i];
+    const [x2, y2] = coordinates[i + 1];
+    
+    const cross = x1 * y2 - x2 * y1;
+    totalArea += cross;
+    totalX += (x1 + x2) * cross;
+    totalY += (y1 + y2) * cross;
+  }
+
+  if (totalArea === 0) {
+    // Fallback to simple average if polygon has no area
+    const avgX = coordinates.reduce((sum, coord) => sum + coord[0], 0) / coordinates.length;
+    const avgY = coordinates.reduce((sum, coord) => sum + coord[1], 0) / coordinates.length;
+    return [avgX, avgY];
+  }
+
+  totalArea *= 0.5;
+  const centroidX = totalX / (6 * totalArea);
+  const centroidY = totalY / (6 * totalArea);
+
+  return [centroidX, centroidY];
+}

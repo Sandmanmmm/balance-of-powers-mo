@@ -16,7 +16,7 @@ import {
 } from '@phosphor-icons/react';
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
-import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates } from '../lib/mapProjection';
+import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid } from '../lib/mapProjection';
 import provinceBoundariesData from '../data/province-boundaries.json';
 
 interface WorldMapProps {
@@ -79,7 +79,15 @@ function getProvinceColor(province: Province, overlay: MapOverlayType): string {
       return '#e5e7eb';
     
     default:
-      return '#e5e7eb';
+      // Country-based coloring for default view
+      switch (province.country) {
+        case 'Germany': return '#2dd4bf';  // Teal
+        case 'United States': return '#34d399';  // Emerald  
+        case 'China': return '#a78bfa';  // Violet
+        case 'France': return '#60a5fa';  // Blue
+        case 'United Kingdom': return '#f472b6';  // Pink
+        default: return '#e5e7eb';  // Gray
+      }
   }
 }
 
@@ -188,15 +196,26 @@ export function WorldMap({
         <svg
           viewBox={`0 0 ${projectionConfig.width} ${projectionConfig.height}`}
           className="w-full h-full"
-          style={{ background: '#e0f2fe' }}
+          style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%)' }}
         >
-          {/* Ocean/background */}
+          {/* Ocean/background with gradient */}
+          <defs>
+            <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#0ea5e9" stopOpacity="1" />
+              <stop offset="50%" stopColor="#0284c7" stopOpacity="1" />
+              <stop offset="100%" stopColor="#0369a1" stopOpacity="1" />
+            </linearGradient>
+            <filter id="landShadow">
+              <feDropShadow dx="2" dy="2" stdDeviation="3" floodOpacity="0.3"/>
+            </filter>
+          </defs>
+          
           <rect
             x="0"
             y="0"
             width={projectionConfig.width}
             height={projectionConfig.height}
-            fill="#e0f2fe"
+            fill="url(#oceanGradient)"
           />
 
           {/* Province polygons */}
@@ -204,7 +223,7 @@ export function WorldMap({
             const provinceId = feature.properties.id;
             const province = provinceDataMap.get(provinceId);
             
-            if (!province) return null;
+            if (!province || !feature.geometry || !feature.geometry.coordinates) return null;
 
             const isSelected = selectedProvince === provinceId;
             const isHovered = hoveredProvince === provinceId;
@@ -216,6 +235,10 @@ export function WorldMap({
               projectionConfig
             );
 
+            // Calculate centroid for label positioning
+            const centroid = calculatePolygonCentroid(feature.geometry.coordinates[0]);
+            const [labelX, labelY] = projectCoordinates(centroid[0], centroid[1], projectionConfig);
+
             return (
               <g key={provinceId}>
                 {/* Province boundary */}
@@ -224,44 +247,57 @@ export function WorldMap({
                   fill={color}
                   stroke={isSelected ? "#1f2937" : isHovered ? "#374151" : "#9ca3af"}
                   strokeWidth={isSelected ? 3 : isHovered ? 2 : 1}
+                  fillOpacity={isSelected ? 0.9 : isHovered ? 0.8 : 0.7}
                   className="cursor-pointer transition-all duration-200"
                   onClick={() => handleProvinceClick(provinceId)}
                   onMouseEnter={() => handleProvinceHover(provinceId)}
                   onMouseLeave={() => handleProvinceHover(null)}
+                  filter={mapOverlay === 'none' ? 'url(#landShadow)' : 'none'}
+                  style={{
+                    filter: isSelected ? 'drop-shadow(0 4px 8px rgba(0,0,0,0.25))' : 
+                            isHovered ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' : 'none'
+                  }}
                 />
                 
                 {/* Province label (visible when zoomed in or selected) */}
-                {(zoomLevel > 1.5 || isSelected || isHovered) && (
-                  <text
-                    x={(() => {
-                      const [x, y] = projectCoordinates(
-                        province.coordinates[1], 
-                        province.coordinates[0], 
-                        projectionConfig
-                      );
-                      return x;
-                    })()}
-                    y={(() => {
-                      const [x, y] = projectCoordinates(
-                        province.coordinates[1], 
-                        province.coordinates[0], 
-                        projectionConfig
-                      );
-                      return y;
-                    })()}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    className={cn(
-                      "font-medium pointer-events-none",
-                      isSelected ? "fill-primary text-sm" : "fill-foreground text-xs"
-                    )}
-                    style={{ 
-                      fontSize: isSelected ? '14px' : '12px',
-                      fontWeight: isSelected ? 'bold' : 'normal'
-                    }}
-                  >
-                    {province.name}
-                  </text>
+                {(zoomLevel > 1.2 || isSelected || isHovered) && (
+                  <g>
+                    {/* Text shadow for better readability */}
+                    <text
+                      x={labelX}
+                      y={labelY}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      className="pointer-events-none"
+                      style={{ 
+                        fontSize: isSelected ? '14px' : '12px',
+                        fontWeight: isSelected ? 'bold' : 'normal',
+                        fill: '#ffffff',
+                        stroke: '#ffffff',
+                        strokeWidth: '2px',
+                        strokeOpacity: 0.8
+                      }}
+                    >
+                      {province.name}
+                    </text>
+                    {/* Main text */}
+                    <text
+                      x={labelX}
+                      y={labelY}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      className={cn(
+                        "font-medium pointer-events-none",
+                        isSelected ? "fill-primary" : "fill-foreground"
+                      )}
+                      style={{ 
+                        fontSize: isSelected ? '14px' : '12px',
+                        fontWeight: isSelected ? 'bold' : 'normal'
+                      }}
+                    >
+                      {province.name}
+                    </text>
+                  </g>
                 )}
               </g>
             );

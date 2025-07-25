@@ -219,3 +219,147 @@ provinces:
       gdp_per_capita: 62000
       unemployment: 4.1
       inflation: 3.8
+
+  FRA_001:
+    name: "Île-de-France"
+    country: "France"
+    coordinates: [48.8566, 2.3522]
+    population:
+      total: 12300000
+      ethnic_groups:
+        - group: "French"
+          percent: 78.2
+        - group: "Arab"
+          percent: 8.4
+        - group: "African"
+          percent: 6.8
+        - group: "Asian"
+          percent: 4.1
+        - group: "Other"
+          percent: 2.5
+    unrest: 7.2
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 5
+      education: 5
+    military:
+      stationed_units:
+        - "FRA_REP_GUARD_1"
+        - "FRA_INF_3"
+      fortification_level: 1
+    resource_output:
+      energy: 850
+      iron: 25
+      food: 180
+      technology: 1850
+    politics:
+      party_support:
+        "En Marche": 32.4
+        "Republicans": 18.7
+        "Socialists": 16.3
+        "National Rally": 15.2
+        "Greens": 12.1
+        "Other": 5.3
+      governor_approval: 51.8
+    economy:
+      gdp_per_capita: 67000
+      unemployment: 8.2
+      inflation: 3.1
+
+  FRA_002:
+    name: "Provence-Alpes-Côte d'Azur"
+    country: "France"
+    coordinates: [43.9351, 6.0679]
+    population:
+      total: 5100000
+      ethnic_groups:
+        - group: "French"
+          percent: 82.1
+        - group: "Italian"
+          percent: 6.2
+        - group: "Arab"
+          percent: 5.8
+        - group: "African"
+          percent: 3.4
+        - group: "Other"
+          percent: 2.5
+    unrest: 4.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    military:
+      stationed_units:
+        - "FRA_NAVY_MED_1"
+        - "FRA_INF_7"
+      fortification_level: 2
+    resource_output:
+      energy: 420
+      iron: 15
+      food: 650
+      technology: 380
+    politics:
+      party_support:
+        "En Marche": 28.1
+        "National Rally": 25.3
+        "Republicans": 21.4
+        "Socialists": 13.2
+        "Greens": 8.7
+        "Other": 3.3
+      governor_approval: 56.4
+    economy:
+      gdp_per_capita: 41000
+      unemployment: 9.8
+      inflation: 2.9
+
+  GBR_001:
+    name: "England"
+    country: "United Kingdom"
+    coordinates: [52.3555, -1.1743]
+    population:
+      total: 56500000
+      ethnic_groups:
+        - group: "English"
+          percent: 79.8
+        - group: "Scottish"
+          percent: 8.4
+        - group: "Welsh"
+          percent: 4.9
+        - group: "Irish"
+          percent: 2.8
+        - group: "Indian"
+          percent: 2.3
+        - group: "Pakistani"
+          percent: 1.8
+    unrest: 6.1
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    military:
+      stationed_units:
+        - "GBR_INF_1"
+        - "GBR_INF_2"
+        - "GBR_AF_1"
+      fortification_level: 2
+    resource_output:
+      energy: 1200
+      iron: 85
+      food: 950
+      technology: 1420
+    politics:
+      party_support:
+        "Conservatives": 38.7
+        "Labour": 35.2
+        "Liberal Democrats": 11.8
+        "Reform UK": 7.4
+        "Greens": 4.1
+        "Other": 2.8
+      governor_approval: 32.1
+    economy:
+      gdp_per_capita: 46000
+      unemployment: 4.2
+      inflation: 6.8
