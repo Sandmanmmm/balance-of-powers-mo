@@ -55,6 +55,8 @@ function TabsTrigger({
         className,
         "text-xs",
         "text-sm",
+        "text-xs",
+        "text-sm",
         "text-xs"
       )}
       {...props}
