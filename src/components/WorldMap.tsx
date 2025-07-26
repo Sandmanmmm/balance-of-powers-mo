@@ -225,15 +225,25 @@ export function WorldMap({
           />
 
           {/* Province polygons */}
-          {provinceBoundariesData.features.map((feature) => {
-            const provinceId = feature.properties.id;
-            const province = provinceDataMap.get(provinceId);
-            
-            if (!province || !feature.geometry || !feature.geometry.coordinates) return null;
-
-            const isSelected = selectedProvince === provinceId;
-            const isHovered = hoveredProvince === provinceId;
-            const color = getProvinceColor(province, mapOverlay);
+          {Array.isArray(provinceBoundariesData.features) && provinceBoundariesData.features
+            .filter((feature) => {
+              try {
+                const provinceId = feature?.properties?.id;
+                const province = provinceDataMap.get(provinceId);
+                return province && feature.geometry && feature.geometry.coordinates && Array.isArray(feature.geometry.coordinates);
+              } catch (error) {
+                console.warn('Error filtering province feature:', error);
+                return false;
+              }
+            })
+            .map((feature) => {
+              try {
+                const provinceId = feature.properties.id;
+                const province = provinceDataMap.get(provinceId)!;
+                
+                const isSelected = selectedProvince === provinceId;
+                const isHovered = hoveredProvince === provinceId;
+                const color = getProvinceColor(province, mapOverlay);
             
             // Convert coordinates to SVG path
             const pathData = coordinatesToPath(
@@ -307,67 +317,76 @@ export function WorldMap({
                 )}
               </g>
             );
+              } catch (error) {
+                console.warn('Error rendering province:', provinceId, error);
+                return null;
+              }
           })}
 
           {/* Province centers for reference when not showing boundaries */}
-          {mapOverlay === 'none' && zoomLevel < 1.5 && provinces.map((province) => {
-            const [x, y] = projectCoordinates(
-              province.coordinates[1], 
-              province.coordinates[0], 
-              projectionConfig
-            );
-            const isSelected = selectedProvince === province.id;
-            const isHovered = hoveredProvince === province.id;
+          {mapOverlay === 'none' && zoomLevel < 1.5 && Array.isArray(provinces) && provinces
+            .filter(province => province && province.coordinates && Array.isArray(province.coordinates))
+            .map((province) => {
+              try {
+                const [x, y] = projectCoordinates(
+                  province.coordinates[1], 
+                  province.coordinates[0], 
+                  projectionConfig
+                );
+                const isSelected = selectedProvince === province.id;
+                const isHovered = hoveredProvince === province.id;
 
-            return (
-              <circle
-                key={`${province.id}-center`}
-                cx={x}
-                cy={y}
-                r={isSelected ? 6 : isHovered ? 5 : 4}
-                fill={isSelected ? "#1f2937" : isHovered ? "#374151" : "#6b7280"}
-                stroke="#ffffff"
-                strokeWidth="1"
+                return (
+                  <circle
+                    key={`${province.id}-center`}
+                    cx={x}
+                    cy={y}
+                    r={isSelected ? 6 : isHovered ? 5 : 4}
+                    fill={isSelected ? "#1f2937" : isHovered ? "#374151" : "#6b7280"}
+                    stroke="#ffffff"
+                    strokeWidth="1"
                 className="cursor-pointer"
                 onClick={() => handleProvinceClick(province.id)}
                 onMouseEnter={() => handleProvinceHover(province.id)}
                 onMouseLeave={() => handleProvinceHover(null)}
               />
             );
+              } catch (error) {
+                console.warn('Error rendering province center:', province.id, error);
+                return null;
+              }
           })}
         </svg>
       </div>
 
       {/* Hover Tooltip */}
-      {hoveredProvince && (
-        <div className="absolute top-4 right-4 z-20 pointer-events-none">
-          <Card className="p-3 bg-card/95 backdrop-blur-sm border shadow-lg">
-            {(() => {
-              const province = provinceDataMap.get(hoveredProvince);
-              if (!province) return null;
-              
-              return (
-                <div className="space-y-2">
-                  <div className="font-semibold text-sm">{province.name}</div>
-                  <div className="text-xs text-muted-foreground">{province.country}</div>
-                  <div className="space-y-1 text-xs">
-                    <div>Population: {(province.population.total / 1000000).toFixed(1)}M</div>
-                    <div>GDP/capita: ${province.economy.gdpPerCapita.toLocaleString()}</div>
-                    <div>Unrest: {province.unrest.toFixed(1)}</div>
-                    {mapOverlay !== 'none' && (
-                      <div className="pt-1 border-t border-border">
-                        <Badge variant="outline" className="text-xs">
-                          {overlayConfig[mapOverlay].label} View
-                        </Badge>
-                      </div>
-                    )}
-                  </div>
+      {hoveredProvince && (() => {
+        const province = provinceDataMap.get(hoveredProvince);
+        if (!province) return null;
+        
+        return (
+          <div className="absolute top-4 right-4 z-20 pointer-events-none">
+            <Card className="p-3 bg-card/95 backdrop-blur-sm border shadow-lg">
+              <div className="space-y-2">
+                <div className="font-semibold text-sm">{province.name}</div>
+                <div className="text-xs text-muted-foreground">{province.country}</div>
+                <div className="space-y-1 text-xs">
+                  <div>Population: {(province.population.total / 1000000).toFixed(1)}M</div>
+                  <div>GDP/capita: ${province.economy.gdpPerCapita.toLocaleString()}</div>
+                  <div>Unrest: {province.unrest.toFixed(1)}</div>
+                  {mapOverlay !== 'none' && (
+                    <div className="pt-1 border-t border-border">
+                      <Badge variant="outline" className="text-xs">
+                        {overlayConfig[mapOverlay].label} View
+                      </Badge>
+                    </div>
+                  )}
                 </div>
-              );
-            })()}
-          </Card>
-        </div>
-      )}
+              </div>
+            </Card>
+          </div>
+        );
+      })()}
 
       {/* Legend */}
       {mapOverlay !== 'none' && (

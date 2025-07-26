@@ -47,7 +47,7 @@ export function useKV<T>(key: string, defaultValue: T): [
       try {
         const storage = getStorageBackend();
         const stored = await storage.get(key) as T;
-        if (stored !== undefined) {
+        if (stored !== undefined && stored !== null) {
           setValue(stored);
         }
         setIsLoaded(true);
@@ -60,20 +60,31 @@ export function useKV<T>(key: string, defaultValue: T): [
     loadValue();
   }, [key]);
 
-  // Update function
+  // Update function - fixed to use functional state update to avoid stale closure
   const updateValue = useCallback(async (newValue: T | ((current: T) => T)) => {
     try {
-      const finalValue = typeof newValue === 'function' 
-        ? (newValue as (current: T) => T)(value)
-        : newValue;
-      
-      setValue(finalValue);
-      const storage = getStorageBackend();
-      await storage.set(key, finalValue);
+      setValue(currentValue => {
+        const finalValue = typeof newValue === 'function' 
+          ? (newValue as (current: T) => T)(currentValue)
+          : newValue;
+        
+        // Async operation to save to storage
+        const saveToStorage = async () => {
+          try {
+            const storage = getStorageBackend();
+            await storage.set(key, finalValue);
+          } catch (error) {
+            console.error(`Failed to save KV value for key "${key}":`, error);
+          }
+        };
+        saveToStorage();
+        
+        return finalValue;
+      });
     } catch (error) {
       console.error(`Failed to update KV value for key "${key}":`, error);
     }
-  }, [key, value]);
+  }, [key]);
 
   // Delete function
   const deleteValue = useCallback(async () => {

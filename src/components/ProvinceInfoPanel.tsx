@@ -307,8 +307,9 @@ export function ProvinceInfoPanel({
             <div className="space-y-3">
               <h4 className="text-sm font-medium">Natural Resources</h4>
               <div className="grid grid-cols-2 gap-2">
-                {Object.entries(province.resourceDeposits || {}).map(([resourceId, amount]) => {
-                  if (amount <= 0) return null;
+                {Object.entries(province.resourceDeposits || {})
+                  .filter(([resourceId, amount]) => amount > 0)
+                  .map(([resourceId, amount]) => {
                   
                   const getResourceIcon = (resourceId: string) => {
                     const iconMap: Record<string, string> = {

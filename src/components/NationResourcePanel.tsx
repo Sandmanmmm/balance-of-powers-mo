@@ -141,10 +141,11 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
             </div>
 
             <div className="grid grid-cols-1 gap-3">
-              {(resourcesData && typeof resourcesData === 'object' ? Object.keys(resourcesData) : []).map(resourceId => {
-                const resource = resourcesData[resourceId];
-                if (!resource) return null;
-                const status = getResourceStatus(resourceId);
+              {(resourcesData && typeof resourcesData === 'object' ? Object.keys(resourcesData) : [])
+                .filter(resourceId => resourcesData[resourceId])
+                .map(resourceId => {
+                  const resource = resourcesData[resourceId];
+                  const status = getResourceStatus(resourceId);
                 
                 return (
                   <div key={resourceId} className="flex items-center justify-between p-3 border rounded-lg">
@@ -408,14 +409,19 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
           </TabsContent>
 
           <TabsContent value="production" className="space-y-4">
-            {resourceCategories.map(category => {
-              const categoryResources = category.resources.filter(resource => 
-                production[resource.id] > 0 || consumption[resource.id] > 0
-              );
-              
-              if (categoryResources.length === 0) return null;
-              
-              return (
+            {resourceCategories
+              .filter(category => {
+                const categoryResources = category.resources.filter(resource => 
+                  production[resource.id] > 0 || consumption[resource.id] > 0
+                );
+                return categoryResources.length > 0;
+              })
+              .map(category => {
+                const categoryResources = category.resources.filter(resource => 
+                  production[resource.id] > 0 || consumption[resource.id] > 0
+                );
+                
+                return (
                 <Card key={category.id}>
                   <CardHeader className="pb-3">
                     <CardTitle className="text-lg">{category.name}</CardTitle>
@@ -453,14 +459,19 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
           </TabsContent>
 
           <TabsContent value="stockpiles" className="space-y-4">
-            {resourceCategories.map(category => {
-              const categoryResources = category.resources.filter(resource => 
-                stockpiles[resource.id] > 0
-              );
-              
-              if (categoryResources.length === 0) return null;
-              
-              return (
+            {resourceCategories
+              .filter(category => {
+                const categoryResources = category.resources.filter(resource => 
+                  stockpiles[resource.id] > 0
+                );
+                return categoryResources.length > 0;
+              })
+              .map(category => {
+                const categoryResources = category.resources.filter(resource => 
+                  stockpiles[resource.id] > 0
+                );
+                
+                return (
                 <Card key={category.id}>
                   <CardHeader className="pb-3">
                     <CardTitle className="text-lg">{category.name}</CardTitle>

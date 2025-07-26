@@ -15,11 +15,12 @@ const initialGameState: GameState = {
 
 export function useGameState() {
   const [gameState, setGameState] = useKV('gameState', initialGameState);
-  const [provinces, setProvinces] = useKV('provinces', []);
-  const [nations, setNations] = useKV('nations', []);
+  const [provinces, setProvinces] = useKV('provinces', [] as Province[]);
+  const [nations, setNations] = useKV('nations', [] as Nation[]);
   const [events, setEvents] = useKV('events', sampleEvents);
   
   const [localGameState, setLocalGameState] = useState<GameState>(gameState || initialGameState);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Initialize data from YAML when component mounts
   useEffect(() => {
@@ -40,16 +41,22 @@ export function useGameState() {
             setNations(loadedNations);
           }
         }
+        
+        setIsInitialized(true);
       } catch (error) {
         console.error('Error initializing game data:', error);
         // Set empty arrays as fallback
         if (!Array.isArray(provinces)) setProvinces([]);
         if (!Array.isArray(nations)) setNations([]);
+        setIsInitialized(true);
       }
     };
     
-    initializeData();
-  }, []);  // Remove the complex dependencies to prevent infinite loops
+    // Only initialize if not already done
+    if (!isInitialized) {
+      initializeData();
+    }
+  }, [provinces, nations, setProvinces, setNations, isInitialized]);
 
   useEffect(() => {
     // Ensure currentDate is always a Date object (in case it was serialized as a string)
@@ -363,9 +370,10 @@ export function useGameState() {
 
   return {
     gameState: localGameState,
-    provinces,
-    nations,
+    provinces: Array.isArray(provinces) ? provinces : [],
+    nations: Array.isArray(nations) ? nations : [],
     events,
+    isInitialized,
     selectProvince,
     selectNation,
     setMapOverlay,
