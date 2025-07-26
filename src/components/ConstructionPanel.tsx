@@ -30,15 +30,34 @@ export function ConstructionPanel({
   const [availableBuildings, setAvailableBuildings] = useState<Building[]>([]);
   const [allBuildings, setAllBuildings] = useState<Building[]>([]);
   
+  // Early return if province or nation is invalid
+  if (!province || !nation) {
+    return (
+      <div className="space-y-4">
+        <div className="text-center py-8 text-muted-foreground">
+          <p>No province or nation selected</p>
+        </div>
+      </div>
+    );
+  }
+  
   // Refresh building data when province changes
   useEffect(() => {
     const updateBuildings = async () => {
-      const buildings = getBuildings();
-      setAllBuildings(buildings);
-      
-      if (province && nation) {
-        const available = getAvailableBuildings(province, nation, nation.technology.completedTech);
-        setAvailableBuildings(available);
+      try {
+        const buildings = getBuildings();
+        setAllBuildings(buildings || []);
+        
+        if (province && nation) {
+          const available = getAvailableBuildings(province, nation, nation.technology?.completedTech || []);
+          setAvailableBuildings(available || []);
+        } else {
+          setAvailableBuildings([]);
+        }
+      } catch (error) {
+        console.error('Error updating buildings:', error);
+        setAllBuildings([]);
+        setAvailableBuildings([]);
       }
     };
     
@@ -47,11 +66,11 @@ export function ConstructionPanel({
   
   // Filter buildings by category
   const filteredBuildings = selectedCategory === 'all' 
-    ? availableBuildings 
-    : availableBuildings.filter(building => building.category === selectedCategory);
+    ? (availableBuildings || [])
+    : (availableBuildings || []).filter(building => building.category === selectedCategory);
   
   // Get building categories for tabs from all buildings
-  const categories = Array.from(new Set(allBuildings.map(b => b.category)));
+  const categories = Array.from(new Set((allBuildings || []).map(b => b.category)));
   
   const handleConstructBuilding = (building: Building) => {
     if (!isPlayerControlled) {
@@ -65,7 +84,7 @@ export function ConstructionPanel({
     }
     
     // Check if already building this type
-    const existingProject = province.constructionProjects.find(p => p.buildingId === building.id && p.status === 'in_progress');
+    const existingProject = province.constructionProjects && province.constructionProjects.find(p => p.buildingId === building.id && p.status === 'in_progress');
     if (existingProject) {
       toast.error(`Already constructing ${building.name} in this province`);
       return;
@@ -106,7 +125,7 @@ export function ConstructionPanel({
       </div>
 
       {/* Current Buildings */}
-      {province.buildings.length > 0 && (
+      {province.buildings && province.buildings.length > 0 && (
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium flex items-center gap-2">
@@ -116,8 +135,8 @@ export function ConstructionPanel({
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 gap-2">
-              {province.buildings.map((building, index) => {
-                const buildingData = allBuildings.find(b => b.id === building.buildingId);
+              {province.buildings && province.buildings.map((building, index) => {
+                const buildingData = (allBuildings || []).find(b => b.id === building.buildingId);
                 return (
                   <div key={index} className="flex items-center justify-between p-2 bg-muted rounded text-sm">
                     <div className="flex items-center gap-2">
@@ -133,12 +152,13 @@ export function ConstructionPanel({
                 );
               })}
             </div>
+            </div>
           </CardContent>
         </Card>
       )}
 
       {/* Active Construction Projects */}
-      {province.constructionProjects.length > 0 && (
+      {province.constructionProjects && province.constructionProjects.length > 0 && (
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium flex items-center gap-2">
@@ -148,10 +168,10 @@ export function ConstructionPanel({
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {province.constructionProjects
+              {province.constructionProjects && province.constructionProjects
                 .filter(project => project.status === 'in_progress')
                 .map((project) => {
-                  const building = allBuildings.find(b => b.id === project.buildingId);
+                  const building = (allBuildings || []).find(b => b.id === project.buildingId);
                   const progress = ((building?.buildTime || 0) - project.remainingTime) / (building?.buildTime || 1) * 100;
                   
                   return (
@@ -208,12 +228,12 @@ export function ConstructionPanel({
               
               <ScrollArea className="h-[300px]">
                 <div className="space-y-3">
-                  {filteredBuildings.length === 0 ? (
+                  {(filteredBuildings || []).length === 0 ? (
                     <div className="text-center py-8 text-muted-foreground">
                       <AlertCircle className="w-8 h-8 mx-auto mb-2" />
                       <p className="font-medium">No available buildings for this province</p>
                       <div className="text-xs space-y-1 mt-3 bg-muted p-3 rounded-md">
-                        <p><span className="font-medium">Province features:</span> {province.features?.length ? province.features.join(', ') : 'none'}</p>
+                        <p><span className="font-medium">Province features:</span> {(province.features && province.features.length > 0) ? province.features.join(', ') : 'none'}</p>
                         <p><span className="font-medium">Infrastructure level:</span> {province.infrastructure.roads}/5</p>
                         <p><span className="font-medium">Category filter:</span> {selectedCategory === 'all' ? 'All categories' : selectedCategory}</p>
                         <div className="mt-2 text-left">
@@ -228,7 +248,7 @@ export function ConstructionPanel({
                       </div>
                     </div>
                   ) : (
-                    filteredBuildings.map((building) => {
+                    (filteredBuildings || []).map((building) => {
                       const affordable = canAfford(building.cost);
                       
                       return (
@@ -261,13 +281,13 @@ export function ConstructionPanel({
                               </div>
                               
                               {/* Requirements */}
-                              {((building.requiresFeatures && building.requiresFeatures.length > 0) || Object.keys(building.requirements || {}).length > 0) && (
+                              {((building.requiresFeatures && building.requiresFeatures.length > 0) || (building.requirements && Object.keys(building.requirements).length > 0)) && (
                                 <div className="space-y-1">
                                   <div className="text-xs font-medium text-muted-foreground">Requirements:</div>
                                   <div className="flex flex-wrap gap-1">
                                     {/* Feature Requirements */}
                                     {building.requiresFeatures && building.requiresFeatures.map((feature) => {
-                                      const hasFeature = province.features?.includes(feature) || false;
+                                      const hasFeature = (province.features && province.features.includes(feature)) || false;
                                       return (
                                         <Badge 
                                           key={feature} 
@@ -309,9 +329,9 @@ export function ConstructionPanel({
                               
                               {/* Resource Production/Consumption */}
                               <div className="space-y-2">
-                                {(Object.keys(building.produces || {}).length > 0 || Object.keys(building.consumes || {}).length > 0) && (
+                                {((building.produces && Object.keys(building.produces).length > 0) || (building.consumes && Object.keys(building.consumes).length > 0)) && (
                                   <div className="space-y-1">
-                                    {Object.keys(building.produces || {}).length > 0 && (
+                                    {(building.produces && Object.keys(building.produces).length > 0) && (
                                       <div>
                                         <div className="text-xs font-medium text-green-600 mb-1">Produces:</div>
                                         <div className="flex flex-wrap gap-1">
@@ -324,7 +344,7 @@ export function ConstructionPanel({
                                       </div>
                                     )}
                                     
-                                    {Object.keys(building.consumes || {}).length > 0 && (
+                                    {(building.consumes && Object.keys(building.consumes).length > 0) && (
                                       <div>
                                         <div className="text-xs font-medium text-red-600 mb-1">Consumes:</div>
                                         <div className="flex flex-wrap gap-1">
@@ -340,7 +360,7 @@ export function ConstructionPanel({
                                 )}
                                 
                                 {/* Other Improvements */}
-                                {Object.keys(building.improves || {}).length > 0 && (
+                                {(building.improves && Object.keys(building.improves).length > 0) && (
                                   <div>
                                     <div className="text-xs font-medium text-blue-600 mb-1">Improves:</div>
                                     <div className="flex flex-wrap gap-1">

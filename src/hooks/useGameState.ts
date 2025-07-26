@@ -53,13 +53,31 @@ export function useGameState() {
 
   // Ensure all provinces have properly initialized features arrays
   useEffect(() => {
-    const needsUpdate = provinces.some(province => !Array.isArray(province.features));
-    if (needsUpdate) {
-      const fixedProvinces = provinces.map(province => ({
-        ...province,
-        features: Array.isArray(province.features) ? province.features : []
-      }));
-      setProvinces(fixedProvinces);
+    if (provinces.length > 0) {
+      const needsUpdate = provinces.some(province => {
+        if (!province) return true;
+        return !Array.isArray(province.features) || 
+               !Array.isArray(province.buildings) || 
+               !Array.isArray(province.constructionProjects);
+      });
+      
+      if (needsUpdate) {
+        const fixedProvinces = provinces.map(province => {
+          if (!province) {
+            console.error('Found null/undefined province in provinces array');
+            return null;
+          }
+          return {
+            ...province,
+            features: Array.isArray(province.features) ? province.features : [],
+            buildings: Array.isArray(province.buildings) ? province.buildings : [],
+            constructionProjects: Array.isArray(province.constructionProjects) ? province.constructionProjects : []
+          };
+        }).filter(Boolean) as Province[];
+        
+        console.log('Fixed province arrays for', fixedProvinces.length, 'provinces');
+        setProvinces(fixedProvinces);
+      }
     }
   }, [provinces, setProvinces]);
 
@@ -183,7 +201,7 @@ export function useGameState() {
     
     // Add construction project to province
     updateProvince(provinceId, {
-      constructionProjects: [...province.constructionProjects, project]
+      constructionProjects: [...(province.constructionProjects || []), project]
     });
   }, [getProvince, getNation, localGameState.selectedNation, localGameState.currentDate, updateNation, updateProvince]);
 
@@ -193,7 +211,7 @@ export function useGameState() {
     let provinceId: string | null = null;
     
     for (const province of provinces) {
-      const project = province.constructionProjects.find(p => p.id === projectId);
+      const project = (province.constructionProjects || []).find(p => p.id === projectId);
       if (project) {
         foundProject = project;
         provinceId = province.id;
@@ -223,7 +241,7 @@ export function useGameState() {
     const province = getProvince(provinceId);
     if (province) {
       updateProvince(provinceId, {
-        constructionProjects: province.constructionProjects.filter(p => p.id !== projectId)
+        constructionProjects: (province.constructionProjects || []).filter(p => p.id !== projectId)
       });
     }
   }, [provinces, getNation, localGameState.selectedNation, updateNation, getProvince, updateProvince]);
@@ -232,9 +250,9 @@ export function useGameState() {
     // Process all construction projects
     provinces.forEach(province => {
       const updatedProjects: ConstructionProject[] = [];
-      const completedBuildings: any[] = [...province.buildings];
+      const completedBuildings: any[] = [...(province.buildings || [])];
       
-      province.constructionProjects.forEach(project => {
+      (province.constructionProjects || []).forEach(project => {
         if (project.status === 'in_progress') {
           const updatedProject = {
             ...project,
@@ -261,8 +279,8 @@ export function useGameState() {
       });
       
       // Update province if there were changes
-      if (updatedProjects.length !== province.constructionProjects.length || 
-          completedBuildings.length !== province.buildings.length) {
+      if (updatedProjects.length !== (province.constructionProjects || []).length || 
+          completedBuildings.length !== (province.buildings || []).length) {
         updateProvince(province.id, {
           constructionProjects: updatedProjects,
           buildings: completedBuildings
