@@ -4,6 +4,9 @@ import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionPro
 import { getProvinces, getNations, sampleEvents, getBuildingById } from '../lib/gameData';
 import { validateBuildingPlacement } from './useSimulationEngine';
 
+// Import the converter functions directly for immediate use
+import { convertProvinces, convertNations } from '../lib/gameDataConverters';
+
 const initialGameState: GameState = {
   currentDate: new Date('1990-01-01'),
   timeSpeed: 1,
@@ -15,12 +18,21 @@ const initialGameState: GameState = {
 
 export function useGameState() {
   const [gameState, setGameState] = useKV('gameState', initialGameState);
-  const [provinces, setProvinces] = useKV('provinces', [] as Province[]);
-  const [nations, setNations] = useKV('nations', [] as Nation[]);
+  // Temporarily use regular useState instead of useKV to test if that's the issue
+  const [provinces, setProvinces] = useState<Province[]>([]);
+  const [nations, setNations] = useState<Nation[]>([]);
   const [events, setEvents] = useKV('events', sampleEvents);
   
   const [localGameState, setLocalGameState] = useState<GameState>(gameState || initialGameState);
   const [isInitialized, setIsInitialized] = useState(false);
+
+  // Debug: Force clear old state if it's empty
+  useEffect(() => {
+    if (isInitialized && Array.isArray(nations) && nations.length === 0) {
+      console.warn('useGameState: Nations array is empty after initialization - forcing reload');
+      setIsInitialized(false);
+    }
+  }, [nations, isInitialized]);
 
   // Debug logging
   useEffect(() => {
@@ -36,28 +48,55 @@ export function useGameState() {
     });
   }, [provinces, nations, gameState, isInitialized]);
 
+  // Immediate initialization with hardcoded data on first mount
+  useEffect(() => {
+    if (!isInitialized) {
+      console.log('Immediate initialization with hardcoded data');
+      
+      // Use synchronous hardcoded data immediately
+      const hardcodedProvinces = convertProvinces();
+      const hardcodedNations = convertNations();
+      
+      console.log(`Setting ${hardcodedProvinces.length} provinces and ${hardcodedNations.length} nations immediately`);
+      
+      if (hardcodedProvinces.length > 0 && hardcodedNations.length > 0) {
+        setProvinces(hardcodedProvinces);
+        setNations(hardcodedNations);
+        setIsInitialized(true);
+        console.log('✓ Immediate initialization completed successfully');
+      } else {
+        console.error('❌ Failed to convert provinces or nations data');
+        setIsInitialized(true); // Still mark as initialized to prevent infinite loading
+      }
+    }
+  }, [isInitialized]);
+
   // Initialize data from YAML when component mounts
   useEffect(() => {
     const initializeData = async () => {
       try {
         console.log('Starting data initialization...');
         
-        console.log('Loading provinces from YAML...');
+        console.log('Loading provinces...');
         const loadedProvinces = await getProvinces();
+        console.log('getProvinces returned:', loadedProvinces?.length || 0, 'provinces');
+        
         if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
-          console.log(`Loaded ${loadedProvinces.length} provinces successfully`);
+          console.log(`✓ Setting ${loadedProvinces.length} provinces in state`);
           const canadianProvinces = loadedProvinces.filter(p => p.country === 'Canada');
           console.log(`Canadian provinces:`, canadianProvinces.map(p => p.name));
           setProvinces(loadedProvinces);
         } else {
-          console.warn('No provinces loaded from YAML, using fallback');
+          console.error('❌ No provinces returned from getProvinces()');
           setProvinces([]);
         }
         
-        console.log('Loading nations from YAML...');
+        console.log('Loading nations...');
         const loadedNations = await getNations();
+        console.log('getNations returned:', loadedNations?.length || 0, 'nations');
+        
         if (Array.isArray(loadedNations) && loadedNations.length > 0) {
-          console.log(`Loaded ${loadedNations.length} nations successfully`);
+          console.log(`✓ Setting ${loadedNations.length} nations in state`);
           const canadaNation = loadedNations.find(n => n.id === 'CAN');
           if (canadaNation) {
             console.log(`✓ Canada found:`, canadaNation.name, 'Leader:', canadaNation.government?.leader);
@@ -66,23 +105,21 @@ export function useGameState() {
           }
           setNations(loadedNations);
         } else {
-          console.warn('No nations loaded from YAML, using fallback');
+          console.error('❌ No nations returned from getNations()');
           setNations([]);
         }
         
-        console.log('Data initialization completed');
+        console.log('Data initialization completed - setting initialized to true');
         setIsInitialized(true);
       } catch (error) {
         console.error('Error initializing game data:', error);
-        // Set empty arrays as fallback but still mark as initialized
-        console.log('Setting fallback empty arrays due to error');
-        setProvinces([]);
-        setNations([]);
+        // Still mark as initialized to prevent infinite loading
+        console.log('Setting initialized to true despite error');
         setIsInitialized(true);
       }
     };
     
-    // Only initialize once
+    // Always initialize, but only once per mount
     if (!isInitialized) {
       console.log('Initialization needed - starting async data load');
       initializeData();
@@ -192,11 +229,27 @@ export function useGameState() {
 
   const resetGameData = useCallback(() => {
     console.log('Resetting all game data...');
+    // Clear the state completely to ensure fresh start
     setProvinces([]);
     setNations([]);
     setGameState(initialGameState);
     setIsInitialized(false);
-  }, [setProvinces, setNations, setGameState]);
+    
+    // Force clear localStorage as backup
+    if (typeof window !== 'undefined') {
+      console.log('Clearing any cached KV data...');
+      // The useKV hook may be using localStorage or sessionStorage
+      try {
+        Object.keys(localStorage).forEach(key => {
+          if (key.includes('provinces') || key.includes('nations') || key.includes('gameState')) {
+            localStorage.removeItem(key);
+          }
+        });
+      } catch (e) {
+        console.warn('Could not clear localStorage:', e);
+      }
+    }
+  }, [setGameState]);
 
   const selectProvince = useCallback((provinceId: string | undefined) => {
     updateGameState({ selectedProvince: provinceId });

@@ -1938,21 +1938,63 @@ export const gameBuildings: Building[] = [];
 // Simplified fallback that loads incrementally
 export async function getProvinces(): Promise<Province[]> {
   try {
-    // Always return hardcoded data for now to fix loading issue
+    console.log('getProvinces() called - starting conversion');
     const result = convertProvinces();
+    console.log(`getProvinces() converted ${result.length} provinces successfully`);
+    
+    if (result.length === 0) {
+      console.error('getProvinces() - convertProvinces returned empty array!');
+      throw new Error('No provinces converted');
+    }
+    
+    // Log first province for debugging
+    if (result.length > 0) {
+      console.log('First province sample:', {
+        id: result[0].id,
+        name: result[0].name,
+        country: result[0].country,
+        hasFeatures: Array.isArray(result[0].features),
+        featuresCount: result[0].features?.length || 0
+      });
+    }
+    
     console.log(`getProvinces() returning ${result.length} provinces (hardcoded)`);
     return result;
   } catch (error) {
-    console.error('Error in getProvinces, using fallback:', error);
-    return convertProvinces(); // Fallback to hardcoded data
+    console.error('Critical error in getProvinces, using emergency fallback:', error);
+    // Emergency fallback - create minimal data
+    return [
+      {
+        id: 'CAN_001',
+        name: 'British Columbia',
+        country: 'Canada',
+        coordinates: [53.7267, -127.6476] as [number, number],
+        features: ['coastal', 'mountainous'],
+        population: { total: 5200000, ethnicGroups: [] },
+        unrest: 2.8,
+        infrastructure: { roads: 3, internet: 4, healthcare: 4, education: 4 },
+        resourceDeposits: {},
+        military: { stationedUnits: [], fortificationLevel: 2 },
+        resourceOutput: { energy: 2200, iron: 380, food: 1450, technology: 280 },
+        politics: { partySupport: {}, governorApproval: 64.2 },
+        economy: { gdpPerCapita: 58000, unemployment: 5.8, inflation: 3.2 },
+        buildings: [],
+        constructionProjects: []
+      }
+    ];
   }
 }
 
 export async function getNations(): Promise<Nation[]> {
   try {
-    // Always return hardcoded data for now to fix loading issue
+    console.log('getNations() called - starting conversion');
     const result = convertNations();
-    console.log(`getNations() returning ${result.length} nations (hardcoded)`);
+    console.log(`getNations() converted ${result.length} nations successfully`);
+    
+    if (result.length === 0) {
+      console.error('getNations() - convertNations returned empty array!');
+      throw new Error('No nations converted');
+    }
     
     // Debug: Log the first few nations to ensure data is correct
     if (result.length > 0) {
@@ -1977,10 +2019,75 @@ export async function getNations(): Promise<Nation[]> {
       }
     }
     
+    console.log(`getNations() returning ${result.length} nations (hardcoded)`);
     return result;
   } catch (error) {
-    console.error('Error in getNations, using fallback:', error);
-    return convertNations(); // Fallback to hardcoded data
+    console.error('Critical error in getNations, using emergency fallback:', error);
+    // Emergency fallback - create minimal Canada data
+    return [
+      {
+        id: 'CAN',
+        name: 'Canada',
+        capital: 'Ottawa',
+        flag: '🇨🇦',
+        government: {
+          type: 'democracy' as const,
+          leader: 'Justin Trudeau',
+          approval: 58.3,
+          stability: 76.5,
+          ruling_party: 'Liberal Party',
+          ideology: 'Liberal Democracy',
+          election_cycle: 4,
+          last_election: '2021-09-20'
+        },
+        economy: {
+          gdp: 1988000000000,
+          debt: 1200000000000,
+          inflation: 3.4,
+          tradeBalance: 12500000000,
+          treasury: 280000000000
+        },
+        military: {
+          manpower: 67000,
+          equipment: 72,
+          readiness: 100,
+          doctrine: 'Peacekeeping and Defense',
+          nuclearCapability: false
+        },
+        technology: {
+          researchPoints: 980,
+          currentResearch: ['Clean Energy', 'Arctic Technology'],
+          completedTech: ['Internet', 'Renewable Energy'],
+          level: 8.1
+        },
+        diplomacy: {
+          allies: ['USA', 'GBR', 'FRA'],
+          enemies: [],
+          embargoes: [],
+          sanctions: [],
+          tradePartners: ['USA', 'CHN', 'MEX']
+        },
+        resourceStockpiles: {
+          oil: 55000,
+          electricity: 42000,
+          food: 125000
+        },
+        resourceProduction: {
+          oil: 1200,
+          electricity: 800,
+          food: 2800
+        },
+        resourceConsumption: {
+          oil: 420,
+          electricity: 650,
+          food: 1200
+        },
+        resourceShortages: {},
+        resourceEfficiency: { overall: 1.0 },
+        tradeOffers: [],
+        tradeAgreements: []
+      }
+    ];
   }
 }
 

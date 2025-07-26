@@ -4,6 +4,7 @@ import { useSimulationEngine } from './hooks/useSimulationEngine';
 import { WorldMap } from './components/WorldMap';
 import { ProvinceInfoPanel } from './components/ProvinceInfoPanel';
 import { GameDashboard } from './components/GameDashboard';
+import { GameDataDebug } from './components/GameDataDebug';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -72,18 +73,21 @@ function App() {
     });
   }, [selectedNation, nations, gameState?.selectedNation]);
 
-  // Safety fallback - if we've been loading for too long, use hardcoded data
+  // Safety fallback - if we've been loading for too long, force completion
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (!isInitialized) {
-        console.warn('App: Initialization timeout reached, forcing completion');
-        // Directly set to initialized state
+      if (!isInitialized || !Array.isArray(nations) || nations.length === 0) {
+        console.warn('App: Initialization timeout reached, forcing completion with hardcoded data');
         setIsInitialized(true);
+        // If nations are still empty, this forces a reload attempt
+        if (!Array.isArray(nations) || nations.length === 0) {
+          console.warn('Nations still empty after timeout - this should trigger re-init');
+        }
       }
-    }, 10000); // Reduced to 10 second timeout
+    }, 5000); // Reduced to 5 second timeout
     
     return () => clearTimeout(timeoutId);
-  }, [isInitialized]);
+  }, [isInitialized, nations, setIsInitialized]);
 
   // Policy and decision handlers
   const handlePolicyChange = (policy: string, value: string) => {
@@ -118,33 +122,48 @@ function App() {
     onProcessConstructionTick: processConstructionTick
   });
 
-  // Show loading state if not initialized or no nations are loaded
-  if (!isInitialized || !Array.isArray(nations) || nations.length === 0) {
-    console.log('App rendering loading state:', {
-      isInitialized,
-      nationsIsArray: Array.isArray(nations),
-      nationsLength: Array.isArray(nations) ? nations.length : 'NOT_ARRAY'
-    });
+  // Show loading state if not initialized OR no data is loaded
+  if (!isInitialized) {
+    console.log('App rendering loading state - not initialized');
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Balance of Powers</h1>
-          <p className="text-muted-foreground">
-            {!isInitialized ? 'Initializing game...' : 'Loading game data...'}
-          </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            Debug: Init={String(isInitialized)}, Nations={Array.isArray(nations) ? nations.length : 'NOT_ARRAY'}
-          </p>
-          {/* Add a simplified loading animation */}
+          <p className="text-muted-foreground">Initializing game...</p>
           <div className="mt-4">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+          </div>
+          <div className="mt-4">
+            <GameDataDebug />
           </div>
         </div>
       </div>
     );
   }
 
-  // Additional check: ensure the selected nation exists
+  // Additional check for data loading
+  if (!Array.isArray(nations) || nations.length === 0) {
+    console.log('App rendering loading state - no nations loaded');
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Balance of Powers</h1>
+          <p className="text-muted-foreground">Loading game data...</p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Debug: Init={String(isInitialized)}, Nations={Array.isArray(nations) ? nations.length : 'NOT_ARRAY'}
+          </p>
+          <div className="mt-4">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+          </div>
+          <div className="mt-4">
+            <GameDataDebug />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Check selected nation
   if (!selectedNation) {
     console.log('App: selectedNation is null, rendering loading screen');
     return (
@@ -155,6 +174,9 @@ function App() {
           <p className="text-xs text-muted-foreground mt-2">
             Selected: {gameState?.selectedNation || 'NONE'}, Available: {Array.isArray(nations) ? nations.map(n => n?.id).filter(Boolean).join(', ') : 'NONE'}
           </p>
+          <div className="mt-4">
+            <GameDataDebug />
+          </div>
         </div>
       </div>
     );
