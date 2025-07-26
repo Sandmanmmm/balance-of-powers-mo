@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Province, Nation, Building, ConstructionProject } from '@/lib/types';
-import { gameBuildings, getAvailableBuildings } from '@/lib/gameData';
+import { getBuildings, getAvailableBuildings } from '@/lib/gameData';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -27,17 +27,31 @@ export function ConstructionPanel({
   isPlayerControlled 
 }: ConstructionPanelProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [availableBuildings, setAvailableBuildings] = useState<Building[]>([]);
+  const [allBuildings, setAllBuildings] = useState<Building[]>([]);
   
-  // Get available buildings for this province
-  const availableBuildings = getAvailableBuildings(province, nation, nation.technology.completedTech);
+  // Refresh building data when province changes
+  useEffect(() => {
+    const updateBuildings = async () => {
+      const buildings = getBuildings();
+      setAllBuildings(buildings);
+      
+      if (province && nation) {
+        const available = getAvailableBuildings(province, nation, nation.technology.completedTech);
+        setAvailableBuildings(available);
+      }
+    };
+    
+    updateBuildings();
+  }, [province?.id, nation?.id]); // Re-run when province or nation changes
   
   // Filter buildings by category
   const filteredBuildings = selectedCategory === 'all' 
     ? availableBuildings 
     : availableBuildings.filter(building => building.category === selectedCategory);
   
-  // Get building categories for tabs
-  const categories = Array.from(new Set(gameBuildings.map(b => b.category)));
+  // Get building categories for tabs from all buildings
+  const categories = Array.from(new Set(allBuildings.map(b => b.category)));
   
   const handleConstructBuilding = (building: Building) => {
     if (!isPlayerControlled) {
@@ -103,7 +117,7 @@ export function ConstructionPanel({
           <CardContent>
             <div className="grid grid-cols-1 gap-2">
               {province.buildings.map((building, index) => {
-                const buildingData = gameBuildings.find(b => b.id === building.buildingId);
+                const buildingData = allBuildings.find(b => b.id === building.buildingId);
                 return (
                   <div key={index} className="flex items-center justify-between p-2 bg-muted rounded text-sm">
                     <div className="flex items-center gap-2">
@@ -137,7 +151,7 @@ export function ConstructionPanel({
               {province.constructionProjects
                 .filter(project => project.status === 'in_progress')
                 .map((project) => {
-                  const building = gameBuildings.find(b => b.id === project.buildingId);
+                  const building = allBuildings.find(b => b.id === project.buildingId);
                   const progress = ((building?.buildTime || 0) - project.remainingTime) / (building?.buildTime || 1) * 100;
                   
                   return (
@@ -196,8 +210,12 @@ export function ConstructionPanel({
                   {filteredBuildings.length === 0 ? (
                     <div className="text-center py-8 text-muted-foreground">
                       <AlertCircle className="w-8 h-8 mx-auto mb-2" />
-                      <p>No buildings available</p>
-                      <p className="text-xs">Check requirements or research new technologies</p>
+                      <p className="font-medium">No available buildings for this province</p>
+                      <div className="text-xs space-y-1 mt-2">
+                        <p>Province features: {province.features?.join(', ') || 'none'}</p>
+                        <p>This province may lack required features, infrastructure, or technology.</p>
+                        <p>Try upgrading infrastructure or researching new technologies.</p>
+                      </div>
                     </div>
                   ) : (
                     filteredBuildings.map((building) => {

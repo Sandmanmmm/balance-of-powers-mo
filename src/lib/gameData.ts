@@ -1,4 +1,5 @@
 import { Province, Nation, GameEvent, Unit, Technology, Building, Resource } from './types';
+import { loadBuildingsFromYAML, loadProvincesFromYAML, loadNationsFromYAML } from './yamlLoader';
 
 // Resource definitions
 export const resourcesData: Record<string, Resource> = {
@@ -148,15 +149,15 @@ const provincesData = {
       name: "California",
       country: "United States",
       coordinates: [36.7783, -119.4179],
-      features: ["coastal", "mountains", "mediterranean_climate", "high_tech", "urban", "earthquake_zone"],
+      features: ["coastal", "high_tech", "urban", "scenic", "tourism", "sunny", "desert"],
       population: {
         total: 39500000,
         ethnic_groups: [
-          { group: "White", percent: 36.5 },
-          { group: "Hispanic", percent: 39.4 },
-          { group: "Asian", percent: 15.5 },
-          { group: "Black", percent: 6.5 },
-          { group: "Other", percent: 2.1 }
+          { group: "White", percent: 37 },
+          { group: "Hispanic", percent: 39 },
+          { group: "Asian", percent: 15 },
+          { group: "Black", percent: 6 },
+          { group: "Other", percent: 3 }
         ]
       },
       unrest: 6.8,
@@ -242,7 +243,7 @@ const provincesData = {
       name: "Bavaria",
       country: "Germany",
       coordinates: [48.7904, 11.4979],
-      features: ["mountains", "alpine_climate", "rural", "tourism", "agricultural", "traditional"],
+      features: ["mountainous", "scenic", "tourism", "agricultural", "cold_climate"],
       population: {
         total: 13200000,
         ethnic_groups: [
@@ -291,7 +292,7 @@ const provincesData = {
       name: "Texas",
       country: "United States",
       coordinates: [31.9686, -99.9018],
-      features: ["plains", "desert", "oil_rich", "continental_climate", "rural", "energy_sector"],
+      features: ["plains", "desert", "oil_rich", "flat_terrain", "sunny", "windy"],
       population: {
         total: 30000000,
         ethnic_groups: [
@@ -332,6 +333,61 @@ const provincesData = {
         gdp_per_capita: 62000,
         unemployment: 4.1,
         inflation: 3.8
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "AUS_001": {
+      name: "Western Australia Mining",
+      country: "Australia", 
+      coordinates: [-26.0, 121.0],
+      features: ["mineral_deposits", "rare_earth_deposits", "desert", "sunny", "radioactive_deposits", "flat_terrain", "low_population", "wilderness"],
+      population: {
+        total: 1800000,
+        ethnic_groups: [
+          { group: "Anglo-Australian", percent: 68 },
+          { group: "Aboriginal", percent: 12 },
+          { group: "Asian", percent: 15 },
+          { group: "Other", percent: 5 }
+        ]
+      },
+      unrest: 1.8,
+      infrastructure: {
+        roads: 2,
+        internet: 3,
+        healthcare: 3,
+        education: 3
+      },
+      resource_deposits: {
+        oil: 100,
+        steel: 2000,
+        rare_earth: 800,
+        uranium: 400,
+        food: 150
+      },
+      military: {
+        stationed_units: [],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 800,
+        iron: 450,
+        food: 200,
+        technology: 85
+      },
+      politics: {
+        party_support: {
+          "Labor": 38.2,
+          "Liberal": 42.8,
+          "Greens": 12.5,
+          "Other": 6.5
+        },
+        governor_approval: 69.3
+      },
+      economy: {
+        gdp_per_capita: 65000,
+        unemployment: 5.2,
+        inflation: 2.1
       },
       buildings: [],
       construction_projects: []
@@ -543,6 +599,81 @@ const nationsData = {
         uranium: 35,
         semiconductors: 1200
       }
+    },
+    "AUS": {
+      name: "Australia",
+      capital: "Canberra",
+      flag: "🇦🇺",
+      government: {
+        type: "democracy" as const,
+        leader: "Anthony Albanese",
+        approval: 51.2,
+        stability: 78.4,
+        ruling_party: "Labor",
+        ideology: "Social Democracy",
+        election_cycle: 3,
+        last_election: "2022-05-21"
+      },
+      economy: {
+        gdp: 1550000000000,
+        debt: 560000000000,
+        inflation: 3.1,
+        trade_balance: 45000000000,
+        treasury: 180000000000
+      },
+      military: {
+        manpower: 85000,
+        equipment: 82,
+        doctrine: "Regional Defense",
+        nuclearCapability: false
+      },
+      technology: {
+        researchPoints: 850,
+        currentResearch: ["Mining Technology", "Renewable Energy", "Defense Systems"],
+        completedTech: ["Internet", "Mining Automation", "Solar Technology", "Military Communications"],
+        level: 7.8
+      },
+      diplomacy: {
+        allies: ["USA", "GBR", "NZL", "JPN"],
+        enemies: [],
+        tradePartners: ["CHN", "JPN", "USA", "KOR", "IND", "GBR"]
+      },
+      resourceStockpiles: {
+        oil: 35000,
+        electricity: 25000,
+        steel: 180000,
+        rare_earth: 45000,
+        manpower: 1200000,
+        research: 850,
+        consumer_goods: 28000,
+        food: 85000,
+        uranium: 28000,
+        semiconductors: 3500
+      },
+      resourceProduction: {
+        oil: 0,
+        electricity: 0,
+        steel: 0,
+        rare_earth: 0,
+        manpower: 400,
+        research: 85,
+        consumer_goods: 0,
+        food: 0,
+        uranium: 0,
+        semiconductors: 0
+      },
+      resourceConsumption: {
+        oil: 180,
+        electricity: 350,
+        steel: 120,
+        rare_earth: 25,
+        manpower: 150,
+        research: 0,
+        consumer_goods: 800,
+        food: 1200,
+        uranium: 2,
+        semiconductors: 45
+      }
     }
   }
 };
@@ -723,57 +854,222 @@ function convertUnits(): Unit[] {
 
 function convertBuildings(): Building[] {
   const buildingData = [
+    // === RESOURCE PRODUCERS ===
+    {
+      id: "oil_well",
+      name: "Oil Well",
+      description: "Extracts crude oil from underground deposits",
+      category: "extraction" as const,
+      cost: 2500,
+      buildTime: 180,
+      produces: { oil: 80 },
+      consumes: { electricity: 15, manpower: 60, steel: 3 },
+      improves: { resource_extraction: 1, employment: 200 },
+      requiresFeatures: ["oil_rich"],
+      requirements: { infrastructure: 2 },
+      icon: "🛢️"
+    },
+    {
+      id: "offshore_oil_rig",
+      name: "Offshore Oil Platform",
+      description: "Deep sea oil extraction platform",
+      category: "extraction" as const,
+      cost: 8000,
+      buildTime: 400,
+      produces: { oil: 200 },
+      consumes: { electricity: 50, manpower: 180, steel: 15 },
+      improves: { resource_extraction: 3, employment: 600 },
+      requiresFeatures: ["coastal", "oil_rich"],
+      requirements: { infrastructure: 3, technology: "offshore_drilling" },
+      icon: "🏗️"
+    },
+    {
+      id: "iron_mine",
+      name: "Iron Mine",
+      description: "Extracts iron ore for steel production",
+      category: "extraction" as const,
+      cost: 1800,
+      buildTime: 150,
+      produces: { steel: 30 },
+      consumes: { electricity: 25, manpower: 120, oil: 8 },
+      improves: { resource_extraction: 1, employment: 400 },
+      requiresFeatures: ["mineral_deposits"],
+      requirements: { infrastructure: 2 },
+      icon: "⛏️"
+    },
+    {
+      id: "food_farm",
+      name: "Agricultural Farm",
+      description: "Large-scale food production facility",
+      category: "agriculture" as const,
+      cost: 800,
+      buildTime: 90,
+      produces: { food: 1200 },
+      consumes: { manpower: 50, electricity: 8, oil: 12 },
+      improves: { food_security: 2, employment: 400 },
+      requiresFeatures: ["agricultural"],
+      requirements: { infrastructure: 1 },
+      icon: "🚜"
+    },
+    {
+      id: "solar_farm",
+      name: "Solar Power Farm",
+      description: "Large-scale renewable energy generation",
+      category: "energy" as const,
+      cost: 3500,
+      buildTime: 200,
+      produces: { electricity: 150 },
+      consumes: { manpower: 30, semiconductors: 5 },
+      improves: { clean_energy: 3, energy_security: 1 },
+      requiresFeatures: ["desert", "sunny"],
+      requirements: { infrastructure: 2, technology: "renewable_energy" },
+      icon: "☀️"
+    },
+    {
+      id: "wind_farm",
+      name: "Wind Power Farm",
+      description: "Wind turbine electricity generation",
+      category: "energy" as const,
+      cost: 2800,
+      buildTime: 180,
+      produces: { electricity: 120 },
+      consumes: { manpower: 25, steel: 8 },
+      improves: { clean_energy: 2, energy_security: 1 },
+      requiresFeatures: ["windy", "plains"],
+      requirements: { infrastructure: 2, technology: "renewable_energy" },
+      icon: "💨"
+    },
+    {
+      id: "fishing_fleet",
+      name: "Commercial Fishing Fleet",
+      description: "Maritime food production operation",
+      category: "agriculture" as const,
+      cost: 1500,
+      buildTime: 120,
+      produces: { food: 800 },
+      consumes: { manpower: 80, oil: 20, steel: 5 },
+      improves: { food_security: 1, employment: 300 },
+      requiresFeatures: ["coastal", "fishing_grounds"],
+      requirements: { infrastructure: 2 },
+      icon: "🎣"
+    },
+    
+    // === RESOURCE PROCESSORS ===
+    {
+      id: "power_plant",
+      name: "Thermal Power Plant",
+      description: "Converts oil and coal into electricity",
+      category: "energy" as const,
+      cost: 4000,
+      buildTime: 300,
+      produces: { electricity: 300 },
+      consumes: { oil: 50, manpower: 100, steel: 8 },
+      improves: { energy_output: 5, pollution: 4 },
+      requiresFeatures: ["industrial"],
+      requirements: { infrastructure: 3, technology: "power_generation" },
+      icon: "⚡"
+    },
+    {
+      id: "nuclear_plant",
+      name: "Nuclear Power Plant",
+      description: "High-efficiency nuclear energy generation",
+      category: "energy" as const,
+      cost: 15000,
+      buildTime: 600,
+      produces: { electricity: 1000 },
+      consumes: { uranium: 3, manpower: 250, steel: 20 },
+      improves: { energy_security: 8, clean_energy: 5 },
+      requiresFeatures: ["strategic_location"],
+      requirements: { infrastructure: 4, technology: "nuclear_power" },
+      icon: "⚛️"
+    },
+    {
+      id: "semiconductor_fab",
+      name: "Semiconductor Fabrication Plant",
+      description: "Advanced chip manufacturing facility",
+      category: "technology" as const,
+      cost: 12000,
+      buildTime: 450,
+      produces: { semiconductors: 25 },
+      consumes: { electricity: 150, rare_earth: 15, manpower: 300 },
+      improves: { tech_industry: 4, high_tech_exports: 3 },
+      requiresFeatures: ["high_tech", "urban"],
+      requirements: { infrastructure: 4, technology: "advanced_manufacturing" },
+      icon: "🔬"
+    },
+    
+    // === FLEXIBLE BUILDINGS ===
+    {
+      id: "trade_center",
+      name: "Trade Center",
+      description: "Commercial hub for business and commerce",
+      category: "commercial" as const,
+      cost: 1800,
+      buildTime: 140,
+      produces: { consumer_goods: 35 },
+      consumes: { electricity: 20, manpower: 80 },
+      improves: { trade_efficiency: 0.15, gdp_modifier: 0.08, employment: 500 },
+      requiresFeatures: ["urban"],
+      requirements: { infrastructure: 2 },
+      icon: "🏢"
+    },
+    {
+      id: "logistics_hub",
+      name: "Logistics Hub", 
+      description: "Transportation and distribution center",
+      category: "infrastructure" as const,
+      cost: 2400,
+      buildTime: 160,
+      produces: {},
+      consumes: { electricity: 15, manpower: 120, oil: 25 },
+      improves: { transportation_efficiency: 0.2, trade_capacity: 5, military_logistics: 2 },
+      requiresFeatures: ["flat_terrain"],
+      requirements: { infrastructure: 2 },
+      icon: "📦"
+    },
+    {
+      id: "desalination_plant",
+      name: "Desalination Plant",
+      description: "Converts seawater to fresh water",
+      category: "infrastructure" as const,
+      cost: 5000,
+      buildTime: 280,
+      produces: { water: 500 },
+      consumes: { electricity: 80, manpower: 60 },
+      improves: { water_security: 3, population_capacity: 0.1 },
+      requiresFeatures: ["coastal"],
+      requirements: { infrastructure: 3, technology: "water_treatment" },
+      icon: "💧"
+    },
+    {
+      id: "spaceport",
+      name: "Spaceport",
+      description: "Launch facility for space missions",
+      category: "aerospace" as const,
+      cost: 20000,
+      buildTime: 500,
+      produces: { research: 80 },
+      consumes: { electricity: 200, manpower: 400, rare_earth: 20, oil: 100 },
+      improves: { space_capability: 5, scientific_prestige: 8, tech_advancement: 0.3 },
+      requiresFeatures: ["flat_terrain", "low_population"],
+      requirements: { infrastructure: 4, technology: "space_technology" },
+      icon: "🚀"
+    },
+    
+    // === EXISTING BUILDINGS (UPDATED) ===
     {
       id: "civilian_factory",
       name: "Civilian Factory",
-      description: "Increases industrial capacity and GDP output",
+      description: "Mass production of consumer goods and materials",
       category: "industrial" as const,
       cost: 1000,
       buildTime: 120,
-      produces: {
-        consumer_goods: 15,
-        steel: 5
-      },
-      consumes: {
-        electricity: 20,
-        manpower: 100,
-        oil: 8
-      },
-      improves: {
-        industry: 2,
-        gdp_modifier: 0.1
-      },
+      produces: { consumer_goods: 25, steel: 8 },
+      consumes: { electricity: 30, manpower: 120, oil: 10 },
+      improves: { industry: 2, gdp_modifier: 0.1, employment: 400 },
       requiresFeatures: ["industrial"],
-      requirements: {
-        infrastructure: 2
-      },
+      requirements: { infrastructure: 2 },
       icon: "🏭"
-    },
-    {
-      id: "power_plant",
-      name: "Power Plant",
-      description: "Generates electricity for industrial development",
-      category: "energy" as const,
-      cost: 3000,
-      buildTime: 300,
-      produces: {
-        electricity: 200
-      },
-      consumes: {
-        oil: 40,
-        manpower: 80
-      },
-      improves: {
-        energy_output: 10,
-        industry: 1,
-        pollution: 2
-      },
-      requiresFeatures: ["industrial"],
-      requirements: {
-        infrastructure: 3,
-        technology: "power_generation"
-      },
-      icon: "⚡"
     },
     {
       id: "university",
@@ -782,149 +1078,82 @@ function convertBuildings(): Building[] {
       category: "research" as const,
       cost: 2000,
       buildTime: 240,
-      produces: {
-        research: 30
-      },
-      consumes: {
-        electricity: 15,
-        manpower: 200
-      },
-      improves: {
-        research_speed: 0.15,
-        stability: 1,
-        employment: 800
-      },
+      produces: { research: 30 },
+      consumes: { electricity: 15, manpower: 200 },
+      improves: { research_speed: 0.15, stability: 1, employment: 800 },
       requiresFeatures: ["urban"],
-      requirements: {
-        infrastructure: 3
-      },
+      requirements: { infrastructure: 3 },
       icon: "🎓"
     },
     {
-      id: "farm",
-      name: "Agricultural Complex",
-      description: "Produces food and supports population",
-      category: "agriculture" as const,
-      cost: 600,
-      buildTime: 60,
-      produces: {
-        food: 800
-      },
-      consumes: {
-        manpower: 40,
-        electricity: 5
-      },
-      improves: {
-        food_production: 5,
-        employment: 300,
-        rural_stability: 2
-      },
-      requiresFeatures: ["agricultural"],
-      requirements: {},
-      icon: "🚜"
+      id: "hospital",
+      name: "Hospital",
+      description: "Improves public health and population growth",
+      category: "civilian" as const,
+      cost: 1200,
+      buildTime: 150,
+      produces: {},
+      consumes: { electricity: 10, manpower: 120, consumer_goods: 5 },
+      improves: { population_growth: 0.02, stability: 3, healthcare_level: 1 },
+      requiresFeatures: ["urban"],
+      requirements: { infrastructure: 2 },
+      icon: "🏥"
     },
     {
-      id: "mine",
-      name: "Mining Operation",
-      description: "Extracts minerals and rare earth elements",
-      category: "industrial" as const,
-      cost: 2800,
+      id: "port",
+      name: "Port",
+      description: "Facilitates trade and naval operations",
+      category: "infrastructure" as const,
+      cost: 2500,
       buildTime: 200,
-      produces: {
-        steel: 25,
-        rare_earth: 8
-      },
-      consumes: {
-        electricity: 35,
-        manpower: 120,
-        oil: 15
-      },
-      improves: {
-        resource_extraction: 1
-      },
-      requiresFeatures: ["mineral_deposits"],
-      requirements: {
-        infrastructure: 2
-      },
-      icon: "⛏️"
+      produces: { consumer_goods: 20 },
+      consumes: { electricity: 15, manpower: 60, steel: 5 },
+      improves: { trade_efficiency: 0.2, naval_capacity: 5, gdp_modifier: 0.08 },
+      requiresFeatures: ["coastal"],
+      requirements: { infrastructure: 2 },
+      icon: "⚓"
     },
     {
-      id: "oil_rig",
-      name: "Oil Drilling Platform",
-      description: "Extracts petroleum and natural gas",
-      category: "energy" as const,
-      cost: 5000,
-      buildTime: 400,
-      produces: {
-        oil: 100
-      },
-      consumes: {
-        electricity: 50,
-        manpower: 150,
-        steel: 10
-      },
-      improves: {
-        energy_output: 25,
-        gdp_modifier: 0.15,
-        pollution: 5
-      },
-      requiresFeatures: ["oil_rich"],
-      requirements: {
-        infrastructure: 2,
-        technology: "oil_drilling"
-      },
-      icon: "🛢️"
+      id: "airport",
+      name: "Airport",
+      description: "Enables air transport and military aviation",
+      category: "infrastructure" as const,
+      cost: 4000,
+      buildTime: 250,
+      produces: {},
+      consumes: { electricity: 30, manpower: 100, oil: 20 },
+      improves: { air_capacity: 10, trade_efficiency: 0.1, stability: 1 },
+      requiresFeatures: ["plains"],
+      requirements: { infrastructure: 3, technology: "aviation" },
+      icon: "✈️"
     },
     {
-      id: "semiconductor_fab",
-      name: "Semiconductor Fabrication Plant",
-      description: "Advanced chip manufacturing facility",
-      category: "technology" as const,
-      cost: 8000,
-      buildTime: 450,
-      produces: {
-        semiconductors: 20
-      },
-      consumes: {
-        electricity: 100,
-        rare_earth: 10,
-        manpower: 250
-      },
-      improves: {
-        tech_industry: 3,
-        high_tech_exports: 2
-      },
-      requiresFeatures: ["high_tech", "urban"],
-      requirements: {
-        infrastructure: 4,
-        technology: "advanced_manufacturing"
-      },
-      icon: "🔬"
+      id: "infrastructure",
+      name: "Infrastructure",
+      description: "Roads, communications, and basic utilities",
+      category: "infrastructure" as const,
+      cost: 800,
+      buildTime: 90,
+      produces: {},
+      consumes: { manpower: 50, steel: 3 },
+      improves: { infrastructure: 1, stability: 2, gdp_modifier: 0.05 },
+      requiresFeatures: [], // No specific features required
+      requirements: {},
+      icon: "🛣️"
     },
     {
-      id: "nuclear_plant",
-      name: "Nuclear Power Plant",
-      description: "Clean nuclear energy generation",
-      category: "energy" as const,
-      cost: 15000,
-      buildTime: 600,
-      produces: {
-        electricity: 800
-      },
-      consumes: {
-        uranium: 2,
-        manpower: 200
-      },
-      improves: {
-        energy_security: 5,
-        clean_energy: 3
-      },
-      requiresFeatures: ["strategic_location"],
-      requirements: {
-        infrastructure: 4,
-        technology: "nuclear_power"
-      },
-      icon: "☢️"
+      id: "nature_preserve",
+      name: "Nature Preserve",
+      description: "Protected natural area for conservation",
+      category: "environmental" as const,
+      cost: 1500,
+      buildTime: 100,
+      produces: {},
+      consumes: { manpower: 30 },
+      improves: { biodiversity: 5, tourism_income: 2, environmental_quality: 4, pollution: -2 },
+      requiresFeatures: ["scenic", "wilderness"],
+      requirements: { infrastructure: 1 },
+      icon: "🌲"
     }
   ];
 
@@ -1085,31 +1314,78 @@ function convertTechnologies(): Technology[] {
   }));
 }
 
-// Data validation and initialization
-console.log('Initializing Balance of Powers game data...');
+// Initialize async data loading
+let loadedBuildings: Building[] = [];
+let loadedProvinces: Province[] = [];
+let loadedNations: Nation[] = [];
+
+// Initialize data loading
+async function initializeGameData() {
+  try {
+    console.log('Loading game data from YAML files...');
+    
+    // Load all data in parallel
+    const [buildings, provinces, nations] = await Promise.all([
+      loadBuildingsFromYAML(),
+      loadProvincesFromYAML(), 
+      loadNationsFromYAML()
+    ]);
+    
+    loadedBuildings = buildings;
+    loadedProvinces = provinces;
+    loadedNations = nations;
+    
+    console.log(`Loaded ${buildings.length} buildings, ${provinces.length} provinces, ${nations.length} nations from YAML`);
+  } catch (error) {
+    console.error('Failed to load game data:', error);
+    // Fallback to hardcoded data
+    loadedBuildings = convertBuildings();
+    loadedProvinces = convertProvinces();
+    loadedNations = convertNations();
+  }
+}
+
+// Initialize immediately
+initializeGameData();
 
 // Export the converted data
-export const sampleProvinces: Province[] = convertProvinces();
-export const sampleNations: Nation[] = convertNations();
+export const sampleProvinces: Province[] = [];
+export const sampleNations: Nation[] = [];
 export const sampleEvents: GameEvent[] = convertEvents();
 export const gameUnits: Unit[] = convertUnits();
 export const sampleTechnologies: Technology[] = convertTechnologies();
-export const gameBuildings: Building[] = convertBuildings();
+export const gameBuildings: Building[] = [];
+
+// Getter functions that return loaded data
+export function getProvinces(): Province[] {
+  return loadedProvinces.length > 0 ? loadedProvinces : convertProvinces();
+}
+
+export function getNations(): Nation[] {
+  return loadedNations.length > 0 ? loadedNations : convertNations();
+}
+
+export function getBuildings(): Building[] {
+  return loadedBuildings.length > 0 ? loadedBuildings : convertBuildings();
+}
 
 // Log successful data loading
 console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies, ${gameBuildings.length} buildings, ${Object.keys(resourcesData).length} resources`);
 
 // Export data access functions
 export function getProvinceById(id: string): Province | undefined {
-  return sampleProvinces.find(province => province.id === id);
+  const provinces = getProvinces();
+  return provinces.find(province => province.id === id);
 }
 
 export function getNationById(id: string): Nation | undefined {
-  return sampleNations.find(nation => nation.id === id);
+  const nations = getNations();
+  return nations.find(nation => nation.id === id);
 }
 
 export function getProvincesByCountry(country: string): Province[] {
-  return sampleProvinces.filter(province => province.country === country);
+  const provinces = getProvinces();
+  return provinces.filter(province => province.country === country);
 }
 
 export function getEventById(id: string): GameEvent | undefined {
@@ -1141,21 +1417,25 @@ export function getAvailableTechnologies(currentYear: number, completedTech: str
 }
 
 export function getBuildingById(id: string): Building | undefined {
-  return gameBuildings.find(building => building.id === id);
+  const buildings = getBuildings();
+  return buildings.find(building => building.id === id);
 }
 
 export function getBuildingsByCategory(category: string): Building[] {
-  return gameBuildings.filter(building => building.category === category);
+  const buildings = getBuildings();
+  return buildings.filter(building => building.category === category);
 }
 
 export function getAvailableBuildings(province: Province, nation: Nation, completedTech: string[]): Building[] {
-  return gameBuildings.filter(building => {
-    // Check feature requirements first
+  const buildings = getBuildings();
+  return buildings.filter(building => {
+    // Check feature requirements - more flexible matching
     if (building.requiresFeatures.length > 0) {
-      const hasAllRequiredFeatures = building.requiresFeatures.every(feature => 
+      // Province must have at least one of the required features (OR logic, not AND)
+      const hasAnyRequiredFeature = building.requiresFeatures.some(feature => 
         province.features?.includes(feature) || false
       );
-      if (!hasAllRequiredFeatures) {
+      if (!hasAnyRequiredFeature) {
         return false;
       }
     }
@@ -1209,20 +1489,22 @@ function isRuralProvince(province: Province): boolean {
 
 export function validateGameData(): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
+  const provinces = getProvinces();
+  const nations = getNations();
 
   // Validate provinces
-  if (sampleProvinces.length === 0) {
+  if (provinces.length === 0) {
     errors.push('No provinces loaded');
   }
 
   // Validate nations
-  if (sampleNations.length === 0) {
+  if (nations.length === 0) {
     errors.push('No nations loaded');
   }
 
   // Check that each province references a valid nation
-  sampleProvinces.forEach(province => {
-    if (!sampleNations.find(nation => nation.name === province.country)) {
+  provinces.forEach(province => {
+    if (!nations.find(nation => nation.name === province.country)) {
       errors.push(`Province ${province.id} references unknown country: ${province.country}`);
     }
   });

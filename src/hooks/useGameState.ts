@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useKV } from './useKV';
 import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
-import { sampleProvinces, sampleNations, sampleEvents, getBuildingById } from '../lib/gameData';
+import { getProvinces, getNations, sampleEvents, getBuildingById } from '../lib/gameData';
 import { validateBuildingPlacement } from './useSimulationEngine';
 
 const initialGameState: GameState = {
@@ -15,11 +15,32 @@ const initialGameState: GameState = {
 
 export function useGameState() {
   const [gameState, setGameState] = useKV('gameState', initialGameState);
-  const [provinces, setProvinces] = useKV('provinces', sampleProvinces);
-  const [nations, setNations] = useKV('nations', sampleNations);
+  const [provinces, setProvinces] = useKV('provinces', []);
+  const [nations, setNations] = useKV('nations', []);
   const [events, setEvents] = useKV('events', sampleEvents);
   
   const [localGameState, setLocalGameState] = useState<GameState>(gameState);
+
+  // Initialize data from YAML when component mounts
+  useEffect(() => {
+    const initializeData = async () => {
+      if (provinces.length === 0) {
+        const loadedProvinces = getProvinces();
+        if (loadedProvinces.length > 0) {
+          setProvinces(loadedProvinces);
+        }
+      }
+      
+      if (nations.length === 0) {
+        const loadedNations = getNations();
+        if (loadedNations.length > 0) {
+          setNations(loadedNations);
+        }
+      }
+    };
+    
+    initializeData();
+  }, [provinces.length, nations.length, setProvinces, setNations]);
 
   useEffect(() => {
     // Ensure currentDate is always a Date object (in case it was serialized as a string)

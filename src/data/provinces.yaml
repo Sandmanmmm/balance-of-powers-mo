@@ -64,6 +64,8 @@ provinces:
       - "oil_rich"
       - "windy"
       - "flat_terrain"
+      - "fishing_grounds"
+      - "low_population"
     population:
       total: 2500000
       ethnic_groups:
@@ -232,6 +234,9 @@ provinces:
       - "desert"
       - "sunny"
       - "radioactive_deposits"
+      - "flat_terrain"
+      - "low_population"
+      - "wilderness"
     population:
       total: 1800000
       ethnic_groups:

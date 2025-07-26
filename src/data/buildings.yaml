@@ -658,3 +658,223 @@ buildings:
     requirements:
       infrastructure: 3
     icon: "🏖️"
+
+  # === ADDITIONAL FLEXIBLE BUILDINGS ===
+
+  - id: "trade_center"
+    name: "Trade Center"
+    description: "Commercial hub for business and commerce"
+    category: "commercial"
+    cost: 1800
+    buildTime: 140
+    produces:
+      consumer_goods: 35
+    consumes:
+      electricity: 20
+      manpower: 80
+    improves:
+      trade_efficiency: 0.15
+      gdp_modifier: 0.08
+      employment: 500
+    requiresFeatures:
+      - "urban"
+    requirements:
+      infrastructure: 2
+    icon: "🏢"
+
+  - id: "logistics_hub"
+    name: "Logistics Hub"
+    description: "Transportation and distribution center"
+    category: "infrastructure"
+    cost: 2400
+    buildTime: 160
+    produces: {}
+    consumes:
+      electricity: 15
+      manpower: 120
+      oil: 25
+    improves:
+      transportation_efficiency: 0.2
+      trade_capacity: 5
+      military_logistics: 2
+    requiresFeatures:
+      - "flat_terrain"
+    requirements:
+      infrastructure: 2
+    icon: "📦"
+
+  - id: "desalination_plant"
+    name: "Desalination Plant"
+    description: "Converts seawater to fresh water"
+    category: "infrastructure"
+    cost: 5000
+    buildTime: 280
+    produces:
+      water: 500
+    consumes:
+      electricity: 80
+      manpower: 60
+    improves:
+      water_security: 3
+      population_capacity: 0.1
+    requiresFeatures:
+      - "coastal"
+    requirements:
+      infrastructure: 3
+      technology: "water_treatment"
+    icon: "💧"
+
+  - id: "spaceport"
+    name: "Spaceport"
+    description: "Launch facility for space missions"
+    category: "aerospace"
+    cost: 20000
+    buildTime: 500
+    produces:
+      research: 80
+    consumes:
+      electricity: 200
+      manpower: 400
+      rare_earth: 20
+      oil: 100
+    improves:
+      space_capability: 5
+      scientific_prestige: 8
+      tech_advancement: 0.3
+    requiresFeatures:
+      - "flat_terrain"
+      - "low_population"
+    requirements:
+      infrastructure: 4
+      technology: "space_technology"
+    icon: "🚀"
+
+  - id: "geothermal_plant"
+    name: "Geothermal Power Plant"
+    description: "Harnesses earth's thermal energy"
+    category: "energy"
+    cost: 6000
+    buildTime: 320
+    produces:
+      electricity: 350
+    consumes:
+      manpower: 40
+      steel: 15
+    improves:
+      clean_energy: 4
+      energy_security: 2
+    requiresFeatures:
+      - "volcanic_activity"
+      - "geothermal_zone"
+    requirements:
+      infrastructure: 3
+      technology: "geothermal_energy"
+    icon: "🌋"
+
+  - id: "casino_resort"
+    name: "Casino Resort"
+    description: "Entertainment and gambling complex"
+    category: "tourism"
+    cost: 8000
+    buildTime: 240
+    produces:
+      consumer_goods: 40
+    consumes:
+      electricity: 60
+      manpower: 300
+      food: 80
+    improves:
+      tourism_income: 15
+      gdp_modifier: 0.2
+      employment: 1200
+      organized_crime: 2
+    requiresFeatures:
+      - "tourism"
+    requirements:
+      infrastructure: 3
+    icon: "🎰"
+
+  - id: "amusement_park"
+    name: "Amusement Park"
+    description: "Large entertainment complex with rides"
+    category: "tourism"
+    cost: 4500
+    buildTime: 200
+    produces:
+      consumer_goods: 20
+    consumes:
+      electricity: 40
+      manpower: 200
+      steel: 10
+    improves:
+      tourism_income: 6
+      happiness: 3
+      employment: 800
+    requiresFeatures:
+      - "flat_terrain"
+    requirements:
+      infrastructure: 2
+    icon: "🎢"
+
+  - id: "ski_resort"
+    name: "Ski Resort"
+    description: "Winter sports and mountain tourism"
+    category: "tourism"
+    cost: 3200
+    buildTime: 180
+    produces:
+      consumer_goods: 15
+    consumes:
+      electricity: 30
+      manpower: 150
+    improves:
+      tourism_income: 8
+      seasonal_employment: 600
+    requiresFeatures:
+      - "mountainous"
+      - "cold_climate"
+    requirements:
+      infrastructure: 2
+    icon: "🎿"
+
+  - id: "shopping_mall"
+    name: "Shopping Mall"
+    description: "Large retail and commercial complex"
+    category: "commercial"
+    cost: 3000
+    buildTime: 160
+    produces:
+      consumer_goods: 50
+    consumes:
+      electricity: 35
+      manpower: 250
+    improves:
+      retail_capacity: 8
+      gdp_modifier: 0.06
+      employment: 1000
+    requiresFeatures:
+      - "urban"
+    requirements:
+      infrastructure: 3
+    icon: "🛒"
+
+  - id: "nature_preserve"
+    name: "Nature Preserve"
+    description: "Protected natural area for conservation"
+    category: "environmental"
+    cost: 1500
+    buildTime: 100
+    produces: {}
+    consumes:
+      manpower: 30
+    improves:
+      biodiversity: 5
+      tourism_income: 2
+      environmental_quality: 4
+      pollution: -2
+    requiresFeatures:
+      - "scenic"
+      - "wilderness"
+    requirements:
+      infrastructure: 1
+    icon: "🌲"
