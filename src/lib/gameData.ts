@@ -1087,7 +1087,7 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
     // Check feature requirements first
     if (building.requiresFeatures.length > 0) {
       const hasAllRequiredFeatures = building.requiresFeatures.every(feature => 
-        province.features.includes(feature)
+        province.features?.includes(feature) || false
       );
       if (!hasAllRequiredFeatures) {
         return false;

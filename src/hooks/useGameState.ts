@@ -30,6 +30,18 @@ export function useGameState() {
     setLocalGameState(stateWithDate);
   }, [gameState]);
 
+  // Ensure all provinces have properly initialized features arrays
+  useEffect(() => {
+    const needsUpdate = provinces.some(province => !Array.isArray(province.features));
+    if (needsUpdate) {
+      const fixedProvinces = provinces.map(province => ({
+        ...province,
+        features: Array.isArray(province.features) ? province.features : []
+      }));
+      setProvinces(fixedProvinces);
+    }
+  }, [provinces, setProvinces]);
+
   const updateGameState = useCallback((updates: Partial<GameState>) => {
     const newState = { ...localGameState, ...updates };
     setLocalGameState(newState);

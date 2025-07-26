@@ -238,7 +238,7 @@ export function ConstructionPanel({
                                   <div className="flex flex-wrap gap-1">
                                     {/* Feature Requirements */}
                                     {building.requiresFeatures.map((feature) => {
-                                      const hasFeature = province.features.includes(feature);
+                                      const hasFeature = province.features?.includes(feature) || false;
                                       return (
                                         <Badge 
                                           key={feature} 
