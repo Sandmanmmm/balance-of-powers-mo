@@ -462,6 +462,150 @@
           [-120.0000, 83.1361]
         ]]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_001",
+        "name": "Baja California",
+        "country": "Mexico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-117.0000, 32.7500],
+          [-109.0000, 32.7500],
+          [-109.0000, 28.0000],
+          [-117.0000, 28.0000],
+          [-117.0000, 32.7500]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_002",
+        "name": "Sonora",
+        "country": "Mexico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-115.0000, 32.5000],
+          [-108.0000, 32.5000],
+          [-108.0000, 26.0000],
+          [-115.0000, 26.0000],
+          [-115.0000, 32.5000]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_003",
+        "name": "Chihuahua",
+        "country": "Mexico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-109.0000, 31.8000],
+          [-103.0000, 31.8000],
+          [-103.0000, 25.5000],
+          [-109.0000, 25.5000],
+          [-109.0000, 31.8000]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_004",
+        "name": "Coahuila",
+        "country": "Mexico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.5000, 30.0000],
+          [-99.0000, 30.0000],
+          [-99.0000, 24.5000],
+          [-104.5000, 24.5000],
+          [-104.5000, 30.0000]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_005",
+        "name": "Nuevo León",
+        "country": "Mexico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-101.5000, 27.5000],
+          [-98.5000, 27.5000],
+          [-98.5000, 23.0000],
+          [-101.5000, 23.0000],
+          [-101.5000, 27.5000]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_006",
+        "name": "Tamaulipas",
+        "country": "Mexico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-100.0000, 27.5000],
+          [-97.0000, 27.5000],
+          [-97.0000, 22.0000],
+          [-100.0000, 22.0000],
+          [-100.0000, 27.5000]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_007",
+        "name": "Sinaloa",
+        "country": "Mexico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-109.5000, 27.0000],
+          [-105.5000, 27.0000],
+          [-105.5000, 22.5000],
+          [-109.5000, 22.5000],
+          [-109.5000, 27.0000]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_018",
+        "name": "Mexico City",
+        "country": "Mexico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-99.5000, 19.8000],
+          [-98.8000, 19.8000],
+          [-98.8000, 19.0000],
+          [-99.5000, 19.0000],
+          [-99.5000, 19.8000]
+        ]]
+      }
     }
   ]
 }

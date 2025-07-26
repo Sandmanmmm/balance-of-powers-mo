@@ -1055,3 +1055,474 @@ provinces:
       inflation: 4.2
     buildings: []
     construction_projects: []
+
+  MEX_001:
+    name: "Baja California"
+    country: "Mexico"
+    coordinates: [30.8406, -115.2838]
+    features:
+      - "desert"
+      - "coastal"
+      - "border_region"
+      - "tourism"
+      - "manufacturing"
+      - "maquiladora"
+      - "hot_climate"
+    population:
+      total: 3769020
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 62
+        - group: "White Mexican"
+          percent: 30
+        - group: "Indigenous"
+          percent: 3
+        - group: "Other"
+          percent: 5
+    unrest: 4.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 45
+      steel: 25
+      rare_earth: 15
+      uranium: 5
+      food: 180
+    military:
+      stationed_units:
+        - "MEX_INF_1"
+      fortification_level: 2
+    resource_output:
+      energy: 685
+      iron: 35
+      food: 220
+      technology: 85
+    politics:
+      party_support:
+        "MORENA": 48.5
+        "PAN": 32.1
+        "PRI": 15.8
+        "Other": 3.6
+      governor_approval: 52.8
+    economy:
+      gdp_per_capita: 22000
+      unemployment: 4.2
+      inflation: 5.8
+    buildings: []
+    construction_projects: []
+
+  MEX_002:
+    name: "Sonora"
+    country: "Mexico"
+    coordinates: [29.2972, -110.3309]
+    features:
+      - "desert"
+      - "border_region"
+      - "mining"
+      - "manufacturing"
+      - "hot_climate"
+      - "coastal"
+      - "agriculture"
+    population:
+      total: 2944840
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 58
+        - group: "White Mexican"
+          percent: 35
+        - group: "Indigenous"
+          percent: 4
+        - group: "Other"
+          percent: 3
+    unrest: 5.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 185
+      rare_earth: 45
+      uranium: 15
+      food: 320
+    military:
+      stationed_units:
+        - "MEX_INF_2"
+      fortification_level: 2
+    resource_output:
+      energy: 520
+      iron: 220
+      food: 385
+      technology: 42
+    politics:
+      party_support:
+        "MORENA": 45.2
+        "PAN": 38.5
+        "PRI": 12.8
+        "Other": 3.5
+      governor_approval: 48.9
+    economy:
+      gdp_per_capita: 19500
+      unemployment: 3.8
+      inflation: 5.2
+    buildings: []
+    construction_projects: []
+
+  MEX_003:
+    name: "Chihuahua"
+    country: "Mexico"
+    coordinates: [28.6330, -106.0691]
+    features:
+      - "border_region"
+      - "mining"
+      - "manufacturing"
+      - "desert"
+      - "mountainous"
+      - "maquiladora"
+      - "hot_climate"
+    population:
+      total: 3741869
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 55
+        - group: "White Mexican"
+          percent: 38
+        - group: "Indigenous"
+          percent: 4
+        - group: "Other"
+          percent: 3
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 85
+      steel: 285
+      rare_earth: 85
+      uranium: 25
+      food: 280
+    military:
+      stationed_units:
+        - "MEX_INF_3"
+        - "MEX_LOG_1"
+      fortification_level: 2
+    resource_output:
+      energy: 680
+      iron: 325
+      food: 320
+      technology: 58
+    politics:
+      party_support:
+        "PAN": 42.8
+        "MORENA": 38.5
+        "PRI": 15.2
+        "Other": 3.5
+      governor_approval: 45.2
+    economy:
+      gdp_per_capita: 18500
+      unemployment: 4.5
+      inflation: 5.8
+    buildings: []
+    construction_projects: []
+
+  MEX_004:
+    name: "Coahuila"
+    country: "Mexico"
+    coordinates: [27.0587, -101.7068]
+    features:
+      - "border_region"
+      - "mining"
+      - "manufacturing"
+      - "desert"
+      - "industrial"
+      - "coal_deposits"
+      - "hot_climate"
+    population:
+      total: 3146771
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 62
+        - group: "White Mexican"
+          percent: 32
+        - group: "Indigenous"
+          percent: 3
+        - group: "Other"
+          percent: 3
+    unrest: 4.5
+    infrastructure:
+      roads: 4
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 185
+      steel: 420
+      rare_earth: 25
+      uranium: 15
+      food: 220
+    military:
+      stationed_units:
+        - "MEX_INF_4"
+      fortification_level: 2
+    resource_output:
+      energy: 780
+      iron: 485
+      food: 285
+      technology: 68
+    politics:
+      party_support:
+        "PRI": 38.5
+        "MORENA": 35.2
+        "PAN": 22.8
+        "Other": 3.5
+      governor_approval: 51.8
+    economy:
+      gdp_per_capita: 21000
+      unemployment: 3.8
+      inflation: 5.1
+    buildings: []
+    construction_projects: []
+
+  MEX_005:
+    name: "Nuevo León"
+    country: "Mexico"
+    coordinates: [25.5922, -99.9962]
+    features:
+      - "border_region"
+      - "industrial"
+      - "urban"
+      - "high_tech"
+      - "manufacturing"
+      - "financial_center"
+      - "mountainous"
+    population:
+      total: 5784442
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 58
+        - group: "White Mexican"
+          percent: 38
+        - group: "Indigenous"
+          percent: 2
+        - group: "Other"
+          percent: 2
+    unrest: 3.8
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 125
+      steel: 185
+      rare_earth: 45
+      uranium: 8
+      food: 180
+    military:
+      stationed_units:
+        - "MEX_INF_5"
+        - "MEX_LOG_2"
+      fortification_level: 3
+    resource_output:
+      energy: 1280
+      iron: 220
+      food: 220
+      technology: 185
+    politics:
+      party_support:
+        "PAN": 45.8
+        "MORENA": 32.5
+        "PRI": 18.2
+        "Other": 3.5
+      governor_approval: 58.2
+    economy:
+      gdp_per_capita: 26500
+      unemployment: 3.2
+      inflation: 4.8
+    buildings: []
+    construction_projects: []
+
+  MEX_006:
+    name: "Tamaulipas"
+    country: "Mexico"
+    coordinates: [24.2669, -98.8363]
+    features:
+      - "border_region"
+      - "coastal"
+      - "oil_rich"
+      - "industrial"
+      - "fishing"
+      - "hot_climate"
+      - "agricultural"
+    population:
+      total: 3650602
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 65
+        - group: "White Mexican"
+          percent: 28
+        - group: "Indigenous"
+          percent: 4
+        - group: "Other"
+          percent: 3
+    unrest: 7.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 850
+      steel: 85
+      rare_earth: 25
+      uranium: 12
+      food: 420
+    military:
+      stationed_units:
+        - "MEX_INF_6"
+        - "MEX_NAV_1"
+      fortification_level: 2
+    resource_output:
+      energy: 1250
+      iron: 95
+      food: 485
+      technology: 45
+    politics:
+      party_support:
+        "MORENA": 48.5
+        "PAN": 28.2
+        "PRI": 20.8
+        "Other": 2.5
+      governor_approval: 42.8
+    economy:
+      gdp_per_capita: 17500
+      unemployment: 5.8
+      inflation: 6.2
+    buildings: []
+    construction_projects: []
+
+  MEX_007:
+    name: "Sinaloa"
+    country: "Mexico"
+    coordinates: [25.1721, -107.4795]
+    features:
+      - "coastal"
+      - "agricultural"
+      - "fishing"
+      - "tourism"
+      - "plains"
+      - "hot_climate"
+      - "drug_production"
+    population:
+      total: 3156674
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 68
+        - group: "White Mexican"
+          percent: 25
+        - group: "Indigenous"
+          percent: 5
+        - group: "Other"
+          percent: 2
+    unrest: 8.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 15
+      rare_earth: 8
+      uranium: 5
+      food: 580
+    military:
+      stationed_units:
+        - "MEX_INF_7"
+        - "MEX_NAV_2"
+      fortification_level: 2
+    resource_output:
+      energy: 420
+      iron: 18
+      food: 685
+      technology: 28
+    politics:
+      party_support:
+        "MORENA": 52.8
+        "PRI": 28.5
+        "PAN": 15.2
+        "Other": 3.5
+      governor_approval: 48.2
+    economy:
+      gdp_per_capita: 16500
+      unemployment: 4.8
+      inflation: 5.8
+    buildings: []
+    construction_projects: []
+
+  MEX_018:
+    name: "Mexico City"
+    country: "Mexico"
+    coordinates: [19.4326, -99.1332]
+    features:
+      - "capital"
+      - "urban"
+      - "megacity"
+      - "financial_center"
+      - "cultural_center"
+      - "high_tech"
+      - "mountainous"
+      - "pollution"
+    population:
+      total: 9209944
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 52
+        - group: "White Mexican"
+          percent: 35
+        - group: "Indigenous"
+          percent: 8
+        - group: "Other"
+          percent: 5
+    unrest: 5.8
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 4
+      education: 5
+    resource_deposits:
+      oil: 25
+      steel: 85
+      rare_earth: 25
+      uranium: 8
+      food: 120
+    military:
+      stationed_units:
+        - "MEX_INF_GUARD"
+        - "MEX_AIR_1"
+        - "MEX_LOG_CENTRAL"
+      fortification_level: 4
+    resource_output:
+      energy: 2850
+      iron: 95
+      food: 145
+      technology: 485
+    politics:
+      party_support:
+        "MORENA": 58.5
+        "PAN": 22.8
+        "PRI": 15.2
+        "Other": 3.5
+      governor_approval: 48.9
+    economy:
+      gdp_per_capita: 28500
+      unemployment: 4.2
+      inflation: 6.8
+    buildings: []
+    construction_projects: []

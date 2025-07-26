@@ -319,3 +319,133 @@ nations:
       overall: 1.0
     trade_offers: []
     trade_agreements: []
+
+  MEX:
+    name: "Mexico"
+    capital: "Mexico City"
+    flag: "🇲🇽"
+    government:
+      type: "democracy"
+      leader: "Andrés Manuel López Obrador"
+      approval: 62.4
+      stability: 71.2
+      ruling_party: "MORENA"
+      ideology: "Left-wing Populism"
+      election_cycle: 6
+      last_election: "2018-07-01"
+    economy:
+      gdp: 1700000000000
+      debt: 800000000000
+      inflation: 5.1
+      trade_balance: -4800000000
+      treasury: 85000000000
+      currency: "MXN"
+      interest_rate: 11.25
+      sectors:
+        manufacturing: 17.8
+        services: 60.3
+        agriculture: 3.6
+        technology: 2.9
+        natural_resources: 7.8
+        tourism: 7.6
+    military:
+      manpower: 280000
+      equipment: 65
+      readiness: 68
+      doctrine: "Territorial Defense"
+      nuclear_capability: false
+      military_spending_gdp: 0.7
+      conscription: true
+      reserve_forces: 81500
+    technology:
+      researchPoints: 420
+      currentResearch:
+        - "Renewable Energy"
+        - "Agricultural Technology"
+        - "Medical Technology"
+        - "Manufacturing Automation"
+      completedTech:
+        - "Internet"
+        - "Automotive Manufacturing"
+        - "Oil Refining"
+        - "Telecommunications"
+        - "Aerospace Technology"
+      level: 6.8
+    diplomacy:
+      allies:
+        - "USA"
+        - "CAN"
+      enemies: []
+      embargoes: []
+      sanctions: []
+      trade_partners:
+        - "USA"
+        - "CAN"
+        - "CHN"
+        - "GER"
+        - "JPN"
+        - "KOR"
+        - "BRA"
+      international_relations:
+        EU: "partner"
+        NATO: "partner"
+        UN_Security_Council: false
+        G20: "member"
+        USMCA: "member"
+        Pacific_Alliance: "founding_member"
+    provinces:
+      - "MEX_001"  # Baja California
+      - "MEX_002"  # Sonora
+      - "MEX_003"  # Chihuahua
+      - "MEX_004"  # Coahuila
+      - "MEX_005"  # Nuevo León
+      - "MEX_006"  # Tamaulipas
+      - "MEX_007"  # Sinaloa
+      - "MEX_008"  # Durango
+      - "MEX_009"  # Zacatecas
+      - "MEX_010"  # San Luis Potosí
+      - "MEX_011"  # Nayarit
+      - "MEX_012"  # Jalisco
+      - "MEX_013"  # Aguascalientes
+      - "MEX_014"  # Guanajuato
+      - "MEX_015"  # Querétaro
+      - "MEX_016"  # Hidalgo
+      - "MEX_017"  # Mexico State
+      - "MEX_018"  # Mexico City (Federal District)
+      - "MEX_019"  # Tlaxcala
+      - "MEX_020"  # Puebla
+      - "MEX_021"  # Veracruz
+      - "MEX_022"  # Colima
+      - "MEX_023"  # Michoacán
+      - "MEX_024"  # Morelos
+      - "MEX_025"  # Guerrero
+      - "MEX_026"  # Oaxaca
+      - "MEX_027"  # Chiapas
+      - "MEX_028"  # Tabasco
+      - "MEX_029"  # Campeche
+      - "MEX_030"  # Yucatán
+      - "MEX_031"  # Quintana Roo
+      - "MEX_032"  # Baja California Sur
+    demographics:
+      population: 128900000
+      median_age: 29.3
+      birth_rate: 2.1
+      life_expectancy: 75.1
+      literacy_rate: 95.4
+      urbanization: 80.7
+    resource_stockpiles:
+      oil: 1850000
+      food: 780000
+      electricity: 385000
+      manpower: 4200000
+      technology: 42000
+      consumer_goods: 650000
+      military_equipment: 85000
+      research: 4200
+    resource_production: {}
+    resource_consumption: {}
+    resource_shortages: {}
+    resource_efficiency:
+      overall: 1.0
+    trade_offers: []
+    trade_agreements: []
