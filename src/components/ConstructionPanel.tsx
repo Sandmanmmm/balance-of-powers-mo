@@ -264,14 +264,14 @@ export function ConstructionPanel({
           <CardContent>
             <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
               <TabsList className="grid w-full mb-4" style={{ gridTemplateColumns: `repeat(${Math.min(categories.length + 1, 7)}, minmax(0, 1fr))` }}>
-                <TabsTrigger value="all" className="text-xs flex items-center gap-1">
-                  <GridFour className="w-3 h-3" />
-                  <span className="hidden sm:inline">All</span>
+                <TabsTrigger value="all" className="text-xs flex items-center justify-center gap-1 min-w-0">
+                  <GridFour className="w-3 h-3 shrink-0" />
+                  <span className="hidden lg:inline truncate">All</span>
                 </TabsTrigger>
                 {categories.slice(0, 6).map(category => (
-                  <TabsTrigger key={category} value={category} className="text-xs flex items-center gap-1" title={category.charAt(0).toUpperCase() + category.slice(1)}>
+                  <TabsTrigger key={category} value={category} className="text-xs flex items-center justify-center gap-1 min-w-0" title={category.charAt(0).toUpperCase() + category.slice(1)}>
                     {getCategoryIcon(category)}
-                    <span className="hidden sm:inline capitalize">
+                    <span className="hidden lg:inline capitalize truncate">
                       {category.charAt(0).toUpperCase() + category.slice(1)}
                     </span>
                   </TabsTrigger>
