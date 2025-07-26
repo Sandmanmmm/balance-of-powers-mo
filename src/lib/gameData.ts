@@ -1938,22 +1938,10 @@ export const gameBuildings: Building[] = [];
 // Simplified fallback that loads incrementally
 export async function getProvinces(): Promise<Province[]> {
   try {
-    // If we have cached data, return it immediately
-    if (loadedProvinces.length > 0) {
-      console.log(`getProvinces() returning cached ${loadedProvinces.length} provinces`);
-      return loadedProvinces;
-    }
-    
-    // Try to load from YAML with shorter timeout
-    try {
-      await initializeGameData();
-      const result = loadedProvinces.length > 0 ? loadedProvinces : convertProvinces();
-      console.log(`getProvinces() returning ${result.length} provinces`);
-      return result;
-    } catch (error) {
-      console.warn('YAML loading failed, using fallback data:', error);
-      return convertProvinces();
-    }
+    // Always return hardcoded data for now to fix loading issue
+    const result = convertProvinces();
+    console.log(`getProvinces() returning ${result.length} provinces (hardcoded)`);
+    return result;
   } catch (error) {
     console.error('Error in getProvinces, using fallback:', error);
     return convertProvinces(); // Fallback to hardcoded data
@@ -1962,22 +1950,34 @@ export async function getProvinces(): Promise<Province[]> {
 
 export async function getNations(): Promise<Nation[]> {
   try {
-    // If we have cached data, return it immediately
-    if (loadedNations.length > 0) {
-      console.log(`getNations() returning cached ${loadedNations.length} nations`);
-      return loadedNations;
+    // Always return hardcoded data for now to fix loading issue
+    const result = convertNations();
+    console.log(`getNations() returning ${result.length} nations (hardcoded)`);
+    
+    // Debug: Log the first few nations to ensure data is correct
+    if (result.length > 0) {
+      console.log('First nation data:', {
+        id: result[0].id,
+        name: result[0].name,
+        capital: result[0].capital,
+        hasGovernment: !!result[0].government,
+        hasEconomy: !!result[0].economy,
+        hasResourceStockpiles: !!result[0].resourceStockpiles
+      });
+      
+      const canada = result.find(n => n.id === 'CAN');
+      if (canada) {
+        console.log('Canada data verified:', {
+          name: canada.name,
+          leader: canada.government?.leader,
+          capital: canada.capital
+        });
+      } else {
+        console.error('Canada not found in converted nations!');
+      }
     }
     
-    // Try to load from YAML with shorter timeout
-    try {
-      await initializeGameData();
-      const result = loadedNations.length > 0 ? loadedNations : convertNations();
-      console.log(`getNations() returning ${result.length} nations`);
-      return result;
-    } catch (error) {
-      console.warn('YAML loading failed, using fallback data:', error);
-      return convertNations();
-    }
+    return result;
   } catch (error) {
     console.error('Error in getNations, using fallback:', error);
     return convertNations(); // Fallback to hardcoded data

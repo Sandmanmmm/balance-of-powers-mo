@@ -42,43 +42,33 @@ export function useGameState() {
       try {
         console.log('Starting data initialization...');
         
-        // Set a faster timeout for initialization
-        const initPromise = (async () => {
-          console.log('Loading provinces from YAML...');
-          const loadedProvinces = await getProvinces();
-          if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
-            console.log(`Loaded ${loadedProvinces.length} provinces successfully`);
-            const canadianProvinces = loadedProvinces.filter(p => p.country === 'Canada');
-            console.log(`Canadian provinces:`, canadianProvinces.map(p => p.name));
-            setProvinces(loadedProvinces);
+        console.log('Loading provinces from YAML...');
+        const loadedProvinces = await getProvinces();
+        if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
+          console.log(`Loaded ${loadedProvinces.length} provinces successfully`);
+          const canadianProvinces = loadedProvinces.filter(p => p.country === 'Canada');
+          console.log(`Canadian provinces:`, canadianProvinces.map(p => p.name));
+          setProvinces(loadedProvinces);
+        } else {
+          console.warn('No provinces loaded from YAML, using fallback');
+          setProvinces([]);
+        }
+        
+        console.log('Loading nations from YAML...');
+        const loadedNations = await getNations();
+        if (Array.isArray(loadedNations) && loadedNations.length > 0) {
+          console.log(`Loaded ${loadedNations.length} nations successfully`);
+          const canadaNation = loadedNations.find(n => n.id === 'CAN');
+          if (canadaNation) {
+            console.log(`✓ Canada found:`, canadaNation.name, 'Leader:', canadaNation.government?.leader);
           } else {
-            console.warn('No provinces loaded from YAML, using fallback');
-            setProvinces([]);
+            console.warn('⚠ Canada not found in loaded nations');
           }
-          
-          console.log('Loading nations from YAML...');
-          const loadedNations = await getNations();
-          if (Array.isArray(loadedNations) && loadedNations.length > 0) {
-            console.log(`Loaded ${loadedNations.length} nations successfully`);
-            const canadaNation = loadedNations.find(n => n.id === 'CAN');
-            if (canadaNation) {
-              console.log(`✓ Canada found:`, canadaNation.name, 'Leader:', canadaNation.government?.leader);
-            } else {
-              console.warn('⚠ Canada not found in loaded nations');
-            }
-            setNations(loadedNations);
-          } else {
-            console.warn('No nations loaded from YAML, using fallback');
-            setNations([]);
-          }
-        })();
-
-        // Race the initialization with a timeout
-        const timeoutPromise = new Promise<void>((_, reject) => 
-          setTimeout(() => reject(new Error('Initialization timeout')), 5000)
-        );
-
-        await Promise.race([initPromise, timeoutPromise]);
+          setNations(loadedNations);
+        } else {
+          console.warn('No nations loaded from YAML, using fallback');
+          setNations([]);
+        }
         
         console.log('Data initialization completed');
         setIsInitialized(true);
@@ -99,7 +89,7 @@ export function useGameState() {
     } else {
       console.log('Already initialized, skipping data load');
     }
-  }, [setProvinces, setNations, isInitialized]);
+  }, [setProvinces, setNations, isInitialized, setIsInitialized]);
 
   useEffect(() => {
     // Ensure currentDate is always a Date object (in case it was serialized as a string)
@@ -429,6 +419,7 @@ export function useGameState() {
     nations: Array.isArray(nations) ? nations : [],
     events,
     isInitialized,
+    setIsInitialized,
     selectProvince,
     selectNation,
     setMapOverlay,

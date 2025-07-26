@@ -42,6 +42,7 @@ function App() {
     provinces,
     nations,
     isInitialized,
+    setIsInitialized,
     selectProvince,
     selectNation,
     setMapOverlay,
