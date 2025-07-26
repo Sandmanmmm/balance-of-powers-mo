@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useGameState } from './hooks/useGameState';
 import { useSimulationEngine } from './hooks/useSimulationEngine';
 import { WorldMap } from './components/WorldMap';
