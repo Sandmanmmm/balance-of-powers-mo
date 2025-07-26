@@ -1152,7 +1152,6 @@ function processResourceSystem(
         onUpdateProvince(province.id, provinceUpdates);
       }
     });
-    }
     
     // Add production from resource deposits
     if (province.resourceDeposits && typeof province.resourceDeposits === 'object') {
@@ -1393,4 +1392,5 @@ function processTradeSystem(
       }
     });
   }
+}
 }

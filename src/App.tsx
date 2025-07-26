@@ -53,7 +53,7 @@ function App() {
 
   // Initialize simulation engine only when data is loaded
   useSimulationEngine({
-    gameState: localGameState,
+    gameState: gameState,
     provinces: Array.isArray(provinces) ? provinces : [],
     nations: Array.isArray(nations) ? nations : [],
     onAdvanceTime: advanceTime,
