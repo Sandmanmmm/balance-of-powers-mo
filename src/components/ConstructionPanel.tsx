@@ -49,7 +49,8 @@ export function ConstructionPanel({
         setAllBuildings(buildings || []);
         
         if (province && nation) {
-          const available = getAvailableBuildings(province, nation, nation.technology?.completedTech || []);
+          const completedTech = (nation.technology?.completedTech || []);
+          const available = getAvailableBuildings(province, nation, completedTech);
           setAvailableBuildings(available || []);
         } else {
           setAvailableBuildings([]);
@@ -151,7 +152,6 @@ export function ConstructionPanel({
                   </div>
                 );
               })}
-            </div>
             </div>
           </CardContent>
         </Card>
@@ -317,10 +317,10 @@ export function ConstructionPanel({
                                     {/* Technology Requirements */}
                                     {building.requirements && building.requirements.technology && (
                                       <Badge 
-                                        variant={nation.technology.completedTech.includes(building.requirements.technology) ? "secondary" : "destructive"}
+                                        variant={(nation.technology?.completedTech || []).includes(building.requirements.technology) ? "secondary" : "destructive"}
                                         className="text-xs"
                                       >
-                                        {building.requirements.technology} {nation.technology.completedTech.includes(building.requirements.technology) ? '✓' : '✗'}
+                                        {building.requirements.technology} {(nation.technology?.completedTech || []).includes(building.requirements.technology) ? '✓' : '✗'}
                                       </Badge>
                                     )}
                                   </div>

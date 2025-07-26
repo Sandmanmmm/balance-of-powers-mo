@@ -736,18 +736,18 @@ const nationsData = {
         manpower: 85000,
         equipment: 82,
         doctrine: "Regional Defense",
-        nuclearCapability: false
+        nuclear_capability: false
       },
       technology: {
-        researchPoints: 850,
-        currentResearch: ["Mining Technology", "Renewable Energy", "Defense Systems"],
-        completedTech: ["Internet", "Mining Automation", "Solar Technology", "Military Communications"],
-        level: 7.8
+        research_points: 850,
+        current_research: ["Mining Technology", "Renewable Energy", "Defense Systems"],
+        completed_tech: ["Internet", "Mining Automation", "Solar Technology", "Military Communications"],
+        tech_level: 7.8
       },
       diplomacy: {
         allies: ["USA", "GBR", "NZL", "JPN"],
         enemies: [],
-        tradePartners: ["CHN", "JPN", "USA", "KOR", "IND", "GBR"]
+        trade_partners: ["CHN", "JPN", "USA", "KOR", "IND", "GBR"]
       },
       resourceStockpiles: {
         oil: 35000,
@@ -845,25 +845,25 @@ function convertNations(): Nation[] {
       gdp: data.economy.gdp,
       debt: data.economy.debt,
       inflation: data.economy.inflation,
-      tradeBalance: data.economy.trade_balance,
+      tradeBalance: data.economy.trade_balance || data.economy.tradeBalance,
       treasury: data.economy.treasury
     },
     military: {
       manpower: data.military.manpower,
       equipment: data.military.equipment,
       doctrine: data.military.doctrine,
-      nuclearCapability: data.military.nuclear_capability
+      nuclearCapability: data.military.nuclear_capability ?? data.military.nuclearCapability ?? false
     },
     technology: {
-      researchPoints: data.technology.research_points,
-      currentResearch: data.technology.current_research,
-      completedTech: data.technology.completed_tech,
-      level: data.technology.tech_level
+      researchPoints: data.technology.research_points ?? data.technology.researchPoints ?? 0,
+      currentResearch: data.technology.current_research ?? data.technology.currentResearch ?? [],
+      completedTech: data.technology.completed_tech ?? data.technology.completedTech ?? [],
+      level: data.technology.tech_level ?? data.technology.level ?? 1.0
     },
     diplomacy: {
       allies: data.diplomacy.allies,
       enemies: data.diplomacy.enemies,
-      tradePartners: data.diplomacy.trade_partners
+      tradePartners: data.diplomacy.trade_partners ?? data.diplomacy.tradePartners ?? []
     },
     resourceStockpiles: data.resourceStockpiles || {},
     resourceProduction: data.resourceProduction || {},
@@ -1665,12 +1665,22 @@ export function getBuildingsByCategory(category: string): Building[] {
 
 export function getAvailableBuildings(province: Province, nation: Nation, completedTech: string[]): Building[] {
   const buildings = getBuildings();
+  if (!buildings || buildings.length === 0) {
+    return [];
+  }
+  
   return buildings.filter(building => {
+    // Ensure we have all required data
+    if (!building || !province) {
+      return false;
+    }
+    
     // Check feature requirements with flexible matching
     if (building.requiresFeatures && building.requiresFeatures.length > 0) {
       // Province must have at least one of the required features (some() logic)
+      const provinceFeatures = province.features || [];
       const hasAnyRequiredFeature = building.requiresFeatures.some(feature => 
-        (province.features && province.features.includes(feature)) || false
+        provinceFeatures.includes(feature)
       );
       if (!hasAnyRequiredFeature) {
         return false;
@@ -1684,7 +1694,7 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
     }
     
     // Check technology requirements
-    if (building.requirements?.technology && !completedTech.includes(building.requirements.technology)) {
+    if (building.requirements?.technology && !(completedTech || []).includes(building.requirements.technology)) {
       return false;
     }
     
