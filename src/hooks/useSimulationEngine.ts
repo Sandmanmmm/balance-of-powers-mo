@@ -1221,80 +1221,80 @@ function processResourceSystem(
     }
   });
     
-    // Calculate base resource production
-    newProduction.manpower = (newProduction.manpower || 0) + (nation.demographics?.population || 0) * 0.001 * weeksElapsed; // 0.1% of population per week
-    newProduction.research = (newProduction.research || 0) + nation.technology.researchPoints * 0.1 * weeksElapsed;
-    
-    // Calculate base consumption
-    const totalPopulation = nationProvinces.reduce((sum, p) => sum + (p.population?.total || 0), 0);
-    newConsumption.food = (newConsumption.food || 0) + totalPopulation * 0.01 * weeksElapsed; // 1% of population per week
-    newConsumption.consumer_goods = (newConsumption.consumer_goods || 0) + totalPopulation * 0.005 * weeksElapsed;
-    
-    // Calculate shortages and apply net change to stockpiles
-    if (resourcesData && typeof resourcesData === 'object') {
-      Object.keys(resourcesData).forEach(resourceId => {
-        const production = newProduction[resourceId] || 0;
-        const consumption = newConsumption[resourceId] || 0;
-        const netChange = production - consumption;
-        const oldStockpile = newStockpiles[resourceId] || 0;
-        newStockpiles[resourceId] = Math.max(0, oldStockpile + netChange);
-        
-        // Debug logging for food specifically
-        if (nation.id === context.gameState.selectedNation && resourceId === 'food') {
-          console.log(`Food summary for ${nation.name}:`);
-          console.log(`- Production: ${production}`);
-          console.log(`- Consumption: ${consumption}`);
-          console.log(`- Net change: ${netChange}`);
-          console.log(`- Old stockpile: ${oldStockpile}`);
-          console.log(`- New stockpile: ${newStockpiles[resourceId]}`);
-        }
-        
-        // Calculate shortage severity
-        if (consumption > 0) {
-          const weeksOfSupply = newStockpiles[resourceId] / consumption;
-          if (weeksOfSupply < 8) { // Less than 8 weeks supply
-            newShortages[resourceId] = Math.max(0, 1 - weeksOfSupply / 8);
-          } else {
-            newShortages[resourceId] = 0;
-          }
+  // Calculate base resource production
+  newProduction.manpower = (newProduction.manpower || 0) + (nation.demographics?.population || 0) * 0.001 * weeksElapsed; // 0.1% of population per week
+  newProduction.research = (newProduction.research || 0) + nation.technology.researchPoints * 0.1 * weeksElapsed;
+  
+  // Calculate base consumption
+  const totalPopulation = nationProvinces.reduce((sum, p) => sum + (p.population?.total || 0), 0);
+  newConsumption.food = (newConsumption.food || 0) + totalPopulation * 0.01 * weeksElapsed; // 1% of population per week
+  newConsumption.consumer_goods = (newConsumption.consumer_goods || 0) + totalPopulation * 0.005 * weeksElapsed;
+  
+  // Calculate shortages and apply net change to stockpiles
+  if (resourcesData && typeof resourcesData === 'object') {
+    Object.keys(resourcesData).forEach(resourceId => {
+      const production = newProduction[resourceId] || 0;
+      const consumption = newConsumption[resourceId] || 0;
+      const netChange = production - consumption;
+      const oldStockpile = newStockpiles[resourceId] || 0;
+      newStockpiles[resourceId] = Math.max(0, oldStockpile + netChange);
+      
+      // Debug logging for food specifically
+      if (nation.id === context.gameState.selectedNation && resourceId === 'food') {
+        console.log(`Food summary for ${nation.name}:`);
+        console.log(`- Production: ${production}`);
+        console.log(`- Consumption: ${consumption}`);
+        console.log(`- Net change: ${netChange}`);
+        console.log(`- Old stockpile: ${oldStockpile}`);
+        console.log(`- New stockpile: ${newStockpiles[resourceId]}`);
+      }
+      
+      // Calculate shortage severity
+      if (consumption > 0) {
+        const weeksOfSupply = newStockpiles[resourceId] / consumption;
+        if (weeksOfSupply < 8) { // Less than 8 weeks supply
+          newShortages[resourceId] = Math.max(0, 1 - weeksOfSupply / 8);
         } else {
           newShortages[resourceId] = 0;
         }
-      });
-    }
-    
-    // Apply shortage effects
-    const shortageEffects = calculateResourceShortageEffects({
-      ...nation,
-      resourceShortages: newShortages
-    });
-    
-    // Apply effects to nation
-    const nationEffects = applyShortageEffectsToNation(nation, shortageEffects);
-    Object.assign(updates, nationEffects);
-    
-    // Apply effects to provinces
-    const provinceEffects = applyShortageEffectsToProvinces(
-      nationProvinces, 
-      { ...nation, resourceShortages: newShortages }, 
-      shortageEffects
-    );
-    
-    provinceEffects.forEach(({ id, ...provinceUpdates }) => {
-      if (id) {
-        onUpdateProvince(id, provinceUpdates);
+      } else {
+        newShortages[resourceId] = 0;
       }
     });
-    
-    // Update nation resources
-    updates.resourceStockpiles = newStockpiles;
-    updates.resourceProduction = newProduction;
-    updates.resourceConsumption = newConsumption;
-    updates.resourceShortages = newShortages;
-    
-    if (Object.keys(updates).length > 0) {
-      onUpdateNation(nation.id, updates);
+  }
+  
+  // Apply shortage effects
+  const shortageEffects = calculateResourceShortageEffects({
+    ...nation,
+    resourceShortages: newShortages
+  });
+  
+  // Apply effects to nation
+  const nationEffects = applyShortageEffectsToNation(nation, shortageEffects);
+  Object.assign(updates, nationEffects);
+  
+  // Apply effects to provinces
+  const provinceEffects = applyShortageEffectsToProvinces(
+    nationProvinces, 
+    { ...nation, resourceShortages: newShortages }, 
+    shortageEffects
+  );
+  
+  provinceEffects.forEach(({ id, ...provinceUpdates }) => {
+    if (id) {
+      onUpdateProvince(id, provinceUpdates);
     }
+  });
+  
+  // Update nation resources
+  updates.resourceStockpiles = newStockpiles;
+  updates.resourceProduction = newProduction;
+  updates.resourceConsumption = newConsumption;
+  updates.resourceShortages = newShortages;
+  
+  if (Object.keys(updates).length > 0) {
+    onUpdateNation(nation.id, updates);
+  }
   });
 }
 
