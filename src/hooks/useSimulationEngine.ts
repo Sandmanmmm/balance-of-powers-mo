@@ -541,8 +541,8 @@ function progressTechnology(
     }
     
     // Auto-start research if none active
-    const currentResearch = nation.technology?.currentResearch;
-    if (!currentResearch || !Array.isArray(currentResearch) || currentResearch.length === 0) {
+    const activeResearch = nation.technology?.currentResearch;
+    if (!activeResearch || !Array.isArray(activeResearch) || activeResearch.length === 0) {
       const currentYear = new Date(context.gameState.currentDate).getFullYear();
       const technologies = Array.isArray(context.technologies) ? context.technologies : [];
       const availableTechs = technologies.filter(tech => 
