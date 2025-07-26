@@ -37,8 +37,11 @@ const overlayConfig = {
 };
 
 function getProvinceColor(province: Province, overlay: MapOverlayType): string {
+  if (!province) return '#6b7280';
+  
   switch (overlay) {
     case 'political':
+      if (!province.politics?.partySupport) return '#6b7280';
       const partyEntries = Object.entries(province.politics.partySupport);
       if (partyEntries.length === 0) return '#6b7280';
       const dominantParty = partyEntries.reduce((a, b) => a[1] > b[1] ? a : b)[0];
@@ -50,7 +53,7 @@ function getProvinceColor(province: Province, overlay: MapOverlayType): string {
       return '#6b7280';
     
     case 'economic':
-      const gdp = province.economy.gdpPerCapita;
+      const gdp = province.economy?.gdpPerCapita || 0;
       if (gdp > 60000) return '#059669';
       if (gdp > 40000) return '#10b981';
       if (gdp > 25000) return '#34d399';
@@ -58,14 +61,16 @@ function getProvinceColor(province: Province, overlay: MapOverlayType): string {
       return '#f87171';
     
     case 'military':
-      const military = province.military.stationedUnits.length + province.military.fortificationLevel;
+      const unitsCount = province.military?.stationedUnits?.length || 0;
+      const fortLevel = province.military?.fortificationLevel || 0;
+      const military = unitsCount + fortLevel;
       if (military > 5) return '#dc2626';
       if (military > 3) return '#f97316';
       if (military > 1) return '#fbbf24';
       return '#d1d5db';
     
     case 'unrest':
-      const unrest = province.unrest;
+      const unrest = province.unrest || 0;
       if (unrest > 8) return '#dc2626';
       if (unrest > 6) return '#f97316';
       if (unrest > 4) return '#fbbf24';
@@ -73,6 +78,7 @@ function getProvinceColor(province: Province, overlay: MapOverlayType): string {
       return '#10b981';
     
     case 'resources':
+      if (!province.resourceOutput) return '#e5e7eb';
       const totalResources = Object.values(province.resourceOutput).reduce((a, b) => a + b, 0);
       if (totalResources > 3000) return '#7c3aed';
       if (totalResources > 2000) return '#a855f7';
@@ -238,8 +244,11 @@ export function WorldMap({
             })
             .map((feature) => {
               try {
-                const provinceId = feature.properties.id;
-                const province = provinceDataMap.get(provinceId)!;
+                const provinceId = feature.properties?.id;
+                if (!provinceId) return null;
+                
+                const province = provinceDataMap.get(provinceId);
+                if (!province) return null;
                 
                 const isSelected = selectedProvince === provinceId;
                 const isHovered = hoveredProvince === provinceId;
@@ -345,11 +354,11 @@ export function WorldMap({
                     fill={isSelected ? "#1f2937" : isHovered ? "#374151" : "#6b7280"}
                     stroke="#ffffff"
                     strokeWidth="1"
-                className="cursor-pointer"
-                onClick={() => handleProvinceClick(province.id)}
-                onMouseEnter={() => handleProvinceHover(province.id)}
-                onMouseLeave={() => handleProvinceHover(null)}
-              />
+                    className="cursor-pointer"
+                    onClick={() => handleProvinceClick(province.id)}
+                    onMouseEnter={() => handleProvinceHover(province.id)}
+                    onMouseLeave={() => handleProvinceHover(null)}
+                  />
             );
               } catch (error) {
                 console.warn('Error rendering province center:', province.id, error);
@@ -362,7 +371,7 @@ export function WorldMap({
       {/* Hover Tooltip */}
       {hoveredProvince && (() => {
         const province = provinceDataMap.get(hoveredProvince);
-        if (!province) return null;
+        if (!province || !province.population || !province.economy) return null;
         
         return (
           <div className="absolute top-4 right-4 z-20 pointer-events-none">
@@ -371,9 +380,9 @@ export function WorldMap({
                 <div className="font-semibold text-sm">{province.name}</div>
                 <div className="text-xs text-muted-foreground">{province.country}</div>
                 <div className="space-y-1 text-xs">
-                  <div>Population: {(province.population.total / 1000000).toFixed(1)}M</div>
-                  <div>GDP/capita: ${province.economy.gdpPerCapita.toLocaleString()}</div>
-                  <div>Unrest: {province.unrest.toFixed(1)}</div>
+                  <div>Population: {((province.population?.total || 0) / 1000000).toFixed(1)}M</div>
+                  <div>GDP/capita: ${(province.economy?.gdpPerCapita || 0).toLocaleString()}</div>
+                  <div>Unrest: {(province.unrest || 0).toFixed(1)}</div>
                   {mapOverlay !== 'none' && (
                     <div className="pt-1 border-t border-border">
                       <Badge variant="outline" className="text-xs">

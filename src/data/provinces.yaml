@@ -159,9 +159,9 @@ provinces:
         - "USA_INF_15"
       fortification_level: 3
     resource_output:
-      energy: 3200,
-      iron: 180,
-      food: 1200,
+      energy: 3200
+      iron: 180
+      food: 1200
       technology: 890
     politics:
       party_support:
