@@ -165,9 +165,9 @@ export function GameDashboard({
               size="sm"
               onClick={() => setSelectedTab(tab.id as any)}
               className="flex-1"
+              title={tab.label}
             >
-              <Icon size={14} className="mr-1" />
-              {tab.label}
+              <Icon size={16} />
             </Button>
           );
         })}
