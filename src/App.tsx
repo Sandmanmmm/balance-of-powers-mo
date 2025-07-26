@@ -71,6 +71,23 @@ function App() {
     });
   }, [selectedNation, nations, gameState?.selectedNation]);
 
+  // Safety fallback - if we've been loading for too long, use hardcoded data
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (!isInitialized) {
+        console.warn('App: Initialization timeout reached, forcing completion');
+        // This will trigger the resetGameData from context if available
+        try {
+          resetGameData?.();
+        } catch (error) {
+          console.error('Error calling resetGameData:', error);
+        }
+      }
+    }, 15000); // 15 second timeout
+    
+    return () => clearTimeout(timeoutId);
+  }, [isInitialized, resetGameData]);
+
   // Policy and decision handlers
   const handlePolicyChange = (policy: string, value: string) => {
     if (!selectedNation) return;
@@ -106,12 +123,20 @@ function App() {
 
   // Show loading state if not initialized or no nations are loaded
   if (!isInitialized || !Array.isArray(nations) || nations.length === 0) {
+    console.log('App rendering loading state:', {
+      isInitialized,
+      nationsIsArray: Array.isArray(nations),
+      nationsLength: Array.isArray(nations) ? nations.length : 'NOT_ARRAY'
+    });
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Balance of Powers</h1>
           <p className="text-muted-foreground">
             {!isInitialized ? 'Initializing game...' : 'Loading game data...'}
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Debug: Init={String(isInitialized)}, Nations={Array.isArray(nations) ? nations.length : 'NOT_ARRAY'}
           </p>
         </div>
       </div>
@@ -120,11 +145,15 @@ function App() {
 
   // Additional check: ensure the selected nation exists
   if (!selectedNation) {
+    console.log('App: selectedNation is null, rendering loading screen');
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Balance of Powers</h1>
           <p className="text-muted-foreground">Loading Canada...</p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Selected: {gameState?.selectedNation || 'NONE'}, Available: {Array.isArray(nations) ? nations.map(n => n?.id).filter(Boolean).join(', ') : 'NONE'}
+          </p>
         </div>
       </div>
     );

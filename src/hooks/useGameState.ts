@@ -73,7 +73,7 @@ export function useGameState() {
       } catch (error) {
         console.error('Error initializing game data:', error);
         // Set empty arrays as fallback but still mark as initialized
-        console.log('Setting fallback empty arrays');
+        console.log('Setting fallback empty arrays due to error');
         setProvinces([]);
         setNations([]);
         setIsInitialized(true);
@@ -85,7 +85,7 @@ export function useGameState() {
       console.log('Initialization needed - starting async data load');
       initializeData();
     } else {
-      console.log('Already initialized');
+      console.log('Already initialized, skipping data load');
     }
   }, [setProvinces, setNations, isInitialized]); // Remove provinces and nations from dependencies to avoid loops
 
