@@ -2,8 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
 import { Nation } from '../lib/types';
 import { resourcesData, getResourcesByCategory } from '../lib/gameData';
+import { getResourceShortageStatus } from '../lib/resourceNotifications';
+import { calculateResourceShortageEffects, getShortageEffectDescription } from '../lib/resourceEffects';
+import { AlertTriangle, TrendingUp, TrendingDown, Zap, Shield, Users } from '@phosphor-icons/react';
 
 interface NationResourcePanelProps {
   nation: Nation;
@@ -13,19 +17,27 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
   const stockpiles = nation.resourceStockpiles || {};
   const production = nation.resourceProduction || {};
   const consumption = nation.resourceConsumption || {};
+  const shortages = nation.resourceShortages || {};
 
   const getResourceStatus = (resourceId: string) => {
     const stockpile = stockpiles[resourceId] || 0;
     const prod = production[resourceId] || 0;
     const cons = consumption[resourceId] || 0;
+    const shortage = shortages[resourceId] || 0;
     const net = prod - cons;
+    
+    const { status, weeksOfSupply, severity, color } = getResourceShortageStatus(stockpile, prod, cons);
     
     return {
       stockpile,
       production: prod,
       consumption: cons,
       net,
-      status: net >= 0 ? 'surplus' : stockpile > cons * 4 ? 'stable' : stockpile > cons ? 'shortage' : 'critical'
+      shortage,
+      status,
+      weeksOfSupply,
+      severity,
+      color
     };
   };
 
@@ -63,23 +75,71 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
     { id: 'technology', name: 'Technology', resources: getResourcesByCategory('technology') }
   ];
 
+  // Calculate shortage effects for display
+  const shortageEffects = calculateResourceShortageEffects(nation);
+  const criticalShortages = Object.entries(shortages).filter(([, severity]) => severity > 0.3);
+  const activeTradeAgreements = nation.tradeAgreements?.filter(a => a.status === 'active') || [];
+
   return (
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           📊 National Resources
           <Badge variant="outline">{nation.name}</Badge>
+          {criticalShortages.length > 0 && (
+            <Badge variant="destructive" className="ml-auto">
+              <AlertTriangle size={14} className="mr-1" />
+              {criticalShortages.length} Critical
+            </Badge>
+          )}
         </CardTitle>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="production">Production</TabsTrigger>
             <TabsTrigger value="stockpiles">Stockpiles</TabsTrigger>
+            <TabsTrigger value="effects">Effects</TabsTrigger>
+            <TabsTrigger value="trade">Trade</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-4">
+            {/* Key Metrics Summary */}
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              <Card className="p-3">
+                <div className="flex items-center gap-2">
+                  <Zap className="text-blue-500" size={20} />
+                  <div>
+                    <div className="text-sm text-muted-foreground">Efficiency</div>
+                    <div className="font-bold">
+                      {Math.round((nation.resourceEfficiency?.overall || 1) * 100)}%
+                    </div>
+                  </div>
+                </div>
+              </Card>
+              <Card className="p-3">
+                <div className="flex items-center gap-2">
+                  <Shield className="text-green-500" size={20} />
+                  <div>
+                    <div className="text-sm text-muted-foreground">Military Readiness</div>
+                    <div className="font-bold">
+                      {Math.round(nation.military.readiness || 100)}%
+                    </div>
+                  </div>
+                </div>
+              </Card>
+              <Card className="p-3">
+                <div className="flex items-center gap-2">
+                  <Users className="text-purple-500" size={20} />
+                  <div>
+                    <div className="text-sm text-muted-foreground">Trade Agreements</div>
+                    <div className="font-bold">{activeTradeAgreements.length}</div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
             <div className="grid grid-cols-1 gap-3">
               {Object.keys(resourcesData).map(resourceId => {
                 const resource = resourcesData[resourceId];
@@ -90,15 +150,27 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
                     <div className="flex items-center gap-3">
                       <div className="text-xl">📦</div>
                       <div>
-                        <div className="font-medium">{resource.name}</div>
+                        <div className="font-medium flex items-center gap-2">
+                          {resource.name}
+                          {status.shortage > 0.3 && (
+                            <AlertTriangle size={16} className="text-red-500" />
+                          )}
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           {formatNumber(status.stockpile)} {resource.unit}
+                          {status.consumption > 0 && (
+                            <span className={status.color}>
+                              {' • '}
+                              {status.weeksOfSupply === Infinity ? '∞' : `${Math.round(status.weeksOfSupply)}w`}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="text-right text-sm">
                         <div className={`font-medium ${status.net >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                          {status.net >= 0 ? <TrendingUp size={16} className="inline mr-1" /> : <TrendingDown size={16} className="inline mr-1" />}
                           {status.net >= 0 ? '+' : ''}{formatNumber(status.net)}/week
                         </div>
                         <div className="text-muted-foreground">
@@ -112,6 +184,225 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
                   </div>
                 );
               })}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="effects" className="space-y-4">
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Resource Shortage Effects</h3>
+              
+              {shortageEffects.length === 0 ? (
+                <Card className="p-4">
+                  <div className="text-center text-muted-foreground">
+                    <Shield size={32} className="mx-auto mb-2" />
+                    <p>No significant resource shortages affecting your nation.</p>
+                  </div>
+                </Card>
+              ) : (
+                <div className="space-y-3">
+                  {shortageEffects.map((effect, index) => {
+                    const resource = resourcesData[effect.resourceId];
+                    const severity = effect.severity;
+                    const severityColor = severity > 0.7 ? 'text-red-600' :
+                                        severity > 0.4 ? 'text-yellow-600' :
+                                        'text-blue-600';
+                    
+                    return (
+                      <Card key={index} className="p-4">
+                        <div className="flex items-start gap-3">
+                          <AlertTriangle className={severityColor} size={20} />
+                          <div className="flex-1">
+                            <div className="font-semibold">{resource?.name} Shortage</div>
+                            <div className="text-sm text-muted-foreground mb-2">
+                              Severity: {Math.round(severity * 100)}%
+                            </div>
+                            <div className="text-sm">
+                              {getShortageEffectDescription(effect)}
+                            </div>
+                            
+                            {/* Effect breakdown */}
+                            <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+                              {effect.effects.buildingEfficiency && (
+                                <div className="flex justify-between">
+                                  <span>Industrial Efficiency:</span>
+                                  <span className="font-mono">
+                                    {Math.round(effect.effects.buildingEfficiency * 100)}%
+                                  </span>
+                                </div>
+                              )}
+                              {effect.effects.militaryReadiness && (
+                                <div className="flex justify-between">
+                                  <span>Military Readiness:</span>
+                                  <span className="font-mono">
+                                    {Math.round(effect.effects.militaryReadiness * 100)}%
+                                  </span>
+                                </div>
+                              )}
+                              {effect.effects.provinceStability && (
+                                <div className="flex justify-between">
+                                  <span>Unrest Impact:</span>
+                                  <span className="font-mono text-red-600">
+                                    +{(effect.effects.provinceStability * severity).toFixed(1)}
+                                  </span>
+                                </div>
+                              )}
+                              {effect.effects.populationGrowth && (
+                                <div className="flex justify-between">
+                                  <span>Population Growth:</span>
+                                  <span className="font-mono text-red-600">
+                                    {(effect.effects.populationGrowth * 100).toFixed(1)}%
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </Card>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="trade" className="space-y-4">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-semibold">Trade Status</h3>
+                <Button variant="outline" size="sm">
+                  Create Trade Offer
+                </Button>
+              </div>
+
+              {/* Active Trade Agreements */}
+              {activeTradeAgreements.length > 0 && (
+                <Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base">Active Trade Agreements</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    {activeTradeAgreements.map(agreement => {
+                      const partnerNationId = agreement.nations.find(id => id !== nation.id);
+                      const terms = agreement.terms[nation.id];
+                      
+                      return (
+                        <div key={agreement.id} className="p-3 border rounded-lg">
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="font-medium">Agreement with {partnerNationId}</div>
+                            <Badge variant="outline">{agreement.duration}w remaining</Badge>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                              <div className="text-muted-foreground">Exporting:</div>
+                              {Object.entries(terms?.exports || {}).map(([resourceId, amount]) => (
+                                <div key={resourceId} className="flex justify-between">
+                                  <span>{resourcesData[resourceId]?.name}</span>
+                                  <span className="font-mono">{formatNumber(amount)}/week</span>
+                                </div>
+                              ))}
+                            </div>
+                            
+                            <div>
+                              <div className="text-muted-foreground">Importing:</div>
+                              {Object.entries(terms?.imports || {}).map(([resourceId, amount]) => (
+                                <div key={resourceId} className="flex justify-between">
+                                  <span>{resourcesData[resourceId]?.name}</span>
+                                  <span className="font-mono text-green-600">+{formatNumber(amount)}/week</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Pending Trade Offers */}
+              {nation.tradeOffers && nation.tradeOffers.length > 0 && (
+                <Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base">Pending Trade Offers</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    {nation.tradeOffers.filter(offer => offer.status === 'pending').map(offer => (
+                      <div key={offer.id} className="p-3 border rounded-lg">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="font-medium">
+                            {offer.fromNation === nation.id ? `To: ${offer.toNation}` : `From: ${offer.fromNation}`}
+                          </div>
+                          <Badge variant="outline">
+                            Expires {Math.ceil((new Date(offer.expiresDate).getTime() - Date.now()) / (24 * 60 * 60 * 1000))}d
+                          </Badge>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-4 text-sm">
+                          <div>
+                            <div className="text-muted-foreground">Offering:</div>
+                            {Object.entries(offer.offering).map(([resourceId, amount]) => (
+                              <div key={resourceId} className="flex justify-between">
+                                <span>{resourcesData[resourceId]?.name}</span>
+                                <span className="font-mono">{formatNumber(amount)}</span>
+                              </div>
+                            ))}
+                          </div>
+                          
+                          <div>
+                            <div className="text-muted-foreground">Requesting:</div>
+                            {Object.entries(offer.requesting).map(([resourceId, amount]) => (
+                              <div key={resourceId} className="flex justify-between">
+                                <span>{resourcesData[resourceId]?.name}</span>
+                                <span className="font-mono">{formatNumber(amount)}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        {offer.toNation === nation.id && (
+                          <div className="flex gap-2 mt-3">
+                            <Button size="sm" variant="default">Accept</Button>
+                            <Button size="sm" variant="outline">Reject</Button>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Embargoes */}
+              {(nation.diplomacy.embargoes.length > 0 || nation.diplomacy.sanctions.length > 0) && (
+                <Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base">Trade Restrictions</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    {nation.diplomacy.embargoes.length > 0 && (
+                      <div>
+                        <div className="text-sm text-muted-foreground">Embargoing:</div>
+                        <div className="flex flex-wrap gap-1">
+                          {nation.diplomacy.embargoes.map(nationId => (
+                            <Badge key={nationId} variant="destructive">{nationId}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {nation.diplomacy.sanctions.length > 0 && (
+                      <div>
+                        <div className="text-sm text-muted-foreground">Under sanctions from:</div>
+                        <div className="flex flex-wrap gap-1">
+                          {nation.diplomacy.sanctions.map(nationId => (
+                            <Badge key={nationId} variant="destructive">{nationId}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </TabsContent>
 

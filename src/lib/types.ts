@@ -68,6 +68,7 @@ export interface Nation {
     equipment: number;
     doctrine: string;
     nuclearCapability: boolean;
+    readiness: number; // New: affected by resource shortages
   };
   technology: {
     researchPoints: number;
@@ -79,10 +80,16 @@ export interface Nation {
     allies: string[];
     enemies: string[];
     tradePartners: string[];
+    embargoes: string[]; // New: nations imposing embargoes on this nation
+    sanctions: string[]; // New: nations under sanctions from this nation
   };
-  resourceStockpiles: Record<string, number>; // New: national resource stockpiles
-  resourceProduction: Record<string, number>; // New: per-tick production
-  resourceConsumption: Record<string, number>; // New: per-tick consumption
+  resourceStockpiles: Record<string, number>; // National resource stockpiles
+  resourceProduction: Record<string, number>; // Per-tick production
+  resourceConsumption: Record<string, number>; // Per-tick consumption
+  resourceShortages: Record<string, number>; // New: shortage severity (0-1)
+  resourceEfficiency: Record<string, number>; // New: production efficiency modifiers
+  tradeOffers: TradeOffer[]; // New: active trade offers from this nation
+  tradeAgreements: TradeAgreement[]; // New: active trade agreements
 }
 
 export interface GameEvent {
@@ -209,6 +216,46 @@ export interface ProvinceBuilding {
   level: number;
   constructedDate: Date;
   effects: Record<string, number>;
+  efficiency: number; // New: current operational efficiency (0-1)
 }
 
 export type MapOverlayType = GameState['mapOverlay'];
+
+// Trade System Types
+export interface TradeOffer {
+  id: string;
+  fromNation: string;
+  toNation: string;
+  offering: Record<string, number>; // resourceId -> amount
+  requesting: Record<string, number>; // resourceId -> amount
+  duration: number; // weeks
+  status: 'pending' | 'accepted' | 'rejected' | 'expired';
+  createdDate: Date;
+  expiresDate: Date;
+}
+
+export interface TradeAgreement {
+  id: string;
+  nations: [string, string]; // two nation IDs
+  terms: {
+    [nationId: string]: {
+      exports: Record<string, number>; // resourceId -> amount per week
+      imports: Record<string, number>; // resourceId -> amount per week
+    };
+  };
+  duration: number; // weeks remaining
+  status: 'active' | 'suspended' | 'cancelled';
+  startDate: Date;
+  value: number; // economic value per week
+}
+
+export interface ResourceShortageEffect {
+  resourceId: string;
+  severity: number; // 0-1
+  effects: {
+    buildingEfficiency?: number; // modifier to building production
+    militaryReadiness?: number; // modifier to military readiness
+    provinceStability?: number; // modifier to province unrest
+    populationGrowth?: number; // modifier to population growth
+  };
+}

@@ -83,7 +83,13 @@ export async function loadProvincesFromYAML(): Promise<Province[]> {
         unemployment: provinceData.economy.unemployment,
         inflation: provinceData.economy.inflation
       },
-      buildings: provinceData.buildings || [],
+      buildings: (provinceData.buildings || []).map((building: any) => ({
+        buildingId: building.buildingId || building.building_id,
+        level: building.level || 1,
+        constructedDate: building.constructedDate ? new Date(building.constructedDate) : new Date(),
+        effects: building.effects || {},
+        efficiency: building.efficiency || 1.0 // Default to 100% efficiency
+      })),
       constructionProjects: provinceData.construction_projects || []
     }));
   } catch (error) {
@@ -116,7 +122,8 @@ export async function loadNationsFromYAML(): Promise<Nation[]> {
         manpower: nationData.military.manpower,
         equipment: nationData.military.equipment,
         doctrine: nationData.military.doctrine,
-        nuclearCapability: nationData.military.nuclear_capability
+        nuclearCapability: nationData.military.nuclear_capability,
+        readiness: nationData.military.readiness || 100 // Default to 100% readiness
       },
       technology: {
         researchPoints: nationData.technology.research_points,
@@ -127,11 +134,17 @@ export async function loadNationsFromYAML(): Promise<Nation[]> {
       diplomacy: {
         allies: nationData.diplomacy.allies,
         enemies: nationData.diplomacy.enemies,
-        tradePartners: nationData.diplomacy.trade_partners
+        tradePartners: nationData.diplomacy.trade_partners,
+        embargoes: nationData.diplomacy.embargoes || [], // Nations under embargo by this nation
+        sanctions: nationData.diplomacy.sanctions || [] // Nations imposing sanctions on this nation
       },
       resourceStockpiles: nationData.resourceStockpiles || {},
       resourceProduction: nationData.resourceProduction || {},
-      resourceConsumption: nationData.resourceConsumption || {}
+      resourceConsumption: nationData.resourceConsumption || {},
+      resourceShortages: nationData.resourceShortages || {}, // New: shortage severity tracking
+      resourceEfficiency: nationData.resourceEfficiency || {}, // New: efficiency modifiers
+      tradeOffers: nationData.tradeOffers || [], // New: active trade offers
+      tradeAgreements: nationData.tradeAgreements || [] // New: active trade agreements
     }));
   } catch (error) {
     console.error('Failed to load nations from YAML:', error);

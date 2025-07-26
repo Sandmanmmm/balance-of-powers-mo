@@ -2,6 +2,18 @@ import { useEffect, useRef } from 'react';
 import { GameState, Province, Nation, GameEvent, Technology } from '../lib/types';
 import { sampleProvinces, sampleNations, sampleEvents, sampleTechnologies, getBuildingById, resourcesData } from '../lib/gameData';
 import { toast } from 'sonner';
+import { 
+  calculateResourceShortageEffects, 
+  applyShortageEffectsToProvinces, 
+  applyShortageEffectsToNation 
+} from '../lib/resourceEffects';
+import { 
+  generateAITradeOffer, 
+  evaluateTradeOfferAI, 
+  executeTradeAgreement,
+  acceptTradeOffer 
+} from '../lib/tradeSystem';
+import { checkResourceNotifications, sendTradeNotification } from '../lib/resourceNotifications';
 
 interface UseSimulationEngineProps {
   gameState: GameState;
@@ -74,12 +86,21 @@ export function useSimulationEngine({
         simulateProvinces(context, Math.floor(weeksToAdvance), onUpdateProvince);
         simulateNations(context, Math.floor(weeksToAdvance), onUpdateNation);
         
-        // Process resource production/consumption
+        // Process resource production/consumption with shortage effects
         processResourceSystem(context, Math.floor(weeksToAdvance), onUpdateProvince, onUpdateNation);
+        
+        // Process trade agreements
+        processTradeSystem(context, Math.floor(weeksToAdvance), onUpdateNation);
         
         // Process construction projects
         if (onProcessConstructionTick) {
           onProcessConstructionTick();
+        }
+        
+        // Check resource notifications for player nation
+        const playerNation = context.nations.find(n => n.id === context.gameState.selectedNation);
+        if (playerNation) {
+          checkResourceNotifications(playerNation, context.gameState.currentDate);
         }
         
         // Run technology progression
@@ -929,27 +950,34 @@ function processResourceSystem(
       updates.resourceStockpiles = {};
       updates.resourceProduction = {};
       updates.resourceConsumption = {};
+      updates.resourceShortages = {};
+      updates.resourceEfficiency = {};
     }
     
     const newStockpiles = { ...nation.resourceStockpiles };
     const newProduction = { ...nation.resourceProduction };
     const newConsumption = { ...nation.resourceConsumption };
+    const newShortages = { ...nation.resourceShortages };
+    const efficiency = nation.resourceEfficiency?.overall || 1;
     
     // Reset production/consumption for recalculation
     Object.keys(resourcesData).forEach(resourceId => {
       newProduction[resourceId] = 0;
       newConsumption[resourceId] = 0;
+      newShortages[resourceId] = 0;
     });
     
-    // Calculate production and consumption from buildings
+    // Calculate production and consumption from buildings with efficiency effects
     nationProvinces.forEach(province => {
       province.buildings.forEach(building => {
         const buildingData = getBuildingById(building.buildingId);
         if (!buildingData) return;
         
-        // Add production
+        const buildingEfficiency = (building.efficiency || 1) * efficiency;
+        
+        // Add production (affected by efficiency)
         Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
-          newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * building.level * weeksElapsed;
+          newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * building.level * weeksElapsed * buildingEfficiency;
         });
         
         // Add consumption - only consume if inputs are available
@@ -984,13 +1012,23 @@ function processResourceSystem(
           
           // Produce at reduced efficiency
           Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
-            newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * building.level * weeksElapsed * efficiencyRatio;
+            newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * building.level * weeksElapsed * efficiencyRatio * buildingEfficiency;
           });
           
           // Consume proportionally
           Object.entries(buildingData.consumes || {}).forEach(([resourceId, amount]) => {
             newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount * building.level * weeksElapsed * efficiencyRatio;
           });
+          
+          // Update building efficiency for display
+          const provinceUpdates: Partial<Province> = {
+            buildings: province.buildings.map(b => 
+              b.buildingId === building.buildingId 
+                ? { ...b, efficiency: efficiencyRatio * buildingEfficiency }
+                : b
+            )
+          };
+          onUpdateProvince(province.id, provinceUpdates);
         }
       });
       
@@ -1013,49 +1051,43 @@ function processResourceSystem(
     newConsumption.food = (newConsumption.food || 0) + totalPopulation * 0.01 * weeksElapsed; // 1% of population per week
     newConsumption.consumer_goods = (newConsumption.consumer_goods || 0) + totalPopulation * 0.005 * weeksElapsed;
     
-    // Apply net change to stockpiles
+    // Calculate shortages and apply net change to stockpiles
     Object.keys(resourcesData).forEach(resourceId => {
       const netChange = (newProduction[resourceId] || 0) - (newConsumption[resourceId] || 0);
       newStockpiles[resourceId] = Math.max(0, (newStockpiles[resourceId] || 0) + netChange);
+      
+      // Calculate shortage severity
+      const consumption = newConsumption[resourceId] || 0;
+      const stockpile = newStockpiles[resourceId] || 0;
+      
+      if (consumption > 0) {
+        const weeksOfSupply = stockpile / consumption;
+        if (weeksOfSupply < 8) { // Less than 8 weeks supply
+          newShortages[resourceId] = Math.max(0, 1 - weeksOfSupply / 8);
+        }
+      }
     });
     
-    // Check for shortages and apply effects
-    Object.entries(newConsumption).forEach(([resourceId, consumption]) => {
-      const stockpile = newStockpiles[resourceId] || 0;
-      const shortageRatio = consumption > 0 ? Math.max(0, 1 - stockpile / consumption) : 0;
-      
-      if (shortageRatio > 0.1) { // 10% shortage threshold
-        // Apply shortage penalties to affected provinces
-        if (resourceId === 'electricity') {
-          nationProvinces.forEach(province => {
-            const provinceUpdates: Partial<Province> = {
-              unrest: Math.min(10, (province.unrest || 0) + shortageRatio * 0.5)
-            };
-            onUpdateProvince(province.id, provinceUpdates);
-          });
-        }
-        
-        if (resourceId === 'food') {
-          nationProvinces.forEach(province => {
-            const provinceUpdates: Partial<Province> = {
-              unrest: Math.min(10, (province.unrest || 0) + shortageRatio * 1.0),
-              population: {
-                ...province.population,
-                total: Math.max(0, province.population.total * (1 - shortageRatio * 0.01))
-              }
-            };
-            onUpdateProvince(province.id, provinceUpdates);
-          });
-        }
-        
-        // Notify player of shortages
-        if (nation.name === context.gameState.selectedNation && shortageRatio > 0.3) {
-          const resource = resourcesData[resourceId];
-          toast.warning(`Critical shortage of ${resource.name}!`, {
-            description: `${Math.round(shortageRatio * 100)}% shortage affecting national stability`,
-            duration: 8000
-          });
-        }
+    // Apply shortage effects
+    const shortageEffects = calculateResourceShortageEffects({
+      ...nation,
+      resourceShortages: newShortages
+    });
+    
+    // Apply effects to nation
+    const nationEffects = applyShortageEffectsToNation(nation, shortageEffects);
+    Object.assign(updates, nationEffects);
+    
+    // Apply effects to provinces
+    const provinceEffects = applyShortageEffectsToProvinces(
+      nationProvinces, 
+      { ...nation, resourceShortages: newShortages }, 
+      shortageEffects
+    );
+    
+    provinceEffects.forEach(({ id, ...provinceUpdates }) => {
+      if (id) {
+        onUpdateProvince(id, provinceUpdates);
       }
     });
     
@@ -1063,9 +1095,154 @@ function processResourceSystem(
     updates.resourceStockpiles = newStockpiles;
     updates.resourceProduction = newProduction;
     updates.resourceConsumption = newConsumption;
+    updates.resourceShortages = newShortages;
     
     if (Object.keys(updates).length > 0) {
       onUpdateNation(nation.id, updates);
     }
   });
+}
+
+// Trade system processing
+function processTradeSystem(
+  context: SimulationContext,
+  weeksElapsed: number,
+  onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
+) {
+  // Process existing trade agreements
+  context.nations.forEach(nation => {
+    if (!nation.tradeAgreements || nation.tradeAgreements.length === 0) return;
+    
+    const updates: Partial<Nation> = {};
+    const updatedAgreements = [...nation.tradeAgreements];
+    
+    nation.tradeAgreements.forEach((agreement, index) => {
+      if (agreement.status !== 'active') return;
+      
+      // Execute trade agreement
+      const tradeResult = executeTradeAgreement(agreement, context.nations);
+      
+      if (tradeResult.success) {
+        // Apply resource updates
+        tradeResult.updates.forEach(({ nationId, updates: nationUpdates }) => {
+          if (nationId === nation.id) {
+            // Merge stockpile updates
+            updates.resourceStockpiles = {
+              ...(updates.resourceStockpiles || nation.resourceStockpiles || {}),
+              ...(nationUpdates.resourceStockpiles || {})
+            };
+          } else {
+            // Update other nation
+            onUpdateNation(nationId, nationUpdates);
+          }
+        });
+      } else {
+        // Trade failed - suspend agreement
+        updatedAgreements[index] = { ...agreement, status: 'suspended' };
+        
+        if (nation.id === context.gameState.selectedNation) {
+          const partnerNation = context.nations.find(n => 
+            agreement.nations.includes(n.id) && n.id !== nation.id
+          );
+          sendTradeNotification('agreement_expired', {
+            toNation: partnerNation?.name || 'Unknown'
+          });
+        }
+      }
+      
+      // Decrease agreement duration
+      updatedAgreements[index] = {
+        ...updatedAgreements[index],
+        duration: Math.max(0, updatedAgreements[index].duration - weeksElapsed)
+      };
+      
+      // Expire agreement if duration is up
+      if (updatedAgreements[index].duration <= 0) {
+        updatedAgreements[index] = { ...updatedAgreements[index], status: 'cancelled' };
+      }
+    });
+    
+    updates.tradeAgreements = updatedAgreements;
+    
+    if (Object.keys(updates).length > 0) {
+      onUpdateNation(nation.id, updates);
+    }
+  });
+  
+  // Generate AI trade offers periodically
+  if (Math.random() < 0.1 * weeksElapsed) { // 10% chance per week
+    context.nations.forEach(nation => {
+      // Skip player nation for AI trade offers
+      if (nation.id === context.gameState.selectedNation) return;
+      
+      const potentialPartners = context.nations.filter(n => 
+        n.id !== nation.id && 
+        !nation.diplomacy.enemies.includes(n.id) &&
+        !nation.diplomacy.embargoes.includes(n.id)
+      );
+      
+      const tradeOffer = generateAITradeOffer(nation, potentialPartners);
+      
+      if (tradeOffer) {
+        // Add offer to offering nation
+        const offerUpdates: Partial<Nation> = {
+          tradeOffers: [...(nation.tradeOffers || []), tradeOffer]
+        };
+        onUpdateNation(nation.id, offerUpdates);
+        
+        // Notify if offer is to player
+        if (tradeOffer.toNation === context.gameState.selectedNation) {
+          const resourceNames = Object.keys(tradeOffer.offering).map(id => resourcesData[id]?.name).filter(Boolean);
+          sendTradeNotification('offer_received', {
+            fromNation: nation.name,
+            resources: resourceNames
+          });
+        }
+        
+        // Auto-evaluate AI response for AI-to-AI offers
+        const targetNation = context.nations.find(n => n.id === tradeOffer.toNation);
+        if (targetNation && targetNation.id !== context.gameState.selectedNation) {
+          const evaluation = evaluateTradeOfferAI(targetNation, tradeOffer);
+          
+          if (evaluation.shouldAccept) {
+            // Accept trade offer
+            const agreement = acceptTradeOffer(tradeOffer, targetNation);
+            
+            // Update both nations
+            const offeringNationUpdates: Partial<Nation> = {
+              tradeOffers: (nation.tradeOffers || []).filter(o => o.id !== tradeOffer.id),
+              tradeAgreements: [...(nation.tradeAgreements || []), agreement]
+            };
+            
+            const acceptingNationUpdates: Partial<Nation> = {
+              tradeAgreements: [...(targetNation.tradeAgreements || []), agreement]
+            };
+            
+            onUpdateNation(nation.id, offeringNationUpdates);
+            onUpdateNation(targetNation.id, acceptingNationUpdates);
+            
+            // Notify if either nation is player
+            if (nation.id === context.gameState.selectedNation) {
+              sendTradeNotification('offer_accepted', {
+                toNation: targetNation.name
+              });
+            }
+          } else {
+            // Reject trade offer
+            const offeringNationUpdates: Partial<Nation> = {
+              tradeOffers: (nation.tradeOffers || []).filter(o => o.id !== tradeOffer.id)
+            };
+            onUpdateNation(nation.id, offeringNationUpdates);
+            
+            if (nation.id === context.gameState.selectedNation) {
+              sendTradeNotification('offer_rejected', {
+                toNation: targetNation.name,
+                reason: evaluation.reason
+              });
+            }
+          }
+        }
+      }
+    });
+  }
 }
