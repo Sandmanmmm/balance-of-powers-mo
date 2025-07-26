@@ -61,6 +61,56 @@ export function useGameState() {
     setLocalGameState(stateWithDate);
   }, [gameState]);
 
+  // Ensure all nations have properly initialized diplomacy arrays
+  useEffect(() => {
+    const safeNations = Array.isArray(nations) ? nations : [];
+    if (safeNations.length > 0) {
+      const needsUpdate = safeNations.some(nation => {
+        if (!nation) return true;
+        return !nation.diplomacy?.embargoes || 
+               !nation.diplomacy?.sanctions ||
+               !Array.isArray(nation.diplomacy.embargoes) ||
+               !Array.isArray(nation.diplomacy.sanctions) ||
+               !nation.tradeOffers ||
+               !nation.tradeAgreements ||
+               !nation.resourceStockpiles ||
+               !nation.resourceProduction ||
+               !nation.resourceConsumption;
+      });
+      
+      if (needsUpdate) {
+        const fixedNations = safeNations.map(nation => {
+          if (!nation) {
+            console.error('Found null/undefined nation in nations array');
+            return null;
+          }
+          return {
+            ...nation,
+            diplomacy: {
+              ...nation.diplomacy,
+              embargoes: Array.isArray(nation.diplomacy?.embargoes) ? nation.diplomacy.embargoes : [],
+              sanctions: Array.isArray(nation.diplomacy?.sanctions) ? nation.diplomacy.sanctions : []
+            },
+            military: {
+              ...nation.military,
+              readiness: nation.military?.readiness ?? 100
+            },
+            tradeOffers: Array.isArray(nation.tradeOffers) ? nation.tradeOffers : [],
+            tradeAgreements: Array.isArray(nation.tradeAgreements) ? nation.tradeAgreements : [],
+            resourceStockpiles: nation.resourceStockpiles || {},
+            resourceProduction: nation.resourceProduction || {},
+            resourceConsumption: nation.resourceConsumption || {},
+            resourceShortages: nation.resourceShortages || {},
+            resourceEfficiency: nation.resourceEfficiency || { overall: 1.0 }
+          };
+        }).filter(Boolean) as Nation[];
+        
+        console.log('Fixed nation arrays for', fixedNations.length, 'nations');
+        setNations(fixedNations);
+      }
+    }
+  }, [nations, setNations]);
+
   // Ensure all provinces have properly initialized features arrays
   useEffect(() => {
     const safeProvinces = Array.isArray(provinces) ? provinces : [];

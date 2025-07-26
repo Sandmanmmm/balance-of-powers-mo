@@ -374,28 +374,28 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
               )}
 
               {/* Embargoes */}
-              {(nation.diplomacy.embargoes.length > 0 || nation.diplomacy.sanctions.length > 0) && (
+              {((nation.diplomacy?.embargoes?.length || 0) > 0 || (nation.diplomacy?.sanctions?.length || 0) > 0) && (
                 <Card>
                   <CardHeader className="pb-3">
                     <CardTitle className="text-base">Trade Restrictions</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    {nation.diplomacy.embargoes.length > 0 && (
+                    {(nation.diplomacy?.embargoes?.length || 0) > 0 && (
                       <div>
                         <div className="text-sm text-muted-foreground">Embargoing:</div>
                         <div className="flex flex-wrap gap-1">
-                          {nation.diplomacy.embargoes.map(nationId => (
+                          {(nation.diplomacy?.embargoes || []).map(nationId => (
                             <Badge key={nationId} variant="destructive">{nationId}</Badge>
                           ))}
                         </div>
                       </div>
                     )}
                     
-                    {nation.diplomacy.sanctions.length > 0 && (
+                    {(nation.diplomacy?.sanctions?.length || 0) > 0 && (
                       <div>
                         <div className="text-sm text-muted-foreground">Under sanctions from:</div>
                         <div className="flex flex-wrap gap-1">
-                          {nation.diplomacy.sanctions.map(nationId => (
+                          {(nation.diplomacy?.sanctions || []).map(nationId => (
                             <Badge key={nationId} variant="destructive">{nationId}</Badge>
                           ))}
                         </div>

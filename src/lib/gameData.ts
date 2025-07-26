@@ -851,6 +851,7 @@ function convertNations(): Nation[] {
     military: {
       manpower: data.military.manpower,
       equipment: data.military.equipment,
+      readiness: data.military.readiness || 100,
       doctrine: data.military.doctrine,
       nuclearCapability: data.military.nuclear_capability ?? data.military.nuclearCapability ?? false
     },
@@ -861,13 +862,19 @@ function convertNations(): Nation[] {
       level: data.technology.tech_level ?? data.technology.level ?? 1.0
     },
     diplomacy: {
-      allies: data.diplomacy.allies,
-      enemies: data.diplomacy.enemies,
+      allies: data.diplomacy.allies || [],
+      enemies: data.diplomacy.enemies || [],
+      embargoes: data.diplomacy.embargoes || [],
+      sanctions: data.diplomacy.sanctions || [],
       tradePartners: data.diplomacy.trade_partners ?? data.diplomacy.tradePartners ?? []
     },
-    resourceStockpiles: data.resourceStockpiles || {},
-    resourceProduction: data.resourceProduction || {},
-    resourceConsumption: data.resourceConsumption || {}
+    resourceStockpiles: data.resourceStockpiles || data.resource_stockpiles || {},
+    resourceProduction: data.resourceProduction || data.resource_production || {},
+    resourceConsumption: data.resourceConsumption || data.resource_consumption || {},
+    resourceShortages: data.resourceShortages || data.resource_shortages || {},
+    resourceEfficiency: data.resourceEfficiency || data.resource_efficiency || { overall: 1.0 },
+    tradeOffers: data.tradeOffers || data.trade_offers || [],
+    tradeAgreements: data.tradeAgreements || data.trade_agreements || []
   }));
 }
 

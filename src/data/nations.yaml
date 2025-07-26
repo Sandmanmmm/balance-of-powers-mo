@@ -20,6 +20,7 @@ nations:
       debt: 2800000000000
       inflation: 2.8
       trade_balance: 285000000000
+      treasury: 450000000000
       currency: "EUR"
       interest_rate: 2.1
       sectors:
@@ -30,25 +31,25 @@ nations:
     military:
       manpower: 184000
       equipment: 78
+      readiness: 85
       doctrine: "Modern Combined Arms"
       nuclear_capability: false
       military_spending_gdp: 1.53
       conscription: false
       reserve_forces: 30000
     technology:
-      research_points: 1250
-      current_research:
+      researchPoints: 1250
+      currentResearch:
         - "Green Energy"
         - "AI Systems"
         - "Advanced Manufacturing"
-      completed_tech:
+      completedTech:
         - "Internet"
         - "Renewable Energy"
         - "Precision Manufacturing"
         - "Industrial Automation"
         - "Nuclear Power"
-      tech_level: 8.5
-      research_spending_gdp: 3.1
+      level: 8.5
     diplomacy:
       allies:
         - "USA"
@@ -57,6 +58,8 @@ nations:
         - "ITA"
         - "POL"
       enemies: []
+      embargoes: []
+      sanctions: []
       trade_partners:
         - "USA"
         - "CHN"
@@ -79,6 +82,22 @@ nations:
       life_expectancy: 81.2
       literacy_rate: 99.0
       urbanization: 77.5
+    resource_stockpiles:
+      oil: 120000
+      food: 450000
+      electricity: 380000
+      manpower: 2500000
+      technology: 85000
+      consumer_goods: 320000
+      military_equipment: 78000
+      research: 12500
+    resource_production: {}
+    resource_consumption: {}
+    resource_shortages: {}
+    resource_efficiency:
+      overall: 1.0
+    trade_offers: []
+    trade_agreements: []
 
   USA:
     name: "United States"
@@ -98,6 +117,7 @@ nations:
       debt: 31400000000000
       inflation: 4.2
       trade_balance: -945000000000
+      treasury: 2800000000000
       currency: "USD"
       interest_rate: 5.25
       sectors:
@@ -108,6 +128,7 @@ nations:
     military:
       manpower: 1400000
       equipment: 95
+      readiness: 92
       doctrine: "Global Force Projection"
       nuclear_capability: true
       military_spending_gdp: 3.5
@@ -115,22 +136,21 @@ nations:
       reserve_forces: 800000
       nuclear_warheads: 5550
     technology:
-      research_points: 4850
-      current_research:
+      researchPoints: 4850
+      currentResearch:
         - "Quantum Computing"
         - "Space Technology"
         - "Biotechnology"
         - "Advanced AI"
         - "Hypersonic Weapons"
-      completed_tech:
+      completedTech:
         - "Internet"
         - "GPS"
         - "Stealth Technology"
         - "Nuclear Technology"
         - "Satellite Communications"
         - "Advanced Semiconductors"
-      tech_level: 9.2
-      research_spending_gdp: 3.4
+      level: 9.2
     diplomacy:
       allies:
         - "GER"
@@ -145,6 +165,8 @@ nations:
         - "RUS"
         - "IRN"
         - "PRK"
+      embargoes: []
+      sanctions: []
       trade_partners:
         - "CHN"
         - "MEX"
@@ -167,3 +189,19 @@ nations:
       life_expectancy: 78.9
       literacy_rate: 99.0
       urbanization: 82.7
+    resource_stockpiles:
+      oil: 980000
+      food: 1200000
+      electricity: 1450000
+      manpower: 8500000
+      technology: 245000
+      consumer_goods: 2100000
+      military_equipment: 650000
+      research: 48500
+    resource_production: {}
+    resource_consumption: {}
+    resource_shortages: {}
+    resource_efficiency:
+      overall: 1.0
+    trade_offers: []
+    trade_agreements: []
