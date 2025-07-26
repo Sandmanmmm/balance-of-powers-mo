@@ -141,8 +141,9 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
             </div>
 
             <div className="grid grid-cols-1 gap-3">
-              {Object.keys(resourcesData).map(resourceId => {
+              {(resourcesData && typeof resourcesData === 'object' ? Object.keys(resourcesData) : []).map(resourceId => {
                 const resource = resourcesData[resourceId];
+                if (!resource) return null;
                 const status = getResourceStatus(resourceId);
                 
                 return (

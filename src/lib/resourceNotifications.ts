@@ -37,6 +37,12 @@ export function checkResourceNotifications(nation: Nation, gameDate: Date): void
     return;
   }
 
+  // Safety check for resourcesData
+  if (!resourcesData || typeof resourcesData !== 'object') {
+    console.warn('Resource data not loaded, skipping notifications');
+    return;
+  }
+
   const now = gameDate.getTime();
   const nationNotifications = notificationState.get(nation.id) || new Map();
   const settings = getNotificationSettings(nation.id);

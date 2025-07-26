@@ -135,7 +135,19 @@ function simulateProvinces(
   weeksElapsed: number,
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void
 ) {
+  // Safety checks
+  if (!context.provinces || !Array.isArray(context.provinces)) {
+    console.warn('Provinces data is invalid, skipping province simulation');
+    return;
+  }
+  if (!context.nations || !Array.isArray(context.nations)) {
+    console.warn('Nations data is invalid, skipping province simulation');
+    return;
+  }
+
   context.provinces.forEach(province => {
+    if (!province) return;
+    
     const updates: Partial<Province> = {};
     
     // Get the nation that owns this province
@@ -292,11 +304,23 @@ function simulateNations(
   weeksElapsed: number,
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
 ) {
+  // Safety checks
+  if (!context.nations || !Array.isArray(context.nations)) {
+    console.warn('Nations data is invalid, skipping nation simulation');
+    return;
+  }
+  if (!context.provinces || !Array.isArray(context.provinces)) {
+    console.warn('Provinces data is invalid, skipping nation simulation');
+    return;
+  }
+
   context.nations.forEach(nation => {
+    if (!nation) return;
+    
     const updates: Partial<Nation> = {};
     
     // Get provinces belonging to this nation
-    const nationProvinces = context.provinces.filter(p => p.country === nation.name);
+    const nationProvinces = context.provinces.filter(p => p && p.country === nation.name);
     if (nationProvinces.length === 0) return;
 
     // Calculate aggregate metrics from provinces
@@ -447,7 +471,19 @@ function progressTechnology(
   weeksElapsed: number,
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
 ) {
+  // Safety checks
+  if (!context.nations || !Array.isArray(context.nations)) {
+    console.warn('Nations data is invalid, skipping technology progression');
+    return;
+  }
+  if (!context.technologies || !Array.isArray(context.technologies)) {
+    console.warn('Technologies data is invalid, skipping technology progression');
+    return;
+  }
+
   context.nations.forEach(nation => {
+    if (!nation) return;
+    
     const updates: Partial<Nation> = {};
     
     // Check if current research can be completed
@@ -457,14 +493,15 @@ function progressTechnology(
       
       if (techData && nation.technology.researchPoints >= techData.researchCost) {
         // Complete the technology
-        const completedTech = nation.technology.currentResearch.shift();
+        const researchCopy = [...nation.technology.currentResearch];
+        const completedTech = researchCopy.shift();
         const newLevel = Math.min(10, nation.technology.level + 0.5);
         
         updates.technology = {
           ...nation.technology,
           level: newLevel,
           researchPoints: nation.technology.researchPoints - techData.researchCost,
-          currentResearch: [...nation.technology.currentResearch],
+          currentResearch: researchCopy,
           completedTech: [...(nation.technology.completedTech || []), completedTech!]
         };
         
@@ -941,8 +978,20 @@ function processResourceSystem(
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void,
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
 ) {
+  // Safety checks
+  if (!context.nations || !Array.isArray(context.nations)) {
+    console.warn('Nations data is invalid, skipping resource system processing');
+    return;
+  }
+  if (!context.provinces || !Array.isArray(context.provinces)) {
+    console.warn('Provinces data is invalid, skipping resource system processing');
+    return;
+  }
+
   context.nations.forEach(nation => {
-    const nationProvinces = context.provinces.filter(p => p.country === nation.name);
+    if (!nation) return;
+    
+    const nationProvinces = context.provinces.filter(p => p && p.country === nation.name);
     const updates: Partial<Nation> = {};
     
     // Initialize resource system if not present
@@ -961,11 +1010,13 @@ function processResourceSystem(
     const efficiency = nation.resourceEfficiency?.overall || 1;
     
     // Reset production/consumption for recalculation
-    Object.keys(resourcesData).forEach(resourceId => {
-      newProduction[resourceId] = 0;
-      newConsumption[resourceId] = 0;
-      newShortages[resourceId] = 0;
-    });
+    if (resourcesData && typeof resourcesData === 'object') {
+      Object.keys(resourcesData).forEach(resourceId => {
+        newProduction[resourceId] = 0;
+        newConsumption[resourceId] = 0;
+        newShortages[resourceId] = 0;
+      });
+    }
     
     // Calculate production and consumption from buildings with efficiency effects
     nationProvinces.forEach(province => {
@@ -974,11 +1025,15 @@ function processResourceSystem(
         const buildingData = getBuildingById(building.buildingId);
         if (!buildingData) return;
         
+        // Ensure building has proper level
+        const buildingLevel = building.level || 1;
         const buildingEfficiency = (building.efficiency || 1) * efficiency;
         
         // Add production (affected by efficiency)
         Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
-          newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * building.level * weeksElapsed * buildingEfficiency;
+          if (typeof amount === 'number') {
+            newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * buildingLevel * weeksElapsed * buildingEfficiency;
+          }
         });
         
         // Add consumption - only consume if inputs are available
@@ -986,13 +1041,15 @@ function processResourceSystem(
         const requiredInputs: Record<string, number> = {};
         
         Object.entries(buildingData.consumes || {}).forEach(([resourceId, amount]) => {
-          const requiredAmount = amount * building.level * weeksElapsed;
-          requiredInputs[resourceId] = requiredAmount;
-          
-          // Check if we have enough stockpiles to operate
-          const available = newStockpiles[resourceId] || 0;
-          if (available < requiredAmount) {
-            canOperate = false;
+          if (typeof amount === 'number') {
+            const requiredAmount = amount * buildingLevel * weeksElapsed;
+            requiredInputs[resourceId] = requiredAmount;
+            
+            // Check if we have enough stockpiles to operate
+            const available = newStockpiles[resourceId] || 0;
+            if (available < requiredAmount) {
+              canOperate = false;
+            }
           }
         });
         
@@ -1005,25 +1062,30 @@ function processResourceSystem(
           // Building cannot operate - reduce production proportionally
           const efficiencyRatio = Math.min(1, 
             Math.min(...Object.entries(buildingData.consumes || {}).map(([resourceId, amount]) => {
+              if (typeof amount !== 'number') return 1;
               const available = newStockpiles[resourceId] || 0;
-              const required = amount * building.level * weeksElapsed;
+              const required = amount * buildingLevel * weeksElapsed;
               return required > 0 ? available / required : 1;
             }))
           );
           
           // Produce at reduced efficiency
           Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
-            newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * building.level * weeksElapsed * efficiencyRatio * buildingEfficiency;
+            if (typeof amount === 'number') {
+              newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * buildingLevel * weeksElapsed * efficiencyRatio * buildingEfficiency;
+            }
           });
           
           // Consume proportionally
           Object.entries(buildingData.consumes || {}).forEach(([resourceId, amount]) => {
-            newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount * building.level * weeksElapsed * efficiencyRatio;
+            if (typeof amount === 'number') {
+              newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount * buildingLevel * weeksElapsed * efficiencyRatio;
+            }
           });
           
           // Update building efficiency for display
           const provinceUpdates: Partial<Province> = {
-            buildings: province.buildings.map(b => 
+            buildings: (province.buildings || []).map(b => 
               b.buildingId === building.buildingId 
                 ? { ...b, efficiency: efficiencyRatio * buildingEfficiency }
                 : b
@@ -1054,21 +1116,23 @@ function processResourceSystem(
     newConsumption.consumer_goods = (newConsumption.consumer_goods || 0) + totalPopulation * 0.005 * weeksElapsed;
     
     // Calculate shortages and apply net change to stockpiles
-    Object.keys(resourcesData).forEach(resourceId => {
-      const netChange = (newProduction[resourceId] || 0) - (newConsumption[resourceId] || 0);
-      newStockpiles[resourceId] = Math.max(0, (newStockpiles[resourceId] || 0) + netChange);
-      
-      // Calculate shortage severity
-      const consumption = newConsumption[resourceId] || 0;
-      const stockpile = newStockpiles[resourceId] || 0;
-      
-      if (consumption > 0) {
-        const weeksOfSupply = stockpile / consumption;
-        if (weeksOfSupply < 8) { // Less than 8 weeks supply
-          newShortages[resourceId] = Math.max(0, 1 - weeksOfSupply / 8);
+    if (resourcesData && typeof resourcesData === 'object') {
+      Object.keys(resourcesData).forEach(resourceId => {
+        const netChange = (newProduction[resourceId] || 0) - (newConsumption[resourceId] || 0);
+        newStockpiles[resourceId] = Math.max(0, (newStockpiles[resourceId] || 0) + netChange);
+        
+        // Calculate shortage severity
+        const consumption = newConsumption[resourceId] || 0;
+        const stockpile = newStockpiles[resourceId] || 0;
+        
+        if (consumption > 0) {
+          const weeksOfSupply = stockpile / consumption;
+          if (weeksOfSupply < 8) { // Less than 8 weeks supply
+            newShortages[resourceId] = Math.max(0, 1 - weeksOfSupply / 8);
+          }
         }
-      }
-    });
+      });
+    }
     
     // Apply shortage effects
     const shortageEffects = calculateResourceShortageEffects({
@@ -1111,9 +1175,17 @@ function processTradeSystem(
   weeksElapsed: number,
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
 ) {
+  // Safety checks
+  if (!context.nations || !Array.isArray(context.nations)) {
+    console.warn('Nations data is invalid, skipping trade system processing');
+    return;
+  }
+
   // Process existing trade agreements
   context.nations.forEach(nation => {
-    if (!nation.tradeAgreements || nation.tradeAgreements.length === 0) return;
+    if (!nation) return;
+    
+    if (!nation.tradeAgreements || !Array.isArray(nation.tradeAgreements) || nation.tradeAgreements.length === 0) return;
     
     const updates: Partial<Nation> = {};
     const updatedAgreements = [...nation.tradeAgreements];
@@ -1126,24 +1198,27 @@ function processTradeSystem(
       
       if (tradeResult.success) {
         // Apply resource updates
-        tradeResult.updates.forEach(({ nationId, updates: nationUpdates }) => {
-          if (nationId === nation.id) {
-            // Merge stockpile updates
-            updates.resourceStockpiles = {
-              ...(updates.resourceStockpiles || nation.resourceStockpiles || {}),
-              ...(nationUpdates.resourceStockpiles || {})
-            };
-          } else {
-            // Update other nation
-            onUpdateNation(nationId, nationUpdates);
-          }
-        });
+        if (tradeResult.updates && Array.isArray(tradeResult.updates)) {
+          tradeResult.updates.forEach(({ nationId, updates: nationUpdates }) => {
+            if (nationId === nation.id) {
+              // Merge stockpile updates
+              updates.resourceStockpiles = {
+                ...(updates.resourceStockpiles || nation.resourceStockpiles || {}),
+                ...(nationUpdates.resourceStockpiles || {})
+              };
+            } else {
+              // Update other nation
+              onUpdateNation(nationId, nationUpdates);
+            }
+          });
+        }
       } else {
         // Trade failed - suspend agreement
         updatedAgreements[index] = { ...agreement, status: 'suspended' };
         
         if (nation.id === context.gameState.selectedNation) {
           const partnerNation = context.nations.find(n => 
+            agreement.nations && Array.isArray(agreement.nations) && 
             agreement.nations.includes(n.id) && n.id !== nation.id
           );
           sendTradeNotification('agreement_expired', {
@@ -1188,7 +1263,7 @@ function processTradeSystem(
       if (tradeOffer) {
         // Add offer to offering nation
         const offerUpdates: Partial<Nation> = {
-          tradeOffers: [...(nation.tradeOffers || []), tradeOffer]
+          tradeOffers: [...(nation.tradeOffers && Array.isArray(nation.tradeOffers) ? nation.tradeOffers : []), tradeOffer]
         };
         onUpdateNation(nation.id, offerUpdates);
         
@@ -1212,12 +1287,12 @@ function processTradeSystem(
             
             // Update both nations
             const offeringNationUpdates: Partial<Nation> = {
-              tradeOffers: (nation.tradeOffers || []).filter(o => o.id !== tradeOffer.id),
-              tradeAgreements: [...(nation.tradeAgreements || []), agreement]
+              tradeOffers: (nation.tradeOffers && Array.isArray(nation.tradeOffers) ? nation.tradeOffers : []).filter(o => o.id !== tradeOffer.id),
+              tradeAgreements: [...(nation.tradeAgreements && Array.isArray(nation.tradeAgreements) ? nation.tradeAgreements : []), agreement]
             };
             
             const acceptingNationUpdates: Partial<Nation> = {
-              tradeAgreements: [...(targetNation.tradeAgreements || []), agreement]
+              tradeAgreements: [...(targetNation.tradeAgreements && Array.isArray(targetNation.tradeAgreements) ? targetNation.tradeAgreements : []), agreement]
             };
             
             onUpdateNation(nation.id, offeringNationUpdates);
@@ -1232,7 +1307,7 @@ function processTradeSystem(
           } else {
             // Reject trade offer
             const offeringNationUpdates: Partial<Nation> = {
-              tradeOffers: (nation.tradeOffers || []).filter(o => o.id !== tradeOffer.id)
+              tradeOffers: (nation.tradeOffers && Array.isArray(nation.tradeOffers) ? nation.tradeOffers : []).filter(o => o.id !== tradeOffer.id)
             };
             onUpdateNation(nation.id, offeringNationUpdates);
             

@@ -8,6 +8,12 @@ export function calculateResourceShortageEffects(nation: Nation): ResourceShorta
   const effects: ResourceShortageEffect[] = [];
   const shortages = nation.resourceShortages || {};
 
+  // Safety check for resourcesData
+  if (!resourcesData || typeof resourcesData !== 'object') {
+    console.warn('Resource data not available for shortage effects calculation');
+    return effects;
+  }
+
   Object.entries(shortages).forEach(([resourceId, severity]) => {
     if (severity <= 0.1) return; // Ignore minor shortages
 
