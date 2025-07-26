@@ -19,42 +19,46 @@ export function useGameState() {
   const [nations, setNations] = useKV('nations', []);
   const [events, setEvents] = useKV('events', sampleEvents);
   
-  const [localGameState, setLocalGameState] = useState<GameState>(gameState);
+  const [localGameState, setLocalGameState] = useState<GameState>(gameState || initialGameState);
 
   // Initialize data from YAML when component mounts
   useEffect(() => {
     const initializeData = async () => {
-      if (provinces.length === 0) {
+      const safeProvinces = Array.isArray(provinces) ? provinces : [];
+      if (safeProvinces.length === 0) {
         const loadedProvinces = getProvinces();
-        if (loadedProvinces.length > 0) {
+        if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
           setProvinces(loadedProvinces);
         }
       }
       
-      if (nations.length === 0) {
+      const safeNations = Array.isArray(nations) ? nations : [];
+      if (safeNations.length === 0) {
         const loadedNations = getNations();
-        if (loadedNations.length > 0) {
+        if (Array.isArray(loadedNations) && loadedNations.length > 0) {
           setNations(loadedNations);
         }
       }
     };
     
     initializeData();
-  }, [provinces.length, nations.length, setProvinces, setNations]);
+  }, [Array.isArray(provinces) ? provinces.length : 0, Array.isArray(nations) ? nations.length : 0, setProvinces, setNations]);
 
   useEffect(() => {
     // Ensure currentDate is always a Date object (in case it was serialized as a string)
+    const safeGameState = gameState || initialGameState;
     const stateWithDate = {
-      ...gameState,
-      currentDate: new Date(gameState.currentDate)
+      ...safeGameState,
+      currentDate: new Date(safeGameState.currentDate)
     };
     setLocalGameState(stateWithDate);
   }, [gameState]);
 
   // Ensure all provinces have properly initialized features arrays
   useEffect(() => {
-    if (provinces.length > 0) {
-      const needsUpdate = provinces.some(province => {
+    const safeProvinces = Array.isArray(provinces) ? provinces : [];
+    if (safeProvinces.length > 0) {
+      const needsUpdate = safeProvinces.some(province => {
         if (!province) return true;
         return !Array.isArray(province.features) || 
                !Array.isArray(province.buildings) || 
@@ -62,7 +66,7 @@ export function useGameState() {
       });
       
       if (needsUpdate) {
-        const fixedProvinces = provinces.map(province => {
+        const fixedProvinces = safeProvinces.map(province => {
           if (!province) {
             console.error('Found null/undefined province in provinces array');
             return null;
@@ -116,11 +120,13 @@ export function useGameState() {
   }, [localGameState.currentDate, updateGameState]);
 
   const getProvince = useCallback((id: string) => {
-    return provinces.find(p => p.id === id);
+    const safeProvinces = Array.isArray(provinces) ? provinces : [];
+    return safeProvinces.find(p => p && p.id === id);
   }, [provinces]);
 
   const getNation = useCallback((id: string) => {
-    return nations.find(n => n.id === id);
+    const safeNations = Array.isArray(nations) ? nations : [];
+    return safeNations.find(n => n && n.id === id);
   }, [nations]);
 
   const getSelectedProvince = useCallback(() => {
@@ -132,19 +138,21 @@ export function useGameState() {
   }, [localGameState.selectedNation, getNation]);
 
   const updateProvince = useCallback((provinceId: string, updates: Partial<Province>) => {
-    setProvinces(currentProvinces => 
-      currentProvinces.map(p => 
-        p.id === provinceId ? { ...p, ...updates } : p
-      )
-    );
+    setProvinces(currentProvinces => {
+      const safeProvinces = Array.isArray(currentProvinces) ? currentProvinces : [];
+      return safeProvinces.map(p => 
+        p && p.id === provinceId ? { ...p, ...updates } : p
+      );
+    });
   }, [setProvinces]);
 
   const updateNation = useCallback((nationId: string, updates: Partial<Nation>) => {
-    setNations(currentNations => 
-      currentNations.map(n => 
-        n.id === nationId ? { ...n, ...updates } : n
-      )
-    );
+    setNations(currentNations => {
+      const safeNations = Array.isArray(currentNations) ? currentNations : [];
+      return safeNations.map(n => 
+        n && n.id === nationId ? { ...n, ...updates } : n
+      );
+    });
   }, [setNations]);
 
   const addEvent = useCallback((event: GameEvent) => {
@@ -210,8 +218,10 @@ export function useGameState() {
     let foundProject: ConstructionProject | null = null;
     let provinceId: string | null = null;
     
-    for (const province of provinces) {
-      const project = (province.constructionProjects || []).find(p => p.id === projectId);
+    const safeProvinces = Array.isArray(provinces) ? provinces : [];
+    for (const province of safeProvinces) {
+      if (!province) continue;
+      const project = (province.constructionProjects || []).find(p => p && p.id === projectId);
       if (project) {
         foundProject = project;
         provinceId = province.id;
@@ -248,11 +258,16 @@ export function useGameState() {
 
   const processConstructionTick = useCallback(() => {
     // Process all construction projects
-    provinces.forEach(province => {
+    const safeProvinces = Array.isArray(provinces) ? provinces : [];
+    safeProvinces.forEach(province => {
+      if (!province) return;
+      
       const updatedProjects: ConstructionProject[] = [];
       const completedBuildings: any[] = [...(province.buildings || [])];
       
       (province.constructionProjects || []).forEach(project => {
+        if (!project) return;
+        
         if (project.status === 'in_progress') {
           const updatedProject = {
             ...project,

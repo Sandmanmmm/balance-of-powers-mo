@@ -1686,11 +1686,11 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
     if (building.requiresFeatures && Array.isArray(building.requiresFeatures) && building.requiresFeatures.length > 0) {
       const provinceFeatures = province.features || [];
       const hasAllRequiredFeatures = building.requiresFeatures.every(feature => 
-        provinceFeatures.includes(feature)
+        feature && provinceFeatures.includes(feature)
       );
       if (!hasAllRequiredFeatures) {
         const missingFeatures = building.requiresFeatures.filter(feature => 
-          !provinceFeatures.includes(feature)
+          feature && !provinceFeatures.includes(feature)
         );
         console.log(`Building ${building.name} filtered out - missing features: ${missingFeatures.join(', ')}. Requires: ${building.requiresFeatures.join(', ')}, Province has: ${provinceFeatures.join(', ')}`);
         return false;

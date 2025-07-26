@@ -96,7 +96,7 @@ export function ConstructionPanel({
   
   // Get building categories for tabs from all buildings
   const categories = Array.from(new Set(
-    (allBuildings || []).map(b => b.category).filter(category => category && typeof category === 'string')
+    (allBuildings || []).map(b => b?.category).filter(category => category && typeof category === 'string')
   )).sort();
   
   const handleConstructBuilding = (building: Building) => {
@@ -111,7 +111,7 @@ export function ConstructionPanel({
     }
     
     // Check if already building this type
-    const existingProject = province.constructionProjects && province.constructionProjects.find(p => p.buildingId === building.id && p.status === 'in_progress');
+    const existingProject = (province.constructionProjects || []).find(p => p && p.buildingId === building.id && p.status === 'in_progress');
     if (existingProject) {
       toast.error(`Already constructing ${building.name} in this province`);
       return;
@@ -172,7 +172,7 @@ export function ConstructionPanel({
       </div>
 
       {/* Current Buildings */}
-      {province.buildings && province.buildings.length > 0 && (
+      {(province.buildings || []).length > 0 && (
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium flex items-center gap-2">
@@ -182,7 +182,7 @@ export function ConstructionPanel({
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 gap-2">
-              {province.buildings && province.buildings.map((building, index) => {
+              {(province.buildings || []).map((building, index) => {
                 const buildingData = (allBuildings || []).find(b => b.id === building.buildingId);
                 return (
                   <div key={index} className="flex items-center justify-between p-2 bg-muted rounded text-sm">
@@ -204,7 +204,7 @@ export function ConstructionPanel({
       )}
 
       {/* Active Construction Projects */}
-      {province.constructionProjects && province.constructionProjects.length > 0 && (
+      {(province.constructionProjects || []).length > 0 && (
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium flex items-center gap-2">
@@ -214,8 +214,8 @@ export function ConstructionPanel({
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {province.constructionProjects && province.constructionProjects
-                .filter(project => project.status === 'in_progress')
+              {(province.constructionProjects || [])
+                .filter(project => project && project.status === 'in_progress')
                 .map((project) => {
                   const building = (allBuildings || []).find(b => b.id === project.buildingId);
                   const progress = ((building?.buildTime || 0) - project.remainingTime) / (building?.buildTime || 1) * 100;
@@ -292,11 +292,11 @@ export function ConstructionPanel({
                         <p><span className="font-medium">Category filter:</span> {selectedCategory === 'all' ? 'All categories' : selectedCategory}</p>
                         <p><span className="font-medium">Total buildings available:</span> {(availableBuildings || []).length}</p>
                         <p><span className="font-medium">Buildings in category:</span> {(filteredBuildings || []).length}</p>
-                        {availableBuildings && availableBuildings.length > 0 && (
+                        {(availableBuildings || []).length > 0 && (
                           <div>
                             <p><span className="font-medium">Available buildings:</span></p>
                             <div className="text-xs space-y-1 mt-1 max-h-20 overflow-y-auto">
-                              {availableBuildings.map(b => (
+                              {(availableBuildings || []).map(b => (
                                 <div key={b.id} className="flex justify-between">
                                   <span>{b.name}</span>
                                   <span className="text-muted-foreground">({b.category})</span>

@@ -54,11 +54,13 @@ export function checkResourceNotifications(nation: Nation, gameDate: Date): void
   
   const pendingNotifications: Array<PendingNotification> = [];
   
-  Object.keys(resourcesData).forEach(resourceId => {
+  Object.keys(resourcesData || {}).forEach(resourceId => {
     const resource = resourcesData[resourceId];
-    const stockpile = nation.resourceStockpiles[resourceId] || 0;
-    const production = nation.resourceProduction[resourceId] || 0;
-    const consumption = nation.resourceConsumption[resourceId] || 0;
+    if (!resource) return;
+    
+    const stockpile = nation.resourceStockpiles?.[resourceId] || 0;
+    const production = nation.resourceProduction?.[resourceId] || 0;
+    const consumption = nation.resourceConsumption?.[resourceId] || 0;
     const net = production - consumption;
     
     // Calculate weeks of supply
@@ -132,9 +134,11 @@ export function checkResourceNotifications(nation: Nation, gameDate: Date): void
     } else {
       // Send individual notifications if only one or grouping disabled
       pendingNotifications.forEach(notif => {
+        if (!notif || !notif.resourceId) return;
         const resource = resourcesData[notif.resourceId];
-        const stockpile = nation.resourceStockpiles[notif.resourceId] || 0;
-        const consumption = nation.resourceConsumption[notif.resourceId] || 0;
+        if (!resource) return;
+        const stockpile = nation.resourceStockpiles?.[notif.resourceId] || 0;
+        const consumption = nation.resourceConsumption?.[notif.resourceId] || 0;
         const weeksOfSupply = consumption > 0 ? stockpile / consumption : Infinity;
         sendResourceNotification(nation, resource, notif.severity, notif.type, stockpile, weeksOfSupply);
       });
@@ -268,7 +272,7 @@ function sendGroupedNotification(
   
   if (criticalCount > 0) {
     title = `🚨 ${criticalCount} Critical Resource Alert${criticalCount > 1 ? 's' : ''}`;
-    const criticalResources = grouped.critical.map(n => resourcesData[n.resourceId].name).join(', ');
+    const criticalResources = (grouped.critical || []).map(n => resourcesData[n?.resourceId]?.name).filter(Boolean).join(', ');
     description = `Critical shortages detected: ${criticalResources}. Immediate action required!`;
     duration = 15000;
     
@@ -282,7 +286,7 @@ function sendGroupedNotification(
     });
   } else if (shortageCount > 1) {
     title = `⚠️ ${shortageCount} Resource Shortages`;
-    const shortageResources = grouped.shortage.map(n => resourcesData[n.resourceId].name).join(', ');
+    const shortageResources = (grouped.shortage || []).map(n => resourcesData[n?.resourceId]?.name).filter(Boolean).join(', ');
     description = `Resources running low: ${shortageResources}. Consider increasing production or trade.`;
     
     toast.warning(title, {
@@ -295,7 +299,7 @@ function sendGroupedNotification(
     });
   } else if (surplusCount > 1) {
     title = `📈 ${surplusCount} Resource Surpluses`;
-    const surplusResources = grouped.surplus.map(n => resourcesData[n.resourceId].name).join(', ');
+    const surplusResources = (grouped.surplus || []).map(n => resourcesData[n?.resourceId]?.name).filter(Boolean).join(', ');
     description = `Large stockpiles detected: ${surplusResources}. Consider exporting or reducing production.`;
     
     toast.success(title, {

@@ -218,9 +218,9 @@ function simulateProvinces(
     }
     
     // Military presence effects (if stationed units exist)
-    if (province.military?.stationedUnits && province.military.stationedUnits.length > 0) {
+    if (province.military?.stationedUnits && Array.isArray(province.military.stationedUnits) && province.military.stationedUnits.length > 0) {
       const totalUnits = province.military.stationedUnits.reduce((sum, unit) => 
-        sum + (typeof unit === 'object' ? unit.strength : 50), 0);
+        sum + (unit && typeof unit === 'object' && unit.strength ? unit.strength : 50), 0);
       if (totalUnits > (province.population?.total ?? 0) / 1000) { // Heavy military presence
         unrestChange += 0.05 * monthsElapsed;
       }
@@ -235,8 +235,8 @@ function simulateProvinces(
     let resourcesChanged = false;
     
     // Energy output affected by technology
-    if ((owningNation.technology?.currentResearch ?? []).includes('Renewable Energy') || 
-        (owningNation.technology?.currentResearch ?? []).includes('Green Energy')) {
+    const currentResearch = owningNation.technology?.currentResearch;
+    if (Array.isArray(currentResearch) && (currentResearch.includes('Renewable Energy') || currentResearch.includes('Green Energy'))) {
       const energyBonus = Math.floor(10 * weeksElapsed);
       if (energyBonus > 0) {
         resourceUpdates.energy = (province.resourceOutput?.energy || 0) + energyBonus;
@@ -511,10 +511,10 @@ function progressTechnology(
         
         // Check for available follow-up technologies
         const availableTechs = context.technologies.filter(tech => 
-          tech.yearAvailable <= new Date(context.gameState.currentDate).getFullYear() &&
+          tech && tech.yearAvailable <= new Date(context.gameState.currentDate).getFullYear() &&
           !(updates.technology?.completedTech ?? []).includes(tech.name) &&
           !(updates.technology?.currentResearch ?? []).includes(tech.name) &&
-          tech.prerequisites.every(prereq => (updates.technology?.completedTech ?? []).includes(prereq))
+          (tech.prerequisites || []).every(prereq => prereq && (updates.technology?.completedTech ?? []).includes(prereq))
         );
         
         // Auto-select next research if none queued and techs available
@@ -532,9 +532,9 @@ function progressTechnology(
     if (!nation.technology.currentResearch || !Array.isArray(nation.technology.currentResearch) || nation.technology.currentResearch.length === 0) {
       const currentYear = new Date(context.gameState.currentDate).getFullYear();
       const availableTechs = context.technologies.filter(tech => 
-        tech.yearAvailable <= currentYear &&
+        tech && tech.yearAvailable <= currentYear &&
         !(nation.technology.completedTech || []).includes(tech.name) &&
-        tech.prerequisites.every(prereq => (nation.technology.completedTech || []).includes(prereq))
+        (tech.prerequisites || []).every(prereq => prereq && (nation.technology.completedTech || []).includes(prereq))
       );
       
       if (availableTechs.length > 0) {
@@ -636,12 +636,12 @@ function checkAndTriggerEvents(
           break;
           
         case 'diplomatic_status':
-          if (condition.nations && condition.status === 'allied') {
-            const nation1 = context.nations.find(n => n.id === condition.nations![0]);
-            const nation2 = context.nations.find(n => n.id === condition.nations![1]);
+          if (condition.nations && Array.isArray(condition.nations) && condition.nations.length >= 2 && condition.status === 'allied') {
+            const nation1 = context.nations.find(n => n && n.id === condition.nations![0]);
+            const nation2 = context.nations.find(n => n && n.id === condition.nations![1]);
             if (!nation1 || !nation2 || 
-                !(nation1.diplomacy?.allies ?? []).includes(nation2.name) ||
-                !(nation2.diplomacy?.allies ?? []).includes(nation1.name)) {
+                !Array.isArray(nation1.diplomacy?.allies) || !nation1.diplomacy.allies.includes(nation2.name) ||
+                !Array.isArray(nation2.diplomacy?.allies) || !nation2.diplomacy.allies.includes(nation1.name)) {
               shouldTrigger = false;
             }
           }
@@ -1020,10 +1020,12 @@ function processResourceSystem(
     
     // Calculate production and consumption from buildings with efficiency effects
     nationProvinces.forEach(province => {
-      if (province.buildings && Array.isArray(province.buildings)) {
+      if (province?.buildings && Array.isArray(province.buildings)) {
         province.buildings.forEach(building => {
-        const buildingData = getBuildingById(building.buildingId);
-        if (!buildingData) return;
+          if (!building) return;
+          
+          const buildingData = getBuildingById(building.buildingId);
+          if (!buildingData) return;
         
         // Ensure building has proper level
         const buildingLevel = building.level || 1;
@@ -1253,9 +1255,9 @@ function processTradeSystem(
       if (nation.id === context.gameState.selectedNation) return;
       
       const potentialPartners = context.nations.filter(n => 
-        n.id !== nation.id && 
-        !(nation.diplomacy?.enemies || []).includes(n.id) &&
-        !(nation.diplomacy?.embargoes || []).includes(n.id)
+        n && n.id !== nation.id && 
+        (!Array.isArray(nation.diplomacy?.enemies) || !nation.diplomacy.enemies.includes(n.id)) &&
+        (!Array.isArray(nation.diplomacy?.embargoes) || !nation.diplomacy.embargoes.includes(n.id))
       );
       
       const tradeOffer = generateAITradeOffer(nation, potentialPartners);
@@ -1269,7 +1271,7 @@ function processTradeSystem(
         
         // Notify if offer is to player
         if (tradeOffer.toNation === context.gameState.selectedNation) {
-          const resourceNames = Object.keys(tradeOffer.offering).map(id => resourcesData[id]?.name).filter(Boolean);
+          const resourceNames = Object.keys(tradeOffer.offering || {}).map(id => resourcesData[id]?.name).filter(Boolean);
           sendTradeNotification('offer_received', {
             fromNation: nation.name,
             resources: resourceNames
