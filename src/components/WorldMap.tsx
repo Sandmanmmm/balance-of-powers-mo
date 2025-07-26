@@ -175,11 +175,11 @@ export function WorldMap({
                   key={key}
                   variant={mapOverlay === key ? "default" : "ghost"}
                   size="sm"
-                  className="w-full justify-start"
+                  className="w-full justify-center"
                   onClick={() => onOverlayChange(key as MapOverlayType)}
+                  title={config.label}
                 >
-                  <Icon size={14} className="mr-2" />
-                  {config.label}
+                  <Icon size={16} />
                 </Button>
               );
             })}
