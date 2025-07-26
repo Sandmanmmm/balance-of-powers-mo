@@ -1018,7 +1018,7 @@ function convertBuildings(): Building[] {
       produces: { food: 1200 },
       consumes: { manpower: 50, electricity: 8, oil: 12 },
       improves: { food_security: 2, employment: 400 },
-      requiresFeatures: ["agricultural"],
+      requiresFeatures: ["farmland"],
       requirements: { infrastructure: 1 },
       icon: "🚜"
     },
@@ -1603,7 +1603,9 @@ export function getNations(): Nation[] {
 }
 
 export function getBuildings(): Building[] {
-  return loadedBuildings.length > 0 ? loadedBuildings : convertBuildings();
+  const buildings = loadedBuildings.length > 0 ? loadedBuildings : convertBuildings();
+  console.log(`getBuildings() called - returning ${buildings.length} buildings`);
+  return buildings;
 }
 
 // Log successful data loading
@@ -1666,10 +1668,15 @@ export function getBuildingsByCategory(category: string): Building[] {
 export function getAvailableBuildings(province: Province, nation: Nation, completedTech: string[]): Building[] {
   const buildings = getBuildings();
   if (!buildings || buildings.length === 0) {
+    console.log('No buildings loaded in game data');
     return [];
   }
   
-  return buildings.filter(building => {
+  console.log(`Filtering buildings for province ${province.name} with features:`, province.features);
+  console.log(`Infrastructure level: ${province.infrastructure.roads}`);
+  console.log(`Completed tech:`, completedTech);
+  
+  const filtered = buildings.filter(building => {
     // Ensure we have all required data
     if (!building || !province) {
       return false;
@@ -1683,6 +1690,7 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
         provinceFeatures.includes(feature)
       );
       if (!hasAnyRequiredFeature) {
+        console.log(`Building ${building.name} filtered out - missing features. Requires: ${building.requiresFeatures.join(', ')}, Province has: ${provinceFeatures.join(', ')}`);
         return false;
       }
     }
@@ -1690,25 +1698,33 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
     
     // Check basic requirements
     if (building.requirements?.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
+      console.log(`Building ${building.name} filtered out - insufficient infrastructure. Requires: ${building.requirements.infrastructure}, Province has: ${province.infrastructure.roads}`);
       return false;
     }
     
     // Check technology requirements
     if (building.requirements?.technology && !(completedTech || []).includes(building.requirements.technology)) {
+      console.log(`Building ${building.name} filtered out - missing technology: ${building.requirements.technology}`);
       return false;
     }
     
     // Check special requirements (coastal, rural, etc.) - legacy support
     if (building.requirements?.coastal && !isCoastalProvince(province)) {
+      console.log(`Building ${building.name} filtered out - not coastal`);
       return false;
     }
     
     if (building.requirements?.rural && !isRuralProvince(province)) {
+      console.log(`Building ${building.name} filtered out - not rural`);
       return false;
     }
     
+    console.log(`Building ${building.name} passed all filters`);
     return true;
   });
+  
+  console.log(`Filtered ${filtered.length} available buildings from ${buildings.length} total buildings for province ${province.name}`);
+  return filtered;
 }
 
 export function getResourceById(id: string): Resource | undefined {

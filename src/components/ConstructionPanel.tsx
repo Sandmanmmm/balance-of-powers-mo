@@ -52,6 +52,12 @@ export function ConstructionPanel({
           const completedTech = (nation.technology?.completedTech || []);
           const available = getAvailableBuildings(province, nation, completedTech);
           setAvailableBuildings(available || []);
+          
+          // Debug log to see what buildings are available
+          console.log(`Province ${province.name} (${province.id}) features:`, province.features || []);
+          console.log(`Available buildings for ${province.name}:`, available?.map(b => `${b.name} (${b.category})`) || []);
+          console.log(`Total buildings in game:`, buildings?.length || 0);
+          console.log(`Completed tech for nation:`, completedTech || [])
         } else {
           setAvailableBuildings([]);
         }
@@ -71,7 +77,9 @@ export function ConstructionPanel({
     : (availableBuildings || []).filter(building => building.category === selectedCategory);
   
   // Get building categories for tabs from all buildings
-  const categories = Array.from(new Set((allBuildings || []).map(b => b.category)));
+  const categories = Array.from(new Set(
+    (allBuildings || []).map(b => b.category).filter(Boolean)
+  )).sort();
   
   const handleConstructBuilding = (building: Building) => {
     if (!isPlayerControlled) {
@@ -217,13 +225,13 @@ export function ConstructionPanel({
           </CardHeader>
           <CardContent>
             <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
-              <TabsList className="grid grid-cols-6 w-full mb-4">
+              <TabsList className="grid w-full mb-4" style={{ gridTemplateColumns: `repeat(${Math.min(categories.length + 1, 7)}, minmax(0, 1fr))` }}>
                 <TabsTrigger value="all" className="text-xs">All</TabsTrigger>
-                <TabsTrigger value="extraction" className="text-xs">Extract</TabsTrigger>
-                <TabsTrigger value="energy" className="text-xs">Energy</TabsTrigger>
-                <TabsTrigger value="industrial" className="text-xs">Industry</TabsTrigger>
-                <TabsTrigger value="technology" className="text-xs">Tech</TabsTrigger>
-                <TabsTrigger value="agriculture" className="text-xs">Food</TabsTrigger>
+                {categories.slice(0, 6).map(category => (
+                  <TabsTrigger key={category} value={category} className="text-xs capitalize">
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </TabsTrigger>
+                ))}
               </TabsList>
               
               <ScrollArea className="h-[300px]">
@@ -236,6 +244,21 @@ export function ConstructionPanel({
                         <p><span className="font-medium">Province features:</span> {(province.features && province.features.length > 0) ? province.features.join(', ') : 'none'}</p>
                         <p><span className="font-medium">Infrastructure level:</span> {province.infrastructure.roads}/5</p>
                         <p><span className="font-medium">Category filter:</span> {selectedCategory === 'all' ? 'All categories' : selectedCategory}</p>
+                        <p><span className="font-medium">Total buildings available:</span> {(availableBuildings || []).length}</p>
+                        <p><span className="font-medium">Buildings in category:</span> {(filteredBuildings || []).length}</p>
+                        {availableBuildings && availableBuildings.length > 0 && (
+                          <div>
+                            <p><span className="font-medium">Available buildings:</span></p>
+                            <div className="text-xs space-y-1 mt-1 max-h-20 overflow-y-auto">
+                              {availableBuildings.map(b => (
+                                <div key={b.id} className="flex justify-between">
+                                  <span>{b.name}</span>
+                                  <span className="text-muted-foreground">({b.category})</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                         <div className="mt-2 text-left">
                           <p className="font-medium mb-1">Try:</p>
                           <ul className="list-disc list-inside space-y-1">
