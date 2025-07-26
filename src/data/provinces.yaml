@@ -27,6 +27,12 @@ provinces:
       internet: 4
       healthcare: 4
       education: 4
+    resource_deposits:
+      oil: 0
+      steel: 150
+      rare_earth: 10
+      uranium: 0
+      food: 500
     military:
       stationed_units:
         - "GER_INF_4"
@@ -80,6 +86,12 @@ provinces:
       internet: 5
       healthcare: 3
       education: 4
+    resource_deposits:
+      oil: 20
+      steel: 80
+      rare_earth: 45
+      uranium: 5
+      food: 800
     military:
       stationed_units:
         - "USA_MAR_1"
@@ -129,6 +141,12 @@ provinces:
       internet: 4
       healthcare: 3
       education: 3
+    resource_deposits:
+      oil: 0
+      steel: 200
+      rare_earth: 30
+      uranium: 0
+      food: 400
     military:
       stationed_units:
         - "CHN_INF_7"
@@ -178,6 +196,12 @@ provinces:
       internet: 4
       healthcare: 5
       education: 5
+    resource_deposits:
+      oil: 5
+      steel: 90
+      rare_earth: 8
+      uranium: 0
+      food: 1200
     military:
       stationed_units:
         - "GER_INF_2"
@@ -231,6 +255,12 @@ provinces:
       internet: 3
       healthcare: 2
       education: 3
+    resource_deposits:
+      oil: 180
+      steel: 120
+      rare_earth: 15
+      uranium: 10
+      food: 900
     military:
       stationed_units:
         - "USA_INF_5"
@@ -284,6 +314,12 @@ provinces:
       internet: 5
       healthcare: 5
       education: 5
+    resource_deposits:
+      oil: 0
+      steel: 20
+      rare_earth: 25
+      uranium: 5
+      food: 200
     military:
       stationed_units:
         - "FRA_REP_GUARD_1"

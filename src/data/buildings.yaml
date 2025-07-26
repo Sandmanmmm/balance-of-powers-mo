@@ -5,7 +5,14 @@ buildings:
     category: "industrial"
     cost: 1000
     buildTime: 120 # ticks (about 2 years)
-    effects:
+    produces:
+      consumer_goods: 15
+      steel: 5
+    consumes:
+      electricity: 20
+      manpower: 100
+      oil: 8
+    improves:
       industry: 2
       gdp_modifier: 0.1
     requiresFeatures:
@@ -20,7 +27,13 @@ buildings:
     category: "military"
     cost: 1500
     buildTime: 180
-    effects:
+    produces:
+      steel: 10
+    consumes:
+      electricity: 25
+      manpower: 150
+      rare_earth: 2
+    improves:
       military_production: 3
       employment: 500
     requiresFeatures:
@@ -36,7 +49,11 @@ buildings:
     category: "infrastructure"
     cost: 800
     buildTime: 90
-    effects:
+    produces: {}
+    consumes:
+      manpower: 50
+      steel: 3
+    improves:
       infrastructure: 1
       stability: 2
       gdp_modifier: 0.05
@@ -50,7 +67,12 @@ buildings:
     category: "research"
     cost: 2000
     buildTime: 240
-    effects:
+    produces:
+      research: 30
+    consumes:
+      electricity: 15
+      manpower: 200
+    improves:
       research_speed: 0.15
       stability: 1
       employment: 800
@@ -66,7 +88,12 @@ buildings:
     category: "civilian"
     cost: 1200
     buildTime: 150
-    effects:
+    produces: {}
+    consumes:
+      electricity: 10
+      manpower: 120
+      consumer_goods: 5
+    improves:
       population_growth: 0.02
       stability: 3
       healthcare_level: 1
@@ -82,7 +109,12 @@ buildings:
     category: "energy"
     cost: 3000
     buildTime: 300
-    effects:
+    produces:
+      electricity: 200
+    consumes:
+      oil: 40
+      manpower: 80
+    improves:
       energy_output: 10
       industry: 1
       pollution: 2
@@ -99,7 +131,13 @@ buildings:
     category: "infrastructure"
     cost: 2500
     buildTime: 200
-    effects:
+    produces:
+      consumer_goods: 20
+    consumes:
+      electricity: 15
+      manpower: 60
+      steel: 5
+    improves:
       trade_efficiency: 0.2
       naval_capacity: 5
       gdp_modifier: 0.08
@@ -115,7 +153,12 @@ buildings:
     category: "infrastructure"
     cost: 4000
     buildTime: 250
-    effects:
+    produces: {}
+    consumes:
+      electricity: 30
+      manpower: 100
+      oil: 20
+    improves:
       air_capacity: 10
       trade_efficiency: 0.1
       stability: 1
@@ -132,7 +175,12 @@ buildings:
     category: "agriculture"
     cost: 600
     buildTime: 60
-    effects:
+    produces:
+      food: 800
+    consumes:
+      manpower: 40
+      electricity: 5
+    improves:
       food_production: 5
       employment: 300
       rural_stability: 2
@@ -147,7 +195,11 @@ buildings:
     category: "military"
     cost: 800
     buildTime: 100
-    effects:
+    produces: {}
+    consumes:
+      manpower: 30
+      steel: 8
+    improves:
       defense_bonus: 15
       entrenchment: 2
     requiresFeatures: []
@@ -161,7 +213,13 @@ buildings:
     category: "energy"
     cost: 5000
     buildTime: 400
-    effects:
+    produces:
+      oil: 100
+    consumes:
+      electricity: 50
+      manpower: 150
+      steel: 10
+    improves:
       energy_output: 25
       gdp_modifier: 0.15
       pollution: 5
@@ -178,7 +236,14 @@ buildings:
     category: "research"
     cost: 3500
     buildTime: 300
-    effects:
+    produces:
+      research: 50
+      semiconductors: 5
+    consumes:
+      electricity: 40
+      manpower: 300
+      rare_earth: 3
+    improves:
       research_speed: 0.25
       high_tech_employment: 1200
       innovation: 3
@@ -196,7 +261,13 @@ buildings:
     category: "tourism"
     cost: 2200
     buildTime: 180
-    effects:
+    produces:
+      consumer_goods: 10
+    consumes:
+      electricity: 25
+      manpower: 100
+      food: 50
+    improves:
       tourism_income: 8
       gdp_modifier: 0.12
       employment: 600
@@ -207,71 +278,67 @@ buildings:
       infrastructure: 3
     icon: "🏖️"
 
-  - id: "ski_resort"
-    name: "Ski Resort"
-    description: "Winter sports and mountain tourism"
-    category: "tourism"
-    cost: 1800
-    buildTime: 120
-    effects:
-      tourism_income: 5
-      seasonal_employment: 400
-      gdp_modifier: 0.08
-    requiresFeatures:
-      - "mountains"
-      - "alpine_climate"
-    requirements:
-      infrastructure: 2
-    icon: "⛷️"
-
-  - id: "manufacturing_hub"
-    name: "Manufacturing Hub"
-    description: "Large-scale production facility"
+  - id: "mine"
+    name: "Mining Operation"
+    description: "Extracts minerals and rare earth elements"
     category: "industrial"
     cost: 2800
-    buildTime: 220
-    effects:
-      manufacturing_output: 15
-      employment: 1000
-      exports: 10
+    buildTime: 200
+    produces:
+      steel: 25
+      rare_earth: 8
+    consumes:
+      electricity: 35
+      manpower: 120
+      oil: 15
+    improves:
+      resource_extraction: 1
     requiresFeatures:
-      - "manufacturing"
+      - "mineral_deposits"
+    requirements:
+      infrastructure: 2
+    icon: "⛏️"
+
+  - id: "nuclear_plant"
+    name: "Nuclear Power Plant"
+    description: "Clean nuclear energy generation"
+    category: "energy"
+    cost: 15000
+    buildTime: 600
+    produces:
+      electricity: 800
+    consumes:
+      uranium: 2
+      manpower: 200
+    improves:
+      energy_security: 5
+      clean_energy: 3
+    requiresFeatures:
+      - "strategic_location"
+    requirements:
+      infrastructure: 4
+      technology: "nuclear_power"
+    icon: "☢️"
+
+  - id: "semiconductor_fab"
+    name: "Semiconductor Fabrication Plant"
+    description: "Advanced chip manufacturing facility"
+    category: "technology"
+    cost: 8000
+    buildTime: 450
+    produces:
+      semiconductors: 20
+    consumes:
+      electricity: 100
+      rare_earth: 10
+      manpower: 250
+    improves:
+      tech_industry: 3
+      high_tech_exports: 2
+    requiresFeatures:
+      - "high_tech"
       - "urban"
     requirements:
-      infrastructure: 3
-      technology: "automation"
-    icon: "🏗️"
-
-  - id: "wine_estate"
-    name: "Wine Estate"
-    description: "Premium wine production and export"
-    category: "agriculture"
-    cost: 1400
-    buildTime: 90
-    effects:
-      luxury_goods: 3
-      tourism_income: 2
-      cultural_value: 5
-    requiresFeatures:
-      - "wine_region"
-      - "mediterranean_climate"
-    requirements:
-      infrastructure: 2
-    icon: "🍷"
-
-  - id: "seismic_monitor"
-    name: "Seismic Monitoring Station"
-    description: "Earthquake detection and early warning"
-    category: "safety"
-    cost: 800
-    buildTime: 80
-    effects:
-      disaster_preparedness: 20
-      research_points: 2
-      safety_rating: 10
-    requiresFeatures:
-      - "earthquake_zone"
-    requirements:
-      infrastructure: 2
-      technology: "seismology"
-    icon: "📡"
+      infrastructure: 4
+      technology: "advanced_manufacturing"
+    icon: "🔬"

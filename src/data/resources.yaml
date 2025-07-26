@@ -1,0 +1,74 @@
+resources:
+  # Strategic Resources
+  oil:
+    name: "Oil"
+    category: "strategic"
+    description: "Essential for military units and industrial production"
+    unit: "barrels"
+    base_price: 60
+    
+  electricity:
+    name: "Electricity"
+    category: "infrastructure"
+    description: "Powers modern civilization and industry"
+    unit: "MWh"
+    base_price: 50
+    
+  steel:
+    name: "Steel"
+    category: "industrial"
+    description: "Critical for construction and military equipment"
+    unit: "tons"
+    base_price: 800
+    
+  rare_earth:
+    name: "Rare Earth Elements"
+    category: "strategic"
+    description: "Essential for advanced technology and electronics"
+    unit: "kg"
+    base_price: 15000
+    
+  # Human Resources
+  manpower:
+    name: "Manpower"
+    category: "population"
+    description: "Available workforce for military and industry"
+    unit: "people"
+    base_price: 0
+    
+  research:
+    name: "Research Points"
+    category: "knowledge"
+    description: "Scientific progress and technological advancement"
+    unit: "points"
+    base_price: 0
+    
+  # Economic Resources
+  consumer_goods:
+    name: "Consumer Goods"
+    category: "economic"
+    description: "Products for civilian population satisfaction"
+    unit: "units"
+    base_price: 25
+    
+  food:
+    name: "Food"
+    category: "basic"
+    description: "Essential for population survival and growth"
+    unit: "tons"
+    base_price: 5
+    
+  # Advanced Resources
+  uranium:
+    name: "Uranium"
+    category: "strategic"
+    description: "Nuclear fuel and weapons material"
+    unit: "kg"
+    base_price: 50000
+    
+  semiconductors:
+    name: "Semiconductors"
+    category: "technology"
+    description: "Core components for modern electronics"
+    unit: "units"
+    base_price: 500

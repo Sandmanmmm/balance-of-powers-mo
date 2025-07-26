@@ -273,13 +273,51 @@ export function ConstructionPanel({
                                 </div>
                               )}
                               
-                              {/* Effects */}
-                              <div className="flex flex-wrap gap-1">
-                                {Object.entries(building.effects).map(([effect, value]) => (
-                                  <Badge key={effect} variant="secondary" className="text-xs">
-                                    {effect}: +{value}
-                                  </Badge>
-                                ))}
+                              {/* Resource Production/Consumption */}
+                              <div className="space-y-2">
+                                {(Object.keys(building.produces || {}).length > 0 || Object.keys(building.consumes || {}).length > 0) && (
+                                  <div className="space-y-1">
+                                    {Object.keys(building.produces || {}).length > 0 && (
+                                      <div>
+                                        <div className="text-xs font-medium text-green-600 mb-1">Produces:</div>
+                                        <div className="flex flex-wrap gap-1">
+                                          {Object.entries(building.produces || {}).map(([resource, amount]) => (
+                                            <Badge key={resource} variant="secondary" className="text-xs bg-green-100 text-green-800">
+                                              +{amount} {resource}/week
+                                            </Badge>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )}
+                                    
+                                    {Object.keys(building.consumes || {}).length > 0 && (
+                                      <div>
+                                        <div className="text-xs font-medium text-red-600 mb-1">Consumes:</div>
+                                        <div className="flex flex-wrap gap-1">
+                                          {Object.entries(building.consumes || {}).map(([resource, amount]) => (
+                                            <Badge key={resource} variant="secondary" className="text-xs bg-red-100 text-red-800">
+                                              -{amount} {resource}/week
+                                            </Badge>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )}
+                                  </div>
+                                )}
+                                
+                                {/* Other Improvements */}
+                                {Object.keys(building.improves || {}).length > 0 && (
+                                  <div>
+                                    <div className="text-xs font-medium text-blue-600 mb-1">Improves:</div>
+                                    <div className="flex flex-wrap gap-1">
+                                      {Object.entries(building.improves || {}).map(([effect, value]) => (
+                                        <Badge key={effect} variant="secondary" className="text-xs bg-blue-100 text-blue-800">
+                                          {effect}: +{value}
+                                        </Badge>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
                               </div>
                             </div>
                             

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { GameState, Province, Nation, GameEvent, Technology } from '../lib/types';
-import { sampleProvinces, sampleNations, sampleEvents, sampleTechnologies, getBuildingById } from '../lib/gameData';
+import { sampleProvinces, sampleNations, sampleEvents, sampleTechnologies, getBuildingById, resourcesData } from '../lib/gameData';
 import { toast } from 'sonner';
 
 interface UseSimulationEngineProps {
@@ -73,6 +73,9 @@ export function useSimulationEngine({
         // Run core simulation systems
         simulateProvinces(context, Math.floor(weeksToAdvance), onUpdateProvince);
         simulateNations(context, Math.floor(weeksToAdvance), onUpdateNation);
+        
+        // Process resource production/consumption
+        processResourceSystem(context, Math.floor(weeksToAdvance), onUpdateProvince, onUpdateNation);
         
         // Process construction projects
         if (onProcessConstructionTick) {
@@ -908,4 +911,125 @@ export function validateBuildingPlacement(buildingId: string, province: Province
   }
 
   return { valid: true };
+}
+
+// Resource system processing
+function processResourceSystem(
+  context: SimulationContext,
+  weeksElapsed: number,
+  onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void,
+  onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
+) {
+  context.nations.forEach(nation => {
+    const nationProvinces = context.provinces.filter(p => p.country === nation.name);
+    const updates: Partial<Nation> = {};
+    
+    // Initialize resource system if not present
+    if (!nation.resourceStockpiles) {
+      updates.resourceStockpiles = {};
+      updates.resourceProduction = {};
+      updates.resourceConsumption = {};
+    }
+    
+    const newStockpiles = { ...nation.resourceStockpiles };
+    const newProduction = { ...nation.resourceProduction };
+    const newConsumption = { ...nation.resourceConsumption };
+    
+    // Reset production/consumption for recalculation
+    Object.keys(resourcesData).forEach(resourceId => {
+      newProduction[resourceId] = 0;
+      newConsumption[resourceId] = 0;
+    });
+    
+    // Calculate production and consumption from buildings
+    nationProvinces.forEach(province => {
+      province.buildings.forEach(building => {
+        const buildingData = getBuildingById(building.buildingId);
+        if (!buildingData) return;
+        
+        // Add production
+        Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
+          newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * weeksElapsed;
+        });
+        
+        // Add consumption
+        Object.entries(buildingData.consumes || {}).forEach(([resourceId, amount]) => {
+          newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount * weeksElapsed;
+        });
+      });
+      
+      // Add production from resource deposits
+      Object.entries(province.resourceDeposits || {}).forEach(([resourceId, depositAmount]) => {
+        if (depositAmount > 0) {
+          // Base extraction rate is 10% of deposit per week
+          const extractionRate = Math.min(depositAmount * 0.1, depositAmount);
+          newProduction[resourceId] = (newProduction[resourceId] || 0) + extractionRate * weeksElapsed;
+        }
+      });
+    });
+    
+    // Calculate base resource production
+    newProduction.manpower = (newProduction.manpower || 0) + (nation.demographics?.population || 0) * 0.001 * weeksElapsed; // 0.1% of population per week
+    newProduction.research = (newProduction.research || 0) + nation.technology.researchPoints * 0.1 * weeksElapsed;
+    
+    // Calculate base consumption
+    const totalPopulation = nationProvinces.reduce((sum, p) => sum + (p.population?.total || 0), 0);
+    newConsumption.food = (newConsumption.food || 0) + totalPopulation * 0.01 * weeksElapsed; // 1% of population per week
+    newConsumption.consumer_goods = (newConsumption.consumer_goods || 0) + totalPopulation * 0.005 * weeksElapsed;
+    
+    // Apply net change to stockpiles
+    Object.keys(resourcesData).forEach(resourceId => {
+      const netChange = (newProduction[resourceId] || 0) - (newConsumption[resourceId] || 0);
+      newStockpiles[resourceId] = Math.max(0, (newStockpiles[resourceId] || 0) + netChange);
+    });
+    
+    // Check for shortages and apply effects
+    Object.entries(newConsumption).forEach(([resourceId, consumption]) => {
+      const stockpile = newStockpiles[resourceId] || 0;
+      const shortageRatio = consumption > 0 ? Math.max(0, 1 - stockpile / consumption) : 0;
+      
+      if (shortageRatio > 0.1) { // 10% shortage threshold
+        // Apply shortage penalties to affected provinces
+        if (resourceId === 'electricity') {
+          nationProvinces.forEach(province => {
+            const provinceUpdates: Partial<Province> = {
+              unrest: Math.min(10, (province.unrest || 0) + shortageRatio * 0.5)
+            };
+            onUpdateProvince(province.id, provinceUpdates);
+          });
+        }
+        
+        if (resourceId === 'food') {
+          nationProvinces.forEach(province => {
+            const provinceUpdates: Partial<Province> = {
+              unrest: Math.min(10, (province.unrest || 0) + shortageRatio * 1.0),
+              population: {
+                ...province.population,
+                total: Math.max(0, province.population.total * (1 - shortageRatio * 0.01))
+              }
+            };
+            onUpdateProvince(province.id, provinceUpdates);
+          });
+        }
+        
+        // Notify player of shortages
+        if (nation.name === context.gameState.selectedNation && shortageRatio > 0.3) {
+          const resource = resourcesData[resourceId];
+          toast.warning(`Critical shortage of ${resource.name}!`, {
+            description: `${Math.round(shortageRatio * 100)}% shortage affecting national stability`,
+            duration: 8000
+          });
+        }
+      }
+    });
+    
+    // Update nation resources
+    updates.resourceStockpiles = newStockpiles;
+    updates.resourceProduction = newProduction;
+    updates.resourceConsumption = newConsumption;
+    
+    if (Object.keys(updates).length > 0) {
+      onUpdateNation(nation.id, updates);
+    }
+  });
 }

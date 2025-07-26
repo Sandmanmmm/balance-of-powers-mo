@@ -18,10 +18,12 @@ import {
   Users,
   CurrencyDollar,
   ChartBar,
-  Globe
+  Globe,
+  Package
 } from '@phosphor-icons/react';
 import { Nation, GameState } from '../lib/types';
 import { NationOverviewPanel } from './NationOverviewPanel';
+import { NationResourcePanel } from './NationResourcePanel';
 
 interface GameDashboardProps {
   nation: Nation;
@@ -80,13 +82,14 @@ export function GameDashboard({
   onPolicyChange,
   onDecisionMake
 }: GameDashboardProps) {
-  const [selectedTab, setSelectedTab] = useState<'summary' | 'nation' | 'diplomacy'>('summary');
+  const [selectedTab, setSelectedTab] = useState<'summary' | 'nation' | 'resources' | 'diplomacy'>('summary');
   const speedOptions = [0.5, 1, 2, 4];
   const currentYear = new Date(gameState.currentDate).getFullYear();
 
   const tabs = [
     { id: 'summary', label: 'Summary', icon: ChartBar },
     { id: 'nation', label: 'Nation', icon: Flag },
+    { id: 'resources', label: 'Resources', icon: Package },
     { id: 'diplomacy', label: 'Diplomacy', icon: Globe }
   ];
 
@@ -336,6 +339,10 @@ export function GameDashboard({
             onPolicyChange={onPolicyChange}
             onDecisionMake={onDecisionMake}
           />
+        )}
+
+        {selectedTab === 'resources' && (
+          <NationResourcePanel nation={nation} />
         )}
 
         {selectedTab === 'diplomacy' && (

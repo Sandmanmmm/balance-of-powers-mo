@@ -1,4 +1,88 @@
-import { Province, Nation, GameEvent, Unit, Technology, Building } from './types';
+import { Province, Nation, GameEvent, Unit, Technology, Building, Resource } from './types';
+
+// Resource definitions
+export const resourcesData: Record<string, Resource> = {
+  oil: {
+    id: 'oil',
+    name: "Oil",
+    category: "strategic",
+    description: "Essential for military units and industrial production",
+    unit: "barrels",
+    base_price: 60
+  },
+  electricity: {
+    id: 'electricity',
+    name: "Electricity",
+    category: "infrastructure",
+    description: "Powers modern civilization and industry",
+    unit: "MWh",
+    base_price: 50
+  },
+  steel: {
+    id: 'steel',
+    name: "Steel",
+    category: "industrial",
+    description: "Critical for construction and military equipment",
+    unit: "tons",
+    base_price: 800
+  },
+  rare_earth: {
+    id: 'rare_earth',
+    name: "Rare Earth Elements",
+    category: "strategic",
+    description: "Essential for advanced technology and electronics",
+    unit: "kg",
+    base_price: 15000
+  },
+  manpower: {
+    id: 'manpower',
+    name: "Manpower",
+    category: "population",
+    description: "Available workforce for military and industry",
+    unit: "people",
+    base_price: 0
+  },
+  research: {
+    id: 'research',
+    name: "Research Points",
+    category: "knowledge",
+    description: "Scientific progress and technological advancement",
+    unit: "points",
+    base_price: 0
+  },
+  consumer_goods: {
+    id: 'consumer_goods',
+    name: "Consumer Goods",
+    category: "economic",
+    description: "Products for civilian population satisfaction",
+    unit: "units",
+    base_price: 25
+  },
+  food: {
+    id: 'food',
+    name: "Food",
+    category: "basic",
+    description: "Essential for population survival and growth",
+    unit: "tons",
+    base_price: 5
+  },
+  uranium: {
+    id: 'uranium',
+    name: "Uranium",
+    category: "strategic",
+    description: "Nuclear fuel and weapons material",
+    unit: "kg",
+    base_price: 50000
+  },
+  semiconductors: {
+    id: 'semiconductors',
+    name: "Semiconductors",
+    category: "technology",
+    description: "Core components for modern electronics",
+    unit: "units",
+    base_price: 500
+  }
+};
 
 // Define inline data instead of loading from YAML files for now
 // This will be replaced with proper YAML loading once the import issues are resolved
@@ -24,6 +108,13 @@ const provincesData = {
         internet: 4,
         healthcare: 4,
         education: 4
+      },
+      resource_deposits: {
+        oil: 0,
+        steel: 150,
+        rare_earth: 10,
+        uranium: 0,
+        food: 500
       },
       military: {
         stationed_units: ["GER_INF_4", "GER_LOG_2"],
@@ -313,6 +404,42 @@ const nationsData = {
         life_expectancy: 81.2,
         literacy_rate: 99.0,
         urbanization: 77.5
+      },
+      resourceStockpiles: {
+        oil: 25000,
+        electricity: 15000,
+        steel: 85000,
+        rare_earth: 2500,
+        manpower: 2800000,
+        research: 1250,
+        consumer_goods: 45000,
+        food: 120000,
+        uranium: 150,
+        semiconductors: 8500
+      },
+      resourceProduction: {
+        oil: 0,
+        electricity: 0,
+        steel: 0,
+        rare_earth: 0,
+        manpower: 1000,
+        research: 100,
+        consumer_goods: 0,
+        food: 0,
+        uranium: 0,
+        semiconductors: 0
+      },
+      resourceConsumption: {
+        oil: 800,
+        electricity: 1200,
+        steel: 400,
+        rare_earth: 50,
+        manpower: 500,
+        research: 0,
+        consumer_goods: 1500,
+        food: 2800,
+        uranium: 5,
+        semiconductors: 200
       }
     },
     "USA": {
@@ -379,6 +506,42 @@ const nationsData = {
         life_expectancy: 78.9,
         literacy_rate: 99.0,
         urbanization: 82.7
+      },
+      resourceStockpiles: {
+        oil: 180000,
+        electricity: 85000,
+        steel: 320000,
+        rare_earth: 12000,
+        manpower: 14500000,
+        research: 4850,
+        consumer_goods: 180000,
+        food: 580000,
+        uranium: 4500,
+        semiconductors: 28000
+      },
+      resourceProduction: {
+        oil: 0,
+        electricity: 0,
+        steel: 0,
+        rare_earth: 0,
+        manpower: 3500,
+        research: 500,
+        consumer_goods: 0,
+        food: 0,
+        uranium: 0,
+        semiconductors: 0
+      },
+      resourceConsumption: {
+        oil: 4200,
+        electricity: 6800,
+        steel: 1800,
+        rare_earth: 280,
+        manpower: 2200,
+        research: 0,
+        consumer_goods: 8500,
+        food: 15000,
+        uranium: 35,
+        semiconductors: 1200
       }
     }
   }
@@ -401,6 +564,7 @@ function convertProvinces(): Province[] {
     },
     unrest: data.unrest,
     infrastructure: data.infrastructure,
+    resourceDeposits: data.resource_deposits || {}, // Add resource deposits
     military: {
       stationedUnits: data.military.stationed_units.map(unitId => ({
         id: unitId,
@@ -458,7 +622,10 @@ function convertNations(): Nation[] {
       allies: data.diplomacy.allies,
       enemies: data.diplomacy.enemies,
       tradePartners: data.diplomacy.trade_partners
-    }
+    },
+    resourceStockpiles: data.resourceStockpiles || {},
+    resourceProduction: data.resourceProduction || {},
+    resourceConsumption: data.resourceConsumption || {}
   }));
 }
 
@@ -563,7 +730,16 @@ function convertBuildings(): Building[] {
       category: "industrial" as const,
       cost: 1000,
       buildTime: 120,
-      effects: {
+      produces: {
+        consumer_goods: 15,
+        steel: 5
+      },
+      consumes: {
+        electricity: 20,
+        manpower: 100,
+        oil: 8
+      },
+      improves: {
         industry: 2,
         gdp_modifier: 0.1
       },
@@ -574,83 +750,20 @@ function convertBuildings(): Building[] {
       icon: "🏭"
     },
     {
-      id: "military_factory",
-      name: "Military Factory",
-      description: "Produces military equipment and vehicles",
-      category: "military" as const,
-      cost: 1500,
-      buildTime: 180,
-      effects: {
-        military_production: 3,
-        employment: 500
-      },
-      requiresFeatures: ["industrial"],
-      requirements: {
-        infrastructure: 2,
-        technology: "industrial_production"
-      },
-      icon: "⚙️"
-    },
-    {
-      id: "infrastructure",
-      name: "Infrastructure",
-      description: "Roads, communications, and basic utilities",
-      category: "infrastructure" as const,
-      cost: 800,
-      buildTime: 90,
-      effects: {
-        infrastructure: 1,
-        stability: 2,
-        gdp_modifier: 0.05
-      },
-      requiresFeatures: [],
-      requirements: {},
-      icon: "🛣️"
-    },
-    {
-      id: "university",
-      name: "University",
-      description: "Advances research and technology development",
-      category: "research" as const,
-      cost: 2000,
-      buildTime: 240,
-      effects: {
-        research_speed: 0.15,
-        stability: 1,
-        employment: 800
-      },
-      requiresFeatures: ["urban"],
-      requirements: {
-        infrastructure: 3
-      },
-      icon: "🎓"
-    },
-    {
-      id: "hospital",
-      name: "Hospital",
-      description: "Improves public health and population growth",
-      category: "civilian" as const,
-      cost: 1200,
-      buildTime: 150,
-      effects: {
-        population_growth: 0.02,
-        stability: 3,
-        healthcare_level: 1
-      },
-      requiresFeatures: ["urban"],
-      requirements: {
-        infrastructure: 2
-      },
-      icon: "🏥"
-    },
-    {
       id: "power_plant",
       name: "Power Plant",
       description: "Generates electricity for industrial development",
       category: "energy" as const,
       cost: 3000,
       buildTime: 300,
-      effects: {
+      produces: {
+        electricity: 200
+      },
+      consumes: {
+        oil: 40,
+        manpower: 80
+      },
+      improves: {
         energy_output: 10,
         industry: 1,
         pollution: 2
@@ -663,41 +776,29 @@ function convertBuildings(): Building[] {
       icon: "⚡"
     },
     {
-      id: "port",
-      name: "Port",
-      description: "Facilitates trade and naval operations",
-      category: "infrastructure" as const,
-      cost: 2500,
-      buildTime: 200,
-      effects: {
-        trade_efficiency: 0.2,
-        naval_capacity: 5,
-        gdp_modifier: 0.08
+      id: "university",
+      name: "University",
+      description: "Advances research and technology development",
+      category: "research" as const,
+      cost: 2000,
+      buildTime: 240,
+      produces: {
+        research: 30
       },
-      requiresFeatures: ["coastal"],
+      consumes: {
+        electricity: 15,
+        manpower: 200
+      },
+      improves: {
+        research_speed: 0.15,
+        stability: 1,
+        employment: 800
+      },
+      requiresFeatures: ["urban"],
       requirements: {
-        infrastructure: 2
+        infrastructure: 3
       },
-      icon: "⚓"
-    },
-    {
-      id: "airport",
-      name: "Airport",
-      description: "Enables air transport and military aviation",
-      category: "infrastructure" as const,
-      cost: 4000,
-      buildTime: 250,
-      effects: {
-        air_capacity: 10,
-        trade_efficiency: 0.1,
-        stability: 1
-      },
-      requiresFeatures: ["plains"],
-      requirements: {
-        infrastructure: 3,
-        technology: "aviation"
-      },
-      icon: "✈️"
+      icon: "🎓"
     },
     {
       id: "farm",
@@ -706,7 +807,14 @@ function convertBuildings(): Building[] {
       category: "agriculture" as const,
       cost: 600,
       buildTime: 60,
-      effects: {
+      produces: {
+        food: 800
+      },
+      consumes: {
+        manpower: 40,
+        electricity: 5
+      },
+      improves: {
         food_production: 5,
         employment: 300,
         rural_stability: 2
@@ -716,21 +824,29 @@ function convertBuildings(): Building[] {
       icon: "🚜"
     },
     {
-      id: "bunker",
-      name: "Fortification",
-      description: "Defensive structures for military protection",
-      category: "military" as const,
-      cost: 800,
-      buildTime: 100,
-      effects: {
-        defense_bonus: 15,
-        entrenchment: 2
+      id: "mine",
+      name: "Mining Operation",
+      description: "Extracts minerals and rare earth elements",
+      category: "industrial" as const,
+      cost: 2800,
+      buildTime: 200,
+      produces: {
+        steel: 25,
+        rare_earth: 8
       },
-      requiresFeatures: [],
+      consumes: {
+        electricity: 35,
+        manpower: 120,
+        oil: 15
+      },
+      improves: {
+        resource_extraction: 1
+      },
+      requiresFeatures: ["mineral_deposits"],
       requirements: {
-        infrastructure: 1
+        infrastructure: 2
       },
-      icon: "🏰"
+      icon: "⛏️"
     },
     {
       id: "oil_rig",
@@ -739,7 +855,15 @@ function convertBuildings(): Building[] {
       category: "energy" as const,
       cost: 5000,
       buildTime: 400,
-      effects: {
+      produces: {
+        oil: 100
+      },
+      consumes: {
+        electricity: 50,
+        manpower: 150,
+        steel: 10
+      },
+      improves: {
         energy_output: 25,
         gdp_modifier: 0.15,
         pollution: 5
@@ -752,115 +876,55 @@ function convertBuildings(): Building[] {
       icon: "🛢️"
     },
     {
-      id: "tech_park",
-      name: "Technology Park",
-      description: "Advanced research and development center",
-      category: "research" as const,
-      cost: 3500,
-      buildTime: 300,
-      effects: {
-        research_speed: 0.25,
-        high_tech_employment: 1200,
-        innovation: 3
+      id: "semiconductor_fab",
+      name: "Semiconductor Fabrication Plant",
+      description: "Advanced chip manufacturing facility",
+      category: "technology" as const,
+      cost: 8000,
+      buildTime: 450,
+      produces: {
+        semiconductors: 20
+      },
+      consumes: {
+        electricity: 100,
+        rare_earth: 10,
+        manpower: 250
+      },
+      improves: {
+        tech_industry: 3,
+        high_tech_exports: 2
       },
       requiresFeatures: ["high_tech", "urban"],
       requirements: {
         infrastructure: 4,
-        technology: "computer_science"
+        technology: "advanced_manufacturing"
       },
-      icon: "💻"
+      icon: "🔬"
     },
     {
-      id: "resort",
-      name: "Tourist Resort",
-      description: "Luxury accommodations for tourism",
-      category: "tourism" as const,
-      cost: 2200,
-      buildTime: 180,
-      effects: {
-        tourism_income: 8,
-        gdp_modifier: 0.12,
-        employment: 600
+      id: "nuclear_plant",
+      name: "Nuclear Power Plant",
+      description: "Clean nuclear energy generation",
+      category: "energy" as const,
+      cost: 15000,
+      buildTime: 600,
+      produces: {
+        electricity: 800
       },
-      requiresFeatures: ["tourism", "scenic"],
+      consumes: {
+        uranium: 2,
+        manpower: 200
+      },
+      improves: {
+        energy_security: 5,
+        clean_energy: 3
+      },
+      requiresFeatures: ["strategic_location"],
       requirements: {
-        infrastructure: 3
+        infrastructure: 4,
+        technology: "nuclear_power"
       },
-      icon: "🏖️"
-    },
-    {
-      id: "ski_resort",
-      name: "Ski Resort",
-      description: "Winter sports and mountain tourism",
-      category: "tourism" as const,
-      cost: 1800,
-      buildTime: 120,
-      effects: {
-        tourism_income: 5,
-        seasonal_employment: 400,
-        gdp_modifier: 0.08
-      },
-      requiresFeatures: ["mountains", "alpine_climate"],
-      requirements: {
-        infrastructure: 2
-      },
-      icon: "⛷️"
-    },
-    {
-      id: "manufacturing_hub",
-      name: "Manufacturing Hub",
-      description: "Large-scale production facility",
-      category: "industrial" as const,
-      cost: 2800,
-      buildTime: 220,
-      effects: {
-        manufacturing_output: 15,
-        employment: 1000,
-        exports: 10
-      },
-      requiresFeatures: ["manufacturing", "urban"],
-      requirements: {
-        infrastructure: 3,
-        technology: "automation"
-      },
-      icon: "🏗️"
-    },
-    {
-      id: "wine_estate",
-      name: "Wine Estate",
-      description: "Premium wine production and export",
-      category: "agriculture" as const,
-      cost: 1400,
-      buildTime: 90,
-      effects: {
-        luxury_goods: 3,
-        tourism_income: 2,
-        cultural_value: 5
-      },
-      requiresFeatures: ["wine_region", "mediterranean_climate"],
-      requirements: {
-        infrastructure: 2
-      },
-      icon: "🍷"
-    },
-    {
-      id: "seismic_monitor",
-      name: "Seismic Monitoring Station",
-      description: "Earthquake detection and early warning",
-      category: "safety" as const,
-      cost: 800,
-      buildTime: 80,
-      effects: {
-        disaster_preparedness: 20,
-        research_points: 2,
-        safety_rating: 10
-      },
-      requiresFeatures: ["earthquake_zone"],
-      requirements: {
-        infrastructure: 2,
-        technology: "seismology"
-      },
-      icon: "📡"
+      icon: "☢️"
     }
   ];
 
@@ -871,7 +935,9 @@ function convertBuildings(): Building[] {
     category: building.category,
     cost: building.cost,
     buildTime: building.buildTime,
-    effects: building.effects,
+    produces: building.produces || {},
+    consumes: building.consumes || {},
+    improves: building.improves || {},
     requiresFeatures: building.requiresFeatures,
     requirements: building.requirements,
     icon: building.icon
@@ -1029,9 +1095,10 @@ export const sampleEvents: GameEvent[] = convertEvents();
 export const gameUnits: Unit[] = convertUnits();
 export const sampleTechnologies: Technology[] = convertTechnologies();
 export const gameBuildings: Building[] = convertBuildings();
+export { resourcesData };
 
 // Log successful data loading
-console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies, ${gameBuildings.length} buildings`);
+console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies, ${gameBuildings.length} buildings, ${Object.keys(resourcesData).length} resources`);
 
 // Export data access functions
 export function getProvinceById(id: string): Province | undefined {
@@ -1115,6 +1182,18 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
     
     return true;
   });
+}
+
+export function getResourceById(id: string) {
+  return resourcesData[id];
+}
+
+export function getAllResources() {
+  return Object.values(resourcesData);
+}
+
+export function getResourcesByCategory(category: string) {
+  return Object.values(resourcesData).filter(resource => resource.category === category);
 }
 
 function isCoastalProvince(province: Province): boolean {

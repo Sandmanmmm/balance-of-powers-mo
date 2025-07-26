@@ -18,6 +18,7 @@ export interface Province {
     healthcare: number;
     education: number;
   };
+  resourceDeposits: Record<string, number>; // New: natural resource deposits
   military: {
     stationedUnits: Array<{
       id: string;
@@ -79,6 +80,9 @@ export interface Nation {
     enemies: string[];
     tradePartners: string[];
   };
+  resourceStockpiles: Record<string, number>; // New: national resource stockpiles
+  resourceProduction: Record<string, number>; // New: per-tick production
+  resourceConsumption: Record<string, number>; // New: per-tick consumption
 }
 
 export interface GameEvent {
@@ -165,14 +169,25 @@ export interface Technology {
   }>;
 }
 
+export interface Resource {
+  id: string;
+  name: string;
+  category: 'strategic' | 'infrastructure' | 'industrial' | 'population' | 'knowledge' | 'economic' | 'basic' | 'technology';
+  description: string;
+  unit: string;
+  base_price: number;
+}
+
 export interface Building {
   id: string;
   name: string;
   description: string;
-  category: 'industrial' | 'military' | 'infrastructure' | 'research' | 'civilian' | 'energy' | 'agriculture' | 'tourism' | 'safety';
+  category: 'industrial' | 'military' | 'infrastructure' | 'research' | 'civilian' | 'energy' | 'agriculture' | 'tourism' | 'safety' | 'technology';
   cost: number;
   buildTime: number; // in ticks
-  effects: Record<string, number>;
+  produces: Record<string, number>; // New: resources produced per tick
+  consumes: Record<string, number>; // New: resources consumed per tick
+  improves: Record<string, number>; // New: legacy effects renamed
   requiresFeatures: string[]; // New: required province features
   requirements: Record<string, any>; // Existing infrastructure/tech requirements
   icon: string;
