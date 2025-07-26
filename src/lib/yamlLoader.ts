@@ -107,7 +107,7 @@ export async function loadProvincesFromYAML(): Promise<Province[]> {
           ? provinceData.buildings.map((building: any) => ({
               buildingId: String(building?.buildingId || building?.building_id || ''),
               level: Number(building?.level) || 1,
-              constructedDate: building?.constructedDate ? new Date(building.constructedDate) : new Date(),
+              constructedDate: building?.constructedDate ? new Date(building.constructedDate).toISOString() : new Date().toISOString(),
               effects: (typeof building?.effects === 'object') ? building.effects || {} : {},
               efficiency: Number(building?.efficiency) || 1.0
             }))

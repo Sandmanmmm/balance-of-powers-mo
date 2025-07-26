@@ -204,8 +204,8 @@ export interface ConstructionProject {
   id: string;
   buildingId: string;
   provinceId: string;
-  startDate: Date;
-  completionDate: Date;
+  startDate: string; // Changed from Date to string for serialization safety
+  completionDate: string; // Changed from Date to string for serialization safety
   remainingTime: number; // in ticks
   cost: number;
   status: 'planned' | 'in_progress' | 'completed' | 'cancelled';
@@ -214,7 +214,7 @@ export interface ConstructionProject {
 export interface ProvinceBuilding {
   buildingId: string;
   level: number;
-  constructedDate: Date;
+  constructedDate: string; // Changed from Date to string for serialization safety
   effects: Record<string, number>;
   efficiency: number; // New: current operational efficiency (0-1)
 }
@@ -230,8 +230,8 @@ export interface TradeOffer {
   requesting: Record<string, number>; // resourceId -> amount
   duration: number; // weeks
   status: 'pending' | 'accepted' | 'rejected' | 'expired';
-  createdDate: Date;
-  expiresDate: Date;
+  createdDate: string; // Changed from Date to string for serialization safety
+  expiresDate: string; // Changed from Date to string for serialization safety
 }
 
 export interface TradeAgreement {
@@ -245,7 +245,7 @@ export interface TradeAgreement {
   };
   duration: number; // weeks remaining
   status: 'active' | 'suspended' | 'cancelled';
-  startDate: Date;
+  startDate: string; // Changed from Date to string for serialization safety
   value: number; // economic value per week
 }
 

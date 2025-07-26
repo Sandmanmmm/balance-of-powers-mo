@@ -76,17 +76,13 @@ function App() {
     const timeoutId = setTimeout(() => {
       if (!isInitialized) {
         console.warn('App: Initialization timeout reached, forcing completion');
-        // This will trigger the resetGameData from context if available
-        try {
-          resetGameData?.();
-        } catch (error) {
-          console.error('Error calling resetGameData:', error);
-        }
+        // Directly set to initialized state
+        setIsInitialized(true);
       }
-    }, 15000); // 15 second timeout
+    }, 10000); // Reduced to 10 second timeout
     
     return () => clearTimeout(timeoutId);
-  }, [isInitialized, resetGameData]);
+  }, [isInitialized]);
 
   // Policy and decision handlers
   const handlePolicyChange = (policy: string, value: string) => {
@@ -138,6 +134,10 @@ function App() {
           <p className="text-xs text-muted-foreground mt-2">
             Debug: Init={String(isInitialized)}, Nations={Array.isArray(nations) ? nations.length : 'NOT_ARRAY'}
           </p>
+          {/* Add a simplified loading animation */}
+          <div className="mt-4">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+          </div>
         </div>
       </div>
     );

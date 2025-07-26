@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useKV } from './useKV';
+import { useKV } from '@github/spark/hooks';
 import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
 import { getProvinces, getNations, sampleEvents, getBuildingById } from '../lib/gameData';
 import { validateBuildingPlacement } from './useSimulationEngine';
@@ -42,31 +42,43 @@ export function useGameState() {
       try {
         console.log('Starting data initialization...');
         
-        // Don't use cached data initially, always try to reload from YAML
-        console.log('Loading provinces from YAML...');
-        const loadedProvinces = await getProvinces();
-        if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
-          console.log(`Loaded ${loadedProvinces.length} provinces successfully`);
-          console.log(`Canadian provinces:`, loadedProvinces.filter(p => p.country === 'Canada').map(p => p.name));
-          setProvinces(loadedProvinces);
-        } else {
-          console.warn('No provinces loaded from YAML');
-        }
-        
-        console.log('Loading nations from YAML...');
-        const loadedNations = await getNations();
-        if (Array.isArray(loadedNations) && loadedNations.length > 0) {
-          console.log(`Loaded ${loadedNations.length} nations successfully`);
-          const canadaNation = loadedNations.find(n => n.id === 'CAN');
-          if (canadaNation) {
-            console.log(`✓ Canada found:`, canadaNation.name, 'Leader:', canadaNation.government?.leader);
+        // Set a faster timeout for initialization
+        const initPromise = (async () => {
+          console.log('Loading provinces from YAML...');
+          const loadedProvinces = await getProvinces();
+          if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
+            console.log(`Loaded ${loadedProvinces.length} provinces successfully`);
+            const canadianProvinces = loadedProvinces.filter(p => p.country === 'Canada');
+            console.log(`Canadian provinces:`, canadianProvinces.map(p => p.name));
+            setProvinces(loadedProvinces);
           } else {
-            console.warn('⚠ Canada not found in loaded nations');
+            console.warn('No provinces loaded from YAML, using fallback');
+            setProvinces([]);
           }
-          setNations(loadedNations);
-        } else {
-          console.warn('No nations loaded from YAML');
-        }
+          
+          console.log('Loading nations from YAML...');
+          const loadedNations = await getNations();
+          if (Array.isArray(loadedNations) && loadedNations.length > 0) {
+            console.log(`Loaded ${loadedNations.length} nations successfully`);
+            const canadaNation = loadedNations.find(n => n.id === 'CAN');
+            if (canadaNation) {
+              console.log(`✓ Canada found:`, canadaNation.name, 'Leader:', canadaNation.government?.leader);
+            } else {
+              console.warn('⚠ Canada not found in loaded nations');
+            }
+            setNations(loadedNations);
+          } else {
+            console.warn('No nations loaded from YAML, using fallback');
+            setNations([]);
+          }
+        })();
+
+        // Race the initialization with a timeout
+        const timeoutPromise = new Promise<void>((_, reject) => 
+          setTimeout(() => reject(new Error('Initialization timeout')), 5000)
+        );
+
+        await Promise.race([initPromise, timeoutPromise]);
         
         console.log('Data initialization completed');
         setIsInitialized(true);
@@ -87,7 +99,7 @@ export function useGameState() {
     } else {
       console.log('Already initialized, skipping data load');
     }
-  }, [setProvinces, setNations, isInitialized]); // Remove provinces and nations from dependencies to avoid loops
+  }, [setProvinces, setNations, isInitialized]);
 
   useEffect(() => {
     // Ensure currentDate is always a Date object (in case it was serialized as a string)
@@ -96,7 +108,7 @@ export function useGameState() {
       ...safeGameState,
       currentDate: safeGameState.currentDate instanceof Date 
         ? safeGameState.currentDate 
-        : new Date(safeGameState.currentDate)
+        : new Date(safeGameState.currentDate || '1990-01-01')
     };
     setLocalGameState(stateWithDate);
   }, [gameState]);
@@ -218,7 +230,9 @@ export function useGameState() {
 
   const advanceTime = useCallback((days: number) => {
     // Ensure we're working with a proper Date object
-    const currentDate = new Date(localGameState.currentDate);
+    const currentDate = localGameState.currentDate instanceof Date 
+      ? localGameState.currentDate 
+      : new Date(localGameState.currentDate || '1990-01-01');
     const newDate = new Date(currentDate);
     newDate.setDate(newDate.getDate() + days);
     updateGameState({ currentDate: newDate });
@@ -297,8 +311,8 @@ export function useGameState() {
       id: `construction_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       buildingId,
       provinceId,
-      startDate: new Date(localGameState.currentDate),
-      completionDate: new Date(new Date(localGameState.currentDate).getTime() + building.buildTime * 7 * 24 * 60 * 60 * 1000), // buildTime is in weeks
+      startDate: new Date(localGameState.currentDate).toISOString(),
+      completionDate: new Date(new Date(localGameState.currentDate).getTime() + building.buildTime * 7 * 24 * 60 * 60 * 1000).toISOString(), // buildTime is in weeks
       remainingTime: building.buildTime,
       cost: building.cost,
       status: 'in_progress'
@@ -386,7 +400,7 @@ export function useGameState() {
               completedBuildings.push({
                 buildingId: project.buildingId,
                 level: 1,
-                constructedDate: new Date(localGameState.currentDate),
+                constructedDate: new Date(localGameState.currentDate).toISOString(),
                 effects: building.effects
               });
             }

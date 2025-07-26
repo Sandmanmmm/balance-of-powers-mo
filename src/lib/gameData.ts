@@ -1850,7 +1850,7 @@ let loadedNations: Nation[] = [];
 let isDataInitialized = false;
 let initializationPromise: Promise<void> | null = null;
 
-// Initialize data loading
+// Initialize data loading with better error handling
 async function initializeGameData(): Promise<void> {
   if (isDataInitialized) {
     console.log('Game data already initialized');
@@ -1866,38 +1866,50 @@ async function initializeGameData(): Promise<void> {
     try {
       console.log('Initializing game data from YAML files...');
       
-      // Load all data in parallel
-      const [buildings, provinces, nations] = await Promise.all([
-        loadBuildingsFromYAML().catch((error) => {
-          console.error('Failed to load buildings:', error);
-          return convertBuildings();
-        }),
-        loadProvincesFromYAML().catch((error) => {
-          console.error('Failed to load provinces:', error);
-          return convertProvinces();
-        }),
-        loadNationsFromYAML().catch((error) => {
-          console.error('Failed to load nations:', error);
-          return convertNations();
-        })
+      // Load all data in parallel with individual error handling
+      const [buildings, provinces, nations] = await Promise.allSettled([
+        loadBuildingsFromYAML(),
+        loadProvincesFromYAML(),
+        loadNationsFromYAML()
       ]);
       
-      loadedBuildings = buildings;
-      loadedProvinces = provinces;
-      loadedNations = nations;
-      isDataInitialized = true;
+      // Handle buildings result
+      if (buildings.status === 'fulfilled' && buildings.value.length > 0) {
+        loadedBuildings = buildings.value;
+        console.log(`✓ Loaded ${buildings.value.length} buildings`);
+      } else {
+        console.warn('Failed to load buildings, using fallback');
+        loadedBuildings = convertBuildings();
+      }
       
-      console.log(`Successfully loaded ${buildings.length} buildings, ${provinces.length} provinces, ${nations.length} nations`);
-      
-      // Log Canada specifically to confirm it's loaded
-      const canada = nations.find(n => n.id === 'CAN');
-      if (canada) {
-        console.log(`✓ Canada loaded: ${canada.name} with ${canada.government?.leader}`);
-        const canadianProvinces = provinces.filter(p => p.country === 'Canada');
+      // Handle provinces result
+      if (provinces.status === 'fulfilled' && provinces.value.length > 0) {
+        loadedProvinces = provinces.value;
+        console.log(`✓ Loaded ${provinces.value.length} provinces`);
+        const canadianProvinces = provinces.value.filter(p => p.country === 'Canada');
         console.log(`✓ ${canadianProvinces.length} Canadian provinces loaded:`, canadianProvinces.map(p => p.name));
       } else {
-        console.warn('⚠ Canada not found in loaded nations');
+        console.warn('Failed to load provinces, using fallback');
+        loadedProvinces = convertProvinces();
       }
+      
+      // Handle nations result
+      if (nations.status === 'fulfilled' && nations.value.length > 0) {
+        loadedNations = nations.value;
+        console.log(`✓ Loaded ${nations.value.length} nations`);
+        const canada = nations.value.find(n => n.id === 'CAN');
+        if (canada) {
+          console.log(`✓ Canada found:`, canada.name, 'Leader:', canada.government?.leader);
+        } else {
+          console.warn('⚠ Canada not found in loaded nations');
+        }
+      } else {
+        console.warn('Failed to load nations, using fallback');
+        loadedNations = convertNations();
+      }
+      
+      isDataInitialized = true;
+      console.log('Game data initialization completed successfully');
       
     } catch (error) {
       console.error('Failed to initialize game data:', error);
@@ -1906,16 +1918,14 @@ async function initializeGameData(): Promise<void> {
       loadedProvinces = convertProvinces();
       loadedNations = convertNations();
       isDataInitialized = true;
+      console.log('Using fallback hardcoded data due to initialization error');
     }
   })();
   
   return initializationPromise;
 }
 
-// Initialize immediately but don't block
-initializeGameData().catch(error => {
-  console.error('Failed to initialize game data:', error);
-});
+// Don't initialize immediately during module load - let components request it
 
 // Export the converted data
 export const sampleProvinces: Province[] = [];
@@ -1934,17 +1944,16 @@ export async function getProvinces(): Promise<Province[]> {
       return loadedProvinces;
     }
     
-    // Try to load from YAML, but timeout after 5 seconds
-    const loadPromise = initializeGameData();
-    const timeoutPromise = new Promise<void>((_, reject) => 
-      setTimeout(() => reject(new Error('Loading timeout')), 5000)
-    );
-    
-    await Promise.race([loadPromise, timeoutPromise]);
-    
-    const result = loadedProvinces.length > 0 ? loadedProvinces : convertProvinces();
-    console.log(`getProvinces() returning ${result.length} provinces`);
-    return result;
+    // Try to load from YAML with shorter timeout
+    try {
+      await initializeGameData();
+      const result = loadedProvinces.length > 0 ? loadedProvinces : convertProvinces();
+      console.log(`getProvinces() returning ${result.length} provinces`);
+      return result;
+    } catch (error) {
+      console.warn('YAML loading failed, using fallback data:', error);
+      return convertProvinces();
+    }
   } catch (error) {
     console.error('Error in getProvinces, using fallback:', error);
     return convertProvinces(); // Fallback to hardcoded data
@@ -1959,17 +1968,16 @@ export async function getNations(): Promise<Nation[]> {
       return loadedNations;
     }
     
-    // Try to load from YAML, but timeout after 5 seconds
-    const loadPromise = initializeGameData();
-    const timeoutPromise = new Promise<void>((_, reject) => 
-      setTimeout(() => reject(new Error('Loading timeout')), 5000)
-    );
-    
-    await Promise.race([loadPromise, timeoutPromise]);
-    
-    const result = loadedNations.length > 0 ? loadedNations : convertNations();
-    console.log(`getNations() returning ${result.length} nations`);
-    return result;
+    // Try to load from YAML with shorter timeout
+    try {
+      await initializeGameData();
+      const result = loadedNations.length > 0 ? loadedNations : convertNations();
+      console.log(`getNations() returning ${result.length} nations`);
+      return result;
+    } catch (error) {
+      console.warn('YAML loading failed, using fallback data:', error);
+      return convertNations();
+    }
   } catch (error) {
     console.error('Error in getNations, using fallback:', error);
     return convertNations(); // Fallback to hardcoded data
