@@ -1393,4 +1393,3 @@ function processTradeSystem(
     });
   }
 }
-}
