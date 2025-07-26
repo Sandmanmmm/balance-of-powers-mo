@@ -9,56 +9,54 @@ const provincesData = {
       name: "British Columbia",
       country: "Canada",
       coordinates: [53.7267, -127.6476],
-      features: ["mountainous", "coastal", "tech_hub", "scenic", "tourism", "fishing_grounds", "forest", "temperate_climate"],
+      features: ["coastal", "mountainous", "forest_rich", "temperate_climate", "urban", "scenic", "tourism", "mineral_deposits"],
       population: {
         total: 5200000,
         ethnic_groups: [
-          { group: "European Canadian", percent: 52.4 },
-          { group: "Chinese", percent: 12.3 },
-          { group: "South Asian", percent: 8.7 },
-          { group: "Indigenous", percent: 5.9 },
-          { group: "Filipino", percent: 3.8 },
-          { group: "Other", percent: 16.9 }
+          { group: "European Canadian", percent: 58 },
+          { group: "Asian Canadian", percent: 25 },
+          { group: "Indigenous", percent: 6 },
+          { group: "Mixed/Other", percent: 11 }
         ]
       },
       unrest: 2.8,
       infrastructure: {
-        roads: 3,
+        roads: 4,
         internet: 4,
         healthcare: 4,
         education: 4
       },
       resource_deposits: {
-        oil: 200,
-        steel: 450,
-        rare_earth: 180,
-        uranium: 25,
-        food: 850
+        oil: 120,
+        steel: 180,
+        rare_earth: 45,
+        uranium: 15,
+        food: 350
       },
       military: {
         stationed_units: ["CAN_NAV_1", "CAN_INF_2"],
         fortification_level: 2
       },
       resource_output: {
-        energy: 2200,
-        iron: 380,
-        food: 1450,
-        technology: 280
+        energy: 1850,
+        iron: 220,
+        food: 480,
+        technology: 245
       },
       politics: {
         party_support: {
-          "Liberal": 28.3,
-          "Conservative": 22.8,
-          "NDP": 26.1,
-          "Green": 15.4,
-          "Other": 7.4
+          "Liberal": 45.2,
+          "Conservative": 28.8,
+          "NDP": 18.5,
+          "Green": 5.1,
+          "Other": 2.4
         },
-        governor_approval: 64.2
+        governor_approval: 62.3
       },
       economy: {
         gdp_per_capita: 58000,
         unemployment: 5.8,
-        inflation: 3.2
+        inflation: 3.5
       },
       buildings: [],
       construction_projects: []
@@ -67,19 +65,72 @@ const provincesData = {
       name: "Alberta",
       country: "Canada", 
       coordinates: [53.9333, -116.5765],
-      features: ["plains", "oil_rich", "flat_terrain", "cold_climate", "farmland", "energy_hub"],
+      features: ["oil_rich", "plains", "mountainous", "temperate_climate", "energy_production", "farmland", "flat_terrain"],
       population: {
         total: 4400000,
         ethnic_groups: [
-          { group: "European Canadian", percent: 68.2 },
-          { group: "Indigenous", percent: 6.8 },
-          { group: "South Asian", percent: 6.3 },
-          { group: "Chinese", percent: 4.2 },
-          { group: "Filipino", percent: 3.1 },
-          { group: "Other", percent: 11.4 }
+          { group: "European Canadian", percent: 69 },
+          { group: "Asian Canadian", percent: 12 },
+          { group: "Indigenous", percent: 7 },
+          { group: "Mixed/Other", percent: 12 }
         ]
       },
-      unrest: 4.1,
+      unrest: 3.2,
+      infrastructure: {
+        roads: 4,
+        internet: 4,
+        healthcare: 4,
+        education: 4
+      },
+      resource_deposits: {
+        oil: 3500,
+        steel: 85,
+        rare_earth: 25,
+        uranium: 180,
+        food: 800
+      },
+      military: {
+        stationed_units: ["CAN_INF_3"],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 4200,
+        iron: 95,
+        food: 920,
+        technology: 185
+      },
+      politics: {
+        party_support: {
+          "Conservative": 58.3,
+          "Liberal": 25.1,
+          "NDP": 12.8,
+          "Other": 3.8
+        },
+        governor_approval: 48.7
+      },
+      economy: {
+        gdp_per_capita: 78000,
+        unemployment: 6.2,
+        inflation: 4.1
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_003": {
+      name: "Saskatchewan",
+      country: "Canada",
+      coordinates: [52.9399, -106.4509],
+      features: ["plains", "farmland", "uranium_rich", "flat_terrain", "temperate_climate", "low_population", "agricultural"],
+      population: {
+        total: 1180000,
+        ethnic_groups: [
+          { group: "European Canadian", percent: 75 },
+          { group: "Indigenous", percent: 16 },
+          { group: "Asian Canadian", percent: 5 },
+          { group: "Mixed/Other", percent: 4 }
+        ]
+      },
+      unrest: 1.8,
       infrastructure: {
         roads: 3,
         internet: 3,
@@ -87,35 +138,90 @@ const provincesData = {
         education: 3
       },
       resource_deposits: {
-        oil: 15000,
-        steel: 280,
-        rare_earth: 45,
-        uranium: 350,
+        oil: 450,
+        steel: 25,
+        rare_earth: 10,
+        uranium: 850,
         food: 1200
       },
       military: {
-        stationed_units: ["CAN_INF_3"],
+        stationed_units: [],
         fortification_level: 1
       },
       resource_output: {
-        energy: 4800,
-        iron: 220,
-        food: 1800,
-        technology: 180
+        energy: 580,
+        iron: 35,
+        food: 1350,
+        technology: 45
       },
       politics: {
         party_support: {
-          "Conservative": 52.3,
-          "Liberal": 18.2,
-          "NDP": 15.8,
-          "Other": 13.7
+          "Conservative": 48.9,
+          "NDP": 32.1,
+          "Liberal": 15.2,
+          "Other": 3.8
         },
-        governor_approval: 71.5
+        governor_approval: 55.4
       },
       economy: {
-        gdp_per_capita: 78000,
-        unemployment: 4.2,
-        inflation: 3.8
+        gdp_per_capita: 52000,
+        unemployment: 4.8,
+        inflation: 2.9
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_004": {
+      name: "Manitoba",
+      country: "Canada",
+      coordinates: [53.7609, -98.8139],
+      features: ["plains", "farmland", "temperate_climate", "flat_terrain", "river_access", "urban"],
+      population: {
+        total: 1380000,
+        ethnic_groups: [
+          { group: "European Canadian", percent: 65 },
+          { group: "Indigenous", percent: 18 },
+          { group: "Asian Canadian", percent: 8 },
+          { group: "Mixed/Other", percent: 9 }
+        ]
+      },
+      unrest: 2.1,
+      infrastructure: {
+        roads: 3,
+        internet: 3,
+        healthcare: 3,
+        education: 3
+      },
+      resource_deposits: {
+        oil: 85,
+        steel: 45,
+        rare_earth: 8,
+        uranium: 25,
+        food: 650
+      },
+      military: {
+        stationed_units: ["CAN_INF_4"],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 480,
+        iron: 55,
+        food: 720,
+        technology: 78
+      },
+      politics: {
+        party_support: {
+          "NDP": 38.2,
+          "Conservative": 35.4,
+          "Liberal": 22.1,
+          "Other": 4.3
+        },
+        governor_approval: 51.8
+      },
+      economy: {
+        gdp_per_capita: 49000,
+        unemployment: 5.4,
+        inflation: 3.2
       },
       buildings: [],
       construction_projects: []
@@ -124,57 +230,495 @@ const provincesData = {
       name: "Ontario",
       country: "Canada",
       coordinates: [51.2538, -85.3232],
-      features: ["urban", "tech_hub", "industrial", "farmland", "river_access", "temperate_climate"],
+      features: ["urban", "industrial", "high_tech", "temperate_climate", "river_access", "great_lakes", "tourism", "financial_center"],
       population: {
-        total: 14800000,
+        total: 15000000,
         ethnic_groups: [
-          { group: "European Canadian", percent: 48.9 },
-          { group: "South Asian", percent: 12.6 },
-          { group: "Chinese", percent: 8.8 },
-          { group: "Black", percent: 4.7 },
-          { group: "Filipino", percent: 3.2 },
-          { group: "Indigenous", percent: 2.8 },
-          { group: "Other", percent: 19.0 }
+          { group: "European Canadian", percent: 58 },
+          { group: "Asian Canadian", percent: 22 },
+          { group: "Black Canadian", percent: 5 },
+          { group: "Indigenous", percent: 3 },
+          { group: "Mixed/Other", percent: 12 }
         ]
       },
       unrest: 3.5,
       infrastructure: {
-        roads: 4,
+        roads: 5,
         internet: 5,
+        healthcare: 5,
+        education: 5
+      },
+      resource_deposits: {
+        oil: 95,
+        steel: 320,
+        rare_earth: 85,
+        uranium: 180,
+        food: 580
+      },
+      military: {
+        stationed_units: ["CAN_INF_1", "CAN_AIR_1", "CAN_LOG_1"],
+        fortification_level: 3
+      },
+      resource_output: {
+        energy: 2850,
+        iron: 385,
+        food: 650,
+        technology: 780
+      },
+      politics: {
+        party_support: {
+          "Liberal": 42.8,
+          "Conservative": 35.2,
+          "NDP": 17.5,
+          "Green": 3.1,
+          "Other": 1.4
+        },
+        governor_approval: 45.2
+      },
+      economy: {
+        gdp_per_capita: 56000,
+        unemployment: 5.2,
+        inflation: 3.8
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_006": {
+      name: "Quebec",
+      country: "Canada",
+      coordinates: [53.9, -72.6],
+      features: ["urban", "industrial", "temperate_climate", "river_access", "hydroelectric", "forest_rich", "cultural_center", "tourism"],
+      population: {
+        total: 8500000,
+        ethnic_groups: [
+          { group: "French Canadian", percent: 78 },
+          { group: "English Canadian", percent: 8 },
+          { group: "Indigenous", percent: 2 },
+          { group: "Other", percent: 12 }
+        ]
+      },
+      unrest: 4.2,
+      infrastructure: {
+        roads: 4,
+        internet: 4,
         healthcare: 4,
         education: 5
       },
       resource_deposits: {
-        oil: 50,
-        steel: 800,
-        rare_earth: 120,
-        uranium: 2800,
-        food: 1800
+        oil: 45,
+        steel: 185,
+        rare_earth: 65,
+        uranium: 25,
+        food: 420
       },
       military: {
-        stationed_units: ["CAN_INF_1", "CAN_AIR_1", "CAN_LOG_1"],
+        stationed_units: ["CAN_INF_5", "CAN_AIR_2"],
         fortification_level: 2
       },
       resource_output: {
         energy: 3200,
-        iron: 650,
-        food: 2200,
-        technology: 850
+        iron: 220,
+        food: 485,
+        technology: 420
       },
       politics: {
         party_support: {
-          "Liberal": 38.2,
-          "Conservative": 28.4,
-          "NDP": 18.7,
-          "Green": 7.8,
-          "Other": 6.9
+          "Bloc Quebecois": 32.1,
+          "Liberal": 28.5,
+          "Conservative": 18.9,
+          "NDP": 15.2,
+          "Other": 5.3
         },
-        governor_approval: 59.8
+        governor_approval: 38.7
       },
       economy: {
-        gdp_per_capita: 62000,
-        unemployment: 6.1,
+        gdp_per_capita: 51000,
+        unemployment: 4.8,
         inflation: 3.1
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_007": {
+      name: "New Brunswick",
+      country: "Canada",
+      coordinates: [46.5653, -66.4619],
+      features: ["coastal", "forest_rich", "temperate_climate", "low_population", "maritime", "fishing"],
+      population: {
+        total: 780000,
+        ethnic_groups: [
+          { group: "English Canadian", percent: 65 },
+          { group: "French Canadian", percent: 32 },
+          { group: "Indigenous", percent: 2 },
+          { group: "Other", percent: 1 }
+        ]
+      },
+      unrest: 1.5,
+      infrastructure: {
+        roads: 3,
+        internet: 3,
+        healthcare: 3,
+        education: 3
+      },
+      resource_deposits: {
+        oil: 25,
+        steel: 35,
+        rare_earth: 5,
+        uranium: 8,
+        food: 185
+      },
+      military: {
+        stationed_units: [],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 285,
+        iron: 42,
+        food: 220,
+        technology: 28
+      },
+      politics: {
+        party_support: {
+          "Liberal": 38.5,
+          "Conservative": 35.8,
+          "NDP": 18.2,
+          "Green": 5.1,
+          "Other": 2.4
+        },
+        governor_approval: 48.9
+      },
+      economy: {
+        gdp_per_capita: 45000,
+        unemployment: 7.2,
+        inflation: 2.8
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_008": {
+      name: "Nova Scotia",
+      country: "Canada",
+      coordinates: [44.6820, -63.7443],
+      features: ["coastal", "maritime", "temperate_climate", "fishing", "tourism", "urban", "scenic"],
+      population: {
+        total: 980000,
+        ethnic_groups: [
+          { group: "English Canadian", percent: 85 },
+          { group: "French Canadian", percent: 8 },
+          { group: "Indigenous", percent: 3 },
+          { group: "Other", percent: 4 }
+        ]
+      },
+      unrest: 1.8,
+      infrastructure: {
+        roads: 3,
+        internet: 4,
+        healthcare: 4,
+        education: 4
+      },
+      resource_deposits: {
+        oil: 85,
+        steel: 25,
+        rare_earth: 8,
+        uranium: 5,
+        food: 220
+      },
+      military: {
+        stationed_units: ["CAN_NAV_2"],
+        fortification_level: 2
+      },
+      resource_output: {
+        energy: 420,
+        iron: 32,
+        food: 285,
+        technology: 58
+      },
+      politics: {
+        party_support: {
+          "Liberal": 42.1,
+          "Conservative": 28.5,
+          "NDP": 22.8,
+          "Green": 4.8,
+          "Other": 1.8
+        },
+        governor_approval: 52.3
+      },
+      economy: {
+        gdp_per_capita: 48000,
+        unemployment: 6.8,
+        inflation: 3.2
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_009": {
+      name: "Prince Edward Island",
+      country: "Canada",
+      coordinates: [46.5107, -63.4168],
+      features: ["coastal", "small_island", "farmland", "temperate_climate", "tourism", "fishing", "scenic"],
+      population: {
+        total: 160000,
+        ethnic_groups: [
+          { group: "English Canadian", percent: 89 },
+          { group: "French Canadian", percent: 5 },
+          { group: "Indigenous", percent: 2 },
+          { group: "Other", percent: 4 }
+        ]
+      },
+      unrest: 0.8,
+      infrastructure: {
+        roads: 3,
+        internet: 3,
+        healthcare: 3,
+        education: 3
+      },
+      resource_deposits: {
+        oil: 0,
+        steel: 2,
+        rare_earth: 0,
+        uranium: 0,
+        food: 95
+      },
+      military: {
+        stationed_units: [],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 85,
+        iron: 3,
+        food: 120,
+        technology: 8
+      },
+      politics: {
+        party_support: {
+          "Liberal": 45.2,
+          "Conservative": 32.8,
+          "NDP": 15.5,
+          "Green": 5.2,
+          "Other": 1.3
+        },
+        governor_approval: 58.7
+      },
+      economy: {
+        gdp_per_capita: 43000,
+        unemployment: 8.1,
+        inflation: 2.9
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_010": {
+      name: "Newfoundland and Labrador",
+      country: "Canada",
+      coordinates: [53.1355, -57.6604],
+      features: ["coastal", "oil_rich", "fishing", "mineral_deposits", "cold_climate", "rugged_terrain", "low_population"],
+      population: {
+        total: 520000,
+        ethnic_groups: [
+          { group: "English Canadian", percent: 92 },
+          { group: "Indigenous", percent: 5 },
+          { group: "Other", percent: 3 }
+        ]
+      },
+      unrest: 2.8,
+      infrastructure: {
+        roads: 2,
+        internet: 3,
+        healthcare: 3,
+        education: 3
+      },
+      resource_deposits: {
+        oil: 1200,
+        steel: 185,
+        rare_earth: 45,
+        uranium: 15,
+        food: 180
+      },
+      military: {
+        stationed_units: [],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 850,
+        iron: 220,
+        food: 285,
+        technology: 25
+      },
+      politics: {
+        party_support: {
+          "Liberal": 48.5,
+          "Conservative": 35.2,
+          "NDP": 12.8,
+          "Other": 3.5
+        },
+        governor_approval: 42.1
+      },
+      economy: {
+        gdp_per_capita: 58000,
+        unemployment: 12.8,
+        inflation: 3.8
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_011": {
+      name: "Yukon",
+      country: "Canada",
+      coordinates: [64.0685, -139.0686],
+      features: ["arctic_climate", "mineral_deposits", "wilderness", "mountainous", "low_population", "cold_climate", "scenic"],
+      population: {
+        total: 42000,
+        ethnic_groups: [
+          { group: "European Canadian", percent: 69 },
+          { group: "Indigenous", percent: 25 },
+          { group: "Other", percent: 6 }
+        ]
+      },
+      unrest: 1.2,
+      infrastructure: {
+        roads: 2,
+        internet: 2,
+        healthcare: 2,
+        education: 2
+      },
+      resource_deposits: {
+        oil: 25,
+        steel: 85,
+        rare_earth: 125,
+        uranium: 45,
+        food: 15
+      },
+      military: {
+        stationed_units: [],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 180,
+        iron: 95,
+        food: 25,
+        technology: 12
+      },
+      politics: {
+        party_support: {
+          "Liberal": 38.5,
+          "Conservative": 28.2,
+          "NDP": 25.8,
+          "Other": 7.5
+        },
+        governor_approval: 65.2
+      },
+      economy: {
+        gdp_per_capita: 72000,
+        unemployment: 4.5,
+        inflation: 2.8
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_012": {
+      name: "Northwest Territories",
+      country: "Canada",
+      coordinates: [64.8255, -124.8457],
+      features: ["arctic_climate", "mineral_deposits", "wilderness", "low_population", "cold_climate", "diamond_deposits", "oil_rich"],
+      population: {
+        total: 45000,
+        ethnic_groups: [
+          { group: "Indigenous", percent: 52 },
+          { group: "European Canadian", percent: 41 },
+          { group: "Other", percent: 7 }
+        ]
+      },
+      unrest: 1.8,
+      infrastructure: {
+        roads: 1,
+        internet: 2,
+        healthcare: 2,
+        education: 2
+      },
+      resource_deposits: {
+        oil: 850,
+        steel: 125,
+        rare_earth: 285,
+        uranium: 185,
+        food: 8
+      },
+      military: {
+        stationed_units: [],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 520,
+        iron: 145,
+        food: 15,
+        technology: 18
+      },
+      politics: {
+        party_support: {
+          "Liberal": 35.8,
+          "NDP": 32.1,
+          "Conservative": 25.5,
+          "Other": 6.6
+        },
+        governor_approval: 58.9
+      },
+      economy: {
+        gdp_per_capita: 95000,
+        unemployment: 6.2,
+        inflation: 3.5
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "CAN_013": {
+      name: "Nunavut",
+      country: "Canada",
+      coordinates: [70.2998, -83.1076],
+      features: ["arctic_climate", "wilderness", "low_population", "cold_climate", "tundra", "indigenous_majority", "mineral_deposits"],
+      population: {
+        total: 39000,
+        ethnic_groups: [
+          { group: "Inuit", percent: 85 },
+          { group: "European Canadian", percent: 12 },
+          { group: "Other", percent: 3 }
+        ]
+      },
+      unrest: 2.1,
+      infrastructure: {
+        roads: 1,
+        internet: 2,
+        healthcare: 2,
+        education: 2
+      },
+      resource_deposits: {
+        oil: 185,
+        steel: 285,
+        rare_earth: 450,
+        uranium: 320,
+        food: 5
+      },
+      military: {
+        stationed_units: [],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 285,
+        iron: 325,
+        food: 12,
+        technology: 8
+      },
+      politics: {
+        party_support: {
+          "Liberal": 42.5,
+          "NDP": 35.8,
+          "Conservative": 18.2,
+          "Other": 3.5
+        },
+        governor_approval: 72.1
+      },
+      economy: {
+        gdp_per_capita: 68000,
+        unemployment: 13.5,
+        inflation: 4.2
       },
       buildings: [],
       construction_projects: []

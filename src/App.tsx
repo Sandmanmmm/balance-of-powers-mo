@@ -76,18 +76,14 @@ function App() {
   // Safety fallback - if we've been loading for too long, force completion
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (!isInitialized || !Array.isArray(nations) || nations.length === 0) {
-        console.warn('App: Initialization timeout reached, forcing completion with hardcoded data');
+      if (!isInitialized) {
+        console.warn('App: Initialization timeout reached, forcing completion');
         setIsInitialized(true);
-        // If nations are still empty, this forces a reload attempt
-        if (!Array.isArray(nations) || nations.length === 0) {
-          console.warn('Nations still empty after timeout - this should trigger re-init');
-        }
       }
-    }, 5000); // Reduced to 5 second timeout
+    }, 10000); // 10 second timeout for fallback only
     
     return () => clearTimeout(timeoutId);
-  }, [isInitialized, nations, setIsInitialized]);
+  }, [isInitialized, setIsInitialized]);
 
   // Policy and decision handlers
   const handlePolicyChange = (policy: string, value: string) => {
@@ -143,7 +139,16 @@ function App() {
 
   // Additional check for data loading
   if (!Array.isArray(nations) || nations.length === 0) {
-    console.log('App rendering loading state - no nations loaded');
+    console.log('App rendering loading state - no nations loaded, retrying...');
+    
+    // Try to trigger a re-initialization
+    setTimeout(() => {
+      if (!Array.isArray(nations) || nations.length === 0) {
+        console.log('Retrying initialization...');
+        setIsInitialized(false);
+      }
+    }, 1000);
+    
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
@@ -165,7 +170,15 @@ function App() {
 
   // Check selected nation
   if (!selectedNation) {
-    console.log('App: selectedNation is null, rendering loading screen');
+    console.log('App: selectedNation is null, finding Canada...');
+    
+    // Try to find and select Canada if it exists
+    const canadaNation = nations.find(n => n?.id === 'CAN');
+    if (canadaNation) {
+      console.log('Found Canada, selecting it...');
+      selectNation('CAN');
+    }
+    
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">

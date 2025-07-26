@@ -53,25 +53,41 @@ export function useGameState() {
     if (!isInitialized) {
       console.log('Immediate initialization with hardcoded data');
       
-      // Use synchronous hardcoded data immediately
-      const hardcodedProvinces = convertProvinces();
-      const hardcodedNations = convertNations();
-      
-      console.log(`Setting ${hardcodedProvinces.length} provinces and ${hardcodedNations.length} nations immediately`);
-      
-      if (hardcodedProvinces.length > 0 && hardcodedNations.length > 0) {
-        setProvinces(hardcodedProvinces);
-        setNations(hardcodedNations);
-        setIsInitialized(true);
-        console.log('✓ Immediate initialization completed successfully');
-      } else {
-        console.error('❌ Failed to convert provinces or nations data');
+      try {
+        // Use synchronous hardcoded data immediately
+        const hardcodedProvinces = convertProvinces();
+        const hardcodedNations = convertNations();
+        
+        console.log(`Setting ${hardcodedProvinces.length} provinces and ${hardcodedNations.length} nations immediately`);
+        console.log('Canadian provinces:', hardcodedProvinces.filter(p => p.country === 'Canada').map(p => `${p.id}: ${p.name}`));
+        console.log('Available nations:', hardcodedNations.map(n => `${n.id}: ${n.name}`));
+        
+        if (hardcodedProvinces.length > 0 && hardcodedNations.length > 0) {
+          setProvinces(hardcodedProvinces);
+          setNations(hardcodedNations);
+          setIsInitialized(true);
+          console.log('✓ Immediate initialization completed successfully');
+          
+          // Debug: Check if Canada nation exists
+          const canadaNation = hardcodedNations.find(n => n.id === 'CAN');
+          if (canadaNation) {
+            console.log('✓ Canada nation found:', canadaNation.name, 'with provinces:', canadaNation.provinces);
+          } else {
+            console.error('❌ Canada nation not found in hardcoded data');
+          }
+        } else {
+          console.error('❌ Failed to convert provinces or nations data');
+          setIsInitialized(true); // Still mark as initialized to prevent infinite loading
+        }
+      } catch (error) {
+        console.error('❌ Error during immediate initialization:', error);
         setIsInitialized(true); // Still mark as initialized to prevent infinite loading
       }
     }
   }, [isInitialized]);
 
-  // Initialize data from YAML when component mounts
+  // Initialize data from YAML when component mounts - DISABLED FOR NOW
+  /*
   useEffect(() => {
     const initializeData = async () => {
       try {
@@ -127,6 +143,7 @@ export function useGameState() {
       console.log('Already initialized, skipping data load');
     }
   }, [setProvinces, setNations, isInitialized, setIsInitialized]);
+  */
 
   useEffect(() => {
     // Ensure currentDate is always a Date object (in case it was serialized as a string)
