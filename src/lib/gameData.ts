@@ -1683,7 +1683,7 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
     }
     
     // Check feature requirements - Province must have ALL required features
-    if (building.requiresFeatures && building.requiresFeatures.length > 0) {
+    if (building.requiresFeatures && Array.isArray(building.requiresFeatures) && building.requiresFeatures.length > 0) {
       const provinceFeatures = province.features || [];
       const hasAllRequiredFeatures = building.requiresFeatures.every(feature => 
         provinceFeatures.includes(feature)

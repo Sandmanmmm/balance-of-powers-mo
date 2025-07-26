@@ -287,7 +287,7 @@ export function ConstructionPanel({
                       <AlertCircle className="w-8 h-8 mx-auto mb-2" />
                       <p className="font-medium">No available buildings for this province</p>
                       <div className="text-xs space-y-1 mt-3 bg-muted p-3 rounded-md">
-                        <p><span className="font-medium">Province features:</span> {(province.features && province.features.length > 0) ? province.features.join(', ') : 'none'}</p>
+                        <p><span className="font-medium">Province features:</span> {(province.features && Array.isArray(province.features) && province.features.length > 0) ? province.features.join(', ') : 'none'}</p>
                         <p><span className="font-medium">Infrastructure level:</span> {province.infrastructure.roads}/5</p>
                         <p><span className="font-medium">Category filter:</span> {selectedCategory === 'all' ? 'All categories' : selectedCategory}</p>
                         <p><span className="font-medium">Total buildings available:</span> {(availableBuildings || []).length}</p>
@@ -350,13 +350,13 @@ export function ConstructionPanel({
                               </div>
                               
                               {/* Requirements */}
-                              {((building.requiresFeatures && building.requiresFeatures.length > 0) || (building.requirements && Object.keys(building.requirements).length > 0)) && (
+                              {((building.requiresFeatures && Array.isArray(building.requiresFeatures) && building.requiresFeatures.length > 0) || (building.requirements && Object.keys(building.requirements).length > 0)) && (
                                 <div className="space-y-1">
                                   <div className="text-xs font-medium text-muted-foreground">Requirements:</div>
                                   <div className="flex flex-wrap gap-1">
                                     {/* Feature Requirements */}
-                                    {building.requiresFeatures && building.requiresFeatures.map((feature) => {
-                                      const hasFeature = (province.features && province.features.includes(feature)) || false;
+                                    {building.requiresFeatures && Array.isArray(building.requiresFeatures) && building.requiresFeatures.map((feature) => {
+                                      const hasFeature = (province.features && Array.isArray(province.features) && province.features.includes(feature)) || false;
                                       return (
                                         <Badge 
                                           key={feature} 
@@ -367,7 +367,7 @@ export function ConstructionPanel({
                                         </Badge>
                                       );
                                     })}
-                                    {building.requiresFeatures && building.requiresFeatures.length > 0 && (
+                                    {building.requiresFeatures && Array.isArray(building.requiresFeatures) && building.requiresFeatures.length > 0 && (
                                       <Badge variant="outline" className="text-xs opacity-70">
                                         requires any one ↑
                                       </Badge>

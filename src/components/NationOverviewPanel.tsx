@@ -309,7 +309,7 @@ export function NationOverviewPanel({
               <CardTitle className="text-sm font-medium">Current Research</CardTitle>
             </CardHeader>
             <CardContent>
-              {nation.technology.currentResearch.length > 0 ? (
+              {nation.technology.currentResearch && Array.isArray(nation.technology.currentResearch) && nation.technology.currentResearch.length > 0 ? (
                 <div className="space-y-2">
                   {nation.technology.currentResearch.map((tech, index) => (
                     <div key={index} className="flex items-center gap-2 p-2 bg-muted rounded">

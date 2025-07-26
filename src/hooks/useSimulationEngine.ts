@@ -451,7 +451,7 @@ function progressTechnology(
     const updates: Partial<Nation> = {};
     
     // Check if current research can be completed
-    if (nation.technology.currentResearch.length > 0) {
+    if (nation.technology.currentResearch && Array.isArray(nation.technology.currentResearch) && nation.technology.currentResearch.length > 0) {
       const currentTech = nation.technology.currentResearch[0];
       const techData = context.technologies.find(t => t.name === currentTech);
       
@@ -492,7 +492,7 @@ function progressTechnology(
     }
     
     // Auto-start research if none active
-    if (nation.technology.currentResearch.length === 0) {
+    if (!nation.technology.currentResearch || !Array.isArray(nation.technology.currentResearch) || nation.technology.currentResearch.length === 0) {
       const currentYear = new Date(context.gameState.currentDate).getFullYear();
       const availableTechs = context.technologies.filter(tech => 
         tech.yearAvailable <= currentYear &&
@@ -882,9 +882,9 @@ export function validateBuildingPlacement(buildingId: string, province: Province
   }
 
   // Check feature requirements
-  if (building.requiresFeatures && building.requiresFeatures.length > 0) {
+  if (building.requiresFeatures && Array.isArray(building.requiresFeatures) && building.requiresFeatures.length > 0) {
     const missingFeatures = building.requiresFeatures.filter(feature => 
-      !province.features?.includes(feature)
+      !(province.features && Array.isArray(province.features) && province.features.includes(feature))
     );
     
     if (missingFeatures.length > 0) {
@@ -904,7 +904,7 @@ export function validateBuildingPlacement(buildingId: string, province: Province
   }
 
   // Check technology requirements
-  if (building.requirements?.technology && !nation.technology.completedTech.includes(building.requirements.technology)) {
+  if (building.requirements?.technology && !(nation.technology.completedTech && Array.isArray(nation.technology.completedTech) && nation.technology.completedTech.includes(building.requirements.technology))) {
     return { 
       valid: false, 
       reason: `Missing required technology: ${building.requirements?.technology}` 
@@ -912,7 +912,7 @@ export function validateBuildingPlacement(buildingId: string, province: Province
   }
 
   // Check if building already exists (for unique buildings)
-  const existingBuilding = province.buildings.find(b => b.buildingId === buildingId);
+  const existingBuilding = province.buildings && Array.isArray(province.buildings) ? province.buildings.find(b => b.buildingId === buildingId) : undefined;
   if (existingBuilding) {
     return { 
       valid: false, 
@@ -921,9 +921,9 @@ export function validateBuildingPlacement(buildingId: string, province: Province
   }
 
   // Check if already under construction
-  const underConstruction = province.constructionProjects.find(p => 
+  const underConstruction = province.constructionProjects && Array.isArray(province.constructionProjects) ? province.constructionProjects.find(p => 
     p.buildingId === buildingId && p.status === 'in_progress'
-  );
+  ) : undefined;
   if (underConstruction) {
     return { 
       valid: false, 
@@ -969,7 +969,8 @@ function processResourceSystem(
     
     // Calculate production and consumption from buildings with efficiency effects
     nationProvinces.forEach(province => {
-      province.buildings.forEach(building => {
+      if (province.buildings && Array.isArray(province.buildings)) {
+        province.buildings.forEach(building => {
         const buildingData = getBuildingById(building.buildingId);
         if (!buildingData) return;
         
@@ -1031,6 +1032,7 @@ function processResourceSystem(
           onUpdateProvince(province.id, provinceUpdates);
         }
       });
+      }
       
       // Add production from resource deposits
       Object.entries(province.resourceDeposits || {}).forEach(([resourceId, depositAmount]) => {
