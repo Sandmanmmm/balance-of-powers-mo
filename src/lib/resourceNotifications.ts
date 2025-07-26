@@ -55,6 +55,8 @@ export function checkResourceNotifications(nation: Nation, gameDate: Date): void
   const pendingNotifications: Array<PendingNotification> = [];
   
   Object.keys(resourcesData || {}).forEach(resourceId => {
+    if (!resourceId || !resourcesData || !resourcesData[resourceId]) return;
+    
     const resource = resourcesData[resourceId];
     if (!resource) return;
     

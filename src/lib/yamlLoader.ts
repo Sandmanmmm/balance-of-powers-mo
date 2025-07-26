@@ -52,21 +52,21 @@ export async function loadProvincesFromYAML(): Promise<Province[]> {
       coordinates: provinceData.coordinates as [number, number],
       features: provinceData.features || [],
       population: {
-        total: provinceData.population.total,
-        ethnicGroups: provinceData.population.ethnic_groups.map((group: any) => ({
-          group: group.group,
-          percent: group.percent
+        total: provinceData.population?.total || 0,
+        ethnicGroups: (provinceData.population?.ethnic_groups || []).map((group: any) => ({
+          group: group?.group || 'Unknown',
+          percent: group?.percent || 0
         }))
       },
       unrest: provinceData.unrest,
       infrastructure: provinceData.infrastructure,
       resourceDeposits: provinceData.resource_deposits || {},
       military: {
-        stationedUnits: provinceData.military.stationed_units.map((unitId: string) => ({
+        stationedUnits: (provinceData.military?.stationed_units || []).map((unitId: string) => ({
           id: unitId,
           strength: Math.floor(Math.random() * 100) + 50
         })),
-        fortificationLevel: provinceData.military.fortification_level
+        fortificationLevel: provinceData.military?.fortification_level || 0
       },
       resourceOutput: {
         energy: provinceData.resource_output.energy,
@@ -126,17 +126,17 @@ export async function loadNationsFromYAML(): Promise<Nation[]> {
         readiness: nationData.military.readiness || 100 // Default to 100% readiness
       },
       technology: {
-        researchPoints: nationData.technology.research_points,
-        currentResearch: nationData.technology.current_research,
-        completedTech: nationData.technology.completed_tech,
-        level: nationData.technology.tech_level
+        researchPoints: nationData.technology?.research_points || 0,
+        currentResearch: nationData.technology?.current_research || [],
+        completedTech: nationData.technology?.completed_tech || [],
+        level: nationData.technology?.tech_level || 1
       },
       diplomacy: {
-        allies: nationData.diplomacy.allies,
-        enemies: nationData.diplomacy.enemies,
-        tradePartners: nationData.diplomacy.trade_partners,
-        embargoes: nationData.diplomacy.embargoes || [], // Nations under embargo by this nation
-        sanctions: nationData.diplomacy.sanctions || [] // Nations imposing sanctions on this nation
+        allies: nationData.diplomacy?.allies || [],
+        enemies: nationData.diplomacy?.enemies || [],
+        tradePartners: nationData.diplomacy?.trade_partners || [],
+        embargoes: nationData.diplomacy?.embargoes || [], // Nations under embargo by this nation
+        sanctions: nationData.diplomacy?.sanctions || [] // Nations imposing sanctions on this nation
       },
       resourceStockpiles: nationData.resourceStockpiles || {},
       resourceProduction: nationData.resourceProduction || {},

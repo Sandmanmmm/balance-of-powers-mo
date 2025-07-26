@@ -24,25 +24,32 @@ export function useGameState() {
   // Initialize data from YAML when component mounts
   useEffect(() => {
     const initializeData = async () => {
-      const safeProvinces = Array.isArray(provinces) ? provinces : [];
-      if (safeProvinces.length === 0) {
-        const loadedProvinces = getProvinces();
-        if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
-          setProvinces(loadedProvinces);
+      try {
+        const safeProvinces = Array.isArray(provinces) ? provinces : [];
+        if (safeProvinces.length === 0) {
+          const loadedProvinces = getProvinces();
+          if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
+            setProvinces(loadedProvinces);
+          }
         }
-      }
-      
-      const safeNations = Array.isArray(nations) ? nations : [];
-      if (safeNations.length === 0) {
-        const loadedNations = getNations();
-        if (Array.isArray(loadedNations) && loadedNations.length > 0) {
-          setNations(loadedNations);
+        
+        const safeNations = Array.isArray(nations) ? nations : [];
+        if (safeNations.length === 0) {
+          const loadedNations = getNations();
+          if (Array.isArray(loadedNations) && loadedNations.length > 0) {
+            setNations(loadedNations);
+          }
         }
+      } catch (error) {
+        console.error('Error initializing game data:', error);
+        // Set empty arrays as fallback
+        if (!Array.isArray(provinces)) setProvinces([]);
+        if (!Array.isArray(nations)) setNations([]);
       }
     };
     
     initializeData();
-  }, [Array.isArray(provinces) ? provinces.length : 0, Array.isArray(nations) ? nations.length : 0, setProvinces, setNations]);
+  }, []);  // Remove the complex dependencies to prevent infinite loops
 
   useEffect(() => {
     // Ensure currentDate is always a Date object (in case it was serialized as a string)

@@ -51,11 +51,11 @@ function App() {
     console.log(`Decision ${decisionId} executed for nation ${selectedNation.id}`);
   };
 
-  // Initialize simulation engine
+  // Initialize simulation engine only when data is loaded
   useSimulationEngine({
-    gameState,
-    provinces,
-    nations,
+    gameState: localGameState,
+    provinces: Array.isArray(provinces) ? provinces : [],
+    nations: Array.isArray(nations) ? nations : [],
     onAdvanceTime: advanceTime,
     onUpdateProvince: updateProvince,
     onUpdateNation: updateNation,

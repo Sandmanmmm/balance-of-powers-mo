@@ -116,9 +116,13 @@ export function WorldMap({
   // Create a map of province data for quick lookup
   const provinceDataMap = useMemo(() => {
     const map = new Map<string, Province>();
-    provinces.forEach(province => {
-      map.set(province.id, province);
-    });
+    if (Array.isArray(provinces)) {
+      provinces.forEach(province => {
+        if (province && province.id) {
+          map.set(province.id, province);
+        }
+      });
+    }
     return map;
   }, [provinces]);
 

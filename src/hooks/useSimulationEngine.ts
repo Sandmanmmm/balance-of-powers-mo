@@ -47,7 +47,17 @@ export function useSimulationEngine({
   const lastEventCheckRef = useRef<number>(Date.now());
   const aiDecisionCooldownRef = useRef<Map<string, number>>(new Map());
 
+  // Ensure we have safe arrays to work with
+  const safeProvinces = Array.isArray(provinces) ? provinces.filter(p => p) : [];
+  const safeNations = Array.isArray(nations) ? nations.filter(n => n) : [];
+
   useEffect(() => {
+    // Don't start simulation until we have valid data
+    if (safeProvinces.length === 0 || safeNations.length === 0) {
+      console.log('Simulation paused: waiting for game data to load');
+      return;
+    }
+    
     if (gameState.isPaused) {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -76,8 +86,8 @@ export function useSimulationEngine({
         // Create simulation context
         const context: SimulationContext = {
           gameState,
-          provinces,
-          nations,
+          provinces: safeProvinces,
+          nations: safeNations,
           events: sampleEvents,
           technologies: sampleTechnologies
         };
@@ -127,7 +137,7 @@ export function useSimulationEngine({
         clearInterval(intervalRef.current);
       }
     };
-  }, [gameState.isPaused, gameState.timeSpeed, provinces, nations, onAdvanceTime, onUpdateProvince, onUpdateNation, onProcessConstructionTick]);
+  }, [gameState.isPaused, gameState.timeSpeed, safeProvinces.length, safeNations.length, onAdvanceTime, onUpdateProvince, onUpdateNation, onProcessConstructionTick]);
 }
 
 function simulateProvinces(
@@ -487,22 +497,23 @@ function progressTechnology(
     const updates: Partial<Nation> = {};
     
     // Check if current research can be completed
-    if (nation.technology.currentResearch && Array.isArray(nation.technology.currentResearch) && nation.technology.currentResearch.length > 0) {
-      const currentTech = nation.technology.currentResearch[0];
-      const techData = context.technologies.find(t => t.name === currentTech);
+    const currentResearch = nation.technology?.currentResearch;
+    if (currentResearch && Array.isArray(currentResearch) && currentResearch.length > 0) {
+      const currentTech = currentResearch[0];
+      const techData = Array.isArray(context.technologies) ? context.technologies.find(t => t && t.name === currentTech) : undefined;
       
-      if (techData && nation.technology.researchPoints >= techData.researchCost) {
+      if (techData && (nation.technology?.researchPoints ?? 0) >= techData.researchCost) {
         // Complete the technology
-        const researchCopy = [...nation.technology.currentResearch];
+        const researchCopy = [...currentResearch];
         const completedTech = researchCopy.shift();
-        const newLevel = Math.min(10, nation.technology.level + 0.5);
+        const newLevel = Math.min(10, (nation.technology?.level ?? 1) + 0.5);
         
         updates.technology = {
           ...nation.technology,
           level: newLevel,
-          researchPoints: nation.technology.researchPoints - techData.researchCost,
+          researchPoints: (nation.technology?.researchPoints ?? 0) - techData.researchCost,
           currentResearch: researchCopy,
-          completedTech: [...(nation.technology.completedTech || []), completedTech!]
+          completedTech: [...(nation.technology?.completedTech ?? []), completedTech!]
         };
         
         if (nation.name === context.gameState.selectedNation) {
@@ -510,11 +521,12 @@ function progressTechnology(
         }
         
         // Check for available follow-up technologies
-        const availableTechs = context.technologies.filter(tech => 
+        const technologies = Array.isArray(context.technologies) ? context.technologies : [];
+        const availableTechs = technologies.filter(tech => 
           tech && tech.yearAvailable <= new Date(context.gameState.currentDate).getFullYear() &&
           !(updates.technology?.completedTech ?? []).includes(tech.name) &&
           !(updates.technology?.currentResearch ?? []).includes(tech.name) &&
-          (tech.prerequisites || []).every(prereq => prereq && (updates.technology?.completedTech ?? []).includes(prereq))
+          Array.isArray(tech.prerequisites) && tech.prerequisites.every(prereq => prereq && (updates.technology?.completedTech ?? []).includes(prereq))
         );
         
         // Auto-select next research if none queued and techs available
@@ -529,19 +541,21 @@ function progressTechnology(
     }
     
     // Auto-start research if none active
-    if (!nation.technology.currentResearch || !Array.isArray(nation.technology.currentResearch) || nation.technology.currentResearch.length === 0) {
+    const currentResearch = nation.technology?.currentResearch;
+    if (!currentResearch || !Array.isArray(currentResearch) || currentResearch.length === 0) {
       const currentYear = new Date(context.gameState.currentDate).getFullYear();
-      const availableTechs = context.technologies.filter(tech => 
+      const technologies = Array.isArray(context.technologies) ? context.technologies : [];
+      const availableTechs = technologies.filter(tech => 
         tech && tech.yearAvailable <= currentYear &&
-        !(nation.technology.completedTech || []).includes(tech.name) &&
-        (tech.prerequisites || []).every(prereq => prereq && (nation.technology.completedTech || []).includes(prereq))
+        !(nation.technology?.completedTech ?? []).includes(tech.name) &&
+        Array.isArray(tech.prerequisites) && tech.prerequisites.every(prereq => prereq && (nation.technology?.completedTech ?? []).includes(prereq))
       );
       
       if (availableTechs.length > 0) {
         const selectedTech = selectNextResearch(nation, availableTechs);
         if (selectedTech) {
           updates.technology = {
-            ...nation.technology,
+            ...(nation.technology || { researchPoints: 0, currentResearch: [], completedTech: [], level: 1 }),
             currentResearch: [selectedTech.name]
           };
         }
@@ -555,7 +569,7 @@ function progressTechnology(
 }
 
 function selectNextResearch(nation: Nation, availableTechs: Technology[]): Technology | null {
-  if (availableTechs.length === 0) return null;
+  if (!Array.isArray(availableTechs) || availableTechs.length === 0) return null;
   
   // AI research priorities based on nation characteristics
   const priorities: Record<string, number> = {
@@ -568,21 +582,21 @@ function selectNextResearch(nation: Nation, availableTechs: Technology[]): Techn
   };
   
   // Adjust priorities based on nation conditions
-  if (nation.military.equipment < 60) {
+  if ((nation.military?.equipment ?? 0) < 60) {
     priorities.military = 2.0; // Prioritize military tech if equipment is low
   }
   
-  if (nation.economy.inflation > 4) {
+  if ((nation.economy?.inflation ?? 0) > 4) {
     priorities.manufacturing = 1.5; // Focus on efficiency
   }
   
-  if (nation.government.approval < 50) {
+  if ((nation.government?.approval ?? 0) < 50) {
     priorities.medical = 1.3; // Improve quality of life
     priorities.energy = 1.3;
   }
   
   // Score technologies based on priorities
-  const scoredTechs = availableTechs.map(tech => ({
+  const scoredTechs = availableTechs.filter(tech => tech).map(tech => ({
     tech,
     score: (priorities[tech.category] || 1.0) * Math.random()
   }));
@@ -599,14 +613,25 @@ function checkAndTriggerEvents(
   const currentYear = new Date(context.gameState.currentDate).getFullYear();
   const currentDate = new Date(context.gameState.currentDate);
   
+  if (!Array.isArray(context.events)) {
+    console.warn('Events data is invalid, skipping event checking');
+    return;
+  }
+  
   context.events.forEach(event => {
+    if (!event || !Array.isArray(event.triggerConditions)) {
+      return;
+    }
+    
     // Check trigger conditions
     let shouldTrigger = true;
     
     for (const condition of event.triggerConditions) {
+      if (!condition) continue;
+      
       switch (condition.type) {
         case 'tech_level':
-          const nation = context.nations.find(n => n.id === condition.target);
+          const nation = Array.isArray(context.nations) ? context.nations.find(n => n && n.id === condition.target) : undefined;
           if (!nation || (nation.technology?.level ?? 0) < (condition.threshold ?? 0)) {
             shouldTrigger = false;
           }
@@ -629,7 +654,7 @@ function checkAndTriggerEvents(
           break;
           
         case 'province_unrest':
-          const province = context.provinces.find(p => p.id === condition.target);
+          const province = Array.isArray(context.provinces) ? context.provinces.find(p => p && p.id === condition.target) : undefined;
           if (!province || (province.unrest ?? 0) < (condition.threshold ?? 0)) {
             shouldTrigger = false;
           }
@@ -637,8 +662,8 @@ function checkAndTriggerEvents(
           
         case 'diplomatic_status':
           if (condition.nations && Array.isArray(condition.nations) && condition.nations.length >= 2 && condition.status === 'allied') {
-            const nation1 = context.nations.find(n => n && n.id === condition.nations![0]);
-            const nation2 = context.nations.find(n => n && n.id === condition.nations![1]);
+            const nation1 = Array.isArray(context.nations) ? context.nations.find(n => n && n.id === condition.nations![0]) : undefined;
+            const nation2 = Array.isArray(context.nations) ? context.nations.find(n => n && n.id === condition.nations![1]) : undefined;
             if (!nation1 || !nation2 || 
                 !Array.isArray(nation1.diplomacy?.allies) || !nation1.diplomacy.allies.includes(nation2.name) ||
                 !Array.isArray(nation2.diplomacy?.allies) || !nation2.diplomacy.allies.includes(nation1.name)) {
@@ -664,11 +689,17 @@ function triggerEvent(
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void,
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
 ) {
+  if (!event || !Array.isArray(event.effects)) {
+    return;
+  }
+  
   // Apply immediate effects
   event.effects.forEach(effect => {
+    if (!effect || !effect.target) return;
+    
     if (effect.target.includes('_')) {
       // Province effect
-      const province = context.provinces.find(p => p.id === effect.target);
+      const province = Array.isArray(context.provinces) ? context.provinces.find(p => p && p.id === effect.target) : undefined;
       if (province) {
         const updates = applyEffectToProvince(province, effect);
         if (Object.keys(updates).length > 0) {
@@ -677,7 +708,7 @@ function triggerEvent(
       }
     } else {
       // Nation effect
-      const nation = context.nations.find(n => n.id === effect.target);
+      const nation = Array.isArray(context.nations) ? context.nations.find(n => n && n.id === effect.target) : undefined;
       if (nation) {
         const updates = applyEffectToNation(nation, effect);
         if (Object.keys(updates).length > 0) {
@@ -689,8 +720,9 @@ function triggerEvent(
   
   // Show notification to player if it affects their nation or provinces
   const affectedProvinces = event.affectedProvinces || [];
-  const playerProvinces = context.provinces.filter(p => 
-    p.country === context.gameState.selectedNation && 
+  const provinces = Array.isArray(context.provinces) ? context.provinces : [];
+  const playerProvinces = provinces.filter(p => 
+    p && p.country === context.gameState.selectedNation && 
     affectedProvinces.includes(p.id)
   );
   
@@ -786,7 +818,14 @@ function processAIDecisions(
 ) {
   const now = Date.now();
   
+  if (!Array.isArray(context.nations)) {
+    console.warn('Nations data is invalid, skipping AI decisions');
+    return;
+  }
+  
   context.nations.forEach(nation => {
+    if (!nation) return;
+    
     // Skip player nation
     if (nation.name === context.gameState.selectedNation) return;
     
@@ -806,8 +845,12 @@ function makeAIDecision(
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void,
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void
 ) {
-  const nationProvinces = context.provinces.filter(p => p.country === nation.name);
-  const avgUnrest = nationProvinces.reduce((sum, p) => sum + (p.unrest ?? 0), 0) / nationProvinces.length;
+  if (!nation) return;
+  
+  const provinces = Array.isArray(context.provinces) ? context.provinces : [];
+  const nationProvinces = provinces.filter(p => p && p.country === nation.name);
+  const avgUnrest = nationProvinces.length > 0 ? 
+    nationProvinces.reduce((sum, p) => sum + (p.unrest ?? 0), 0) / nationProvinces.length : 0;
   
   // Decision matrix based on current conditions
   const decisions: Array<{
@@ -875,11 +918,12 @@ function makeAIDecision(
       execute: () => {
         // Reduce unrest in worst affected provinces
         const worstProvinces = nationProvinces
-          .filter(p => (p.unrest ?? 0) > 5)
+          .filter(p => p && (p.unrest ?? 0) > 5)
           .sort((a, b) => (b.unrest ?? 0) - (a.unrest ?? 0))
           .slice(0, 2);
           
         worstProvinces.forEach(province => {
+          if (!province) return;
           const updates: Partial<Province> = {
             unrest: Math.max(0, (province.unrest ?? 0) - 1.5)
           };
@@ -991,7 +1035,8 @@ function processResourceSystem(
   context.nations.forEach(nation => {
     if (!nation) return;
     
-    const nationProvinces = context.provinces.filter(p => p && p.country === nation.name);
+    const nationProvinces = Array.isArray(context.provinces) ? 
+      context.provinces.filter(p => p && p.country === nation.name) : [];
     const updates: Partial<Nation> = {};
     
     // Initialize resource system if not present
@@ -1020,29 +1065,35 @@ function processResourceSystem(
     
     // Calculate production and consumption from buildings with efficiency effects
     nationProvinces.forEach(province => {
-      if (province?.buildings && Array.isArray(province.buildings)) {
-        province.buildings.forEach(building => {
-          if (!building) return;
-          
-          const buildingData = getBuildingById(building.buildingId);
-          if (!buildingData) return;
+      if (!province?.buildings || !Array.isArray(province.buildings)) {
+        return;
+      }
+      
+      province.buildings.forEach(building => {
+        if (!building) return;
         
-        // Ensure building has proper level
-        const buildingLevel = building.level || 1;
-        const buildingEfficiency = (building.efficiency || 1) * efficiency;
-        
-        // Add production (affected by efficiency)
-        Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
+        const buildingData = getBuildingById(building.buildingId);
+        if (!buildingData) return;
+      
+      // Ensure building has proper level
+      const buildingLevel = building.level || 1;
+      const buildingEfficiency = (building.efficiency || 1) * efficiency;
+      
+      // Add production (affected by efficiency)
+      if (buildingData.produces && typeof buildingData.produces === 'object') {
+        Object.entries(buildingData.produces).forEach(([resourceId, amount]) => {
           if (typeof amount === 'number') {
             newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * buildingLevel * weeksElapsed * buildingEfficiency;
           }
         });
-        
-        // Add consumption - only consume if inputs are available
-        let canOperate = true;
-        const requiredInputs: Record<string, number> = {};
-        
-        Object.entries(buildingData.consumes || {}).forEach(([resourceId, amount]) => {
+      }
+      
+      // Add consumption - only consume if inputs are available
+      let canOperate = true;
+      const requiredInputs: Record<string, number> = {};
+      
+      if (buildingData.consumes && typeof buildingData.consumes === 'object') {
+        Object.entries(buildingData.consumes).forEach(([resourceId, amount]) => {
           if (typeof amount === 'number') {
             const requiredAmount = amount * buildingLevel * weeksElapsed;
             requiredInputs[resourceId] = requiredAmount;
@@ -1054,59 +1105,66 @@ function processResourceSystem(
             }
           }
         });
+      }
+      
+      if (canOperate) {
+        // Building can operate - consume resources and produce outputs
+        Object.entries(requiredInputs).forEach(([resourceId, amount]) => {
+          newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount;
+        });
+      } else {
+        // Building cannot operate - reduce production proportionally
+        const efficiencyRatio = Math.min(1, 
+          Math.min(...Object.entries(buildingData.consumes || {}).map(([resourceId, amount]) => {
+            if (typeof amount !== 'number') return 1;
+            const available = newStockpiles[resourceId] || 0;
+            const required = amount * buildingLevel * weeksElapsed;
+            return required > 0 ? available / required : 1;
+          }))
+        );
         
-        if (canOperate) {
-          // Building can operate - consume resources and produce outputs
-          Object.entries(requiredInputs).forEach(([resourceId, amount]) => {
-            newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount;
-          });
-        } else {
-          // Building cannot operate - reduce production proportionally
-          const efficiencyRatio = Math.min(1, 
-            Math.min(...Object.entries(buildingData.consumes || {}).map(([resourceId, amount]) => {
-              if (typeof amount !== 'number') return 1;
-              const available = newStockpiles[resourceId] || 0;
-              const required = amount * buildingLevel * weeksElapsed;
-              return required > 0 ? available / required : 1;
-            }))
-          );
-          
-          // Produce at reduced efficiency
-          Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
+        // Produce at reduced efficiency
+        if (buildingData.produces && typeof buildingData.produces === 'object') {
+          Object.entries(buildingData.produces).forEach(([resourceId, amount]) => {
             if (typeof amount === 'number') {
               newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * buildingLevel * weeksElapsed * efficiencyRatio * buildingEfficiency;
             }
           });
-          
-          // Consume proportionally
-          Object.entries(buildingData.consumes || {}).forEach(([resourceId, amount]) => {
+        }
+        
+        // Consume proportionally
+        if (buildingData.consumes && typeof buildingData.consumes === 'object') {
+          Object.entries(buildingData.consumes).forEach(([resourceId, amount]) => {
             if (typeof amount === 'number') {
               newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount * buildingLevel * weeksElapsed * efficiencyRatio;
             }
           });
-          
-          // Update building efficiency for display
-          const provinceUpdates: Partial<Province> = {
-            buildings: (province.buildings || []).map(b => 
-              b.buildingId === building.buildingId 
-                ? { ...b, efficiency: efficiencyRatio * buildingEfficiency }
-                : b
-            )
-          };
-          onUpdateProvince(province.id, provinceUpdates);
         }
-      });
+        
+        // Update building efficiency for display
+        const provinceUpdates: Partial<Province> = {
+          buildings: (province.buildings || []).map(b => 
+            b && b.buildingId === building.buildingId 
+              ? { ...b, efficiency: efficiencyRatio * buildingEfficiency }
+              : b
+          )
+        };
+        onUpdateProvince(province.id, provinceUpdates);
       }
-      
-      // Add production from resource deposits
-      Object.entries(province.resourceDeposits || {}).forEach(([resourceId, depositAmount]) => {
-        if (depositAmount > 0) {
+    });
+    }
+    
+    // Add production from resource deposits
+    if (province.resourceDeposits && typeof province.resourceDeposits === 'object') {
+      Object.entries(province.resourceDeposits).forEach(([resourceId, depositAmount]) => {
+        if (typeof depositAmount === 'number' && depositAmount > 0) {
           // Base extraction rate is 10% of deposit per week
           const extractionRate = Math.min(depositAmount * 0.1, depositAmount);
           newProduction[resourceId] = (newProduction[resourceId] || 0) + extractionRate * weeksElapsed;
         }
       });
-    });
+    }
+  });
     
     // Calculate base resource production
     newProduction.manpower = (newProduction.manpower || 0) + (nation.demographics?.population || 0) * 0.001 * weeksElapsed; // 0.1% of population per week
@@ -1184,24 +1242,28 @@ function processTradeSystem(
   }
 
   // Process existing trade agreements
-  context.nations.forEach(nation => {
+  const nations = Array.isArray(context.nations) ? context.nations : [];
+  nations.forEach(nation => {
     if (!nation) return;
     
-    if (!nation.tradeAgreements || !Array.isArray(nation.tradeAgreements) || nation.tradeAgreements.length === 0) return;
+    const tradeAgreements = nation.tradeAgreements;
+    if (!tradeAgreements || !Array.isArray(tradeAgreements) || tradeAgreements.length === 0) return;
     
     const updates: Partial<Nation> = {};
-    const updatedAgreements = [...nation.tradeAgreements];
+    const updatedAgreements = [...tradeAgreements];
     
-    nation.tradeAgreements.forEach((agreement, index) => {
-      if (agreement.status !== 'active') return;
+    tradeAgreements.forEach((agreement, index) => {
+      if (!agreement || agreement.status !== 'active') return;
       
       // Execute trade agreement
-      const tradeResult = executeTradeAgreement(agreement, context.nations);
+      const tradeResult = executeTradeAgreement(agreement, nations);
       
       if (tradeResult.success) {
         // Apply resource updates
         if (tradeResult.updates && Array.isArray(tradeResult.updates)) {
           tradeResult.updates.forEach(({ nationId, updates: nationUpdates }) => {
+            if (!nationId || !nationUpdates) return;
+            
             if (nationId === nation.id) {
               // Merge stockpile updates
               updates.resourceStockpiles = {
@@ -1216,11 +1278,13 @@ function processTradeSystem(
         }
       } else {
         // Trade failed - suspend agreement
-        updatedAgreements[index] = { ...agreement, status: 'suspended' };
+        if (updatedAgreements[index]) {
+          updatedAgreements[index] = { ...agreement, status: 'suspended' };
+        }
         
         if (nation.id === context.gameState.selectedNation) {
-          const partnerNation = context.nations.find(n => 
-            agreement.nations && Array.isArray(agreement.nations) && 
+          const partnerNation = nations.find(n => 
+            n && agreement.nations && Array.isArray(agreement.nations) && 
             agreement.nations.includes(n.id) && n.id !== nation.id
           );
           sendTradeNotification('agreement_expired', {
@@ -1230,14 +1294,16 @@ function processTradeSystem(
       }
       
       // Decrease agreement duration
-      updatedAgreements[index] = {
-        ...updatedAgreements[index],
-        duration: Math.max(0, updatedAgreements[index].duration - weeksElapsed)
-      };
-      
-      // Expire agreement if duration is up
-      if (updatedAgreements[index].duration <= 0) {
-        updatedAgreements[index] = { ...updatedAgreements[index], status: 'cancelled' };
+      if (updatedAgreements[index]) {
+        updatedAgreements[index] = {
+          ...updatedAgreements[index],
+          duration: Math.max(0, updatedAgreements[index].duration - weeksElapsed)
+        };
+        
+        // Expire agreement if duration is up
+        if (updatedAgreements[index].duration <= 0) {
+          updatedAgreements[index] = { ...updatedAgreements[index], status: 'cancelled' };
+        }
       }
     });
     
@@ -1250,11 +1316,14 @@ function processTradeSystem(
   
   // Generate AI trade offers periodically
   if (Math.random() < 0.1 * weeksElapsed) { // 10% chance per week
-    context.nations.forEach(nation => {
+    const nations = Array.isArray(context.nations) ? context.nations : [];
+    nations.forEach(nation => {
+      if (!nation) return;
+      
       // Skip player nation for AI trade offers
       if (nation.id === context.gameState.selectedNation) return;
       
-      const potentialPartners = context.nations.filter(n => 
+      const potentialPartners = nations.filter(n => 
         n && n.id !== nation.id && 
         (!Array.isArray(nation.diplomacy?.enemies) || !nation.diplomacy.enemies.includes(n.id)) &&
         (!Array.isArray(nation.diplomacy?.embargoes) || !nation.diplomacy.embargoes.includes(n.id))
@@ -1279,7 +1348,7 @@ function processTradeSystem(
         }
         
         // Auto-evaluate AI response for AI-to-AI offers
-        const targetNation = context.nations.find(n => n.id === tradeOffer.toNation);
+        const targetNation = nations.find(n => n && n.id === tradeOffer.toNation);
         if (targetNation && targetNation.id !== context.gameState.selectedNation) {
           const evaluation = evaluateTradeOfferAI(targetNation, tradeOffer);
           
@@ -1289,7 +1358,7 @@ function processTradeSystem(
             
             // Update both nations
             const offeringNationUpdates: Partial<Nation> = {
-              tradeOffers: (nation.tradeOffers && Array.isArray(nation.tradeOffers) ? nation.tradeOffers : []).filter(o => o.id !== tradeOffer.id),
+              tradeOffers: (nation.tradeOffers && Array.isArray(nation.tradeOffers) ? nation.tradeOffers : []).filter(o => o && o.id !== tradeOffer.id),
               tradeAgreements: [...(nation.tradeAgreements && Array.isArray(nation.tradeAgreements) ? nation.tradeAgreements : []), agreement]
             };
             
@@ -1309,7 +1378,7 @@ function processTradeSystem(
           } else {
             // Reject trade offer
             const offeringNationUpdates: Partial<Nation> = {
-              tradeOffers: (nation.tradeOffers && Array.isArray(nation.tradeOffers) ? nation.tradeOffers : []).filter(o => o.id !== tradeOffer.id)
+              tradeOffers: (nation.tradeOffers && Array.isArray(nation.tradeOffers) ? nation.tradeOffers : []).filter(o => o && o.id !== tradeOffer.id)
             };
             onUpdateNation(nation.id, offeringNationUpdates);
             
