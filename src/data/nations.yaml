@@ -205,3 +205,117 @@ nations:
       overall: 1.0
     trade_offers: []
     trade_agreements: []
+
+  CAN:
+    name: "Canada"
+    capital: "Ottawa"
+    flag: "🇨🇦"
+    government:
+      type: "democracy"
+      leader: "Justin Trudeau"
+      approval: 38.2
+      stability: 85.4
+      ruling_party: "Liberal Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2021-09-20"
+    economy:
+      gdp: 2100000000000
+      debt: 1200000000000
+      inflation: 3.4
+      trade_balance: 52000000000
+      treasury: 180000000000
+      currency: "CAD"
+      interest_rate: 4.5
+      sectors:
+        manufacturing: 10.2
+        services: 70.9
+        agriculture: 1.6
+        technology: 5.8
+        natural_resources: 11.5
+    military:
+      manpower: 68000
+      equipment: 72
+      readiness: 78
+      doctrine: "Peacekeeping and Defense"
+      nuclear_capability: false
+      military_spending_gdp: 1.29
+      conscription: false
+      reserve_forces: 50000
+    technology:
+      researchPoints: 875
+      currentResearch:
+        - "Clean Energy"
+        - "Arctic Technology"
+        - "AI and Automation"
+        - "Space Technology"
+      completedTech:
+        - "Internet"
+        - "Hydroelectric Power"
+        - "Cold Weather Technology"
+        - "Resource Extraction"
+        - "Telecommunications"
+        - "Medical Technology"
+      level: 8.1
+    diplomacy:
+      allies:
+        - "USA"
+        - "GBR"
+        - "FRA"
+        - "AUS"
+        - "NZL"
+      enemies: []
+      embargoes: []
+      sanctions: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "MEX"
+        - "GER"
+        - "GBR"
+        - "JPN"
+        - "IND"
+      international_relations:
+        EU: "partner"
+        NATO: "member"
+        UN_Security_Council: false
+        G7: "member"
+        G20: "member"
+        Commonwealth: "member"
+    provinces:
+      - "CAN_001"  # British Columbia
+      - "CAN_002"  # Alberta
+      - "CAN_003"  # Saskatchewan
+      - "CAN_004"  # Manitoba
+      - "CAN_005"  # Ontario
+      - "CAN_006"  # Quebec
+      - "CAN_007"  # New Brunswick
+      - "CAN_008"  # Nova Scotia
+      - "CAN_009"  # Prince Edward Island
+      - "CAN_010"  # Newfoundland and Labrador
+      - "CAN_011"  # Yukon
+      - "CAN_012"  # Northwest Territories
+      - "CAN_013"  # Nunavut
+    demographics:
+      population: 38200000
+      median_age: 41.8
+      birth_rate: 1.47
+      life_expectancy: 82.4
+      literacy_rate: 99.0
+      urbanization: 81.6
+    resource_stockpiles:
+      oil: 2400000
+      food: 850000
+      electricity: 650000
+      manpower: 1850000
+      technology: 87500
+      consumer_goods: 420000
+      military_equipment: 48000
+      research: 8750
+    resource_production: {}
+    resource_consumption: {}
+    resource_shortages: {}
+    resource_efficiency:
+      overall: 1.0
+    trade_offers: []
+    trade_agreements: []

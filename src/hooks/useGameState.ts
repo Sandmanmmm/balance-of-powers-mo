@@ -8,7 +8,7 @@ const initialGameState: GameState = {
   currentDate: new Date('1990-01-01'),
   timeSpeed: 1,
   isPaused: false,
-  selectedNation: 'USA',
+  selectedNation: 'CAN',
   mapOverlay: 'political',
   notifications: []
 };
