@@ -20,11 +20,14 @@ interface NotificationSettings {
 // Enhanced state tracking for notifications
 const notificationState = new Map<string, Map<string, ResourceNotificationState>>();
 const notificationSettings = new Map<string, NotificationSettings>();
-const pendingGroupedNotifications = new Map<string, Array<{
+
+type PendingNotification = {
   resourceId: string;
   type: 'shortage' | 'surplus' | 'critical';
   severity: number;
-}>>>();
+};
+
+const pendingGroupedNotifications = new Map<string, Array<PendingNotification>>();
 
 /**
  * Check and send resource shortage/surplus notifications with improved state tracking
@@ -43,11 +46,7 @@ export function checkResourceNotifications(nation: Nation, gameDate: Date): void
     return;
   }
   
-  const pendingNotifications: Array<{
-    resourceId: string;
-    type: 'shortage' | 'surplus' | 'critical';
-    severity: number;
-  }> = [];
+  const pendingNotifications: Array<PendingNotification> = [];
   
   Object.keys(resourcesData).forEach(resourceId => {
     const resource = resourcesData[resourceId];
@@ -242,11 +241,7 @@ function getNotificationSettings(nationId: string): NotificationSettings {
  */
 function sendGroupedNotification(
   nation: Nation,
-  notifications: Array<{
-    resourceId: string;
-    type: 'shortage' | 'surplus' | 'critical';
-    severity: number;
-  }>
+  notifications: Array<PendingNotification>
 ): void {
   if (notifications.length === 0) return;
   
