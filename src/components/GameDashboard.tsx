@@ -24,6 +24,7 @@ import {
 import { Nation, GameState } from '../lib/types';
 import { NationOverviewPanel } from './NationOverviewPanel';
 import { NationResourcePanel } from './NationResourcePanel';
+import { NotificationControls } from './NotificationControls';
 
 interface GameDashboardProps {
   nation: Nation;
@@ -329,6 +330,9 @@ export function GameDashboard({
                 </div>
               </CardContent>
             </Card>
+
+            {/* Notification Controls */}
+            <NotificationControls nationId={nation.id} />
           </div>
         )}
 

@@ -266,13 +266,13 @@ export function ConstructionPanel({
               <TabsList className="grid w-full mb-4" style={{ gridTemplateColumns: `repeat(${Math.min(categories.length + 1, 7)}, minmax(0, 1fr))` }}>
                 <TabsTrigger value="all" className="text-xs flex items-center justify-center gap-1 min-w-0 px-1">
                   <GridFour className="w-3 h-3 shrink-0" />
-                  <span className="hidden xl:inline truncate text-xs">All</span>
+                  <span className="hidden sm:inline truncate text-xs">All</span>
                 </TabsTrigger>
                 {categories.slice(0, 6).map(category => (
                   category && (
                     <TabsTrigger key={category} value={category} className="text-xs flex items-center justify-center gap-1 min-w-0 px-1" title={category.charAt(0).toUpperCase() + category.slice(1)}>
                       {getCategoryIcon(category)}
-                      <span className="hidden xl:inline capitalize truncate text-xs">
+                      <span className="hidden sm:inline capitalize truncate text-xs">
                         {category.charAt(0).toUpperCase() + category.slice(1)}
                       </span>
                     </TabsTrigger>
