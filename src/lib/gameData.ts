@@ -1095,7 +1095,6 @@ export const sampleEvents: GameEvent[] = convertEvents();
 export const gameUnits: Unit[] = convertUnits();
 export const sampleTechnologies: Technology[] = convertTechnologies();
 export const gameBuildings: Building[] = convertBuildings();
-export { resourcesData };
 
 // Log successful data loading
 console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies, ${gameBuildings.length} buildings, ${Object.keys(resourcesData).length} resources`);
@@ -1184,15 +1183,15 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
   });
 }
 
-export function getResourceById(id: string) {
+export function getResourceById(id: string): Resource | undefined {
   return resourcesData[id];
 }
 
-export function getAllResources() {
+export function getAllResources(): Resource[] {
   return Object.values(resourcesData);
 }
 
-export function getResourcesByCategory(category: string) {
+export function getResourcesByCategory(category: string): Resource[] {
   return Object.values(resourcesData).filter(resource => resource.category === category);
 }
 
