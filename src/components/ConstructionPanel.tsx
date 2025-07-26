@@ -261,12 +261,12 @@ export function ConstructionPanel({
                               </div>
                               
                               {/* Requirements */}
-                              {(building.requiresFeatures.length > 0 || Object.keys(building.requirements).length > 0) && (
+                              {((building.requiresFeatures && building.requiresFeatures.length > 0) || Object.keys(building.requirements || {}).length > 0) && (
                                 <div className="space-y-1">
                                   <div className="text-xs font-medium text-muted-foreground">Requirements:</div>
                                   <div className="flex flex-wrap gap-1">
                                     {/* Feature Requirements */}
-                                    {building.requiresFeatures.map((feature) => {
+                                    {building.requiresFeatures && building.requiresFeatures.map((feature) => {
                                       const hasFeature = province.features?.includes(feature) || false;
                                       return (
                                         <Badge 
@@ -278,14 +278,14 @@ export function ConstructionPanel({
                                         </Badge>
                                       );
                                     })}
-                                    {building.requiresFeatures.length > 0 && (
+                                    {building.requiresFeatures && building.requiresFeatures.length > 0 && (
                                       <Badge variant="outline" className="text-xs opacity-70">
                                         requires any one ↑
                                       </Badge>
                                     )}
                                     
                                     {/* Infrastructure Requirements */}
-                                    {building.requirements.infrastructure && (
+                                    {building.requirements && building.requirements.infrastructure && (
                                       <Badge 
                                         variant={province.infrastructure.roads >= building.requirements.infrastructure ? "secondary" : "destructive"}
                                         className="text-xs"
@@ -295,7 +295,7 @@ export function ConstructionPanel({
                                     )}
                                     
                                     {/* Technology Requirements */}
-                                    {building.requirements.technology && (
+                                    {building.requirements && building.requirements.technology && (
                                       <Badge 
                                         variant={nation.technology.completedTech.includes(building.requirements.technology) ? "secondary" : "destructive"}
                                         className="text-xs"

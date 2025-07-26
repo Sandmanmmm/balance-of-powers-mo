@@ -1404,8 +1404,8 @@ function convertBuildings(): Building[] {
     produces: building.produces || {},
     consumes: building.consumes || {},
     improves: building.improves || {},
-    requiresFeatures: building.requiresFeatures,
-    requirements: building.requirements,
+    requiresFeatures: building.requiresFeatures || [],
+    requirements: building.requirements || {},
     icon: building.icon
   }));
 }

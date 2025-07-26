@@ -185,11 +185,11 @@ export interface Building {
   category: 'industrial' | 'military' | 'infrastructure' | 'research' | 'civilian' | 'energy' | 'agriculture' | 'tourism' | 'safety' | 'technology' | 'extraction' | 'environmental' | 'commercial' | 'aerospace';
   cost: number;
   buildTime: number; // in ticks
-  produces: Record<string, number>; // New: resources produced per tick
-  consumes: Record<string, number>; // New: resources consumed per tick
-  improves: Record<string, number>; // New: legacy effects renamed
-  requiresFeatures: string[]; // New: required province features
-  requirements: Record<string, any>; // Existing infrastructure/tech requirements
+  produces?: Record<string, number>; // New: resources produced per tick
+  consumes?: Record<string, number>; // New: resources consumed per tick
+  improves?: Record<string, number>; // New: legacy effects renamed
+  requiresFeatures?: string[]; // New: required province features
+  requirements?: Record<string, any>; // Existing infrastructure/tech requirements
   icon: string;
 }
 

@@ -861,9 +861,9 @@ export function validateBuildingPlacement(buildingId: string, province: Province
   }
 
   // Check feature requirements
-  if (building.requiresFeatures.length > 0) {
+  if (building.requiresFeatures && building.requiresFeatures.length > 0) {
     const missingFeatures = building.requiresFeatures.filter(feature => 
-      !province.features.includes(feature)
+      !province.features?.includes(feature)
     );
     
     if (missingFeatures.length > 0) {
@@ -875,18 +875,18 @@ export function validateBuildingPlacement(buildingId: string, province: Province
   }
 
   // Check infrastructure requirements
-  if (building.requirements.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
+  if (building.requirements?.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
     return { 
       valid: false, 
-      reason: `Insufficient infrastructure level (requires ${building.requirements.infrastructure}, has ${province.infrastructure.roads})` 
+      reason: `Insufficient infrastructure level (requires ${building.requirements?.infrastructure}, has ${province.infrastructure.roads})` 
     };
   }
 
   // Check technology requirements
-  if (building.requirements.technology && !nation.technology.completedTech.includes(building.requirements.technology)) {
+  if (building.requirements?.technology && !nation.technology.completedTech.includes(building.requirements.technology)) {
     return { 
       valid: false, 
-      reason: `Missing required technology: ${building.requirements.technology}` 
+      reason: `Missing required technology: ${building.requirements?.technology}` 
     };
   }
 
