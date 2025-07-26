@@ -72,3 +72,32 @@ resources:
     description: "Core components for modern electronics"
     unit: "units"
     base_price: 500
+    
+  # Resource Storage Capacities (tracked separately)
+  oil_storage_capacity:
+    name: "Oil Storage Capacity"
+    category: "infrastructure"
+    description: "Maximum oil that can be stored"
+    unit: "barrels"
+    base_price: 0
+    
+  food_storage_capacity:
+    name: "Food Storage Capacity"
+    category: "infrastructure"  
+    description: "Maximum food that can be stored"
+    unit: "tons"
+    base_price: 0
+    
+  military_storage_capacity:
+    name: "Military Storage Capacity"
+    category: "infrastructure"
+    description: "Maximum military equipment storage"
+    unit: "units"
+    base_price: 0
+    
+  data_storage_capacity:
+    name: "Data Storage Capacity"
+    category: "infrastructure"
+    description: "Maximum digital information storage"
+    unit: "TB"
+    base_price: 0

@@ -183,11 +183,12 @@ export function ConstructionPanel({
           </CardHeader>
           <CardContent>
             <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
-              <TabsList className="grid grid-cols-4 w-full mb-4">
+              <TabsList className="grid grid-cols-5 w-full mb-4">
                 <TabsTrigger value="all" className="text-xs">All</TabsTrigger>
-                <TabsTrigger value="infrastructure" className="text-xs">Infra</TabsTrigger>
+                <TabsTrigger value="extraction" className="text-xs">Extract</TabsTrigger>
+                <TabsTrigger value="energy" className="text-xs">Energy</TabsTrigger>
                 <TabsTrigger value="industrial" className="text-xs">Industry</TabsTrigger>
-                <TabsTrigger value="military" className="text-xs">Military</TabsTrigger>
+                <TabsTrigger value="storage" className="text-xs">Storage</TabsTrigger>
               </TabsList>
               
               <ScrollArea className="h-[300px]">

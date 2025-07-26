@@ -949,13 +949,49 @@ function processResourceSystem(
         
         // Add production
         Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
-          newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * weeksElapsed;
+          newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * building.level * weeksElapsed;
         });
         
-        // Add consumption
+        // Add consumption - only consume if inputs are available
+        let canOperate = true;
+        const requiredInputs: Record<string, number> = {};
+        
         Object.entries(buildingData.consumes || {}).forEach(([resourceId, amount]) => {
-          newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount * weeksElapsed;
+          const requiredAmount = amount * building.level * weeksElapsed;
+          requiredInputs[resourceId] = requiredAmount;
+          
+          // Check if we have enough stockpiles to operate
+          const available = newStockpiles[resourceId] || 0;
+          if (available < requiredAmount) {
+            canOperate = false;
+          }
         });
+        
+        if (canOperate) {
+          // Building can operate - consume resources and produce outputs
+          Object.entries(requiredInputs).forEach(([resourceId, amount]) => {
+            newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount;
+          });
+        } else {
+          // Building cannot operate - reduce production proportionally
+          const efficiencyRatio = Math.min(1, 
+            Math.min(...Object.entries(buildingData.consumes || {}).map(([resourceId, amount]) => {
+              const available = newStockpiles[resourceId] || 0;
+              const required = amount * building.level * weeksElapsed;
+              return required > 0 ? available / required : 1;
+            }))
+          );
+          
+          // Produce at reduced efficiency
+          Object.entries(buildingData.produces || {}).forEach(([resourceId, amount]) => {
+            newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * building.level * weeksElapsed * efficiencyRatio;
+          });
+          
+          // Consume proportionally
+          Object.entries(buildingData.consumes || {}).forEach(([resourceId, amount]) => {
+            newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount * building.level * weeksElapsed * efficiencyRatio;
+          });
+        }
       });
       
       // Add production from resource deposits

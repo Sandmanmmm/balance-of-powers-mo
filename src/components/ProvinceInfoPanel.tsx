@@ -299,28 +299,44 @@ export function ProvinceInfoPanel({
                   {(province.economy?.unemployment ?? 0).toFixed(1)}%
                 </div>
               </div>
-
-              <div className="space-y-1">
-                <span className="text-xs text-muted-foreground">Inflation</span>
-                <div className="text-sm font-medium">
-                  {(province.economy?.inflation ?? 0).toFixed(1)}%
-                </div>
-              </div>
             </div>
 
             <Separator />
 
-            {/* Resource Output */}
+            {/* Resource Deposits */}
             <div className="space-y-3">
-              <h4 className="text-sm font-medium">Resource Output</h4>
-              <div className="space-y-2">
-                {Object.entries(province.resourceOutput || {}).map(([resource, amount]) => (
-                  <div key={resource} className="flex justify-between text-xs">
-                    <span className="capitalize">{resource}</span>
-                    <span className="font-medium">{formatNumber(amount)}</span>
-                  </div>
-                ))}
+              <h4 className="text-sm font-medium">Natural Resources</h4>
+              <div className="grid grid-cols-2 gap-2">
+                {Object.entries(province.resourceDeposits || {}).map(([resourceId, amount]) => {
+                  if (amount <= 0) return null;
+                  
+                  const getResourceIcon = (resourceId: string) => {
+                    const iconMap: Record<string, string> = {
+                      'oil': '🛢️',
+                      'steel': '⚙️',
+                      'rare_earth': '💎',
+                      'uranium': '☢️',
+                      'food': '🌾'
+                    };
+                    return iconMap[resourceId] || '📦';
+                  };
+
+                  return (
+                    <div key={resourceId} className="p-2 border rounded text-xs">
+                      <div className="flex items-center gap-1 mb-1">
+                        <span>{getResourceIcon(resourceId)}</span>
+                        <span className="font-medium capitalize">{resourceId.replace(/_/g, ' ')}</span>
+                      </div>
+                      <div className="text-muted-foreground">
+                        {formatNumber(amount)} units
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
+              {Object.values(province.resourceDeposits || {}).every(amount => amount <= 0) && (
+                <div className="text-xs text-muted-foreground">No significant resource deposits</div>
+              )}
             </div>
           </TabsContent>
 

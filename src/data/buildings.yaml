@@ -1,20 +1,466 @@
 buildings:
+  # === RESOURCE PRODUCERS ===
+  
+  - id: "oil_well"
+    name: "Oil Well"
+    description: "Extracts crude oil from underground deposits"
+    category: "extraction"
+    cost: 2500
+    buildTime: 180
+    produces:
+      oil: 80
+    consumes:
+      electricity: 15
+      manpower: 60
+      steel: 3
+    improves:
+      resource_extraction: 1
+      employment: 200
+    requiresFeatures:
+      - "oil_rich"
+    requirements:
+      infrastructure: 2
+    icon: "🛢️"
+
+  - id: "offshore_oil_rig"
+    name: "Offshore Oil Platform"
+    description: "Deep sea oil extraction platform"
+    category: "extraction"
+    cost: 8000
+    buildTime: 400
+    produces:
+      oil: 200
+    consumes:
+      electricity: 50
+      manpower: 180
+      steel: 15
+    improves:
+      resource_extraction: 3
+      employment: 600
+    requiresFeatures:
+      - "coastal"
+      - "oil_rich"
+    requirements:
+      infrastructure: 3
+      technology: "offshore_drilling"
+    icon: "🏗️"
+
+  - id: "iron_mine"
+    name: "Iron Mine"
+    description: "Extracts iron ore for steel production"
+    category: "extraction"
+    cost: 1800
+    buildTime: 150
+    produces:
+      steel: 30
+    consumes:
+      electricity: 25
+      manpower: 120
+      oil: 8
+    improves:
+      resource_extraction: 1
+      employment: 400
+    requiresFeatures:
+      - "mineral_deposits"
+    requirements:
+      infrastructure: 2
+    icon: "⛏️"
+
+  - id: "coal_mine"
+    name: "Coal Mine"
+    description: "Extracts coal for energy and steel production"
+    category: "extraction"
+    cost: 1200
+    buildTime: 120
+    produces:
+      steel: 15
+      electricity: 40
+    consumes:
+      manpower: 100
+      oil: 5
+    improves:
+      resource_extraction: 1
+      employment: 350
+      pollution: 3
+    requiresFeatures:
+      - "mineral_deposits"
+    requirements:
+      infrastructure: 1
+    icon: "⚫"
+
+  - id: "uranium_mine"
+    name: "Uranium Mine"
+    description: "Extracts uranium for nuclear applications"
+    category: "extraction"
+    cost: 5000
+    buildTime: 300
+    produces:
+      uranium: 5
+    consumes:
+      electricity: 30
+      manpower: 80
+      steel: 8
+    improves:
+      strategic_resources: 1
+      employment: 250
+    requiresFeatures:
+      - "radioactive_deposits"
+    requirements:
+      infrastructure: 3
+      technology: "nuclear_technology"
+    icon: "☢️"
+
+  - id: "rare_earth_mine"
+    name: "Rare Earth Mine"
+    description: "Extracts rare earth elements for technology"
+    category: "extraction"
+    cost: 4000
+    buildTime: 250
+    produces:
+      rare_earth: 12
+    consumes:
+      electricity: 40
+      manpower: 100
+      oil: 10
+    improves:
+      tech_resources: 1
+      employment: 300
+      pollution: 2
+    requiresFeatures:
+      - "rare_earth_deposits"
+    requirements:
+      infrastructure: 2
+      technology: "advanced_mining"
+    icon: "💎"
+
+  - id: "food_farm"
+    name: "Agricultural Farm"
+    description: "Large-scale food production facility"
+    category: "agriculture"
+    cost: 800
+    buildTime: 90
+    produces:
+      food: 1200
+    consumes:
+      manpower: 50
+      electricity: 8
+      oil: 12
+    improves:
+      food_security: 2
+      employment: 400
+    requiresFeatures:
+      - "agricultural"
+    requirements:
+      infrastructure: 1
+    icon: "🚜"
+
+  - id: "solar_farm"
+    name: "Solar Power Farm"
+    description: "Large-scale renewable energy generation"
+    category: "energy"
+    cost: 3500
+    buildTime: 200
+    produces:
+      electricity: 150
+    consumes:
+      manpower: 30
+      semiconductors: 5
+    improves:
+      clean_energy: 3
+      energy_security: 1
+    requiresFeatures:
+      - "desert"
+      - "sunny"
+    requirements:
+      infrastructure: 2
+      technology: "renewable_energy"
+    icon: "☀️"
+
+  - id: "wind_farm"
+    name: "Wind Power Farm"
+    description: "Wind turbine electricity generation"
+    category: "energy"
+    cost: 2800
+    buildTime: 180
+    produces:
+      electricity: 120
+    consumes:
+      manpower: 25
+      steel: 8
+    improves:
+      clean_energy: 2
+      energy_security: 1
+    requiresFeatures:
+      - "windy"
+      - "plains"
+    requirements:
+      infrastructure: 2
+      technology: "renewable_energy"
+    icon: "💨"
+
+  - id: "fishing_fleet"
+    name: "Commercial Fishing Fleet"
+    description: "Maritime food production operation"
+    category: "agriculture"
+    cost: 1500
+    buildTime: 120
+    produces:
+      food: 800
+    consumes:
+      manpower: 80
+      oil: 20
+      steel: 5
+    improves:
+      food_security: 1
+      employment: 300
+    requiresFeatures:
+      - "coastal"
+      - "fishing_grounds"
+    requirements:
+      infrastructure: 2
+    icon: "🎣"
+
+  # === RESOURCE PROCESSORS ===
+
+  - id: "power_plant"
+    name: "Thermal Power Plant"
+    description: "Converts oil and coal into electricity"
+    category: "energy"
+    cost: 4000
+    buildTime: 300
+    produces:
+      electricity: 300
+    consumes:
+      oil: 50
+      manpower: 100
+      steel: 8
+    improves:
+      energy_output: 5
+      pollution: 4
+    requiresFeatures:
+      - "industrial"
+    requirements:
+      infrastructure: 3
+      technology: "power_generation"
+    icon: "⚡"
+
+  - id: "nuclear_plant"
+    name: "Nuclear Power Plant"
+    description: "High-efficiency nuclear energy generation"
+    category: "energy"
+    cost: 15000
+    buildTime: 600
+    produces:
+      electricity: 1000
+    consumes:
+      uranium: 3
+      manpower: 250
+      steel: 20
+    improves:
+      energy_security: 8
+      clean_energy: 5
+    requiresFeatures:
+      - "strategic_location"
+    requirements:
+      infrastructure: 4
+      technology: "nuclear_power"
+    icon: "⚛️"
+
+  - id: "steel_mill"
+    name: "Steel Processing Mill"
+    description: "Refines raw materials into high-quality steel"
+    category: "industrial"
+    cost: 3000
+    buildTime: 250
+    produces:
+      steel: 50
+    consumes:
+      electricity: 80
+      manpower: 150
+      oil: 15
+    improves:
+      industrial_capacity: 3
+      employment: 500
+      pollution: 3
+    requiresFeatures:
+      - "industrial"
+    requirements:
+      infrastructure: 3
+    icon: "🏭"
+
+  - id: "refinery"
+    name: "Oil Refinery"
+    description: "Processes crude oil into refined petroleum products"
+    category: "industrial"
+    cost: 6000
+    buildTime: 350
+    produces:
+      oil: 100
+      electricity: 50
+    consumes:
+      oil: 80
+      manpower: 120
+      electricity: 30
+    improves:
+      industrial_capacity: 2
+      fuel_efficiency: 2
+    requiresFeatures:
+      - "industrial"
+    requirements:
+      infrastructure: 3
+      technology: "petrochemicals"
+    icon: "🏭"
+
+  - id: "semiconductor_fab"
+    name: "Semiconductor Fabrication Plant"
+    description: "Advanced chip manufacturing facility"
+    category: "technology"
+    cost: 12000
+    buildTime: 450
+    produces:
+      semiconductors: 25
+    consumes:
+      electricity: 150
+      rare_earth: 15
+      manpower: 300
+    improves:
+      tech_industry: 4
+      high_tech_exports: 3
+    requiresFeatures:
+      - "high_tech"
+      - "urban"
+    requirements:
+      infrastructure: 4
+      technology: "advanced_manufacturing"
+    icon: "🔬"
+
+  - id: "food_processing_plant"
+    name: "Food Processing Plant"
+    description: "Converts raw food into consumer goods"
+    category: "industrial"
+    cost: 2000
+    buildTime: 160
+    produces:
+      consumer_goods: 30
+    consumes:
+      food: 200
+      electricity: 25
+      manpower: 100
+    improves:
+      food_industry: 2
+      employment: 400
+    requiresFeatures:
+      - "agricultural"
+      - "industrial"
+    requirements:
+      infrastructure: 2
+    icon: "🏭"
+
+  # === STORAGE FACILITIES ===
+
+  - id: "oil_storage"
+    name: "Strategic Oil Reserve"
+    description: "Large-scale petroleum storage facility"
+    category: "storage"
+    cost: 3000
+    buildTime: 200
+    produces: {}
+    consumes:
+      manpower: 40
+      electricity: 10
+      steel: 12
+    improves:
+      oil_storage_capacity: 5000
+      strategic_reserves: 2
+    requiresFeatures:
+      - "flat_terrain"
+    requirements:
+      infrastructure: 2
+    icon: "🛢️"
+
+  - id: "grain_silo"
+    name: "Grain Storage Facility"
+    description: "Food preservation and storage complex"
+    category: "storage"
+    cost: 1200
+    buildTime: 120
+    produces: {}
+    consumes:
+      manpower: 20
+      electricity: 5
+      steel: 8
+    improves:
+      food_storage_capacity: 3000
+      food_security: 1
+    requiresFeatures:
+      - "agricultural"
+    requirements:
+      infrastructure: 1
+    icon: "🌾"
+
+  - id: "munitions_depot"
+    name: "Military Supply Depot"
+    description: "Stores military equipment and ammunition"
+    category: "storage"
+    cost: 2500
+    buildTime: 180
+    produces: {}
+    consumes:
+      manpower: 60
+      electricity: 15
+      steel: 15
+    improves:
+      military_storage_capacity: 2000
+      military_readiness: 2
+    requiresFeatures:
+      - "secure_location"
+    requirements:
+      infrastructure: 2
+      technology: "military_logistics"
+    icon: "📦"
+
+  - id: "data_center"
+    name: "Data Storage Center"
+    description: "High-tech information processing and storage"
+    category: "storage"
+    cost: 8000
+    buildTime: 300
+    produces:
+      research: 20
+    consumes:
+      electricity: 200
+      semiconductors: 10
+      manpower: 150
+    improves:
+      data_storage_capacity: 10000
+      tech_infrastructure: 3
+    requiresFeatures:
+      - "high_tech"
+      - "urban"
+    requirements:
+      infrastructure: 4
+      technology: "information_systems"
+    icon: "💾"
+
+  # === EXISTING BUILDINGS (UPDATED) ===
+
   - id: "civilian_factory"
     name: "Civilian Factory"
-    description: "Increases industrial capacity and GDP output"
+    description: "Mass production of consumer goods and materials"
     category: "industrial"
     cost: 1000
-    buildTime: 120 # ticks (about 2 years)
+    buildTime: 120
     produces:
-      consumer_goods: 15
-      steel: 5
+      consumer_goods: 25
+      steel: 8
     consumes:
-      electricity: 20
-      manpower: 100
-      oil: 8
+      electricity: 30
+      manpower: 120
+      oil: 10
     improves:
       industry: 2
       gdp_modifier: 0.1
+      employment: 400
     requiresFeatures:
       - "industrial"
     requirements:
@@ -103,28 +549,6 @@ buildings:
       infrastructure: 2
     icon: "🏥"
 
-  - id: "power_plant"
-    name: "Power Plant"
-    description: "Generates electricity for industrial development"
-    category: "energy"
-    cost: 3000
-    buildTime: 300
-    produces:
-      electricity: 200
-    consumes:
-      oil: 40
-      manpower: 80
-    improves:
-      energy_output: 10
-      industry: 1
-      pollution: 2
-    requiresFeatures:
-      - "industrial"
-    requirements:
-      infrastructure: 3
-      technology: "power_generation"
-    icon: "⚡"
-
   - id: "port"
     name: "Port"
     description: "Facilitates trade and naval operations"
@@ -169,26 +593,6 @@ buildings:
       technology: "aviation"
     icon: "✈️"
 
-  - id: "farm"
-    name: "Agricultural Complex"
-    description: "Produces food and supports population"
-    category: "agriculture"
-    cost: 600
-    buildTime: 60
-    produces:
-      food: 800
-    consumes:
-      manpower: 40
-      electricity: 5
-    improves:
-      food_production: 5
-      employment: 300
-      rural_stability: 2
-    requiresFeatures:
-      - "agricultural"
-    requirements: {}
-    icon: "🚜"
-
   - id: "bunker"
     name: "Fortification"
     description: "Defensive structures for military protection"
@@ -206,29 +610,6 @@ buildings:
     requirements:
       infrastructure: 1
     icon: "🏰"
-
-  - id: "oil_rig"
-    name: "Oil Drilling Platform"
-    description: "Extracts petroleum and natural gas"
-    category: "energy"
-    cost: 5000
-    buildTime: 400
-    produces:
-      oil: 100
-    consumes:
-      electricity: 50
-      manpower: 150
-      steel: 10
-    improves:
-      energy_output: 25
-      gdp_modifier: 0.15
-      pollution: 5
-    requiresFeatures:
-      - "oil_rich"
-    requirements:
-      infrastructure: 2
-      technology: "oil_drilling"
-    icon: "🛢️"
 
   - id: "tech_park"
     name: "Technology Park"
@@ -277,68 +658,3 @@ buildings:
     requirements:
       infrastructure: 3
     icon: "🏖️"
-
-  - id: "mine"
-    name: "Mining Operation"
-    description: "Extracts minerals and rare earth elements"
-    category: "industrial"
-    cost: 2800
-    buildTime: 200
-    produces:
-      steel: 25
-      rare_earth: 8
-    consumes:
-      electricity: 35
-      manpower: 120
-      oil: 15
-    improves:
-      resource_extraction: 1
-    requiresFeatures:
-      - "mineral_deposits"
-    requirements:
-      infrastructure: 2
-    icon: "⛏️"
-
-  - id: "nuclear_plant"
-    name: "Nuclear Power Plant"
-    description: "Clean nuclear energy generation"
-    category: "energy"
-    cost: 15000
-    buildTime: 600
-    produces:
-      electricity: 800
-    consumes:
-      uranium: 2
-      manpower: 200
-    improves:
-      energy_security: 5
-      clean_energy: 3
-    requiresFeatures:
-      - "strategic_location"
-    requirements:
-      infrastructure: 4
-      technology: "nuclear_power"
-    icon: "☢️"
-
-  - id: "semiconductor_fab"
-    name: "Semiconductor Fabrication Plant"
-    description: "Advanced chip manufacturing facility"
-    category: "technology"
-    cost: 8000
-    buildTime: 450
-    produces:
-      semiconductors: 20
-    consumes:
-      electricity: 100
-      rare_earth: 10
-      manpower: 250
-    improves:
-      tech_industry: 3
-      high_tech_exports: 2
-    requiresFeatures:
-      - "high_tech"
-      - "urban"
-    requirements:
-      infrastructure: 4
-      technology: "advanced_manufacturing"
-    icon: "🔬"
