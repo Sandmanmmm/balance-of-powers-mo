@@ -96,7 +96,7 @@ export function ConstructionPanel({
   
   // Get building categories for tabs from all buildings
   const categories = Array.from(new Set(
-    (allBuildings || []).map(b => b.category).filter(Boolean)
+    (allBuildings || []).map(b => b.category).filter(category => category && typeof category === 'string')
   )).sort();
   
   const handleConstructBuilding = (building: Building) => {
@@ -264,17 +264,19 @@ export function ConstructionPanel({
           <CardContent>
             <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
               <TabsList className="grid w-full mb-4" style={{ gridTemplateColumns: `repeat(${Math.min(categories.length + 1, 7)}, minmax(0, 1fr))` }}>
-                <TabsTrigger value="all" className="text-xs flex items-center justify-center gap-1 min-w-0">
+                <TabsTrigger value="all" className="text-xs flex items-center justify-center gap-1 min-w-0 px-1">
                   <GridFour className="w-3 h-3 shrink-0" />
-                  <span className="hidden lg:inline truncate">All</span>
+                  <span className="hidden xl:inline truncate text-xs">All</span>
                 </TabsTrigger>
                 {categories.slice(0, 6).map(category => (
-                  <TabsTrigger key={category} value={category} className="text-xs flex items-center justify-center gap-1 min-w-0" title={category.charAt(0).toUpperCase() + category.slice(1)}>
-                    {getCategoryIcon(category)}
-                    <span className="hidden lg:inline capitalize truncate">
-                      {category.charAt(0).toUpperCase() + category.slice(1)}
-                    </span>
-                  </TabsTrigger>
+                  category && (
+                    <TabsTrigger key={category} value={category} className="text-xs flex items-center justify-center gap-1 min-w-0 px-1" title={category.charAt(0).toUpperCase() + category.slice(1)}>
+                      {getCategoryIcon(category)}
+                      <span className="hidden xl:inline capitalize truncate text-xs">
+                        {category.charAt(0).toUpperCase() + category.slice(1)}
+                      </span>
+                    </TabsTrigger>
+                  )
                 ))}
               </TabsList>
               

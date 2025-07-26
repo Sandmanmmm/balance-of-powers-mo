@@ -120,8 +120,8 @@ export function executeTradeAgreement(
   }
 
   // Check if both nations are under embargo
-  const nation1Embargoed = nation1.diplomacy.embargoes.includes(nation2Id);
-  const nation2Embargoed = nation2.diplomacy.embargoes.includes(nation1Id);
+  const nation1Embargoed = (nation1.diplomacy?.embargoes || []).includes(nation2Id);
+  const nation2Embargoed = (nation2.diplomacy?.embargoes || []).includes(nation1Id);
 
   if (nation1Embargoed || nation2Embargoed) {
     // Trade blocked by embargo
@@ -263,9 +263,9 @@ export function generateAITradeOffer(
   // Find a partner who has what we need and needs what we have
   for (const partner of potentialPartners) {
     // Skip enemies and embargoed nations
-    if (nation.diplomacy.enemies.includes(partner.id) ||
-        nation.diplomacy.embargoes.includes(partner.id) ||
-        partner.diplomacy.embargoes.includes(nation.id)) {
+    if ((nation.diplomacy?.enemies || []).includes(partner.id) ||
+        (nation.diplomacy?.embargoes || []).includes(partner.id) ||
+        (partner.diplomacy?.embargoes || []).includes(nation.id)) {
       continue;
     }
 
@@ -362,10 +362,10 @@ export function evaluateTradeOfferAI(
 
   // Diplomatic considerations
   const offeringNationId = isReceiving ? offer.fromNation : offer.toNation;
-  if (nation.diplomacy.allies.includes(offeringNationId)) {
+  if ((nation.diplomacy?.allies || []).includes(offeringNationId)) {
     priority += 0.5; // Favor allies
     reason = 'Trade with ally';
-  } else if (nation.diplomacy.enemies.includes(offeringNationId)) {
+  } else if ((nation.diplomacy?.enemies || []).includes(offeringNationId)) {
     shouldAccept = false;
     reason = 'Cannot trade with enemy';
   } else {

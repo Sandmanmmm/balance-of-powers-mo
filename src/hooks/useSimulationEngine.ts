@@ -1177,8 +1177,8 @@ function processTradeSystem(
       
       const potentialPartners = context.nations.filter(n => 
         n.id !== nation.id && 
-        !nation.diplomacy.enemies.includes(n.id) &&
-        !nation.diplomacy.embargoes.includes(n.id)
+        !(nation.diplomacy?.enemies || []).includes(n.id) &&
+        !(nation.diplomacy?.embargoes || []).includes(n.id)
       );
       
       const tradeOffer = generateAITradeOffer(nation, potentialPartners);

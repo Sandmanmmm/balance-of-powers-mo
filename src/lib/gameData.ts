@@ -1743,9 +1743,9 @@ export function getResourcesByCategory(category: string): Resource[] {
 
 function isCoastalProvince(province: Province): boolean {
   // Simple heuristic - in a real game this would be in province data
-  return province.name.toLowerCase().includes('coast') || 
-         province.name.toLowerCase().includes('port') ||
-         province.id.includes('coastal');
+  return (province.name && province.name.toLowerCase().includes('coast')) || 
+         (province.name && province.name.toLowerCase().includes('port')) ||
+         (province.id && province.id.includes('coastal'));
 }
 
 function isRuralProvince(province: Province): boolean {

@@ -39,8 +39,10 @@ const overlayConfig = {
 function getProvinceColor(province: Province, overlay: MapOverlayType): string {
   switch (overlay) {
     case 'political':
-      const dominantParty = Object.entries(province.politics.partySupport)
-        .reduce((a, b) => a[1] > b[1] ? a : b)[0];
+      const partyEntries = Object.entries(province.politics.partySupport);
+      if (partyEntries.length === 0) return '#6b7280';
+      const dominantParty = partyEntries.reduce((a, b) => a[1] > b[1] ? a : b)[0];
+      if (!dominantParty) return '#6b7280';
       if (dominantParty.includes('Democrat') || dominantParty.includes('Social')) return '#3b82f6';
       if (dominantParty.includes('Republican') || dominantParty.includes('Conservative')) return '#ef4444';
       if (dominantParty.includes('Green')) return '#22c55e';
