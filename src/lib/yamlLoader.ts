@@ -1,21 +1,23 @@
 import * as yaml from 'js-yaml';
 import { Building, Province, Nation } from './types';
 
+// Import YAML files as raw text
+import buildingsYamlRaw from '../data/buildings.yaml?raw';
+import provincesYamlRaw from '../data/provinces.yaml?raw';
+import nationsYamlRaw from '../data/nations.yaml?raw';
+
 export async function loadBuildingsFromYAML(): Promise<Building[]> {
   try {
-    // Import the YAML file as text
-    const response = await fetch('/src/data/buildings.yaml');
-    if (!response.ok) {
-      throw new Error(`Failed to fetch buildings.yaml: ${response.status}`);
-    }
-    const yamlText = await response.text();
+    console.log('Loading buildings from YAML...');
     
     // Parse the YAML
-    const data = yaml.load(yamlText) as { buildings: any[] };
+    const data = yaml.load(buildingsYamlRaw) as { buildings: any[] };
     
     if (!data.buildings || !Array.isArray(data.buildings)) {
       throw new Error('Invalid buildings.yaml format');
     }
+    
+    console.log(`Loaded ${data.buildings.length} buildings from YAML`);
     
     // Convert to Building objects
     return data.buildings.map((building: any) => ({
@@ -40,12 +42,15 @@ export async function loadBuildingsFromYAML(): Promise<Building[]> {
 
 export async function loadProvincesFromYAML(): Promise<Province[]> {
   try {
-    const response = await fetch('/src/data/provinces.yaml');
-    const yamlText = await response.text();
+    console.log('Loading provinces from YAML...');
     
-    const data = yaml.load(yamlText) as { provinces: Record<string, any> };
+    const data = yaml.load(provincesYamlRaw) as { provinces: Record<string, any> };
     
-    return Object.entries(data.provinces).map(([id, provinceData]) => ({
+    if (!data.provinces) {
+      throw new Error('Invalid provinces.yaml format');
+    }
+    
+    const provinces = Object.entries(data.provinces).map(([id, provinceData]) => ({
       id,
       name: provinceData.name,
       country: provinceData.country,
@@ -58,8 +63,8 @@ export async function loadProvincesFromYAML(): Promise<Province[]> {
           percent: group?.percent || 0
         }))
       },
-      unrest: provinceData.unrest,
-      infrastructure: provinceData.infrastructure,
+      unrest: provinceData.unrest || 0,
+      infrastructure: provinceData.infrastructure || { roads: 1, internet: 1, healthcare: 1, education: 1 },
       resourceDeposits: provinceData.resource_deposits || {},
       military: {
         stationedUnits: (provinceData.military?.stationed_units || []).map((unitId: string) => ({
@@ -69,29 +74,32 @@ export async function loadProvincesFromYAML(): Promise<Province[]> {
         fortificationLevel: provinceData.military?.fortification_level || 0
       },
       resourceOutput: {
-        energy: provinceData.resource_output.energy,
-        iron: provinceData.resource_output.iron,
-        food: provinceData.resource_output.food,
-        technology: provinceData.resource_output.technology
+        energy: provinceData.resource_output?.energy || 0,
+        iron: provinceData.resource_output?.iron || 0,
+        food: provinceData.resource_output?.food || 0,
+        technology: provinceData.resource_output?.technology || 0
       },
       politics: {
-        partySupport: provinceData.politics.party_support,
-        governorApproval: provinceData.politics.governor_approval
+        partySupport: provinceData.politics?.party_support || {},
+        governorApproval: provinceData.politics?.governor_approval || 50
       },
       economy: {
-        gdpPerCapita: provinceData.economy.gdp_per_capita,
-        unemployment: provinceData.economy.unemployment,
-        inflation: provinceData.economy.inflation
+        gdpPerCapita: provinceData.economy?.gdp_per_capita || 25000,
+        unemployment: provinceData.economy?.unemployment || 5,
+        inflation: provinceData.economy?.inflation || 2
       },
       buildings: (provinceData.buildings || []).map((building: any) => ({
         buildingId: building.buildingId || building.building_id,
         level: building.level || 1,
         constructedDate: building.constructedDate ? new Date(building.constructedDate) : new Date(),
         effects: building.effects || {},
-        efficiency: building.efficiency || 1.0 // Default to 100% efficiency
+        efficiency: building.efficiency || 1.0
       })),
       constructionProjects: provinceData.construction_projects || []
     }));
+    
+    console.log(`Loaded ${provinces.length} provinces from YAML`);
+    return provinces;
   } catch (error) {
     console.error('Failed to load provinces from YAML:', error);
     return [];
@@ -100,52 +108,58 @@ export async function loadProvincesFromYAML(): Promise<Province[]> {
 
 export async function loadNationsFromYAML(): Promise<Nation[]> {
   try {
-    const response = await fetch('/src/data/nations.yaml');
-    const yamlText = await response.text();
+    console.log('Loading nations from YAML...');
     
-    const data = yaml.load(yamlText) as { nations: Record<string, any> };
+    const data = yaml.load(nationsYamlRaw) as { nations: Record<string, any> };
     
-    return Object.entries(data.nations).map(([id, nationData]) => ({
+    if (!data.nations) {
+      throw new Error('Invalid nations.yaml format');
+    }
+    
+    const nations = Object.entries(data.nations).map(([id, nationData]) => ({
       id,
       name: nationData.name,
       capital: nationData.capital,
       flag: nationData.flag,
-      government: nationData.government,
+      government: nationData.government || { type: 'democracy', leader: 'Unknown', approval: 50, stability: 50 },
       economy: {
-        gdp: nationData.economy.gdp,
-        debt: nationData.economy.debt,
-        inflation: nationData.economy.inflation,
-        tradeBalance: nationData.economy.trade_balance,
-        treasury: nationData.economy.treasury
+        gdp: nationData.economy?.gdp || 1000000000000,
+        debt: nationData.economy?.debt || 500000000000,
+        inflation: nationData.economy?.inflation || 2,
+        tradeBalance: nationData.economy?.trade_balance || 0,
+        treasury: nationData.economy?.treasury || 100000000000
       },
       military: {
-        manpower: nationData.military.manpower,
-        equipment: nationData.military.equipment,
-        doctrine: nationData.military.doctrine,
-        nuclearCapability: nationData.military.nuclear_capability,
-        readiness: nationData.military.readiness || 100 // Default to 100% readiness
+        manpower: nationData.military?.manpower || 100000,
+        equipment: nationData.military?.equipment || 50,
+        doctrine: nationData.military?.doctrine || 'Standard',
+        nuclearCapability: nationData.military?.nuclear_capability || false,
+        readiness: nationData.military?.readiness || 100
       },
       technology: {
-        researchPoints: nationData.technology?.research_points || 0,
-        currentResearch: nationData.technology?.current_research || [],
-        completedTech: nationData.technology?.completed_tech || [],
-        level: nationData.technology?.tech_level || 1
+        researchPoints: nationData.technology?.research_points || nationData.technology?.researchPoints || 0,
+        currentResearch: nationData.technology?.current_research || nationData.technology?.currentResearch || [],
+        completedTech: nationData.technology?.completed_tech || nationData.technology?.completedTech || [],
+        level: nationData.technology?.tech_level || nationData.technology?.level || 1
       },
       diplomacy: {
         allies: nationData.diplomacy?.allies || [],
         enemies: nationData.diplomacy?.enemies || [],
-        tradePartners: nationData.diplomacy?.trade_partners || [],
-        embargoes: nationData.diplomacy?.embargoes || [], // Nations under embargo by this nation
-        sanctions: nationData.diplomacy?.sanctions || [] // Nations imposing sanctions on this nation
+        tradePartners: nationData.diplomacy?.trade_partners || nationData.diplomacy?.tradePartners || [],
+        embargoes: nationData.diplomacy?.embargoes || [],
+        sanctions: nationData.diplomacy?.sanctions || []
       },
-      resourceStockpiles: nationData.resourceStockpiles || {},
-      resourceProduction: nationData.resourceProduction || {},
-      resourceConsumption: nationData.resourceConsumption || {},
-      resourceShortages: nationData.resourceShortages || {}, // New: shortage severity tracking
-      resourceEfficiency: nationData.resourceEfficiency || {}, // New: efficiency modifiers
-      tradeOffers: nationData.tradeOffers || [], // New: active trade offers
-      tradeAgreements: nationData.tradeAgreements || [] // New: active trade agreements
+      resourceStockpiles: nationData.resourceStockpiles || nationData.resource_stockpiles || {},
+      resourceProduction: nationData.resourceProduction || nationData.resource_production || {},
+      resourceConsumption: nationData.resourceConsumption || nationData.resource_consumption || {},
+      resourceShortages: nationData.resourceShortages || nationData.resource_shortages || {},
+      resourceEfficiency: nationData.resourceEfficiency || nationData.resource_efficiency || { overall: 1.0 },
+      tradeOffers: nationData.tradeOffers || nationData.trade_offers || [],
+      tradeAgreements: nationData.tradeAgreements || nationData.trade_agreements || []
     }));
+    
+    console.log(`Loaded ${nations.length} nations from YAML`);
+    return nations;
   } catch (error) {
     console.error('Failed to load nations from YAML:', error);
     return [];

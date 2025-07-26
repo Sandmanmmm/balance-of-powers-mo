@@ -26,35 +26,59 @@ export function useGameState() {
   useEffect(() => {
     const initializeData = async () => {
       try {
+        console.log('Starting data initialization...');
+        
         const safeProvinces = Array.isArray(provinces) ? provinces : [];
         if (safeProvinces.length === 0) {
-          const loadedProvinces = getProvinces();
+          console.log('Loading provinces from YAML...');
+          const loadedProvinces = await getProvinces();
           if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
+            console.log(`Loaded ${loadedProvinces.length} provinces successfully`);
             setProvinces(loadedProvinces);
+          } else {
+            console.warn('No provinces loaded from YAML');
           }
+        } else {
+          console.log(`Using existing ${safeProvinces.length} provinces from KV storage`);
         }
         
         const safeNations = Array.isArray(nations) ? nations : [];
         if (safeNations.length === 0) {
-          const loadedNations = getNations();
+          console.log('Loading nations from YAML...');
+          const loadedNations = await getNations();
           if (Array.isArray(loadedNations) && loadedNations.length > 0) {
+            console.log(`Loaded ${loadedNations.length} nations successfully`);
             setNations(loadedNations);
+          } else {
+            console.warn('No nations loaded from YAML');
           }
+        } else {
+          console.log(`Using existing ${safeNations.length} nations from KV storage`);
         }
         
+        console.log('Data initialization completed');
         setIsInitialized(true);
       } catch (error) {
         console.error('Error initializing game data:', error);
-        // Set empty arrays as fallback
-        if (!Array.isArray(provinces)) setProvinces([]);
-        if (!Array.isArray(nations)) setNations([]);
+        // Set empty arrays as fallback but still mark as initialized
+        if (!Array.isArray(provinces)) {
+          console.log('Setting fallback empty provinces array');
+          setProvinces([]);
+        }
+        if (!Array.isArray(nations)) {
+          console.log('Setting fallback empty nations array');
+          setNations([]);
+        }
         setIsInitialized(true);
       }
     };
     
     // Only initialize if not already done
     if (!isInitialized) {
+      console.log('Initialization needed - starting async data load');
       initializeData();
+    } else {
+      console.log('Already initialized');
     }
   }, [provinces, nations, setProvinces, setNations, isInitialized]);
 
