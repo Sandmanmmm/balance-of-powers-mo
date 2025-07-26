@@ -1935,10 +1935,25 @@ export const gameUnits: Unit[] = convertUnits();
 export const sampleTechnologies: Technology[] = convertTechnologies();
 export const gameBuildings: Building[] = [];
 
-// Simplified fallback that loads incrementally
+// Load provinces from YAML first, fallback to hardcoded data
 export async function getProvinces(): Promise<Province[]> {
   try {
-    console.log('getProvinces() called - starting conversion');
+    console.log('getProvinces() called - trying YAML loader first');
+    
+    // Try to load from YAML first
+    const yamlProvinces = await loadProvincesFromYAML();
+    if (yamlProvinces && yamlProvinces.length > 0) {
+      console.log(`getProvinces() loaded ${yamlProvinces.length} provinces from YAML`);
+      
+      // Log Canadian provinces specifically
+      const canadianProvinces = yamlProvinces.filter(p => p.country === 'Canada');
+      console.log(`Found ${canadianProvinces.length} Canadian provinces:`, canadianProvinces.map(p => p.name));
+      
+      return yamlProvinces;
+    }
+    
+    // Fallback to hardcoded conversion
+    console.log('YAML loading failed, falling back to hardcoded conversion');
     const result = convertProvinces();
     console.log(`getProvinces() converted ${result.length} provinces successfully`);
     
@@ -1987,7 +2002,41 @@ export async function getProvinces(): Promise<Province[]> {
 
 export async function getNations(): Promise<Nation[]> {
   try {
-    console.log('getNations() called - starting conversion');
+    console.log('getNations() called - trying YAML loader first');
+    
+    // Try to load from YAML first
+    const yamlNations = await loadNationsFromYAML();
+    if (yamlNations && yamlNations.length > 0) {
+      console.log(`getNations() loaded ${yamlNations.length} nations from YAML`);
+      
+      // Debug: Log the first few nations to ensure data is correct
+      if (yamlNations.length > 0) {
+        console.log('First nation data:', {
+          id: yamlNations[0].id,
+          name: yamlNations[0].name,
+          capital: yamlNations[0].capital,
+          hasGovernment: !!yamlNations[0].government,
+          hasEconomy: !!yamlNations[0].economy,
+          hasResourceStockpiles: !!yamlNations[0].resourceStockpiles
+        });
+        
+        const canada = yamlNations.find(n => n.id === 'CAN');
+        if (canada) {
+          console.log('Canada data verified from YAML:', {
+            name: canada.name,
+            leader: canada.government?.leader,
+            capital: canada.capital
+          });
+        } else {
+          console.error('Canada not found in YAML nations!');
+        }
+      }
+      
+      return yamlNations;
+    }
+    
+    // Fallback to hardcoded conversion
+    console.log('YAML loading failed, falling back to hardcoded conversion');
     const result = convertNations();
     console.log(`getNations() converted ${result.length} nations successfully`);
     
@@ -2093,6 +2142,7 @@ export async function getNations(): Promise<Nation[]> {
 
 export function getBuildings(): Building[] {
   try {
+    // Use pre-loaded buildings if available, otherwise use hardcoded
     const buildings = loadedBuildings.length > 0 ? loadedBuildings : convertBuildings();
     console.log(`getBuildings() returning ${buildings.length} buildings`);
     return buildings;
@@ -2150,7 +2200,7 @@ export function getAvailableTechnologies(currentYear: number, completedTech: str
 }
 
 export function getBuildingById(id: string): Building | undefined {
-  const buildings = loadedBuildings.length > 0 ? loadedBuildings : convertBuildings();
+  const buildings = getBuildings();
   return buildings.find(building => building.id === id);
 }
 

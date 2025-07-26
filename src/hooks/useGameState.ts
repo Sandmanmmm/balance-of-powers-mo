@@ -48,41 +48,76 @@ export function useGameState() {
     });
   }, [provinces, nations, gameState, isInitialized]);
 
-  // Immediate initialization with hardcoded data on first mount
+  // Immediate initialization with YAML data on first mount
   useEffect(() => {
     if (!isInitialized) {
-      console.log('Immediate initialization with hardcoded data');
+      console.log('Immediate initialization with YAML data');
       
-      try {
-        // Use synchronous hardcoded data immediately
-        const hardcodedProvinces = convertProvinces();
-        const hardcodedNations = convertNations();
-        
-        console.log(`Setting ${hardcodedProvinces.length} provinces and ${hardcodedNations.length} nations immediately`);
-        console.log('Canadian provinces:', hardcodedProvinces.filter(p => p.country === 'Canada').map(p => `${p.id}: ${p.name}`));
-        console.log('Available nations:', hardcodedNations.map(n => `${n.id}: ${n.name}`));
-        
-        if (hardcodedProvinces.length > 0 && hardcodedNations.length > 0) {
-          setProvinces(hardcodedProvinces);
-          setNations(hardcodedNations);
-          setIsInitialized(true);
-          console.log('✓ Immediate initialization completed successfully');
+      const initializeData = async () => {
+        try {
+          console.log('Loading provinces from YAML...');
+          const loadedProvinces = await getProvinces();
+          console.log('getProvinces returned:', loadedProvinces?.length || 0, 'provinces');
           
-          // Debug: Check if Canada nation exists
-          const canadaNation = hardcodedNations.find(n => n.id === 'CAN');
-          if (canadaNation) {
-            console.log('✓ Canada nation found:', canadaNation.name, 'with provinces:', canadaNation.provinces);
+          console.log('Loading nations from YAML...');
+          const loadedNations = await getNations();
+          console.log('getNations returned:', loadedNations?.length || 0, 'nations');
+          
+          if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0 && 
+              Array.isArray(loadedNations) && loadedNations.length > 0) {
+            
+            console.log(`Setting ${loadedProvinces.length} provinces and ${loadedNations.length} nations`);
+            const canadianProvinces = loadedProvinces.filter(p => p.country === 'Canada');
+            console.log('Canadian provinces:', canadianProvinces.map(p => `${p.id}: ${p.name}`));
+            console.log('Available nations:', loadedNations.map(n => `${n.id}: ${n.name}`));
+            
+            setProvinces(loadedProvinces);
+            setNations(loadedNations);
+            setIsInitialized(true);
+            console.log('✓ YAML data initialization completed successfully');
+            
+            // Debug: Check if Canada nation exists
+            const canadaNation = loadedNations.find(n => n.id === 'CAN');
+            if (canadaNation) {
+              console.log('✓ Canada nation found:', canadaNation.name, 'with leader:', canadaNation.government?.leader);
+            } else {
+              console.error('❌ Canada nation not found in loaded data');
+            }
           } else {
-            console.error('❌ Canada nation not found in hardcoded data');
+            console.error('❌ Failed to load provinces or nations from YAML, using fallback');
+            // Fallback to hardcoded data
+            const hardcodedProvinces = convertProvinces();
+            const hardcodedNations = convertNations();
+            
+            if (hardcodedProvinces.length > 0 && hardcodedNations.length > 0) {
+              setProvinces(hardcodedProvinces);
+              setNations(hardcodedNations);
+              console.log('✓ Using fallback hardcoded data');
+            }
+            setIsInitialized(true);
           }
-        } else {
-          console.error('❌ Failed to convert provinces or nations data');
+        } catch (error) {
+          console.error('❌ Error during YAML initialization:', error);
+          console.log('Falling back to hardcoded data...');
+          
+          try {
+            const hardcodedProvinces = convertProvinces();
+            const hardcodedNations = convertNations();
+            
+            if (hardcodedProvinces.length > 0 && hardcodedNations.length > 0) {
+              setProvinces(hardcodedProvinces);
+              setNations(hardcodedNations);
+              console.log('✓ Using emergency fallback hardcoded data');
+            }
+          } catch (fallbackError) {
+            console.error('❌ Even fallback failed:', fallbackError);
+          }
+          
           setIsInitialized(true); // Still mark as initialized to prevent infinite loading
         }
-      } catch (error) {
-        console.error('❌ Error during immediate initialization:', error);
-        setIsInitialized(true); // Still mark as initialized to prevent infinite loading
-      }
+      };
+      
+      initializeData();
     }
   }, [isInitialized]);
 

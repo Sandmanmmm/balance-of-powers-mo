@@ -91,9 +91,11 @@ function getProvinceColor(province: Province, overlay: MapOverlayType): string {
       switch (province.country) {
         case 'Germany': return '#2dd4bf';  // Teal
         case 'United States': return '#34d399';  // Emerald  
+        case 'Canada': return '#f87171';  // Red
         case 'China': return '#a78bfa';  // Violet
         case 'France': return '#60a5fa';  // Blue
         case 'United Kingdom': return '#f472b6';  // Pink
+        case 'Australia': return '#fbbf24';  // Amber
         default: return '#e5e7eb';  // Gray
       }
   }
