@@ -8,7 +8,25 @@ import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
-import { Clock, Coins, Hammer, CheckCircle2, AlertCircle, Building2 } from '@phosphor-icons/react';
+import { 
+  Clock, 
+  Coins, 
+  Hammer, 
+  CheckCircle2, 
+  AlertCircle, 
+  Building2,
+  GridFour,
+  Lightning,
+  Factory,
+  MagnifyingGlass,
+  Storefront,
+  Road,
+  TreePine,
+  ShieldCheck,
+  MapPin,
+  Airplane,
+  Users
+} from '@phosphor-icons/react';
 import { toast } from 'sonner';
 
 interface ConstructionPanelProps {
@@ -122,6 +140,26 @@ export function ConstructionPanel({
 
   const canAfford = (cost: number) => nation.economy.treasury >= cost;
 
+  // Get icon for building category
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'extraction': return <MagnifyingGlass className="w-3 h-3" />;
+      case 'energy': return <Lightning className="w-3 h-3" />;
+      case 'industrial': return <Factory className="w-3 h-3" />;
+      case 'technology': return <Building2 className="w-3 h-3" />;
+      case 'research': return <Building2 className="w-3 h-3" />;
+      case 'commercial': return <Storefront className="w-3 h-3" />;
+      case 'infrastructure': return <Road className="w-3 h-3" />;
+      case 'agriculture': return <TreePine className="w-3 h-3" />;
+      case 'military': return <ShieldCheck className="w-3 h-3" />;
+      case 'civilian': return <Users className="w-3 h-3" />;
+      case 'environmental': return <TreePine className="w-3 h-3" />;
+      case 'tourism': return <MapPin className="w-3 h-3" />;
+      case 'aerospace': return <Airplane className="w-3 h-3" />;
+      default: return <Building2 className="w-3 h-3" />;
+    }
+  };
+
   return (
     <div className="space-y-4">
       {/* Province Header */}
@@ -226,10 +264,16 @@ export function ConstructionPanel({
           <CardContent>
             <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
               <TabsList className="grid w-full mb-4" style={{ gridTemplateColumns: `repeat(${Math.min(categories.length + 1, 7)}, minmax(0, 1fr))` }}>
-                <TabsTrigger value="all" className="text-xs">All</TabsTrigger>
+                <TabsTrigger value="all" className="text-xs flex items-center gap-1">
+                  <GridFour className="w-3 h-3" />
+                  <span className="hidden sm:inline">All</span>
+                </TabsTrigger>
                 {categories.slice(0, 6).map(category => (
-                  <TabsTrigger key={category} value={category} className="text-xs capitalize">
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  <TabsTrigger key={category} value={category} className="text-xs flex items-center gap-1" title={category.charAt(0).toUpperCase() + category.slice(1)}>
+                    {getCategoryIcon(category)}
+                    <span className="hidden sm:inline capitalize">
+                      {category.charAt(0).toUpperCase() + category.slice(1)}
+                    </span>
                   </TabsTrigger>
                 ))}
               </TabsList>

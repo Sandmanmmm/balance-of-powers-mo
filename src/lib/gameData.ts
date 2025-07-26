@@ -149,7 +149,7 @@ const provincesData = {
       name: "California",
       country: "United States",
       coordinates: [36.7783, -119.4179],
-      features: ["coastal", "high_tech", "urban", "scenic", "tourism", "sunny", "desert", "tech_hub"],
+      features: ["coastal", "high_tech", "urban", "scenic", "tourism", "sunny", "desert", "tech_hub", "fishing_grounds"],
       population: {
         total: 39500000,
         ethnic_groups: [
@@ -198,7 +198,7 @@ const provincesData = {
       name: "Guangdong",
       country: "China",
       coordinates: [23.3417, 113.4244],
-      features: ["coastal", "subtropical_climate", "manufacturing", "high_density", "urban", "river_delta", "industrial"],
+      features: ["coastal", "subtropical_climate", "manufacturing", "high_density", "urban", "river_delta", "industrial", "fishing_grounds"],
       population: {
         total: 126000000,
         ethnic_groups: [
@@ -341,7 +341,7 @@ const provincesData = {
       name: "Western Australia Mining",
       country: "Australia", 
       coordinates: [-26.0, 121.0],
-      features: ["mineral_deposits", "rare_earth_deposits", "desert", "sunny", "radioactive_deposits", "flat_terrain", "low_population", "wilderness"],
+      features: ["mineral_deposits", "rare_earth_deposits", "desert", "sunny", "radioactive_deposits", "flat_terrain", "low_population", "wilderness", "coastal", "fishing_grounds"],
       population: {
         total: 1800000,
         ethnic_groups: [
@@ -396,7 +396,7 @@ const provincesData = {
       name: "Tokyo Metropolitan",
       country: "Japan", 
       coordinates: [35.6762, 139.6503],
-      features: ["urban", "high_density", "tech_hub", "coastal", "high_tech", "earthquake_prone"],
+      features: ["urban", "high_density", "tech_hub", "coastal", "high_tech", "earthquake_prone", "fishing_grounds"],
       population: {
         total: 14000000,
         ethnic_groups: [
@@ -1682,15 +1682,17 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
       return false;
     }
     
-    // Check feature requirements with flexible matching
+    // Check feature requirements - Province must have ALL required features
     if (building.requiresFeatures && building.requiresFeatures.length > 0) {
-      // Province must have at least one of the required features (some() logic)
       const provinceFeatures = province.features || [];
-      const hasAnyRequiredFeature = building.requiresFeatures.some(feature => 
+      const hasAllRequiredFeatures = building.requiresFeatures.every(feature => 
         provinceFeatures.includes(feature)
       );
-      if (!hasAnyRequiredFeature) {
-        console.log(`Building ${building.name} filtered out - missing features. Requires: ${building.requiresFeatures.join(', ')}, Province has: ${provinceFeatures.join(', ')}`);
+      if (!hasAllRequiredFeatures) {
+        const missingFeatures = building.requiresFeatures.filter(feature => 
+          !provinceFeatures.includes(feature)
+        );
+        console.log(`Building ${building.name} filtered out - missing features: ${missingFeatures.join(', ')}. Requires: ${building.requiresFeatures.join(', ')}, Province has: ${provinceFeatures.join(', ')}`);
         return false;
       }
     }
