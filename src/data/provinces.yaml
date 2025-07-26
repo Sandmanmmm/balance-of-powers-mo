@@ -6,6 +6,12 @@ provinces:
     name: "Lower Saxony"
     country: "Germany"
     coordinates: [52.6367, 9.8451]
+    features:
+      - "plains"
+      - "industrial"
+      - "river_access"
+      - "temperate_climate"
+      - "urban"
     population:
       total: 7800000
       ethnic_groups:
@@ -48,6 +54,13 @@ provinces:
     name: "California"
     country: "United States"
     coordinates: [36.7783, -119.4179]
+    features:
+      - "coastal"
+      - "mountains"
+      - "mediterranean_climate"
+      - "high_tech"
+      - "urban"
+      - "earthquake_zone"
     population:
       total: 39500000
       ethnic_groups:
@@ -94,6 +107,13 @@ provinces:
     name: "Guangdong"
     country: "China"
     coordinates: [23.3417, 113.4244]
+    features:
+      - "coastal"
+      - "subtropical_climate"
+      - "manufacturing"
+      - "high_density"
+      - "urban"
+      - "river_delta"
     population:
       total: 126000000
       ethnic_groups:
@@ -134,6 +154,13 @@ provinces:
     name: "Bavaria"
     country: "Germany"
     coordinates: [48.7904, 11.4979]
+    features:
+      - "mountains"
+      - "alpine_climate"
+      - "rural"
+      - "tourism"
+      - "agricultural"
+      - "traditional"
     population:
       total: 13200000
       ethnic_groups:
@@ -178,6 +205,13 @@ provinces:
     name: "Texas"
     country: "United States"
     coordinates: [31.9686, -99.9018]
+    features:
+      - "plains"
+      - "desert"
+      - "oil_rich"
+      - "continental_climate"
+      - "rural"
+      - "energy_sector"
     population:
       total: 30000000
       ethnic_groups:
@@ -224,6 +258,13 @@ provinces:
     name: "Île-de-France"
     country: "France"
     coordinates: [48.8566, 2.3522]
+    features:
+      - "capital_region"
+      - "urban"
+      - "high_density"
+      - "cultural_center"
+      - "river_access"
+      - "temperate_climate"
     population:
       total: 12300000
       ethnic_groups:
@@ -271,6 +312,13 @@ provinces:
     name: "Provence-Alpes-Côte d'Azur"
     country: "France"
     coordinates: [43.9351, 6.0679]
+    features:
+      - "coastal"
+      - "mediterranean_climate"
+      - "tourism"
+      - "mountains"
+      - "wine_region"
+      - "scenic"
     population:
       total: 5100000
       ethnic_groups:
@@ -318,6 +366,13 @@ provinces:
     name: "England"
     country: "United Kingdom"
     coordinates: [52.3555, -1.1743]
+    features:
+      - "temperate_climate"
+      - "industrial"
+      - "urban"
+      - "historical"
+      - "rolling_hills"
+      - "coal_deposits"
     population:
       total: 56500000
       ethnic_groups:

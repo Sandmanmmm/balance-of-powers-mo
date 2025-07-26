@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useKV } from './useKV';
 import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
 import { sampleProvinces, sampleNations, sampleEvents, getBuildingById } from '../lib/gameData';
+import { validateBuildingPlacement } from './useSimulationEngine';
 
 const initialGameState: GameState = {
   currentDate: new Date('1990-01-01'),
@@ -115,6 +116,12 @@ export function useGameState() {
     
     if (!building || !province || !nation) {
       throw new Error('Invalid building, province, or nation');
+    }
+    
+    // Validate building placement using features
+    const validation = validateBuildingPlacement(buildingId, province, nation);
+    if (!validation.valid) {
+      throw new Error(validation.reason || 'Building placement not valid');
     }
     
     if (nation.economy.treasury < building.cost) {

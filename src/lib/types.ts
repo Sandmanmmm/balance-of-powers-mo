@@ -3,6 +3,7 @@ export interface Province {
   name: string;
   country: string;
   coordinates: [number, number];
+  features: string[]; // New: array of province features
   population: {
     total: number;
     ethnicGroups: Array<{
@@ -168,11 +169,12 @@ export interface Building {
   id: string;
   name: string;
   description: string;
-  category: 'industrial' | 'military' | 'infrastructure' | 'research' | 'civilian' | 'energy' | 'agriculture';
+  category: 'industrial' | 'military' | 'infrastructure' | 'research' | 'civilian' | 'energy' | 'agriculture' | 'tourism' | 'safety';
   cost: number;
   buildTime: number; // in ticks
   effects: Record<string, number>;
-  requirements: Record<string, any>;
+  requiresFeatures: string[]; // New: required province features
+  requirements: Record<string, any>; // Existing infrastructure/tech requirements
   icon: string;
 }
 

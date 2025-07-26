@@ -231,6 +231,48 @@ export function ConstructionPanel({
                                 </div>
                               </div>
                               
+                              {/* Requirements */}
+                              {(building.requiresFeatures.length > 0 || Object.keys(building.requirements).length > 0) && (
+                                <div className="space-y-1">
+                                  <div className="text-xs font-medium text-muted-foreground">Requirements:</div>
+                                  <div className="flex flex-wrap gap-1">
+                                    {/* Feature Requirements */}
+                                    {building.requiresFeatures.map((feature) => {
+                                      const hasFeature = province.features.includes(feature);
+                                      return (
+                                        <Badge 
+                                          key={feature} 
+                                          variant={hasFeature ? "secondary" : "destructive"} 
+                                          className="text-xs"
+                                        >
+                                          {feature.replace(/_/g, ' ')} {hasFeature ? '✓' : '✗'}
+                                        </Badge>
+                                      );
+                                    })}
+                                    
+                                    {/* Infrastructure Requirements */}
+                                    {building.requirements.infrastructure && (
+                                      <Badge 
+                                        variant={province.infrastructure.roads >= building.requirements.infrastructure ? "secondary" : "destructive"}
+                                        className="text-xs"
+                                      >
+                                        Infrastructure {building.requirements.infrastructure} {province.infrastructure.roads >= building.requirements.infrastructure ? '✓' : '✗'}
+                                      </Badge>
+                                    )}
+                                    
+                                    {/* Technology Requirements */}
+                                    {building.requirements.technology && (
+                                      <Badge 
+                                        variant={nation.technology.completedTech.includes(building.requirements.technology) ? "secondary" : "destructive"}
+                                        className="text-xs"
+                                      >
+                                        {building.requirements.technology} {nation.technology.completedTech.includes(building.requirements.technology) ? '✓' : '✗'}
+                                      </Badge>
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+                              
                               {/* Effects */}
                               <div className="flex flex-wrap gap-1">
                                 {Object.entries(building.effects).map(([effect, value]) => (

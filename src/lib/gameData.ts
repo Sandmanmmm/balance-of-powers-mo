@@ -9,6 +9,7 @@ const provincesData = {
       name: "Lower Saxony",
       country: "Germany",
       coordinates: [52.6367, 9.8451],
+      features: ["plains", "industrial", "river_access", "temperate_climate", "urban"],
       population: {
         total: 7800000,
         ethnic_groups: [
@@ -56,6 +57,7 @@ const provincesData = {
       name: "California",
       country: "United States",
       coordinates: [36.7783, -119.4179],
+      features: ["coastal", "mountains", "mediterranean_climate", "high_tech", "urban", "earthquake_zone"],
       population: {
         total: 39500000,
         ethnic_groups: [
@@ -104,6 +106,7 @@ const provincesData = {
       name: "Guangdong",
       country: "China",
       coordinates: [23.3417, 113.4244],
+      features: ["coastal", "subtropical_climate", "manufacturing", "high_density", "urban", "river_delta"],
       population: {
         total: 126000000,
         ethnic_groups: [
@@ -148,6 +151,7 @@ const provincesData = {
       name: "Bavaria",
       country: "Germany",
       coordinates: [48.7904, 11.4979],
+      features: ["mountains", "alpine_climate", "rural", "tourism", "agricultural", "traditional"],
       population: {
         total: 13200000,
         ethnic_groups: [
@@ -196,6 +200,7 @@ const provincesData = {
       name: "Texas",
       country: "United States",
       coordinates: [31.9686, -99.9018],
+      features: ["plains", "desert", "oil_rich", "continental_climate", "rural", "energy_sector"],
       population: {
         total: 30000000,
         ethnic_groups: [
@@ -386,6 +391,7 @@ function convertProvinces(): Province[] {
     name: data.name,
     country: data.country,
     coordinates: data.coordinates as [number, number],
+    features: data.features || [], // Add features array
     population: {
       total: data.population.total,
       ethnicGroups: data.population.ethnic_groups.map(group => ({
@@ -561,6 +567,7 @@ function convertBuildings(): Building[] {
         industry: 2,
         gdp_modifier: 0.1
       },
+      requiresFeatures: ["industrial"],
       requirements: {
         infrastructure: 2
       },
@@ -577,6 +584,7 @@ function convertBuildings(): Building[] {
         military_production: 3,
         employment: 500
       },
+      requiresFeatures: ["industrial"],
       requirements: {
         infrastructure: 2,
         technology: "industrial_production"
@@ -595,6 +603,7 @@ function convertBuildings(): Building[] {
         stability: 2,
         gdp_modifier: 0.05
       },
+      requiresFeatures: [],
       requirements: {},
       icon: "🛣️"
     },
@@ -610,6 +619,7 @@ function convertBuildings(): Building[] {
         stability: 1,
         employment: 800
       },
+      requiresFeatures: ["urban"],
       requirements: {
         infrastructure: 3
       },
@@ -627,6 +637,7 @@ function convertBuildings(): Building[] {
         stability: 3,
         healthcare_level: 1
       },
+      requiresFeatures: ["urban"],
       requirements: {
         infrastructure: 2
       },
@@ -644,11 +655,49 @@ function convertBuildings(): Building[] {
         industry: 1,
         pollution: 2
       },
+      requiresFeatures: ["industrial"],
       requirements: {
         infrastructure: 3,
         technology: "power_generation"
       },
       icon: "⚡"
+    },
+    {
+      id: "port",
+      name: "Port",
+      description: "Facilitates trade and naval operations",
+      category: "infrastructure" as const,
+      cost: 2500,
+      buildTime: 200,
+      effects: {
+        trade_efficiency: 0.2,
+        naval_capacity: 5,
+        gdp_modifier: 0.08
+      },
+      requiresFeatures: ["coastal"],
+      requirements: {
+        infrastructure: 2
+      },
+      icon: "⚓"
+    },
+    {
+      id: "airport",
+      name: "Airport",
+      description: "Enables air transport and military aviation",
+      category: "infrastructure" as const,
+      cost: 4000,
+      buildTime: 250,
+      effects: {
+        air_capacity: 10,
+        trade_efficiency: 0.1,
+        stability: 1
+      },
+      requiresFeatures: ["plains"],
+      requirements: {
+        infrastructure: 3,
+        technology: "aviation"
+      },
+      icon: "✈️"
     },
     {
       id: "farm",
@@ -662,10 +711,156 @@ function convertBuildings(): Building[] {
         employment: 300,
         rural_stability: 2
       },
-      requirements: {
-        rural: true
-      },
+      requiresFeatures: ["agricultural"],
+      requirements: {},
       icon: "🚜"
+    },
+    {
+      id: "bunker",
+      name: "Fortification",
+      description: "Defensive structures for military protection",
+      category: "military" as const,
+      cost: 800,
+      buildTime: 100,
+      effects: {
+        defense_bonus: 15,
+        entrenchment: 2
+      },
+      requiresFeatures: [],
+      requirements: {
+        infrastructure: 1
+      },
+      icon: "🏰"
+    },
+    {
+      id: "oil_rig",
+      name: "Oil Drilling Platform",
+      description: "Extracts petroleum and natural gas",
+      category: "energy" as const,
+      cost: 5000,
+      buildTime: 400,
+      effects: {
+        energy_output: 25,
+        gdp_modifier: 0.15,
+        pollution: 5
+      },
+      requiresFeatures: ["oil_rich"],
+      requirements: {
+        infrastructure: 2,
+        technology: "oil_drilling"
+      },
+      icon: "🛢️"
+    },
+    {
+      id: "tech_park",
+      name: "Technology Park",
+      description: "Advanced research and development center",
+      category: "research" as const,
+      cost: 3500,
+      buildTime: 300,
+      effects: {
+        research_speed: 0.25,
+        high_tech_employment: 1200,
+        innovation: 3
+      },
+      requiresFeatures: ["high_tech", "urban"],
+      requirements: {
+        infrastructure: 4,
+        technology: "computer_science"
+      },
+      icon: "💻"
+    },
+    {
+      id: "resort",
+      name: "Tourist Resort",
+      description: "Luxury accommodations for tourism",
+      category: "tourism" as const,
+      cost: 2200,
+      buildTime: 180,
+      effects: {
+        tourism_income: 8,
+        gdp_modifier: 0.12,
+        employment: 600
+      },
+      requiresFeatures: ["tourism", "scenic"],
+      requirements: {
+        infrastructure: 3
+      },
+      icon: "🏖️"
+    },
+    {
+      id: "ski_resort",
+      name: "Ski Resort",
+      description: "Winter sports and mountain tourism",
+      category: "tourism" as const,
+      cost: 1800,
+      buildTime: 120,
+      effects: {
+        tourism_income: 5,
+        seasonal_employment: 400,
+        gdp_modifier: 0.08
+      },
+      requiresFeatures: ["mountains", "alpine_climate"],
+      requirements: {
+        infrastructure: 2
+      },
+      icon: "⛷️"
+    },
+    {
+      id: "manufacturing_hub",
+      name: "Manufacturing Hub",
+      description: "Large-scale production facility",
+      category: "industrial" as const,
+      cost: 2800,
+      buildTime: 220,
+      effects: {
+        manufacturing_output: 15,
+        employment: 1000,
+        exports: 10
+      },
+      requiresFeatures: ["manufacturing", "urban"],
+      requirements: {
+        infrastructure: 3,
+        technology: "automation"
+      },
+      icon: "🏗️"
+    },
+    {
+      id: "wine_estate",
+      name: "Wine Estate",
+      description: "Premium wine production and export",
+      category: "agriculture" as const,
+      cost: 1400,
+      buildTime: 90,
+      effects: {
+        luxury_goods: 3,
+        tourism_income: 2,
+        cultural_value: 5
+      },
+      requiresFeatures: ["wine_region", "mediterranean_climate"],
+      requirements: {
+        infrastructure: 2
+      },
+      icon: "🍷"
+    },
+    {
+      id: "seismic_monitor",
+      name: "Seismic Monitoring Station",
+      description: "Earthquake detection and early warning",
+      category: "safety" as const,
+      cost: 800,
+      buildTime: 80,
+      effects: {
+        disaster_preparedness: 20,
+        research_points: 2,
+        safety_rating: 10
+      },
+      requiresFeatures: ["earthquake_zone"],
+      requirements: {
+        infrastructure: 2,
+        technology: "seismology"
+      },
+      icon: "📡"
     }
   ];
 
@@ -677,6 +872,7 @@ function convertBuildings(): Building[] {
     cost: building.cost,
     buildTime: building.buildTime,
     effects: building.effects,
+    requiresFeatures: building.requiresFeatures,
     requirements: building.requirements,
     icon: building.icon
   }));
@@ -888,6 +1084,16 @@ export function getBuildingsByCategory(category: string): Building[] {
 
 export function getAvailableBuildings(province: Province, nation: Nation, completedTech: string[]): Building[] {
   return gameBuildings.filter(building => {
+    // Check feature requirements first
+    if (building.requiresFeatures.length > 0) {
+      const hasAllRequiredFeatures = building.requiresFeatures.every(feature => 
+        province.features.includes(feature)
+      );
+      if (!hasAllRequiredFeatures) {
+        return false;
+      }
+    }
+    
     // Check basic requirements
     if (building.requirements.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
       return false;
@@ -898,7 +1104,7 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
       return false;
     }
     
-    // Check special requirements (coastal, rural, etc.)
+    // Check special requirements (coastal, rural, etc.) - legacy support
     if (building.requirements.coastal && !isCoastalProvince(province)) {
       return false;
     }

@@ -127,6 +127,63 @@ export function ProvinceInfoPanel({
 
             <Separator />
 
+            {/* Province Features */}
+            <div className="space-y-2">
+              <h4 className="text-sm font-medium">Province Features</h4>
+              <div className="flex flex-wrap gap-1">
+                {(province.features || []).map((feature, index) => {
+                  // Get icon for feature
+                  const getFeatureIcon = (feature: string) => {
+                    const iconMap: Record<string, string> = {
+                      'coastal': '🌊',
+                      'mountains': '⛰️',
+                      'plains': '🌾',
+                      'desert': '🏜️',
+                      'urban': '🏙️',
+                      'rural': '🏞️',
+                      'industrial': '🏭',
+                      'agricultural': '🚜',
+                      'high_tech': '💻',
+                      'tourism': '🏖️',
+                      'oil_rich': '🛢️',
+                      'river_access': '🏞️',
+                      'temperate_climate': '🌤️',
+                      'mediterranean_climate': '☀️',
+                      'alpine_climate': '❄️',
+                      'subtropical_climate': '🌴',
+                      'continental_climate': '🌡️',
+                      'manufacturing': '🏗️',
+                      'high_density': '🏘️',
+                      'river_delta': '🌊',
+                      'traditional': '🏛️',
+                      'energy_sector': '⚡',
+                      'capital_region': '🏛️',
+                      'cultural_center': '🎭',
+                      'wine_region': '🍷',
+                      'scenic': '🏞️',
+                      'historical': '🏰',
+                      'rolling_hills': '🌄',
+                      'coal_deposits': '⚫',
+                      'earthquake_zone': '📡'
+                    };
+                    return iconMap[feature] || '🏷️';
+                  };
+
+                  return (
+                    <Badge key={index} variant="secondary" className="text-xs flex items-center gap-1">
+                      <span>{getFeatureIcon(feature)}</span>
+                      <span>{feature.replace(/_/g, ' ')}</span>
+                    </Badge>
+                  );
+                })}
+              </div>
+              {(province.features || []).length === 0 && (
+                <div className="text-xs text-muted-foreground">No special features</div>
+              )}
+            </div>
+
+            <Separator />
+
             {/* Demographics */}
             <div className="space-y-2">
               <h4 className="text-sm font-medium">Demographics</h4>

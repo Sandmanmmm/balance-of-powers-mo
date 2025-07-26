@@ -8,6 +8,8 @@ buildings:
     effects:
       industry: 2
       gdp_modifier: 0.1
+    requiresFeatures:
+      - "industrial"
     requirements:
       infrastructure: 2
     icon: "🏭"
@@ -21,6 +23,8 @@ buildings:
     effects:
       military_production: 3
       employment: 500
+    requiresFeatures:
+      - "industrial"
     requirements:
       infrastructure: 2
       technology: "industrial_production"
@@ -36,6 +40,7 @@ buildings:
       infrastructure: 1
       stability: 2
       gdp_modifier: 0.05
+    requiresFeatures: []
     requirements: {}
     icon: "🛣️"
 
@@ -49,6 +54,8 @@ buildings:
       research_speed: 0.15
       stability: 1
       employment: 800
+    requiresFeatures:
+      - "urban"
     requirements:
       infrastructure: 3
     icon: "🎓"
@@ -63,6 +70,8 @@ buildings:
       population_growth: 0.02
       stability: 3
       healthcare_level: 1
+    requiresFeatures:
+      - "urban"
     requirements:
       infrastructure: 2
     icon: "🏥"
@@ -77,6 +86,8 @@ buildings:
       energy_output: 10
       industry: 1
       pollution: 2
+    requiresFeatures:
+      - "industrial"
     requirements:
       infrastructure: 3
       technology: "power_generation"
@@ -92,8 +103,9 @@ buildings:
       trade_efficiency: 0.2
       naval_capacity: 5
       gdp_modifier: 0.08
+    requiresFeatures:
+      - "coastal"
     requirements:
-      coastal: true
       infrastructure: 2
     icon: "⚓"
 
@@ -107,6 +119,8 @@ buildings:
       air_capacity: 10
       trade_efficiency: 0.1
       stability: 1
+    requiresFeatures:
+      - "plains"
     requirements:
       infrastructure: 3
       technology: "aviation"
@@ -122,8 +136,9 @@ buildings:
       food_production: 5
       employment: 300
       rural_stability: 2
-    requirements:
-      rural: true
+    requiresFeatures:
+      - "agricultural"
+    requirements: {}
     icon: "🚜"
 
   - id: "bunker"
@@ -135,6 +150,128 @@ buildings:
     effects:
       defense_bonus: 15
       entrenchment: 2
+    requiresFeatures: []
     requirements:
       infrastructure: 1
     icon: "🏰"
+
+  - id: "oil_rig"
+    name: "Oil Drilling Platform"
+    description: "Extracts petroleum and natural gas"
+    category: "energy"
+    cost: 5000
+    buildTime: 400
+    effects:
+      energy_output: 25
+      gdp_modifier: 0.15
+      pollution: 5
+    requiresFeatures:
+      - "oil_rich"
+    requirements:
+      infrastructure: 2
+      technology: "oil_drilling"
+    icon: "🛢️"
+
+  - id: "tech_park"
+    name: "Technology Park"
+    description: "Advanced research and development center"
+    category: "research"
+    cost: 3500
+    buildTime: 300
+    effects:
+      research_speed: 0.25
+      high_tech_employment: 1200
+      innovation: 3
+    requiresFeatures:
+      - "high_tech"
+      - "urban"
+    requirements:
+      infrastructure: 4
+      technology: "computer_science"
+    icon: "💻"
+
+  - id: "resort"
+    name: "Tourist Resort"
+    description: "Luxury accommodations for tourism"
+    category: "tourism"
+    cost: 2200
+    buildTime: 180
+    effects:
+      tourism_income: 8
+      gdp_modifier: 0.12
+      employment: 600
+    requiresFeatures:
+      - "tourism"
+      - "scenic"
+    requirements:
+      infrastructure: 3
+    icon: "🏖️"
+
+  - id: "ski_resort"
+    name: "Ski Resort"
+    description: "Winter sports and mountain tourism"
+    category: "tourism"
+    cost: 1800
+    buildTime: 120
+    effects:
+      tourism_income: 5
+      seasonal_employment: 400
+      gdp_modifier: 0.08
+    requiresFeatures:
+      - "mountains"
+      - "alpine_climate"
+    requirements:
+      infrastructure: 2
+    icon: "⛷️"
+
+  - id: "manufacturing_hub"
+    name: "Manufacturing Hub"
+    description: "Large-scale production facility"
+    category: "industrial"
+    cost: 2800
+    buildTime: 220
+    effects:
+      manufacturing_output: 15
+      employment: 1000
+      exports: 10
+    requiresFeatures:
+      - "manufacturing"
+      - "urban"
+    requirements:
+      infrastructure: 3
+      technology: "automation"
+    icon: "🏗️"
+
+  - id: "wine_estate"
+    name: "Wine Estate"
+    description: "Premium wine production and export"
+    category: "agriculture"
+    cost: 1400
+    buildTime: 90
+    effects:
+      luxury_goods: 3
+      tourism_income: 2
+      cultural_value: 5
+    requiresFeatures:
+      - "wine_region"
+      - "mediterranean_climate"
+    requirements:
+      infrastructure: 2
+    icon: "🍷"
+
+  - id: "seismic_monitor"
+    name: "Seismic Monitoring Station"
+    description: "Earthquake detection and early warning"
+    category: "safety"
+    cost: 800
+    buildTime: 80
+    effects:
+      disaster_preparedness: 20
+      research_points: 2
+      safety_rating: 10
+    requiresFeatures:
+      - "earthquake_zone"
+    requirements:
+      infrastructure: 2
+      technology: "seismology"
+    icon: "📡"

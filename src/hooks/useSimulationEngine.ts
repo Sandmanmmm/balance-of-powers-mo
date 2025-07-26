@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { GameState, Province, Nation, GameEvent, Technology } from '../lib/types';
-import { sampleProvinces, sampleNations, sampleEvents, sampleTechnologies } from '../lib/gameData';
+import { sampleProvinces, sampleNations, sampleEvents, sampleTechnologies, getBuildingById } from '../lib/gameData';
 import { toast } from 'sonner';
 
 interface UseSimulationEngineProps {
@@ -848,4 +848,64 @@ function makeAIDecision(
       selectedDecision.execute();
     }
   }
+}
+
+// Validation function for building placement based on features
+export function validateBuildingPlacement(buildingId: string, province: Province, nation: Nation): { valid: boolean; reason?: string } {
+  const building = getBuildingById(buildingId);
+  if (!building) {
+    return { valid: false, reason: 'Building not found' };
+  }
+
+  // Check feature requirements
+  if (building.requiresFeatures.length > 0) {
+    const missingFeatures = building.requiresFeatures.filter(feature => 
+      !province.features.includes(feature)
+    );
+    
+    if (missingFeatures.length > 0) {
+      return { 
+        valid: false, 
+        reason: `Province lacks required features: ${missingFeatures.join(', ')}` 
+      };
+    }
+  }
+
+  // Check infrastructure requirements
+  if (building.requirements.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
+    return { 
+      valid: false, 
+      reason: `Insufficient infrastructure level (requires ${building.requirements.infrastructure}, has ${province.infrastructure.roads})` 
+    };
+  }
+
+  // Check technology requirements
+  if (building.requirements.technology && !nation.technology.completedTech.includes(building.requirements.technology)) {
+    return { 
+      valid: false, 
+      reason: `Missing required technology: ${building.requirements.technology}` 
+    };
+  }
+
+  // Check if building already exists (for unique buildings)
+  const existingBuilding = province.buildings.find(b => b.buildingId === buildingId);
+  if (existingBuilding) {
+    return { 
+      valid: false, 
+      reason: `${building.name} already exists in this province` 
+    };
+  }
+
+  // Check if already under construction
+  const underConstruction = province.constructionProjects.find(p => 
+    p.buildingId === buildingId && p.status === 'in_progress'
+  );
+  if (underConstruction) {
+    return { 
+      valid: false, 
+      reason: `${building.name} is already under construction` 
+    };
+  }
+
+  return { valid: true };
 }
