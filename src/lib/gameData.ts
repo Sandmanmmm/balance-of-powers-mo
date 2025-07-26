@@ -1938,18 +1938,18 @@ export function getBuildings(): Building[] {
 console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies, ${gameBuildings.length} buildings, ${Object.keys(resourcesData).length} resources`);
 
 // Export data access functions
-export function getProvinceById(id: string): Province | undefined {
-  const provinces = getProvinces();
+export async function getProvinceById(id: string): Promise<Province | undefined> {
+  const provinces = await getProvinces();
   return provinces.find(province => province.id === id);
 }
 
-export function getNationById(id: string): Nation | undefined {
-  const nations = getNations();
+export async function getNationById(id: string): Promise<Nation | undefined> {
+  const nations = await getNations();
   return nations.find(nation => nation.id === id);
 }
 
 export function getProvincesByCountry(country: string): Province[] {
-  const provinces = getProvinces();
+  const provinces = loadedProvinces.length > 0 ? loadedProvinces : convertProvinces();
   return provinces.filter(province => province.country === country);
 }
 
@@ -1982,7 +1982,7 @@ export function getAvailableTechnologies(currentYear: number, completedTech: str
 }
 
 export function getBuildingById(id: string): Building | undefined {
-  const buildings = getBuildings();
+  const buildings = loadedBuildings.length > 0 ? loadedBuildings : convertBuildings();
   return buildings.find(building => building.id === id);
 }
 
@@ -2081,8 +2081,8 @@ function isRuralProvince(province: Province): boolean {
 
 export function validateGameData(): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
-  const provinces = getProvinces();
-  const nations = getNations();
+  const provinces = loadedProvinces.length > 0 ? loadedProvinces : convertProvinces();
+  const nations = loadedNations.length > 0 ? loadedNations : convertNations();
 
   // Validate provinces
   if (provinces.length === 0) {

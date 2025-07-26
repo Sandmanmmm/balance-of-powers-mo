@@ -22,38 +22,50 @@ export function useGameState() {
   const [localGameState, setLocalGameState] = useState<GameState>(gameState || initialGameState);
   const [isInitialized, setIsInitialized] = useState(false);
 
+  // Debug logging
+  useEffect(() => {
+    console.log('useGameState - Debug Info:', {
+      provincesType: typeof provinces,
+      provincesIsArray: Array.isArray(provinces),
+      provincesLength: Array.isArray(provinces) ? provinces.length : 'N/A',
+      nationsType: typeof nations,
+      nationsIsArray: Array.isArray(nations),
+      nationsLength: Array.isArray(nations) ? nations.length : 'N/A',
+      gameStateType: typeof gameState,
+      isInitialized
+    });
+  }, [provinces, nations, gameState, isInitialized]);
+
   // Initialize data from YAML when component mounts
   useEffect(() => {
     const initializeData = async () => {
       try {
         console.log('Starting data initialization...');
         
-        const safeProvinces = Array.isArray(provinces) ? provinces : [];
-        if (safeProvinces.length === 0) {
-          console.log('Loading provinces from YAML...');
-          const loadedProvinces = await getProvinces();
-          if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
-            console.log(`Loaded ${loadedProvinces.length} provinces successfully`);
-            setProvinces(loadedProvinces);
-          } else {
-            console.warn('No provinces loaded from YAML');
-          }
+        // Don't use cached data initially, always try to reload from YAML
+        console.log('Loading provinces from YAML...');
+        const loadedProvinces = await getProvinces();
+        if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0) {
+          console.log(`Loaded ${loadedProvinces.length} provinces successfully`);
+          console.log(`Canadian provinces:`, loadedProvinces.filter(p => p.country === 'Canada').map(p => p.name));
+          setProvinces(loadedProvinces);
         } else {
-          console.log(`Using existing ${safeProvinces.length} provinces from KV storage`);
+          console.warn('No provinces loaded from YAML');
         }
         
-        const safeNations = Array.isArray(nations) ? nations : [];
-        if (safeNations.length === 0) {
-          console.log('Loading nations from YAML...');
-          const loadedNations = await getNations();
-          if (Array.isArray(loadedNations) && loadedNations.length > 0) {
-            console.log(`Loaded ${loadedNations.length} nations successfully`);
-            setNations(loadedNations);
+        console.log('Loading nations from YAML...');
+        const loadedNations = await getNations();
+        if (Array.isArray(loadedNations) && loadedNations.length > 0) {
+          console.log(`Loaded ${loadedNations.length} nations successfully`);
+          const canadaNation = loadedNations.find(n => n.id === 'CAN');
+          if (canadaNation) {
+            console.log(`✓ Canada found:`, canadaNation.name, 'Leader:', canadaNation.government?.leader);
           } else {
-            console.warn('No nations loaded from YAML');
+            console.warn('⚠ Canada not found in loaded nations');
           }
+          setNations(loadedNations);
         } else {
-          console.log(`Using existing ${safeNations.length} nations from KV storage`);
+          console.warn('No nations loaded from YAML');
         }
         
         console.log('Data initialization completed');
@@ -61,33 +73,30 @@ export function useGameState() {
       } catch (error) {
         console.error('Error initializing game data:', error);
         // Set empty arrays as fallback but still mark as initialized
-        if (!Array.isArray(provinces)) {
-          console.log('Setting fallback empty provinces array');
-          setProvinces([]);
-        }
-        if (!Array.isArray(nations)) {
-          console.log('Setting fallback empty nations array');
-          setNations([]);
-        }
+        console.log('Setting fallback empty arrays');
+        setProvinces([]);
+        setNations([]);
         setIsInitialized(true);
       }
     };
     
-    // Only initialize if not already done
+    // Only initialize once
     if (!isInitialized) {
       console.log('Initialization needed - starting async data load');
       initializeData();
     } else {
       console.log('Already initialized');
     }
-  }, [provinces, nations, setProvinces, setNations, isInitialized]);
+  }, [setProvinces, setNations, isInitialized]); // Remove provinces and nations from dependencies to avoid loops
 
   useEffect(() => {
     // Ensure currentDate is always a Date object (in case it was serialized as a string)
     const safeGameState = gameState || initialGameState;
     const stateWithDate = {
       ...safeGameState,
-      currentDate: new Date(safeGameState.currentDate)
+      currentDate: safeGameState.currentDate instanceof Date 
+        ? safeGameState.currentDate 
+        : new Date(safeGameState.currentDate)
     };
     setLocalGameState(stateWithDate);
   }, [gameState]);
@@ -178,6 +187,14 @@ export function useGameState() {
     setLocalGameState(newState);
     setGameState(newState);
   }, [localGameState, setGameState]);
+
+  const resetGameData = useCallback(() => {
+    console.log('Resetting all game data...');
+    setProvinces([]);
+    setNations([]);
+    setGameState(initialGameState);
+    setIsInitialized(false);
+  }, [setProvinces, setNations, setGameState]);
 
   const selectProvince = useCallback((provinceId: string | undefined) => {
     updateGameState({ selectedProvince: provinceId });
@@ -414,6 +431,7 @@ export function useGameState() {
     removeNotification,
     startConstruction,
     cancelConstruction,
-    processConstructionTick
+    processConstructionTick,
+    resetGameData
   };
 }

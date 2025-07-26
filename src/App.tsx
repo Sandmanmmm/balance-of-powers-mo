@@ -7,18 +7,29 @@ import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
 
-function ErrorFallback({error}: {error: Error}) {
+function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">
       <div className="text-center">
         <h1 className="text-2xl font-bold mb-4 text-red-600">Something went wrong</h1>
         <p className="text-muted-foreground mb-4">The application encountered an error.</p>
-        <button 
-          onClick={() => window.location.reload()} 
-          className="px-4 py-2 bg-primary text-primary-foreground rounded"
-        >
-          Reload Page
-        </button>
+        <p className="text-sm text-muted-foreground mb-6">{error.message}</p>
+        <div className="space-x-2">
+          <button 
+            onClick={() => window.location.reload()} 
+            className="px-4 py-2 bg-primary text-primary-foreground rounded"
+          >
+            Reload Page
+          </button>
+          {resetErrorBoundary && (
+            <button 
+              onClick={resetErrorBoundary}
+              className="px-4 py-2 bg-secondary text-secondary-foreground rounded"
+            >
+              Try Again
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -42,11 +53,22 @@ function App() {
     updateNation,
     startConstruction,
     cancelConstruction,
-    processConstructionTick
+    processConstructionTick,
+    resetGameData
   } = useGameState();
 
   const selectedProvince = getSelectedProvince();
   const selectedNation = getSelectedNation();
+
+  // Debug: log the state of selectedNation  
+  useEffect(() => {
+    console.log('App - Selected Nation Debug:', {
+      selectedNationId: gameState?.selectedNation,
+      selectedNationObject: selectedNation,
+      nationsCount: Array.isArray(nations) ? nations.length : 'NOT_ARRAY',
+      nationIds: Array.isArray(nations) ? nations.map(n => n?.id).filter(Boolean) : 'NOT_ARRAY'
+    });
+  }, [selectedNation, nations, gameState?.selectedNation]);
 
   // Policy and decision handlers
   const handlePolicyChange = (policy: string, value: string) => {
@@ -82,7 +104,7 @@ function App() {
   });
 
   // Show loading state if not initialized or no nations are loaded
-  if (!isInitialized || !Array.isArray(nations) || nations.length === 0 || !selectedNation) {
+  if (!isInitialized || !Array.isArray(nations) || nations.length === 0) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
@@ -95,8 +117,26 @@ function App() {
     );
   }
 
+  // Additional check: ensure the selected nation exists
+  if (!selectedNation) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Balance of Powers</h1>
+          <p className="text-muted-foreground">Loading Canada...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <ErrorBoundary FallbackComponent={ErrorFallback}>
+    <ErrorBoundary 
+      FallbackComponent={ErrorFallback}
+      onReset={() => {
+        console.log('Error boundary reset - clearing game data');
+        resetGameData();
+      }}
+    >
       <div className="min-h-screen bg-background">
         <div className="flex h-screen">
           {/* Left Sidebar - Game Dashboard */}
