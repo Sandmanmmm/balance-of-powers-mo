@@ -1041,11 +1041,41 @@ function processResourceSystem(
     
     // Initialize resource system if not present
     if (!nation.resourceStockpiles) {
-      updates.resourceStockpiles = {};
+      // Initialize with basic starting stockpiles
+      const startingStockpiles: Record<string, number> = {};
+      if (resourcesData && typeof resourcesData === 'object') {
+        Object.keys(resourcesData).forEach(resourceId => {
+          // Give starting stockpiles based on resource type
+          switch (resourceId) {
+            case 'food':
+              startingStockpiles[resourceId] = 10000; // 10,000 tons
+              break;
+            case 'water':
+              startingStockpiles[resourceId] = 1000000; // 1M liters
+              break;
+            case 'manpower':
+              startingStockpiles[resourceId] = 100000; // 100k people
+              break;
+            case 'electricity':
+              startingStockpiles[resourceId] = 5000; // 5000 MWh
+              break;
+            case 'oil':
+              startingStockpiles[resourceId] = 1000; // 1000 barrels
+              break;
+            case 'steel':
+              startingStockpiles[resourceId] = 500; // 500 tons
+              break;
+            default:
+              startingStockpiles[resourceId] = 100; // Default amount
+          }
+        });
+      }
+      
+      updates.resourceStockpiles = startingStockpiles;
       updates.resourceProduction = {};
       updates.resourceConsumption = {};
       updates.resourceShortages = {};
-      updates.resourceEfficiency = {};
+      updates.resourceEfficiency = { overall: 1.0 };
     }
     
     const newStockpiles = { ...nation.resourceStockpiles };
@@ -1069,6 +1099,18 @@ function processResourceSystem(
         return;
       }
       
+      // Debug logging for food production
+      if (nation.id === context.gameState.selectedNation) {
+        const foodBuildings = province.buildings.filter(b => {
+          const building = getBuildingById(b.buildingId);
+          return building && building.produces && building.produces.food;
+        });
+        
+        if (foodBuildings.length > 0) {
+          console.log(`Food production in ${province.name}:`, foodBuildings);
+        }
+      }
+      
       province.buildings.forEach(building => {
         if (!building) return;
         
@@ -1079,16 +1121,7 @@ function processResourceSystem(
       const buildingLevel = building.level || 1;
       const buildingEfficiency = (building.efficiency || 1) * efficiency;
       
-      // Add production (affected by efficiency)
-      if (buildingData.produces && typeof buildingData.produces === 'object') {
-        Object.entries(buildingData.produces).forEach(([resourceId, amount]) => {
-          if (typeof amount === 'number') {
-            newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * buildingLevel * weeksElapsed * buildingEfficiency;
-          }
-        });
-      }
-      
-      // Add consumption - only consume if inputs are available
+      // Check if building can operate (has required inputs)
       let canOperate = true;
       const requiredInputs: Record<string, number> = {};
       
@@ -1102,6 +1135,11 @@ function processResourceSystem(
             const available = newStockpiles[resourceId] || 0;
             if (available < requiredAmount) {
               canOperate = false;
+              
+              // Debug logging for failed buildings
+              if (nation.id === context.gameState.selectedNation && buildingData.produces && buildingData.produces.food) {
+                console.log(`Food building ${buildingData.name} in ${province.name} cannot operate: needs ${requiredAmount} ${resourceId}, has ${available}`);
+              }
             }
           }
         });
@@ -1111,32 +1149,50 @@ function processResourceSystem(
         // Building can operate - consume resources and produce outputs
         Object.entries(requiredInputs).forEach(([resourceId, amount]) => {
           newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount;
+          newStockpiles[resourceId] = Math.max(0, (newStockpiles[resourceId] || 0) - amount);
         });
+        
+        // Add production (affected by efficiency)
+        if (buildingData.produces && typeof buildingData.produces === 'object') {
+          Object.entries(buildingData.produces).forEach(([resourceId, amount]) => {
+            if (typeof amount === 'number') {
+              const producedAmount = amount * buildingLevel * weeksElapsed * buildingEfficiency;
+              newProduction[resourceId] = (newProduction[resourceId] || 0) + producedAmount;
+              
+              // Debug logging for food production
+              if (nation.id === context.gameState.selectedNation && resourceId === 'food') {
+                console.log(`Food produced in ${province.name}: ${producedAmount} by ${buildingData.name}`);
+              }
+            }
+          });
+        }
       } else {
         // Building cannot operate - reduce production proportionally
         const efficiencyRatio = Math.min(1, 
-          Math.min(...Object.entries(buildingData.consumes || {}).map(([resourceId, amount]) => {
-            if (typeof amount !== 'number') return 1;
+          Math.min(...Object.entries(requiredInputs).map(([resourceId, amount]) => {
             const available = newStockpiles[resourceId] || 0;
-            const required = amount * buildingLevel * weeksElapsed;
-            return required > 0 ? available / required : 1;
+            return amount > 0 ? available / amount : 1;
           }))
         );
+        
+        // Consume proportionally
+        Object.entries(requiredInputs).forEach(([resourceId, amount]) => {
+          const consumedAmount = amount * efficiencyRatio;
+          newConsumption[resourceId] = (newConsumption[resourceId] || 0) + consumedAmount;
+          newStockpiles[resourceId] = Math.max(0, (newStockpiles[resourceId] || 0) - consumedAmount);
+        });
         
         // Produce at reduced efficiency
         if (buildingData.produces && typeof buildingData.produces === 'object') {
           Object.entries(buildingData.produces).forEach(([resourceId, amount]) => {
             if (typeof amount === 'number') {
-              newProduction[resourceId] = (newProduction[resourceId] || 0) + amount * buildingLevel * weeksElapsed * efficiencyRatio * buildingEfficiency;
-            }
-          });
-        }
-        
-        // Consume proportionally
-        if (buildingData.consumes && typeof buildingData.consumes === 'object') {
-          Object.entries(buildingData.consumes).forEach(([resourceId, amount]) => {
-            if (typeof amount === 'number') {
-              newConsumption[resourceId] = (newConsumption[resourceId] || 0) + amount * buildingLevel * weeksElapsed * efficiencyRatio;
+              const producedAmount = amount * buildingLevel * weeksElapsed * efficiencyRatio * buildingEfficiency;
+              newProduction[resourceId] = (newProduction[resourceId] || 0) + producedAmount;
+              
+              // Debug logging for food production
+              if (nation.id === context.gameState.selectedNation && resourceId === 'food') {
+                console.log(`Food produced in ${province.name} at ${efficiencyRatio * 100}% efficiency: ${producedAmount} by ${buildingData.name}`);
+              }
             }
           });
         }
@@ -1177,18 +1233,32 @@ function processResourceSystem(
     // Calculate shortages and apply net change to stockpiles
     if (resourcesData && typeof resourcesData === 'object') {
       Object.keys(resourcesData).forEach(resourceId => {
-        const netChange = (newProduction[resourceId] || 0) - (newConsumption[resourceId] || 0);
-        newStockpiles[resourceId] = Math.max(0, (newStockpiles[resourceId] || 0) + netChange);
+        const production = newProduction[resourceId] || 0;
+        const consumption = newConsumption[resourceId] || 0;
+        const netChange = production - consumption;
+        const oldStockpile = newStockpiles[resourceId] || 0;
+        newStockpiles[resourceId] = Math.max(0, oldStockpile + netChange);
+        
+        // Debug logging for food specifically
+        if (nation.id === context.gameState.selectedNation && resourceId === 'food') {
+          console.log(`Food summary for ${nation.name}:`);
+          console.log(`- Production: ${production}`);
+          console.log(`- Consumption: ${consumption}`);
+          console.log(`- Net change: ${netChange}`);
+          console.log(`- Old stockpile: ${oldStockpile}`);
+          console.log(`- New stockpile: ${newStockpiles[resourceId]}`);
+        }
         
         // Calculate shortage severity
-        const consumption = newConsumption[resourceId] || 0;
-        const stockpile = newStockpiles[resourceId] || 0;
-        
         if (consumption > 0) {
-          const weeksOfSupply = stockpile / consumption;
+          const weeksOfSupply = newStockpiles[resourceId] / consumption;
           if (weeksOfSupply < 8) { // Less than 8 weeks supply
             newShortages[resourceId] = Math.max(0, 1 - weeksOfSupply / 8);
+          } else {
+            newShortages[resourceId] = 0;
           }
+        } else {
+          newShortages[resourceId] = 0;
         }
       });
     }

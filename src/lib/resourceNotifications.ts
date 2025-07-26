@@ -33,7 +33,8 @@ const pendingGroupedNotifications = new Map<string, Array<PendingNotification>>(
  * Check and send resource shortage/surplus notifications with improved state tracking
  */
 export function checkResourceNotifications(nation: Nation, gameDate: Date): void {
-  if (!nation.resourceStockpiles || !nation.resourceProduction || !nation.resourceConsumption) {
+  // Safety checks
+  if (!nation || !nation.resourceStockpiles || !nation.resourceProduction || !nation.resourceConsumption) {
     return;
   }
 
@@ -54,96 +55,105 @@ export function checkResourceNotifications(nation: Nation, gameDate: Date): void
   
   const pendingNotifications: Array<PendingNotification> = [];
   
-  Object.keys(resourcesData || {}).forEach(resourceId => {
-    if (!resourceId || !resourcesData || !resourcesData[resourceId]) return;
-    
-    const resource = resourcesData[resourceId];
-    if (!resource) return;
-    
-    const stockpile = nation.resourceStockpiles?.[resourceId] || 0;
-    const production = nation.resourceProduction?.[resourceId] || 0;
-    const consumption = nation.resourceConsumption?.[resourceId] || 0;
-    const net = production - consumption;
-    
-    // Calculate weeks of supply
-    const weeksOfSupply = consumption > 0 ? stockpile / consumption : Infinity;
-    
-    // Calculate shortage severity
-    let severity = 0;
-    let notificationType: 'shortage' | 'surplus' | 'critical' = 'shortage';
-    
-    if (consumption > 0) {
-      if (weeksOfSupply < 2) {
-        severity = 1 - (weeksOfSupply / 2); // 0-1 scale
-        notificationType = 'critical';
-      } else if (weeksOfSupply < 8) {
-        severity = 1 - (weeksOfSupply / 8); // 0-1 scale
-        notificationType = 'shortage';
-      } else if (net > consumption * 0.5 && stockpile > consumption * 16) {
-        // Large surplus (net positive and 16+ weeks of stock)
-        severity = Math.min(1, net / consumption);
-        notificationType = 'surplus';
-      }
-    }
-    
-    const lastNotification = nationNotifications.get(resourceId);
-    const shouldNotify = shouldSendNotificationEnhanced(
-      severity, 
-      notificationType, 
-      lastNotification, 
-      now,
-      resourceId,
-      nation.id
-    );
-    
-    if (shouldNotify) {
-      if (settings.groupNotifications && notificationType !== 'critical') {
-        // Add to pending group notifications (non-critical only)
-        pendingNotifications.push({
-          resourceId,
-          type: notificationType,
-          severity
-        });
-      } else {
-        // Send immediate notification for critical issues
-        sendResourceNotification(nation, resource, severity, notificationType, stockpile, weeksOfSupply);
+  try {
+    Object.keys(resourcesData || {}).forEach(resourceId => {
+      if (!resourceId || !resourcesData || !resourcesData[resourceId]) return;
+      
+      const resource = resourcesData[resourceId];
+      if (!resource) return;
+      
+      const stockpile = nation.resourceStockpiles?.[resourceId] || 0;
+      const production = nation.resourceProduction?.[resourceId] || 0;
+      const consumption = nation.resourceConsumption?.[resourceId] || 0;
+      const net = production - consumption;
+      
+      // Calculate weeks of supply
+      const weeksOfSupply = consumption > 0 ? stockpile / consumption : Infinity;
+      
+      // Calculate shortage severity
+      let severity = 0;
+      let notificationType: 'shortage' | 'surplus' | 'critical' = 'shortage';
+      
+      if (consumption > 0) {
+        if (weeksOfSupply < 2) {
+          severity = 1 - (weeksOfSupply / 2); // 0-1 scale
+          notificationType = 'critical';
+        } else if (weeksOfSupply < 8) {
+          severity = 1 - (weeksOfSupply / 8); // 0-1 scale
+          notificationType = 'shortage';
+        } else if (net > consumption * 0.5 && stockpile > consumption * 16) {
+          // Large surplus (net positive and 16+ weeks of stock)
+          severity = Math.min(1, net / consumption);
+          notificationType = 'surplus';
+        }
       }
       
-      // Update notification tracking
-      nationNotifications.set(resourceId, {
+      const lastNotification = nationNotifications.get(resourceId);
+      const shouldNotify = shouldSendNotificationEnhanced(
+        severity, 
+        notificationType, 
+        lastNotification, 
+        now,
         resourceId,
-        severity,
-        lastNotified: now,
-        type: notificationType,
-        ticksInState: (lastNotification?.ticksInState || 0) + 1,
-        thresholdCrossed: true
-      });
-    } else {
-      // Update ticks in state even if not notifying
-      if (lastNotification && lastNotification.type === notificationType) {
+        nation.id
+      );
+      
+      if (shouldNotify) {
+        if (settings.groupNotifications && notificationType !== 'critical') {
+          // Add to pending group notifications (non-critical only)
+          pendingNotifications.push({
+            resourceId,
+            type: notificationType,
+            severity
+          });
+        } else {
+          // Send immediate notification for critical issues
+          sendResourceNotification(nation, resource, severity, notificationType, stockpile, weeksOfSupply);
+        }
+        
+        // Update notification tracking
         nationNotifications.set(resourceId, {
-          ...lastNotification,
-          ticksInState: lastNotification.ticksInState + 1
+          resourceId,
+          severity,
+          lastNotified: now,
+          type: notificationType,
+          ticksInState: (lastNotification?.ticksInState || 0) + 1,
+          thresholdCrossed: true
         });
+      } else {
+        // Update ticks in state even if not notifying
+        if (lastNotification && lastNotification.type === notificationType) {
+          nationNotifications.set(resourceId, {
+            ...lastNotification,
+            ticksInState: lastNotification.ticksInState + 1
+          });
+        }
       }
-    }
-  });
+    });
+  } catch (error) {
+    console.error('Error in resource notifications:', error);
+    return;
+  }
   
   // Handle grouped notifications
   if (pendingNotifications.length > 0) {
-    if (settings.groupNotifications && pendingNotifications.length > 1) {
-      sendGroupedNotification(nation, pendingNotifications);
-    } else {
-      // Send individual notifications if only one or grouping disabled
-      pendingNotifications.forEach(notif => {
-        if (!notif || !notif.resourceId) return;
-        const resource = resourcesData[notif.resourceId];
-        if (!resource) return;
-        const stockpile = nation.resourceStockpiles?.[notif.resourceId] || 0;
-        const consumption = nation.resourceConsumption?.[notif.resourceId] || 0;
-        const weeksOfSupply = consumption > 0 ? stockpile / consumption : Infinity;
-        sendResourceNotification(nation, resource, notif.severity, notif.type, stockpile, weeksOfSupply);
-      });
+    try {
+      if (settings.groupNotifications && pendingNotifications.length > 1) {
+        sendGroupedNotification(nation, pendingNotifications);
+      } else {
+        // Send individual notifications if only one or grouping disabled
+        pendingNotifications.forEach(notif => {
+          if (!notif || !notif.resourceId) return;
+          const resource = resourcesData[notif.resourceId];
+          if (!resource) return;
+          const stockpile = nation.resourceStockpiles?.[notif.resourceId] || 0;
+          const consumption = nation.resourceConsumption?.[notif.resourceId] || 0;
+          const weeksOfSupply = consumption > 0 ? stockpile / consumption : Infinity;
+          sendResourceNotification(nation, resource, notif.severity, notif.type, stockpile, weeksOfSupply);
+        });
+      }
+    } catch (error) {
+      console.error('Error sending grouped notifications:', error);
     }
   }
   

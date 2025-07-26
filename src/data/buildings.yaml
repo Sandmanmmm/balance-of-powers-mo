@@ -144,12 +144,12 @@ buildings:
     consumes:
       manpower: 50
       electricity: 8
-      oil: 12
+      water: 100
     improves:
       food_security: 2
       employment: 400
     requiresFeatures:
-      - "agricultural"
+      - "plains"
     requirements:
       infrastructure: 1
     icon: "🚜"
@@ -215,7 +215,6 @@ buildings:
       employment: 300
     requiresFeatures:
       - "coastal"
-      - "fishing_grounds"
     requirements:
       infrastructure: 2
     icon: "🎣"

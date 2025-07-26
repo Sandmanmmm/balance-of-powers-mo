@@ -58,6 +58,13 @@ resources:
     unit: "tons"
     base_price: 5
     
+  water:
+    name: "Water"
+    category: "basic"
+    description: "Essential for agriculture and population"
+    unit: "liters"
+    base_price: 0.01
+    
   # Advanced Resources
   uranium:
     name: "Uranium"

@@ -9,6 +9,7 @@ provinces:
       - "river_access"
       - "temperate_climate"
       - "urban"
+      - "farmland"
     population:
       total: 7800000
       ethnic_groups:
@@ -52,7 +53,12 @@ provinces:
       gdp_per_capita: 42000
       unemployment: 5.1
       inflation: 2.8
-    buildings: []
+    buildings: 
+      - buildingId: "food_farm"
+        level: 1
+        constructedDate: "1990-01-01"
+        efficiency: 1.0
+        effects: {}
     construction_projects: []
 
   GER_002:
@@ -64,8 +70,8 @@ provinces:
       - "oil_rich"
       - "windy"
       - "flat_terrain"
-      - "fishing_grounds"
       - "low_population"
+      - "plains"
     population:
       total: 2500000
       ethnic_groups:
@@ -120,6 +126,7 @@ provinces:
       - "tourism"
       - "sunny"
       - "desert"
+      - "farmland"
     population:
       total: 39500000
       ethnic_groups:
@@ -166,7 +173,12 @@ provinces:
       gdp_per_capita: 75000
       unemployment: 4.1
       inflation: 3.2
-    buildings: []
+    buildings: 
+      - buildingId: "food_farm"
+        level: 1
+        constructedDate: "1990-01-01"
+        efficiency: 1.0
+        effects: {}
     construction_projects: []
 
   USA_002:
@@ -179,6 +191,7 @@ provinces:
       - "desert"
       - "sunny"
       - "flat_terrain"
+      - "farmland"
     population:
       total: 8200000
       ethnic_groups:
@@ -221,7 +234,12 @@ provinces:
       gdp_per_capita: 58000
       unemployment: 3.8
       inflation: 2.9
-    buildings: []
+    buildings: 
+      - buildingId: "food_farm"
+        level: 1
+        constructedDate: "1990-01-01"
+        efficiency: 1.0
+        effects: {}
     construction_projects: []
 
   AUS_001:

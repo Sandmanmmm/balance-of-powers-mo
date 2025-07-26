@@ -67,6 +67,14 @@ export const resourcesData: Record<string, Resource> = {
     unit: "tons",
     base_price: 5
   },
+  water: {
+    id: 'water',
+    name: "Water",
+    category: "basic",
+    description: "Essential for agriculture and population",
+    unit: "liters",
+    base_price: 0.01
+  },
   uranium: {
     id: 'uranium',
     name: "Uranium",
