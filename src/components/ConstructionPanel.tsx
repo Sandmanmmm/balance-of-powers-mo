@@ -197,12 +197,13 @@ export function ConstructionPanel({
           </CardHeader>
           <CardContent>
             <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
-              <TabsList className="grid grid-cols-5 w-full mb-4">
+              <TabsList className="grid grid-cols-6 w-full mb-4">
                 <TabsTrigger value="all" className="text-xs">All</TabsTrigger>
                 <TabsTrigger value="extraction" className="text-xs">Extract</TabsTrigger>
                 <TabsTrigger value="energy" className="text-xs">Energy</TabsTrigger>
                 <TabsTrigger value="industrial" className="text-xs">Industry</TabsTrigger>
-                <TabsTrigger value="storage" className="text-xs">Storage</TabsTrigger>
+                <TabsTrigger value="technology" className="text-xs">Tech</TabsTrigger>
+                <TabsTrigger value="agriculture" className="text-xs">Food</TabsTrigger>
               </TabsList>
               
               <ScrollArea className="h-[300px]">
@@ -211,10 +212,19 @@ export function ConstructionPanel({
                     <div className="text-center py-8 text-muted-foreground">
                       <AlertCircle className="w-8 h-8 mx-auto mb-2" />
                       <p className="font-medium">No available buildings for this province</p>
-                      <div className="text-xs space-y-1 mt-2">
-                        <p>Province features: {province.features?.join(', ') || 'none'}</p>
-                        <p>This province may lack required features, infrastructure, or technology.</p>
-                        <p>Try upgrading infrastructure or researching new technologies.</p>
+                      <div className="text-xs space-y-1 mt-3 bg-muted p-3 rounded-md">
+                        <p><span className="font-medium">Province features:</span> {province.features?.length ? province.features.join(', ') : 'none'}</p>
+                        <p><span className="font-medium">Infrastructure level:</span> {province.infrastructure.roads}/5</p>
+                        <p><span className="font-medium">Category filter:</span> {selectedCategory === 'all' ? 'All categories' : selectedCategory}</p>
+                        <div className="mt-2 text-left">
+                          <p className="font-medium mb-1">Try:</p>
+                          <ul className="list-disc list-inside space-y-1">
+                            <li>Selecting "All" category</li>
+                            <li>Building infrastructure first</li>
+                            <li>Researching new technologies</li>
+                            <li>Selecting a province with different features</li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   ) : (
@@ -268,6 +278,11 @@ export function ConstructionPanel({
                                         </Badge>
                                       );
                                     })}
+                                    {building.requiresFeatures.length > 0 && (
+                                      <Badge variant="outline" className="text-xs opacity-70">
+                                        requires any one ↑
+                                      </Badge>
+                                    )}
                                     
                                     {/* Infrastructure Requirements */}
                                     {building.requirements.infrastructure && (

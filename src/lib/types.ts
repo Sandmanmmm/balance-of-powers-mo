@@ -182,7 +182,7 @@ export interface Building {
   id: string;
   name: string;
   description: string;
-  category: 'industrial' | 'military' | 'infrastructure' | 'research' | 'civilian' | 'energy' | 'agriculture' | 'tourism' | 'safety' | 'technology';
+  category: 'industrial' | 'military' | 'infrastructure' | 'research' | 'civilian' | 'energy' | 'agriculture' | 'tourism' | 'safety' | 'technology' | 'extraction' | 'environmental' | 'commercial' | 'aerospace';
   cost: number;
   buildTime: number; // in ticks
   produces: Record<string, number>; // New: resources produced per tick

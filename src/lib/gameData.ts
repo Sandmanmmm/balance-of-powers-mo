@@ -94,7 +94,7 @@ const provincesData = {
       name: "Lower Saxony",
       country: "Germany",
       coordinates: [52.6367, 9.8451],
-      features: ["plains", "industrial", "river_access", "temperate_climate", "urban"],
+      features: ["plains", "industrial", "river_access", "temperate_climate", "urban", "tech_hub", "farmland"],
       population: {
         total: 7800000,
         ethnic_groups: [
@@ -149,7 +149,7 @@ const provincesData = {
       name: "California",
       country: "United States",
       coordinates: [36.7783, -119.4179],
-      features: ["coastal", "high_tech", "urban", "scenic", "tourism", "sunny", "desert"],
+      features: ["coastal", "high_tech", "urban", "scenic", "tourism", "sunny", "desert", "tech_hub"],
       population: {
         total: 39500000,
         ethnic_groups: [
@@ -198,7 +198,7 @@ const provincesData = {
       name: "Guangdong",
       country: "China",
       coordinates: [23.3417, 113.4244],
-      features: ["coastal", "subtropical_climate", "manufacturing", "high_density", "urban", "river_delta"],
+      features: ["coastal", "subtropical_climate", "manufacturing", "high_density", "urban", "river_delta", "industrial"],
       population: {
         total: 126000000,
         ethnic_groups: [
@@ -243,7 +243,7 @@ const provincesData = {
       name: "Bavaria",
       country: "Germany",
       coordinates: [48.7904, 11.4979],
-      features: ["mountainous", "scenic", "tourism", "agricultural", "cold_climate"],
+      features: ["mountainous", "scenic", "tourism", "agricultural", "cold_climate", "farmland"],
       population: {
         total: 13200000,
         ethnic_groups: [
@@ -292,7 +292,7 @@ const provincesData = {
       name: "Texas",
       country: "United States",
       coordinates: [31.9686, -99.9018],
-      features: ["plains", "desert", "oil_rich", "flat_terrain", "sunny", "windy"],
+      features: ["plains", "desert", "oil_rich", "flat_terrain", "sunny", "windy", "farmland"],
       population: {
         total: 30000000,
         ethnic_groups: [
@@ -388,6 +388,117 @@ const provincesData = {
         gdp_per_capita: 65000,
         unemployment: 5.2,
         inflation: 2.1
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "JPN_001": {
+      name: "Tokyo Metropolitan",
+      country: "Japan", 
+      coordinates: [35.6762, 139.6503],
+      features: ["urban", "high_density", "tech_hub", "coastal", "high_tech", "earthquake_prone"],
+      population: {
+        total: 14000000,
+        ethnic_groups: [
+          { group: "Japanese", percent: 97.1 },
+          { group: "Chinese", percent: 1.2 },
+          { group: "Korean", percent: 0.9 },
+          { group: "Other", percent: 0.8 }
+        ]
+      },
+      unrest: 1.5,
+      infrastructure: {
+        roads: 5,
+        internet: 5,
+        healthcare: 5,
+        education: 5
+      },
+      resource_deposits: {
+        oil: 0,
+        steel: 0,
+        rare_earth: 15,
+        uranium: 0,
+        food: 50
+      },
+      military: {
+        stationed_units: ["JPN_SDF_1"],
+        fortification_level: 3
+      },
+      resource_output: {
+        energy: 2200,
+        iron: 20,
+        food: 300,
+        technology: 1800
+      },
+      politics: {
+        party_support: {
+          "Liberal Democratic": 45.2,
+          "Constitutional Democratic": 28.1,
+          "Innovation": 12.3,
+          "Communist": 8.9,
+          "Other": 5.5
+        },
+        governor_approval: 58.7
+      },
+      economy: {
+        gdp_per_capita: 48000,
+        unemployment: 2.8,
+        inflation: 1.2
+      },
+      buildings: [],
+      construction_projects: []
+    },
+    "NOR_001": {
+      name: "Northern Norway",
+      country: "Norway",
+      coordinates: [69.0, 18.0],
+      features: ["mountainous", "cold_climate", "oil_rich", "coastal", "low_population", "geothermal_activity", "fishing_grounds"],
+      population: {
+        total: 500000,
+        ethnic_groups: [
+          { group: "Norwegian", percent: 88.2 },
+          { group: "Sami", percent: 8.5 },
+          { group: "Other", percent: 3.3 }
+        ]
+      },
+      unrest: 0.8,
+      infrastructure: {
+        roads: 2,
+        internet: 4,
+        healthcare: 4,
+        education: 4
+      },
+      resource_deposits: {
+        oil: 800,
+        steel: 200,
+        rare_earth: 50,
+        uranium: 0,
+        food: 100
+      },
+      military: {
+        stationed_units: [],
+        fortification_level: 1
+      },
+      resource_output: {
+        energy: 400,
+        iron: 80,
+        food: 200,
+        technology: 60
+      },
+      politics: {
+        party_support: {
+          "Labour": 35.2,
+          "Conservative": 28.1,
+          "Centre": 18.3,
+          "Progress": 12.9,
+          "Other": 5.5
+        },
+        governor_approval: 72.4
+      },
+      economy: {
+        gdp_per_capita: 82000,
+        unemployment: 3.1,
+        inflation: 2.9
       },
       buildings: [],
       construction_projects: []
@@ -1154,6 +1265,132 @@ function convertBuildings(): Building[] {
       requiresFeatures: ["scenic", "wilderness"],
       requirements: { infrastructure: 1 },
       icon: "🌲"
+    },
+    {
+      id: "submarine_base",
+      name: "Naval Submarine Base",
+      description: "Military submarine operations facility",
+      category: "military" as const,
+      cost: 8500,
+      buildTime: 320,
+      produces: {},
+      consumes: { electricity: 60, manpower: 250, steel: 15, oil: 30 },
+      improves: { naval_power: 8, strategic_depth: 3, military_prestige: 2 },
+      requiresFeatures: ["coastal"],
+      requirements: { infrastructure: 3, technology: "submarine_technology" },
+      icon: "🚢"
+    },
+    {
+      id: "ski_resort",
+      name: "Ski Resort",
+      description: "Mountain tourism and recreation facility",
+      category: "tourism" as const,
+      cost: 3200,
+      buildTime: 200,
+      produces: { consumer_goods: 15 },
+      consumes: { electricity: 25, manpower: 80 },
+      improves: { tourism_income: 8, employment: 300, local_happiness: 2 },
+      requiresFeatures: ["mountainous", "cold_climate"],
+      requirements: { infrastructure: 2 },
+      icon: "⛷️"
+    },
+    {
+      id: "mining_complex",
+      name: "Large Mining Complex",
+      description: "Comprehensive mineral extraction facility",
+      category: "extraction" as const,
+      cost: 6000,
+      buildTime: 300,
+      produces: { steel: 80, rare_earth: 25 },
+      consumes: { electricity: 120, manpower: 400, oil: 40 },
+      improves: { resource_extraction: 5, employment: 1200 },
+      requiresFeatures: ["mineral_deposits", "radioactive_deposits"],
+      requirements: { infrastructure: 3 },
+      icon: "⛏️"
+    },
+    {
+      id: "data_center",
+      name: "Data Center",
+      description: "High-performance computing and cloud services",
+      category: "technology" as const,
+      cost: 4500,
+      buildTime: 180,
+      produces: { research: 40, semiconductors: 8 },
+      consumes: { electricity: 180, manpower: 120, rare_earth: 12 },
+      improves: { digital_infrastructure: 4, tech_advancement: 0.2 },
+      requiresFeatures: ["tech_hub", "urban"],
+      requirements: { infrastructure: 4, technology: "advanced_computing" },
+      icon: "💻"
+    },
+    {
+      id: "beach_resort",
+      name: "Beach Resort",
+      description: "Coastal tourism and entertainment complex",
+      category: "tourism" as const,
+      cost: 2800,
+      buildTime: 160,
+      produces: { consumer_goods: 20 },
+      consumes: { electricity: 30, manpower: 100 },
+      improves: { tourism_income: 6, employment: 400, coastal_development: 2 },
+      requiresFeatures: ["coastal", "sunny"],
+      requirements: { infrastructure: 2 },
+      icon: "🏖️"
+    },
+    {
+      id: "vertical_farm",
+      name: "Vertical Farm",
+      description: "High-tech indoor agriculture facility",
+      category: "agriculture" as const,
+      cost: 3500,
+      buildTime: 140,
+      produces: { food: 800 },
+      consumes: { electricity: 80, manpower: 60, semiconductors: 3 },
+      improves: { food_security: 4, urban_sustainability: 3, water_efficiency: 2 },
+      requiresFeatures: ["urban", "tech_hub"],
+      requirements: { infrastructure: 3, technology: "biotechnology" },
+      icon: "🌱"
+    },
+    {
+      id: "thermal_plant",
+      name: "Geothermal Power Plant",
+      description: "Clean energy from underground heat sources",
+      category: "energy" as const,
+      cost: 5500,
+      buildTime: 280,
+      produces: { electricity: 400 },
+      consumes: { manpower: 80, steel: 12 },
+      improves: { clean_energy: 4, energy_security: 3, environmental_quality: 1 },
+      requiresFeatures: ["mountainous", "geothermal_activity"],
+      requirements: { infrastructure: 3, technology: "renewable_energy" },
+      icon: "🌋"
+    },
+    {
+      id: "cattle_ranch",
+      name: "Cattle Ranch",
+      description: "Large-scale livestock farming operation",
+      category: "agriculture" as const,
+      cost: 1200,
+      buildTime: 80,
+      produces: { food: 600 },
+      consumes: { manpower: 40, oil: 8 },
+      improves: { food_security: 2, employment: 200, rural_development: 1 },
+      requiresFeatures: ["plains", "farmland"],
+      requirements: { infrastructure: 1 },
+      icon: "🐄"
+    },
+    {
+      id: "oil_refinery",
+      name: "Oil Refinery",
+      description: "Processes crude oil into fuel and chemicals",
+      category: "industrial" as const,
+      cost: 4800,
+      buildTime: 240,
+      produces: { consumer_goods: 30, electricity: 50 },
+      consumes: { oil: 120, manpower: 180, steel: 10 },
+      improves: { industrial_capacity: 3, energy_independence: 2 },
+      requiresFeatures: ["oil_rich", "industrial"],
+      requirements: { infrastructure: 3 },
+      icon: "🏭"
     }
   ];
 
@@ -1429,9 +1666,9 @@ export function getBuildingsByCategory(category: string): Building[] {
 export function getAvailableBuildings(province: Province, nation: Nation, completedTech: string[]): Building[] {
   const buildings = getBuildings();
   return buildings.filter(building => {
-    // Check feature requirements - more flexible matching
-    if (building.requiresFeatures.length > 0) {
-      // Province must have at least one of the required features (OR logic, not AND)
+    // Check feature requirements with flexible matching
+    if (building.requiresFeatures && building.requiresFeatures.length > 0) {
+      // Province must have at least one of the required features (some() logic)
       const hasAnyRequiredFeature = building.requiresFeatures.some(feature => 
         province.features?.includes(feature) || false
       );
@@ -1439,23 +1676,24 @@ export function getAvailableBuildings(province: Province, nation: Nation, comple
         return false;
       }
     }
+    // If no requiresFeatures, treat as globally constructible
     
     // Check basic requirements
-    if (building.requirements.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
+    if (building.requirements?.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
       return false;
     }
     
     // Check technology requirements
-    if (building.requirements.technology && !completedTech.includes(building.requirements.technology)) {
+    if (building.requirements?.technology && !completedTech.includes(building.requirements.technology)) {
       return false;
     }
     
     // Check special requirements (coastal, rural, etc.) - legacy support
-    if (building.requirements.coastal && !isCoastalProvince(province)) {
+    if (building.requirements?.coastal && !isCoastalProvince(province)) {
       return false;
     }
     
-    if (building.requirements.rural && !isRuralProvince(province)) {
+    if (building.requirements?.rural && !isRuralProvince(province)) {
       return false;
     }
     
