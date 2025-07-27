@@ -1,0 +1,52 @@
+{
+  "US_CA": {
+    "type": "Feature",
+    "properties": {"id": "US_CA", "name": "California"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-124.4, 42.0], [-124.4, 32.5], [-114.1, 32.5], [-117.1, 35.8], [-119.0, 39.0], [-120.0, 41.9], [-124.4, 42.0]
+      ]]
+    }
+  },
+  "US_TX": {
+    "type": "Feature", 
+    "properties": {"id": "US_TX", "name": "Texas"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-106.6, 31.8], [-93.5, 29.8], [-93.5, 33.9], [-103.0, 36.5], [-109.0, 31.3], [-106.6, 31.8]
+      ]]
+    }
+  },
+  "US_NY": {
+    "type": "Feature",
+    "properties": {"id": "US_NY", "name": "New York"},
+    "geometry": {
+      "type": "Polygon", 
+      "coordinates": [[
+        [-79.8, 42.3], [-71.9, 40.5], [-73.3, 45.0], [-79.8, 45.0], [-79.8, 42.3]
+      ]]
+    }
+  },
+  "US_FL": {
+    "type": "Feature",
+    "properties": {"id": "US_FL", "name": "Florida"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-87.6, 30.6], [-79.9, 24.4], [-80.0, 31.0], [-87.6, 30.6]
+      ]]
+    }
+  },
+  "US_IL": {
+    "type": "Feature",
+    "properties": {"id": "US_IL", "name": "Illinois"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-91.5, 42.5], [-87.0, 41.8], [-87.5, 37.0], [-91.5, 37.0], [-91.5, 42.5]
+      ]]
+    }
+  }
+}

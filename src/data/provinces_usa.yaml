@@ -1,0 +1,149 @@
+# United States Provinces
+- id: US_CA
+  name: "California"
+  country: "United States"
+  population:
+    total: 39500000
+    ethnic_groups:
+      - group: "White"
+        percent: 36
+      - group: "Hispanic"
+        percent: 39
+      - group: "Asian"
+        percent: 15
+      - group: "Black"
+        percent: 6
+  unrest: 7
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["coastal", "tech_hub", "urban", "farmland"]
+  resource_output:
+    energy: 8500
+    food: 12000
+    industrial_capacity: 18000
+    technology: 25000
+  politics:
+    party_support:
+      Democrats: 62.3
+      Republicans: 32.1
+      Green: 3.2
+      Libertarian: 2.4
+
+- id: US_TX
+  name: "Texas"
+  country: "United States"
+  population:
+    total: 29900000
+    ethnic_groups:
+      - group: "White"
+        percent: 41
+      - group: "Hispanic"
+        percent: 40
+      - group: "Black"
+        percent: 12
+      - group: "Asian"
+        percent: 5
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["oil_rich", "farmland", "urban", "desert"]
+  resource_output:
+    energy: 15000
+    food: 8500
+    industrial_capacity: 12000
+    oil: 18000
+  politics:
+    party_support:
+      Republicans: 52.8
+      Democrats: 46.5
+      Libertarian: 0.7
+
+- id: US_NY
+  name: "New York"
+  country: "United States"
+  population:
+    total: 19450000
+    ethnic_groups:
+      - group: "White"
+        percent: 54
+      - group: "Hispanic"
+        percent: 19
+      - group: "Black"
+        percent: 14
+      - group: "Asian"
+        percent: 9
+  unrest: 8
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["coastal", "urban", "financial_hub"]
+  resource_output:
+    energy: 6500
+    food: 2500
+    industrial_capacity: 15000
+    technology: 18000
+  politics:
+    party_support:
+      Democrats: 60.9
+      Republicans: 37.7
+      Green: 1.4
+
+- id: US_FL
+  name: "Florida"
+  country: "United States"
+  population:
+    total: 21480000
+    ethnic_groups:
+      - group: "White"
+        percent: 53
+      - group: "Hispanic"
+        percent: 26
+      - group: "Black"
+        percent: 16
+      - group: "Asian"
+        percent: 3
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "urban", "farmland"]
+  resource_output:
+    energy: 4500
+    food: 8000
+    industrial_capacity: 8500
+  politics:
+    party_support:
+      Republicans: 51.2
+      Democrats: 47.9
+      Libertarian: 0.9
+
+- id: US_IL
+  name: "Illinois"
+  country: "United States"
+  population:
+    total: 12670000
+    ethnic_groups:
+      - group: "White"
+        percent: 60
+      - group: "Hispanic"
+        percent: 18
+      - group: "Black"
+        percent: 14
+      - group: "Asian"
+        percent: 6
+  unrest: 7
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "farmland", "industrial"]
+  resource_output:
+    energy: 5500
+    food: 9500
+    industrial_capacity: 12000
+  politics:
+    party_support:
+      Democrats: 57.5
+      Republicans: 40.6
+      Green: 1.9

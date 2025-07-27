@@ -1,64 +1,5 @@
 import yaml from 'js-yaml';
-
-// Types for our data structures
-export interface Nation {
-  id: string;
-  name: string;
-  leader: string;
-  ideology: string;
-  government_type: string;
-  economy: {
-    gdp: number;
-    treasury: number;
-    debt: number;
-  };
-  stability: number;
-  corruption: number;
-  unrest: number;
-  resources: Record<string, number>;
-  policies: Record<string, string>;
-}
-
-export interface Province {
-  id: string;
-  name: string;
-  country: string;
-  population: {
-    total: number;
-    ethnic_groups: Array<{
-      group: string;
-      percent: number;
-    }>;
-  };
-  unrest: number;
-  infrastructure: {
-    roads: number;
-    internet: number;
-  };
-  military: {
-    stationed_units?: Array<{
-      id: string;
-    }>;
-  };
-  resource_output: Record<string, number>;
-  politics: {
-    party_support: Record<string, number>;
-  };
-  features: string[];
-  resources: Record<string, number>;
-  buildings: Array<{
-    id: string;
-    name: string;
-    type: string;
-    effects: Record<string, number>;
-    active: boolean;
-  }>;
-  construction_queue: Array<{
-    building_id: string;
-    ticks_remaining: number;
-    cost: number;
-  }>;
-}
+import { Province, Nation } from '../lib/types';
 
 // Helper functions to convert raw YAML data to TypeScript interfaces
 function convertRawNation(id: string, rawData: any): Nation {
@@ -71,11 +12,7 @@ function convertRawNation(id: string, rawData: any): Nation {
       type: rawData.government?.type || 'democracy',
       leader: rawData.government?.leader || 'Unknown',
       approval: rawData.government?.approval || 50,
-      stability: rawData.government?.stability || 50,
-      ruling_party: rawData.government?.ruling_party || 'Unknown',
-      ideology: rawData.government?.ideology || 'Unknown',
-      election_cycle: rawData.government?.election_cycle || 4,
-      last_election: rawData.government?.last_election || ''
+      stability: rawData.government?.stability || 50
     },
     economy: {
       gdp: rawData.economy?.gdp || 0,
@@ -133,18 +70,25 @@ function convertRawProvince(id: string, rawData: any): Province {
       roads: rawData.infrastructure?.roads || 1,
       internet: rawData.infrastructure?.internet || 1,
       healthcare: rawData.infrastructure?.healthcare || 1,
-      education: rawData.infrastructure?.education || 1,
-      ...rawData.infrastructure
+      education: rawData.infrastructure?.education || 1
     },
     resourceDeposits: rawData.resource_deposits || rawData.resourceDeposits || {},
     military: {
-      stationedUnits: (rawData.military?.stationed_units || []).map((unitId: string) => ({
-        id: unitId,
-        strength: Math.floor(Math.random() * 100) + 50
-      })),
+      stationedUnits: (rawData.military?.stationed_units || []).map((unitData: any) => {
+        if (typeof unitData === 'string') {
+          return { id: unitData, strength: Math.floor(Math.random() * 100) + 50 };
+        } else {
+          return { id: unitData.id || 'unknown', strength: unitData.strength || 50 };
+        }
+      }),
       fortificationLevel: rawData.military?.fortification_level || rawData.military?.fortificationLevel || 1
     },
-    resourceOutput: rawData.resource_output || rawData.resourceOutput || {},
+    resourceOutput: {
+      energy: rawData.resource_output?.energy || rawData.resourceOutput?.energy || 0,
+      iron: rawData.resource_output?.iron || rawData.resourceOutput?.iron || 0,
+      food: rawData.resource_output?.food || rawData.resourceOutput?.food || 0,
+      technology: rawData.resource_output?.technology || rawData.resourceOutput?.technology || 0
+    },
     politics: {
       partySupport: rawData.politics?.party_support || rawData.politics?.partySupport || {},
       governorApproval: rawData.politics?.governor_approval || rawData.politics?.governorApproval || 50

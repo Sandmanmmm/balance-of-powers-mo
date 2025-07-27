@@ -1,0 +1,128 @@
+# China Provinces
+- id: CN_BJ
+  name: "Beijing"
+  country: "China"
+  population:
+    total: 21540000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 95
+      - group: "Manchu"
+        percent: 2
+      - group: "Hui"
+        percent: 2
+  unrest: 3
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "tech_hub", "political_center"]
+  resource_output:
+    energy: 8500
+    food: 1500
+    industrial_capacity: 15000
+    technology: 22000
+  politics:
+    party_support:
+      Communist: 92.1
+      Independent: 7.9
+
+- id: CN_SH
+  name: "Shanghai"
+  country: "China"
+  population:
+    total: 24280000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 98
+      - group: "Other"
+        percent: 2
+  unrest: 4
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["coastal", "urban", "financial_hub", "industrial"]
+  resource_output:
+    energy: 9500
+    food: 1000
+    industrial_capacity: 25000
+    technology: 18000
+  politics:
+    party_support:
+      Communist: 89.4
+      Independent: 10.6
+
+- id: CN_GD
+  name: "Guangdong"
+  country: "China"
+  population:
+    total: 126010000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 94
+      - group: "Zhuang"
+        percent: 3
+      - group: "Other"
+        percent: 3
+  unrest: 5
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "urban", "industrial", "tech_hub"]
+  resource_output:
+    energy: 15000
+    food: 8500
+    industrial_capacity: 35000
+    technology: 15000
+  politics:
+    party_support:
+      Communist: 88.7
+      Independent: 11.3
+
+- id: CN_SD
+  name: "Shandong"
+  country: "China"
+  population:
+    total: 101530000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 99
+      - group: "Other"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["coastal", "farmland", "industrial"]
+  resource_output:
+    energy: 12000
+    food: 18000
+    industrial_capacity: 22000
+  politics:
+    party_support:
+      Communist: 94.2
+      Independent: 5.8
+
+- id: CN_JS
+  name: "Jiangsu"
+  country: "China"
+  population:
+    total: 84740000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 99
+      - group: "Other"
+        percent: 1
+  unrest: 2
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "urban", "industrial", "farmland"]
+  resource_output:
+    energy: 11000
+    food: 12000
+    industrial_capacity: 28000
+    technology: 12000
+  politics:
+    party_support:
+      Communist: 91.8
+      Independent: 8.2

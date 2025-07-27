@@ -1,0 +1,20 @@
+- id: CHN
+  name: "China"
+  leader: "President Xi Jinping"
+  ideology: "Socialism"
+  government_type: "One-Party State"
+  gdp: 17000000000000
+  treasury: 800000000000
+  stability: 88
+  corruption: 25
+  unrest: 5
+  military_doctrine: "People's War"
+  tax_level: "high"
+  resources:
+    manpower: 800000000
+    energy: 95000
+    food: 85000
+    industrial_capacity: 140000
+    technology: 85000
+    oil: 25000
+    money: 800000000000

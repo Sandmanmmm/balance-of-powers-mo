@@ -1,0 +1,20 @@
+- id: RUS
+  name: "Russia"
+  leader: "President Vladimir Putin"
+  ideology: "Authoritarianism"
+  government_type: "Federal Republic"
+  gdp: 2000000000000
+  treasury: 200000000000
+  stability: 75
+  corruption: 45
+  unrest: 12
+  military_doctrine: "Deep Battle"
+  tax_level: "moderate"
+  resources:
+    manpower: 80000000
+    energy: 150000
+    food: 65000
+    industrial_capacity: 35000
+    technology: 45000
+    oil: 85000
+    money: 200000000000

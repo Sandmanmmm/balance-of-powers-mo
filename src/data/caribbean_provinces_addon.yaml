@@ -1,0 +1,321 @@
+# Additional Caribbean Provinces - to be appended to provinces.yaml
+
+  # Jamaica Provinces
+  JAM_001:
+    name: "Kingston"
+    country: "Jamaica"
+    coordinates: [17.9970, -76.7936]
+    features:
+      - "urban"
+      - "coastal"
+      - "capital"
+      - "port"
+      - "cultural_center"
+    population:
+      total: 584627
+      ethnic_groups:
+        - group: "Black"
+          percent: 92.1
+        - group: "Mixed Race"
+          percent: 6.1
+        - group: "Other"
+          percent: 1.8
+    unrest: 3.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 5
+      rare_earth: 0
+      uranium: 0
+      food: 85
+    military:
+      stationed_units: []
+      fortification_level: 2
+    resource_output:
+      energy: 185
+      iron: 8
+      food: 125
+      technology: 285
+    politics:
+      party_support:
+        "Jamaica Labour Party": 52.8
+        "People's National Party": 44.5
+        "Independent": 2.7
+      governor_approval: 48.5
+    economy:
+      gdp_per_capita: 8500
+      unemployment: 14.2
+      inflation: 6.8
+    buildings: []
+    construction_projects: []
+
+  # Haiti Provinces
+  HTI_001:
+    name: "Ouest"
+    country: "Haiti"
+    coordinates: [18.5944, -72.3074]
+    features:
+      - "urban"
+      - "capital"
+      - "coastal"
+      - "port"
+    population:
+      total: 4029705
+      ethnic_groups:
+        - group: "Black"
+          percent: 95.0
+        - group: "Mixed Race"
+          percent: 4.0
+        - group: "Other"
+          percent: 1.0
+    unrest: 8.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 0
+      steel: 2
+      rare_earth: 0
+      uranium: 0
+      food: 125
+    military:
+      stationed_units: []
+      fortification_level: 2
+    resource_output:
+      energy: 125
+      iron: 3
+      food: 185
+      technology: 185
+    politics:
+      party_support:
+        "Coalition": 45.2
+        "Opposition": 38.5
+        "Independent": 16.3
+      governor_approval: 25.8
+    economy:
+      gdp_per_capita: 1800
+      unemployment: 22.5
+      inflation: 18.2
+    buildings: []
+    construction_projects: []
+
+  # Dominican Republic Provinces
+  DOM_001:
+    name: "Distrito Nacional"
+    country: "Dominican Republic"
+    coordinates: [18.4861, -69.9312]
+    features:
+      - "urban"
+      - "capital"
+      - "coastal"
+      - "port"
+      - "financial_center"
+    population:
+      total: 965040
+      ethnic_groups:
+        - group: "Mixed Race"
+          percent: 73.0
+        - group: "White"
+          percent: 16.0
+        - group: "Black"
+          percent: 11.0
+    unrest: 2.1
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 8
+      rare_earth: 5
+      uranium: 0
+      food: 85
+    military:
+      stationed_units: []
+      fortification_level: 2
+    resource_output:
+      energy: 285
+      iron: 12
+      food: 125
+      technology: 385
+    politics:
+      party_support:
+        "Modern Revolutionary Party": 58.5
+        "Dominican Liberation Party": 35.2
+        "Independent": 6.3
+      governor_approval: 72.5
+    economy:
+      gdp_per_capita: 12500
+      unemployment: 8.5
+      inflation: 8.1
+    buildings: []
+    construction_projects: []
+
+  # Trinidad and Tobago Provinces
+  TTO_001:
+    name: "Port of Spain"
+    country: "Trinidad and Tobago"
+    coordinates: [10.6596, -61.5089]
+    features:
+      - "urban"
+      - "capital"
+      - "coastal"
+      - "port"
+      - "oil_refining"
+    population:
+      total: 37074
+      ethnic_groups:
+        - group: "East Indian"
+          percent: 35.4
+        - group: "African"
+          percent: 34.2
+        - group: "Mixed Race"
+          percent: 22.8
+        - group: "Other"
+          percent: 7.6
+    unrest: 1.2
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 85
+      steel: 5
+      rare_earth: 0
+      uranium: 0
+      food: 25
+    military:
+      stationed_units: []
+      fortification_level: 2
+    resource_output:
+      energy: 185
+      iron: 8
+      food: 38
+      technology: 125
+    politics:
+      party_support:
+        "People's National Movement": 52.8
+        "United National Congress": 42.5
+        "Independent": 4.7
+      governor_approval: 58.5
+    economy:
+      gdp_per_capita: 18500
+      unemployment: 6.2
+      inflation: 5.2
+    buildings: []
+    construction_projects: []
+
+  # Barbados Provinces
+  BRB_001:
+    name: "Christ Church"
+    country: "Barbados"
+    coordinates: [13.0659, -59.5447]
+    features:
+      - "coastal"
+      - "tourism"
+      - "urban"
+    population:
+      total: 52868
+      ethnic_groups:
+        - group: "Black"
+          percent: 92.4
+        - group: "White"
+          percent: 2.7
+        - group: "Mixed Race"
+          percent: 3.1
+        - group: "Other"
+          percent: 1.8
+    unrest: 0.5
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 0
+      rare_earth: 0
+      uranium: 0
+      food: 18
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 28
+      iron: 0
+      food: 25
+      technology: 42
+    politics:
+      party_support:
+        "Barbados Labour Party": 68.5
+        "Democratic Labour Party": 28.2
+        "Independent": 3.3
+      governor_approval: 75.8
+    economy:
+      gdp_per_capita: 19500
+      unemployment: 8.2
+      inflation: 4.1
+    buildings: []
+    construction_projects: []
+
+  BRB_002:
+    name: "St. Michael"
+    country: "Barbados"
+    coordinates: [13.1132, -59.6136]
+    features:
+      - "urban"
+      - "capital"
+      - "coastal"
+      - "port"
+      - "financial_center"
+    population:
+      total: 104000
+      ethnic_groups:
+        - group: "Black"
+          percent: 90.8
+        - group: "White"
+          percent: 3.2
+        - group: "Mixed Race"
+          percent: 4.5
+        - group: "Other"
+          percent: 1.5
+    unrest: 0.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 0
+      rare_earth: 0
+      uranium: 0
+      food: 25
+    military:
+      stationed_units: []
+      fortification_level: 2
+    resource_output:
+      energy: 58
+      iron: 0
+      food: 35
+      technology: 85
+    politics:
+      party_support:
+        "Barbados Labour Party": 65.2
+        "Democratic Labour Party": 31.5
+        "Independent": 3.3
+      governor_approval: 68.5
+    economy:
+      gdp_per_capita: 22500
+      unemployment: 9.5
+      inflation: 4.1
+    buildings: []
+    construction_projects: []

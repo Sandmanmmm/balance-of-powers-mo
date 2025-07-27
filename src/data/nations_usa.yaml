@@ -1,0 +1,20 @@
+- id: USA
+  name: "United States"
+  leader: "President Joe Biden"
+  ideology: "Democracy"
+  government_type: "Federal Republic"
+  gdp: 25000000000000
+  treasury: 1200000000000
+  stability: 82
+  corruption: 15
+  unrest: 8
+  military_doctrine: "Combined Arms"
+  tax_level: "moderate"
+  resources:
+    manpower: 150000000
+    energy: 85000
+    food: 95000
+    industrial_capacity: 120000
+    technology: 95000
+    oil: 45000
+    money: 1200000000000

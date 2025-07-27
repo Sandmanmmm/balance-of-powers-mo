@@ -1,0 +1,843 @@
+# South American Provinces Data
+provinces:
+  # Brazil
+  - id: "SAO_PAULO"
+    name: "São Paulo"
+    country: "Brazil"
+    coordinates: [-23.5505, -46.6333]
+    population:
+      total: 45900000
+      ethnic_groups:
+        - group: "White Brazilian"
+          percent: 60
+        - group: "Mixed Race"
+          percent: 30
+        - group: "Black Brazilian"
+          percent: 7
+        - group: "Asian Brazilian"
+          percent: 3
+    unrest: 2.1
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 4
+    features: ["urban", "industrial", "tech_hub", "coastal"]
+    resources:
+      food: 150
+      energy: 200
+      water: 180
+      manpower: 2800
+    buildings: []
+
+  - id: "RIO_DE_JANEIRO"
+    name: "Rio de Janeiro"
+    country: "Brazil"
+    coordinates: [-22.9068, -43.1729]
+    population:
+      total: 17400000
+      ethnic_groups:
+        - group: "White Brazilian"
+          percent: 52
+        - group: "Mixed Race"
+          percent: 36
+        - group: "Black Brazilian"
+          percent: 11
+        - group: "Asian Brazilian"
+          percent: 1
+    unrest: 3.2
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    features: ["urban", "coastal", "tourism"]
+    resources:
+      food: 80
+      energy: 120
+      water: 90
+      manpower: 1200
+    buildings: []
+
+  - id: "MINAS_GERAIS"
+    name: "Minas Gerais"
+    country: "Brazil"
+    coordinates: [-19.9167, -43.9345]
+    population:
+      total: 21300000
+      ethnic_groups:
+        - group: "White Brazilian"
+          percent: 44
+        - group: "Mixed Race"
+          percent: 53
+        - group: "Black Brazilian"
+          percent: 3
+    unrest: 1.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    features: ["mining", "agricultural", "mountainous"]
+    resources:
+      food: 200
+      energy: 80
+      water: 120
+      manpower: 1500
+    buildings: []
+
+  - id: "BAHIA"
+    name: "Bahia"
+    country: "Brazil"
+    coordinates: [-12.2777, -38.5016]
+    population:
+      total: 14900000
+      ethnic_groups:
+        - group: "Mixed Race"
+          percent: 59
+        - group: "Black Brazilian"
+          percent: 28
+        - group: "White Brazilian"
+          percent: 12
+        - group: "Indigenous"
+          percent: 1
+    unrest: 2.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    features: ["coastal", "agricultural", "oil_rich"]
+    resources:
+      food: 180
+      energy: 150
+      water: 100
+      manpower: 1100
+    buildings: []
+
+  - id: "AMAZONAS"
+    name: "Amazonas"
+    country: "Brazil"
+    coordinates: [-3.1190, -60.0217]
+    population:
+      total: 4200000
+      ethnic_groups:
+        - group: "Mixed Race"
+          percent: 68
+        - group: "White Brazilian"
+          percent: 24
+        - group: "Indigenous"
+          percent: 4
+        - group: "Black Brazilian"
+          percent: 4
+    unrest: 1.2
+    infrastructure:
+      roads: 1
+      internet: 2
+      healthcare: 1
+      education: 2
+    features: ["rainforest", "river_access", "indigenous"]
+    resources:
+      food: 60
+      energy: 40
+      water: 300
+      manpower: 300
+    buildings: []
+
+  # Argentina
+  - id: "BUENOS_AIRES"
+    name: "Buenos Aires"
+    country: "Argentina"
+    coordinates: [-34.6037, -58.3816]
+    population:
+      total: 15600000
+      ethnic_groups:
+        - group: "European Argentine"
+          percent: 85
+        - group: "Mestizo"
+          percent: 12
+        - group: "Indigenous"
+          percent: 2
+        - group: "Other"
+          percent: 1
+    unrest: 2.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 4
+    features: ["urban", "coastal", "political_capital"]
+    resources:
+      food: 120
+      energy: 140
+      water: 100
+      manpower: 1800
+    buildings: []
+
+  - id: "CORDOBA"
+    name: "Córdoba"
+    country: "Argentina"
+    coordinates: [-31.4201, -64.1888]
+    population:
+      total: 3800000
+      ethnic_groups:
+        - group: "European Argentine"
+          percent: 88
+        - group: "Mestizo"
+          percent: 10
+        - group: "Indigenous"
+          percent: 2
+    unrest: 1.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 4
+    features: ["urban", "agricultural", "tech_hub"]
+    resources:
+      food: 180
+      energy: 80
+      water: 90
+      manpower: 450
+    buildings: []
+
+  - id: "SANTA_FE"
+    name: "Santa Fe"
+    country: "Argentina"
+    coordinates: [-31.6333, -60.7000]
+    population:
+      total: 3400000
+      ethnic_groups:
+        - group: "European Argentine"
+          percent: 87
+        - group: "Mestizo"
+          percent: 11
+        - group: "Indigenous"
+          percent: 2
+    unrest: 1.3
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    features: ["agricultural", "river_access", "industrial"]
+    resources:
+      food: 220
+      energy: 70
+      water: 110
+      manpower: 400
+    buildings: []
+
+  - id: "PATAGONIA"
+    name: "Patagonia"
+    country: "Argentina"
+    coordinates: [-46.0000, -67.0000]
+    population:
+      total: 2100000
+      ethnic_groups:
+        - group: "European Argentine"
+          percent: 83
+        - group: "Mestizo"
+          percent: 12
+        - group: "Indigenous"
+          percent: 5
+    unrest: 0.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    features: ["sparsely_populated", "oil_rich", "coastal", "cold_climate"]
+    resources:
+      food: 80
+      energy: 200
+      water: 120
+      manpower: 180
+    buildings: []
+
+  # Colombia
+  - id: "BOGOTA"
+    name: "Bogotá"
+    country: "Colombia"
+    coordinates: [4.7110, -74.0721]
+    population:
+      total: 11000000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 49
+        - group: "White Colombian"
+          percent: 37
+        - group: "Afro-Colombian"
+          percent: 11
+        - group: "Indigenous"
+          percent: 3
+    unrest: 3.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    features: ["urban", "mountainous", "political_capital"]
+    resources:
+      food: 90
+      energy: 110
+      water: 85
+      manpower: 1200
+    buildings: []
+
+  - id: "ANTIOQUIA"
+    name: "Antioquia"
+    country: "Colombia"
+    coordinates: [6.2486, -75.5636]
+    population:
+      total: 6900000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 55
+        - group: "White Colombian"
+          percent: 30
+        - group: "Afro-Colombian"
+          percent: 13
+        - group: "Indigenous"
+          percent: 2
+    unrest: 2.9
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    features: ["mountainous", "coffee_region", "industrial"]
+    resources:
+      food: 140
+      energy: 80
+      water: 95
+      manpower: 800
+    buildings: []
+
+  - id: "CARIBBEAN_COAST_COL"
+    name: "Caribbean Coast"
+    country: "Colombia"
+    coordinates: [10.3910, -75.4794]
+    population:
+      total: 5200000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 45
+        - group: "Afro-Colombian"
+          percent: 35
+        - group: "White Colombian"
+          percent: 18
+        - group: "Indigenous"
+          percent: 2
+    unrest: 3.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 1
+      education: 2
+    features: ["coastal", "tropical", "oil_rich"]
+    resources:
+      food: 120
+      energy: 180
+      water: 70
+      manpower: 600
+    buildings: []
+
+  # Peru
+  - id: "LIMA"
+    name: "Lima"
+    country: "Peru"
+    coordinates: [-12.0464, -77.0428]
+    population:
+      total: 10700000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 60
+        - group: "Indigenous"
+          percent: 25
+        - group: "White Peruvian"
+          percent: 13
+        - group: "Afro-Peruvian"
+          percent: 2
+    unrest: 2.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    features: ["urban", "coastal", "political_capital"]
+    resources:
+      food: 80
+      energy: 120
+      water: 60
+      manpower: 1300
+    buildings: []
+
+  - id: "CUSCO"
+    name: "Cusco"
+    country: "Peru"
+    coordinates: [-13.5319, -71.9675]
+    population:
+      total: 1300000
+      ethnic_groups:
+        - group: "Indigenous"
+          percent: 75
+        - group: "Mestizo"
+          percent: 22
+        - group: "White Peruvian"
+          percent: 3
+    unrest: 1.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 1
+      education: 2
+    features: ["mountainous", "historical", "tourism"]
+    resources:
+      food: 60
+      energy: 30
+      water: 50
+      manpower: 150
+    buildings: []
+
+  - id: "AREQUIPA"
+    name: "Arequipa"
+    country: "Peru"
+    coordinates: [-16.4090, -71.5375]
+    population:
+      total: 1400000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 55
+        - group: "Indigenous"
+          percent: 35
+        - group: "White Peruvian"
+          percent: 10
+    unrest: 1.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    features: ["mountainous", "mining", "volcanic"]
+    resources:
+      food: 70
+      energy: 40
+      water: 45
+      manpower: 180
+    buildings: []
+
+  # Chile
+  - id: "SANTIAGO"
+    name: "Santiago"
+    country: "Chile"
+    coordinates: [-33.4489, -70.6693]
+    population:
+      total: 7100000
+      ethnic_groups:
+        - group: "White Chilean"
+          percent: 65
+        - group: "Mestizo"
+          percent: 30
+        - group: "Mapuche"
+          percent: 4
+        - group: "Other"
+          percent: 1
+    unrest: 2.0
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 4
+    features: ["urban", "mountainous", "political_capital"]
+    resources:
+      food: 90
+      energy: 130
+      water: 80
+      manpower: 900
+    buildings: []
+
+  - id: "VALPARAISO"
+    name: "Valparaíso"
+    country: "Chile"
+    coordinates: [-33.0472, -71.6127]
+    population:
+      total: 1900000
+      ethnic_groups:
+        - group: "White Chilean"
+          percent: 68
+        - group: "Mestizo"
+          percent: 28
+        - group: "Mapuche"
+          percent: 3
+        - group: "Other"
+          percent: 1
+    unrest: 1.7
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    features: ["coastal", "port", "industrial"]
+    resources:
+      food: 60
+      energy: 80
+      water: 70
+      manpower: 240
+    buildings: []
+
+  - id: "ANTOFAGASTA"
+    name: "Antofagasta"
+    country: "Chile"
+    coordinates: [-23.6509, -70.3975]
+    population:
+      total: 650000
+      ethnic_groups:
+        - group: "White Chilean"
+          percent: 70
+        - group: "Mestizo"
+          percent: 25
+        - group: "Indigenous"
+          percent: 3
+        - group: "Other"
+          percent: 2
+    unrest: 1.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    features: ["desert", "mining", "coastal"]
+    resources:
+      food: 20
+      energy: 60
+      water: 30
+      manpower: 80
+    buildings: []
+
+  # Venezuela
+  - id: "CARACAS"
+    name: "Caracas"
+    country: "Venezuela"
+    coordinates: [10.4806, -66.9036]
+    population:
+      total: 5200000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 43
+        - group: "White Venezuelan"
+          percent: 43
+        - group: "Afro-Venezuelan"
+          percent: 11
+        - group: "Indigenous"
+          percent: 3
+    unrest: 4.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 1
+      education: 2
+    features: ["urban", "mountainous", "political_capital"]
+    resources:
+      food: 40
+      energy: 200
+      water: 50
+      manpower: 600
+    buildings: []
+
+  - id: "ZULIA"
+    name: "Zulia"
+    country: "Venezuela"
+    coordinates: [9.7489, -72.2387]
+    population:
+      total: 4000000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 48
+        - group: "White Venezuelan"
+          percent: 38
+        - group: "Afro-Venezuelan"
+          percent: 12
+        - group: "Indigenous"
+          percent: 2
+    unrest: 3.9
+    infrastructure:
+      roads: 2
+      internet: 1
+      healthcare: 1
+      education: 1
+    features: ["oil_rich", "coastal", "hot_climate"]
+    resources:
+      food: 60
+      energy: 350
+      water: 70
+      manpower: 450
+    buildings: []
+
+  # Ecuador
+  - id: "QUITO"
+    name: "Quito"
+    country: "Ecuador"
+    coordinates: [-0.1807, -78.4678]
+    population:
+      total: 2800000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 72
+        - group: "Indigenous"
+          percent: 20
+        - group: "White Ecuadorian"
+          percent: 6
+        - group: "Afro-Ecuadorian"
+          percent: 2
+    unrest: 2.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    features: ["mountainous", "political_capital", "equatorial"]
+    resources:
+      food: 80
+      energy: 70
+      water: 90
+      manpower: 320
+    buildings: []
+
+  - id: "GUAYAQUIL"
+    name: "Guayaquil"
+    country: "Ecuador"
+    coordinates: [-2.1709, -79.9224]
+    population:
+      total: 2700000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 70
+        - group: "White Ecuadorian"
+          percent: 15
+        - group: "Afro-Ecuadorian"
+          percent: 10
+        - group: "Indigenous"
+          percent: 5
+    unrest: 3.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 2
+    features: ["coastal", "port", "tropical"]
+    resources:
+      food: 110
+      energy: 80
+      water: 70
+      manpower: 350
+    buildings: []
+
+  # Bolivia
+  - id: "LA_PAZ"
+    name: "La Paz"
+    country: "Bolivia"
+    coordinates: [-16.2902, -63.5887]
+    population:
+      total: 2300000
+      ethnic_groups:
+        - group: "Indigenous"
+          percent: 62
+        - group: "Mestizo"
+          percent: 30
+        - group: "White Bolivian"
+          percent: 8
+    unrest: 2.8
+    infrastructure:
+      roads: 1
+      internet: 2
+      healthcare: 1
+      education: 2
+    features: ["mountainous", "high_altitude", "political_capital"]
+    resources:
+      food: 50
+      energy: 40
+      water: 60
+      manpower: 280
+    buildings: []
+
+  - id: "SANTA_CRUZ_BOL"
+    name: "Santa Cruz"
+    country: "Bolivia"
+    coordinates: [-17.8146, -63.1560]
+    population:
+      total: 2100000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 50
+        - group: "White Bolivian"
+          percent: 30
+        - group: "Indigenous"
+          percent: 20
+    unrest: 2.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    features: ["lowlands", "agricultural", "gas_rich"]
+    resources:
+      food: 140
+      energy: 180
+      water: 80
+      manpower: 250
+    buildings: []
+
+  # Paraguay
+  - id: "ASUNCION"
+    name: "Asunción"
+    country: "Paraguay"
+    coordinates: [-25.2637, -57.5759]
+    population:
+      total: 2400000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 95
+        - group: "White Paraguayan"
+          percent: 3
+        - group: "Indigenous"
+          percent: 2
+    unrest: 1.9
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    features: ["river_access", "landlocked", "political_capital"]
+    resources:
+      food: 120
+      energy: 60
+      water: 100
+      manpower: 280
+    buildings: []
+
+  # Uruguay
+  - id: "MONTEVIDEO"
+    name: "Montevideo"
+    country: "Uruguay"
+    coordinates: [-34.9011, -56.1645]
+    population:
+      total: 1700000
+      ethnic_groups:
+        - group: "White Uruguayan"
+          percent: 88
+        - group: "Mestizo"
+          percent: 8
+        - group: "Afro-Uruguayan"
+          percent: 4
+    unrest: 1.2
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 4
+    features: ["coastal", "political_capital", "stable"]
+    resources:
+      food: 80
+      energy: 70
+      water: 85
+      manpower: 200
+    buildings: []
+
+  # Guyana
+  - id: "GEORGETOWN"
+    name: "Georgetown"
+    country: "Guyana"
+    coordinates: [6.8013, -58.1551]
+    population:
+      total: 800000
+      ethnic_groups:
+        - group: "Indo-Guyanese"
+          percent: 40
+        - group: "Afro-Guyanese"
+          percent: 29
+        - group: "Mixed Race"
+          percent: 19
+        - group: "Amerindian"
+          percent: 10
+        - group: "Other"
+          percent: 2
+    unrest: 2.5
+    infrastructure:
+      roads: 1
+      internet: 2
+      healthcare: 1
+      education: 2
+    features: ["coastal", "rainforest", "small_nation"]
+    resources:
+      food: 60
+      energy: 50
+      water: 120
+      manpower: 90
+    buildings: []
+
+  # Suriname
+  - id: "PARAMARIBO"
+    name: "Paramaribo"
+    country: "Suriname"
+    coordinates: [5.8520, -55.2038]
+    population:
+      total: 600000
+      ethnic_groups:
+        - group: "Hindustani"
+          percent: 27
+        - group: "Maroon"
+          percent: 22
+        - group: "Creole"
+          percent: 16
+        - group: "Javanese"
+          percent: 14
+        - group: "Mixed Race"
+          percent: 13
+        - group: "Other"
+          percent: 8
+    unrest: 2.0
+    infrastructure:
+      roads: 1
+      internet: 2
+      healthcare: 2
+      education: 2
+    features: ["coastal", "rainforest", "small_nation"]
+    resources:
+      food: 45
+      energy: 40
+      water: 100
+      manpower: 70
+    buildings: []
+
+  # French Guiana (Overseas Territory)
+  - id: "CAYENNE"
+    name: "Cayenne"
+    country: "French Guiana"
+    coordinates: [4.9241, -52.3130]
+    population:
+      total: 300000
+      ethnic_groups:
+        - group: "Mixed Race"
+          percent: 66
+        - group: "European"
+          percent: 12
+        - group: "East Asian"
+          percent: 3
+        - group: "Amerindian"
+          percent: 3
+        - group: "Other"
+          percent: 16
+    unrest: 1.0
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 3
+      education: 3
+    features: ["coastal", "rainforest", "overseas_territory"]
+    resources:
+      food: 30
+      energy: 35
+      water: 80
+      manpower: 35
+    buildings: []

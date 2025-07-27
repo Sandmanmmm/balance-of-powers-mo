@@ -1,0 +1,153 @@
+# Russia Provinces
+- id: RU_MOW
+  name: "Moscow"
+  country: "Russia"
+  population:
+    total: 12500000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 91
+      - group: "Ukrainian"
+        percent: 3
+      - group: "Tatar"
+        percent: 2
+      - group: "Other"
+        percent: 4
+  unrest: 8
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "political_center", "tech_hub"]
+  resource_output:
+    energy: 6500
+    food: 2000
+    industrial_capacity: 12000
+    technology: 15000
+  politics:
+    party_support:
+      United_Russia: 76.4
+      Communist: 12.8
+      Liberal_Democratic: 6.2
+      Other: 4.6
+
+- id: RU_SPE
+  name: "Saint Petersburg"
+  country: "Russia"
+  population:
+    total: 5380000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 92
+      - group: "Ukrainian"
+        percent: 3
+      - group: "Other"
+        percent: 5
+  unrest: 9
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "urban", "industrial"]
+  resource_output:
+    energy: 4500
+    food: 1500
+    industrial_capacity: 8500
+    technology: 8000
+  politics:
+    party_support:
+      United_Russia: 68.2
+      Communist: 15.4
+      Liberal_Democratic: 8.1
+      Other: 8.3
+
+- id: RU_SVE
+  name: "Sverdlovsk"
+  country: "Russia"
+  population:
+    total: 4330000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 89
+      - group: "Tatar"
+        percent: 4
+      - group: "Ukrainian"
+        percent: 3
+      - group: "Other"
+        percent: 4
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["industrial", "mining"]
+  resource_output:
+    energy: 8500
+    food: 3000
+    industrial_capacity: 12000
+    oil: 5000
+  politics:
+    party_support:
+      United_Russia: 72.8
+      Communist: 16.2
+      Liberal_Democratic: 7.4
+      Other: 3.6
+
+- id: RU_KRA
+  name: "Krasnodar"
+  country: "Russia"
+  population:
+    total: 5650000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 87
+      - group: "Armenian"
+        percent: 5
+      - group: "Ukrainian"
+        percent: 4
+      - group: "Other"
+        percent: 4
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["coastal", "farmland", "oil_rich"]
+  resource_output:
+    energy: 6000
+    food: 12000
+    industrial_capacity: 5500
+    oil: 8000
+  politics:
+    party_support:
+      United_Russia: 78.9
+      Communist: 11.7
+      Liberal_Democratic: 5.8
+      Other: 3.6
+
+- id: RU_TYU
+  name: "Tyumen"
+  country: "Russia"
+  population:
+    total: 3690000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 71
+      - group: "Tatar"
+        percent: 8
+      - group: "Ukrainian"
+        percent: 6
+      - group: "Other"
+        percent: 15
+  unrest: 4
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["oil_rich", "gas_rich", "cold_climate"]
+  resource_output:
+    energy: 25000
+    food: 2500
+    industrial_capacity: 8000
+    oil: 35000
+  politics:
+    party_support:
+      United_Russia: 81.4
+      Communist: 9.8
+      Liberal_Democratic: 5.2
+      Other: 3.6

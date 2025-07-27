@@ -276,7 +276,7 @@ async function loadLegacyData(): Promise<{ nations: Nation[], provinces: Provinc
   
   try {
     // Import the legacy functions from gameData.ts which are known to work
-    const gameDataModule = await import('./gameData');
+    const gameDataModule = await import('../data/gameData');
     
     const [provinces, nations] = await Promise.all([
       gameDataModule.getProvinces(),

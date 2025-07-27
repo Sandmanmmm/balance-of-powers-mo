@@ -1,0 +1,52 @@
+{
+  "RU_MOW": {
+    "type": "Feature",
+    "properties": {"id": "RU_MOW", "name": "Moscow"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [35.2, 56.0], [40.2, 56.0], [40.2, 55.2], [35.2, 55.2], [35.2, 56.0]
+      ]]
+    }
+  },
+  "RU_SPE": {
+    "type": "Feature",
+    "properties": {"id": "RU_SPE", "name": "Saint Petersburg"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [28.0, 60.5], [32.0, 60.5], [32.0, 59.5], [28.0, 59.5], [28.0, 60.5]
+      ]]
+    }
+  },
+  "RU_SVE": {
+    "type": "Feature",
+    "properties": {"id": "RU_SVE", "name": "Sverdlovsk"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [56.0, 61.0], [66.0, 61.0], [66.0, 56.0], [56.0, 56.0], [56.0, 61.0]
+      ]]
+    }
+  },
+  "RU_KRA": {
+    "type": "Feature",
+    "properties": {"id": "RU_KRA", "name": "Krasnodar"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [38.0, 46.8], [42.0, 46.8], [42.0, 44.6], [38.0, 44.6], [38.0, 46.8]
+      ]]
+    }
+  },
+  "RU_TYU": {
+    "type": "Feature",
+    "properties": {"id": "RU_TYU", "name": "Tyumen"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [65.0, 70.0], [76.0, 70.0], [76.0, 55.0], [65.0, 55.0], [65.0, 70.0]
+      ]]
+    }
+  }
+}

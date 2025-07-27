@@ -1,0 +1,62 @@
+- id: GBR
+  name: "United Kingdom"
+  leader: "Prime Minister Rishi Sunak"
+  ideology: "Democracy"
+  government_type: "Constitutional Monarchy"
+  gdp: 3200000000000
+  treasury: 180000000000
+  stability: 78
+  corruption: 12
+  unrest: 9
+  military_doctrine: "Expeditionary Warfare"
+  tax_level: "high"
+  resources:
+    manpower: 45000000
+    energy: 35000
+    food: 45000
+    industrial_capacity: 55000
+    technology: 75000
+    oil: 5000
+    money: 180000000000
+
+- id: FRA
+  name: "France"
+  leader: "President Emmanuel Macron"
+  ideology: "Democracy"
+  government_type: "Semi-Presidential Republic"
+  gdp: 2800000000000
+  treasury: 160000000000
+  stability: 76
+  corruption: 18
+  unrest: 11
+  military_doctrine: "Combined Arms"
+  tax_level: "high"
+  resources:
+    manpower: 42000000
+    energy: 65000
+    food: 55000
+    industrial_capacity: 48000
+    technology: 68000
+    oil: 2000
+    money: 160000000000
+
+- id: DEU
+  name: "Germany"
+  leader: "Chancellor Olaf Scholz"
+  ideology: "Democracy"
+  government_type: "Federal Parliamentary Republic"
+  gdp: 4200000000000
+  treasury: 250000000000
+  stability: 85
+  corruption: 8
+  unrest: 6
+  military_doctrine: "Defensive Warfare"
+  tax_level: "high"
+  resources:
+    manpower: 55000000
+    energy: 45000
+    food: 48000
+    industrial_capacity: 85000
+    technology: 92000
+    oil: 1000
+    money: 250000000000

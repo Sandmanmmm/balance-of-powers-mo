@@ -1,0 +1,72 @@
+{
+  "GB_ENG": {
+    "type": "Feature",
+    "properties": {"id": "GB_ENG", "name": "England"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-6.4, 49.9], [1.8, 49.9], [1.8, 55.8], [-6.4, 55.8], [-6.4, 49.9]
+      ]]
+    }
+  },
+  "GB_SCO": {
+    "type": "Feature",
+    "properties": {"id": "GB_SCO", "name": "Scotland"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-8.6, 54.6], [-0.7, 54.6], [-0.7, 60.9], [-8.6, 60.9], [-8.6, 54.6]
+      ]]
+    }
+  },
+  "GB_WAL": {
+    "type": "Feature",
+    "properties": {"id": "GB_WAL", "name": "Wales"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-5.5, 51.4], [-2.7, 51.4], [-2.7, 53.4], [-5.5, 53.4], [-5.5, 51.4]
+      ]]
+    }
+  },
+  "FR_IDF": {
+    "type": "Feature",
+    "properties": {"id": "FR_IDF", "name": "Île-de-France"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [1.4, 49.2], [3.6, 49.2], [3.6, 48.1], [1.4, 48.1], [1.4, 49.2]
+      ]]
+    }
+  },
+  "FR_PAC": {
+    "type": "Feature",
+    "properties": {"id": "FR_PAC", "name": "Provence-Alpes-Côte d'Azur"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [4.2, 44.9], [7.7, 44.9], [7.7, 43.0], [4.2, 43.0], [4.2, 44.9]
+      ]]
+    }
+  },
+  "DE_NRW": {
+    "type": "Feature",
+    "properties": {"id": "DE_NRW", "name": "North Rhine-Westphalia"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [5.9, 52.5], [9.5, 52.5], [9.5, 50.3], [5.9, 50.3], [5.9, 52.5]
+      ]]
+    }
+  },
+  "DE_BAY": {
+    "type": "Feature",
+    "properties": {"id": "DE_BAY", "name": "Bavaria"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [8.9, 50.6], [13.8, 50.6], [13.8, 47.3], [8.9, 47.3], [8.9, 50.6]
+      ]]
+    }
+  }
+}

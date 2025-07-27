@@ -1,0 +1,208 @@
+# United Kingdom Provinces
+- id: GB_ENG
+  name: "England"
+  country: "United Kingdom"
+  population:
+    total: 56490000
+    ethnic_groups:
+      - group: "English"
+        percent: 80
+      - group: "Pakistani"
+        percent: 5
+      - group: "Indian"
+        percent: 4
+      - group: "Other"
+        percent: 11
+  unrest: 8
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["urban", "financial_hub", "industrial"]
+  resource_output:
+    energy: 15000
+    food: 8500
+    industrial_capacity: 25000
+    technology: 35000
+  politics:
+    party_support:
+      Conservative: 43.6
+      Labour: 40.1
+      Liberal_Democrat: 11.5
+      Other: 4.8
+
+- id: GB_SCO
+  name: "Scotland"
+  country: "United Kingdom"
+  population:
+    total: 5460000
+    ethnic_groups:
+      - group: "Scottish"
+        percent: 84
+      - group: "English"
+        percent: 8
+      - group: "Other"
+        percent: 8
+  unrest: 12
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "oil_rich", "highland"]
+  resource_output:
+    energy: 8500
+    food: 3500
+    industrial_capacity: 4000
+    oil: 12000
+  politics:
+    party_support:
+      SNP: 45.0
+      Conservative: 25.1
+      Labour: 21.6
+      Liberal_Democrat: 8.3
+
+- id: GB_WAL
+  name: "Wales"
+  country: "United Kingdom"
+  population:
+    total: 3140000
+    ethnic_groups:
+      - group: "Welsh"
+        percent: 72
+      - group: "English"
+        percent: 20
+      - group: "Other"
+        percent: 8
+  unrest: 7
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["coastal", "mining", "farmland"]
+  resource_output:
+    energy: 4500
+    food: 4000
+    industrial_capacity: 3500
+  politics:
+    party_support:
+      Labour: 40.9
+      Conservative: 36.1
+      Plaid_Cymru: 12.0
+      Liberal_Democrat: 11.0
+
+# France Provinces
+- id: FR_IDF
+  name: "Île-de-France"
+  country: "France"
+  population:
+    total: 12280000
+    ethnic_groups:
+      - group: "French"
+        percent: 75
+      - group: "North African"
+        percent: 12
+      - group: "Sub-Saharan African"
+        percent: 8
+      - group: "Other"
+        percent: 5
+  unrest: 11
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "political_center", "financial_hub"]
+  resource_output:
+    energy: 8500
+    food: 2000
+    industrial_capacity: 18000
+    technology: 25000
+  politics:
+    party_support:
+      En_Marche: 32.6
+      Les_Republicains: 20.0
+      National_Rally: 18.3
+      La_France_Insoumise: 14.1
+      Other: 15.0
+
+- id: FR_PAC
+  name: "Provence-Alpes-Côte d'Azur"
+  country: "France"
+  population:
+    total: 5060000
+    ethnic_groups:
+      - group: "French"
+        percent: 78
+      - group: "North African"
+        percent: 15
+      - group: "Other"
+        percent: 7
+  unrest: 9
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "urban", "tech_hub"]
+  resource_output:
+    energy: 6500
+    food: 3500
+    industrial_capacity: 8000
+    technology: 12000
+  politics:
+    party_support:
+      National_Rally: 28.4
+      En_Marche: 24.2
+      Les_Republicains: 22.1
+      Other: 25.3
+
+# Germany Provinces
+- id: DE_NRW
+  name: "North Rhine-Westphalia"
+  country: "Germany"
+  population:
+    total: 17930000
+    ethnic_groups:
+      - group: "German"
+        percent: 88
+      - group: "Turkish"
+        percent: 5
+      - group: "Other"
+        percent: 7
+  unrest: 5
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "industrial", "mining"]
+  resource_output:
+    energy: 18000
+    food: 6500
+    industrial_capacity: 35000
+  politics:
+    party_support:
+      CDU: 33.0
+      SPD: 31.2
+      Greens: 18.1
+      AfD: 9.4
+      Other: 8.3
+
+- id: DE_BAY
+  name: "Bavaria"
+  country: "Germany"
+  population:
+    total: 13120000
+    ethnic_groups:
+      - group: "German"
+        percent: 91
+      - group: "Other"
+        percent: 9
+  unrest: 4
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["farmland", "tech_hub", "alpine"]
+  resource_output:
+    energy: 12000
+    food: 12000
+    industrial_capacity: 18000
+    technology: 22000
+  politics:
+    party_support:
+      CSU: 37.2
+      Greens: 20.3
+      AfD: 15.7
+      SPD: 11.6
+      Other: 15.2

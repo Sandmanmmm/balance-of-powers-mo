@@ -1,0 +1,2860 @@
+provinces:
+  USA_001:
+    name: "California"
+    country: "United States"
+    coordinates: [36.7783, -119.4179]
+    features:
+      - "coastal"
+      - "high_tech"
+      - "urban"
+      - "scenic"
+      - "tourism"
+      - "sunny"
+      - "desert"
+      - "farmland"
+    population:
+      total: 39500000
+      ethnic_groups:
+        - group: "White"
+          percent: 37
+        - group: "Hispanic"
+          percent: 39
+        - group: "Asian"
+          percent: 15
+        - group: "Black"
+          percent: 6
+        - group: "Other"
+          percent: 3
+    unrest: 3.8
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 5
+    resource_deposits:
+      oil: 200
+      steel: 80
+      rare_earth: 150
+      uranium: 50
+      food: 800
+    military:
+      stationed_units:
+        - "USA_AIR_12"
+        - "USA_NAV_8"
+        - "USA_INF_15"
+      fortification_level: 3
+    resource_output:
+      energy: 3200
+      iron: 180
+      food: 1200
+      technology: 890
+    politics:
+      party_support:
+        "Democrats": 61.2
+        "Republicans": 32.8
+        "Independents": 6.0
+      governor_approval: 58.4
+    economy:
+      gdp_per_capita: 75000
+      unemployment: 4.1
+      inflation: 3.2
+    buildings: 
+      - buildingId: "food_farm"
+        level: 1
+        constructedDate: "1990-01-01"
+        efficiency: 1.0
+        effects: {}
+    construction_projects: []
+
+  USA_002:
+    name: "Texas Oil Fields"
+    country: "United States"
+    coordinates: [31.5, -99.5]
+    features:
+      - "oil_rich"
+      - "plains"
+      - "desert"
+      - "sunny"
+      - "flat_terrain"
+      - "farmland"
+    population:
+      total: 8200000
+      ethnic_groups:
+        - group: "White"
+          percent: 42
+        - group: "Hispanic"
+          percent: 40
+        - group: "Black"
+          percent: 12
+        - group: "Other"
+          percent: 6
+    unrest: 2.3
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 1500
+      steel: 120
+      rare_earth: 30
+      uranium: 80
+      food: 600
+    military:
+      stationed_units:
+        - "USA_INF_22"
+      fortification_level: 2
+    resource_output:
+      energy: 2800
+      iron: 140
+      food: 750
+      technology: 120
+    politics:
+      party_support:
+        "Republicans": 52.3
+        "Democrats": 44.7
+        "Independents": 3.0
+      governor_approval: 64.1
+    economy:
+      gdp_per_capita: 58000
+      unemployment: 3.8
+      inflation: 2.9
+    buildings: 
+      - buildingId: "food_farm"
+        level: 1
+        constructedDate: "1990-01-01"
+        efficiency: 1.0
+        effects: {}
+    construction_projects: []
+
+  USA_003:
+    name: "Florida"
+    country: "United States"
+    coordinates: [27.6648, -81.5158]
+    features:
+      - "coastal"
+      - "subtropical"
+      - "tourism"
+      - "urban"
+      - "tech_hub"
+    population:
+      total: 22600000
+      ethnic_groups:
+        - group: "White American"
+          percent: 53.4
+        - group: "Hispanic/Latino"
+          percent: 26.5
+        - group: "African American"
+          percent: 15.4
+        - group: "Asian American"
+          percent: 2.9
+        - group: "Other"
+          percent: 1.8
+    unrest: 5.8
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 45
+      steel: 20
+      rare_earth: 8
+      uranium: 0
+      food: 280
+    military:
+      stationed_units:
+        - "USA_NAV_3"
+        - "USA_AIR_7"
+      fortification_level: 2
+    resource_output:
+      energy: 1800
+      iron: 35
+      food: 650
+      technology: 280
+    politics:
+      party_support:
+        "Republicans": 51.2
+        "Democrats": 47.9
+        "Others": 0.9
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 2.8
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  USA_004:
+    name: "New York"
+    country: "United States"
+    coordinates: [42.1657, -74.9481]
+    features:
+      - "urban"
+      - "financial_hub"
+      - "tech_hub"
+      - "coastal"
+      - "industrial"
+    population:
+      total: 19500000
+      ethnic_groups:
+        - group: "White American"
+          percent: 55.3
+        - group: "Hispanic/Latino"
+          percent: 19.3
+        - group: "African American"
+          percent: 13.7
+        - group: "Asian American"
+          percent: 9.0
+        - group: "Other"
+          percent: 2.7
+    unrest: 6.2
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 5
+    resource_deposits:
+      oil: 15
+      steel: 80
+      rare_earth: 12
+      uranium: 0
+      food: 120
+    military:
+      stationed_units:
+        - "USA_INF_8"
+        - "USA_AIR_2"
+      fortification_level: 3
+    resource_output:
+      energy: 2200
+      iron: 120
+      food: 480
+      technology: 580
+    politics:
+      party_support:
+        "Democrats": 60.2
+        "Republicans": 37.8
+        "Others": 2.0
+    economy:
+      gdp_per_capita: 65000
+      unemployment: 4.2
+      inflation: 3.8
+    buildings: []
+    construction_projects: []
+
+  USA_005:
+    name: "Pennsylvania"
+    country: "United States"
+    coordinates: [40.5908, -77.2098]
+    features:
+      - "industrial"
+      - "mining"
+      - "urban"
+      - "farmland"
+      - "temperate_climate"
+    population:
+      total: 13000000
+      ethnic_groups:
+        - group: "White American"
+          percent: 75.7
+        - group: "African American"
+          percent: 10.8
+        - group: "Hispanic/Latino"
+          percent: 7.6
+        - group: "Asian American"
+          percent: 3.7
+        - group: "Other"
+          percent: 2.2
+    unrest: 4.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 80
+      steel: 450
+      rare_earth: 15
+      uranium: 25
+      food: 380
+    military:
+      stationed_units:
+        - "USA_INF_11"
+      fortification_level: 2
+    resource_output:
+      energy: 1950
+      iron: 380
+      food: 720
+      technology: 180
+    politics:
+      party_support:
+        "Democrats": 50.0
+        "Republicans": 48.8
+        "Others": 1.2
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 4.5
+      inflation: 3.1
+    buildings: []
+    construction_projects: []
+
+  USA_006:
+    name: "Illinois"
+    country: "United States"
+    coordinates: [40.3495, -88.9861]
+    features:
+      - "urban"
+      - "farmland"
+      - "industrial"
+      - "transport_hub"
+      - "temperate_climate"
+    population:
+      total: 12600000
+      ethnic_groups:
+        - group: "White American"
+          percent: 60.8
+        - group: "African American"
+          percent: 13.9
+        - group: "Hispanic/Latino"
+          percent: 17.5
+        - group: "Asian American"
+          percent: 5.8
+        - group: "Other"
+          percent: 2.0
+    unrest: 5.3
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 35
+      steel: 180
+      rare_earth: 8
+      uranium: 0
+      food: 850
+    military:
+      stationed_units:
+        - "USA_INF_14"
+      fortification_level: 1
+    resource_output:
+      energy: 1680
+      iron: 150
+      food: 1280
+      technology: 220
+    politics:
+      party_support:
+        "Democrats": 57.5
+        "Republicans": 40.6
+        "Others": 1.9
+    economy:
+      gdp_per_capita: 56000
+      unemployment: 5.8
+      inflation: 3.5
+    buildings: []
+    construction_projects: []
+
+  USA_007:
+    name: "Ohio"
+    country: "United States"
+    coordinates: [40.3888, -82.7649]
+    features:
+      - "industrial"
+      - "farmland"
+      - "urban"
+      - "temperate_climate"
+      - "transport_hub"
+    population:
+      total: 11800000
+      ethnic_groups:
+        - group: "White American"
+          percent: 78.3
+        - group: "African American"
+          percent: 12.2
+        - group: "Hispanic/Latino"
+          percent: 3.9
+        - group: "Asian American"
+          percent: 2.5
+        - group: "Other"
+          percent: 3.1
+    unrest: 3.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 120
+      steel: 320
+      rare_earth: 12
+      uranium: 0
+      food: 680
+    military:
+      stationed_units:
+        - "USA_INF_16"
+      fortification_level: 1
+    resource_output:
+      energy: 1580
+      iron: 280
+      food: 950
+      technology: 160
+    politics:
+      party_support:
+        "Republicans": 53.3
+        "Democrats": 45.2
+        "Others": 1.5
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 4.2
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  USA_008:
+    name: "Georgia"
+    country: "United States"
+    coordinates: [33.0406, -83.6431]
+    features:
+      - "subtropical"
+      - "farmland"
+      - "urban"
+      - "tech_hub"
+      - "transportation"
+    population:
+      total: 10900000
+      ethnic_groups:
+        - group: "White American"
+          percent: 50.1
+        - group: "African American"
+          percent: 30.5
+        - group: "Hispanic/Latino"
+          percent: 10.5
+        - group: "Asian American"
+          percent: 4.4
+        - group: "Other"
+          percent: 4.5
+    unrest: 4.7
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 85
+      rare_earth: 18
+      uranium: 0
+      food: 450
+    military:
+      stationed_units:
+        - "USA_INF_19"
+        - "USA_AIR_5"
+      fortification_level: 2
+    resource_output:
+      energy: 1450
+      iron: 95
+      food: 850
+      technology: 280
+    politics:
+      party_support:
+        "Democrats": 49.5
+        "Republicans": 49.2
+        "Others": 1.3
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 3.1
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  USA_009:
+    name: "North Carolina"
+    country: "United States"
+    coordinates: [35.6301, -79.8064]
+    features:
+      - "coastal"
+      - "farmland"
+      - "industrial"
+      - "tech_hub"
+      - "temperate_climate"
+    population:
+      total: 10600000
+      ethnic_groups:
+        - group: "White American"
+          percent: 62.8
+        - group: "African American"
+          percent: 20.2
+        - group: "Hispanic/Latino"
+          percent: 9.6
+        - group: "Asian American"
+          percent: 3.3
+        - group: "Other"
+          percent: 4.1
+    unrest: 3.9
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 15
+      steel: 120
+      rare_earth: 22
+      uranium: 0
+      food: 580
+    military:
+      stationed_units:
+        - "USA_INF_13"
+        - "USA_MAR_2"
+      fortification_level: 2
+    resource_output:
+      energy: 1380
+      iron: 105
+      food: 820
+      technology: 320
+    politics:
+      party_support:
+        "Republicans": 50.1
+        "Democrats": 48.6
+        "Others": 1.3
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 3.5
+      inflation: 2.9
+    buildings: []
+    construction_projects: []
+
+  USA_010:
+    name: "Michigan"
+    country: "United States"
+    coordinates: [43.3266, -84.5361]
+    features:
+      - "industrial"
+      - "automotive"
+      - "temperate_climate"
+      - "great_lakes"
+      - "urban"
+    population:
+      total: 10000000
+      ethnic_groups:
+        - group: "White American"
+          percent: 74.6
+        - group: "African American"
+          percent: 13.7
+        - group: "Hispanic/Latino"
+          percent: 5.3
+        - group: "Asian American"
+          percent: 3.3
+        - group: "Other"
+          percent: 3.1
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 45
+      steel: 380
+      rare_earth: 15
+      uranium: 0
+      food: 420
+    military:
+      stationed_units:
+        - "USA_INF_17"
+      fortification_level: 1
+    resource_output:
+      energy: 1420
+      iron: 320
+      food: 680
+      technology: 180
+    politics:
+      party_support:
+        "Democrats": 50.6
+        "Republicans": 47.8
+        "Others": 1.6
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 4.1
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  USA_011:
+    name: "New Jersey"
+    country: "United States"
+    coordinates: [40.2989, -74.5210]
+    features:
+      - "urban"
+      - "coastal"
+      - "industrial"
+      - "tech_hub"
+      - "financial_hub"
+    population:
+      total: 9300000
+      ethnic_groups:
+        - group: "White American"
+          percent: 54.6
+        - group: "Hispanic/Latino"
+          percent: 21.6
+        - group: "African American"
+          percent: 12.8
+        - group: "Asian American"
+          percent: 10.2
+        - group: "Other"
+          percent: 0.8
+    unrest: 5.1
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 8
+      steel: 45
+      rare_earth: 5
+      uranium: 0
+      food: 85
+    military:
+      stationed_units:
+        - "USA_INF_9"
+      fortification_level: 2
+    resource_output:
+      energy: 1580
+      iron: 75
+      food: 280
+      technology: 380
+    politics:
+      party_support:
+        "Democrats": 57.3
+        "Republicans": 41.4
+        "Others": 1.3
+    economy:
+      gdp_per_capita: 68000
+      unemployment: 3.8
+      inflation: 3.5
+    buildings: []
+    construction_projects: []
+
+  USA_012:
+    name: "Virginia"
+    country: "United States"
+    coordinates: [37.7693, -78.2057]
+    features:
+      - "coastal"
+      - "temperate_climate"
+      - "tech_hub"
+      - "government"
+      - "industrial"
+    population:
+      total: 8700000
+      ethnic_groups:
+        - group: "White American"
+          percent: 61.8
+        - group: "African American"
+          percent: 18.3
+        - group: "Hispanic/Latino"
+          percent: 10.5
+        - group: "Asian American"
+          percent: 7.1
+        - group: "Other"
+          percent: 2.3
+    unrest: 3.2
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 35
+      steel: 120
+      rare_earth: 15
+      uranium: 8
+      food: 380
+    military:
+      stationed_units:
+        - "USA_INF_4"
+        - "USA_NAV_1"
+        - "USA_AIR_1"
+      fortification_level: 4
+    resource_output:
+      energy: 1480
+      iron: 135
+      food: 650
+      technology: 420
+    politics:
+      party_support:
+        "Democrats": 54.1
+        "Republicans": 44.0
+        "Others": 1.9
+    economy:
+      gdp_per_capita: 72000
+      unemployment: 2.8
+      inflation: 3.1
+    buildings: []
+    construction_projects: []
+
+  USA_013:
+    name: "Washington"
+    country: "United States"
+    coordinates: [47.0379, -121.0187]
+    features:
+      - "coastal"
+      - "tech_hub"
+      - "forestry"
+      - "hydroelectric"
+      - "urban"
+    population:
+      total: 7700000
+      ethnic_groups:
+        - group: "White American"
+          percent: 67.5
+        - group: "Hispanic/Latino"
+          percent: 13.0
+        - group: "Asian American"
+          percent: 9.4
+        - group: "African American"
+          percent: 4.4
+        - group: "Other"
+          percent: 5.7
+    unrest: 2.8
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 20
+      steel: 85
+      rare_earth: 25
+      uranium: 0
+      food: 320
+    military:
+      stationed_units:
+        - "USA_AIR_6"
+        - "USA_NAV_4"
+      fortification_level: 2
+    resource_output:
+      energy: 2180
+      iron: 95
+      food: 580
+      technology: 480
+    politics:
+      party_support:
+        "Democrats": 58.2
+        "Republicans": 39.2
+        "Others": 2.6
+    economy:
+      gdp_per_capita: 78000
+      unemployment: 4.2
+      inflation: 4.1
+    buildings: []
+    construction_projects: []
+
+  USA_014:
+    name: "Arizona"
+    country: "United States"
+    coordinates: [33.7298, -111.4312]
+    features:
+      - "desert"
+      - "mining"
+      - "tech_hub"
+      - "solar_potential"
+      - "urban"
+    population:
+      total: 7400000
+      ethnic_groups:
+        - group: "White American"
+          percent: 53.4
+        - group: "Hispanic/Latino"
+          percent: 31.7
+        - group: "Native American"
+          percent: 4.0
+        - group: "African American"
+          percent: 4.1
+        - group: "Asian American"
+          percent: 3.7
+        - group: "Other"
+          percent: 3.1
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 45
+      steel: 180
+      rare_earth: 85
+      uranium: 45
+      food: 120
+    military:
+      stationed_units:
+        - "USA_INF_21"
+        - "USA_AIR_9"
+      fortification_level: 2
+    resource_output:
+      energy: 1680
+      iron: 180
+      food: 380
+      technology: 280
+    politics:
+      party_support:
+        "Republicans": 49.2
+        "Democrats": 49.4
+        "Others": 1.4
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 3.9
+      inflation: 4.2
+    buildings: []
+    construction_projects: []
+
+  USA_015:
+    name: "Tennessee"
+    country: "United States"
+    coordinates: [35.7478, -86.7923]
+    features:
+      - "temperate_climate"
+      - "farmland"
+      - "industrial"
+      - "transport_hub"
+      - "energy_hub"
+    population:
+      total: 7000000
+      ethnic_groups:
+        - group: "White American"
+          percent: 73.0
+        - group: "African American"
+          percent: 16.7
+        - group: "Hispanic/Latino"
+          percent: 5.6
+        - group: "Asian American"
+          percent: 1.9
+        - group: "Other"
+          percent: 2.8
+    unrest: 3.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 35
+      steel: 150
+      rare_earth: 12
+      uranium: 0
+      food: 480
+    military:
+      stationed_units:
+        - "USA_INF_18"
+      fortification_level: 1
+    resource_output:
+      energy: 1280
+      iron: 135
+      food: 780
+      technology: 120
+    politics:
+      party_support:
+        "Republicans": 60.7
+        "Democrats": 37.4
+        "Others": 1.9
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 3.2
+      inflation: 2.9
+    buildings: []
+    construction_projects: []
+
+  USA_016:
+    name: "Indiana"
+    country: "United States"
+    coordinates: [39.8494, -86.2583]
+    features:
+      - "farmland"
+      - "industrial"
+      - "temperate_climate"
+      - "transport_hub"
+      - "automotive"
+    population:
+      total: 6800000
+      ethnic_groups:
+        - group: "White American"
+          percent: 78.5
+        - group: "African American"
+          percent: 9.4
+        - group: "Hispanic/Latino"
+          percent: 7.2
+        - group: "Asian American"
+          percent: 2.5
+        - group: "Other"
+          percent: 2.4
+    unrest: 3.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 180
+      rare_earth: 8
+      uranium: 0
+      food: 520
+    military:
+      stationed_units:
+        - "USA_INF_15"
+      fortification_level: 1
+    resource_output:
+      energy: 1180
+      iron: 180
+      food: 820
+      technology: 95
+    politics:
+      party_support:
+        "Republicans": 57.0
+        "Democrats": 41.0
+        "Others": 2.0
+    economy:
+      gdp_per_capita: 50000
+      unemployment: 3.1
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  USA_017:
+    name: "Missouri"
+    country: "United States"
+    coordinates: [38.4561, -92.2884]
+    features:
+      - "farmland"
+      - "transport_hub"
+      - "temperate_climate"
+      - "river_access"
+      - "industrial"
+    population:
+      total: 6200000
+      ethnic_groups:
+        - group: "White American"
+          percent: 78.8
+        - group: "African American"
+          percent: 11.4
+        - group: "Hispanic/Latino"
+          percent: 4.9
+        - group: "Asian American"
+          percent: 2.1
+        - group: "Other"
+          percent: 2.8
+    unrest: 3.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 15
+      steel: 120
+      rare_earth: 15
+      uranium: 0
+      food: 680
+    military:
+      stationed_units:
+        - "USA_INF_20"
+      fortification_level: 1
+    resource_output:
+      energy: 1080
+      iron: 120
+      food: 980
+      technology: 85
+    politics:
+      party_support:
+        "Republicans": 56.8
+        "Democrats": 41.4
+        "Others": 1.8
+    economy:
+      gdp_per_capita: 45000
+      unemployment: 3.5
+      inflation: 2.7
+    buildings: []
+    construction_projects: []
+
+  USA_018:
+    name: "Maryland"
+    country: "United States"
+    coordinates: [39.0639, -76.8021]
+    features:
+      - "coastal"
+      - "urban"
+      - "tech_hub"
+      - "government"
+      - "financial_hub"
+    population:
+      total: 6200000
+      ethnic_groups:
+        - group: "White American"
+          percent: 50.0
+        - group: "African American"
+          percent: 29.0
+        - group: "Hispanic/Latino"
+          percent: 11.8
+        - group: "Asian American"
+          percent: 6.7
+        - group: "Other"
+          percent: 2.5
+    unrest: 4.2
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 8
+      steel: 45
+      rare_earth: 12
+      uranium: 0
+      food: 180
+    military:
+      stationed_units:
+        - "USA_INF_5"
+        - "USA_NAV_2"
+      fortification_level: 3
+    resource_output:
+      energy: 1280
+      iron: 65
+      food: 380
+      technology: 380
+    politics:
+      party_support:
+        "Democrats": 65.4
+        "Republicans": 32.2
+        "Others": 2.4
+    economy:
+      gdp_per_capita: 82000
+      unemployment: 2.8
+      inflation: 3.8
+    buildings: []
+    construction_projects: []
+
+  USA_019:
+    name: "Wisconsin"
+    country: "United States"
+    coordinates: [44.2619, -89.6165]
+    features:
+      - "farmland"
+      - "industrial"
+      - "great_lakes"
+      - "temperate_climate"
+      - "dairy"
+    population:
+      total: 5900000
+      ethnic_groups:
+        - group: "White American"
+          percent: 81.1
+        - group: "African American"
+          percent: 6.2
+        - group: "Hispanic/Latino"
+          percent: 7.0
+        - group: "Asian American"
+          percent: 2.9
+        - group: "Other"
+          percent: 2.8
+    unrest: 2.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 15
+      steel: 95
+      rare_earth: 8
+      uranium: 0
+      food: 850
+    military:
+      stationed_units:
+        - "USA_INF_12"
+      fortification_level: 1
+    resource_output:
+      energy: 1080
+      iron: 95
+      food: 1180
+      technology: 120
+    politics:
+      party_support:
+        "Democrats": 49.4
+        "Republicans": 48.8
+        "Others": 1.8
+    economy:
+      gdp_per_capita: 54000
+      unemployment: 2.9
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  USA_020:
+    name: "Minnesota"
+    country: "United States"
+    coordinates: [45.6945, -93.9002]
+    features:
+      - "farmland"
+      - "great_lakes"
+      - "temperate_climate"
+      - "tech_hub"
+      - "mining"
+    population:
+      total: 5700000
+      ethnic_groups:
+        - group: "White American"
+          percent: 78.9
+        - group: "African American"
+          percent: 7.0
+        - group: "Hispanic/Latino"
+          percent: 5.9
+        - group: "Asian American"
+          percent: 5.2
+        - group: "Other"
+          percent: 3.0
+    unrest: 2.5
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 20
+      steel: 280
+      rare_earth: 45
+      uranium: 0
+      food: 780
+    military:
+      stationed_units:
+        - "USA_INF_10"
+      fortification_level: 1
+    resource_output:
+      energy: 1180
+      iron: 250
+      food: 1080
+      technology: 180
+    politics:
+      party_support:
+        "Democrats": 52.4
+        "Republicans": 45.3
+        "Others": 2.3
+    economy:
+      gdp_per_capita: 62000
+      unemployment: 3.2
+      inflation: 3.1
+    buildings: []
+    construction_projects: []
+
+  USA_021:
+    name: "Colorado"
+    country: "United States"
+    coordinates: [39.0598, -105.3111]
+    features:
+      - "mountainous"
+      - "tech_hub"
+      - "energy_hub"
+      - "mining"
+      - "tourism"
+    population:
+      total: 5800000
+      ethnic_groups:
+        - group: "White American"
+          percent: 68.5
+        - group: "Hispanic/Latino"
+          percent: 22.3
+        - group: "African American"
+          percent: 3.8
+        - group: "Asian American"
+          percent: 3.5
+        - group: "Other"
+          percent: 1.9
+    unrest: 3.2
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 85
+      steel: 120
+      rare_earth: 65
+      uranium: 85
+      food: 280
+    military:
+      stationed_units:
+        - "USA_AIR_8"
+        - "USA_INF_23"
+      fortification_level: 2
+    resource_output:
+      energy: 1480
+      iron: 135
+      food: 480
+      technology: 280
+    politics:
+      party_support:
+        "Democrats": 55.4
+        "Republicans": 41.9
+        "Others": 2.7
+    economy:
+      gdp_per_capita: 68000
+      unemployment: 3.1
+      inflation: 4.2
+    buildings: []
+    construction_projects: []
+
+  USA_022:
+    name: "South Carolina"
+    country: "United States"
+    coordinates: [33.8569, -80.9450]
+    features:
+      - "coastal"
+      - "subtropical"
+      - "farmland"
+      - "industrial"
+      - "tourism"
+    population:
+      total: 5200000
+      ethnic_groups:
+        - group: "White American"
+          percent: 63.8
+        - group: "African American"
+          percent: 26.5
+        - group: "Hispanic/Latino"
+          percent: 5.7
+        - group: "Asian American"
+          percent: 1.8
+        - group: "Other"
+          percent: 2.2
+    unrest: 4.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 15
+      steel: 65
+      rare_earth: 12
+      uranium: 0
+      food: 380
+    military:
+      stationed_units:
+        - "USA_MAR_3"
+        - "USA_INF_24"
+      fortification_level: 2
+    resource_output:
+      energy: 980
+      iron: 75
+      food: 680
+      technology: 95
+    politics:
+      party_support:
+        "Republicans": 55.1
+        "Democrats": 43.5
+        "Others": 1.4
+    economy:
+      gdp_per_capita: 45000
+      unemployment: 3.2
+      inflation: 2.9
+    buildings: []
+    construction_projects: []
+
+  USA_023:
+    name: "Alabama"
+    country: "United States"
+    coordinates: [32.3182, -86.9023]
+    features:
+      - "subtropical"
+      - "farmland"
+      - "industrial"
+      - "coastal"
+      - "energy_hub"
+    population:
+      total: 5000000
+      ethnic_groups:
+        - group: "White American"
+          percent: 65.3
+        - group: "African American"
+          percent: 26.2
+        - group: "Hispanic/Latino"
+          percent: 4.6
+        - group: "Asian American"
+          percent: 1.5
+        - group: "Other"
+          percent: 2.4
+    unrest: 4.8
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 45
+      steel: 180
+      rare_earth: 15
+      uranium: 0
+      food: 420
+    military:
+      stationed_units:
+        - "USA_INF_25"
+      fortification_level: 1
+    resource_output:
+      energy: 980
+      iron: 150
+      food: 720
+      technology: 75
+    politics:
+      party_support:
+        "Republicans": 62.1
+        "Democrats": 36.6
+        "Others": 1.3
+    economy:
+      gdp_per_capita: 42000
+      unemployment: 2.8
+      inflation: 2.5
+    buildings: []
+    construction_projects: []
+
+  USA_024:
+    name: "Louisiana"
+    country: "United States"
+    coordinates: [31.1695, -91.8678]
+    features:
+      - "coastal"
+      - "oil_rich"
+      - "subtropical"
+      - "energy_hub"
+      - "port"
+    population:
+      total: 4600000
+      ethnic_groups:
+        - group: "White American"
+          percent: 57.8
+        - group: "African American"
+          percent: 32.0
+        - group: "Hispanic/Latino"
+          percent: 5.6
+        - group: "Asian American"
+          percent: 1.8
+        - group: "Other"
+          percent: 2.8
+    unrest: 5.9
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 1200
+      steel: 85
+      rare_earth: 12
+      uranium: 0
+      food: 280
+    military:
+      stationed_units:
+        - "USA_NAV_5"
+        - "USA_INF_26"
+      fortification_level: 2
+    resource_output:
+      energy: 1680
+      iron: 95
+      food: 480
+      technology: 85
+    politics:
+      party_support:
+        "Republicans": 58.5
+        "Democrats": 39.9
+        "Others": 1.6
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 3.8
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  USA_025:
+    name: "Kentucky"
+    country: "United States"
+    coordinates: [37.6681, -84.6701]
+    features:
+      - "farmland"
+      - "mining"
+      - "temperate_climate"
+      - "energy_hub"
+      - "industrial"
+    population:
+      total: 4500000
+      ethnic_groups:
+        - group: "White American"
+          percent: 84.3
+        - group: "African American"
+          percent: 8.4
+        - group: "Hispanic/Latino"
+          percent: 3.8
+        - group: "Asian American"
+          percent: 1.6
+        - group: "Other"
+          percent: 1.9
+    unrest: 3.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 35
+      steel: 85
+      rare_earth: 8
+      uranium: 0
+      food: 480
+    military:
+      stationed_units:
+        - "USA_INF_27"
+      fortification_level: 1
+    resource_output:
+      energy: 980
+      iron: 95
+      food: 780
+      technology: 65
+    politics:
+      party_support:
+        "Republicans": 62.1
+        "Democrats": 36.2
+        "Others": 1.7
+    economy:
+      gdp_per_capita: 43000
+      unemployment: 4.1
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  USA_026:
+    name: "Oregon"
+    country: "United States"
+    coordinates: [44.5722, -122.0709]
+    features:
+      - "coastal"
+      - "forestry"
+      - "tech_hub"
+      - "hydroelectric"
+      - "temperate_climate"
+    population:
+      total: 4200000
+      ethnic_groups:
+        - group: "White American"
+          percent: 74.6
+        - group: "Hispanic/Latino"
+          percent: 13.4
+        - group: "Asian American"
+          percent: 4.9
+        - group: "African American"
+          percent: 2.2
+        - group: "Other"
+          percent: 4.9
+    unrest: 3.8
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 15
+      steel: 45
+      rare_earth: 25
+      uranium: 0
+      food: 380
+    military:
+      stationed_units:
+        - "USA_NAV_6"
+      fortification_level: 1
+    resource_output:
+      energy: 1580
+      iron: 65
+      food: 680
+      technology: 220
+    politics:
+      party_support:
+        "Democrats": 56.5
+        "Republicans": 40.4
+        "Others": 3.1
+    economy:
+      gdp_per_capita: 58000
+      unemployment: 4.2
+      inflation: 3.8
+    buildings: []
+    construction_projects: []
+
+  USA_027:
+    name: "Oklahoma"
+    country: "United States"
+    coordinates: [35.5653, -96.9289]
+    features:
+      - "oil_rich"
+      - "plains"
+      - "energy_hub"
+      - "farmland"
+      - "temperate_climate"
+    population:
+      total: 4000000
+      ethnic_groups:
+        - group: "White American"
+          percent: 65.7
+        - group: "Native American"
+          percent: 8.6
+        - group: "African American"
+          percent: 7.4
+        - group: "Hispanic/Latino"
+          percent: 11.9
+        - group: "Asian American"
+          percent: 2.4
+        - group: "Other"
+          percent: 4.0
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 850
+      steel: 65
+      rare_earth: 15
+      uranium: 25
+      food: 420
+    military:
+      stationed_units:
+        - "USA_INF_28"
+        - "USA_AIR_10"
+      fortification_level: 1
+    resource_output:
+      energy: 1280
+      iron: 75
+      food: 720
+      technology: 85
+    politics:
+      party_support:
+        "Republicans": 65.3
+        "Democrats": 32.6
+        "Others": 2.1
+    economy:
+      gdp_per_capita: 46000
+      unemployment: 3.1
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  USA_028:
+    name: "Connecticut"
+    country: "United States"
+    coordinates: [41.5978, -72.7554]
+    features:
+      - "coastal"
+      - "urban"
+      - "financial_hub"
+      - "tech_hub"
+      - "industrial"
+    population:
+      total: 3600000
+      ethnic_groups:
+        - group: "White American"
+          percent: 66.5
+        - group: "Hispanic/Latino"
+          percent: 16.8
+        - group: "African American"
+          percent: 9.9
+        - group: "Asian American"
+          percent: 4.7
+        - group: "Other"
+          percent: 2.1
+    unrest: 3.5
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 5
+    resource_deposits:
+      oil: 5
+      steel: 35
+      rare_earth: 8
+      uranium: 0
+      food: 95
+    military:
+      stationed_units:
+        - "USA_INF_29"
+      fortification_level: 2
+    resource_output:
+      energy: 980
+      iron: 45
+      food: 280
+      technology: 320
+    politics:
+      party_support:
+        "Democrats": 59.2
+        "Republicans": 39.2
+        "Others": 1.6
+    economy:
+      gdp_per_capita: 78000
+      unemployment: 3.1
+      inflation: 3.5
+    buildings: []
+    construction_projects: []
+
+  USA_029:
+    name: "Iowa"
+    country: "United States"
+    coordinates: [42.0115, -93.2105]
+    features:
+      - "farmland"
+      - "energy_hub"
+      - "temperate_climate"
+      - "plains"
+      - "wind_power"
+    population:
+      total: 3200000
+      ethnic_groups:
+        - group: "White American"
+          percent: 85.3
+        - group: "African American"
+          percent: 4.1
+        - group: "Hispanic/Latino"
+          percent: 6.8
+        - group: "Asian American"
+          percent: 2.4
+        - group: "Other"
+          percent: 1.4
+    unrest: 2.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 15
+      steel: 45
+      rare_earth: 8
+      uranium: 0
+      food: 1200
+    military:
+      stationed_units:
+        - "USA_INF_30"
+      fortification_level: 1
+    resource_output:
+      energy: 1480
+      iron: 55
+      food: 1580
+      technology: 95
+    politics:
+      party_support:
+        "Republicans": 53.1
+        "Democrats": 44.9
+        "Others": 2.0
+    economy:
+      gdp_per_capita: 58000
+      unemployment: 2.8
+      inflation: 2.9
+    buildings: []
+    construction_projects: []
+
+  USA_030:
+    name: "Arkansas"
+    country: "United States"
+    coordinates: [34.9697, -92.3731]
+    features:
+      - "farmland"
+      - "natural_gas"
+      - "temperate_climate"
+      - "forestry"
+      - "mining"
+    population:
+      total: 3000000
+      ethnic_groups:
+        - group: "White American"
+          percent: 68.5
+        - group: "African American"
+          percent: 15.4
+        - group: "Hispanic/Latino"
+          percent: 8.0
+        - group: "Asian American"
+          percent: 1.7
+        - group: "Other"
+          percent: 6.4
+    unrest: 3.8
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 35
+      steel: 65
+      rare_earth: 12
+      uranium: 0
+      food: 480
+    military:
+      stationed_units:
+        - "USA_INF_31"
+      fortification_level: 1
+    resource_output:
+      energy: 880
+      iron: 75
+      food: 780
+      technology: 55
+    politics:
+      party_support:
+        "Republicans": 62.4
+        "Democrats": 34.8
+        "Others": 2.8
+    economy:
+      gdp_per_capita: 42000
+      unemployment: 3.5
+      inflation: 2.6
+    buildings: []
+    construction_projects: []
+
+  USA_031:
+    name: "Mississippi"
+    country: "United States"
+    coordinates: [32.7417, -89.6781]
+    features:
+      - "farmland"
+      - "coastal"
+      - "subtropical"
+      - "energy_hub"
+      - "port"
+    population:
+      total: 2900000
+      ethnic_groups:
+        - group: "White American"
+          percent: 56.4
+        - group: "African American"
+          percent: 37.8
+        - group: "Hispanic/Latino"
+          percent: 3.2
+        - group: "Asian American"
+          percent: 1.1
+        - group: "Other"
+          percent: 1.5
+    unrest: 5.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 45
+      steel: 25
+      rare_earth: 8
+      uranium: 0
+      food: 380
+    military:
+      stationed_units:
+        - "USA_INF_32"
+      fortification_level: 1
+    resource_output:
+      energy: 780
+      iron: 35
+      food: 680
+      technology: 45
+    politics:
+      party_support:
+        "Republicans": 57.9
+        "Democrats": 40.8
+        "Others": 1.3
+    economy:
+      gdp_per_capita: 35000
+      unemployment: 5.2
+      inflation: 2.3
+    buildings: []
+    construction_projects: []
+
+  USA_032:
+    name: "Kansas"
+    country: "United States"
+    coordinates: [38.5266, -96.7265]
+    features:
+      - "farmland"
+      - "plains"
+      - "wind_power"
+      - "energy_hub"
+      - "temperate_climate"
+    population:
+      total: 2900000
+      ethnic_groups:
+        - group: "White American"
+          percent: 75.2
+        - group: "Hispanic/Latino"
+          percent: 12.9
+        - group: "African American"
+          percent: 5.9
+        - group: "Asian American"
+          percent: 2.9
+        - group: "Other"
+          percent: 3.1
+    unrest: 2.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 85
+      steel: 45
+      rare_earth: 12
+      uranium: 0
+      food: 980
+    military:
+      stationed_units:
+        - "USA_INF_33"
+        - "USA_AIR_11"
+      fortification_level: 1
+    resource_output:
+      energy: 1180
+      iron: 55
+      food: 1380
+      technology: 75
+    politics:
+      party_support:
+        "Republicans": 56.2
+        "Democrats": 41.6
+        "Others": 2.2
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 3.1
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  USA_033:
+    name: "Utah"
+    country: "United States"
+    coordinates: [40.1500, -111.8947]
+    features:
+      - "mountainous"
+      - "desert"
+      - "mining"
+      - "tech_hub"
+      - "energy_hub"
+    population:
+      total: 3300000
+      ethnic_groups:
+        - group: "White American"
+          percent: 78.3
+        - group: "Hispanic/Latino"
+          percent: 14.4
+        - group: "Asian American"
+          percent: 2.7
+        - group: "African American"
+          percent: 1.3
+        - group: "Other"
+          percent: 3.3
+    unrest: 2.2
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 65
+      steel: 120
+      rare_earth: 85
+      uranium: 120
+      food: 180
+    military:
+      stationed_units:
+        - "USA_INF_34"
+      fortification_level: 1
+    resource_output:
+      energy: 1280
+      iron: 135
+      food: 380
+      technology: 220
+    politics:
+      party_support:
+        "Republicans": 58.1
+        "Democrats": 37.6
+        "Others": 4.3
+    economy:
+      gdp_per_capita: 62000
+      unemployment: 2.9
+      inflation: 3.8
+    buildings: []
+    construction_projects: []
+
+  USA_034:
+    name: "Nevada"
+    country: "United States"
+    coordinates: [38.3135, -117.0554]
+    features:
+      - "desert"
+      - "mining"
+      - "tourism"
+      - "solar_potential"
+      - "urban"
+    population:
+      total: 3200000
+      ethnic_groups:
+        - group: "White American"
+          percent: 48.2
+        - group: "Hispanic/Latino"
+          percent: 29.2
+        - group: "African American"
+          percent: 10.2
+        - group: "Asian American"
+          percent: 8.9
+        - group: "Other"
+          percent: 3.5
+    unrest: 4.8
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 85
+      rare_earth: 120
+      uranium: 45
+      food: 85
+    military:
+      stationed_units:
+        - "USA_AIR_12"
+      fortification_level: 2
+    resource_output:
+      energy: 1380
+      iron: 95
+      food: 280
+      technology: 180
+    politics:
+      party_support:
+        "Democrats": 50.1
+        "Republicans": 47.4
+        "Others": 2.5
+    economy:
+      gdp_per_capita: 55000
+      unemployment: 5.2
+      inflation: 4.1
+    buildings: []
+    construction_projects: []
+
+  USA_035:
+    name: "New Mexico"
+    country: "United States"
+    coordinates: [34.8405, -106.2485]
+    features:
+      - "desert"
+      - "mining"
+      - "energy_hub"
+      - "nuclear_research"
+      - "oil_rich"
+    population:
+      total: 2100000
+      ethnic_groups:
+        - group: "Hispanic/Latino"
+          percent: 49.3
+        - group: "White American"
+          percent: 36.5
+        - group: "Native American"
+          percent: 11.0
+        - group: "African American"
+          percent: 1.8
+        - group: "Asian American"
+          percent: 1.4
+    unrest: 3.5
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 420
+      steel: 45
+      rare_earth: 85
+      uranium: 380
+      food: 120
+    military:
+      stationed_units:
+        - "USA_INF_35"
+        - "USA_AIR_13"
+      fortification_level: 2
+    resource_output:
+      energy: 1180
+      iron: 55
+      food: 380
+      technology: 280
+    politics:
+      party_support:
+        "Democrats": 54.3
+        "Republicans": 43.5
+        "Others": 2.2
+    economy:
+      gdp_per_capita: 45000
+      unemployment: 5.2
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  USA_036:
+    name: "West Virginia"
+    country: "United States"
+    coordinates: [38.4912, -80.9540]
+    features:
+      - "mountainous"
+      - "mining"
+      - "coal_rich"
+      - "energy_hub"
+      - "temperate_climate"
+    population:
+      total: 1800000
+      ethnic_groups:
+        - group: "White American"
+          percent: 93.2
+        - group: "African American"
+          percent: 3.6
+        - group: "Hispanic/Latino"
+          percent: 1.8
+        - group: "Asian American"
+          percent: 0.8
+        - group: "Other"
+          percent: 0.6
+    unrest: 4.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 45
+      steel: 280
+      rare_earth: 25
+      uranium: 0
+      food: 120
+    military:
+      stationed_units:
+        - "USA_INF_36"
+      fortification_level: 1
+    resource_output:
+      energy: 1480
+      iron: 280
+      food: 280
+      technology: 35
+    politics:
+      party_support:
+        "Republicans": 68.6
+        "Democrats": 29.7
+        "Others": 1.7
+    economy:
+      gdp_per_capita: 38000
+      unemployment: 3.8
+      inflation: 2.1
+    buildings: []
+    construction_projects: []
+
+  USA_037:
+    name: "Nebraska"
+    country: "United States"
+    coordinates: [41.1254, -98.2681]
+    features:
+      - "farmland"
+      - "plains"
+      - "energy_hub"
+      - "temperate_climate"
+      - "wind_power"
+    population:
+      total: 1900000
+      ethnic_groups:
+        - group: "White American"
+          percent: 78.8
+        - group: "Hispanic/Latino"
+          percent: 11.4
+        - group: "African American"
+          percent: 5.2
+        - group: "Asian American"
+          percent: 2.7
+        - group: "Other"
+          percent: 1.9
+    unrest: 2.3
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 35
+      rare_earth: 8
+      uranium: 0
+      food: 980
+    military:
+      stationed_units:
+        - "USA_INF_37"
+        - "USA_AIR_14"
+      fortification_level: 1
+    resource_output:
+      energy: 980
+      iron: 45
+      food: 1380
+      technology: 65
+    politics:
+      party_support:
+        "Republicans": 58.7
+        "Democrats": 39.2
+        "Others": 2.1
+    economy:
+      gdp_per_capita: 54000
+      unemployment: 2.1
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  USA_038:
+    name: "Idaho"
+    country: "United States"
+    coordinates: [44.2405, -114.4788]
+    features:
+      - "mountainous"
+      - "farmland"
+      - "mining"
+      - "forestry"
+      - "hydroelectric"
+    population:
+      total: 1800000
+      ethnic_groups:
+        - group: "White American"
+          percent: 81.0
+        - group: "Hispanic/Latino"
+          percent: 12.9
+        - group: "Native American"
+          percent: 1.7
+        - group: "Asian American"
+          percent: 1.4
+        - group: "African American"
+          percent: 0.9
+        - group: "Other"
+          percent: 2.1
+    unrest: 2.8
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 15
+      steel: 85
+      rare_earth: 45
+      uranium: 0
+      food: 580
+    military:
+      stationed_units:
+        - "USA_INF_38"
+      fortification_level: 1
+    resource_output:
+      energy: 1180
+      iron: 95
+      food: 880
+      technology: 85
+    politics:
+      party_support:
+        "Republicans": 63.8
+        "Democrats": 33.1
+        "Others": 3.1
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 2.9
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  USA_039:
+    name: "Hawaii"
+    country: "United States"
+    coordinates: [21.0943, -157.4983]
+    features:
+      - "island"
+      - "tropical"
+      - "tourism"
+      - "volcanic"
+      - "strategic_location"
+    population:
+      total: 1400000
+      ethnic_groups:
+        - group: "Asian American"
+          percent: 37.6
+        - group: "White American"
+          percent: 25.5
+        - group: "Native Hawaiian"
+          percent: 10.0
+        - group: "Hispanic/Latino"
+          percent: 10.9
+        - group: "African American"
+          percent: 1.8
+        - group: "Other"
+          percent: 14.2
+    unrest: 2.1
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 5
+      rare_earth: 15
+      uranium: 0
+      food: 180
+    military:
+      stationed_units:
+        - "USA_NAV_7"
+        - "USA_AIR_15"
+        - "USA_MAR_4"
+      fortification_level: 4
+    resource_output:
+      energy: 580
+      iron: 15
+      food: 380
+      technology: 120
+    politics:
+      party_support:
+        "Democrats": 63.2
+        "Republicans": 33.3
+        "Others": 3.5
+    economy:
+      gdp_per_capita: 65000
+      unemployment: 2.8
+      inflation: 4.2
+    buildings: []
+    construction_projects: []
+
+  USA_040:
+    name: "New Hampshire"
+    country: "United States"
+    coordinates: [43.4525, -71.5639]
+    features:
+      - "temperate_climate"
+      - "mountainous"
+      - "forestry"
+      - "tech_hub"
+      - "urban"
+    population:
+      total: 1400000
+      ethnic_groups:
+        - group: "White American"
+          percent: 87.4
+        - group: "Hispanic/Latino"
+          percent: 4.0
+        - group: "Asian American"
+          percent: 2.8
+        - group: "African American"
+          percent: 1.8
+        - group: "Other"
+          percent: 4.0
+    unrest: 2.2
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 25
+      rare_earth: 12
+      uranium: 0
+      food: 180
+    military:
+      stationed_units:
+        - "USA_INF_39"
+      fortification_level: 1
+    resource_output:
+      energy: 680
+      iron: 35
+      food: 380
+      technology: 180
+    politics:
+      party_support:
+        "Republicans": 45.3
+        "Democrats": 52.7
+        "Others": 2.0
+    economy:
+      gdp_per_capita: 72000
+      unemployment: 2.6
+      inflation: 3.1
+    buildings: []
+    construction_projects: []
+
+  USA_041:
+    name: "Maine"
+    country: "United States"
+    coordinates: [44.6939, -69.3819]
+    features:
+      - "coastal"
+      - "forestry"
+      - "temperate_climate"
+      - "fishing"
+      - "tourism"
+    population:
+      total: 1400000
+      ethnic_groups:
+        - group: "White American"
+          percent: 92.9
+        - group: "African American"
+          percent: 1.7
+        - group: "Hispanic/Latino"
+          percent: 1.9
+        - group: "Asian American"
+          percent: 1.2
+        - group: "Other"
+          percent: 2.3
+    unrest: 2.0
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 15
+      rare_earth: 8
+      uranium: 0
+      food: 380
+    military:
+      stationed_units:
+        - "USA_NAV_8"
+      fortification_level: 1
+    resource_output:
+      energy: 580
+      iron: 25
+      food: 680
+      technology: 85
+    politics:
+      party_support:
+        "Democrats": 53.1
+        "Republicans": 44.0
+        "Others": 2.9
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 2.8
+      inflation: 2.9
+    buildings: []
+    construction_projects: []
+
+  USA_042:
+    name: "Rhode Island"
+    country: "United States"
+    coordinates: [41.6809, -71.5118]
+    features:
+      - "coastal"
+      - "urban"
+      - "small_state"
+      - "industrial"
+      - "tourism"
+    population:
+      total: 1100000
+      ethnic_groups:
+        - group: "White American"
+          percent: 71.4
+        - group: "Hispanic/Latino"
+          percent: 15.9
+        - group: "African American"
+          percent: 5.7
+        - group: "Asian American"
+          percent: 3.3
+        - group: "Other"
+          percent: 3.7
+    unrest: 3.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 15
+      rare_earth: 5
+      uranium: 0
+      food: 45
+    military:
+      stationed_units:
+        - "USA_NAV_9"
+      fortification_level: 2
+    resource_output:
+      energy: 480
+      iron: 25
+      food: 180
+      technology: 120
+    politics:
+      party_support:
+        "Democrats": 59.5
+        "Republicans": 38.9
+        "Others": 1.6
+    economy:
+      gdp_per_capita: 58000
+      unemployment: 3.9
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  USA_043:
+    name: "Montana"
+    country: "United States"
+    coordinates: [47.0527, -110.2148]
+    features:
+      - "mountainous"
+      - "mining"
+      - "energy_hub"
+      - "farmland"
+      - "temperate_climate"
+    population:
+      total: 1100000
+      ethnic_groups:
+        - group: "White American"
+          percent: 85.8
+        - group: "Native American"
+          percent: 6.7
+        - group: "Hispanic/Latino"
+          percent: 4.0
+        - group: "African American"
+          percent: 0.6
+        - group: "Asian American"
+          percent: 0.9
+        - group: "Other"
+          percent: 2.0
+    unrest: 2.5
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 180
+      steel: 120
+      rare_earth: 85
+      uranium: 45
+      food: 480
+    military:
+      stationed_units:
+        - "USA_INF_40"
+        - "USA_AIR_16"
+      fortification_level: 2
+    resource_output:
+      energy: 1080
+      iron: 135
+      food: 780
+      technology: 65
+    politics:
+      party_support:
+        "Republicans": 56.9
+        "Democrats": 40.6
+        "Others": 2.5
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 3.4
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  USA_044:
+    name: "Delaware"
+    country: "United States"
+    coordinates: [39.3185, -75.5071]
+    features:
+      - "coastal"
+      - "urban"
+      - "financial_hub"
+      - "small_state"
+      - "industrial"
+    population:
+      total: 1000000
+      ethnic_groups:
+        - group: "White American"
+          percent: 61.7
+        - group: "African American"
+          percent: 22.1
+        - group: "Hispanic/Latino"
+          percent: 9.5
+        - group: "Asian American"
+          percent: 4.1
+        - group: "Other"
+          percent: 2.6
+    unrest: 3.2
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 15
+      rare_earth: 5
+      uranium: 0
+      food: 85
+    military:
+      stationed_units:
+        - "USA_INF_41"
+      fortification_level: 1
+    resource_output:
+      energy: 480
+      iron: 25
+      food: 280
+      technology: 180
+    politics:
+      party_support:
+        "Democrats": 58.7
+        "Republicans": 39.8
+        "Others": 1.5
+    economy:
+      gdp_per_capita: 68000
+      unemployment: 3.8
+      inflation: 3.5
+    buildings: []
+    construction_projects: []
+
+  USA_045:
+    name: "South Dakota"
+    country: "United States"
+    coordinates: [44.2998, -99.4388]
+    features:
+      - "farmland"
+      - "plains"
+      - "mining"
+      - "temperate_climate"
+      - "wind_power"
+    population:
+      total: 900000
+      ethnic_groups:
+        - group: "White American"
+          percent: 81.7
+        - group: "Native American"
+          percent: 9.0
+        - group: "Hispanic/Latino"
+          percent: 4.3
+        - group: "African American"
+          percent: 2.4
+        - group: "Asian American"
+          percent: 1.4
+        - group: "Other"
+          percent: 1.2
+    unrest: 2.1
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 85
+      rare_earth: 45
+      uranium: 25
+      food: 580
+    military:
+      stationed_units:
+        - "USA_INF_42"
+        - "USA_AIR_17"
+      fortification_level: 1
+    resource_output:
+      energy: 780
+      iron: 95
+      food: 880
+      technology: 55
+    politics:
+      party_support:
+        "Republicans": 61.8
+        "Democrats": 35.6
+        "Others": 2.6
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 2.3
+      inflation: 2.5
+    buildings: []
+    construction_projects: []
+
+  USA_046:
+    name: "North Dakota"
+    country: "United States"
+    coordinates: [47.5289, -99.7840]
+    features:
+      - "oil_rich"
+      - "farmland"
+      - "plains"
+      - "energy_hub"
+      - "temperate_climate"
+    population:
+      total: 800000
+      ethnic_groups:
+        - group: "White American"
+          percent: 84.0
+        - group: "Native American"
+          percent: 5.5
+        - group: "Hispanic/Latino"
+          percent: 4.1
+        - group: "African American"
+          percent: 3.4
+        - group: "Asian American"
+          percent: 1.7
+        - group: "Other"
+          percent: 1.3
+    unrest: 1.8
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 680
+      steel: 45
+      rare_earth: 25
+      uranium: 15
+      food: 480
+    military:
+      stationed_units:
+        - "USA_INF_43"
+        - "USA_AIR_18"
+      fortification_level: 1
+    resource_output:
+      energy: 1380
+      iron: 55
+      food: 780
+      technology: 65
+    politics:
+      party_support:
+        "Republicans": 65.1
+        "Democrats": 31.8
+        "Others": 3.1
+    economy:
+      gdp_per_capita: 72000
+      unemployment: 2.4
+      inflation: 3.8
+    buildings: []
+    construction_projects: []
+
+  USA_047:
+    name: "Alaska"
+    country: "United States"
+    coordinates: [61.2181, -149.9003]
+    features:
+      - "arctic"
+      - "oil_rich"
+      - "mining"
+      - "fishing"
+      - "strategic_location"
+    population:
+      total: 700000
+      ethnic_groups:
+        - group: "White American"
+          percent: 60.2
+        - group: "Native American"
+          percent: 15.6
+        - group: "Asian American"
+          percent: 6.5
+        - group: "Hispanic/Latino"
+          percent: 7.3
+        - group: "African American"
+          percent: 3.1
+        - group: "Other"
+          percent: 7.3
+    unrest: 2.8
+    infrastructure:
+      roads: 1
+      internet: 2
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 2800
+      steel: 180
+      rare_earth: 280
+      uranium: 85
+      food: 180
+    military:
+      stationed_units:
+        - "USA_INF_44"
+        - "USA_AIR_19"
+        - "USA_NAV_10"
+      fortification_level: 3
+    resource_output:
+      energy: 1880
+      iron: 195
+      food: 480
+      technology: 120
+    politics:
+      party_support:
+        "Republicans": 52.8
+        "Democrats": 42.8
+        "Others": 4.4
+    economy:
+      gdp_per_capita: 78000
+      unemployment: 6.2
+      inflation: 3.8
+    buildings: []
+    construction_projects: []
+
+  USA_048:
+    name: "Vermont"
+    country: "United States"
+    coordinates: [44.0459, -72.7107]
+    features:
+      - "temperate_climate"
+      - "mountainous"
+      - "forestry"
+      - "farmland"
+      - "small_state"
+    population:
+      total: 600000
+      ethnic_groups:
+        - group: "White American"
+          percent: 92.8
+        - group: "African American"
+          percent: 1.4
+        - group: "Asian American"
+          percent: 1.9
+        - group: "Hispanic/Latino"
+          percent: 2.0
+        - group: "Other"
+          percent: 1.9
+    unrest: 1.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 15
+      rare_earth: 8
+      uranium: 0
+      food: 280
+    military:
+      stationed_units:
+        - "USA_INF_45"
+      fortification_level: 1
+    resource_output:
+      energy: 480
+      iron: 25
+      food: 480
+      technology: 85
+    politics:
+      party_support:
+        "Democrats": 66.1
+        "Republicans": 30.7
+        "Others": 3.2
+    economy:
+      gdp_per_capita: 58000
+      unemployment: 2.9
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  USA_049:
+    name: "Wyoming"
+    country: "United States"
+    coordinates: [42.7559, -107.3025]
+    features:
+      - "mountainous"
+      - "mining"
+      - "energy_hub"
+      - "coal_rich"
+      - "oil_rich"
+    population:
+      total: 600000
+      ethnic_groups:
+        - group: "White American"
+          percent: 81.4
+        - group: "Hispanic/Latino"
+          percent: 10.2
+        - group: "Native American"
+          percent: 2.7
+        - group: "African American"
+          percent: 1.3
+        - group: "Asian American"
+          percent: 1.0
+        - group: "Other"
+          percent: 3.4
+    unrest: 2.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 380
+      steel: 85
+      rare_earth: 45
+      uranium: 180
+      food: 180
+    military:
+      stationed_units:
+        - "USA_INF_46"
+        - "USA_AIR_20"
+      fortification_level: 1
+    resource_output:
+      energy: 1480
+      iron: 95
+      food: 380
+      technology: 45
+    politics:
+      party_support:
+        "Republicans": 67.4
+        "Democrats": 26.6
+        "Others": 6.0
+    economy:
+      gdp_per_capita: 65000
+      unemployment: 3.6
+      inflation: 2.9
+    buildings: []
+    construction_projects: []
+
+  USA_050:
+    name: "Washington DC"
+    country: "United States"
+    coordinates: [38.9072, -77.0369]
+    features:
+      - "capital"
+      - "urban"
+      - "government"
+      - "tech_hub"
+      - "financial_hub"
+    population:
+      total: 700000
+      ethnic_groups:
+        - group: "African American"
+          percent: 45.4
+        - group: "White American"
+          percent: 36.4
+        - group: "Hispanic/Latino"
+          percent: 11.3
+        - group: "Asian American"
+          percent: 4.6
+        - group: "Other"
+          percent: 2.3
+    unrest: 4.5
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 5
+      education: 5
+    resource_deposits:
+      oil: 0
+      steel: 8
+      rare_earth: 5
+      uranium: 0
+      food: 25
+    military:
+      stationed_units:
+        - "USA_INF_47"
+        - "USA_AIR_21"
+        - "USA_SPE_1"
+      fortification_level: 5
+    resource_output:
+      energy: 680
+      iron: 15
+      food: 120
+      technology: 580
+    politics:
+      party_support:
+        "Democrats": 92.1
+        "Republicans": 5.4
+        "Others": 2.5
+    economy:
+      gdp_per_capita: 185000
+      unemployment: 5.8
+      inflation: 4.2
+    buildings: []
+    construction_projects: []
