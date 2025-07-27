@@ -79,6 +79,25 @@ let gameDataCache: {
 // Cache TTL for development (5 minutes)
 const CACHE_TTL = 5 * 60 * 1000;
 
+// Create resourcesData export for backward compatibility
+let resourcesDataCache: Record<string, Resource> | null = null;
+
+export const resourcesData: Record<string, Resource> = new Proxy({}, {
+  get(target, prop: string) {
+    if (!resourcesDataCache) {
+      // Return empty object if not loaded yet
+      return undefined;
+    }
+    return resourcesDataCache[prop];
+  },
+  ownKeys(target) {
+    return resourcesDataCache ? Object.keys(resourcesDataCache) : [];
+  },
+  has(target, prop: string) {
+    return resourcesDataCache ? prop in resourcesDataCache : false;
+  }
+});
+
 /**
  * Main function to get all game data using the modular regions approach
  */
@@ -111,9 +130,22 @@ export async function getGameData() {
     
     // Load static data files
     const buildings = yaml.load(buildingsRaw) as Building[] || [];
-    const resources = yaml.load(resourcesRaw) as Resource[] || [];
+    const resourcesData = yaml.load(resourcesRaw) as { resources: Record<string, any> } || { resources: {} };
+    const resources = Object.entries(resourcesData.resources || {}).map(([id, data]) => ({
+      id,
+      ...data
+    })) as Resource[];
     const events = yaml.load(eventsRaw) as GameEvent[] || [];
     const technologies = yaml.load(technologiesRaw) as Technology[] || [];
+    
+    // Update resourcesData cache for backward compatibility
+    const resourcesObj = resources.reduce((acc, resource) => {
+      if (resource && resource.id) {
+        acc[resource.id] = resource;
+      }
+      return acc;
+    }, {} as Record<string, Resource>);
+    resourcesDataCache = resourcesObj;
     
     const endTime = performance.now();
     const loadTime = endTime - startTime;
@@ -299,6 +331,19 @@ export async function getEvents() {
 export async function getTechnologies() {
   const data = await getGameData();
   return data.technologies;
+}
+
+// Resource utility functions for backward compatibility
+export function getResourceById(id: string): Resource | undefined {
+  return resourcesDataCache?.[id];
+}
+
+export function getAllResources(): Resource[] {
+  return resourcesDataCache ? Object.values(resourcesDataCache) : [];
+}
+
+export function getResourcesByCategory(category: string): Resource[] {
+  return resourcesDataCache ? Object.values(resourcesDataCache).filter(resource => resource.category === category) : [];
 }
 
 // Specific lookup functions

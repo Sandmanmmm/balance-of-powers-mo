@@ -4,23 +4,23 @@ import { getResources } from '../data/gameData';
 /**
  * Calculate resource shortage effects based on current shortages
  */
-export async function calculateResourceShortageEffects(nation: Nation): Promise<ResourceShortageEffect[]> {
+export function calculateResourceShortageEffects(nation: Nation, resourcesArray: any[]): ResourceShortageEffect[] {
   const effects: ResourceShortageEffect[] = [];
   const shortages = nation.resourceShortages || {};
 
-  // Load resources data from modular system
-  try {
-    const resourcesArray = await getResources();
-    const resourcesData = resourcesArray.reduce((acc, resource) => {
+  // Convert resources array to lookup object
+  const resourcesData = resourcesArray.reduce((acc, resource) => {
+    if (resource && resource.id) {
       acc[resource.id] = resource;
-      return acc;
-    }, {} as Record<string, any>);
-
-    // Safety check for resourcesData
-    if (!resourcesData || typeof resourcesData !== 'object') {
-      console.warn('Resource data not available for shortage effects calculation');
-      return effects;
     }
+    return acc;
+  }, {} as Record<string, any>);
+
+  // Safety check for resourcesData
+  if (!resourcesData || typeof resourcesData !== 'object') {
+    console.warn('Resource data not available for shortage effects calculation');
+    return effects;
+  }
 
   Object.entries(shortages).forEach(([resourceId, severity]) => {
     if (severity <= 0.1) return; // Ignore minor shortages
@@ -92,10 +92,6 @@ export async function calculateResourceShortageEffects(nation: Nation): Promise<
   });
 
   return effects;
-  } catch (error) {
-    console.error('Error loading resources for shortage effects:', error);
-    return effects;
-  }
 }
 
 /**

@@ -30,16 +30,22 @@ export function createTradeOffer(
 /**
  * Calculate the economic value of a trade offer
  */
-export async function calculateTradeValue(
+export function calculateTradeValue(
   offering: Record<string, number>,
-  requesting: Record<string, number>
-): Promise<{ offeringValue: number; requestingValue: number; fairness: number }> {
-  try {
-    const resourcesArray = await getResources();
-    const resourcesData = resourcesArray.reduce((acc, resource) => {
+  requesting: Record<string, number>,
+  resourcesArray?: any[]
+): { offeringValue: number; requestingValue: number; fairness: number } {
+  // If no resources provided, return basic calculation
+  if (!resourcesArray || !Array.isArray(resourcesArray)) {
+    return { offeringValue: 0, requestingValue: 0, fairness: 1 };
+  }
+
+  const resourcesData = resourcesArray.reduce((acc, resource) => {
+    if (resource && resource.id) {
       acc[resource.id] = resource;
-      return acc;
-    }, {} as Record<string, any>);
+    }
+    return acc;
+  }, {} as Record<string, any>);
 
     const offeringValue = Object.entries(offering).reduce((sum, [resourceId, amount]) => {
       const resource = resourcesData[resourceId];
@@ -54,10 +60,6 @@ export async function calculateTradeValue(
     const fairness = requestingValue > 0 ? offeringValue / requestingValue : 1;
 
     return { offeringValue, requestingValue, fairness };
-  } catch (error) {
-    console.error('Error calculating trade value:', error);
-    return { offeringValue: 0, requestingValue: 0, fairness: 1 };
-  }
 }
 
 /**
@@ -108,7 +110,7 @@ export function acceptTradeOffer(
     duration: offer.duration,
     status: 'active',
     startDate: now,
-    value: calculateTradeValue(offer.offering, offer.requesting).offeringValue
+    value: calculateTradeValue(offer.offering, offer.requesting, []).offeringValue
   };
 }
 
@@ -255,7 +257,8 @@ export function removeEmbargo(
  */
 export function generateAITradeOffer(
   nation: Nation,
-  potentialPartners: Nation[]
+  potentialPartners: Nation[],
+  resourcesArray?: any[]
 ): TradeOffer | null {
   const shortages = nation.resourceShortages || {};
   const surpluses: Record<string, number> = {};
@@ -314,7 +317,7 @@ export function generateAITradeOffer(
 
     // Create trade offer if both sides have something to offer
     if (Object.keys(offering).length > 0 && Object.keys(requesting).length > 0) {
-      const tradeValue = calculateTradeValue(offering, requesting);
+      const tradeValue = calculateTradeValue(offering, requesting, resourcesArray);
       
       // Only proceed if trade is reasonably fair (0.7 to 1.4 ratio)
       if (tradeValue.fairness >= 0.7 && tradeValue.fairness <= 1.4) {
@@ -331,7 +334,8 @@ export function generateAITradeOffer(
  */
 export function evaluateTradeOfferAI(
   nation: Nation,
-  offer: TradeOffer
+  offer: TradeOffer,
+  resourcesArray?: any[]
 ): { shouldAccept: boolean; priority: number; reason: string } {
   const shortages = nation.resourceShortages || {};
   const isReceiving = offer.toNation === nation.id;
@@ -384,7 +388,7 @@ export function evaluateTradeOfferAI(
   }
 
   // Economic fairness check
-  const tradeValue = calculateTradeValue(offer.offering, offer.requesting);
+  const tradeValue = calculateTradeValue(offer.offering, offer.requesting, resourcesArray);
   if (tradeValue.fairness < 0.5 || tradeValue.fairness > 2.0) {
     shouldAccept = false;
     reason = 'Trade terms too unfavorable';

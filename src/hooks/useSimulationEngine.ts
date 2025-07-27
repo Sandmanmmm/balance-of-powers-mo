@@ -47,7 +47,6 @@ export function useSimulationEngine({
   const lastEventCheckRef = useRef<number>(Date.now());
   const aiDecisionCooldownRef = useRef<Map<string, number>>(new Map());
   const [resources, setResources] = useState<Resource[]>([]);
-  const [resourcesData, setResourcesData] = useState<Record<string, Resource>>({});
   const [events, setEvents] = useState<any[]>([]);
   const [technologies, setTechnologies] = useState<any[]>([]);
 
@@ -57,13 +56,6 @@ export function useSimulationEngine({
       try {
         const resourcesList = await getResources();
         setResources(resourcesList);
-        
-        // Convert to lookup object for backwards compatibility
-        const resourcesLookup: Record<string, Resource> = {};
-        resourcesList.forEach(resource => {
-          resourcesLookup[resource.id] = resource;
-        });
-        setResourcesData(resourcesLookup);
 
         // Load events and technologies
         const eventsList = await getEvents();
@@ -186,9 +178,11 @@ export function useSimulationEngine({
         // Check resource notifications for player nation
         const playerNation = context.nations.find(n => n.id === context.gameState.selectedNation);
         if (playerNation) {
-          checkResourceNotifications(playerNation, context.gameState.currentDate).catch(error => {
+          try {
+            checkResourceNotifications(playerNation, context.gameState.currentDate, resources);
+          } catch (error) {
             console.error('Error checking resource notifications:', error);
-          });
+          }
         }
         
         // Run technology progression
@@ -1121,30 +1115,31 @@ function processResourceSystem(
     if (!nation.resourceStockpiles) {
       // Initialize with basic starting stockpiles
       const startingStockpiles: Record<string, number> = {};
-      if (resourcesData && typeof resourcesData === 'object') {
-        Object.keys(resourcesData).forEach(resourceId => {
-          // Give starting stockpiles based on resource type
-          switch (resourceId) {
+      if (resources && Array.isArray(resources) && resources.length > 0) {
+        resources.forEach(resource => {
+          if (resource && resource.id) {
+            // Give starting stockpiles based on resource type
+            switch (resource.id) {
             case 'food':
-              startingStockpiles[resourceId] = 10000; // 10,000 tons
+              startingStockpiles[resource.id] = 10000; // 10,000 tons
               break;
             case 'water':
-              startingStockpiles[resourceId] = 1000000; // 1M liters
+              startingStockpiles[resource.id] = 1000000; // 1M liters
               break;
             case 'manpower':
-              startingStockpiles[resourceId] = 100000; // 100k people
+              startingStockpiles[resource.id] = 100000; // 100k people
               break;
             case 'electricity':
-              startingStockpiles[resourceId] = 5000; // 5000 MWh
+              startingStockpiles[resource.id] = 5000; // 5000 MWh
               break;
             case 'oil':
-              startingStockpiles[resourceId] = 1000; // 1000 barrels
+              startingStockpiles[resource.id] = 1000; // 1000 barrels
               break;
             case 'steel':
-              startingStockpiles[resourceId] = 500; // 500 tons
+              startingStockpiles[resource.id] = 500; // 500 tons
               break;
             default:
-              startingStockpiles[resourceId] = 100; // Default amount
+              startingStockpiles[resource.id] = 100; // Default amount
           }
         });
       }
@@ -1163,11 +1158,13 @@ function processResourceSystem(
     const efficiency = nation.resourceEfficiency?.overall || 1;
     
     // Reset production/consumption for recalculation
-    if (resourcesData && typeof resourcesData === 'object') {
-      Object.keys(resourcesData).forEach(resourceId => {
-        newProduction[resourceId] = 0;
-        newConsumption[resourceId] = 0;
-        newShortages[resourceId] = 0;
+    if (resources && Array.isArray(resources) && resources.length > 0) {
+      resources.forEach(resource => {
+        if (resource && resource.id) {
+          newProduction[resource.id] = 0;
+          newConsumption[resource.id] = 0;
+          newShortages[resource.id] = 0;
+        }
       });
     }
     
@@ -1309,34 +1306,37 @@ function processResourceSystem(
   newConsumption.consumer_goods = (newConsumption.consumer_goods || 0) + totalPopulation * 0.005 * weeksElapsed;
   
   // Calculate shortages and apply net change to stockpiles
-  if (resourcesData && typeof resourcesData === 'object') {
-    Object.keys(resourcesData).forEach(resourceId => {
-      const production = newProduction[resourceId] || 0;
-      const consumption = newConsumption[resourceId] || 0;
-      const netChange = production - consumption;
-      const oldStockpile = newStockpiles[resourceId] || 0;
-      newStockpiles[resourceId] = Math.max(0, oldStockpile + netChange);
-      
-      // Debug logging for food specifically
-      if (nation.id === context.gameState.selectedNation && resourceId === 'food') {
-        console.log(`Food summary for ${nation.name}:`);
-        console.log(`- Production: ${production}`);
-        console.log(`- Consumption: ${consumption}`);
-        console.log(`- Net change: ${netChange}`);
-        console.log(`- Old stockpile: ${oldStockpile}`);
-        console.log(`- New stockpile: ${newStockpiles[resourceId]}`);
-      }
-      
-      // Calculate shortage severity
-      if (consumption > 0) {
-        const weeksOfSupply = newStockpiles[resourceId] / consumption;
-        if (weeksOfSupply < 8) { // Less than 8 weeks supply
-          newShortages[resourceId] = Math.max(0, 1 - weeksOfSupply / 8);
+  if (resources && Array.isArray(resources) && resources.length > 0) {
+    resources.forEach(resource => {
+      if (resource && resource.id) {
+        const resourceId = resource.id;
+        const production = newProduction[resourceId] || 0;
+        const consumption = newConsumption[resourceId] || 0;
+        const netChange = production - consumption;
+        const oldStockpile = newStockpiles[resourceId] || 0;
+        newStockpiles[resourceId] = Math.max(0, oldStockpile + netChange);
+        
+        // Debug logging for food specifically
+        if (nation.id === context.gameState.selectedNation && resourceId === 'food') {
+          console.log(`Food summary for ${nation.name}:`);
+          console.log(`- Production: ${production}`);
+          console.log(`- Consumption: ${consumption}`);
+          console.log(`- Net change: ${netChange}`);
+          console.log(`- Old stockpile: ${oldStockpile}`);
+          console.log(`- New stockpile: ${newStockpiles[resourceId]}`);
+        }
+        
+        // Calculate shortage severity
+        if (consumption > 0) {
+          const weeksOfSupply = newStockpiles[resourceId] / consumption;
+          if (weeksOfSupply < 8) { // Less than 8 weeks supply
+            newShortages[resourceId] = Math.max(0, 1 - weeksOfSupply / 8);
+          } else {
+            newShortages[resourceId] = 0;
+          }
         } else {
           newShortages[resourceId] = 0;
         }
-      } else {
-        newShortages[resourceId] = 0;
       }
     });
   }
@@ -1345,7 +1345,7 @@ function processResourceSystem(
   const shortageEffects = calculateResourceShortageEffects({
     ...nation,
     resourceShortages: newShortages
-  });
+  }, resources);
   
   // Apply effects to nation
   const nationEffects = applyShortageEffectsToNation(nation, shortageEffects);
@@ -1476,7 +1476,7 @@ function processTradeSystem(
         (!Array.isArray(nation.diplomacy?.embargoes) || !nation.diplomacy.embargoes.includes(n.id))
       );
       
-      const tradeOffer = generateAITradeOffer(nation, potentialPartners);
+      const tradeOffer = generateAITradeOffer(nation, potentialPartners, resources);
       
       if (tradeOffer) {
         // Add offer to offering nation
@@ -1500,7 +1500,7 @@ function processTradeSystem(
         // Auto-evaluate AI response for AI-to-AI offers
         const targetNation = nations.find(n => n && n.id === tradeOffer.toNation);
         if (targetNation && targetNation.id !== context.gameState.selectedNation) {
-          const evaluation = evaluateTradeOfferAI(targetNation, tradeOffer);
+          const evaluation = evaluateTradeOfferAI(targetNation, tradeOffer, resources);
           
           if (evaluation.shouldAccept) {
             // Accept trade offer

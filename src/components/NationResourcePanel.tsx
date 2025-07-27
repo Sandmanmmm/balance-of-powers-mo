@@ -37,7 +37,10 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
   useEffect(() => {
     const loadShortageEffects = async () => {
       try {
-        const effects = await calculateResourceShortageEffects(nation);
+        // Get resources first
+        const resourcesList = await getResources();
+        
+        const effects = calculateResourceShortageEffects(nation, resourcesList);
         setShortageEffects(effects);
         
         // Load descriptions for each effect

@@ -32,22 +32,22 @@ const pendingGroupedNotifications = new Map<string, Array<PendingNotification>>(
 /**
  * Check and send resource shortage/surplus notifications with improved state tracking
  */
-export async function checkResourceNotifications(nation: Nation, gameDate: Date): Promise<void> {
+export function checkResourceNotifications(nation: Nation, gameDate: Date, resourcesArray: any[]): void {
   // Safety checks
   if (!nation || !nation.resourceStockpiles || !nation.resourceProduction || !nation.resourceConsumption) {
     return;
   }
 
-  try {
-    // Load resources data from modular system
-    const resourcesArray = await getResources();
-    const resourcesData = resourcesArray.reduce((acc, resource) => {
+  // Convert resources array to lookup object
+  const resourcesData = resourcesArray.reduce((acc, resource) => {
+    if (resource && resource.id) {
       acc[resource.id] = resource;
-      return acc;
-    }, {} as Record<string, any>);
+    }
+    return acc;
+  }, {} as Record<string, any>);
 
-    // Safety check for resourcesData
-    if (!resourcesData || typeof resourcesData !== 'object') {
+  // Safety check for resourcesData
+  if (!resourcesData || typeof resourcesData !== 'object') {
       console.warn('Resource data not loaded, skipping notifications');
       return;
     }
@@ -161,9 +161,6 @@ export async function checkResourceNotifications(nation: Nation, gameDate: Date)
     }
     
     notificationState.set(nation.id, nationNotifications);
-  } catch (error) {
-    console.error('Error loading resources for notifications:', error);
-  }
 }
 
 /**
