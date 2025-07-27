@@ -137,34 +137,30 @@ export async function checkResourceNotifications(nation: Nation, gameDate: Date)
         }
       }
     });
-  } catch (error) {
-    console.error('Error in resource notifications:', error);
-    return;
-  }
-  
-  // Handle grouped notifications
-  if (pendingNotifications.length > 0) {
-    try {
-      if (settings.groupNotifications && pendingNotifications.length > 1) {
-        sendGroupedNotification(nation, pendingNotifications, resourcesData);
-      } else {
-        // Send individual notifications if only one or grouping disabled
-        pendingNotifications.forEach(notif => {
-          if (!notif || !notif.resourceId) return;
-          const resource = resourcesData[notif.resourceId];
-          if (!resource) return;
-          const stockpile = nation.resourceStockpiles?.[notif.resourceId] || 0;
-          const consumption = nation.resourceConsumption?.[notif.resourceId] || 0;
-          const weeksOfSupply = consumption > 0 ? stockpile / consumption : Infinity;
-          sendResourceNotification(nation, resource, notif.severity, notif.type, stockpile, weeksOfSupply);
-        });
+    
+    // Handle grouped notifications
+    if (pendingNotifications.length > 0) {
+      try {
+        if (settings.groupNotifications && pendingNotifications.length > 1) {
+          sendGroupedNotification(nation, pendingNotifications, resourcesData);
+        } else {
+          // Send individual notifications if only one or grouping disabled
+          pendingNotifications.forEach(notif => {
+            if (!notif || !notif.resourceId) return;
+            const resource = resourcesData[notif.resourceId];
+            if (!resource) return;
+            const stockpile = nation.resourceStockpiles?.[notif.resourceId] || 0;
+            const consumption = nation.resourceConsumption?.[notif.resourceId] || 0;
+            const weeksOfSupply = consumption > 0 ? stockpile / consumption : Infinity;
+            sendResourceNotification(nation, resource, notif.severity, notif.type, stockpile, weeksOfSupply);
+          });
+        }
+      } catch (error) {
+        console.error('Error sending grouped notifications:', error);
       }
-    } catch (error) {
-      console.error('Error sending grouped notifications:', error);
     }
-  }
-  
-  notificationState.set(nation.id, nationNotifications);
+    
+    notificationState.set(nation.id, nationNotifications);
   } catch (error) {
     console.error('Error loading resources for notifications:', error);
   }
