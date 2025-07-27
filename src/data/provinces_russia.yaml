@@ -151,3 +151,460 @@
       Communist: 9.8
       Liberal_Democratic: 5.2
       Other: 3.6
+
+- id: RU_NSK
+  name: "Novosibirsk"
+  country: "Russia"
+  population:
+    total: 2800000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 93
+      - group: "Ukrainian"
+        percent: 2
+      - group: "Tatar"
+        percent: 2
+      - group: "Other"
+        percent: 3
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["urban", "tech_hub", "industrial"]
+  resource_output:
+    energy: 3500
+    food: 4000
+    industrial_capacity: 7500
+    technology: 6000
+  politics:
+    party_support:
+      United_Russia: 74.2
+      Communist: 14.8
+      Liberal_Democratic: 6.5
+      Other: 4.5
+
+- id: RU_EKA
+  name: "Yekaterinburg"
+  country: "Russia"
+  population:
+    total: 1500000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 89
+      - group: "Tatar"
+        percent: 4
+      - group: "Ukrainian"
+        percent: 3
+      - group: "Other"
+        percent: 4
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["industrial", "mining", "tech_hub"]
+  resource_output:
+    energy: 4500
+    food: 1800
+    industrial_capacity: 8500
+    technology: 4500
+  politics:
+    party_support:
+      United_Russia: 70.5
+      Communist: 17.2
+      Liberal_Democratic: 7.8
+      Other: 4.5
+
+- id: RU_NNV
+  name: "Nizhny Novgorod"
+  country: "Russia"
+  population:
+    total: 3250000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 95
+      - group: "Tatar"
+        percent: 2
+      - group: "Ukrainian"
+        percent: 1
+      - group: "Other"
+        percent: 2
+  unrest: 7
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["industrial", "urban", "tech_hub"]
+  resource_output:
+    energy: 4200
+    food: 2800
+    industrial_capacity: 9000
+    technology: 5500
+  politics:
+    party_support:
+      United_Russia: 73.8
+      Communist: 14.2
+      Liberal_Democratic: 7.1
+      Other: 4.9
+
+- id: RU_SAM
+  name: "Samara"
+  country: "Russia"
+  population:
+    total: 3200000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 83
+      - group: "Tatar"
+        percent: 4
+      - group: "Ukrainian"
+        percent: 3
+      - group: "Chuvash"
+        percent: 3
+      - group: "Other"
+        percent: 7
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["industrial", "urban", "aerospace"]
+  resource_output:
+    energy: 5500
+    food: 3200
+    industrial_capacity: 8800
+    technology: 7200
+  politics:
+    party_support:
+      United_Russia: 75.6
+      Communist: 13.1
+      Liberal_Democratic: 6.8
+      Other: 4.5
+
+- id: RU_KZN
+  name: "Kazan"
+  country: "Russia"
+  population:
+    total: 3850000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 54
+      - group: "Tatar"
+        percent: 39
+      - group: "Ukrainian"
+        percent: 2
+      - group: "Other"
+        percent: 5
+  unrest: 8
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["urban", "cultural_center", "industrial"]
+  resource_output:
+    energy: 4800
+    food: 3500
+    industrial_capacity: 7200
+    technology: 4800
+  politics:
+    party_support:
+      United_Russia: 69.4
+      Tatar_Nationalist: 15.2
+      Communist: 9.8
+      Other: 5.6
+
+- id: RU_UFA
+  name: "Ufa"
+  country: "Russia"
+  population:
+    total: 4080000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 54
+      - group: "Bashkir"
+        percent: 30
+      - group: "Tatar"
+        percent: 11
+      - group: "Other"
+        percent: 5
+  unrest: 7
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["oil_rich", "industrial", "cultural_center"]
+  resource_output:
+    energy: 7500
+    food: 3800
+    industrial_capacity: 6500
+    oil: 12000
+  politics:
+    party_support:
+      United_Russia: 72.1
+      Bashkir_Nationalist: 12.8
+      Communist: 9.4
+      Other: 5.7
+
+- id: RU_CHE
+  name: "Chelyabinsk"
+  country: "Russia"
+  population:
+    total: 3500000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 82
+      - group: "Tatar"
+        percent: 5
+      - group: "Bashkir"
+        percent: 4
+      - group: "Ukrainian"
+        percent: 3
+      - group: "Other"
+        percent: 6
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 2
+  features: ["industrial", "mining", "nuclear"]
+  resource_output:
+    energy: 6800
+    food: 2900
+    industrial_capacity: 9500
+    uranium: 3500
+  politics:
+    party_support:
+      United_Russia: 76.8
+      Communist: 13.2
+      Liberal_Democratic: 6.1
+      Other: 3.9
+
+- id: RU_VLG
+  name: "Volgograd"
+  country: "Russia"
+  population:
+    total: 2520000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 89
+      - group: "Ukrainian"
+        percent: 3
+      - group: "Tatar"
+        percent: 2
+      - group: "Other"
+        percent: 6
+  unrest: 5
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["industrial", "agricultural", "historical"]
+  resource_output:
+    energy: 4200
+    food: 5800
+    industrial_capacity: 6200
+  politics:
+    party_support:
+      United_Russia: 78.4
+      Communist: 12.6
+      Liberal_Democratic: 5.8
+      Other: 3.2
+
+- id: RU_ROS
+  name: "Rostov-on-Don"
+  country: "Russia"
+  population:
+    total: 4240000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 90
+      - group: "Ukrainian"
+        percent: 4
+      - group: "Armenian"
+        percent: 2
+      - group: "Other"
+        percent: 4
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["agricultural", "industrial", "transport_hub"]
+  resource_output:
+    energy: 5200
+    food: 8500
+    industrial_capacity: 7800
+  politics:
+    party_support:
+      United_Russia: 77.2
+      Communist: 11.8
+      Liberal_Democratic: 6.4
+      Other: 4.6
+
+- id: RU_VOR
+  name: "Voronezh"
+  country: "Russia"
+  population:
+    total: 2330000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 94
+      - group: "Ukrainian"
+        percent: 2
+      - group: "Other"
+        percent: 4
+  unrest: 4
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["agricultural", "industrial", "tech_hub"]
+  resource_output:
+    energy: 3800
+    food: 6200
+    industrial_capacity: 5500
+    technology: 3200
+  politics:
+    party_support:
+      United_Russia: 79.1
+      Communist: 11.2
+      Liberal_Democratic: 5.9
+      Other: 3.8
+
+- id: RU_PRM
+  name: "Perm"
+  country: "Russia"
+  population:
+    total: 2620000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 87
+      - group: "Tatar"
+        percent: 4
+      - group: "Ukrainian"
+        percent: 3
+      - group: "Other"
+        percent: 6
+  unrest: 5
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["industrial", "mining", "chemical"]
+  resource_output:
+    energy: 5800
+    food: 2400
+    industrial_capacity: 7500
+    chemicals: 4500
+  politics:
+    party_support:
+      United_Russia: 74.5
+      Communist: 14.8
+      Liberal_Democratic: 6.2
+      Other: 4.5
+
+- id: RU_KRS
+  name: "Kursk"
+  country: "Russia"
+  population:
+    total: 1120000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 95
+      - group: "Ukrainian"
+        percent: 2
+      - group: "Other"
+        percent: 3
+  unrest: 3
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["agricultural", "mining", "nuclear"]
+  resource_output:
+    energy: 2800
+    food: 4500
+    industrial_capacity: 3200
+    uranium: 2800
+  politics:
+    party_support:
+      United_Russia: 81.2
+      Communist: 10.4
+      Liberal_Democratic: 4.8
+      Other: 3.6
+
+- id: RU_IVN
+  name: "Ivanovo"
+  country: "Russia"
+  population:
+    total: 1020000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 96
+      - group: "Ukrainian"
+        percent: 1
+      - group: "Other"
+        percent: 3
+  unrest: 6
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["textile", "industrial", "historical"]
+  resource_output:
+    energy: 1800
+    food: 1200
+    industrial_capacity: 3500
+  politics:
+    party_support:
+      United_Russia: 72.8
+      Communist: 16.2
+      Liberal_Democratic: 6.4
+      Other: 4.6
+
+- id: RU_SMR
+  name: "Smolensk"
+  country: "Russia"
+  population:
+    total: 950000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 95
+      - group: "Ukrainian"
+        percent: 2
+      - group: "Other"
+        percent: 3
+  unrest: 4
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["agricultural", "historical", "border"]
+  resource_output:
+    energy: 1600
+    food: 3200
+    industrial_capacity: 2800
+  politics:
+    party_support:
+      United_Russia: 77.8
+      Communist: 12.4
+      Liberal_Democratic: 5.6
+      Other: 4.2
+
+- id: RU_KLG
+  name: "Kaliningrad"
+  country: "Russia"
+  population:
+    total: 1000000
+    ethnic_groups:
+      - group: "Russian"
+        percent: 87
+      - group: "Ukrainian"
+        percent: 4
+      - group: "Lithuanian"
+        percent: 3
+      - group: "Other"
+        percent: 6
+  unrest: 8
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["coastal", "exclave", "military", "amber"]
+  resource_output:
+    energy: 2200
+    food: 1800
+    industrial_capacity: 3800
+    amber: 1500
+  politics:
+    party_support:
+      United_Russia: 71.4
+      Communist: 14.6
+      Liberal_Democratic: 8.2
+      Other: 5.8
