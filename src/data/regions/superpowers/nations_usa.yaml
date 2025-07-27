@@ -1,0 +1,101 @@
+# United States - Superpower Nation Data
+# Format: nation_id -> nation data
+
+nations:
+  USA:
+    name: "United States of America"
+    capital: "Washington D.C."
+    flag: "🇺🇸"
+    government:
+      type: "federal_democracy"
+      leader: "Joe Biden"
+      approval: 42.8
+      stability: 71.5
+      ruling_party: "Democratic Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2020-11-03"
+      congressional_control: "split"
+    economy:
+      gdp: 23315000000000
+      debt: 31400000000000
+      inflation: 3.2
+      trade_balance: -945000000000
+      treasury: 890000000000
+      currency: "USD"
+      interest_rate: 5.25
+      sectors:
+        manufacturing: 12.0
+        services: 80.2
+        agriculture: 0.9
+        technology: 6.9
+    military:
+      manpower: 1385000
+      equipment: 95
+      readiness: 92
+      doctrine: "Full Spectrum Dominance"
+      nuclear_capability: true
+      nuclear_warheads: 5800
+      military_spending_gdp: 3.5
+      conscription: false
+      reserve_forces: 850000
+    technology:
+      researchPoints: 4500
+      currentResearch:
+        - "Quantum Computing"
+        - "Space Technology"
+        - "AI Military Systems"
+        - "Advanced Nuclear"
+      completedTech:
+        - "Internet"
+        - "GPS Systems"
+        - "Stealth Technology"
+        - "Nuclear Technology"
+        - "Satellite Technology"
+        - "Advanced Computing"
+        - "Precision Manufacturing"
+        - "Renewable Energy"
+    demographics:
+      total_population: 331900000
+      age_groups:
+        youth: 18.5
+        adult: 62.3
+        elderly: 19.2
+      ethnic_composition:
+        White: 61.6
+        Hispanic: 18.5
+        Black: 12.4
+        Asian: 6.0
+        Other: 1.5
+    resources:
+      stockpiles:
+        oil: 50000000
+        food: 15000000
+        electricity: 8500000
+        steel: 2800000
+        technology: 950000
+        manpower: 165000000
+        water: 45000000
+    foreign_relations:
+      allies:
+        - "NATO"
+        - "CAN"
+        - "JPN"
+        - "AUS"
+        - "KOR"
+      rivals:
+        - "CHN"
+        - "RUS"
+        - "IRN"
+      trade_partners:
+        - "CHN"
+        - "CAN"
+        - "MEX"
+        - "JPN"
+        - "GER"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "power_projection"
+      trade_policy: "free_trade"
+      immigration_policy: "selective"
+      environmental_policy: "moderate"

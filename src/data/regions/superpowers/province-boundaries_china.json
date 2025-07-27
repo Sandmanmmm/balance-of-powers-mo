@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CHN_BJ",
+        "name": "Beijing"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [115.8142, 40.3707],
+          [117.5145, 40.3707],
+          [117.5145, 39.4424],
+          [115.8142, 39.4424],
+          [115.8142, 40.3707]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CHN_SH",
+        "name": "Shanghai"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [120.8516, 31.8681],
+          [122.2081, 31.8681],
+          [122.2081, 30.6762],
+          [120.8516, 30.6762],
+          [120.8516, 31.8681]
+        ]]
+      }
+    }
+  ]
+}

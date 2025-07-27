@@ -1,0 +1,288 @@
+# United States Provinces - State-Level Administrative Divisions
+
+provinces:
+  USA_CA:
+    name: "California"
+    country: "United States"
+    coordinates: [36.7783, -119.4179]
+    features:
+      - "coastal"
+      - "tech_hub"
+      - "agricultural"
+      - "urban"
+      - "desert"
+      - "mountains"
+    population:
+      total: 39538000
+      ethnic_groups:
+        - group: "White"
+          percent: 36.5
+        - group: "Hispanic"
+          percent: 39.4
+        - group: "Asian"
+          percent: 15.5
+        - group: "Black"
+          percent: 5.8
+        - group: "Other"
+          percent: 2.8
+    unrest: 6.2
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 2500
+      steel: 150
+      rare_earth: 850
+      uranium: 125
+      food: 8500
+    military:
+      stationed_units:
+        - "USA_PAC_1"
+        - "USA_AIR_6"
+      fortification_level: 3
+    resource_output:
+      energy: 8500
+      technology: 12500
+      food: 15800
+      steel: 1850
+    politics:
+      party_support:
+        "Democratic Party": 64.2
+        "Republican Party": 32.1
+        "Other": 3.7
+    buildings:
+      active:
+        - type: "tech_center"
+          level: 3
+        - type: "solar_farm" 
+          level: 2
+        - type: "university"
+          level: 4
+
+  USA_TX:
+    name: "Texas"
+    country: "United States"
+    coordinates: [31.9686, -99.9018]
+    features:
+      - "oil_rich"
+      - "agricultural"
+      - "urban"
+      - "desert"
+      - "coastal"
+    population:
+      total: 30030000
+      ethnic_groups:
+        - group: "White"
+          percent: 41.2
+        - group: "Hispanic"
+          percent: 39.7
+        - group: "Black"
+          percent: 12.9
+        - group: "Asian"
+          percent: 5.4
+        - group: "Other"
+          percent: 0.8
+    unrest: 4.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 15500
+      steel: 850
+      rare_earth: 125
+      uranium: 250
+      food: 6500
+    military:
+      stationed_units:
+        - "USA_ARM_3"
+        - "USA_AIR_4"
+      fortification_level: 2
+    resource_output:
+      energy: 18500
+      oil: 8500
+      food: 12500
+      steel: 2100
+    politics:
+      party_support:
+        "Republican Party": 52.8
+        "Democratic Party": 46.5
+        "Other": 0.7
+    buildings:
+      active:
+        - type: "oil_refinery"
+          level: 4
+        - type: "power_plant"
+          level: 3
+
+  USA_FL:
+    name: "Florida"
+    country: "United States"
+    coordinates: [27.7663, -81.6868]
+    features:
+      - "coastal"
+      - "tourism"
+      - "urban"
+      - "subtropical"
+      - "agricultural"
+    population:
+      total: 22610000
+      ethnic_groups:
+        - group: "White"
+          percent: 53.4
+        - group: "Hispanic"
+          percent: 26.5
+        - group: "Black"
+          percent: 15.4
+        - group: "Asian"
+          percent: 2.9
+        - group: "Other"
+          percent: 1.8
+    unrest: 5.1
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 850
+      steel: 125
+      rare_earth: 85
+      uranium: 50
+      food: 4500
+    military:
+      stationed_units:
+        - "USA_NAV_2"
+        - "USA_MAR_1"
+      fortification_level: 3
+    resource_output:
+      energy: 4200
+      food: 8500
+      tourism: 6500
+    politics:
+      party_support:
+        "Republican Party": 51.2
+        "Democratic Party": 47.9
+        "Other": 0.9
+    buildings:
+      active:
+        - type: "resort_complex"
+          level: 3
+        - type: "port_facility"
+          level: 2
+
+  USA_NY:
+    name: "New York"
+    country: "United States"
+    coordinates: [42.1657, -74.9481]
+    features:
+      - "financial_hub"
+      - "urban"
+      - "coastal"
+      - "tech_hub"
+      - "cultural"
+    population:
+      total: 19850000
+      ethnic_groups:
+        - group: "White"
+          percent: 55.3
+        - group: "Hispanic"
+          percent: 19.3
+        - group: "Black"
+          percent: 13.7
+        - group: "Asian"
+          percent: 9.0
+        - group: "Other"
+          percent: 2.7
+    unrest: 7.8
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 5
+      education: 5
+    resource_deposits:
+      oil: 125
+      steel: 450
+      rare_earth: 185
+      uranium: 85
+      food: 2500
+    military:
+      stationed_units:
+        - "USA_CYB_1"
+      fortification_level: 4
+    resource_output:
+      energy: 6500
+      technology: 18500
+      finance: 25000
+      culture: 8500
+    politics:
+      party_support:
+        "Democratic Party": 60.9
+        "Republican Party": 37.7
+        "Other": 1.4
+    buildings:
+      active:
+        - type: "financial_center"
+          level: 5
+        - type: "tech_center"
+          level: 4
+        - type: "cultural_district"
+          level: 3
+
+  USA_IL:
+    name: "Illinois"
+    country: "United States"
+    coordinates: [40.3495, -88.9861]
+    features:
+      - "industrial"
+      - "urban"
+      - "agricultural"
+      - "transport_hub"
+    population:
+      total: 12812000
+      ethnic_groups:
+        - group: "White"
+          percent: 60.7
+        - group: "Hispanic"
+          percent: 17.5
+        - group: "Black"
+          percent: 14.1
+        - group: "Asian"
+          percent: 5.8
+        - group: "Other"
+          percent: 1.9
+    unrest: 6.5
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 450
+      steel: 1850
+      rare_earth: 125
+      uranium: 185
+      food: 5500
+    military:
+      stationed_units:
+        - "USA_LOG_2"
+      fortification_level: 2
+    resource_output:
+      energy: 5500
+      steel: 4200
+      food: 8500
+      transport: 3500
+    politics:
+      party_support:
+        "Democratic Party": 57.5
+        "Republican Party": 40.4
+        "Other": 2.1
+    buildings:
+      active:
+        - type: "steel_mill"
+          level: 3
+        - type: "transport_hub"
+          level: 4

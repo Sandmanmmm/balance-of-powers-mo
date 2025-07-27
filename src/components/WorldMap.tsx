@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -17,7 +17,7 @@ import {
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
 import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid } from '../lib/mapProjection';
-import provinceBoundariesData from '../data/province-boundaries.json';
+import { loadAllBoundaries } from '../lib/gameDataModular';
 
 interface WorldMapProps {
   provinces: Province[];
@@ -110,16 +110,42 @@ export function WorldMap({
 }: WorldMapProps) {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [hoveredProvince, setHoveredProvince] = useState<string | null>(null);
+  const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
+
+  // Load province boundaries from modular files
+  useEffect(() => {
+    const loadBoundaries = async () => {
+      try {
+        const boundaries = await loadAllBoundaries();
+        setProvinceBoundariesData(boundaries);
+        console.log('✓ Province boundaries loaded:', boundaries?.features?.length || 0);
+      } catch (error) {
+        console.error('❌ Failed to load province boundaries:', error);
+        // Fallback to legacy data
+        try {
+          const legacyBoundaries = await import('../data/province-boundaries.json');
+          setProvinceBoundariesData(legacyBoundaries.default);
+          console.log('✓ Using legacy boundaries as fallback');
+        } catch (fallbackError) {
+          console.error('❌ Failed to load even legacy boundaries:', fallbackError);
+        }
+      }
+    };
+    loadBoundaries();
+  }, []);
 
   // Memoize projection configuration
   const projectionConfig: ProjectionConfig = useMemo(() => {
+    if (!provinceBoundariesData?.features) {
+      return { centerLon: 0, centerLat: 0, scale: 1, svgWidth: 1000, svgHeight: 600 };
+    }
     return calculateOptimalProjection(
       provinceBoundariesData.features,
       1000,
       600,
       50
     );
-  }, []);
+  }, [provinceBoundariesData]);
 
   // Create a map of province data for quick lookup
   const provinceDataMap = useMemo(() => {
@@ -152,6 +178,16 @@ export function WorldMap({
 
   return (
     <div className="relative w-full h-full bg-slate-50 overflow-hidden">
+      {/* Loading state */}
+      {!provinceBoundariesData && (
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
+            <p className="text-muted-foreground">Loading map boundaries...</p>
+          </div>
+        </div>
+      )}
+
       {/* Map Controls */}
       <div className="absolute top-4 left-4 z-10 space-y-2">
         <Card className="p-2">
@@ -233,7 +269,7 @@ export function WorldMap({
           />
 
           {/* Province polygons */}
-          {Array.isArray(provinceBoundariesData.features) && provinceBoundariesData.features
+          {provinceBoundariesData?.features && Array.isArray(provinceBoundariesData.features) && provinceBoundariesData.features
             .filter((feature) => {
               try {
                 const provinceId = feature?.properties?.id;

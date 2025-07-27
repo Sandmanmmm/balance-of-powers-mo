@@ -1,0 +1,181 @@
+# North America (excluding USA) - Regional Nation Data
+
+nations:
+  CAN:
+    name: "Canada"
+    capital: "Ottawa"
+    flag: "🇨🇦"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Justin Trudeau"
+      approval: 38.2
+      stability: 86.4
+      ruling_party: "Liberal Party"
+      ideology: "Social Liberalism"
+      election_cycle: 4
+      last_election: "2021-09-20"
+      parliamentary_system: true
+    economy:
+      gdp: 1988000000000
+      debt: 1200000000000
+      inflation: 2.9
+      trade_balance: 52000000000
+      treasury: 285000000000
+      currency: "CAD"
+      interest_rate: 5.0
+      sectors:
+        manufacturing: 10.2
+        services: 70.2
+        agriculture: 1.6
+        energy: 8.8
+        technology: 9.2
+    military:
+      manpower: 68000
+      equipment: 85
+      readiness: 87
+      doctrine: "Peacekeeping"
+      nuclear_capability: false
+      military_spending_gdp: 1.4
+      conscription: false
+      reserve_forces: 19000
+    technology:
+      researchPoints: 850
+      currentResearch:
+        - "Green Energy"
+        - "AI Systems"
+        - "Arctic Technology"
+        - "Space Technology"
+      completedTech:
+        - "Internet"
+        - "Renewable Energy"
+        - "Mining Technology"
+        - "Forestry Technology"
+        - "Arctic Engineering"
+    demographics:
+      total_population: 38500000
+      age_groups:
+        youth: 15.3
+        adult: 66.6
+        elderly: 18.1
+      ethnic_composition:
+        European_Canadian: 72.9
+        Indigenous: 5.0
+        Asian: 17.7
+        Other: 4.4
+    resources:
+      stockpiles:
+        oil: 25000000
+        food: 4500000
+        electricity: 2800000
+        steel: 950000
+        technology: 185000
+        manpower: 20500000
+        water: 85000000
+        lumber: 15000000
+        uranium: 850000
+    foreign_relations:
+      allies:
+        - "USA"
+        - "NATO"
+        - "GBR"
+        - "FRA"
+        - "AUS"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "GBR"
+        - "JPN"
+        - "MEX"
+    policies:
+      tax_level: "high"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "open"
+      environmental_policy: "progressive"
+
+  MEX:
+    name: "Mexico"
+    capital: "Mexico City"
+    flag: "🇲🇽"
+    government:
+      type: "federal_democracy"
+      leader: "Andrés Manuel López Obrador"
+      approval: 58.7
+      stability: 65.2
+      ruling_party: "MORENA"
+      ideology: "Left-wing Populism"
+      election_cycle: 6
+      last_election: "2018-07-01"
+    economy:
+      gdp: 1643000000000
+      debt: 725000000000
+      inflation: 4.6
+      trade_balance: -4500000000
+      treasury: 185000000000
+      currency: "MXN"
+      interest_rate: 11.0
+      sectors:
+        manufacturing: 17.2
+        services: 61.9
+        agriculture: 3.6
+        energy: 7.8
+        technology: 9.5
+    military:
+      manpower: 277000
+      equipment: 62
+      readiness: 71
+      doctrine: "Internal Security"
+      nuclear_capability: false
+      military_spending_gdp: 0.7
+      conscription: true
+      reserve_forces: 81000
+    technology:
+      researchPoints: 425
+      currentResearch:
+        - "Manufacturing Technology"
+        - "Renewable Energy"
+        - "Agricultural Technology"
+      completedTech:
+        - "Internet"
+        - "Manufacturing"
+        - "Oil Refining"
+        - "Agricultural Tech"
+    demographics:
+      total_population: 128900000
+      age_groups:
+        youth: 25.2
+        adult: 67.0
+        elderly: 7.8
+      ethnic_composition:
+        Mestizo: 62.0
+        White: 21.0
+        Indigenous: 7.0
+        Other: 10.0
+    resources:
+      stockpiles:
+        oil: 18500000
+        food: 6200000
+        electricity: 1850000
+        steel: 685000
+        technology: 95000
+        manpower: 65500000
+        water: 12500000
+        silver: 2500000
+    foreign_relations:
+      allies:
+        - "USA"
+        - "CAN"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "CAN"
+        - "GER"
+        - "KOR"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "restrictive"
+      environmental_policy: "moderate"

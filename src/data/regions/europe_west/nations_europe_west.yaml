@@ -1,0 +1,249 @@
+# Western Europe - Regional Nation Data
+
+nations:
+  GER:
+    name: "Germany"
+    capital: "Berlin"
+    flag: "🇩🇪"
+    government:
+      type: "federal_democracy"
+      leader: "Olaf Scholz"
+      approval: 45.2
+      stability: 82.1
+      ruling_party: "Social Democrats"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2021-09-26"
+    economy:
+      gdp: 4200000000000
+      debt: 2800000000000
+      inflation: 2.8
+      trade_balance: 285000000000
+      treasury: 450000000000
+      currency: "EUR"
+      interest_rate: 2.1
+      sectors:
+        manufacturing: 23.2
+        services: 69.1
+        agriculture: 0.9
+        technology: 6.8
+    military:
+      manpower: 184000
+      equipment: 78
+      readiness: 85
+      doctrine: "Modern Combined Arms"
+      nuclear_capability: false
+      military_spending_gdp: 1.53
+      conscription: false
+      reserve_forces: 30000
+    technology:
+      researchPoints: 1250
+      currentResearch:
+        - "Green Energy"
+        - "AI Systems"
+        - "Advanced Manufacturing"
+      completedTech:
+        - "Internet"
+        - "Renewable Energy"
+        - "Precision Manufacturing"
+        - "Industrial Automation"
+    demographics:
+      total_population: 83200000
+      age_groups:
+        youth: 13.7
+        adult: 65.8
+        elderly: 20.5
+    resources:
+      stockpiles:
+        oil: 8500000
+        food: 3850000
+        electricity: 4200000
+        steel: 2100000
+        technology: 485000
+        manpower: 42000000
+        water: 15500000
+    foreign_relations:
+      allies:
+        - "EU"
+        - "NATO"
+        - "USA"
+        - "FRA"
+      rivals: []
+      trade_partners:
+        - "CHN"
+        - "USA"
+        - "FRA"
+        - "NLD"
+        - "ITA"
+    policies:
+      tax_level: "high"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "selective"
+      environmental_policy: "progressive"
+
+  FRA:
+    name: "France"
+    capital: "Paris"
+    flag: "🇫🇷"
+    government:
+      type: "semi_presidential"
+      leader: "Emmanuel Macron"
+      approval: 41.8
+      stability: 76.5
+      ruling_party: "Renaissance"
+      ideology: "Centrism"
+      election_cycle: 5
+      last_election: "2022-04-24"
+    economy:
+      gdp: 2940000000000
+      debt: 3100000000000
+      inflation: 3.2
+      trade_balance: -85000000000
+      treasury: 285000000000
+      currency: "EUR"
+      interest_rate: 2.1
+      sectors:
+        manufacturing: 11.2
+        services: 78.8
+        agriculture: 1.7
+        technology: 8.3
+    military:
+      manpower: 205000
+      equipment: 89
+      readiness: 88
+      doctrine: "Power Projection"
+      nuclear_capability: true
+      nuclear_warheads: 290
+      military_spending_gdp: 2.0
+      conscription: false
+      reserve_forces: 25000
+    technology:
+      researchPoints: 980
+      currentResearch:
+        - "Nuclear Technology"
+        - "Aerospace"
+        - "AI Systems"
+      completedTech:
+        - "Nuclear Technology"
+        - "Aerospace"
+        - "High-Speed Rail"
+        - "Internet"
+    demographics:
+      total_population: 67900000
+      age_groups:
+        youth: 17.9
+        adult: 61.8
+        elderly: 20.3
+    resources:
+      stockpiles:
+        oil: 4500000
+        food: 2950000
+        electricity: 3800000
+        steel: 850000
+        technology: 425000
+        manpower: 34500000
+        water: 12500000
+        uranium: 450000
+    foreign_relations:
+      allies:
+        - "EU"
+        - "NATO"
+        - "USA"
+        - "GER"
+      rivals: []
+      trade_partners:
+        - "GER"
+        - "USA"
+        - "ITA"
+        - "ESP"
+        - "CHN"
+    policies:
+      tax_level: "high"
+      military_doctrine: "nuclear_deterrence"
+      trade_policy: "protectionist"
+      immigration_policy: "restrictive"
+      environmental_policy: "progressive"
+
+  GBR:
+    name: "United Kingdom"
+    capital: "London"
+    flag: "🇬🇧"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Rishi Sunak"
+      approval: 28.5
+      stability: 71.2
+      ruling_party: "Conservative Party"
+      ideology: "Conservatism"
+      election_cycle: 5
+      last_election: "2019-12-12"
+    economy:
+      gdp: 3130000000000
+      debt: 2850000000000
+      inflation: 4.0
+      trade_balance: -125000000000
+      treasury: 185000000000
+      currency: "GBP"
+      interest_rate: 5.25
+      sectors:
+        manufacturing: 9.7
+        services: 80.4
+        agriculture: 0.6
+        technology: 9.3
+    military:
+      manpower: 153000
+      equipment: 85
+      readiness: 89
+      doctrine: "Global Reach"
+      nuclear_capability: true
+      nuclear_warheads: 225
+      military_spending_gdp: 2.3
+      conscription: false
+      reserve_forces: 35000
+    technology:
+      researchPoints: 1150
+      currentResearch:
+        - "Financial Technology"
+        - "AI Systems"
+        - "Renewable Energy"
+      completedTech:
+        - "Internet"
+        - "Financial Technology"
+        - "Nuclear Technology"
+        - "Aerospace"
+    demographics:
+      total_population: 67500000
+      age_groups:
+        youth: 17.6
+        adult: 64.2
+        elderly: 18.2
+    resources:
+      stockpiles:
+        oil: 6500000
+        food: 2100000
+        electricity: 2850000
+        steel: 750000
+        technology: 525000
+        manpower: 34000000
+        water: 8500000
+    foreign_relations:
+      allies:
+        - "USA"
+        - "NATO"
+        - "AUS"
+        - "CAN"
+      rivals:
+        - "RUS"
+      trade_partners:
+        - "USA"
+        - "GER"
+        - "CHN"
+        - "NLD"
+        - "FRA"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "special_relationship"
+      trade_policy: "free_trade"
+      immigration_policy: "restrictive"
+      environmental_policy: "moderate"

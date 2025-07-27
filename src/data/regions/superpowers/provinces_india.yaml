@@ -1,0 +1,49 @@
+# India Provinces - Major States (Sample)
+
+provinces:
+  IND_DL:
+    name: "Delhi"
+    country: "India"
+    coordinates: [28.7041, 77.1025]
+    features:
+      - "capital"
+      - "urban"
+      - "political_center"
+      - "tech_hub"
+    population:
+      total: 32900000
+      ethnic_groups:
+        - group: "Indo-Aryan"
+          percent: 82.0
+        - group: "Dravidian"
+          percent: 12.0
+        - group: "Other"
+          percent: 6.0
+    unrest: 2.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 200
+      rare_earth: 50
+      uranium: 15
+      food: 150
+    military:
+      stationed_units:
+        - "IND_CMD_1"
+      fortification_level: 4
+    resource_output:
+      energy: 6500
+      technology: 8500
+      administration: 5000
+    politics:
+      party_support:
+        "BJP": 45.2
+        "AAP": 32.8
+        "Congress": 15.5
+        "Other": 6.5
+    buildings: []
+    construction_projects: []

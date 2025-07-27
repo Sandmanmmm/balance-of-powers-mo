@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND_DL",
+        "name": "Delhi"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [76.8394, 28.8833],
+          [77.3463, 28.8833],
+          [77.3463, 28.4059],
+          [76.8394, 28.4059],
+          [76.8394, 28.8833]
+        ]]
+      }
+    }
+  ]
+}

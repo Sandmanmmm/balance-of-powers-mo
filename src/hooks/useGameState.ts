@@ -1,11 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useKV } from '@github/spark/hooks';
 import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
-import { getProvinces, getNations, sampleEvents, getBuildingById } from '../lib/gameData';
+import { loadGameData, loadBuildingsData } from '../lib/gameDataModular';
 import { validateBuildingPlacement } from './useSimulationEngine';
-
-// Import the converter functions directly for immediate use
-import { convertProvinces, convertNations } from '../lib/gameDataConverters';
 
 const initialGameState: GameState = {
   currentDate: new Date('1990-01-01'),
@@ -21,9 +18,26 @@ export function useGameState() {
   // Temporarily use regular useState instead of useKV to test if that's the issue
   const [provinces, setProvinces] = useState<Province[]>([]);
   const [nations, setNations] = useState<Nation[]>([]);
-  const [events, setEvents] = useKV('events', sampleEvents);
-  
-  const [localGameState, setLocalGameState] = useState<GameState>(gameState || initialGameState);
+  const [buildings, setBuildings] = useState<Building[]>([]);
+
+  // Load buildings data
+  useEffect(() => {
+    const loadBuildings = async () => {
+      try {
+        const buildingsData = await loadBuildingsData();
+        setBuildings(buildingsData);
+        console.log('✓ Buildings loaded:', buildingsData.length);
+      } catch (error) {
+        console.error('❌ Failed to load buildings:', error);
+      }
+    };
+    loadBuildings();
+  }, []);
+
+  const getBuildingById = useCallback((id: string) => {
+    return buildings.find(b => b.id === id);
+  }, [buildings]);
+  const [events, setEvents] = useKV('events', []);
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Debug: Force clear old state if it's empty
@@ -55,64 +69,41 @@ export function useGameState() {
       
       const initializeData = async () => {
         try {
-          console.log('Loading provinces from YAML...');
-          const loadedProvinces = await getProvinces();
-          console.log('getProvinces returned:', loadedProvinces?.length || 0, 'provinces');
+          console.log('Loading game data from modular regional files...');
+          const gameData = await loadGameData();
           
-          console.log('Loading nations from YAML...');
-          const loadedNations = await getNations();
-          console.log('getNations returned:', loadedNations?.length || 0, 'nations');
+          console.log('loadGameData returned:', {
+            provinces: gameData.provinces?.length || 0,
+            nations: gameData.nations?.length || 0,
+            boundaries: gameData.boundaries?.features?.length || 0
+          });
           
-          if (Array.isArray(loadedProvinces) && loadedProvinces.length > 0 && 
-              Array.isArray(loadedNations) && loadedNations.length > 0) {
+          if (Array.isArray(gameData.provinces) && gameData.provinces.length > 0 && 
+              Array.isArray(gameData.nations) && gameData.nations.length > 0) {
             
-            console.log(`Setting ${loadedProvinces.length} provinces and ${loadedNations.length} nations`);
-            const canadianProvinces = loadedProvinces.filter(p => p.country === 'Canada');
+            console.log(`Setting ${gameData.provinces.length} provinces and ${gameData.nations.length} nations`);
+            const canadianProvinces = gameData.provinces.filter(p => p.country === 'Canada');
             console.log('Canadian provinces:', canadianProvinces.map(p => `${p.id}: ${p.name}`));
-            console.log('Available nations:', loadedNations.map(n => `${n.id}: ${n.name}`));
+            console.log('Available nations:', gameData.nations.map(n => `${n.id}: ${n.name}`));
             
-            setProvinces(loadedProvinces);
-            setNations(loadedNations);
+            setProvinces(gameData.provinces);
+            setNations(gameData.nations);
             setIsInitialized(true);
-            console.log('✓ YAML data initialization completed successfully');
+            console.log('✓ Modular data initialization completed successfully');
             
             // Debug: Check if Canada nation exists
-            const canadaNation = loadedNations.find(n => n.id === 'CAN');
+            const canadaNation = gameData.nations.find(n => n.id === 'CAN');
             if (canadaNation) {
               console.log('✓ Canada nation found:', canadaNation.name, 'with leader:', canadaNation.government?.leader);
             } else {
               console.error('❌ Canada nation not found in loaded data');
             }
           } else {
-            console.error('❌ Failed to load provinces or nations from YAML, using fallback');
-            // Fallback to hardcoded data
-            const hardcodedProvinces = convertProvinces();
-            const hardcodedNations = convertNations();
-            
-            if (hardcodedProvinces.length > 0 && hardcodedNations.length > 0) {
-              setProvinces(hardcodedProvinces);
-              setNations(hardcodedNations);
-              console.log('✓ Using fallback hardcoded data');
-            }
+            console.error('❌ Failed to load provinces or nations from modular files');
             setIsInitialized(true);
           }
         } catch (error) {
-          console.error('❌ Error during YAML initialization:', error);
-          console.log('Falling back to hardcoded data...');
-          
-          try {
-            const hardcodedProvinces = convertProvinces();
-            const hardcodedNations = convertNations();
-            
-            if (hardcodedProvinces.length > 0 && hardcodedNations.length > 0) {
-              setProvinces(hardcodedProvinces);
-              setNations(hardcodedNations);
-              console.log('✓ Using emergency fallback hardcoded data');
-            }
-          } catch (fallbackError) {
-            console.error('❌ Even fallback failed:', fallbackError);
-          }
-          
+          console.error('❌ Error during modular data initialization:', error);
           setIsInitialized(true); // Still mark as initialized to prevent infinite loading
         }
       };

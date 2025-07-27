@@ -1,0 +1,101 @@
+# Russia - Superpower Nation Data
+
+nations:
+  RUS:
+    name: "Russian Federation"
+    capital: "Moscow"
+    flag: "🇷🇺"
+    government:
+      type: "authoritarian"
+      leader: "Vladimir Putin"
+      approval: 79.6
+      stability: 73.2
+      ruling_party: "United Russia"
+      ideology: "Authoritarian Nationalism"
+      election_cycle: 6
+      last_election: "2024-03-17"
+      term_limits: "extended"
+    economy:
+      gdp: 1829000000000
+      debt: 298000000000
+      inflation: 5.9
+      trade_balance: 227000000000
+      treasury: 185000000000
+      currency: "RUB"
+      interest_rate: 16.0
+      sectors:
+        manufacturing: 13.3
+        services: 58.7
+        agriculture: 4.7
+        energy: 23.3
+    military:
+      manpower: 1014000
+      equipment: 82
+      readiness: 85
+      doctrine: "Nuclear Deterrence"
+      nuclear_capability: true
+      nuclear_warheads: 6257
+      military_spending_gdp: 4.3
+      conscription: true
+      reserve_forces: 2000000
+    technology:
+      researchPoints: 1850
+      currentResearch:
+        - "Hypersonic Weapons"
+        - "Nuclear Technology"
+        - "Space Technology"
+        - "Cyber Warfare"
+      completedTech:
+        - "Nuclear Technology"
+        - "Space Technology"
+        - "Missile Technology"
+        - "Energy Technology"
+        - "Military Technology"
+        - "Arctic Technology"
+    demographics:
+      total_population: 144100000
+      age_groups:
+        youth: 16.2
+        adult: 65.8
+        elderly: 18.0
+      ethnic_composition:
+        Russian: 81.0
+        Tatar: 3.9
+        Ukrainian: 1.4
+        Bashkir: 1.2
+        Other: 12.5
+    resources:
+      stockpiles:
+        oil: 180000000
+        food: 8500000
+        electricity: 6800000
+        steel: 3200000
+        technology: 285000
+        manpower: 72000000
+        water: 55000000
+        uranium: 2500000
+        gas: 120000000
+    foreign_relations:
+      allies:
+        - "CHN"
+        - "BLR"
+        - "IRN"
+        - "PRK"
+        - "SYR"
+      rivals:
+        - "USA"
+        - "NATO"
+        - "UKR"
+        - "GBR"
+      trade_partners:
+        - "CHN"
+        - "GER"
+        - "TUR"
+        - "IND"
+        - "ITA"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "nuclear_first"
+      trade_policy: "resource_export"
+      immigration_policy: "restrictive"
+      environmental_policy: "minimal"

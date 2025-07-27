@@ -1,0 +1,51 @@
+# Russia Provinces - Federal Subjects (Sample)
+
+provinces:
+  RUS_MOW:
+    name: "Moscow Oblast"
+    country: "Russia"
+    coordinates: [55.7558, 37.6176]
+    features:
+      - "capital"
+      - "urban"
+      - "political_center"
+      - "industrial"
+    population:
+      total: 12500000
+      ethnic_groups:
+        - group: "Russian"
+          percent: 92.9
+        - group: "Ukrainian"
+          percent: 1.4
+        - group: "Tatar"
+          percent: 1.3
+        - group: "Other"
+          percent: 4.4
+    unrest: 1.2
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 4
+      education: 5
+    resource_deposits:
+      oil: 500
+      steel: 1200
+      rare_earth: 300
+      uranium: 150
+      food: 400
+    military:
+      stationed_units:
+        - "RUS_CMD_1"
+        - "RUS_NUKE_1"
+      fortification_level: 5
+    resource_output:
+      energy: 15000
+      technology: 8500
+      administration: 12000
+    politics:
+      party_support:
+        "United Russia": 76.2
+        "Communist Party": 12.8
+        "Other": 11.0
+    buildings: []
+    construction_projects: []
