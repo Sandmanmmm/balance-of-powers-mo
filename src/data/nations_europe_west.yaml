@@ -60,3 +60,150 @@
     technology: 92000
     oil: 1000
     money: 250000000000
+
+- id: ITA
+  name: "Italy"
+  leader: "Prime Minister Giorgia Meloni"
+  ideology: "Democracy"
+  government_type: "Parliamentary Republic"
+  gdp: 2100000000000
+  treasury: 125000000000
+  stability: 68
+  corruption: 32
+  unrest: 15
+  military_doctrine: "Mediterranean Defense"
+  tax_level: "high"
+  resources:
+    manpower: 38000000
+    energy: 28000
+    food: 42000
+    industrial_capacity: 35000
+    technology: 45000
+    oil: 500
+    money: 125000000000
+
+- id: SWE
+  name: "Sweden"
+  leader: "Prime Minister Ulf Kristersson"
+  ideology: "Democracy"
+  government_type: "Constitutional Monarchy"
+  gdp: 540000000000
+  treasury: 32000000000
+  stability: 88
+  corruption: 5
+  unrest: 4
+  military_doctrine: "Nordic Defense"
+  tax_level: "very_high"
+  resources:
+    manpower: 6800000
+    energy: 45000
+    food: 12000
+    industrial_capacity: 15000
+    technology: 28000
+    oil: 200
+    money: 32000000000
+
+- id: NOR
+  name: "Norway"
+  leader: "Prime Minister Jonas Gahr Støre"
+  ideology: "Democracy"
+  government_type: "Constitutional Monarchy"
+  gdp: 480000000000
+  treasury: 85000000000
+  stability: 92
+  corruption: 3
+  unrest: 2
+  military_doctrine: "Arctic Defense"
+  tax_level: "very_high"
+  resources:
+    manpower: 3500000
+    energy: 65000
+    food: 8000
+    industrial_capacity: 8000
+    technology: 18000
+    oil: 45000
+    money: 85000000000
+
+- id: DNK
+  name: "Denmark"
+  leader: "Prime Minister Mette Frederiksen"
+  ideology: "Democracy"
+  government_type: "Constitutional Monarchy"
+  gdp: 350000000000
+  treasury: 28000000000
+  stability: 87
+  corruption: 7
+  unrest: 5
+  military_doctrine: "Expeditionary Warfare"
+  tax_level: "very_high"
+  resources:
+    manpower: 3800000
+    energy: 12000
+    food: 15000
+    industrial_capacity: 12000
+    technology: 22000
+    oil: 8000
+    money: 28000000000
+
+- id: FIN
+  name: "Finland"
+  leader: "Prime Minister Petteri Orpo"
+  ideology: "Democracy"
+  government_type: "Parliamentary Republic"
+  gdp: 270000000000
+  treasury: 18000000000
+  stability: 91
+  corruption: 4
+  unrest: 3
+  military_doctrine: "Forest Defense"
+  tax_level: "high"
+  resources:
+    manpower: 3600000
+    energy: 22000
+    food: 9000
+    industrial_capacity: 8500
+    technology: 16000
+    oil: 100
+    money: 18000000000
+
+- id: ESP
+  name: "Spain"
+  leader: "Prime Minister Pedro Sánchez"
+  ideology: "Democracy"
+  government_type: "Constitutional Monarchy"
+  gdp: 1400000000000
+  treasury: 85000000000
+  stability: 72
+  corruption: 25
+  unrest: 12
+  military_doctrine: "Mediterranean Defense"
+  tax_level: "high"
+  resources:
+    manpower: 32000000
+    energy: 25000
+    food: 35000
+    industrial_capacity: 28000
+    technology: 35000
+    oil: 300
+    money: 85000000000
+
+- id: NLD
+  name: "Netherlands"
+  leader: "Prime Minister Dick Schoof"
+  ideology: "Democracy"
+  government_type: "Constitutional Monarchy"
+  gdp: 910000000000
+  treasury: 55000000000
+  stability: 84
+  corruption: 9
+  unrest: 7
+  military_doctrine: "Expeditionary Warfare"
+  tax_level: "high"
+  resources:
+    manpower: 11200000
+    energy: 18000
+    food: 22000
+    industrial_capacity: 22000
+    technology: 32000
+    oil: 2500
+    money: 55000000000

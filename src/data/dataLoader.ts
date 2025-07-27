@@ -92,23 +92,7 @@ const ProvinceSchema = z.object({
   constructionProjects: z.array(z.any()).optional()
 });
 
-export interface WorldData {
-  nations: Nation[];
-  provinces: Province[];
-  boundaries: Record<string, any>;
-  warnings: string[];
-  loadingSummary: {
-    totalFiles: number;
-    successfulFiles: number;
-    failedFiles: number;
-    totalNations: number;
-    totalProvinces: number;
-    totalBoundaries: number;
-    loadTime: number;
-  };
-}
 
-// Enhanced error tracking
 interface LoadingContext {
   warnings: string[];
   fileMetrics: {
@@ -173,23 +157,23 @@ function convertRawNation(id: string, rawData: any): Nation {
       capital: rawData.capital || '',
       flag: rawData.flag || '',
       government: {
-        type: rawData.government?.type || 'democracy',
-        leader: rawData.government?.leader || 'Unknown',
+        type: rawData.government_type || rawData.government?.type || 'democracy',
+        leader: rawData.leader || rawData.government?.leader || 'Unknown',
         approval: Number(rawData.government?.approval) || 50,
-        stability: Number(rawData.government?.stability) || 50
+        stability: Number(rawData.stability || rawData.government?.stability) || 50
       },
       economy: {
-        gdp: Number(rawData.economy?.gdp) || 0,
-        debt: Number(rawData.economy?.debt) || 0,
-        inflation: Number(rawData.economy?.inflation) || 0,
+        gdp: Number(rawData.gdp || rawData.economy?.gdp) || 0,
+        debt: Number(rawData.debt || rawData.economy?.debt) || 0,
+        inflation: Number(rawData.inflation || rawData.economy?.inflation) || 0,
         tradeBalance: Number(rawData.economy?.trade_balance || rawData.economy?.tradeBalance) || 0,
-        treasury: Number(rawData.economy?.treasury) || 0
+        treasury: Number(rawData.treasury || rawData.economy?.treasury) || 0
       },
       military: {
-        manpower: Number(rawData.military?.manpower) || 0,
+        manpower: Number(rawData.resources?.manpower || rawData.military?.manpower) || 0,
         equipment: Number(rawData.military?.equipment) || 0,
         readiness: Number(rawData.military?.readiness) || 100,
-        doctrine: rawData.military?.doctrine || 'Standard',
+        doctrine: rawData.military_doctrine || rawData.military?.doctrine || 'Standard',
         nuclearCapability: Boolean(rawData.military?.nuclear_capability || rawData.military?.nuclearCapability)
       },
       technology: {
@@ -211,7 +195,7 @@ function convertRawNation(id: string, rawData: any): Nation {
           ? (rawData.diplomacy?.tradePartners || rawData.diplomacy?.trade_partners) 
           : []
       },
-      resourceStockpiles: rawData.resourceStockpiles || rawData.resource_stockpiles || rawData.resources?.stockpiles || {},
+      resourceStockpiles: rawData.resourceStockpiles || rawData.resource_stockpiles || rawData.resources || {},
       resourceProduction: rawData.resourceProduction || rawData.resource_production || {},
       resourceConsumption: rawData.resourceConsumption || rawData.resource_consumption || {},
       resourceShortages: rawData.resourceShortages || rawData.resource_shortages || {},

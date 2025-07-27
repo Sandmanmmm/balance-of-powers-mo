@@ -206,3 +206,430 @@
       AfD: 15.7
       SPD: 11.6
       Other: 15.2
+
+# Italy Provinces
+- id: IT_LOM
+  name: "Lombardy"
+  country: "Italy"
+  population:
+    total: 10030000
+    ethnic_groups:
+      - group: "Italian"
+        percent: 85
+      - group: "Romanian"
+        percent: 5
+      - group: "Other"
+        percent: 10
+  unrest: 12
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "industrial", "financial_hub"]
+  resource_output:
+    energy: 12000
+    food: 8500
+    industrial_capacity: 18000
+    technology: 15000
+  politics:
+    party_support:
+      Lega: 34.3
+      Brothers_of_Italy: 22.6
+      Democratic_Party: 19.8
+      Five_Star: 13.2
+      Other: 10.1
+
+- id: IT_LAZ
+  name: "Lazio"
+  country: "Italy"
+  population:
+    total: 5890000
+    ethnic_groups:
+      - group: "Italian"
+        percent: 82
+      - group: "Romanian"
+        percent: 8
+      - group: "Other"
+        percent: 10
+  unrest: 18
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["urban", "political_center", "coastal"]
+  resource_output:
+    energy: 8500
+    food: 5000
+    industrial_capacity: 8000
+    technology: 12000
+  politics:
+    party_support:
+      Brothers_of_Italy: 28.4
+      Democratic_Party: 24.7
+      Five_Star: 16.9
+      Lega: 15.2
+      Other: 14.8
+
+# Sweden Provinces
+- id: SE_STO
+  name: "Stockholm County"
+  country: "Sweden"
+  population:
+    total: 2370000
+    ethnic_groups:
+      - group: "Swedish"
+        percent: 78
+      - group: "Finnish"
+        percent: 5
+      - group: "Middle Eastern"
+        percent: 8
+      - group: "Other"
+        percent: 9
+  unrest: 3
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "tech_hub", "coastal"]
+  resource_output:
+    energy: 8500
+    food: 2000
+    industrial_capacity: 8000
+    technology: 15000
+  politics:
+    party_support:
+      Social_Democrats: 28.6
+      Moderates: 21.4
+      Sweden_Democrats: 18.2
+      Centre_Party: 12.1
+      Other: 19.7
+
+- id: SE_GOT
+  name: "Västra Götaland County"
+  country: "Sweden"
+  population:
+    total: 1720000
+    ethnic_groups:
+      - group: "Swedish"
+        percent: 82
+      - group: "Other"
+        percent: 18
+  unrest: 2
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "industrial", "farmland"]
+  resource_output:
+    energy: 12000
+    food: 6000
+    industrial_capacity: 5500
+  politics:
+    party_support:
+      Social_Democrats: 31.2
+      Moderates: 19.8
+      Sweden_Democrats: 16.5
+      Other: 32.5
+
+# Norway Provinces
+- id: NO_OSL
+  name: "Oslo"
+  country: "Norway"
+  population:
+    total: 1380000
+    ethnic_groups:
+      - group: "Norwegian"
+        percent: 74
+      - group: "Pakistani"
+        percent: 5
+      - group: "Polish"
+        percent: 4
+      - group: "Other"
+        percent: 17
+  unrest: 2
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "political_center", "tech_hub"]
+  resource_output:
+    energy: 5500
+    food: 1500
+    industrial_capacity: 4000
+    technology: 12000
+  politics:
+    party_support:
+      Labour_Party: 32.4
+      Conservative_Party: 25.1
+      Progress_Party: 14.7
+      Centre_Party: 11.8
+      Other: 16.0
+
+- id: NO_ROG
+  name: "Rogaland"
+  country: "Norway"
+  population:
+    total: 480000
+    ethnic_groups:
+      - group: "Norwegian"
+        percent: 85
+      - group: "Other"
+        percent: 15
+  unrest: 1
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "oil_rich", "industrial"]
+  resource_output:
+    energy: 25000
+    food: 2500
+    industrial_capacity: 3000
+    oil: 35000
+  politics:
+    party_support:
+      Conservative_Party: 28.9
+      Labour_Party: 24.6
+      Progress_Party: 18.3
+      Other: 28.2
+
+# Denmark Provinces
+- id: DK_CAP
+  name: "Capital Region"
+  country: "Denmark"
+  population:
+    total: 1850000
+    ethnic_groups:
+      - group: "Danish"
+        percent: 81
+      - group: "Turkish"
+        percent: 4
+      - group: "German"
+        percent: 3
+      - group: "Other"
+        percent: 12
+  unrest: 4
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "political_center", "coastal"]
+  resource_output:
+    energy: 6000
+    food: 3500
+    industrial_capacity: 6500
+    technology: 15000
+  politics:
+    party_support:
+      Social_Democrats: 27.5
+      Venstre: 23.4
+      Denmark_Democrats: 14.1
+      Conservative_People: 12.3
+      Other: 22.7
+
+- id: DK_JUT
+  name: "Central Jutland"
+  country: "Denmark"
+  population:
+    total: 1330000
+    ethnic_groups:
+      - group: "Danish"
+        percent: 88
+      - group: "Other"
+        percent: 12
+  unrest: 3
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["farmland", "industrial", "coastal"]
+  resource_output:
+    energy: 4500
+    food: 8500
+    industrial_capacity: 4000
+    oil: 6000
+  politics:
+    party_support:
+      Venstre: 32.1
+      Social_Democrats: 24.8
+      Denmark_Democrats: 16.4
+      Other: 26.7
+
+# Finland Provinces
+- id: FI_UUS
+  name: "Uusimaa"
+  country: "Finland"
+  population:
+    total: 1690000
+    ethnic_groups:
+      - group: "Finnish"
+        percent: 83
+      - group: "Swedish"
+        percent: 6
+      - group: "Russian"
+        percent: 4
+      - group: "Other"
+        percent: 7
+  unrest: 2
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "tech_hub", "coastal"]
+  resource_output:
+    energy: 8500
+    food: 2000
+    industrial_capacity: 4500
+    technology: 12000
+  politics:
+    party_support:
+      National_Coalition: 25.8
+      Social_Democrats: 22.4
+      Finns_Party: 17.7
+      Centre_Party: 13.1
+      Other: 21.0
+
+- id: FI_PIR
+  name: "Pirkanmaa"
+  country: "Finland"
+  population:
+    total: 520000
+    ethnic_groups:
+      - group: "Finnish"
+        percent: 95
+      - group: "Other"
+        percent: 5
+  unrest: 1
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["industrial", "tech_hub", "forest"]
+  resource_output:
+    energy: 6500
+    food: 3000
+    industrial_capacity: 3500
+  politics:
+    party_support:
+      Social_Democrats: 26.3
+      National_Coalition: 21.9
+      Finns_Party: 19.1
+      Other: 32.7
+
+# Spain Provinces
+- id: ES_MAD
+  name: "Community of Madrid"
+  country: "Spain"
+  population:
+    total: 6750000
+    ethnic_groups:
+      - group: "Spanish"
+        percent: 78
+      - group: "Latin American"
+        percent: 12
+      - group: "Romanian"
+        percent: 4
+      - group: "Other"
+        percent: 6
+  unrest: 11
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["urban", "political_center", "financial_hub"]
+  resource_output:
+    energy: 8500
+    food: 2500
+    industrial_capacity: 12000
+    technology: 18000
+  politics:
+    party_support:
+      People_Party: 42.8
+      PSOE: 27.3
+      Mas_Madrid: 16.9
+      Vox: 9.1
+      Other: 3.9
+
+- id: ES_CAT
+  name: "Catalonia"
+  country: "Spain"
+  population:
+    total: 7750000
+    ethnic_groups:
+      - group: "Spanish"
+        percent: 65
+      - group: "Catalan"
+        percent: 25
+      - group: "Other"
+        percent: 10
+  unrest: 18
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "coastal", "industrial"]
+  resource_output:
+    energy: 12000
+    food: 6500
+    industrial_capacity: 14000
+    technology: 8000
+  politics:
+    party_support:
+      ERC: 21.3
+      PSC: 22.7
+      Junts: 20.1
+      People_Party: 18.9
+      Other: 17.0
+
+# Netherlands Provinces
+- id: NL_NH
+  name: "North Holland"
+  country: "Netherlands"
+  population:
+    total: 2880000
+    ethnic_groups:
+      - group: "Dutch"
+        percent: 75
+      - group: "Moroccan"
+        percent: 6
+      - group: "Turkish"
+        percent: 4
+      - group: "Other"
+        percent: 15
+  unrest: 6
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "coastal", "financial_hub"]
+  resource_output:
+    energy: 8500
+    food: 5500
+    industrial_capacity: 12000
+    technology: 18000
+  politics:
+    party_support:
+      VVD: 24.1
+      D66: 18.2
+      Labour_Party: 15.8
+      Party_for_Freedom: 13.3
+      Other: 28.6
+
+- id: NL_ZH
+  name: "South Holland"
+  country: "Netherlands"
+  population:
+    total: 3710000
+    ethnic_groups:
+      - group: "Dutch"
+        percent: 72
+      - group: "Surinamese"
+        percent: 8
+      - group: "Turkish"
+        percent: 5
+      - group: "Other"
+        percent: 15
+  unrest: 5
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "coastal", "industrial"]
+  resource_output:
+    energy: 6500
+    food: 8500
+    industrial_capacity: 8000
+    oil: 2000
+  politics:
+    party_support:
+      VVD: 26.4
+      D66: 16.7
+      Labour_Party: 14.9
+      Party_for_Freedom: 12.8
+      Other: 29.2

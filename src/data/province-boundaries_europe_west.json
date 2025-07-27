@@ -68,5 +68,145 @@
         [8.9, 50.6], [13.8, 50.6], [13.8, 47.3], [8.9, 47.3], [8.9, 50.6]
       ]]
     }
+  },
+  "IT_LOM": {
+    "type": "Feature",
+    "properties": {"id": "IT_LOM", "name": "Lombardy"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [8.5, 46.7], [11.2, 46.7], [11.2, 44.6], [8.5, 44.6], [8.5, 46.7]
+      ]]
+    }
+  },
+  "IT_LAZ": {
+    "type": "Feature",
+    "properties": {"id": "IT_LAZ", "name": "Lazio"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [11.4, 42.8], [13.8, 42.8], [13.8, 40.8], [11.4, 40.8], [11.4, 42.8]
+      ]]
+    }
+  },
+  "SE_STO": {
+    "type": "Feature",
+    "properties": {"id": "SE_STO", "name": "Stockholm County"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [16.8, 60.2], [19.5, 60.2], [19.5, 58.7], [16.8, 58.7], [16.8, 60.2]
+      ]]
+    }
+  },
+  "SE_GOT": {
+    "type": "Feature",
+    "properties": {"id": "SE_GOT", "name": "Västra Götaland County"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [11.1, 59.2], [14.8, 59.2], [14.8, 57.1], [11.1, 57.1], [11.1, 59.2]
+      ]]
+    }
+  },
+  "NO_OSL": {
+    "type": "Feature",
+    "properties": {"id": "NO_OSL", "name": "Oslo"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [10.1, 60.2], [11.3, 60.2], [11.3, 59.7], [10.1, 59.7], [10.1, 60.2]
+      ]]
+    }
+  },
+  "NO_ROG": {
+    "type": "Feature",
+    "properties": {"id": "NO_ROG", "name": "Rogaland"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [5.3, 59.9], [7.2, 59.9], [7.2, 58.1], [5.3, 58.1], [5.3, 59.9]
+      ]]
+    }
+  },
+  "DK_CAP": {
+    "type": "Feature",
+    "properties": {"id": "DK_CAP", "name": "Capital Region"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [11.9, 56.2], [12.9, 56.2], [12.9, 55.4], [11.9, 55.4], [11.9, 56.2]
+      ]]
+    }
+  },
+  "DK_JUT": {
+    "type": "Feature",
+    "properties": {"id": "DK_JUT", "name": "Central Jutland"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [8.1, 57.1], [10.9, 57.1], [10.9, 55.4], [8.1, 55.4], [8.1, 57.1]
+      ]]
+    }
+  },
+  "FI_UUS": {
+    "type": "Feature",
+    "properties": {"id": "FI_UUS", "name": "Uusimaa"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [23.1, 60.8], [26.3, 60.8], [26.3, 59.8], [23.1, 59.8], [23.1, 60.8]
+      ]]
+    }
+  },
+  "FI_PIR": {
+    "type": "Feature",
+    "properties": {"id": "FI_PIR", "name": "Pirkanmaa"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [22.8, 62.1], [25.1, 62.1], [25.1, 61.0], [22.8, 61.0], [22.8, 62.1]
+      ]]
+    }
+  },
+  "ES_MAD": {
+    "type": "Feature",
+    "properties": {"id": "ES_MAD", "name": "Community of Madrid"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [-4.6, 40.9], [-3.1, 40.9], [-3.1, 39.9], [-4.6, 39.9], [-4.6, 40.9]
+      ]]
+    }
+  },
+  "ES_CAT": {
+    "type": "Feature",
+    "properties": {"id": "ES_CAT", "name": "Catalonia"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [0.2, 42.9], [3.3, 42.9], [3.3, 40.5], [0.2, 40.5], [0.2, 42.9]
+      ]]
+    }
+  },
+  "NL_NH": {
+    "type": "Feature",
+    "properties": {"id": "NL_NH", "name": "North Holland"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [4.6, 53.0], [5.3, 53.0], [5.3, 52.3], [4.6, 52.3], [4.6, 53.0]
+      ]]
+    }
+  },
+  "NL_ZH": {
+    "type": "Feature",
+    "properties": {"id": "NL_ZH", "name": "South Holland"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [3.3, 52.3], [4.9, 52.3], [4.9, 51.7], [3.3, 51.7], [3.3, 52.3]
+      ]]
+    }
   }
 }

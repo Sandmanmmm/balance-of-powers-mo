@@ -12,6 +12,7 @@ import { testModularLoader } from './lib/testModularLoader';
 import { testYamlImports } from './lib/testYamlImports';
 import { validateBulletproofLoader } from './lib/validateBulletproofLoader';
 import { testEuropeEastLoading } from './lib/testEuropeEast';
+import { testEuropeExpansion } from './lib/testEuropeExpansion';
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
@@ -87,6 +88,10 @@ function App() {
         
         console.log('🇪🇺 Testing Eastern Europe data loading...');
         await testEuropeEastLoading();
+        
+        console.log('🇪🇺 Testing European nations expansion...');
+        const europeResults = await testEuropeExpansion();
+        console.log('European expansion test results:', europeResults);
         
         console.log('Running legacy YAML import test...');
         const importResults = await testYamlImports();
