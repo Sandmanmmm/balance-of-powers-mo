@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { GameState, Province, Nation, GameEvent, Technology } from '../lib/types';
-import { getBuildingById, getResources, getEvents, getTechnologies, type Resource } from '../data/gameData';
+import { getBuildingById, getResources, getEvents, getTechnologies, getAllResources, type Resource } from '../data/gameData';
 import { toast } from 'sonner';
 import { 
   calculateResourceShortageEffects, 
@@ -1109,6 +1109,13 @@ function processResourceSystem(
   }
   if (!context.provinces || !Array.isArray(context.provinces)) {
     console.warn('Provinces data is invalid, skipping resource system processing');
+    return;
+  }
+
+  // Get resources data synchronously from cache
+  const resources = getAllResources();
+  if (!resources || resources.length === 0) {
+    console.warn('No resources loaded, skipping resource system processing');
     return;
   }
 

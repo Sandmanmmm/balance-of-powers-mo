@@ -5,11 +5,11 @@ import { WorldMap } from './components/WorldMap';
 import { ProvinceInfoPanel } from './components/ProvinceInfoPanel';
 import { GameDashboard } from './components/GameDashboard';
 import { GameDataDebug } from './components/GameDataDebug';
+import { ResourcesDebug } from './components/ResourcesDebug';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
 import { getSystemStatus } from './data/gameData';
-import './debug-resources'; // Add debug import
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
@@ -160,6 +160,9 @@ function App() {
           </div>
           <div className="mt-4">
             <GameDataDebug />
+          </div>
+          <div className="mt-4">
+            <ResourcesDebug />
           </div>
         </div>
       </div>
