@@ -9,6 +9,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
 import { getSystemStatus } from './data/gameData';
+import './debug-resources'; // Add debug import
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
