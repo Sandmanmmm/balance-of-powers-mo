@@ -953,3 +953,201 @@ provinces:
           level: 4
         - type: "agricultural_complex"
           level: 3
+
+  USA_AK:
+    name: "Alaska"
+    country: "United States"
+    coordinates: [61.2181, -149.9003]
+    features:
+      - "oil_rich"
+      - "arctic"
+      - "fishing"
+      - "mining"
+      - "remote"
+      - "strategic"
+      - "wilderness"
+    population:
+      total: 733000
+      ethnic_groups:
+        - group: "White"
+          percent: 60.2
+        - group: "Native Alaskan"
+          percent: 19.6
+        - group: "Asian"
+          percent: 6.8
+        - group: "Hispanic"
+          percent: 7.3
+        - group: "Black"
+          percent: 3.1
+        - group: "Other"
+          percent: 3.0
+    unrest: 3.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 28500
+      steel: 850
+      rare_earth: 1850
+      uranium: 2850
+      food: 850
+      gold: 4500
+      fish: 8500
+    military:
+      stationed_units:
+        - "USA_ARC_1"
+        - "USA_AIR_9"
+      fortification_level: 4
+    resource_output:
+      energy: 25000
+      oil: 18500
+      fish: 6500
+      gold: 2500
+      strategic_value: 8500
+    politics:
+      party_support:
+        "Republican Party": 52.8
+        "Democratic Party": 42.8
+        "Other": 4.4
+    buildings:
+      active:
+        - type: "oil_extraction"
+          level: 5
+        - type: "fishing_fleet"
+          level: 3
+        - type: "military_radar"
+          level: 4
+
+  USA_HI:
+    name: "Hawaii"
+    country: "United States"
+    coordinates: [21.0943, -157.4983]
+    features:
+      - "tropical"
+      - "tourism"
+      - "volcanic"
+      - "strategic"
+      - "military"
+      - "agricultural"
+      - "renewable_energy"
+      - "remote"
+    population:
+      total: 1460000
+      ethnic_groups:
+        - group: "Asian"
+          percent: 36.5
+        - group: "White"
+          percent: 21.6
+        - group: "Native Hawaiian"
+          percent: 21.3
+        - group: "Hispanic"
+          percent: 11.1
+        - group: "Black"
+          percent: 1.8
+        - group: "Other"
+          percent: 7.7
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 4
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 85
+      rare_earth: 185
+      uranium: 25
+      food: 2500
+      geothermal: 4500
+    military:
+      stationed_units:
+        - "USA_PAC_3"
+        - "USA_NAV_4"
+      fortification_level: 5
+    resource_output:
+      energy: 3500
+      tourism: 8500
+      food: 3500
+      geothermal_energy: 2500
+      strategic_value: 12500
+    politics:
+      party_support:
+        "Democratic Party": 63.7
+        "Republican Party": 33.4
+        "Other": 2.9
+    buildings:
+      active:
+        - type: "resort_complex"
+          level: 4
+        - type: "geothermal_plant"
+          level: 3
+        - type: "military_base"
+          level: 5
+
+  USA_MT:
+    name: "Montana"
+    country: "United States"
+    coordinates: [47.0527, -109.6333]
+    features:
+      - "mining"
+      - "agricultural"
+      - "ranching"
+      - "mountains"
+      - "energy"
+      - "rural"
+      - "coal"
+      - "wilderness"
+    population:
+      total: 1085000
+      ethnic_groups:
+        - group: "White"
+          percent: 85.8
+        - group: "Native American"
+          percent: 6.7
+        - group: "Hispanic"
+          percent: 4.0
+        - group: "Asian"
+          percent: 0.9
+        - group: "Black"
+          percent: 0.6
+        - group: "Other"
+          percent: 2.0
+    unrest: 3.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 4500
+      steel: 185
+      rare_earth: 850
+      uranium: 1850
+      food: 6500
+      coal: 12500
+      copper: 2850
+    military:
+      stationed_units:
+        - "USA_MIS_1"
+      fortification_level: 3
+    resource_output:
+      energy: 15500
+      coal: 8500
+      food: 8500
+      copper: 1850
+      ranching: 4500
+    politics:
+      party_support:
+        "Republican Party": 56.9
+        "Democratic Party": 40.6
+        "Other": 2.5
+    buildings:
+      active:
+        - type: "coal_mine"
+          level: 4
+        - type: "ranch"
+          level: 3
+        - type: "nuclear_facility"
+          level: 2

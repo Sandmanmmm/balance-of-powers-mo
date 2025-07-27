@@ -2046,3 +2046,294 @@ buildings:
     requirements:
       infrastructure: 3
     icon: "🏖️"
+
+  # === SPECIALIZED BUILDINGS FOR ALASKA, HAWAII, MONTANA ===
+
+  - id: "oil_extraction"
+    name: "Alaska Oil Extraction Facility"
+    description: "Large-scale Arctic oil extraction operation"
+    category: "extraction"
+    cost: 12000
+    buildTime: 450
+    produces:
+      oil: 300
+      natural_gas: 100
+    consumes:
+      electricity: 80
+      manpower: 200
+      steel: 25
+    improves:
+      oil_production: 8
+      energy_security: 6
+      employment: 800
+    requiresFeatures:
+      - "oil_rich"
+      - "arctic"
+    requirements:
+      infrastructure: 3
+    icon: "🛢️"
+
+  - id: "fishing_fleet_commercial"
+    name: "Commercial Fishing Fleet"
+    description: "Large-scale commercial fishing operation"
+    category: "agriculture"
+    cost: 3000
+    buildTime: 200
+    produces:
+      fish: 150
+      food: 100
+    consumes:
+      oil: 40
+      manpower: 120
+      steel: 15
+    improves:
+      food_security: 5
+      fishing_industry: 6
+      employment: 500
+    requiresFeatures:
+      - "fishing"
+    requirements:
+      infrastructure: 2
+    icon: "🎣"
+
+  - id: "military_radar"
+    name: "Military Radar Station"
+    description: "Strategic radar and surveillance facility"
+    category: "military"
+    cost: 8000
+    buildTime: 350
+    produces:
+      military_intelligence: 80
+      early_warning: 100
+    consumes:
+      electricity: 120
+      manpower: 150
+      rare_earth: 10
+    improves:
+      defense_capability: 8
+      surveillance_range: 10
+      employment: 400
+    requiresFeatures:
+      - "strategic"
+      - "remote"
+    requirements:
+      infrastructure: 3
+    icon: "📡"
+
+  - id: "geothermal_plant_hawaii"
+    name: "Volcanic Geothermal Plant"
+    description: "Harnesses volcanic energy for power generation"
+    category: "energy"
+    cost: 7000
+    buildTime: 400
+    produces:
+      electricity: 400
+      geothermal_energy: 150
+    consumes:
+      manpower: 80
+      steel: 20
+    improves:
+      renewable_energy: 6
+      energy_independence: 4
+      employment: 300
+    requiresFeatures:
+      - "volcanic"
+      - "geothermal"
+    requirements:
+      infrastructure: 3
+    icon: "🌋"
+
+  - id: "tropical_resort"
+    name: "Tropical Paradise Resort"
+    description: "Luxury tropical tourism destination"
+    category: "tourism"
+    cost: 8000
+    buildTime: 450
+    produces:
+      tourism: 200
+      luxury_services: 80
+    consumes:
+      electricity: 100
+      manpower: 300
+      food: 120
+      water: 80
+    improves:
+      tourism_income: 12
+      international_reputation: 5
+      employment: 1200
+    requiresFeatures:
+      - "tropical"
+      - "tourism"
+    requirements:
+      infrastructure: 4
+    icon: "🏝️"
+
+  - id: "pacific_naval_base"
+    name: "Pacific Naval Base"
+    description: "Strategic military naval facility"
+    category: "military"
+    cost: 15000
+    buildTime: 600
+    produces:
+      naval_power: 150
+      strategic_projection: 100
+    consumes:
+      electricity: 150
+      manpower: 500
+      oil: 80
+      steel: 40
+    improves:
+      naval_capacity: 15
+      strategic_reach: 10
+      employment: 2000
+    requiresFeatures:
+      - "strategic"
+      - "military"
+      - "coastal"
+    requirements:
+      infrastructure: 4
+    icon: "⚓"
+
+  - id: "coal_mining_operation"
+    name: "Large Coal Mining Operation"
+    description: "Massive coal extraction facility"
+    category: "extraction"
+    cost: 5000
+    buildTime: 300
+    produces:
+      coal: 200
+      electricity: 100
+    consumes:
+      electricity: 40
+      manpower: 300
+      oil: 25
+    improves:
+      energy_production: 6
+      coal_industry: 8
+      employment: 1000
+    requiresFeatures:
+      - "coal"
+      - "mining"
+    requirements:
+      infrastructure: 2
+    icon: "⚫"
+
+  - id: "ranch_operation"
+    name: "Large Ranch Operation"
+    description: "Extensive cattle ranching facility"
+    category: "agriculture"
+    cost: 2500
+    buildTime: 180
+    produces:
+      ranching: 120
+      food: 80
+      leather: 40
+    consumes:
+      manpower: 100
+      electricity: 20
+      water: 100
+    improves:
+      food_security: 4
+      ranching_industry: 6
+      employment: 400
+    requiresFeatures:
+      - "ranching"
+    requirements:
+      infrastructure: 2
+    icon: "🐄"
+
+  - id: "nuclear_facility"
+    name: "Nuclear Research Facility"
+    description: "Advanced nuclear research and uranium processing"
+    category: "research"
+    cost: 20000
+    buildTime: 700
+    produces:
+      nuclear_technology: 100
+      uranium_processing: 50
+      research: 80
+    consumes:
+      electricity: 200
+      uranium: 15
+      manpower: 400
+      rare_earth: 20
+    improves:
+      nuclear_capability: 10
+      research_capacity: 6
+      employment: 1200
+    requiresFeatures:
+      - "remote"
+      - "strategic"
+    requirements:
+      infrastructure: 4
+      technology: "nuclear_technology"
+    icon: "☢️"
+
+  - id: "copper_mine"
+    name: "Copper Mining Facility"
+    description: "Large-scale copper extraction operation"
+    category: "extraction"
+    cost: 3500
+    buildTime: 250
+    produces:
+      copper: 100
+      steel: 30
+    consumes:
+      electricity: 60
+      manpower: 200
+      oil: 30
+    improves:
+      resource_extraction: 4
+      mining_industry: 5
+      employment: 700
+    requiresFeatures:
+      - "mining"
+    requirements:
+      infrastructure: 2
+    icon: "🔶"
+
+  - id: "wilderness_preserve"
+    name: "Wilderness Preserve"
+    description: "Protected natural wilderness area"
+    category: "environmental"
+    cost: 2000
+    buildTime: 150
+    produces:
+      conservation: 60
+      eco_tourism: 40
+    consumes:
+      manpower: 50
+    improves:
+      environmental_protection: 8
+      biodiversity: 6
+      tourism_income: 3
+    requiresFeatures:
+      - "wilderness"
+    requirements:
+      infrastructure: 1
+    icon: "🌲"
+
+  - id: "arctic_research"
+    name: "Arctic Research Station"
+    description: "Climate and polar research facility"
+    category: "research"
+    cost: 6000
+    buildTime: 350
+    produces:
+      climate_research: 80
+      arctic_data: 60
+      research: 40
+    consumes:
+      electricity: 100
+      manpower: 100
+      heating_fuel: 80
+    improves:
+      climate_science: 6
+      arctic_operations: 4
+      employment: 300
+    requiresFeatures:
+      - "arctic"
+      - "research"
+    requirements:
+      infrastructure: 2
+    icon: "🧊"
