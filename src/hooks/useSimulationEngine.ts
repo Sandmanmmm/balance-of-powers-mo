@@ -187,7 +187,9 @@ export function useSimulationEngine({
         const playerNation = context.nations.find(n => n.id === context.gameState.selectedNation);
         if (playerNation) {
           try {
-            checkResourceNotifications(playerNation, context.gameState.currentDate, resources || []);
+            // Use state resources variable instead of undefined resources
+            const resourcesForNotifications = Array.isArray(resources) ? resources : [];
+            checkResourceNotifications(playerNation, context.gameState.currentDate, resourcesForNotifications);
           } catch (error) {
             console.error('Error checking resource notifications:', error);
           }
