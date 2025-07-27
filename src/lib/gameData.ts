@@ -1847,6 +1847,7 @@ function convertTechnologies(): Technology[] {
 let worldData: WorldData | null = null;
 let isDataInitialized = false;
 let initializationPromise: Promise<WorldData> | null = null;
+let loadedBuildings: Building[] = []; // Cache for buildings loaded from YAML
 
 // Initialize async data loading using the new modular loader
 async function initializeGameData(): Promise<WorldData> {
@@ -1903,7 +1904,17 @@ async function initializeGameData(): Promise<WorldData> {
       const fallbackData: WorldData = {
         nations: convertNations(),
         provinces: convertProvinces(),
-        boundaries: {}
+        boundaries: {},
+        warnings: [`Fallback to hardcoded data due to initialization error: ${error}`],
+        loadingSummary: {
+          totalFiles: 0,
+          successfulFiles: 0,
+          failedFiles: 0,
+          totalNations: convertNations().length,
+          totalProvinces: convertProvinces().length,
+          totalBoundaries: 0,
+          loadTime: 0
+        }
       };
       
       worldData = fallbackData;
@@ -2288,6 +2299,15 @@ function isCoastalProvince(province: Province): boolean {
 function isRuralProvince(province: Province): boolean {
   // Simple heuristic - in a real game this would be in province data  
   return province.population.total < 5000000;
+}
+
+// Clear cache function for debugging
+export function clearGameDataCache(): void {
+  console.log('Clearing game data cache...');
+  worldData = null;
+  isDataInitialized = false;
+  initializationPromise = null;
+  loadedBuildings = [];
 }
 
 export function validateGameData(): { valid: boolean; errors: string[] } {

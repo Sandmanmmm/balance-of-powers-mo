@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
 import { testModularLoader } from './lib/testModularLoader';
 import { testYamlImports } from './lib/testYamlImports';
+import { validateBulletproofLoader } from './lib/validateBulletproofLoader';
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
@@ -80,16 +81,19 @@ function App() {
   useEffect(() => {
     const runTest = async () => {
       try {
-        console.log('Running YAML import test...');
+        console.log('🔬 Running bulletproof data loader validation...');
+        await validateBulletproofLoader();
+        
+        console.log('Running legacy YAML import test...');
         const importResults = await testYamlImports();
         console.log('YAML Import Test Results:', importResults);
         
-        console.log('Running modular loader test...');
+        console.log('Running legacy modular loader test...');
         const results = await testModularLoader();
         console.log('Modular Loader Test Results:', results);
         
         if (!results.success) {
-          console.error('Modular loader test failed:', results.error);
+          console.error('Legacy modular loader test failed:', results.error);
         }
       } catch (error) {
         console.error('Test exception:', error);

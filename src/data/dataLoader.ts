@@ -1,7 +1,164 @@
 import yaml from 'js-yaml';
+import { z } from 'zod';
 import { Province, Nation } from '../lib/types';
 
-// Helper functions to convert raw YAML data to TypeScript interfaces
+// Schema validation using Zod
+const NationSchema = z.object({
+  id: z.string().min(1, 'Nation ID cannot be empty'),
+  name: z.string().min(1, 'Nation name cannot be empty'),
+  capital: z.string().optional(),
+  flag: z.string().optional(),
+  government: z.object({
+    type: z.string(),
+    leader: z.string(),
+    approval: z.number().min(0).max(100),
+    stability: z.number().min(0).max(100)
+  }).optional(),
+  economy: z.object({
+    gdp: z.number().min(0),
+    debt: z.number(),
+    inflation: z.number(),
+    tradeBalance: z.number(),
+    treasury: z.number()
+  }).optional(),
+  military: z.object({
+    manpower: z.number().min(0),
+    equipment: z.number().min(0),
+    readiness: z.number().min(0).max(100),
+    doctrine: z.string(),
+    nuclearCapability: z.boolean()
+  }).optional(),
+  technology: z.object({
+    researchPoints: z.number().min(0),
+    currentResearch: z.array(z.string()),
+    completedTech: z.array(z.string()),
+    level: z.number().min(0)
+  }).optional(),
+  diplomacy: z.object({
+    allies: z.array(z.string()),
+    enemies: z.array(z.string()),
+    embargoes: z.array(z.string()),
+    sanctions: z.array(z.string()),
+    tradePartners: z.array(z.string())
+  }).optional(),
+  resourceStockpiles: z.record(z.number()).optional(),
+  resourceProduction: z.record(z.number()).optional(),
+  resourceConsumption: z.record(z.number()).optional(),
+  resourceShortages: z.record(z.number()).optional(),
+  resourceEfficiency: z.record(z.number()).optional(),
+  tradeOffers: z.array(z.any()).optional(),
+  tradeAgreements: z.array(z.any()).optional()
+});
+
+const ProvinceSchema = z.object({
+  id: z.string().min(1, 'Province ID cannot be empty'),
+  name: z.string().min(1, 'Province name cannot be empty'),
+  country: z.string().min(1, 'Country name cannot be empty'),
+  coordinates: z.tuple([z.number(), z.number()]).optional(),
+  features: z.array(z.string()).optional(),
+  population: z.object({
+    total: z.number().min(0),
+    ethnicGroups: z.array(z.object({
+      group: z.string(),
+      percent: z.number().min(0).max(100)
+    }))
+  }).optional(),
+  unrest: z.number().min(0).max(100).optional(),
+  infrastructure: z.object({
+    roads: z.number().min(1).max(5),
+    internet: z.number().min(1).max(5),
+    healthcare: z.number().min(1).max(5),
+    education: z.number().min(1).max(5)
+  }).optional(),
+  resourceDeposits: z.record(z.number()).optional(),
+  military: z.object({
+    stationedUnits: z.array(z.object({
+      id: z.string(),
+      strength: z.number().min(0).max(100)
+    })),
+    fortificationLevel: z.number().min(1).max(5)
+  }).optional(),
+  resourceOutput: z.record(z.number()).optional(),
+  politics: z.object({
+    partySupport: z.record(z.number()),
+    governorApproval: z.number().min(0).max(100)
+  }).optional(),
+  economy: z.object({
+    gdpPerCapita: z.number().min(0),
+    unemployment: z.number().min(0).max(100),
+    inflation: z.number()
+  }).optional(),
+  buildings: z.array(z.string()).optional(),
+  constructionProjects: z.array(z.any()).optional()
+});
+
+export interface WorldData {
+  nations: Nation[];
+  provinces: Province[];
+  boundaries: Record<string, any>;
+  warnings: string[];
+  loadingSummary: {
+    totalFiles: number;
+    successfulFiles: number;
+    failedFiles: number;
+    totalNations: number;
+    totalProvinces: number;
+    totalBoundaries: number;
+    loadTime: number;
+  };
+}
+
+// Enhanced error tracking
+interface LoadingContext {
+  warnings: string[];
+  fileMetrics: {
+    nations: { total: number; successful: number; failed: number };
+    provinces: { total: number; successful: number; failed: number };
+    boundaries: { total: number; successful: number; failed: number };
+  };
+  startTime: number;
+}
+
+function addWarning(context: LoadingContext, message: string): void {
+  context.warnings.push(message);
+  console.warn(`DataLoader Warning: ${message}`);
+}
+
+function validateAndConvertNation(id: string, rawData: any, context: LoadingContext): Nation | null {
+  try {
+    // First validate with schema
+    const validationResult = NationSchema.safeParse({ id, ...rawData });
+    
+    if (!validationResult.success) {
+      const errors = validationResult.error.format();
+      addWarning(context, `Nation ${id} failed schema validation: ${JSON.stringify(errors)}`);
+      // Continue with manual conversion for backward compatibility
+    }
+
+    return convertRawNation(id, rawData);
+  } catch (error) {
+    addWarning(context, `Failed to convert nation ${id}: ${error}`);
+    return null;
+  }
+}
+
+function validateAndConvertProvince(id: string, rawData: any, context: LoadingContext): Province | null {
+  try {
+    // First validate with schema
+    const validationResult = ProvinceSchema.safeParse({ id, ...rawData });
+    
+    if (!validationResult.success) {
+      const errors = validationResult.error.format();
+      addWarning(context, `Province ${id} failed schema validation: ${JSON.stringify(errors)}`);
+      // Continue with manual conversion for backward compatibility
+    }
+
+    return convertRawProvince(id, rawData);
+  } catch (error) {
+    addWarning(context, `Failed to convert province ${id}: ${error}`);
+    return null;
+  }
+}
 function convertRawNation(id: string, rawData: any): Nation {
   try {
     // Ensure rawData is valid
@@ -143,6 +300,16 @@ export interface WorldData {
   nations: Nation[];
   provinces: Province[];
   boundaries: Record<string, any>;
+  warnings: string[];
+  loadingSummary: {
+    totalFiles: number;
+    successfulFiles: number;
+    failedFiles: number;
+    totalNations: number;
+    totalProvinces: number;
+    totalBoundaries: number;
+    loadTime: number;
+  };
 }
 
 // Use import.meta.glob to dynamically load all region files from both root and regions subdirectories
@@ -165,26 +332,35 @@ const boundariesModules = import.meta.glob([
 ]);
 
 export async function loadWorldData(): Promise<WorldData> {
-  console.log('DataLoader: Starting world data loading...');
+  const startTime = performance.now();
+  
+  console.log('DataLoader: Starting bulletproof world data loading...');
   console.log('DataLoader: Available files debug:');
   debugAvailableFiles();
+  
+  const context: LoadingContext = {
+    warnings: [],
+    fileMetrics: {
+      nations: { total: 0, successful: 0, failed: 0 },
+      provinces: { total: 0, successful: 0, failed: 0 },
+      boundaries: { total: 0, successful: 0, failed: 0 }
+    },
+    startTime
+  };
   
   const nations: Nation[] = [];
   const provinces: Province[] = [];
   const boundaries: Record<string, any> = {};
-  
-  let totalNationFiles = 0;
-  let successfulNationFiles = 0;
-  let totalProvinceFiles = 0;
-  let successfulProvinceFiles = 0;
-  let totalBoundaryFiles = 0;
-  let successfulBoundaryFiles = 0;
 
   try {
-    // LOAD NATION FILES
+    // LOAD NATION FILES WITH ENHANCED ERROR HANDLING
     console.log('DataLoader: Loading nation files...');
-    totalNationFiles = Object.keys(nationModules).length;
-    console.log(`DataLoader: Found ${totalNationFiles} nation files to process`);
+    context.fileMetrics.nations.total = Object.keys(nationModules).length;
+    console.log(`DataLoader: Found ${context.fileMetrics.nations.total} nation files to process`);
+    
+    if (context.fileMetrics.nations.total === 0) {
+      addWarning(context, 'No nation files found! Check file naming and paths.');
+    }
     
     for (const path in nationModules) {
       try {
@@ -192,7 +368,8 @@ export async function loadWorldData(): Promise<WorldData> {
         const rawContent = await nationModules[path]();
         
         if (!rawContent || typeof rawContent !== 'string' || rawContent.trim().length === 0) {
-          console.warn(`DataLoader: Empty or invalid content in ${path}`);
+          addWarning(context, `Empty or invalid content in nation file: ${path}`);
+          context.fileMetrics.nations.failed++;
           continue;
         }
         
@@ -200,66 +377,97 @@ export async function loadWorldData(): Promise<WorldData> {
         try {
           parsedData = yaml.load(rawContent);
         } catch (yamlError) {
-          console.error(`DataLoader: YAML parsing failed for ${path}:`, yamlError);
+          addWarning(context, `YAML parsing failed for ${path}: ${yamlError}`);
+          context.fileMetrics.nations.failed++;
           continue;
         }
         
         if (!parsedData || typeof parsedData !== 'object') {
-          console.warn(`DataLoader: Parsed data is not an object in ${path}`);
+          addWarning(context, `Parsed data is not an object in ${path}`);
+          context.fileMetrics.nations.failed++;
           continue;
         }
         
         let nationsToAdd: Nation[] = [];
+        let validNationsCount = 0;
+        let invalidNationsCount = 0;
         
-        // Handle different YAML structures
+        // Handle different YAML structures with enhanced validation
         if (parsedData.nations && typeof parsedData.nations === 'object') {
           // Standard structure: { nations: { CAN: {...}, USA: {...} } }
-          nationsToAdd = Object.entries(parsedData.nations).map(([id, data]) => {
-            try {
-              return convertRawNation(id, data);
-            } catch (conversionError) {
-              console.error(`DataLoader: Failed to convert nation ${id}:`, conversionError);
-              return null;
+          for (const [id, data] of Object.entries(parsedData.nations)) {
+            const nation = validateAndConvertNation(id, data, context);
+            if (nation) {
+              nationsToAdd.push(nation);
+              validNationsCount++;
+            } else {
+              invalidNationsCount++;
             }
-          }).filter(Boolean) as Nation[];
+          }
         } else if (Array.isArray(parsedData)) {
           // Array structure: [{ id: "CAN", ... }, ...]
-          nationsToAdd = parsedData.map((nationData: any, index: number) => {
-            try {
-              const id = nationData.id || nationData.name?.toLowerCase().replace(/\s+/g, '_') || `nation_${index}`;
-              return convertRawNation(id, nationData);
-            } catch (conversionError) {
-              console.error(`DataLoader: Failed to convert nation at index ${index}:`, conversionError);
-              return null;
+          parsedData.forEach((nationData: any, index: number) => {
+            const id = nationData.id || nationData.name?.toLowerCase().replace(/\s+/g, '_') || `nation_${index}`;
+            const nation = validateAndConvertNation(id, nationData, context);
+            if (nation) {
+              nationsToAdd.push(nation);
+              validNationsCount++;
+            } else {
+              invalidNationsCount++;
             }
-          }).filter(Boolean) as Nation[];
+          });
         } else if (parsedData.id || parsedData.name) {
           // Single nation object
-          try {
-            const id = parsedData.id || parsedData.name?.toLowerCase().replace(/\s+/g, '_') || 'unknown';
-            nationsToAdd = [convertRawNation(id, parsedData)];
-          } catch (conversionError) {
-            console.error(`DataLoader: Failed to convert single nation in ${path}:`, conversionError);
+          const id = parsedData.id || parsedData.name?.toLowerCase().replace(/\s+/g, '_') || 'unknown';
+          const nation = validateAndConvertNation(id, parsedData, context);
+          if (nation) {
+            nationsToAdd.push(nation);
+            validNationsCount++;
+          } else {
+            invalidNationsCount++;
           }
+        } else {
+          addWarning(context, `Unsupported nation file structure in ${path}`);
+          context.fileMetrics.nations.failed++;
+          continue;
         }
         
         if (nationsToAdd.length > 0) {
-          nations.push(...nationsToAdd);
-          successfulNationFiles++;
-          console.log(`DataLoader: ✓ Successfully loaded ${nationsToAdd.length} nations from ${path}: ${nationsToAdd.map(n => n.id).join(', ')}`);
+          // Check for duplicate IDs
+          const existingIds = new Set(nations.map(n => n.id));
+          const duplicates = nationsToAdd.filter(n => existingIds.has(n.id));
+          if (duplicates.length > 0) {
+            addWarning(context, `Duplicate nation IDs found in ${path}: ${duplicates.map(n => n.id).join(', ')}`);
+          }
+          
+          // Add only non-duplicates
+          const uniqueNations = nationsToAdd.filter(n => !existingIds.has(n.id));
+          nations.push(...uniqueNations);
+          context.fileMetrics.nations.successful++;
+          
+          console.log(`DataLoader: ✓ Successfully loaded ${uniqueNations.length} nations from ${path}: ${uniqueNations.map(n => n.id).join(', ')}`);
+          if (invalidNationsCount > 0) {
+            console.log(`DataLoader: ⚠️ ${invalidNationsCount} invalid nations skipped in ${path}`);
+          }
         } else {
-          console.warn(`DataLoader: No valid nations found in ${path}`);
+          addWarning(context, `No valid nations found in ${path}`);
+          context.fileMetrics.nations.failed++;
         }
         
       } catch (error) {
-        console.error(`DataLoader: ❌ Critical error processing nation file ${path}:`, error);
+        addWarning(context, `Critical error processing nation file ${path}: ${error}`);
+        context.fileMetrics.nations.failed++;
       }
     }
 
-    // LOAD PROVINCE FILES
+    // LOAD PROVINCE FILES WITH ENHANCED ERROR HANDLING
     console.log('DataLoader: Loading province files...');
-    totalProvinceFiles = Object.keys(provinceModules).length;
-    console.log(`DataLoader: Found ${totalProvinceFiles} province files to process`);
+    context.fileMetrics.provinces.total = Object.keys(provinceModules).length;
+    console.log(`DataLoader: Found ${context.fileMetrics.provinces.total} province files to process`);
+    
+    if (context.fileMetrics.provinces.total === 0) {
+      addWarning(context, 'No province files found! Check file naming and paths.');
+    }
     
     for (const path in provinceModules) {
       try {
@@ -267,7 +475,8 @@ export async function loadWorldData(): Promise<WorldData> {
         const rawContent = await provinceModules[path]();
         
         if (!rawContent || typeof rawContent !== 'string' || rawContent.trim().length === 0) {
-          console.warn(`DataLoader: Empty or invalid content in ${path}`);
+          addWarning(context, `Empty or invalid content in province file: ${path}`);
+          context.fileMetrics.provinces.failed++;
           continue;
         }
         
@@ -275,66 +484,97 @@ export async function loadWorldData(): Promise<WorldData> {
         try {
           parsedData = yaml.load(rawContent);
         } catch (yamlError) {
-          console.error(`DataLoader: YAML parsing failed for ${path}:`, yamlError);
+          addWarning(context, `YAML parsing failed for ${path}: ${yamlError}`);
+          context.fileMetrics.provinces.failed++;
           continue;
         }
         
         if (!parsedData || typeof parsedData !== 'object') {
-          console.warn(`DataLoader: Parsed data is not an object in ${path}`);
+          addWarning(context, `Parsed data is not an object in ${path}`);
+          context.fileMetrics.provinces.failed++;
           continue;
         }
         
         let provincesToAdd: Province[] = [];
+        let validProvincesCount = 0;
+        let invalidProvincesCount = 0;
         
-        // Handle different YAML structures
+        // Handle different YAML structures with enhanced validation
         if (parsedData.provinces && typeof parsedData.provinces === 'object') {
           // Standard structure: { provinces: { CAN_001: {...}, CAN_002: {...} } }
-          provincesToAdd = Object.entries(parsedData.provinces).map(([id, data]) => {
-            try {
-              return convertRawProvince(id, data);
-            } catch (conversionError) {
-              console.error(`DataLoader: Failed to convert province ${id}:`, conversionError);
-              return null;
+          for (const [id, data] of Object.entries(parsedData.provinces)) {
+            const province = validateAndConvertProvince(id, data, context);
+            if (province) {
+              provincesToAdd.push(province);
+              validProvincesCount++;
+            } else {
+              invalidProvincesCount++;
             }
-          }).filter(Boolean) as Province[];
+          }
         } else if (Array.isArray(parsedData)) {
           // Array structure: [{ id: "CAN_001", ... }, ...]
-          provincesToAdd = parsedData.map((provinceData: any, index: number) => {
-            try {
-              const id = provinceData.id || provinceData.name?.toLowerCase().replace(/\s+/g, '_') || `province_${index}`;
-              return convertRawProvince(id, provinceData);
-            } catch (conversionError) {
-              console.error(`DataLoader: Failed to convert province at index ${index}:`, conversionError);
-              return null;
+          parsedData.forEach((provinceData: any, index: number) => {
+            const id = provinceData.id || provinceData.name?.toLowerCase().replace(/\s+/g, '_') || `province_${index}`;
+            const province = validateAndConvertProvince(id, provinceData, context);
+            if (province) {
+              provincesToAdd.push(province);
+              validProvincesCount++;
+            } else {
+              invalidProvincesCount++;
             }
-          }).filter(Boolean) as Province[];
+          });
         } else if (parsedData.id || parsedData.name) {
           // Single province object
-          try {
-            const id = parsedData.id || parsedData.name?.toLowerCase().replace(/\s+/g, '_') || 'unknown';
-            provincesToAdd = [convertRawProvince(id, parsedData)];
-          } catch (conversionError) {
-            console.error(`DataLoader: Failed to convert single province in ${path}:`, conversionError);
+          const id = parsedData.id || parsedData.name?.toLowerCase().replace(/\s+/g, '_') || 'unknown';
+          const province = validateAndConvertProvince(id, parsedData, context);
+          if (province) {
+            provincesToAdd.push(province);
+            validProvincesCount++;
+          } else {
+            invalidProvincesCount++;
           }
+        } else {
+          addWarning(context, `Unsupported province file structure in ${path}`);
+          context.fileMetrics.provinces.failed++;
+          continue;
         }
         
         if (provincesToAdd.length > 0) {
-          provinces.push(...provincesToAdd);
-          successfulProvinceFiles++;
-          console.log(`DataLoader: ✓ Successfully loaded ${provincesToAdd.length} provinces from ${path}: ${provincesToAdd.slice(0, 3).map(p => p.id).join(', ')}${provincesToAdd.length > 3 ? '...' : ''}`);
+          // Check for duplicate IDs
+          const existingIds = new Set(provinces.map(p => p.id));
+          const duplicates = provincesToAdd.filter(p => existingIds.has(p.id));
+          if (duplicates.length > 0) {
+            addWarning(context, `Duplicate province IDs found in ${path}: ${duplicates.map(p => p.id).join(', ')}`);
+          }
+          
+          // Add only non-duplicates
+          const uniqueProvinces = provincesToAdd.filter(p => !existingIds.has(p.id));
+          provinces.push(...uniqueProvinces);
+          context.fileMetrics.provinces.successful++;
+          
+          console.log(`DataLoader: ✓ Successfully loaded ${uniqueProvinces.length} provinces from ${path}: ${uniqueProvinces.slice(0, 3).map(p => p.id).join(', ')}${uniqueProvinces.length > 3 ? '...' : ''}`);
+          if (invalidProvincesCount > 0) {
+            console.log(`DataLoader: ⚠️ ${invalidProvincesCount} invalid provinces skipped in ${path}`);
+          }
         } else {
-          console.warn(`DataLoader: No valid provinces found in ${path}`);
+          addWarning(context, `No valid provinces found in ${path}`);
+          context.fileMetrics.provinces.failed++;
         }
         
       } catch (error) {
-        console.error(`DataLoader: ❌ Critical error processing province file ${path}:`, error);
+        addWarning(context, `Critical error processing province file ${path}: ${error}`);
+        context.fileMetrics.provinces.failed++;
       }
     }
 
-    // LOAD BOUNDARY FILES
+    // LOAD BOUNDARY FILES WITH ENHANCED ERROR HANDLING
     console.log('DataLoader: Loading boundary files...');
-    totalBoundaryFiles = Object.keys(boundariesModules).length;
-    console.log(`DataLoader: Found ${totalBoundaryFiles} boundary files to process`);
+    context.fileMetrics.boundaries.total = Object.keys(boundariesModules).length;
+    console.log(`DataLoader: Found ${context.fileMetrics.boundaries.total} boundary files to process`);
+    
+    if (context.fileMetrics.boundaries.total === 0) {
+      addWarning(context, 'No boundary files found! Provinces will be rendered as simple shapes.');
+    }
     
     for (const path in boundariesModules) {
       try {
@@ -345,76 +585,169 @@ export async function loadWorldData(): Promise<WorldData> {
         let boundaryData = moduleResult.default || moduleResult;
         
         if (!boundaryData) {
-          console.warn(`DataLoader: No boundary data found in ${path}`);
+          addWarning(context, `No boundary data found in ${path}`);
+          context.fileMetrics.boundaries.failed++;
           continue;
         }
         
+        let featuresAdded = 0;
+        
         if (boundaryData && boundaryData.type === 'FeatureCollection' && Array.isArray(boundaryData.features)) {
           // GeoJSON FeatureCollection format
-          let featuresAdded = 0;
           boundaryData.features.forEach((feature: any) => {
             if (feature && feature.properties && feature.properties.id) {
+              // Validate feature has required geometry
+              if (!feature.geometry || !feature.geometry.type || !feature.geometry.coordinates) {
+                addWarning(context, `Invalid geometry for boundary feature ${feature.properties.id} in ${path}`);
+                return;
+              }
+              
               boundaries[feature.properties.id] = feature;
               featuresAdded++;
+            } else {
+              addWarning(context, `Boundary feature missing ID in ${path}`);
             }
           });
+          
           if (featuresAdded > 0) {
-            successfulBoundaryFiles++;
+            context.fileMetrics.boundaries.successful++;
             console.log(`DataLoader: ✓ Successfully loaded ${featuresAdded} boundary features from ${path}`);
           } else {
-            console.warn(`DataLoader: No valid features found in ${path}`);
+            addWarning(context, `No valid features found in ${path}`);
+            context.fileMetrics.boundaries.failed++;
           }
         } else if (boundaryData && typeof boundaryData === 'object') {
           // Direct object format
           const keysAdded = Object.keys(boundaryData).length;
           if (keysAdded > 0) {
-            Object.assign(boundaries, boundaryData);
-            successfulBoundaryFiles++;
-            console.log(`DataLoader: ✓ Successfully loaded ${keysAdded} boundary objects from ${path}`);
+            // Validate each boundary object
+            for (const [key, value] of Object.entries(boundaryData)) {
+              if (value && typeof value === 'object') {
+                boundaries[key] = value;
+                featuresAdded++;
+              } else {
+                addWarning(context, `Invalid boundary object for key ${key} in ${path}`);
+              }
+            }
+            
+            if (featuresAdded > 0) {
+              context.fileMetrics.boundaries.successful++;
+              console.log(`DataLoader: ✓ Successfully loaded ${featuresAdded} boundary objects from ${path}`);
+            } else {
+              context.fileMetrics.boundaries.failed++;
+            }
           } else {
-            console.warn(`DataLoader: Empty boundary object in ${path}`);
+            addWarning(context, `Empty boundary object in ${path}`);
+            context.fileMetrics.boundaries.failed++;
           }
         } else {
-          console.warn(`DataLoader: Unsupported boundary format in ${path}, type: ${typeof boundaryData}`);
+          addWarning(context, `Unsupported boundary format in ${path}, type: ${typeof boundaryData}`);
+          context.fileMetrics.boundaries.failed++;
         }
         
       } catch (error) {
-        console.error(`DataLoader: ❌ Critical error processing boundary file ${path}:`, error);
+        addWarning(context, `Critical error processing boundary file ${path}: ${error}`);
+        context.fileMetrics.boundaries.failed++;
       }
     }
 
-    // FINAL SUMMARY
-    console.log(`\n=== DataLoader Summary ===`);
-    console.log(`Nations: ${successfulNationFiles}/${totalNationFiles} files processed, ${nations.length} nations loaded`);
-    console.log(`Provinces: ${successfulProvinceFiles}/${totalProvinceFiles} files processed, ${provinces.length} provinces loaded`);
-    console.log(`Boundaries: ${successfulBoundaryFiles}/${totalBoundaryFiles} files processed, ${Object.keys(boundaries).length} boundaries loaded`);
+    // FINAL VALIDATION AND CROSS-REFERENCE CHECKS
+    console.log('DataLoader: Performing cross-reference validation...');
     
-    // Additional validation
+    // Check for provinces without countries
+    const nationNames = new Set(nations.map(n => n.name));
+    const orphanedProvinces = provinces.filter(p => !nationNames.has(p.country));
+    if (orphanedProvinces.length > 0) {
+      addWarning(context, `${orphanedProvinces.length} provinces reference non-existent countries: ${orphanedProvinces.slice(0, 3).map(p => `${p.id}(${p.country})`).join(', ')}${orphanedProvinces.length > 3 ? '...' : ''}`);
+    }
+    
+    // Check for provinces without boundaries
+    const provinceIds = new Set(provinces.map(p => p.id));
+    const boundaryIds = new Set(Object.keys(boundaries));
+    const provincesWithoutBoundaries = provinces.filter(p => !boundaryIds.has(p.id));
+    if (provincesWithoutBoundaries.length > 0) {
+      addWarning(context, `${provincesWithoutBoundaries.length} provinces missing boundary data: ${provincesWithoutBoundaries.slice(0, 3).map(p => p.id).join(', ')}${provincesWithoutBoundaries.length > 3 ? '...' : ''}`);
+    }
+
+    const endTime = performance.now();
+    const loadTime = endTime - startTime;
+
+    // COMPREHENSIVE FINAL SUMMARY
+    const totalFiles = context.fileMetrics.nations.total + context.fileMetrics.provinces.total + context.fileMetrics.boundaries.total;
+    const successfulFiles = context.fileMetrics.nations.successful + context.fileMetrics.provinces.successful + context.fileMetrics.boundaries.successful;
+    const failedFiles = context.fileMetrics.nations.failed + context.fileMetrics.provinces.failed + context.fileMetrics.boundaries.failed;
+
+    console.log(`\n=== Enhanced DataLoader Summary ===`);
+    console.log(`⏱️ Load Time: ${loadTime.toFixed(2)}ms`);
+    console.log(`📁 Files: ${successfulFiles}/${totalFiles} successful (${failedFiles} failed)`);
+    console.log(`🏛️ Nations: ${context.fileMetrics.nations.successful}/${context.fileMetrics.nations.total} files → ${nations.length} nations loaded`);
+    console.log(`🗺️ Provinces: ${context.fileMetrics.provinces.successful}/${context.fileMetrics.provinces.total} files → ${provinces.length} provinces loaded`);
+    console.log(`🌍 Boundaries: ${context.fileMetrics.boundaries.successful}/${context.fileMetrics.boundaries.total} files → ${Object.keys(boundaries).length} boundaries loaded`);
+    console.log(`⚠️ Warnings: ${context.warnings.length}`);
+    
+    if (context.warnings.length > 0) {
+      console.log(`\n=== Warnings Summary ===`);
+      context.warnings.forEach((warning, index) => {
+        console.log(`${index + 1}. ${warning}`);
+      });
+    }
+    
+    // Final validation
     if (nations.length === 0) {
-      console.warn('DataLoader: ⚠️ No nations loaded!');
+      console.error('DataLoader: ❌ CRITICAL: No nations loaded!');
+      addWarning(context, 'No nations were successfully loaded. Check your nation files.');
     } else {
-      console.log(`DataLoader: ✓ Loaded nations: ${nations.map(n => n.id).join(', ')}`);
+      console.log(`DataLoader: ✅ Loaded nations: ${nations.map(n => n.id).join(', ')}`);
     }
     
     if (provinces.length === 0) {
-      console.warn('DataLoader: ⚠️ No provinces loaded!');
+      console.error('DataLoader: ❌ CRITICAL: No provinces loaded!');
+      addWarning(context, 'No provinces were successfully loaded. Check your province files.');
     } else {
-      console.log(`DataLoader: ✓ Sample provinces: ${provinces.slice(0, 5).map(p => p.id).join(', ')}${provinces.length > 5 ? '...' : ''}`);
+      console.log(`DataLoader: ✅ Sample provinces: ${provinces.slice(0, 5).map(p => p.id).join(', ')}${provinces.length > 5 ? ` (+${provinces.length - 5} more)` : ''}`);
     }
     
     if (Object.keys(boundaries).length === 0) {
-      console.warn('DataLoader: ⚠️ No boundaries loaded!');
+      console.warn('DataLoader: ⚠️ No boundaries loaded - provinces will render as simple shapes');
     }
 
     return {
       nations,
       provinces,
-      boundaries
+      boundaries,
+      warnings: context.warnings,
+      loadingSummary: {
+        totalFiles,
+        successfulFiles,
+        failedFiles,
+        totalNations: nations.length,
+        totalProvinces: provinces.length,
+        totalBoundaries: Object.keys(boundaries).length,
+        loadTime
+      }
     };
     
   } catch (error) {
-    console.error('DataLoader: ❌ Critical error during world data loading:', error);
-    throw error;
+    console.error('DataLoader: ❌ CATASTROPHIC ERROR during world data loading:', error);
+    addWarning(context, `Catastrophic loading error: ${error}`);
+    
+    // Return partial data even on critical error
+    const endTime = performance.now();
+    return {
+      nations,
+      provinces,
+      boundaries,
+      warnings: context.warnings,
+      loadingSummary: {
+        totalFiles: context.fileMetrics.nations.total + context.fileMetrics.provinces.total + context.fileMetrics.boundaries.total,
+        successfulFiles: 0,
+        failedFiles: context.fileMetrics.nations.total + context.fileMetrics.provinces.total + context.fileMetrics.boundaries.total,
+        totalNations: nations.length,
+        totalProvinces: provinces.length,
+        totalBoundaries: Object.keys(boundaries).length,
+        loadTime: endTime - startTime
+      }
+    };
   }
 }
 

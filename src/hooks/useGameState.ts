@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useKV } from '@github/spark/hooks';
 import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
-import { getGameData, getBuildings } from '../data/gameData';
+import { getBuildings, loadGameData } from '../data/gameData';
 import { validateBuildingPlacement } from './useSimulationEngine';
 
 const initialGameState: GameState = {
@@ -74,7 +74,7 @@ export function useGameState() {
       const initializeData = async () => {
         try {
           console.log('Loading game data (using modular loader)...');
-          const gameData = await getGameData();
+          const gameData = await loadGameData();
           
           console.log('getGameData returned:', {
             provinces: gameData.provinces?.length || 0,
