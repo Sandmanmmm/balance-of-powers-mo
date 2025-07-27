@@ -1151,3 +1151,201 @@ provinces:
           level: 3
         - type: "nuclear_facility"
           level: 2
+
+  USA_NV:
+    name: "Nevada"
+    country: "United States"
+    coordinates: [38.3135, -117.0554]
+    features:
+      - "desert"
+      - "mining"
+      - "gaming"
+      - "solar"
+      - "tourism"
+      - "urban"
+      - "military_testing"
+    population:
+      total: 3104000
+      ethnic_groups:
+        - group: "White"
+          percent: 48.2
+        - group: "Hispanic"
+          percent: 29.2
+        - group: "Black"
+          percent: 10.4
+        - group: "Asian"
+          percent: 8.8
+        - group: "Native American"
+          percent: 1.7
+        - group: "Other"
+          percent: 1.7
+    unrest: 4.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 450
+      steel: 125
+      rare_earth: 1850
+      uranium: 2850
+      food: 850
+      gold: 8500
+      silver: 4500
+    military:
+      stationed_units:
+        - "USA_AIR_10"
+        - "USA_TEST_1"
+      fortification_level: 4
+    resource_output:
+      energy: 8500
+      gold: 6500
+      silver: 3500
+      solar_energy: 6500
+      gaming: 12500
+    politics:
+      party_support:
+        "Democratic Party": 50.1
+        "Republican Party": 47.7
+        "Other": 2.2
+    buildings:
+      active:
+        - type: "solar_farm"
+          level: 4
+        - type: "casino_complex"
+          level: 5
+        - type: "mining_facility"
+          level: 4
+
+  USA_CO:
+    name: "Colorado"
+    country: "United States"
+    coordinates: [39.0598, -105.3111]
+    features:
+      - "mountains"
+      - "tech_hub"
+      - "aerospace"
+      - "outdoor_recreation"
+      - "renewable_energy"
+      - "urban"
+      - "mining"
+      - "skiing"
+    population:
+      total: 5760000
+      ethnic_groups:
+        - group: "White"
+          percent: 68.6
+        - group: "Hispanic"
+          percent: 22.3
+        - group: "Black"
+          percent: 3.8
+        - group: "Asian"
+          percent: 3.5
+        - group: "Native American"
+          percent: 1.6
+        - group: "Other"
+          percent: 0.2
+    unrest: 4.1
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 2850
+      steel: 450
+      rare_earth: 1250
+      uranium: 1850
+      food: 4500
+      natural_gas: 8500
+    military:
+      stationed_units:
+        - "USA_SPACE_1"
+        - "USA_AIR_11"
+      fortification_level: 3
+    resource_output:
+      energy: 12500
+      technology: 6500
+      aerospace: 8500
+      recreation: 4500
+      natural_gas: 6500
+    politics:
+      party_support:
+        "Democratic Party": 55.4
+        "Republican Party": 41.9
+        "Other": 2.7
+    buildings:
+      active:
+        - type: "aerospace_facility"
+          level: 4
+        - type: "tech_center"
+          level: 3
+        - type: "ski_resort"
+          level: 3
+
+  USA_UT:
+    name: "Utah"
+    country: "United States"
+    coordinates: [40.1500, -111.8947]
+    features:
+      - "desert"
+      - "mountains"
+      - "mining"
+      - "tech_hub"
+      - "national_parks"
+      - "urban"
+      - "conservative"
+      - "salt_flats"
+    population:
+      total: 3280000
+      ethnic_groups:
+        - group: "White"
+          percent: 78.4
+        - group: "Hispanic"
+          percent: 14.4
+        - group: "Asian"
+          percent: 2.7
+        - group: "Native American"
+          percent: 1.5
+        - group: "Black"
+          percent: 1.3
+        - group: "Other"
+          percent: 1.7
+    unrest: 2.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 1850
+      steel: 285
+      rare_earth: 850
+      uranium: 4500
+      food: 3500
+      copper: 6500
+      salt: 8500
+    military:
+      stationed_units:
+        - "USA_ARM_7"
+      fortification_level: 2
+    resource_output:
+      energy: 6500
+      technology: 4500
+      copper: 4500
+      salt: 6500
+      tourism: 3500
+    politics:
+      party_support:
+        "Republican Party": 58.1
+        "Democratic Party": 37.7
+        "Other": 4.2
+    buildings:
+      active:
+        - type: "tech_center"
+          level: 3
+        - type: "mining_facility"
+          level: 4
+        - type: "national_park"
+          level: 2

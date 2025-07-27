@@ -2337,3 +2337,229 @@ buildings:
     requirements:
       infrastructure: 2
     icon: "🧊"
+
+  # === SPECIALIZED BUILDINGS FOR NEVADA, COLORADO, UTAH ===
+
+  - id: "casino_complex"
+    name: "Casino Complex"
+    description: "Large-scale gaming and entertainment facility"
+    category: "tourism"
+    cost: 10000
+    buildTime: 400
+    produces:
+      gaming: 200
+      tourism: 120
+      entertainment: 80
+    consumes:
+      electricity: 150
+      manpower: 400
+      food: 100
+    improves:
+      tourism_income: 15
+      gdp_modifier: 0.25
+      employment: 1500
+    requiresFeatures:
+      - "gaming"
+    requirements:
+      infrastructure: 3
+    icon: "🎰"
+
+  - id: "aerospace_facility"
+    name: "Aerospace Manufacturing Facility"
+    description: "Advanced aerospace and defense manufacturing"
+    category: "aerospace"
+    cost: 15000
+    buildTime: 500
+    produces:
+      aerospace: 150
+      military_equipment: 80
+      research: 60
+    consumes:
+      electricity: 200
+      manpower: 400
+      rare_earth: 25
+      steel: 30
+    improves:
+      aerospace_industry: 8
+      defense_capability: 6
+      employment: 1200
+    requiresFeatures:
+      - "aerospace"
+    requirements:
+      infrastructure: 4
+      technology: "aerospace_engineering"
+    icon: "🚀"
+
+  - id: "ski_resort_complex"
+    name: "Mountain Ski Resort"
+    description: "Winter sports and mountain recreation facility"
+    category: "tourism"
+    cost: 6000
+    buildTime: 300
+    produces:
+      recreation: 100
+      tourism: 80
+      seasonal_employment: 200
+    consumes:
+      electricity: 80
+      manpower: 200
+      water: 60
+    improves:
+      tourism_income: 10
+      seasonal_economy: 6
+      employment: 800
+    requiresFeatures:
+      - "skiing"
+      - "mountains"
+    requirements:
+      infrastructure: 3
+    icon: "🎿"
+
+  - id: "national_park"
+    name: "National Park"
+    description: "Protected natural area for conservation and tourism"
+    category: "environmental"
+    cost: 3000
+    buildTime: 200
+    produces:
+      tourism: 60
+      conservation: 80
+      research: 20
+    consumes:
+      manpower: 100
+      electricity: 20
+    improves:
+      environmental_protection: 8
+      tourism_income: 5
+      biodiversity: 6
+    requiresFeatures:
+      - "national_parks"
+    requirements:
+      infrastructure: 2
+    icon: "🏞️"
+
+  - id: "salt_processing_plant"
+    name: "Salt Processing Plant"
+    description: "Industrial salt extraction and processing facility"
+    category: "industrial"
+    cost: 2500
+    buildTime: 180
+    produces:
+      salt: 150
+      industrial_chemicals: 60
+    consumes:
+      electricity: 40
+      manpower: 100
+      water: 80
+    improves:
+      chemical_industry: 4
+      resource_extraction: 3
+      employment: 400
+    requiresFeatures:
+      - "salt_flats"
+    requirements:
+      infrastructure: 2
+    icon: "🧂"
+
+  - id: "space_launch_facility"
+    name: "Space Launch Facility"
+    description: "Rocket launch and space operations center"
+    category: "aerospace"
+    cost: 25000
+    buildTime: 600
+    produces:
+      space_launches: 20
+      aerospace: 100
+      research: 80
+    consumes:
+      electricity: 300
+      manpower: 500
+      rare_earth: 40
+      fuel: 200
+    improves:
+      space_capability: 10
+      aerospace_industry: 8
+      scientific_prestige: 12
+    requiresFeatures:
+      - "aerospace"
+      - "flat_terrain"
+    requirements:
+      infrastructure: 4
+      technology: "space_technology"
+    icon: "🚀"
+
+  - id: "gold_mine"
+    name: "Gold Mining Operation"
+    description: "Precious metal extraction facility"
+    category: "extraction"
+    cost: 8000
+    buildTime: 350
+    produces:
+      gold: 100
+      silver: 60
+      precious_metals: 80
+    consumes:
+      electricity: 100
+      manpower: 250
+      water: 150
+      chemicals: 40
+    improves:
+      resource_extraction: 6
+      economic_value: 8
+      employment: 800
+    requiresFeatures:
+      - "mining"
+    requirements:
+      infrastructure: 3
+    icon: "🏅"
+
+  - id: "natural_gas_plant"
+    name: "Natural Gas Processing Plant"
+    description: "Natural gas extraction and processing facility"
+    category: "energy"
+    cost: 8000
+    buildTime: 400
+    produces:
+      natural_gas: 200
+      electricity: 150
+      petrochemicals: 60
+    consumes:
+      electricity: 60
+      manpower: 150
+      steel: 25
+    improves:
+      energy_production: 6
+      energy_security: 4
+      employment: 600
+    requiresFeatures:
+      - "oil_rich"
+    requirements:
+      infrastructure: 3
+      technology: "natural_gas_extraction"
+    icon: "🔥"
+
+  - id: "mountain_observatory"
+    name: "Mountain Observatory"
+    description: "Astronomical research and observation facility"
+    category: "research"
+    cost: 12000
+    buildTime: 450
+    produces:
+      astronomical_research: 100
+      space_science: 80
+      research: 60
+    consumes:
+      electricity: 120
+      manpower: 150
+      rare_earth: 20
+    improves:
+      scientific_research: 8
+      space_technology: 4
+      international_prestige: 6
+    requiresFeatures:
+      - "mountains"
+      - "tech_hub"
+    requirements:
+      infrastructure: 3
+      technology: "astronomy"
+    icon: "🔭"
