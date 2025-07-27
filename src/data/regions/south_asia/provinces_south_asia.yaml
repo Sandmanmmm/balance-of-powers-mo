@@ -1,2 +1,146 @@
-# South Asia Provinces - Placeholder
-provinces: {}
+# South Asia Provinces
+provinces:
+  NPL_HIM:
+    name: "Himalayan Region"
+    country: "Nepal"
+    coordinates: [28.3949, 84.1240]
+    features:
+      - "extreme_altitude"
+      - "constant_winds"
+      - "himalayan_range"
+      - "high_mountains"
+      - "steep_gradients"
+      - "fast_flowing_rivers"
+      - "isolated"
+      - "cold_climate"
+    population:
+      total: 2800000
+      ethnic_groups:
+        - group: "Nepali"
+          percent: 44.6
+        - group: "Sherpa"
+          percent: 15.8
+        - group: "Tamang"
+          percent: 12.2
+        - group: "Other"
+          percent: 27.4
+    unrest: 3.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 0
+      steel: 180
+      rare_earth: 320
+      uranium: 45
+      food: 150
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 280
+      hydroelectric_potential: 1200
+    politics:
+      party_support:
+        "Nepal Communist Party": 41.2
+        "Nepali Congress": 32.8
+        "Other": 26.0
+    buildings: []
+    construction_projects: []
+
+  IND_LAD:
+    name: "Ladakh"
+    country: "India"
+    coordinates: [34.2996, 78.2932]
+    features:
+      - "extreme_altitude"
+      - "high_mountains"
+      - "cold_climate"
+      - "isolated"
+      - "strategic_location"
+      - "low_oxygen"
+      - "clear_skies"
+      - "solar_potential"
+    population:
+      total: 320000
+      ethnic_groups:
+        - group: "Ladakhi"
+          percent: 68.5
+        - group: "Balti"
+          percent: 15.2
+        - group: "Other Indian"
+          percent: 16.3
+    unrest: 4.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 280
+      rare_earth: 450
+      uranium: 120
+      food: 80
+    military:
+      stationed_units:
+        - "IND_MOUNT_1"
+      fortification_level: 3
+    resource_output:
+      energy: 150
+      strategic_minerals: 380
+    politics:
+      party_support:
+        "Bharatiya Janata Party": 52.1
+        "Indian National Congress": 28.8
+        "Other": 19.1
+    buildings: []
+    construction_projects: []
+
+  BGD_BAY:
+    name: "Bay of Bengal Coast"
+    country: "Bangladesh"
+    coordinates: [22.3569, 91.7832]
+    features:
+      - "coastal"
+      - "high_tidal_range"
+      - "suitable_seafloor"
+      - "monsoon_zone"
+      - "river_delta"
+      - "high_population_density"
+      - "flat_terrain"
+    population:
+      total: 8500000
+      ethnic_groups:
+        - group: "Bengali"
+          percent: 98.2
+        - group: "Other"
+          percent: 1.8
+    unrest: 5.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 180
+      steel: 120
+      rare_earth: 85
+      uranium: 15
+      food: 850
+    military:
+      stationed_units:
+        - "BGD_NAV_1"
+      fortification_level: 2
+    resource_output:
+      energy: 450
+      agriculture: 1200
+    politics:
+      party_support:
+        "Awami League": 68.2
+        "Bangladesh Nationalist Party": 22.1
+        "Other": 9.7
+    buildings: []
+    construction_projects: []

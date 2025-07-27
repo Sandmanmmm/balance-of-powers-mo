@@ -415,11 +415,12 @@ export function getAvailableBuildings(
     // If no requiresFeatures or empty array, treat as globally constructible
     
     // Check basic requirements
-    if (building.requirements?.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
-      console.log(`❌ Building ${building.name} filtered out - insufficient infrastructure. Requires: ${building.requirements.infrastructure}, Province has: ${province.infrastructure.roads}`);
+    const provinceInfrastructure = province.infrastructure?.roads || 0;
+    if (building.requirements?.infrastructure && provinceInfrastructure < building.requirements.infrastructure) {
+      console.log(`❌ Building ${building.name} filtered out - insufficient infrastructure. Requires: ${building.requirements.infrastructure}, Province has: ${provinceInfrastructure}`);
       return false;
     } else if (building.requirements?.infrastructure) {
-      console.log(`✅ Building ${building.name} passed infrastructure check`);
+      console.log(`✅ Building ${building.name} passed infrastructure check - required: ${building.requirements.infrastructure}, has: ${provinceInfrastructure}`);
     }
     
     // Check technology requirements

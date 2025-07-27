@@ -7,6 +7,7 @@ import { GameDashboard } from './components/GameDashboard';
 import { GameDataDebug } from './components/GameDataDebug';
 import { ResourcesDebug } from './components/ResourcesDebug';
 import { BuildingsDebug } from './components/BuildingsDebug';
+import { BuildingAvailabilityDebug } from './components/BuildingAvailabilityDebug';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -228,6 +229,9 @@ function App() {
           </div>
           <div className="mt-4">
             <BuildingsDebug />
+          </div>
+          <div className="mt-4">
+            <BuildingAvailabilityDebug />
           </div>
         </div>
       </div>

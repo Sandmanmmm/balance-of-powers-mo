@@ -251,6 +251,9 @@ provinces:
       - "great_lakes"
       - "cultural"
       - "educational"
+      - "high_tech"
+      - "advanced_infrastructure"
+      - "high_density_urban"
     population:
       total: 15000000
       ethnic_groups:

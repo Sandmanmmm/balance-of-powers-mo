@@ -49,3 +49,100 @@ provinces:
         "Other": 11.0
     buildings: []
     construction_projects: []
+
+  RUS_SIB:
+    name: "Siberian Federal District"
+    country: "Russia"
+    coordinates: [64.0, 100.0]
+    features:
+      - "vast_territory"
+      - "extreme_cold"
+      - "mineral_rich"
+      - "sparsely_populated"
+      - "permafrost_zone"
+      - "siberian_tundra"
+      - "extremely_stable_ground"
+      - "isolated"
+      - "low_seismic_activity"
+    population:
+      total: 2800000
+      ethnic_groups:
+        - group: "Russian"
+          percent: 85.2
+        - group: "Indigenous Siberian"
+          percent: 8.5
+        - group: "Other"
+          percent: 6.3
+    unrest: 3.1
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 8500
+      steel: 2200
+      rare_earth: 1800
+      uranium: 650
+      food: 150
+    military:
+      stationed_units:
+        - "RUS_ARCTIC_1"
+      fortification_level: 2
+    resource_output:
+      energy: 3200
+      technology: 800
+    politics:
+      party_support:
+        "United Russia": 82.1
+        "Other": 17.9
+    buildings: []
+    construction_projects: []
+
+  RUS_FAR:
+    name: "Far Eastern Federal District"
+    country: "Russia"
+    coordinates: [62.0, 129.7]
+    features:
+      - "coastal"
+      - "extreme_cold"
+      - "strategic_location"
+      - "mineral_deposits"
+      - "arctic"
+      - "isolated"
+      - "geothermal_zone"
+    population:
+      total: 8100000
+      ethnic_groups:
+        - group: "Russian"
+          percent: 88.5
+        - group: "Indigenous"
+          percent: 6.2
+        - group: "Asian"
+          percent: 5.3
+    unrest: 2.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 1200
+      steel: 1800
+      rare_earth: 900
+      uranium: 200
+      food: 280
+    military:
+      stationed_units:
+        - "RUS_PAC_1"
+      fortification_level: 4
+    resource_output:
+      energy: 4500
+      technology: 1200
+    politics:
+      party_support:
+        "United Russia": 78.9
+        "Communist Party": 15.2
+        "Other": 5.9
+    buildings: []
+    construction_projects: []

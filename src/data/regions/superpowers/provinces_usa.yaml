@@ -12,6 +12,9 @@ provinces:
       - "urban"
       - "desert"
       - "mountains"
+      - "high_tech"
+      - "advanced_infrastructure"
+      - "extremely_stable_ground"
     population:
       total: 39538000
       ethnic_groups:

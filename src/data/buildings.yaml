@@ -399,7 +399,7 @@ buildings:
 
   # === GENERAL PURPOSE BUILDINGS (No specific features required) ===
   
-  - id: "basic_housing"
+  - id: "basic_residential"
     name: "Basic Housing Complex"
     description: "Standard residential housing for workers"
     category: "civilian"
@@ -438,8 +438,8 @@ buildings:
       infrastructure: 2
     icon: "🏭"
 
-  - id: "basic_power_plant"
-    name: "Basic Power Plant"
+  - id: "standard_power_plant"
+    name: "Standard Power Plant"
     description: "Simple electrical generation facility"
     category: "energy"
     cost: 2000
@@ -975,9 +975,533 @@ buildings:
       infrastructure: 1
     icon: "🌲"
 
+  # === ADVANCED SPECIALIZED BUILDINGS ===
+
+  - id: "quantum_computer_lab"
+    name: "Quantum Computing Laboratory"
+    description: "Cutting-edge quantum computing research facility"
+    category: "research"
+    cost: 25000
+    buildTime: 600
+    produces:
+      research: 150
+      quantum_data: 10
+    consumes:
+      electricity: 500
+      rare_earth: 30
+      manpower: 200
+      semiconductors: 25
+    improves:
+      quantum_technology: 5
+      scientific_prestige: 10
+      tech_advancement: 0.5
+    requiresFeatures:
+      - "high_tech"
+      - "urban"
+      - "extremely_stable_ground"
+    requirements:
+      infrastructure: 5
+      technology: "quantum_physics"
+    icon: "⚛️"
+
+  - id: "arctic_research_station"
+    name: "Arctic Research Station"
+    description: "Specialized facility for polar climate research"
+    category: "research"
+    cost: 8000
+    buildTime: 400
+    produces:
+      research: 60
+      climate_data: 15
+    consumes:
+      electricity: 120
+      food: 200
+      manpower: 80
+      oil: 50
+    improves:
+      climate_research: 4
+      environmental_monitoring: 3
+      scientific_prestige: 3
+    requiresFeatures:
+      - "arctic"
+      - "extreme_cold"
+      - "isolated"
+    requirements:
+      infrastructure: 2
+      technology: "polar_engineering"
+    icon: "🧊"
+
+  - id: "underwater_mining_rig"
+    name: "Deep Sea Mining Platform"
+    description: "Advanced underwater resource extraction"
+    category: "extraction"
+    cost: 15000
+    buildTime: 500
+    produces:
+      rare_earth: 80
+      uranium: 25
+      steel: 40
+    consumes:
+      electricity: 300
+      manpower: 250
+      advanced_materials: 20
+    improves:
+      deep_sea_mining: 5
+      resource_extraction: 8
+      employment: 800
+    requiresFeatures:
+      - "deep_ocean"
+      - "mineral_rich_seabed"
+      - "coastal"
+    requirements:
+      infrastructure: 4
+      technology: "underwater_engineering"
+    icon: "🌊"
+
+  - id: "volcanic_geothermal_complex"
+    name: "Volcanic Geothermal Complex"
+    description: "Harnesses volcanic energy for massive power generation"
+    category: "energy"
+    cost: 12000
+    buildTime: 450
+    produces:
+      electricity: 800
+      steam_power: 200
+    consumes:
+      manpower: 120
+      steel: 40
+      specialized_equipment: 15
+    improves:
+      renewable_energy: 8
+      energy_independence: 5
+      geological_stability: -1
+    requiresFeatures:
+      - "active_volcano"
+      - "geothermal_zone"
+      - "volcanic_activity"
+    requirements:
+      infrastructure: 3
+      technology: "advanced_geothermal"
+    icon: "🌋"
+
+  - id: "floating_city_module"
+    name: "Floating City Module"
+    description: "Self-sustaining oceanic living platform"
+    category: "experimental"
+    cost: 30000
+    buildTime: 800
+    produces:
+      advanced_housing: 50
+      ocean_research: 40
+    consumes:
+      electricity: 400
+      advanced_materials: 50
+      manpower: 300
+      food: 150
+    improves:
+      population_capacity: 5000
+      ocean_technology: 10
+      climate_adaptation: 5
+    requiresFeatures:
+      - "deep_ocean"
+      - "stable_sea_conditions"
+      - "coastal"
+    requirements:
+      infrastructure: 5
+      technology: "ocean_engineering"
+    icon: "🏝️"
+
+  - id: "space_elevator_anchor"
+    name: "Space Elevator Ground Station"
+    description: "Ground anchor for orbital space elevator"
+    category: "aerospace"
+    cost: 100000
+    buildTime: 1200
+    produces:
+      space_access: 100
+      orbital_capacity: 50
+    consumes:
+      electricity: 1000
+      carbon_nanotubes: 500
+      manpower: 1000
+      rare_earth: 200
+    improves:
+      space_capability: 20
+      global_prestige: 25
+      tech_advancement: 1.0
+    requiresFeatures:
+      - "equatorial_location"
+      - "extremely_stable_ground"
+      - "low_seismic_activity"
+      - "flat_terrain"
+    requirements:
+      infrastructure: 5
+      technology: "carbon_nanotube_tech"
+    icon: "🌌"
+
+  - id: "antarctic_ice_harvester"
+    name: "Antarctic Ice Processing Plant"
+    description: "Harvests and processes Antarctic ice for fresh water"
+    category: "extraction"
+    cost: 18000
+    buildTime: 550
+    produces:
+      water: 2000
+      fresh_ice: 500
+    consumes:
+      electricity: 300
+      manpower: 150
+      fuel: 100
+      specialized_equipment: 25
+    improves:
+      water_security: 8
+      polar_operations: 4
+      climate_research: 2
+    requiresFeatures:
+      - "antarctica"
+      - "permanent_ice"
+      - "extreme_cold"
+    requirements:
+      infrastructure: 3
+      technology: "polar_engineering"
+    icon: "❄️"
+
+  - id: "desert_solar_megafarm"
+    name: "Desert Solar Megafarm"
+    description: "Massive solar installation covering vast desert areas"
+    category: "energy"
+    cost: 20000
+    buildTime: 600
+    produces:
+      electricity: 1500
+      stored_energy: 300
+    consumes:
+      manpower: 200
+      semiconductors: 100
+      rare_earth: 50
+      maintenance_materials: 30
+    improves:
+      renewable_energy: 15
+      energy_independence: 8
+      desert_development: 3
+    requiresFeatures:
+      - "vast_desert"
+      - "high_solar_irradiation"
+      - "low_cloud_cover"
+      - "flat_terrain"
+    requirements:
+      infrastructure: 4
+      technology: "advanced_solar"
+    icon: "☀️"
+
+  - id: "tidal_power_array"
+    name: "Tidal Power Generation Array"
+    description: "Harnesses ocean tidal forces for electricity"
+    category: "energy"
+    cost: 14000
+    buildTime: 480
+    produces:
+      electricity: 600
+      tidal_energy: 150
+    consumes:
+      manpower: 100
+      steel: 80
+      marine_equipment: 40
+    improves:
+      marine_energy: 6
+      coastal_development: 3
+      environmental_harmony: 2
+    requiresFeatures:
+      - "high_tidal_range"
+      - "coastal"
+      - "suitable_seafloor"
+    requirements:
+      infrastructure: 3
+      technology: "marine_engineering"
+    icon: "🌊"
+
+  - id: "mountain_hydroelectric_cascade"
+    name: "Mountain Hydroelectric Cascade"
+    description: "Multi-level hydroelectric system using mountain water flow"
+    category: "energy"
+    cost: 16000
+    buildTime: 520
+    produces:
+      electricity: 900
+      water_management: 200
+    consumes:
+      manpower: 180
+      steel: 120
+      concrete: 200
+    improves:
+      hydroelectric_capacity: 10
+      water_control: 5
+      flood_prevention: 4
+    requiresFeatures:
+      - "high_mountains"
+      - "fast_flowing_rivers"
+      - "steep_gradients"
+    requirements:
+      infrastructure: 4
+      technology: "hydroelectric_engineering"
+    icon: "⚡"
+
+  - id: "urban_vertical_farm"
+    name: "Urban Vertical Farm Complex"
+    description: "High-rise agricultural facility for urban food production"
+    category: "agriculture"
+    cost: 8000
+    buildTime: 300
+    produces:
+      food: 2500
+      fresh_produce: 400
+    consumes:
+      electricity: 200
+      water: 300
+      manpower: 120
+      nutrients: 50
+    improves:
+      food_security: 6
+      urban_agriculture: 4
+      local_food_supply: 3
+    requiresFeatures:
+      - "high_density_urban"
+      - "advanced_infrastructure"
+      - "tech_hub"
+    requirements:
+      infrastructure: 4
+      technology: "vertical_farming"
+    icon: "🏢"
+
+  - id: "particle_accelerator"
+    name: "Particle Physics Laboratory"
+    description: "Advanced particle accelerator for fundamental research"
+    category: "research"
+    cost: 50000
+    buildTime: 1000
+    produces:
+      research: 200
+      particle_data: 50
+      scientific_breakthroughs: 5
+    consumes:
+      electricity: 2000
+      rare_earth: 100
+      manpower: 500
+      specialized_materials: 80
+    improves:
+      fundamental_physics: 15
+      scientific_prestige: 20
+      tech_advancement: 0.8
+    requiresFeatures:
+      - "extremely_stable_ground"
+      - "low_seismic_activity"
+      - "isolated"
+      - "flat_terrain"
+    requirements:
+      infrastructure: 5
+      technology: "particle_physics"
+    icon: "⚛️"
+
+  - id: "atmospheric_processor"
+    name: "Atmospheric Processing Station"
+    description: "Facility for large-scale atmospheric modification"
+    category: "environmental"
+    cost: 35000
+    buildTime: 750
+    produces:
+      clean_air: 1000
+      atmospheric_control: 100
+    consumes:
+      electricity: 800
+      chemical_compounds: 200
+      manpower: 400
+      energy_cells: 150
+    improves:
+      air_quality: 10
+      climate_control: 8
+      environmental_restoration: 6
+    requiresFeatures:
+      - "high_altitude"
+      - "strategic_wind_patterns"
+      - "low_pollution_base"
+    requirements:
+      infrastructure: 5
+      technology: "atmospheric_engineering"
+    icon: "🌬️"
+
+  - id: "fusion_research_reactor"
+    name: "Fusion Research Reactor"
+    description: "Experimental fusion energy research facility"
+    category: "research"
+    cost: 80000
+    buildTime: 1200
+    produces:
+      research: 300
+      fusion_data: 80
+      clean_energy_potential: 200
+    consumes:
+      electricity: 1500
+      deuterium: 50
+      tritium: 30
+      manpower: 600
+      specialized_equipment: 200
+    improves:
+      fusion_technology: 20
+      energy_revolution: 15
+      scientific_leadership: 25
+    requiresFeatures:
+      - "extremely_stable_ground"
+      - "isolated"
+      - "high_tech"
+      - "low_seismic_activity"
+    requirements:
+      infrastructure: 5
+      technology: "fusion_physics"
+    icon: "⚛️"
+
+  - id: "underwater_city_dome"
+    name: "Underwater City Dome"
+    description: "Self-contained underwater living habitat"
+    category: "experimental"
+    cost: 60000
+    buildTime: 900
+    produces:
+      underwater_housing: 100
+      marine_research: 80
+      deep_sea_resources: 40
+    consumes:
+      electricity: 600
+      advanced_materials: 150
+      manpower: 400
+      life_support_systems: 100
+    improves:
+      underwater_colonization: 15
+      marine_technology: 10
+      population_expansion: 3000
+    requiresFeatures:
+      - "deep_ocean"
+      - "stable_seafloor"
+      - "low_seismic_underwater"
+    requirements:
+      infrastructure: 5
+      technology: "underwater_habitation"
+    icon: "🐠"
+
+  # === EXTREME ENVIRONMENT BUILDINGS ===
+
+  - id: "sahara_solar_city"
+    name: "Sahara Solar City"
+    description: "Self-sustaining desert metropolis powered by solar energy"
+    category: "experimental"
+    cost: 45000
+    buildTime: 800
+    produces:
+      electricity: 2000
+      desert_technology: 100
+      solar_research: 80
+    consumes:
+      water: 500
+      advanced_materials: 100
+      manpower: 800
+      maintenance_systems: 150
+    improves:
+      desert_colonization: 12
+      renewable_energy_mastery: 10
+      population_capacity: 8000
+    requiresFeatures:
+      - "sahara_desert"
+      - "extreme_heat"
+      - "unlimited_solar"
+    requirements:
+      infrastructure: 5
+      technology: "desert_engineering"
+    icon: "🏜️"
+
+  - id: "amazon_canopy_research"
+    name: "Amazon Canopy Research Platform"
+    description: "Elevated research facility in rainforest canopy"
+    category: "research"
+    cost: 12000
+    buildTime: 400
+    produces:
+      biodiversity_research: 100
+      pharmaceutical_compounds: 50
+      climate_data: 60
+    consumes:
+      electricity: 150
+      manpower: 100
+      specialized_equipment: 40
+      supplies: 80
+    improves:
+      biodiversity_conservation: 8
+      pharmaceutical_research: 6
+      ecological_understanding: 5
+    requiresFeatures:
+      - "dense_rainforest"
+      - "high_biodiversity"
+      - "canopy_access"
+    requirements:
+      infrastructure: 2
+      technology: "ecological_research"
+    icon: "🌳"
+
+  - id: "himalayan_wind_farm"
+    name: "Himalayan High-Altitude Wind Farm"
+    description: "Extreme altitude wind power generation"
+    category: "energy"
+    cost: 18000
+    buildTime: 600
+    produces:
+      electricity: 800
+      high_altitude_energy: 200
+    consumes:
+      manpower: 150
+      specialized_materials: 100
+      maintenance_equipment: 60
+    improves:
+      mountain_energy: 8
+      extreme_engineering: 5
+      energy_independence: 4
+    requiresFeatures:
+      - "extreme_altitude"
+      - "constant_winds"
+      - "himalayan_range"
+    requirements:
+      infrastructure: 3
+      technology: "extreme_altitude_engineering"
+    icon: "🏔️"
+
+  - id: "siberian_permafrost_lab"
+    name: "Siberian Permafrost Research Laboratory"
+    description: "Studies permafrost and climate change effects"
+    category: "research"
+    cost: 10000
+    buildTime: 450
+    produces:
+      climate_research: 80
+      permafrost_data: 60
+      geological_samples: 40
+    consumes:
+      electricity: 200
+      heating_fuel: 150
+      manpower: 80
+      specialized_equipment: 50
+    improves:
+      climate_science: 6
+      permafrost_monitoring: 8
+      arctic_operations: 4
+    requiresFeatures:
+      - "permafrost_zone"
+      - "extreme_cold"
+      - "siberian_tundra"
+    requirements:
+      infrastructure: 2
+      technology: "permafrost_research"
+    icon: "🧊"
+
   # === BASIC BUILDINGS (AVAILABLE EVERYWHERE) ===
   
-  - id: "basic_housing"
+  - id: "basic_housing_complex"
     name: "Housing Complex"
     description: "Basic residential housing for growing populations"
     category: "civilian"
@@ -996,7 +1520,7 @@ buildings:
       infrastructure: 1
     icon: "🏠"
 
-  - id: "basic_factory"
+  - id: "basic_light_industry"
     name: "Light Industry"
     description: "Small-scale manufacturing and production"
     category: "industrial"
@@ -1016,7 +1540,7 @@ buildings:
       infrastructure: 1
     icon: "🏗️"
 
-  - id: "basic_power_plant"
+  - id: "basic_power_generator"
     name: "Power Plant"
     description: "Basic electricity generation facility"
     category: "energy"
