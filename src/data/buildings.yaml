@@ -1648,3 +1648,401 @@ buildings:
     requiresFeatures: []
     requirements: {}
     icon: "📦"
+
+  # === SPECIALIZED USA STATE BUILDINGS ===
+
+  - id: "hydroelectric_dam"
+    name: "Hydroelectric Dam"
+    description: "Generates clean electricity from water flow"
+    category: "energy"
+    cost: 8000
+    buildTime: 400
+    produces:
+      electricity: 500
+    consumes:
+      manpower: 100
+      steel: 30
+    improves:
+      clean_energy: 6
+      water_control: 3
+      energy_security: 4
+    requiresFeatures:
+      - "hydroelectric"
+    requirements:
+      infrastructure: 3
+    icon: "💧"
+
+  - id: "tech_center"
+    name: "Technology Center"
+    description: "Research and development facility"
+    category: "research"
+    cost: 5000
+    buildTime: 300
+    produces:
+      research: 60
+      technology: 40
+    consumes:
+      electricity: 80
+      manpower: 200
+      rare_earth: 5
+    improves:
+      tech_industry: 3
+      innovation: 4
+      employment: 800
+    requiresFeatures:
+      - "tech_hub"
+    requirements:
+      infrastructure: 3
+    icon: "💻"
+
+  - id: "automotive_plant"
+    name: "Automotive Manufacturing Plant"
+    description: "Produces cars and automotive parts"
+    category: "industrial"
+    cost: 6000
+    buildTime: 350
+    produces:
+      automotive: 100
+      steel: 20
+    consumes:
+      electricity: 100
+      manpower: 300
+      steel: 40
+    improves:
+      automotive_industry: 5
+      employment: 1200
+      manufacturing_capacity: 3
+    requiresFeatures:
+      - "automotive"
+    requirements:
+      infrastructure: 3
+    icon: "🚗"
+
+  - id: "government_complex"
+    name: "Government Complex"
+    description: "Administrative and government offices"
+    category: "government"
+    cost: 4000
+    buildTime: 250
+    produces:
+      government: 80
+    consumes:
+      electricity: 60
+      manpower: 400
+    improves:
+      administrative_efficiency: 5
+      stability: 3
+      employment: 1500
+    requiresFeatures:
+      - "government"
+    requirements:
+      infrastructure: 3
+    icon: "🏛️"
+
+  - id: "military_base"
+    name: "Military Base"
+    description: "Training and operations facility for armed forces"
+    category: "military"
+    cost: 5000
+    buildTime: 300
+    produces:
+      military: 100
+    consumes:
+      electricity: 50
+      manpower: 250
+      oil: 30
+    improves:
+      military_readiness: 6
+      defense_capability: 4
+      employment: 800
+    requiresFeatures:
+      - "military"
+    requirements:
+      infrastructure: 2
+    icon: "🛡️"
+
+  - id: "mining_facility"
+    name: "Mining Operation"
+    description: "Extracts various minerals and metals"
+    category: "extraction"
+    cost: 3000
+    buildTime: 200
+    produces:
+      copper: 50
+      steel: 25
+    consumes:
+      electricity: 40
+      manpower: 150
+      oil: 20
+    improves:
+      resource_extraction: 3
+      employment: 600
+    requiresFeatures:
+      - "mining"
+    requirements:
+      infrastructure: 2
+    icon: "⛏️"
+
+  - id: "agricultural_complex"
+    name: "Agricultural Complex"
+    description: "Large-scale farming and food production"
+    category: "agriculture"
+    cost: 2000
+    buildTime: 150
+    produces:
+      food: 200
+    consumes:
+      manpower: 100
+      electricity: 20
+      water: 80
+    improves:
+      food_security: 4
+      employment: 500
+    requiresFeatures:
+      - "agricultural"
+    requirements:
+      infrastructure: 2
+    icon: "🚜"
+
+  - id: "transport_hub"
+    name: "Transportation Hub"
+    description: "Central logistics and transportation facility"
+    category: "infrastructure"
+    cost: 3500
+    buildTime: 220
+    produces:
+      transport: 60
+    consumes:
+      electricity: 30
+      manpower: 150
+      oil: 25
+    improves:
+      transportation_efficiency: 0.3
+      trade_capacity: 8
+      employment: 700
+    requiresFeatures:
+      - "transport_hub"
+    requirements:
+      infrastructure: 3
+    icon: "🚛"
+
+  - id: "financial_center"
+    name: "Financial Center"
+    description: "Banking and financial services hub"
+    category: "commercial"
+    cost: 8000
+    buildTime: 400
+    produces:
+      finance: 150
+    consumes:
+      electricity: 80
+      manpower: 500
+    improves:
+      financial_capacity: 8
+      gdp_modifier: 0.15
+      employment: 2000
+    requiresFeatures:
+      - "financial_hub"
+    requirements:
+      infrastructure: 4
+    icon: "💰"
+
+  - id: "cultural_district"
+    name: "Cultural District"
+    description: "Arts, entertainment, and cultural facilities"
+    category: "tourism"
+    cost: 4000
+    buildTime: 250
+    produces:
+      culture: 80
+    consumes:
+      electricity: 40
+      manpower: 200
+    improves:
+      cultural_influence: 5
+      tourism_income: 6
+      employment: 800
+    requiresFeatures:
+      - "cultural"
+    requirements:
+      infrastructure: 3
+    icon: "🎭"
+
+  - id: "manufacturing_plant"
+    name: "Manufacturing Plant"
+    description: "General manufacturing and production facility"
+    category: "industrial"
+    cost: 3000
+    buildTime: 200
+    produces:
+      manufacturing: 60
+      consumer_goods: 30
+    consumes:
+      electricity: 50
+      manpower: 200
+      steel: 15
+    improves:
+      manufacturing_capacity: 4
+      employment: 800
+    requiresFeatures:
+      - "manufacturing"
+    requirements:
+      infrastructure: 3
+    icon: "🏭"
+
+  - id: "research_facility"
+    name: "Research Facility"
+    description: "Scientific research and development center"
+    category: "research"
+    cost: 4500
+    buildTime: 280
+    produces:
+      research: 70
+      technology: 30
+    consumes:
+      electricity: 60
+      manpower: 180
+      rare_earth: 8
+    improves:
+      research_speed: 0.2
+      innovation: 3
+      employment: 600
+    requiresFeatures:
+      - "research"
+    requirements:
+      infrastructure: 3
+    icon: "🔬"
+
+  - id: "entertainment_district"
+    name: "Entertainment District"
+    description: "Entertainment venues and recreation facilities"
+    category: "tourism"
+    cost: 3000
+    buildTime: 180
+    produces:
+      entertainment: 50
+    consumes:
+      electricity: 30
+      manpower: 150
+    improves:
+      happiness: 4
+      tourism_income: 4
+      employment: 600
+    requiresFeatures:
+      - "music"
+    requirements:
+      infrastructure: 2
+    icon: "🎵"
+
+  - id: "biotech_lab"
+    name: "Biotechnology Laboratory"
+    description: "Advanced biological and medical research"
+    category: "research"
+    cost: 7000
+    buildTime: 350
+    produces:
+      biotech: 80
+      research: 50
+    consumes:
+      electricity: 100
+      manpower: 250
+      rare_earth: 12
+    improves:
+      biotech_industry: 6
+      medical_advancement: 4
+      employment: 800
+    requiresFeatures:
+      - "biotech"
+    requirements:
+      infrastructure: 4
+    icon: "🧬"
+
+  - id: "dairy_farm"
+    name: "Dairy Farm"
+    description: "Specialized dairy production facility"
+    category: "agriculture"
+    cost: 1500
+    buildTime: 120
+    produces:
+      dairy: 120
+      food: 80
+    consumes:
+      manpower: 80
+      electricity: 15
+      water: 60
+    improves:
+      food_security: 3
+      dairy_production: 5
+      employment: 300
+    requiresFeatures:
+      - "dairy"
+    requirements:
+      infrastructure: 2
+    icon: "🐄"
+
+  - id: "oil_refinery"
+    name: "Oil Refinery"
+    description: "Processes crude oil into refined products"
+    category: "industrial"
+    cost: 6000
+    buildTime: 350
+    produces:
+      oil: 150
+      electricity: 60
+    consumes:
+      oil: 100
+      electricity: 40
+      manpower: 150
+    improves:
+      fuel_production: 5
+      energy_security: 3
+      employment: 600
+    requiresFeatures:
+      - "oil_rich"
+    requirements:
+      infrastructure: 3
+    icon: "🏭"
+
+  - id: "port_facility"
+    name: "Port Facility"
+    description: "Maritime shipping and trade facility"
+    category: "infrastructure"
+    cost: 4000
+    buildTime: 250
+    produces:
+      trade: 80
+    consumes:
+      electricity: 40
+      manpower: 120
+      steel: 10
+    improves:
+      trade_efficiency: 0.25
+      naval_capacity: 6
+      employment: 500
+    requiresFeatures:
+      - "coastal"
+    requirements:
+      infrastructure: 3
+    icon: "⚓"
+
+  - id: "resort_complex"
+    name: "Resort Complex"
+    description: "Tourism and hospitality facility"
+    category: "tourism"
+    cost: 5000
+    buildTime: 300
+    produces:
+      tourism: 100
+    consumes:
+      electricity: 60
+      manpower: 200
+      food: 80
+    improves:
+      tourism_income: 8
+      gdp_modifier: 0.12
+      employment: 800
+    requiresFeatures:
+      - "tourism"
+    requirements:
+      infrastructure: 3
+    icon: "🏖️"
