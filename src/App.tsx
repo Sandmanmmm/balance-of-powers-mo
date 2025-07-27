@@ -11,6 +11,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { testModularLoader } from './lib/testModularLoader';
 import { testYamlImports } from './lib/testYamlImports';
 import { validateBulletproofLoader } from './lib/validateBulletproofLoader';
+import { testEuropeEastLoading } from './lib/testEuropeEast';
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
@@ -83,6 +84,9 @@ function App() {
       try {
         console.log('🔬 Running bulletproof data loader validation...');
         await validateBulletproofLoader();
+        
+        console.log('🇪🇺 Testing Eastern Europe data loading...');
+        await testEuropeEastLoading();
         
         console.log('Running legacy YAML import test...');
         const importResults = await testYamlImports();

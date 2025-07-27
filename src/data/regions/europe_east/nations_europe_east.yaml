@@ -1,2 +1,911 @@
-# europe_east Nations - Placeholder
-nations: {}
+# Eastern Europe Nations
+nations:
+  POL:
+    id: "POL"
+    name: "Poland"
+    capital: "Warsaw"
+    flag: "🇵🇱"
+    government:
+      type: "Republic"
+      leader: "Andrzej Duda"
+      approval: 68.5
+      stability: 78.5
+    economy:
+      gdp: 678900000000
+      debt: 450000000000
+      inflation: 3.1
+      treasury: 850000000
+    military:
+      manpower: 110000
+      equipment: 75
+      readiness: 85
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 450
+      currentResearch: ["Defense Technology", "Green Energy"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.2
+    diplomacy:
+      allies: ["USA", "GER", "FRA", "GBR"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["GER", "USA", "CZE", "UKR"]
+    resourceStockpiles:
+      oil: 8500
+      electricity: 12000
+      steel: 25000
+      food: 45000
+      manpower: 38000000
+    resourceProduction:
+      coal: 280
+      electricity: 380
+      steel: 180
+      food: 1200
+    resourceConsumption:
+      oil: 320
+      electricity: 450
+      steel: 120
+      food: 850
+    
+  CZE:
+    id: "CZE"
+    name: "Czech Republic"
+    capital: "Prague"
+    flag: "🇨🇿"
+    government:
+      type: "Republic"
+      leader: "Petr Pavel"
+      approval: 72.1
+      stability: 82.1
+    economy:
+      gdp: 281500000000
+      debt: 180000000000
+      inflation: 2.8
+      treasury: 420000000
+    military:
+      manpower: 28000
+      equipment: 78
+      readiness: 88
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 280
+      currentResearch: ["Digital Economy", "Industry 4.0"]
+      completedTech: ["Internet", "Precision Manufacturing"]
+      level: 7.8
+    diplomacy:
+      allies: ["USA", "GER", "POL", "SVK"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["GER", "POL", "SVK", "AUT"]
+    resourceStockpiles:
+      oil: 4200
+      electricity: 8500
+      steel: 18000
+      food: 28000
+      manpower: 10700000
+    resourceProduction:
+      electricity: 220
+      steel: 120
+      food: 850
+    resourceConsumption:
+      oil: 180
+      electricity: 280
+      steel: 85
+      food: 520
+    
+  SVK:
+    id: "SVK"
+    name: "Slovakia"
+    capital: "Bratislava"
+    flag: "🇸🇰"
+    government:
+      type: "Republic"
+      leader: "Zuzana Čaputová"
+      approval: 69.3
+      stability: 79.3
+    economy:
+      gdp: 114200000000
+      debt: 85000000000
+      inflation: 3.2
+      treasury: 180000000
+    military:
+      manpower: 15000
+      equipment: 72
+      readiness: 82
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 180
+      currentResearch: ["Automotive Technology"]
+      completedTech: ["Internet", "Automotive Manufacturing"]
+      level: 7.1
+    diplomacy:
+      allies: ["USA", "CZE", "POL", "HUN"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["CZE", "GER", "POL", "AUT"]
+    resourceStockpiles:
+      oil: 2800
+      electricity: 5500
+      steel: 12000
+      food: 18000
+      manpower: 5460000
+    resourceProduction:
+      electricity: 180
+      steel: 85
+      food: 620
+    resourceConsumption:
+      oil: 120
+      electricity: 220
+      steel: 60
+      food: 380
+    
+  HUN:
+    id: "HUN"
+    name: "Hungary"
+    capital: "Budapest"
+    flag: "🇭🇺"
+    government:
+      type: "Republic"
+      leader: "Viktor Orbán"
+      approval: 58.2
+      stability: 71.2
+    economy:
+      gdp: 182100000000
+      debt: 120000000000
+      inflation: 3.8
+      treasury: 290000000
+    military:
+      manpower: 23000
+      equipment: 68
+      readiness: 78
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 220
+      currentResearch: ["Nuclear Energy"]
+      completedTech: ["Internet", "Nuclear Technology"]
+      level: 7.0
+    diplomacy:
+      allies: ["POL", "SVK"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["GER", "AUT", "SVK", "ROU"]
+    resourceStockpiles:
+      oil: 3500
+      electricity: 6800
+      steel: 15000
+      food: 22000
+      manpower: 9750000
+    resourceProduction:
+      electricity: 240
+      steel: 95
+      food: 980
+    resourceConsumption:
+      oil: 150
+      electricity: 280
+      steel: 75
+      food: 450
+    
+  ROU:
+    id: "ROU"
+    name: "Romania"
+    capital: "Bucharest"
+    flag: "🇷🇴"
+    government:
+      type: "Republic"
+      leader: "Klaus Iohannis"
+      approval: 54.7
+      stability: 68.7
+    economy:
+      gdp: 250100000000
+      debt: 180000000000
+      inflation: 4.2
+      treasury: 380000000
+    military:
+      manpower: 70000
+      equipment: 65
+      readiness: 75
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 180
+      currentResearch: ["Energy Independence"]
+      completedTech: ["Internet", "Oil Extraction"]
+      level: 6.5
+    diplomacy:
+      allies: ["USA", "FRA", "GER", "POL"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["GER", "ITA", "HUN", "BGR"]
+    resourceStockpiles:
+      oil: 18000
+      electricity: 8500
+      steel: 22000
+      food: 35000
+      manpower: 19200000
+    resourceProduction:
+      oil: 280
+      electricity: 320
+      steel: 150
+      food: 1480
+    resourceConsumption:
+      oil: 220
+      electricity: 380
+      steel: 120
+      food: 680
+    
+  BGR:
+    id: "BGR"
+    name: "Bulgaria"
+    capital: "Sofia"
+    flag: "🇧🇬"
+    government:
+      type: "Republic"
+      leader: "Rumen Radev"
+      approval: 48.4
+      stability: 65.4
+    economy:
+      gdp: 84100000000
+      debt: 58000000000
+      inflation: 4.8
+      treasury: 140000000
+    military:
+      manpower: 28000
+      equipment: 58
+      readiness: 68
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 120
+      currentResearch: ["Tourism Technology"]
+      completedTech: ["Internet", "Agriculture Technology"]
+      level: 6.2
+    diplomacy:
+      allies: ["USA", "GER", "ROU", "GRC"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["GER", "ROU", "GRC", "TUR"]
+    resourceStockpiles:
+      oil: 2200
+      electricity: 4500
+      steel: 8500
+      food: 18000
+      manpower: 6950000
+    resourceProduction:
+      electricity: 180
+      steel: 65
+      food: 720
+    resourceConsumption:
+      oil: 85
+      electricity: 220
+      steel: 45
+      food: 320
+    
+  SRB:
+    id: "SRB"
+    name: "Serbia"
+    capital: "Belgrade"
+    flag: "🇷🇸"
+    government:
+      type: "Republic"
+      leader: "Aleksandar Vučić"
+      approval: 52.8
+      stability: 63.8
+    economy:
+      gdp: 63100000000
+      debt: 42000000000
+      inflation: 5.2
+      treasury: 110000000
+    military:
+      manpower: 28000
+      equipment: 55
+      readiness: 72
+      doctrine: "Non-Aligned Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 95
+      currentResearch: ["Energy Infrastructure"]
+      completedTech: ["Internet", "Basic Manufacturing"]
+      level: 5.8
+    diplomacy:
+      allies: ["RUS", "CHN"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["RUS", "CHN", "HUN", "BGR"]
+    resourceStockpiles:
+      oil: 1800
+      electricity: 3500
+      steel: 6500
+      food: 15000
+      manpower: 6900000
+    resourceProduction:
+      electricity: 140
+      steel: 50
+      food: 820
+    resourceConsumption:
+      oil: 75
+      electricity: 180
+      steel: 38
+      food: 280
+    
+  HRV:
+    id: "HRV"
+    name: "Croatia"
+    capital: "Zagreb"
+    flag: "🇭🇷"
+    government:
+      type: "Republic"
+      leader: "Zoran Milanović"
+      approval: 63.6
+      stability: 74.6
+    economy:
+      gdp: 68200000000
+      debt: 48000000000
+      inflation: 3.5
+      treasury: 120000000
+    military:
+      manpower: 16000
+      equipment: 72
+      readiness: 78
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 150
+      currentResearch: ["Tourism Technology", "Marine Technology"]
+      completedTech: ["Internet", "Shipbuilding"]
+      level: 6.8
+    diplomacy:
+      allies: ["USA", "GER", "ITA", "SVN"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["GER", "ITA", "SVN", "AUT"]
+    resourceStockpiles:
+      oil: 2200
+      electricity: 4200
+      steel: 7500
+      food: 12000
+      manpower: 3880000
+    resourceProduction:
+      electricity: 120
+      steel: 45
+      food: 480
+    resourceConsumption:
+      oil: 68
+      electricity: 150
+      steel: 32
+      food: 220
+    
+  SVN:
+    id: "SVN"
+    name: "Slovenia"
+    capital: "Ljubljana"
+    flag: "🇸🇮"
+    government:
+      type: "Republic"
+      leader: "Nataša Pirc Musar"
+      approval: 71.4
+      stability: 81.4
+    economy:
+      gdp: 61800000000
+      debt: 38000000000
+      inflation: 2.8
+      treasury: 95000000
+    military:
+      manpower: 7000
+      equipment: 78
+      readiness: 85
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 180
+      currentResearch: ["Green Technology", "Alpine Tourism"]
+      completedTech: ["Internet", "Precision Manufacturing"]
+      level: 7.5
+    diplomacy:
+      allies: ["USA", "GER", "ITA", "AUT", "HRV"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["GER", "ITA", "AUT", "HRV"]
+    resourceStockpiles:
+      oil: 1800
+      electricity: 3800
+      steel: 6200
+      food: 8500
+      manpower: 2100000
+    resourceProduction:
+      electricity: 120
+      steel: 42
+      food: 380
+    resourceConsumption:
+      oil: 48
+      electricity: 140
+      steel: 28
+      food: 180
+    
+  BIH:
+    id: "BIH"
+    name: "Bosnia and Herzegovina"
+    capital: "Sarajevo"
+    flag: "🇧🇦"
+    government:
+      type: "Federal Republic"
+      leader: "Denis Bećirović"
+      approval: 42.3
+      stability: 52.3
+    economy:
+      gdp: 23100000000
+      debt: 18000000000
+      inflation: 6.1
+      treasury: 42000000
+    military:
+      manpower: 10000
+      equipment: 35
+      readiness: 55
+      doctrine: "Peacekeeping"
+      nuclearCapability: false
+    technology:
+      researchPoints: 45
+      currentResearch: ["Infrastructure Reconstruction"]
+      completedTech: ["Internet", "Basic Communications"]
+      level: 4.8
+    diplomacy:
+      allies: ["USA", "TUR"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["TUR", "GER", "SRB", "HRV"]
+    resourceStockpiles:
+      oil: 850
+      electricity: 1800
+      steel: 2500
+      food: 6800
+      manpower: 3280000
+    resourceProduction:
+      electricity: 65
+      steel: 22
+      food: 280
+    resourceConsumption:
+      oil: 38
+      electricity: 85
+      steel: 18
+      food: 140
+    
+  MNE:
+    id: "MNE"
+    name: "Montenegro"
+    capital: "Podgorica"
+    flag: "🇲🇪"
+    government:
+      type: "Republic"
+      leader: "Milo Đukanović"
+      approval: 58.2
+      stability: 67.2
+    economy:
+      gdp: 5800000000
+      debt: 3800000000
+      inflation: 4.2
+      treasury: 12000000
+    military:
+      manpower: 2000
+      equipment: 45
+      readiness: 65
+      doctrine: "Coastal Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 25
+      currentResearch: ["Tourism Infrastructure"]
+      completedTech: ["Internet", "Basic Tourism"]
+      level: 5.2
+    diplomacy:
+      allies: ["USA", "SRB"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["SRB", "ITA", "ALB"]
+    resourceStockpiles:
+      oil: 380
+      electricity: 850
+      steel: 1200
+      food: 2800
+      manpower: 628000
+    resourceProduction:
+      electricity: 35
+      food: 180
+    resourceConsumption:
+      oil: 18
+      electricity: 45
+      steel: 8
+      food: 65
+    
+  MKD:
+    id: "MKD"
+    name: "North Macedonia"
+    capital: "Skopje"
+    flag: "🇲🇰"
+    government:
+      type: "Republic"
+      leader: "Stevo Pendarovski"
+      approval: 48.8
+      stability: 61.8
+    economy:
+      gdp: 13900000000
+      debt: 9500000000
+      inflation: 5.8
+      treasury: 28000000
+    military:
+      manpower: 8000
+      equipment: 42
+      readiness: 62
+      doctrine: "NATO Partnership"
+      nuclearCapability: false
+    technology:
+      researchPoints: 35
+      currentResearch: ["Agricultural Technology"]
+      completedTech: ["Internet", "Basic Agriculture"]
+      level: 5.0
+    diplomacy:
+      allies: ["USA", "GRC", "BGR"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["GRC", "BGR", "SRB", "ALB"]
+    resourceStockpiles:
+      oil: 650
+      electricity: 1200
+      steel: 1800
+      food: 4200
+      manpower: 2080000
+    resourceProduction:
+      electricity: 80
+      food: 320
+    resourceConsumption:
+      oil: 28
+      electricity: 65
+      steel: 12
+      food: 95
+    
+  ALB:
+    id: "ALB"
+    name: "Albania"
+    capital: "Tirana"
+    flag: "🇦🇱"
+    government:
+      type: "Republic"
+      leader: "Edi Rama"
+      approval: 52.5
+      stability: 64.5
+    economy:
+      gdp: 18300000000
+      debt: 12800000000
+      inflation: 4.8
+      treasury: 35000000
+    military:
+      manpower: 8000
+      equipment: 38
+      readiness: 58
+      doctrine: "NATO Partnership"
+      nuclearCapability: false
+    technology:
+      researchPoints: 42
+      currentResearch: ["Tourism Development"]
+      completedTech: ["Internet", "Basic Tourism"]
+      level: 5.2
+    diplomacy:
+      allies: ["USA", "ITA", "TUR"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["ITA", "TUR", "GRC", "MKD"]
+    resourceStockpiles:
+      oil: 480
+      electricity: 1100
+      steel: 1500
+      food: 3800
+      manpower: 2840000
+    resourceProduction:
+      electricity: 85
+      food: 420
+    resourceConsumption:
+      oil: 32
+      electricity: 75
+      steel: 15
+      food: 120
+    
+  UKR:
+    id: "UKR"
+    name: "Ukraine"
+    capital: "Kyiv"
+    flag: "🇺🇦"
+    government:
+      type: "Republic"
+      leader: "Volodymyr Zelenskyy"
+      approval: 75.2
+      stability: 45.2
+    economy:
+      gdp: 200000000000
+      debt: 180000000000
+      inflation: 8.5
+      treasury: 180000000
+    military:
+      manpower: 700000
+      equipment: 45
+      readiness: 95
+      doctrine: "Territorial Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 120
+      currentResearch: ["Defense Technology", "Agricultural Technology"]
+      completedTech: ["Internet", "Agriculture", "Basic Defense"]
+      level: 6.0
+    diplomacy:
+      allies: ["USA", "POL", "GBR", "CAN"]
+      enemies: ["RUS"]
+      embargoes: ["RUS"]
+      sanctions: []
+      tradePartners: ["POL", "ROU", "HUN", "SVK"]
+    resourceStockpiles:
+      oil: 2800
+      electricity: 5500
+      steel: 12000
+      food: 28000
+      manpower: 41000000
+    resourceProduction:
+      electricity: 180
+      steel: 85
+      food: 3200
+    resourceConsumption:
+      oil: 150
+      electricity: 220
+      steel: 68
+      food: 1200
+    
+  BLR:
+    id: "BLR"
+    name: "Belarus"
+    capital: "Minsk"
+    flag: "🇧🇾"
+    government:
+      type: "Authoritarian Republic"
+      leader: "Alexander Lukashenko"
+      approval: 38.7
+      stability: 58.7
+    economy:
+      gdp: 68200000000
+      debt: 45000000000
+      inflation: 6.2
+      treasury: 85000000
+    military:
+      manpower: 48000
+      equipment: 52
+      readiness: 78
+      doctrine: "Russian Alliance"
+      nuclearCapability: false
+    technology:
+      researchPoints: 85
+      currentResearch: ["Industrial Technology"]
+      completedTech: ["Internet", "Basic Manufacturing"]
+      level: 5.8
+    diplomacy:
+      allies: ["RUS"]
+      enemies: []
+      embargoes: []
+      sanctions: ["USA", "EU"]
+      tradePartners: ["RUS", "CHN", "UKR"]
+    resourceStockpiles:
+      oil: 3200
+      electricity: 6800
+      steel: 8500
+      food: 18000
+      manpower: 9400000
+    resourceProduction:
+      electricity: 220
+      steel: 65
+      food: 1200
+    resourceConsumption:
+      oil: 120
+      electricity: 280
+      steel: 45
+      food: 420
+    
+  LTU:
+    id: "LTU"
+    name: "Lithuania"
+    capital: "Vilnius"
+    flag: "🇱🇹"
+    government:
+      type: "Republic"
+      leader: "Gitanas Nausėda"
+      approval: 68.8
+      stability: 79.8
+    economy:
+      gdp: 65100000000
+      debt: 42000000000
+      inflation: 2.8
+      treasury: 68000000
+    military:
+      manpower: 20000
+      equipment: 75
+      readiness: 85
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 180
+      currentResearch: ["Digital Technology", "Baltic Defense"]
+      completedTech: ["Internet", "Digital Communications"]
+      level: 7.2
+    diplomacy:
+      allies: ["USA", "POL", "LVA", "EST"]
+      enemies: ["RUS"]
+      embargoes: ["RUS"]
+      sanctions: []
+      tradePartners: ["POL", "GER", "LVA", "EST"]
+    resourceStockpiles:
+      oil: 1800
+      electricity: 4200
+      steel: 6500
+      food: 8500
+      manpower: 2720000
+    resourceProduction:
+      electricity: 140
+      steel: 35
+      food: 480
+    resourceConsumption:
+      oil: 65
+      electricity: 180
+      steel: 25
+      food: 220
+    
+  LVA:
+    id: "LVA"
+    name: "Latvia"
+    capital: "Riga"
+    flag: "🇱🇻"
+    government:
+      type: "Republic"
+      leader: "Egils Levits"
+      approval: 64.6
+      stability: 77.6
+    economy:
+      gdp: 38900000000
+      debt: 28000000000
+      inflation: 3.2
+      treasury: 52000000
+    military:
+      manpower: 17000
+      equipment: 72
+      readiness: 82
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 120
+      currentResearch: ["Baltic Defense", "Forest Technology"]
+      completedTech: ["Internet", "Forest Management"]
+      level: 6.8
+    diplomacy:
+      allies: ["USA", "LTU", "EST", "POL"]
+      enemies: ["RUS"]
+      embargoes: ["RUS"]
+      sanctions: []
+      tradePartners: ["LTU", "EST", "GER", "POL"]
+    resourceStockpiles:
+      oil: 1200
+      electricity: 2800
+      steel: 4200
+      food: 6500
+      manpower: 1880000
+    resourceProduction:
+      electricity: 120
+      steel: 28
+      food: 380
+    resourceConsumption:
+      oil: 45
+      electricity: 140
+      steel: 18
+      food: 180
+    
+  EST:
+    id: "EST"
+    name: "Estonia"
+    capital: "Tallinn"
+    flag: "🇪🇪"
+    government:
+      type: "Republic"
+      leader: "Alar Karis"
+      approval: 72.2
+      stability: 83.2
+    economy:
+      gdp: 38400000000
+      debt: 22000000000
+      inflation: 2.5
+      treasury: 48000000
+    military:
+      manpower: 6500
+      equipment: 82
+      readiness: 88
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 220
+      currentResearch: ["Digital Government", "Cybersecurity"]
+      completedTech: ["Internet", "Digital Infrastructure", "Cybersecurity"]
+      level: 8.2
+    diplomacy:
+      allies: ["USA", "LTU", "LVA", "FIN"]
+      enemies: ["RUS"]
+      embargoes: ["RUS"]
+      sanctions: []
+      tradePartners: ["FIN", "LTU", "LVA", "GER"]
+    resourceStockpiles:
+      oil: 850
+      electricity: 2200
+      steel: 3500
+      food: 4200
+      manpower: 1330000
+    resourceProduction:
+      electricity: 140
+      steel: 18
+      food: 280
+    resourceConsumption:
+      oil: 32
+      electricity: 120
+      steel: 12
+      food: 120
+    
+  MDA:
+    id: "MDA"
+    name: "Moldova"
+    capital: "Chișinău"
+    flag: "🇲🇩"
+    government:
+      type: "Republic"
+      leader: "Maia Sandu"
+      approval: 48.3
+      stability: 54.3
+    economy:
+      gdp: 13900000000
+      debt: 8500000000
+      inflation: 7.2
+      treasury: 18000000
+    military:
+      manpower: 5000
+      equipment: 28
+      readiness: 45
+      doctrine: "Neutral Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 32
+      currentResearch: ["Agricultural Modernization"]
+      completedTech: ["Internet", "Basic Agriculture"]
+      level: 4.5
+    diplomacy:
+      allies: ["ROU"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      tradePartners: ["ROU", "UKR", "ITA", "POL"]
+    resourceStockpiles:
+      oil: 420
+      electricity: 1200
+      steel: 1800
+      food: 4500
+      manpower: 2620000
+    resourceProduction:
+      electricity: 80
+      food: 680
+    resourceConsumption:
+      oil: 28
+      electricity: 85
+      steel: 12
+      food: 180
