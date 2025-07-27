@@ -405,7 +405,7 @@ function simulateNations(
       if ((nation.technology?.level ?? 0) > 7) inflationChange -= 0.02;
       
       const newInflation = Math.max(0, Math.min(15, (nation.economy?.inflation ?? 0) + inflationChange * weeksElapsed));
-      if (!updates.economy) updates.economy = { ...nation.economy };
+      if (!updates.economy) updates.economy = { ...(nation.economy || { gdp: 0, debt: 0, inflation: 0, tradeBalance: 0, treasury: 0 }) };
       updates.economy.inflation = newInflation;
     }
 
@@ -419,7 +419,7 @@ function simulateNations(
       const newEquipment = Math.max(0, Math.min(100, (nation.military?.equipment ?? 0) + netEquipmentChange * weeksElapsed));
       
       updates.military = {
-        ...nation.military,
+        ...(nation.military || { manpower: 0, equipment: 50, doctrine: 'Standard', nuclearCapability: false, readiness: 100 }),
         equipment: newEquipment
       };
       
@@ -447,8 +447,8 @@ function simulateNations(
     
     if (researchGain > 0) {
       updates.technology = {
-        ...nation.technology,
-        researchPoints: nation.technology.researchPoints + researchGain
+        ...(nation.technology || { researchPoints: 0, currentResearch: [], completedTech: [], level: 1 }),
+        researchPoints: (nation.technology?.researchPoints ?? 0) + researchGain
       };
       
       if (researchMultiplier > 1.0 && nation.name === context.gameState.selectedNation) {
@@ -465,7 +465,7 @@ function simulateNations(
       const techTradeBonus = (nation.technology?.level ?? 0) > 6 ? tradeVolatility * 0.1 : 0;
       
       const newTradeBalance = (nation.economy?.tradeBalance ?? 0) + tradeChange + techTradeBonus;
-      if (!updates.economy) updates.economy = { ...nation.economy };
+      if (!updates.economy) updates.economy = { ...(nation.economy || { gdp: 0, debt: 0, inflation: 0, tradeBalance: 0, treasury: 0 }) };
       updates.economy.tradeBalance = newTradeBalance;
     }
 
@@ -509,7 +509,7 @@ function progressTechnology(
         const newLevel = Math.min(10, (nation.technology?.level ?? 1) + 0.5);
         
         updates.technology = {
-          ...nation.technology,
+          ...(nation.technology || { researchPoints: 0, currentResearch: [], completedTech: [], level: 1 }),
           level: newLevel,
           researchPoints: (nation.technology?.researchPoints ?? 0) - techData.researchCost,
           currentResearch: researchCopy,
@@ -773,35 +773,35 @@ function applyEffectToNation(nation: Nation, effect: any): Partial<Nation> {
   switch (effect.property) {
     case 'technology.research_points':
       updates.technology = {
-        ...nation.technology,
-        researchPoints: nation.technology.researchPoints + effect.change
+        ...(nation.technology || { researchPoints: 0, currentResearch: [], completedTech: [], level: 1 }),
+        researchPoints: (nation.technology?.researchPoints ?? 0) + effect.change
       };
       break;
       
     case 'economy.debt':
       updates.economy = {
-        ...nation.economy,
+        ...(nation.economy || { gdp: 0, debt: 0, inflation: 0, tradeBalance: 0, treasury: 0 }),
         debt: Math.max(0, (nation.economy?.debt ?? 0) + effect.change)
       };
       break;
       
     case 'government.approval':
       updates.government = {
-        ...nation.government,
+        ...(nation.government || { type: 'democracy', leader: 'Unknown', approval: 50, stability: 50 }),
         approval: Math.max(0, Math.min(100, (nation.government?.approval ?? 0) + effect.change))
       };
       break;
       
     case 'government.stability':
       updates.government = {
-        ...nation.government,
+        ...(nation.government || { type: 'democracy', leader: 'Unknown', approval: 50, stability: 50 }),
         stability: Math.max(0, Math.min(100, (nation.government?.stability ?? 0) + effect.change))
       };
       break;
       
     case 'military.equipment':
       updates.military = {
-        ...nation.military,
+        ...(nation.military || { manpower: 0, equipment: 50, doctrine: 'Standard', nuclearCapability: false, readiness: 100 }),
         equipment: Math.max(0, Math.min(100, (nation.military?.equipment ?? 0) + effect.change))
       };
       break;
@@ -985,7 +985,7 @@ export function validateBuildingPlacement(buildingId: string, province: Province
   }
 
   // Check technology requirements
-  if (building.requirements?.technology && !(nation.technology.completedTech && Array.isArray(nation.technology.completedTech) && nation.technology.completedTech.includes(building.requirements.technology))) {
+  if (building.requirements?.technology && !(nation.technology?.completedTech && Array.isArray(nation.technology.completedTech) && nation.technology.completedTech.includes(building.requirements.technology))) {
     return { 
       valid: false, 
       reason: `Missing required technology: ${building.requirements?.technology}` 
@@ -1223,7 +1223,7 @@ function processResourceSystem(
     
   // Calculate base resource production
   newProduction.manpower = (newProduction.manpower || 0) + (nation.demographics?.population || 0) * 0.001 * weeksElapsed; // 0.1% of population per week
-  newProduction.research = (newProduction.research || 0) + nation.technology.researchPoints * 0.1 * weeksElapsed;
+  newProduction.research = (newProduction.research || 0) + (nation.technology?.researchPoints ?? 0) * 0.1 * weeksElapsed;
   
   // Calculate base consumption
   const totalPopulation = nationProvinces.reduce((sum, p) => sum + (p.population?.total || 0), 0);

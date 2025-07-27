@@ -102,7 +102,25 @@ export function useGameState() {
             console.log('Available nations:', gameData.nations.map(n => `${n.id}: ${n.name}`));
             
             setProvinces(gameData.provinces);
-            setNations(gameData.nations);
+            
+            // Ensure all nations have proper technology objects
+            const safeNations = gameData.nations.map(nation => {
+              if (!nation.technology) {
+                console.warn(`Nation ${nation.id} missing technology object, adding defaults`);
+                return {
+                  ...nation,
+                  technology: {
+                    researchPoints: 0,
+                    currentResearch: [],
+                    completedTech: [],
+                    level: 1
+                  }
+                };
+              }
+              return nation;
+            });
+            
+            setNations(safeNations);
             setIsInitialized(true);
             console.log('✓ Game data initialization completed successfully');
             
@@ -382,9 +400,22 @@ export function useGameState() {
   const updateNation = useCallback((nationId: string, updates: Partial<Nation>) => {
     setNations(currentNations => {
       const safeNations = Array.isArray(currentNations) ? currentNations : [];
-      return safeNations.map(n => 
-        n && n.id === nationId ? { ...n, ...updates } : n
-      );
+      return safeNations.map(n => {
+        if (n && n.id === nationId) {
+          // Ensure technology object is never undefined
+          const mergedNation = { ...n, ...updates };
+          if (!mergedNation.technology) {
+            mergedNation.technology = {
+              researchPoints: 0,
+              currentResearch: [],
+              completedTech: [],
+              level: 1
+            };
+          }
+          return mergedNation;
+        }
+        return n;
+      });
     });
   }, [setNations]);
 
