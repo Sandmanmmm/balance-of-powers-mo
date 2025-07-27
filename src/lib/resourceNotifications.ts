@@ -1,5 +1,5 @@
 import { Nation, ResourceShortageEffect } from './types';
-import { resourcesData } from './gameData';
+import { getResources } from '../data/gameData';
 import { toast } from 'sonner';
 
 interface ResourceNotificationState {
@@ -32,30 +32,37 @@ const pendingGroupedNotifications = new Map<string, Array<PendingNotification>>(
 /**
  * Check and send resource shortage/surplus notifications with improved state tracking
  */
-export function checkResourceNotifications(nation: Nation, gameDate: Date): void {
+export async function checkResourceNotifications(nation: Nation, gameDate: Date): Promise<void> {
   // Safety checks
   if (!nation || !nation.resourceStockpiles || !nation.resourceProduction || !nation.resourceConsumption) {
     return;
   }
 
-  // Safety check for resourcesData
-  if (!resourcesData || typeof resourcesData !== 'object') {
-    console.warn('Resource data not loaded, skipping notifications');
-    return;
-  }
-
-  const now = gameDate.getTime();
-  const nationNotifications = notificationState.get(nation.id) || new Map();
-  const settings = getNotificationSettings(nation.id);
-  
-  // Check if notifications are muted or snoozed
-  if (settings.muted || (settings.snoozedUntil > 0 && now < settings.snoozedUntil)) {
-    return;
-  }
-  
-  const pendingNotifications: Array<PendingNotification> = [];
-  
   try {
+    // Load resources data from modular system
+    const resourcesArray = await getResources();
+    const resourcesData = resourcesArray.reduce((acc, resource) => {
+      acc[resource.id] = resource;
+      return acc;
+    }, {} as Record<string, any>);
+
+    // Safety check for resourcesData
+    if (!resourcesData || typeof resourcesData !== 'object') {
+      console.warn('Resource data not loaded, skipping notifications');
+      return;
+    }
+
+    const now = gameDate.getTime();
+    const nationNotifications = notificationState.get(nation.id) || new Map();
+    const settings = getNotificationSettings(nation.id);
+    
+    // Check if notifications are muted or snoozed
+    if (settings.muted || (settings.snoozedUntil > 0 && now < settings.snoozedUntil)) {
+      return;
+    }
+    
+    const pendingNotifications: Array<PendingNotification> = [];
+    
     Object.keys(resourcesData || {}).forEach(resourceId => {
       if (!resourceId || !resourcesData || !resourcesData[resourceId]) return;
       
@@ -139,7 +146,7 @@ export function checkResourceNotifications(nation: Nation, gameDate: Date): void
   if (pendingNotifications.length > 0) {
     try {
       if (settings.groupNotifications && pendingNotifications.length > 1) {
-        sendGroupedNotification(nation, pendingNotifications);
+        sendGroupedNotification(nation, pendingNotifications, resourcesData);
       } else {
         // Send individual notifications if only one or grouping disabled
         pendingNotifications.forEach(notif => {
@@ -158,6 +165,9 @@ export function checkResourceNotifications(nation: Nation, gameDate: Date): void
   }
   
   notificationState.set(nation.id, nationNotifications);
+  } catch (error) {
+    console.error('Error loading resources for notifications:', error);
+  }
 }
 
 /**
@@ -263,7 +273,8 @@ function getNotificationSettings(nationId: string): NotificationSettings {
  */
 function sendGroupedNotification(
   nation: Nation,
-  notifications: Array<PendingNotification>
+  notifications: Array<PendingNotification>,
+  resourcesData: Record<string, any>
 ): void {
   if (notifications.length === 0) return;
   

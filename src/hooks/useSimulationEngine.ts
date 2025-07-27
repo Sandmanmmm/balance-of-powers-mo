@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { GameState, Province, Nation, GameEvent, Technology } from '../lib/types';
-import { getBuildingById, getResources, type Resource } from '../data/gameData';
-import { sampleEvents, sampleTechnologies } from '../lib/gameData';
+import { getBuildingById, getResources, getEvents, getTechnologies, type Resource } from '../data/gameData';
 import { toast } from 'sonner';
 import { 
   calculateResourceShortageEffects, 
@@ -49,6 +48,8 @@ export function useSimulationEngine({
   const aiDecisionCooldownRef = useRef<Map<string, number>>(new Map());
   const [resources, setResources] = useState<Resource[]>([]);
   const [resourcesData, setResourcesData] = useState<Record<string, Resource>>({});
+  const [events, setEvents] = useState<any[]>([]);
+  const [technologies, setTechnologies] = useState<any[]>([]);
 
   // Load resources data
   useEffect(() => {
@@ -63,6 +64,15 @@ export function useSimulationEngine({
           resourcesLookup[resource.id] = resource;
         });
         setResourcesData(resourcesLookup);
+
+        // Load events and technologies
+        const eventsList = await getEvents();
+        setEvents(eventsList);
+        
+        const technologiesList = await getTechnologies();
+        setTechnologies(technologiesList);
+        
+        console.log(`Simulation engine loaded ${resourcesList.length} resources, ${eventsList.length} events, ${technologiesList.length} technologies`);
       } catch (error) {
         console.error('Failed to load resources in simulation engine:', error);
       }
@@ -154,8 +164,8 @@ export function useSimulationEngine({
           gameState,
           provinces: safeProvinces,
           nations: safeNations,
-          events: sampleEvents,
-          technologies: sampleTechnologies
+          events: events,
+          technologies: technologies
         };
 
         // Run core simulation systems
@@ -176,7 +186,9 @@ export function useSimulationEngine({
         // Check resource notifications for player nation
         const playerNation = context.nations.find(n => n.id === context.gameState.selectedNation);
         if (playerNation) {
-          checkResourceNotifications(playerNation, context.gameState.currentDate);
+          checkResourceNotifications(playerNation, context.gameState.currentDate).catch(error => {
+            console.error('Error checking resource notifications:', error);
+          });
         }
         
         // Run technology progression

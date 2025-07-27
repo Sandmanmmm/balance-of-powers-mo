@@ -1,18 +1,26 @@
 import { Nation, Province, ResourceShortageEffect } from './types';
-import { resourcesData } from './gameData';
+import { getResources } from '../data/gameData';
 
 /**
  * Calculate resource shortage effects based on current shortages
  */
-export function calculateResourceShortageEffects(nation: Nation): ResourceShortageEffect[] {
+export async function calculateResourceShortageEffects(nation: Nation): Promise<ResourceShortageEffect[]> {
   const effects: ResourceShortageEffect[] = [];
   const shortages = nation.resourceShortages || {};
 
-  // Safety check for resourcesData
-  if (!resourcesData || typeof resourcesData !== 'object') {
-    console.warn('Resource data not available for shortage effects calculation');
-    return effects;
-  }
+  // Load resources data from modular system
+  try {
+    const resourcesArray = await getResources();
+    const resourcesData = resourcesArray.reduce((acc, resource) => {
+      acc[resource.id] = resource;
+      return acc;
+    }, {} as Record<string, any>);
+
+    // Safety check for resourcesData
+    if (!resourcesData || typeof resourcesData !== 'object') {
+      console.warn('Resource data not available for shortage effects calculation');
+      return effects;
+    }
 
   Object.entries(shortages).forEach(([resourceId, severity]) => {
     if (severity <= 0.1) return; // Ignore minor shortages
@@ -84,6 +92,10 @@ export function calculateResourceShortageEffects(nation: Nation): ResourceShorta
   });
 
   return effects;
+  } catch (error) {
+    console.error('Error loading resources for shortage effects:', error);
+    return effects;
+  }
 }
 
 /**
@@ -188,34 +200,45 @@ export function applyShortageEffectsToNation(
 /**
  * Get human-readable description of shortage effects
  */
-export function getShortageEffectDescription(effect: ResourceShortageEffect): string {
-  const resource = resourcesData[effect.resourceId];
-  if (!resource) return '';
+export async function getShortageEffectDescription(effect: ResourceShortageEffect): Promise<string> {
+  try {
+    const resourcesArray = await getResources();
+    const resourcesData = resourcesArray.reduce((acc, resource) => {
+      acc[resource.id] = resource;
+      return acc;
+    }, {} as Record<string, any>);
 
-  const severityText = effect.severity > 0.7 ? 'Critical' : 
-                      effect.severity > 0.4 ? 'Severe' : 
-                      effect.severity > 0.2 ? 'Moderate' : 'Minor';
+    const resource = resourcesData[effect.resourceId];
+    if (!resource) return '';
 
-  const descriptions: string[] = [];
+    const severityText = effect.severity > 0.7 ? 'Critical' : 
+                        effect.severity > 0.4 ? 'Severe' : 
+                        effect.severity > 0.2 ? 'Moderate' : 'Minor';
 
-  if (effect.effects.buildingEfficiency && effect.effects.buildingEfficiency < 0.9) {
-    const efficiency = Math.round(effect.effects.buildingEfficiency * 100);
-    descriptions.push(`Industrial efficiency reduced to ${efficiency}%`);
+    const descriptions: string[] = [];
+
+    if (effect.effects.buildingEfficiency && effect.effects.buildingEfficiency < 0.9) {
+      const efficiency = Math.round(effect.effects.buildingEfficiency * 100);
+      descriptions.push(`Industrial efficiency reduced to ${efficiency}%`);
+    }
+
+    if (effect.effects.militaryReadiness && effect.effects.militaryReadiness < 0.9) {
+      const readiness = Math.round(effect.effects.militaryReadiness * 100);
+      descriptions.push(`Military readiness reduced to ${readiness}%`);
+    }
+
+    if (effect.effects.provinceStability && effect.effects.provinceStability > 0.1) {
+      descriptions.push(`Increased civil unrest`);
+    }
+
+    if (effect.effects.populationGrowth && effect.effects.populationGrowth < 0) {
+      descriptions.push(`Population decline`);
+    }
+
+    const effectList = descriptions.length > 0 ? descriptions.join(', ') : 'Economic disruption';
+    return `${severityText} ${resource.name} shortage: ${effectList}`;
+  } catch (error) {
+    console.error('Error loading resources for effect description:', error);
+    return 'Resource shortage';
   }
-
-  if (effect.effects.militaryReadiness && effect.effects.militaryReadiness < 0.9) {
-    const readiness = Math.round(effect.effects.militaryReadiness * 100);
-    descriptions.push(`Military readiness reduced to ${readiness}%`);
-  }
-
-  if (effect.effects.provinceStability && effect.effects.provinceStability > 0.1) {
-    descriptions.push(`Increased civil unrest`);
-  }
-
-  if (effect.effects.populationGrowth && effect.effects.populationGrowth < 0) {
-    descriptions.push(`Population decline`);
-  }
-
-  const effectList = descriptions.length > 0 ? descriptions.join(', ') : 'Economic disruption';
-  return `${severityText} ${resource.name} shortage: ${effectList}`;
 }

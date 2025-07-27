@@ -1,5 +1,5 @@
 import { Nation, TradeOffer, TradeAgreement } from './types';
-import { resourcesData } from './gameData';
+import { getResources } from '../data/gameData';
 
 /**
  * Create a new trade offer between nations
@@ -30,23 +30,34 @@ export function createTradeOffer(
 /**
  * Calculate the economic value of a trade offer
  */
-export function calculateTradeValue(
+export async function calculateTradeValue(
   offering: Record<string, number>,
   requesting: Record<string, number>
-): { offeringValue: number; requestingValue: number; fairness: number } {
-  const offeringValue = Object.entries(offering).reduce((sum, [resourceId, amount]) => {
-    const resource = resourcesData[resourceId];
-    return sum + (resource ? resource.base_price * amount : 0);
-  }, 0);
+): Promise<{ offeringValue: number; requestingValue: number; fairness: number }> {
+  try {
+    const resourcesArray = await getResources();
+    const resourcesData = resourcesArray.reduce((acc, resource) => {
+      acc[resource.id] = resource;
+      return acc;
+    }, {} as Record<string, any>);
 
-  const requestingValue = Object.entries(requesting).reduce((sum, [resourceId, amount]) => {
-    const resource = resourcesData[resourceId];
-    return sum + (resource ? resource.base_price * amount : 0);
-  }, 0);
+    const offeringValue = Object.entries(offering).reduce((sum, [resourceId, amount]) => {
+      const resource = resourcesData[resourceId];
+      return sum + (resource ? resource.base_price * amount : 0);
+    }, 0);
 
-  const fairness = requestingValue > 0 ? offeringValue / requestingValue : 1;
+    const requestingValue = Object.entries(requesting).reduce((sum, [resourceId, amount]) => {
+      const resource = resourcesData[resourceId];
+      return sum + (resource ? resource.base_price * amount : 0);
+    }, 0);
 
-  return { offeringValue, requestingValue, fairness };
+    const fairness = requestingValue > 0 ? offeringValue / requestingValue : 1;
+
+    return { offeringValue, requestingValue, fairness };
+  } catch (error) {
+    console.error('Error calculating trade value:', error);
+    return { offeringValue: 0, requestingValue: 0, fairness: 1 };
+  }
 }
 
 /**

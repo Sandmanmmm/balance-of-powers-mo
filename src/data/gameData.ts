@@ -5,6 +5,8 @@ import yaml from 'js-yaml';
 // Import static data files that don't change by region
 import buildingsRaw from './buildings.yaml?raw';
 import resourcesRaw from './resources.yaml?raw';
+import eventsRaw from './events.yaml?raw';
+import technologiesRaw from './technologies.yaml?raw';
 
 // Re-export types for convenience
 export type { Nation, Province };
@@ -35,6 +37,25 @@ export interface Resource {
   defaultValue?: number;
 }
 
+export interface GameEvent {
+  id: string;
+  name: string;
+  description: string;
+  trigger?: any;
+  choices?: any[];
+  effects?: any;
+}
+
+export interface Technology {
+  id: string;
+  name: string;
+  description: string;
+  category?: string;
+  cost?: number;
+  prerequisites?: string[];
+  effects?: any;
+}
+
 // Game data cache with initialization tracking and memoization
 let gameDataCache: {
   nations: Nation[];
@@ -42,6 +63,8 @@ let gameDataCache: {
   boundaries: Record<string, any>;
   buildings: Building[];
   resources: Resource[];
+  events: GameEvent[];
+  technologies: Technology[];
   isInitialized: boolean;
   loadingStats: {
     nationsFromRegions: number;
@@ -89,6 +112,8 @@ export async function getGameData() {
     // Load static data files
     const buildings = yaml.load(buildingsRaw) as Building[] || [];
     const resources = yaml.load(resourcesRaw) as Resource[] || [];
+    const events = yaml.load(eventsRaw) as GameEvent[] || [];
+    const technologies = yaml.load(technologiesRaw) as Technology[] || [];
     
     const endTime = performance.now();
     const loadTime = endTime - startTime;
@@ -105,6 +130,8 @@ export async function getGameData() {
     console.log(`🌍 Boundaries: ${regionsBoundariesCount} (from regions/)`);
     console.log(`🏗️ Buildings: ${buildings.length} (from buildings.yaml)`);
     console.log(`📦 Resources: ${resources.length} (from resources.yaml)`);
+    console.log(`📅 Events: ${events.length} (from events.yaml)`);
+    console.log(`🔬 Technologies: ${technologies.length} (from technologies.yaml)`);
     console.log(`⚠️ Warnings: ${worldData.warnings.length}`);
     
     // Log any warnings
@@ -132,6 +159,8 @@ export async function getGameData() {
       boundaries: worldData.boundaries,
       buildings,
       resources,
+      events,
+      technologies,
       isInitialized: true,
       cacheTimestamp: Date.now(),
       loadingStats: {
@@ -187,7 +216,9 @@ export async function getSystemStatus() {
       provinces: data.provinces.length,
       boundaries: Object.keys(data.boundaries).length,
       buildings: data.buildings.length,
-      resources: data.resources.length
+      resources: data.resources.length,
+      events: data.events.length,
+      technologies: data.technologies.length
     },
     modularValidation: validation,
     loadingStats: data.loadingStats,
@@ -258,6 +289,16 @@ export async function getBuildings() {
 export async function getResources() {
   const data = await getGameData();
   return data.resources;
+}
+
+export async function getEvents() {
+  const data = await getGameData();
+  return data.events;
+}
+
+export async function getTechnologies() {
+  const data = await getGameData();
+  return data.technologies;
 }
 
 // Specific lookup functions

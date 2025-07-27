@@ -17,6 +17,8 @@ interface NationResourcePanelProps {
 export function NationResourcePanel({ nation }: NationResourcePanelProps) {
   const [resources, setResources] = useState<Resource[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [shortageEffects, setShortageEffects] = useState<any[]>([]);
+  const [effectDescriptions, setEffectDescriptions] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const loadResources = async () => {
@@ -32,9 +34,41 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
     loadResources();
   }, []);
 
+  useEffect(() => {
+    const loadShortageEffects = async () => {
+      try {
+        const effects = await calculateResourceShortageEffects(nation);
+        setShortageEffects(effects);
+        
+        // Load descriptions for each effect
+        const descriptions: Record<string, string> = {};
+        for (const effect of effects) {
+          try {
+            descriptions[effect.resourceId] = await getShortageEffectDescription(effect);
+          } catch (error) {
+            console.error(`Failed to get description for ${effect.resourceId}:`, error);
+            descriptions[effect.resourceId] = 'Resource shortage effects';
+          }
+        }
+        setEffectDescriptions(descriptions);
+      } catch (error) {
+        console.error('Failed to calculate shortage effects:', error);
+        setShortageEffects([]);
+        setEffectDescriptions({});
+      }
+    };
+    loadShortageEffects();
+  }, [nation]);
+
   const getResourcesByCategory = (category: string): Resource[] => {
     return resources.filter(resource => resource.category === category);
   };
+
+  // Create a lookup object from the resources array for backward compatibility
+  const resourcesData = resources.reduce((acc, resource) => {
+    acc[resource.id] = resource;
+    return acc;
+  }, {} as Record<string, Resource>);
 
   const stockpiles = nation.resourceStockpiles || {};
   const production = nation.resourceProduction || {};
@@ -97,8 +131,7 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
     { id: 'technology', name: 'Technology', resources: getResourcesByCategory('technology') }
   ];
 
-  // Calculate shortage effects for display
-  const shortageEffects = calculateResourceShortageEffects(nation);
+  // Calculate critical shortages for display
   const criticalShortages = Object.entries(shortages).filter(([, severity]) => severity > 0.3);
   const activeTradeAgreements = nation.tradeAgreements?.filter(a => a.status === 'active') || [];
 
@@ -257,7 +290,7 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
                               Severity: {Math.round(severity * 100)}%
                             </div>
                             <div className="text-sm">
-                              {getShortageEffectDescription(effect)}
+                              {effectDescriptions[effect.resourceId] || 'Loading description...'}
                             </div>
                             
                             {/* Effect breakdown */}
