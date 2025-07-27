@@ -26,265 +26,32 @@
       Communist: 92.1
       Independent: 7.9
 
-- id: CN_SH
-  name: "Shanghai"
+- id: CN_TJ
+  name: "Tianjin"
   country: "China"
   population:
-    total: 24280000
+    total: 13870000
     ethnic_groups:
       - group: "Han Chinese"
-        percent: 98
+        percent: 97
       - group: "Other"
-        percent: 2
-  unrest: 4
+        percent: 3
+  unrest: 3
   infrastructure:
     roads: 5
     internet: 5
-  features: ["coastal", "urban", "financial_hub", "industrial"]
-  resource_output:
-    energy: 9500
-    food: 1000
-    industrial_capacity: 25000
-    technology: 18000
-  politics:
-    party_support:
-      Communist: 89.4
-      Independent: 10.6
-
-- id: CN_GD
-  name: "Guangdong"
-  country: "China"
-  population:
-    total: 126010000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 94
-      - group: "Zhuang"
-        percent: 3
-      - group: "Other"
-        percent: 3
-  unrest: 5
-  infrastructure:
-    roads: 4
-    internet: 4
   features: ["coastal", "urban", "industrial", "tech_hub"]
   resource_output:
-    energy: 15000
-    food: 8500
-    industrial_capacity: 35000
-    technology: 15000
-  politics:
-    party_support:
-      Communist: 88.7
-      Independent: 11.3
-
-- id: CN_SD
-  name: "Shandong"
-  country: "China"
-  population:
-    total: 101530000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 99
-      - group: "Other"
-        percent: 1
-  unrest: 3
-  infrastructure:
-    roads: 3
-    internet: 3
-  features: ["coastal", "farmland", "industrial"]
-  resource_output:
-    energy: 12000
-    food: 18000
-    industrial_capacity: 22000
-  politics:
-    party_support:
-      Communist: 94.2
-      Independent: 5.8
-
-- id: CN_JS
-  name: "Jiangsu"
-  country: "China"
-  population:
-    total: 84740000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 99
-      - group: "Other"
-        percent: 1
-  unrest: 2
-  infrastructure:
-    roads: 4
-    internet: 4
-  features: ["coastal", "urban", "industrial", "farmland"]
-  resource_output:
-    energy: 11000
-    food: 12000
-    industrial_capacity: 28000
+    energy: 6500
+    food: 800
+    industrial_capacity: 18000
     technology: 12000
   politics:
     party_support:
-      Communist: 91.8
-      Independent: 8.2
+      Communist: 91.2
+      Independent: 8.8
 
-- id: CN_ZJ
-  name: "Zhejiang"
-  country: "China"
-  population:
-    total: 64570000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 99
-      - group: "Other"
-        percent: 1
-  unrest: 2
-  infrastructure:
-    roads: 4
-    internet: 4
-  features: ["coastal", "urban", "industrial", "tech_hub"]
-  resource_output:
-    energy: 9500
-    food: 6000
-    industrial_capacity: 18000
-    technology: 14000
-  politics:
-    party_support:
-      Communist: 90.5
-      Independent: 9.5
-
-- id: CN_HB
-  name: "Hubei"
-  country: "China"
-  population:
-    total: 57750000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 95
-      - group: "Tujia"
-        percent: 3
-      - group: "Other"
-        percent: 2
-  unrest: 3
-  infrastructure:
-    roads: 3
-    internet: 3
-  features: ["urban", "industrial", "farmland"]
-  resource_output:
-    energy: 8000
-    food: 14000
-    industrial_capacity: 16000
-    technology: 8000
-  politics:
-    party_support:
-      Communist: 93.2
-      Independent: 6.8
-
-- id: CN_HN
-  name: "Hunan"
-  country: "China"
-  population:
-    total: 66440000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 89
-      - group: "Tujia"
-        percent: 4
-      - group: "Miao"
-        percent: 4
-      - group: "Other"
-        percent: 3
-  unrest: 4
-  infrastructure:
-    roads: 3
-    internet: 3
-  features: ["farmland", "mining", "mountainous"]
-  resource_output:
-    energy: 7500
-    food: 16000
-    industrial_capacity: 12000
-    minerals: 8000
-  politics:
-    party_support:
-      Communist: 92.1
-      Independent: 7.9
-
-- id: CN_AH
-  name: "Anhui"
-  country: "China"
-  population:
-    total: 61030000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 99
-      - group: "Other"
-        percent: 1
-  unrest: 3
-  infrastructure:
-    roads: 3
-    internet: 3
-  features: ["farmland", "industrial"]
-  resource_output:
-    energy: 6500
-    food: 18000
-    industrial_capacity: 14000
-  politics:
-    party_support:
-      Communist: 94.8
-      Independent: 5.2
-
-- id: CN_JX
-  name: "Jiangxi"
-  country: "China"
-  population:
-    total: 45190000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 99
-      - group: "Other"
-        percent: 1
-  unrest: 2
-  infrastructure:
-    roads: 3
-    internet: 3
-  features: ["farmland", "mining"]
-  resource_output:
-    energy: 5500
-    food: 12000
-    industrial_capacity: 8000
-    minerals: 6000
-  politics:
-    party_support:
-      Communist: 95.1
-      Independent: 4.9
-
-- id: CN_FJ
-  name: "Fujian"
-  country: "China"
-  population:
-    total: 41540000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 98
-      - group: "She"
-        percent: 1
-      - group: "Other"
-        percent: 1
-  unrest: 3
-  infrastructure:
-    roads: 3
-    internet: 4
-  features: ["coastal", "mountainous", "tech_hub"]
-  resource_output:
-    energy: 6000
-    food: 5500
-    industrial_capacity: 12000
-    technology: 7000
-  politics:
-    party_support:
-      Communist: 89.7
-      Independent: 10.3
-
-- id: CN_HEB
+- id: CN_HE
   name: "Hebei"
   country: "China"
   population:
@@ -336,32 +103,7 @@
       Communist: 96.2
       Independent: 3.8
 
-- id: CN_SAX
-  name: "Shaanxi"
-  country: "China"
-  population:
-    total: 39530000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 99
-      - group: "Other"
-        percent: 1
-  unrest: 3
-  infrastructure:
-    roads: 3
-    internet: 3
-  features: ["historical", "tech_hub", "farmland"]
-  resource_output:
-    energy: 7000
-    food: 10000
-    industrial_capacity: 9000
-    technology: 6000
-  politics:
-    party_support:
-      Communist: 94.7
-      Independent: 5.3
-
-- id: CN_NMG
+- id: CN_NM
   name: "Inner Mongolia"
   country: "China"
   population:
@@ -445,7 +187,7 @@
       Communist: 93.8
       Independent: 6.2
 
-- id: CN_HLJ
+- id: CN_HL
   name: "Heilongjiang"
   country: "China"
   population:
@@ -472,6 +214,370 @@
     party_support:
       Communist: 94.6
       Independent: 5.4
+
+- id: CN_SH
+  name: "Shanghai"
+  country: "China"
+  population:
+    total: 24280000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 98
+      - group: "Other"
+        percent: 2
+  unrest: 4
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["coastal", "urban", "financial_hub", "industrial"]
+  resource_output:
+    energy: 9500
+    food: 1000
+    industrial_capacity: 25000
+    technology: 18000
+  politics:
+    party_support:
+      Communist: 89.5
+      Independent: 10.5
+
+- id: CN_JS
+  name: "Jiangsu"
+  country: "China"
+  population:
+    total: 84750000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 99
+      - group: "Other"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "industrial", "farmland", "tech_hub"]
+  resource_output:
+    energy: 11000
+    food: 15000
+    industrial_capacity: 22000
+    technology: 12000
+  politics:
+    party_support:
+      Communist: 91.8
+      Independent: 8.2
+
+- id: CN_ZJ
+  name: "Zhejiang"
+  country: "China"
+  population:
+    total: 64570000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 99
+      - group: "Other"
+        percent: 1
+  unrest: 2
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "mountainous", "industrial", "tech_hub"]
+  resource_output:
+    energy: 9000
+    food: 8000
+    industrial_capacity: 20000
+    technology: 15000
+  politics:
+    party_support:
+      Communist: 88.7
+      Independent: 11.3
+
+- id: CN_AH
+  name: "Anhui"
+  country: "China"
+  population:
+    total: 61030000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 99
+      - group: "Other"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland", "industrial"]
+  resource_output:
+    energy: 6500
+    food: 18000
+    industrial_capacity: 14000
+  politics:
+    party_support:
+      Communist: 94.8
+      Independent: 5.2
+
+- id: CN_FJ
+  name: "Fujian"
+  country: "China"
+  population:
+    total: 41540000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 98
+      - group: "She"
+        percent: 1
+      - group: "Other"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "mountainous", "tech_hub"]
+  resource_output:
+    energy: 6000
+    food: 5500
+    industrial_capacity: 12000
+    technology: 7000
+  politics:
+    party_support:
+      Communist: 89.7
+      Independent: 10.3
+
+- id: CN_JX
+  name: "Jiangxi"
+  country: "China"
+  population:
+    total: 45190000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 99
+      - group: "Other"
+        percent: 1
+  unrest: 2
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland", "mining"]
+  resource_output:
+    energy: 5500
+    food: 12000
+    industrial_capacity: 8000
+    minerals: 6000
+  politics:
+    party_support:
+      Communist: 95.1
+      Independent: 4.9
+
+- id: CN_SD
+  name: "Shandong"
+  country: "China"
+  population:
+    total: 101530000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 99
+      - group: "Other"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "farmland", "industrial"]
+  resource_output:
+    energy: 12000
+    food: 22000
+    industrial_capacity: 18000
+  politics:
+    party_support:
+      Communist: 93.2
+      Independent: 6.8
+
+- id: CN_HA
+  name: "Henan"
+  country: "China"
+  population:
+    total: 99370000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 98
+      - group: "Hui"
+        percent: 1
+      - group: "Other"
+        percent: 1
+  unrest: 4
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland", "historical"]
+  resource_output:
+    energy: 8000
+    food: 25000
+    industrial_capacity: 12000
+  politics:
+    party_support:
+      Communist: 95.3
+      Independent: 4.7
+
+- id: CN_HB
+  name: "Hubei"
+  country: "China"
+  population:
+    total: 57750000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 96
+      - group: "Tujia"
+        percent: 3
+      - group: "Other"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["farmland", "industrial", "tech_hub"]
+  resource_output:
+    energy: 7500
+    food: 16000
+    industrial_capacity: 15000
+    technology: 8000
+  politics:
+    party_support:
+      Communist: 92.1
+      Independent: 7.9
+
+- id: CN_HN
+  name: "Hunan"
+  country: "China"
+  population:
+    total: 66440000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 90
+      - group: "Tujia"
+        percent: 4
+      - group: "Miao"
+        percent: 3
+      - group: "Other"
+        percent: 3
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["mountainous", "farmland", "mining"]
+  resource_output:
+    energy: 7500
+    food: 16000
+    industrial_capacity: 12000
+    minerals: 8000
+  politics:
+    party_support:
+      Communist: 92.1
+      Independent: 7.9
+
+- id: CN_GD
+  name: "Guangdong"
+  country: "China"
+  population:
+    total: 126010000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 97
+      - group: "Zhuang"
+        percent: 1
+      - group: "Other"
+        percent: 2
+  unrest: 4
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["coastal", "urban", "industrial", "tech_hub"]
+  resource_output:
+    energy: 15000
+    food: 8000
+    industrial_capacity: 35000
+    technology: 25000
+  politics:
+    party_support:
+      Communist: 87.3
+      Independent: 12.7
+
+- id: CN_GX
+  name: "Guangxi"
+  country: "China"
+  population:
+    total: 50130000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 62
+      - group: "Zhuang"
+        percent: 32
+      - group: "Other"
+        percent: 6
+  unrest: 4
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["mountainous", "diverse_ethnic", "tropical"]
+  resource_output:
+    energy: 5000
+    food: 12000
+    industrial_capacity: 6000
+    minerals: 6000
+  politics:
+    party_support:
+      Communist: 89.1
+      Independent: 10.9
+
+- id: CN_HI
+  name: "Hainan"
+  country: "China"
+  population:
+    total: 10080000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 83
+      - group: "Li"
+        percent: 16
+      - group: "Other"
+        percent: 1
+  unrest: 2
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["island", "tropical", "tourism"]
+  resource_output:
+    energy: 2000
+    food: 4000
+    industrial_capacity: 2000
+  politics:
+    party_support:
+      Communist: 88.9
+      Independent: 11.1
+
+- id: CN_CQ
+  name: "Chongqing"
+  country: "China"
+  population:
+    total: 32120000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 95
+      - group: "Tujia"
+        percent: 3
+      - group: "Other"
+        percent: 2
+  unrest: 3
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "mountainous", "industrial"]
+  resource_output:
+    energy: 7000
+    food: 6000
+    industrial_capacity: 16000
+    technology: 5000
+  politics:
+    party_support:
+      Communist: 90.8
+      Independent: 9.2
 
 - id: CN_SC
   name: "Sichuan"
@@ -500,6 +606,35 @@
     party_support:
       Communist: 92.7
       Independent: 7.3
+
+- id: CN_GZ
+  name: "Guizhou"
+  country: "China"
+  population:
+    total: 38560000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 62
+      - group: "Miao"
+        percent: 13
+      - group: "Buyi"
+        percent: 8
+      - group: "Other"
+        percent: 17
+  unrest: 5
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["mountainous", "diverse_ethnic", "poor"]
+  resource_output:
+    energy: 4000
+    food: 6000
+    industrial_capacity: 3000
+    minerals: 8000
+  politics:
+    party_support:
+      Communist: 91.5
+      Independent: 8.5
 
 - id: CN_YN
   name: "Yunnan"
@@ -532,88 +667,142 @@
       Communist: 87.2
       Independent: 12.8
 
-- id: CN_GZ
-  name: "Guizhou"
+- id: CN_XZ
+  name: "Tibet"
   country: "China"
   population:
-    total: 38560000
+    total: 3640000
     ethnic_groups:
+      - group: "Tibetan"
+        percent: 91
       - group: "Han Chinese"
-        percent: 62
-      - group: "Miao"
-        percent: 13
-      - group: "Buyi"
         percent: 8
       - group: "Other"
-        percent: 17
+        percent: 1
+  unrest: 9
+  infrastructure:
+    roads: 1
+    internet: 1
+  features: ["mountainous", "high_altitude", "diverse_ethnic", "strategic"]
+  resource_output:
+    energy: 1000
+    food: 1000
+    industrial_capacity: 500
+    minerals: 5000
+  politics:
+    party_support:
+      Communist: 65.3
+      Independent: 34.7
+
+- id: CN_SN
+  name: "Shaanxi"
+  country: "China"
+  population:
+    total: 39530000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 99
+      - group: "Other"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["historical", "tech_hub", "farmland"]
+  resource_output:
+    energy: 7000
+    food: 10000
+    industrial_capacity: 9000
+    technology: 6000
+  politics:
+    party_support:
+      Communist: 94.7
+      Independent: 5.3
+
+- id: CN_GS
+  name: "Gansu"
+  country: "China"
+  population:
+    total: 25020000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 91
+      - group: "Hui"
+        percent: 5
+      - group: "Tibetan"
+        percent: 2
+      - group: "Other"
+        percent: 2
   unrest: 5
   infrastructure:
     roads: 2
     internet: 2
-  features: ["mountainous", "diverse_ethnic", "poor"]
+  features: ["desert", "mountainous", "poor", "strategic"]
   resource_output:
     energy: 4000
-    food: 6000
-    industrial_capacity: 3000
-    minerals: 8000
-  politics:
-    party_support:
-      Communist: 91.5
-      Independent: 8.5
-
-- id: CN_CQ
-  name: "Chongqing"
-  country: "China"
-  population:
-    total: 32120000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 95
-      - group: "Tujia"
-        percent: 3
-      - group: "Other"
-        percent: 2
-  unrest: 3
-  infrastructure:
-    roads: 4
-    internet: 4
-  features: ["urban", "mountainous", "industrial"]
-  resource_output:
-    energy: 7000
-    food: 6000
-    industrial_capacity: 16000
-    technology: 5000
-  politics:
-    party_support:
-      Communist: 90.8
-      Independent: 9.2
-
-- id: CN_GX
-  name: "Guangxi"
-  country: "China"
-  population:
-    total: 50130000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 62
-      - group: "Zhuang"
-        percent: 32
-      - group: "Other"
-        percent: 6
-  unrest: 4
-  infrastructure:
-    roads: 2
-    internet: 2
-  features: ["mountainous", "diverse_ethnic", "tropical"]
-  resource_output:
-    energy: 5000
-    food: 12000
-    industrial_capacity: 6000
+    food: 4000
+    industrial_capacity: 2500
     minerals: 6000
   politics:
     party_support:
-      Communist: 89.1
-      Independent: 10.9
+      Communist: 92.8
+      Independent: 7.2
+
+- id: CN_QH
+  name: "Qinghai"
+  country: "China"
+  population:
+    total: 5920000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 54
+      - group: "Tibetan"
+        percent: 21
+      - group: "Hui"
+        percent: 16
+      - group: "Other"
+        percent: 9
+  unrest: 6
+  infrastructure:
+    roads: 1
+    internet: 1
+  features: ["high_altitude", "diverse_ethnic", "sparse", "strategic"]
+  resource_output:
+    energy: 2500
+    food: 1500
+    industrial_capacity: 800
+    minerals: 8000
+  politics:
+    party_support:
+      Communist: 83.4
+      Independent: 16.6
+
+- id: CN_NX
+  name: "Ningxia"
+  country: "China"
+  population:
+    total: 7200000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 64
+      - group: "Hui"
+        percent: 35
+      - group: "Other"
+        percent: 1
+  unrest: 5
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["desert", "diverse_ethnic", "small"]
+  resource_output:
+    energy: 3000
+    food: 2000
+    industrial_capacity: 1500
+    minerals: 3000
+  politics:
+    party_support:
+      Communist: 90.7
+      Independent: 9.3
 
 - id: CN_XJ
   name: "Xinjiang"
@@ -645,165 +834,55 @@
       Communist: 78.2
       Independent: 21.8
 
-- id: CN_XZ
-  name: "Tibet"
+- id: CN_HK
+  name: "Hong Kong"
   country: "China"
   population:
-    total: 3640000
+    total: 7500000
     ethnic_groups:
-      - group: "Tibetan"
-        percent: 91
       - group: "Han Chinese"
+        percent: 92
+      - group: "Other"
         percent: 8
-      - group: "Other"
-        percent: 1
-  unrest: 9
-  infrastructure:
-    roads: 1
-    internet: 1
-  features: ["mountainous", "high_altitude", "diverse_ethnic", "strategic"]
-  resource_output:
-    energy: 1000
-    food: 1000
-    industrial_capacity: 500
-    minerals: 5000
-  politics:
-    party_support:
-      Communist: 65.3
-      Independent: 34.7
-
-- id: CN_HAN
-  name: "Hainan"
-  country: "China"
-  population:
-    total: 10080000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 83
-      - group: "Li"
-        percent: 16
-      - group: "Other"
-        percent: 1
-  unrest: 2
-  infrastructure:
-    roads: 3
-    internet: 3
-  features: ["island", "tropical", "tourism"]
-  resource_output:
-    energy: 2000
-    food: 4000
-    industrial_capacity: 2000
-  politics:
-    party_support:
-      Communist: 88.9
-      Independent: 11.1
-
-- id: CN_NX
-  name: "Ningxia"
-  country: "China"
-  population:
-    total: 7200000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 64
-      - group: "Hui"
-        percent: 35
-      - group: "Other"
-        percent: 1
-  unrest: 5
-  infrastructure:
-    roads: 2
-    internet: 2
-  features: ["desert", "diverse_ethnic", "small"]
-  resource_output:
-    energy: 3000
-    food: 2000
-    industrial_capacity: 1500
-    minerals: 3000
-  politics:
-    party_support:
-      Communist: 90.7
-      Independent: 9.3
-
-- id: CN_QH
-  name: "Qinghai"
-  country: "China"
-  population:
-    total: 5920000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 54
-      - group: "Tibetan"
-        percent: 21
-      - group: "Hui"
-        percent: 16
-      - group: "Other"
-        percent: 9
-  unrest: 6
-  infrastructure:
-    roads: 1
-    internet: 1
-  features: ["high_altitude", "diverse_ethnic", "sparse", "strategic"]
-  resource_output:
-    energy: 2500
-    food: 1500
-    industrial_capacity: 800
-    minerals: 8000
-  politics:
-    party_support:
-      Communist: 83.4
-      Independent: 16.6
-
-- id: CN_GS
-  name: "Gansu"
-  country: "China"
-  population:
-    total: 25020000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 91
-      - group: "Hui"
-        percent: 5
-      - group: "Tibetan"
-        percent: 2
-      - group: "Other"
-        percent: 2
-  unrest: 5
-  infrastructure:
-    roads: 2
-    internet: 2
-  features: ["desert", "mountainous", "poor", "strategic"]
-  resource_output:
-    energy: 4000
-    food: 4000
-    industrial_capacity: 2500
-    minerals: 6000
-  politics:
-    party_support:
-      Communist: 92.8
-      Independent: 7.2
-
-- id: CN_TJ
-  name: "Tianjin"
-  country: "China"
-  population:
-    total: 13870000
-    ethnic_groups:
-      - group: "Han Chinese"
-        percent: 97
-      - group: "Other"
-        percent: 3
-  unrest: 3
+  unrest: 7
   infrastructure:
     roads: 5
     internet: 5
-  features: ["coastal", "urban", "industrial", "tech_hub"]
+  features: ["island", "urban", "financial_hub", "international"]
   resource_output:
-    energy: 6500
-    food: 800
-    industrial_capacity: 18000
-    technology: 12000
+    energy: 3000
+    food: 500
+    industrial_capacity: 8000
+    technology: 15000
   politics:
     party_support:
-      Communist: 91.2
-      Independent: 8.8
+      Communist: 62.5
+      Democratic: 30.2
+      Independent: 7.3
+
+- id: CN_MO
+  name: "Macau"
+  country: "China"
+  population:
+    total: 695000
+    ethnic_groups:
+      - group: "Han Chinese"
+        percent: 88
+      - group: "Portuguese"
+        percent: 2
+      - group: "Other"
+        percent: 10
+  unrest: 4
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["island", "urban", "tourism", "international"]
+  resource_output:
+    energy: 500
+    food: 100
+    industrial_capacity: 1000
+    tourism: 5000
+  politics:
+    party_support:
+      Communist: 75.3
+      Independent: 24.7

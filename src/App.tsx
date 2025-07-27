@@ -8,6 +8,8 @@ import { GameDataDebug } from './components/GameDataDebug';
 import { ResourcesDebug } from './components/ResourcesDebug';
 import { BuildingsDebug } from './components/BuildingsDebug';
 import { BuildingAvailabilityDebug } from './components/BuildingAvailabilityDebug';
+import { ChinaMapDebug } from './components/ChinaMapDebug';
+import { MapSystemStatus } from './components/MapSystemStatus';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -231,7 +233,10 @@ function App() {
             <BuildingsDebug />
           </div>
           <div className="mt-4">
-            <BuildingAvailabilityDebug />
+            <MapSystemStatus />
+          </div>
+          <div className="mt-4">
+            <ChinaMapDebug />
           </div>
         </div>
       </div>
