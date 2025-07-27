@@ -129,7 +129,8 @@ export async function getGameData() {
     const worldData = await loadWorldData();
     
     // Load static data files
-    const buildings = yaml.load(buildingsRaw) as Building[] || [];
+    const buildingsData = yaml.load(buildingsRaw) as { buildings: Building[] } || { buildings: [] };
+    const buildings = buildingsData.buildings || [];
     const resourcesData = yaml.load(resourcesRaw) as { resources: Record<string, any> } || { resources: {} };
     const resources = Object.entries(resourcesData.resources || {}).map(([id, data]) => ({
       id,
@@ -377,19 +378,24 @@ export function getAvailableBuildings(
   buildings: Building[]
 ): Building[] {
   if (!buildings || buildings.length === 0) {
-    console.log('No buildings provided to getAvailableBuildings');
+    console.log('❌ No buildings provided to getAvailableBuildings');
     return [];
   }
   
-  console.log(`Filtering buildings for province ${province.name} with features:`, province.features);
-  console.log(`Infrastructure level: ${province.infrastructure.roads}`);
-  console.log(`Completed tech:`, completedTech);
+  console.log(`🔍 Filtering ${buildings.length} buildings for province ${province.name} with features:`, province.features);
+  console.log(`🏗️ Infrastructure level: ${province.infrastructure.roads}`);
+  console.log(`🧪 Completed tech:`, completedTech);
   
-  const filtered = buildings.filter(building => {
+  const filtered = buildings.filter((building, index) => {
     // Ensure we have all required data
     if (!building || !province) {
+      console.log(`❌ Building ${index} or province is null/undefined`);
       return false;
     }
+    
+    console.log(`🔍 Checking building ${building.name} (${building.id})`);
+    console.log(`  - RequiresFeatures:`, building.requiresFeatures);
+    console.log(`  - Requirements:`, building.requirements);
     
     // Check feature requirements - Province must have AT LEAST ONE required feature
     if (building.requiresFeatures && Array.isArray(building.requiresFeatures) && building.requiresFeatures.length > 0) {
@@ -398,40 +404,49 @@ export function getAvailableBuildings(
         feature && provinceFeatures.includes(feature)
       );
       if (!hasAnyRequiredFeature) {
-        console.log(`Building ${building.name} filtered out - no matching features. Requires ANY of: ${building.requiresFeatures.join(', ')}, Province has: ${provinceFeatures.join(', ')}`);
+        console.log(`❌ Building ${building.name} filtered out - no matching features. Requires ANY of: [${building.requiresFeatures.join(', ')}], Province has: [${provinceFeatures.join(', ')}]`);
         return false;
+      } else {
+        console.log(`✅ Building ${building.name} passed feature check`);
       }
+    } else {
+      console.log(`✅ Building ${building.name} has no feature requirements (globally constructible)`);
     }
-    // If no requiresFeatures, treat as globally constructible
+    // If no requiresFeatures or empty array, treat as globally constructible
     
     // Check basic requirements
     if (building.requirements?.infrastructure && province.infrastructure.roads < building.requirements.infrastructure) {
-      console.log(`Building ${building.name} filtered out - insufficient infrastructure. Requires: ${building.requirements.infrastructure}, Province has: ${province.infrastructure.roads}`);
+      console.log(`❌ Building ${building.name} filtered out - insufficient infrastructure. Requires: ${building.requirements.infrastructure}, Province has: ${province.infrastructure.roads}`);
       return false;
+    } else if (building.requirements?.infrastructure) {
+      console.log(`✅ Building ${building.name} passed infrastructure check`);
     }
     
     // Check technology requirements
     if (building.requirements?.technology && !(completedTech || []).includes(building.requirements.technology)) {
-      console.log(`Building ${building.name} filtered out - missing technology: ${building.requirements.technology}`);
+      console.log(`❌ Building ${building.name} filtered out - missing technology: ${building.requirements.technology}`);
       return false;
+    } else if (building.requirements?.technology) {
+      console.log(`✅ Building ${building.name} passed tech check`);
     }
     
     // Check special requirements (coastal, rural, etc.) - legacy support
     if (building.requirements?.coastal && !isCoastalProvince(province)) {
-      console.log(`Building ${building.name} filtered out - not coastal`);
+      console.log(`❌ Building ${building.name} filtered out - not coastal`);
       return false;
     }
     
     if (building.requirements?.rural && !isRuralProvince(province)) {
-      console.log(`Building ${building.name} filtered out - not rural`);
+      console.log(`❌ Building ${building.name} filtered out - not rural`);
       return false;
     }
     
-    console.log(`Building ${building.name} passed all filters`);
+    console.log(`✅ Building ${building.name} passed ALL filters!`);
     return true;
   });
   
-  console.log(`Filtered ${filtered.length} available buildings from ${buildings.length} total buildings for province ${province.name}`);
+  console.log(`🎯 Filtered ${filtered.length} available buildings from ${buildings.length} total buildings for province ${province.name}`);
+  console.log(`🎯 Available buildings:`, filtered.map(b => b.name));
   return filtered;
 }
 

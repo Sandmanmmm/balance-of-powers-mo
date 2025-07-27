@@ -6,6 +6,7 @@ import { ProvinceInfoPanel } from './components/ProvinceInfoPanel';
 import { GameDashboard } from './components/GameDashboard';
 import { GameDataDebug } from './components/GameDataDebug';
 import { ResourcesDebug } from './components/ResourcesDebug';
+import { BuildingsDebug } from './components/BuildingsDebug';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -164,6 +165,9 @@ function App() {
           <div className="mt-4">
             <ResourcesDebug />
           </div>
+          <div className="mt-4">
+            <BuildingsDebug />
+          </div>
         </div>
       </div>
     );
@@ -221,6 +225,9 @@ function App() {
           </p>
           <div className="mt-4">
             <GameDataDebug />
+          </div>
+          <div className="mt-4">
+            <BuildingsDebug />
           </div>
         </div>
       </div>

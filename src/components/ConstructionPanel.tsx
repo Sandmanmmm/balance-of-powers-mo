@@ -65,7 +65,12 @@ export function ConstructionPanel({
       try {
         const buildings = await getBuildings();
         console.log('🏗️ All buildings loaded:', buildings?.length || 0);
-        console.log('🔧 Raw buildings data:', buildings?.slice(0, 3) || []);
+        console.log('🔧 Raw buildings data (first 3):', buildings?.slice(0, 3) || []);
+        console.log('🔧 Buildings structure check:', {
+          isArray: Array.isArray(buildings),
+          firstBuildingKeys: buildings?.[0] ? Object.keys(buildings[0]) : 'no buildings',
+          firstBuildingStructure: buildings?.[0] || 'no first building'
+        });
         setAllBuildings(buildings || []);
         
         if (province && nation) {
@@ -86,6 +91,12 @@ export function ConstructionPanel({
             (!b.requirements?.infrastructure || b.requirements.infrastructure <= (province.infrastructure?.roads || 0))
           ) || [];
           console.log(`🆓 Buildings with no feature requirements and low infrastructure:`, noRequirementBuildings.map(b => `${b.name} (infra: ${b.requirements?.infrastructure || 0})`) || []);
+          
+          // Check basic buildings specifically
+          const basicBuildings = buildings?.filter(b => 
+            b.id && (b.id.startsWith('basic_') || b.id === 'infrastructure')
+          ) || [];
+          console.log(`🟢 Basic buildings found:`, basicBuildings.map(b => `${b.name} (id: ${b.id})`) || []);
         } else {
           setAvailableBuildings([]);
         }

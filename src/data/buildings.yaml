@@ -974,3 +974,153 @@ buildings:
     requirements:
       infrastructure: 1
     icon: "🌲"
+
+  # === BASIC BUILDINGS (AVAILABLE EVERYWHERE) ===
+  
+  - id: "basic_housing"
+    name: "Housing Complex"
+    description: "Basic residential housing for growing populations"
+    category: "civilian"
+    cost: 600
+    buildTime: 80
+    produces: {}
+    consumes:
+      manpower: 40
+      steel: 2
+    improves:
+      population_capacity: 1000
+      housing_quality: 1
+      employment: 150
+    requiresFeatures: []
+    requirements:
+      infrastructure: 1
+    icon: "🏠"
+
+  - id: "basic_factory"
+    name: "Light Industry"
+    description: "Small-scale manufacturing and production"
+    category: "industrial"
+    cost: 800
+    buildTime: 100
+    produces:
+      consumer_goods: 15
+    consumes:
+      electricity: 20
+      manpower: 80
+    improves:
+      industry: 1
+      gdp_modifier: 0.05
+      employment: 300
+    requiresFeatures: []
+    requirements:
+      infrastructure: 1
+    icon: "🏗️"
+
+  - id: "basic_power_plant"
+    name: "Power Plant"
+    description: "Basic electricity generation facility"
+    category: "energy"
+    cost: 1200
+    buildTime: 120
+    produces:
+      electricity: 100
+    consumes:
+      oil: 30
+      manpower: 50
+    improves:
+      energy_security: 1
+      employment: 200
+    requiresFeatures: []
+    requirements:
+      infrastructure: 1
+    icon: "⚡"
+
+  - id: "basic_school"
+    name: "Elementary School"
+    description: "Basic education facility for children"
+    category: "civilian"
+    cost: 500
+    buildTime: 60
+    produces: {}
+    consumes:
+      electricity: 5
+      manpower: 30
+    improves:
+      education_level: 1
+      stability: 1
+      employment: 100
+    requiresFeatures: []
+    requirements: {}
+    icon: "🏫"
+
+  - id: "basic_clinic"
+    name: "Medical Clinic"
+    description: "Basic healthcare facility"
+    category: "civilian"
+    cost: 400
+    buildTime: 50
+    produces: {}
+    consumes:
+      electricity: 3
+      manpower: 20
+      consumer_goods: 2
+    improves:
+      healthcare_level: 1
+      stability: 1
+      employment: 60
+    requiresFeatures: []
+    requirements: {}
+    icon: "⚕️"
+
+  - id: "basic_workshop"
+    name: "Workshop"
+    description: "Small crafting and repair facility"
+    category: "industrial"
+    cost: 300
+    buildTime: 40
+    produces:
+      steel: 5
+    consumes:
+      electricity: 8
+      manpower: 25
+    improves:
+      employment: 100
+      local_industry: 1
+    requiresFeatures: []
+    requirements: {}
+    icon: "🔧"
+
+  - id: "basic_market"
+    name: "Local Market"
+    description: "Trading post for local commerce"
+    category: "commercial"
+    cost: 250
+    buildTime: 30
+    produces:
+      consumer_goods: 8
+    consumes:
+      manpower: 15
+    improves:
+      trade_efficiency: 0.05
+      gdp_modifier: 0.02
+      employment: 80
+    requiresFeatures: []
+    requirements: {}
+    icon: "🏪"
+
+  - id: "basic_warehouse"
+    name: "Storage Warehouse"
+    description: "Basic storage facility for goods"
+    category: "storage"
+    cost: 400
+    buildTime: 50
+    produces: {}
+    consumes:
+      manpower: 10
+      steel: 1
+    improves:
+      storage_capacity: 500
+      trade_capacity: 2
+    requiresFeatures: []
+    requirements: {}
+    icon: "📦"
