@@ -2688,3 +2688,139 @@ buildings:
     requirements:
       infrastructure: 2
     icon: "🏕️"
+
+  # === SPECIALIZED TERRITORY BUILDINGS ===
+
+  - id: "diplomatic_center"
+    name: "Diplomatic Center"
+    description: "International diplomatic mission and embassy complex"
+    category: "government"
+    cost: 12000
+    buildTime: 300
+    produces:
+      diplomatic: 200
+      international_relations: 150
+      government: 80
+    consumes:
+      electricity: 80
+      manpower: 200
+      luxury_goods: 50
+    improves:
+      diplomatic_influence: 10
+      international_trade: 6
+      employment: 800
+    requiresFeatures:
+      - "diplomatic"
+      - "government"
+    requirements:
+      infrastructure: 4
+    icon: "🏛️"
+
+  - id: "monument_complex"
+    name: "National Monument Complex"
+    description: "Historic monuments and cultural landmarks"
+    category: "tourism"
+    cost: 8000
+    buildTime: 200
+    produces:
+      tourism: 300
+      cultural_influence: 200
+      education: 100
+    consumes:
+      electricity: 40
+      manpower: 150
+      maintenance: 30
+    improves:
+      cultural_heritage: 8
+      tourism_income: 12
+      national_pride: 6
+      employment: 600
+    requiresFeatures:
+      - "monuments"
+      - "cultural"
+    requirements:
+      infrastructure: 3
+    icon: "🗽"
+
+  - id: "pharmaceutical_plant"
+    name: "Pharmaceutical Manufacturing Plant"
+    description: "Advanced drug and medical equipment production facility"
+    category: "manufacturing"
+    cost: 15000
+    buildTime: 350
+    produces:
+      pharmaceuticals: 250
+      medical_supplies: 180
+      biotechnology: 120
+    consumes:
+      electricity: 120
+      manpower: 300
+      chemicals: 80
+      water: 60
+    improves:
+      healthcare: 8
+      research: 6
+      employment: 1200
+      export_revenue: 15
+    requiresFeatures:
+      - "pharmaceutical"
+      - "urban"
+    requirements:
+      infrastructure: 4
+      technology: "biotechnology"
+    icon: "💊"
+
+  - id: "caribbean_resort"
+    name: "Caribbean Resort Complex"
+    description: "Large-scale tropical resort and entertainment complex"
+    category: "tourism"
+    cost: 10000
+    buildTime: 250
+    produces:
+      tourism: 400
+      entertainment: 200
+      hospitality: 180
+    consumes:
+      electricity: 100
+      manpower: 400
+      food: 120
+      water: 80
+    improves:
+      tourism_income: 20
+      employment: 1600
+      local_economy: 12
+      cultural_exchange: 8
+    requiresFeatures:
+      - "caribbean"
+      - "tropical"
+      - "coastal"
+    requirements:
+      infrastructure: 3
+    icon: "🏝️"
+
+  - id: "federal_security_complex"
+    name: "Federal Security Complex"
+    description: "High-security government and intelligence facility"
+    category: "government"
+    cost: 20000
+    buildTime: 400
+    produces:
+      security: 300
+      intelligence: 200
+      government: 150
+    consumes:
+      electricity: 150
+      manpower: 500
+      advanced_technology: 100
+    improves:
+      national_security: 15
+      intelligence_capability: 12
+      government_efficiency: 8
+      employment: 2000
+    requiresFeatures:
+      - "federal_district"
+      - "government"
+    requirements:
+      infrastructure: 5
+      technology: "cybersecurity"
+    icon: "🔒"

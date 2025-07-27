@@ -1551,3 +1551,132 @@ provinces:
           level: 4
         - type: "ranch"
           level: 4
+
+  USA_DC:
+    name: "Washington D.C."
+    country: "United States"
+    coordinates: [38.9072, -77.0369]
+    features:
+      - "government"
+      - "urban"
+      - "political_center"
+      - "diplomatic"
+      - "cultural"
+      - "highly_educated"
+      - "federal_district"
+      - "lobbying"
+      - "monuments"
+    population:
+      total: 705000
+      ethnic_groups:
+        - group: "Black"
+          percent: 45.4
+        - group: "White"
+          percent: 38.0
+        - group: "Hispanic"
+          percent: 11.3
+        - group: "Asian"
+          percent: 4.1
+        - group: "Other"
+          percent: 1.2
+    unrest: 4.5
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 5
+      education: 5
+    resource_deposits:
+      oil: 0
+      steel: 25
+      rare_earth: 85
+      uranium: 0
+      food: 85
+    military:
+      stationed_units:
+        - "USA_GOV_1"
+        - "USA_SEC_1"
+      fortification_level: 5
+    resource_output:
+      energy: 2500
+      political_power: 25000
+      government: 18500
+      diplomatic: 12500
+      cultural_influence: 8500
+    politics:
+      party_support:
+        "Democratic Party": 92.1
+        "Republican Party": 5.4
+        "Other": 2.5
+    buildings:
+      active:
+        - type: "government_complex"
+          level: 5
+        - type: "diplomatic_center"
+          level: 5
+        - type: "monument_complex"
+          level: 4
+
+  USA_PR:
+    name: "Puerto Rico"
+    country: "United States"
+    coordinates: [18.2208, -66.5901]
+    features:
+      - "tropical"
+      - "coastal"
+      - "tourism"
+      - "pharmaceutical"
+      - "manufacturing"
+      - "caribbean"
+      - "unincorporated_territory"
+      - "bilingual"
+      - "strategic"
+    population:
+      total: 3190000
+      ethnic_groups:
+        - group: "Hispanic"
+          percent: 98.9
+        - group: "White"
+          percent: 75.8
+        - group: "Black"
+          percent: 12.4
+        - group: "Asian"
+          percent: 0.2
+        - group: "Other"
+          percent: 11.6
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 85
+      rare_earth: 185
+      uranium: 0
+      food: 3500
+      limestone: 2850
+    military:
+      stationed_units:
+        - "USA_CAR_1"
+      fortification_level: 3
+    resource_output:
+      energy: 3500
+      tourism: 6500
+      pharmaceuticals: 8500
+      manufacturing: 4500
+      agriculture: 3500
+    politics:
+      party_support:
+        "Popular Democratic Party": 48.7
+        "New Progressive Party": 44.2
+        "Puerto Rican Independence Party": 4.1
+        "Other": 3.0
+    buildings:
+      active:
+        - type: "pharmaceutical_plant"
+          level: 4
+        - type: "resort_complex"
+          level: 3
+        - type: "manufacturing_facility"
+          level: 3

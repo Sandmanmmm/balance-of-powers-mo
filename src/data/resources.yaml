@@ -130,3 +130,53 @@ resources:
     description: "Maximum digital information storage"
     unit: "TB"
     base_price: 0
+
+  # Specialized Government & Territory Resources
+  political_power:
+    name: "Political Power"
+    category: "government"
+    description: "Influence and authority in domestic and international affairs"
+    unit: "points"
+    base_price: 0
+
+  diplomatic:
+    name: "Diplomatic Influence"
+    category: "government"
+    description: "International diplomatic relations and soft power"
+    unit: "points"
+    base_price: 0
+
+  government:
+    name: "Government Efficiency"
+    category: "government"
+    description: "Administrative capability and bureaucratic effectiveness"
+    unit: "points"
+    base_price: 0
+
+  cultural_influence:
+    name: "Cultural Influence"
+    category: "soft_power"
+    description: "Cultural and ideological impact on other nations"
+    unit: "points"
+    base_price: 0
+
+  pharmaceuticals:
+    name: "Pharmaceuticals"
+    category: "medical"
+    description: "Medical drugs and pharmaceutical products"
+    unit: "units"
+    base_price: 1200
+
+  tourism:
+    name: "Tourism Revenue"
+    category: "economic"
+    description: "Income from tourism and hospitality services"
+    unit: "revenue"
+    base_price: 0
+
+  manufacturing:
+    name: "Manufacturing Output"
+    category: "industrial"
+    description: "General manufacturing and production output"
+    unit: "units"
+    base_price: 300
