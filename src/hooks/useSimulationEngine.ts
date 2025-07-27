@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { GameState, Province, Nation, GameEvent, Technology } from '../lib/types';
 import { getBuildingById, getResources, type Resource } from '../data/gameData';
+import { sampleEvents, sampleTechnologies } from '../lib/gameData';
 import { toast } from 'sonner';
 import { 
   calculateResourceShortageEffects, 
@@ -1474,7 +1475,10 @@ function processTradeSystem(
         
         // Notify if offer is to player
         if (tradeOffer.toNation === context.gameState.selectedNation) {
-          const resourceNames = Object.keys(tradeOffer.offering || {}).map(id => resourcesData[id]?.name).filter(Boolean);
+          const resourceNames = Object.keys(tradeOffer.offering || {}).map(id => {
+            const resource = resources.find(r => r.id === id);
+            return resource?.name;
+          }).filter(Boolean);
           sendTradeNotification('offer_received', {
             fromNation: nation.name,
             resources: resourceNames
