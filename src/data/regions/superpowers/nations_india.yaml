@@ -1,103 +1,102 @@
 # India - Superpower Nation Data
 
-nations:
-  IND:
-    name: "Republic of India"
-    capital: "New Delhi"
-    flag: "🇮🇳"
-    government:
-      type: "federal_democracy"
-      leader: "Narendra Modi"
-      approval: 66.4
-      stability: 68.9
-      ruling_party: "Bharatiya Janata Party"
-      ideology: "Hindu Nationalism"
-      election_cycle: 5
-      last_election: "2024-06-04"
-      parliamentary_system: true
-    economy:
-      gdp: 3737000000000
-      debt: 2140000000000
-      inflation: 4.1
-      trade_balance: -267000000000
-      treasury: 425000000000
-      currency: "INR"
-      interest_rate: 6.5
-      sectors:
-        manufacturing: 15.6
-        services: 54.4
-        agriculture: 18.8
-        technology: 11.2
-    military:
-      manpower: 1455000
-      equipment: 76
-      readiness: 81
-      doctrine: "Cold Start"
-      nuclear_capability: true
-      nuclear_warheads: 164
-      military_spending_gdp: 2.4
-      conscription: false
-      reserve_forces: 1155000
-    technology:
-      researchPoints: 2100
-      currentResearch:
-        - "Space Technology"
-        - "Nuclear Technology"
-        - "IT Services"
-        - "Renewable Energy"
-        - "Pharmaceutical"
-      completedTech:
-        - "IT Technology"
-        - "Space Technology"
-        - "Nuclear Technology"
-        - "Pharmaceutical"
-        - "Software Development"
-        - "Mobile Technology"
-    demographics:
-      total_population: 1428600000
-      age_groups:
-        youth: 26.2
-        adult: 67.3
-        elderly: 6.5
-      ethnic_composition:
-        Indo_Aryan: 72.0
-        Dravidian: 25.0
-        Mongoloid: 3.0
-      religious_composition:
-        Hindu: 79.8
-        Muslim: 14.2
-        Christian: 2.3
-        Sikh: 1.7
-        Other: 2.0
-    resources:
-      stockpiles:
-        oil: 15000000
-        food: 18500000
-        electricity: 7200000
-        steel: 1850000
-        technology: 650000
-        manpower: 512000000
-        water: 28000000
-        coal: 45000000
-    foreign_relations:
-      allies:
-        - "USA"
-        - "JPN"
-        - "AUS"
-        - "FRA"
-        - "ISR"
-      rivals:
-        - "CHN"
-        - "PAK"
-      trade_partners:
-        - "USA"
-        - "CHN"
-        - "UAE"
-        - "SAU"
-        - "GER"
-    policies:
-      tax_level: "moderate"
-      military_doctrine: "defensive"
-      trade_policy: "mixed"
-      immigration_policy: "moderate"
-      environmental_policy: "developing"
+- id: IND
+  name: "Republic of India"
+  capital: "New Delhi"
+  flag: "🇮🇳"
+  government:
+    type: "federal_democracy"
+    leader: "Narendra Modi"
+    approval: 66.4
+    stability: 68.9
+    ruling_party: "Bharatiya Janata Party"
+    ideology: "Hindu Nationalism"
+    election_cycle: 5
+    last_election: "2024-06-04"
+    parliamentary_system: true
+  economy:
+    gdp: 3737000000000
+    debt: 2140000000000
+    inflation: 4.1
+    trade_balance: -267000000000
+    treasury: 425000000000
+    currency: "INR"
+    interest_rate: 6.5
+    sectors:
+      manufacturing: 15.6
+      services: 54.4
+      agriculture: 18.8
+      technology: 11.2
+  military:
+    manpower: 1455000
+    equipment: 76
+    readiness: 81
+    doctrine: "Cold Start"
+    nuclear_capability: true
+    nuclear_warheads: 164
+    military_spending_gdp: 2.4
+    conscription: false
+    reserve_forces: 1155000
+  technology:
+    researchPoints: 2100
+    currentResearch:
+      - "Space Technology"
+      - "Nuclear Technology"
+      - "IT Services"
+      - "Renewable Energy"
+      - "Pharmaceutical"
+    completedTech:
+      - "IT Technology"
+      - "Space Technology"
+      - "Nuclear Technology"
+      - "Pharmaceutical"
+      - "Software Development"
+      - "Mobile Technology"
+  demographics:
+    total_population: 1428600000
+    age_groups:
+      youth: 26.2
+      adult: 67.3
+      elderly: 6.5
+    ethnic_composition:
+      Indo_Aryan: 72.0
+      Dravidian: 25.0
+      Mongoloid: 3.0
+    religious_composition:
+      Hindu: 79.8
+      Muslim: 14.2
+      Christian: 2.3
+      Sikh: 1.7
+      Other: 2.0
+  resources:
+    stockpiles:
+      oil: 15000000
+      food: 18500000
+      electricity: 7200000
+      steel: 1850000
+      technology: 650000
+      manpower: 512000000
+      water: 28000000
+      coal: 45000000
+  foreign_relations:
+    allies:
+      - "USA"
+      - "JPN"
+      - "AUS"
+      - "FRA"
+      - "ISR"
+    rivals:
+      - "CHN"
+      - "PAK"
+    trade_partners:
+      - "USA"
+      - "CHN"
+      - "UAE"
+      - "SAU"
+      - "GER"
+  policies:
+    tax_level: "moderate"
+    military_doctrine: "defensive"
+    trade_policy: "mixed"
+    immigration_policy: "moderate"
+    environmental_policy: "developing"

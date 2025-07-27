@@ -9,6 +9,7 @@ import { ResourcesDebug } from './components/ResourcesDebug';
 import { BuildingsDebug } from './components/BuildingsDebug';
 import { BuildingAvailabilityDebug } from './components/BuildingAvailabilityDebug';
 import { ChinaMapDebug } from './components/ChinaMapDebug';
+import { IndiaMapDebug } from './components/IndiaMapDebug';
 import { MapSystemStatus } from './components/MapSystemStatus';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
@@ -237,6 +238,9 @@ function App() {
           </div>
           <div className="mt-4">
             <ChinaMapDebug />
+          </div>
+          <div className="mt-4">
+            <IndiaMapDebug />
           </div>
         </div>
       </div>
