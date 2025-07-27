@@ -1,5 +1,5 @@
 import { Province, Nation, GameEvent, Unit, Technology, Building, Resource } from './types';
-import { loadBuildingsFromYAML, loadProvincesFromYAML, loadNationsFromYAML } from './yamlLoader';
+import { loadWorldData, debugAvailableFiles, type WorldData } from '../data/dataLoader';
 
 // Resource definitions
 export const resourcesData: Record<string, Resource> = {
@@ -1843,18 +1843,16 @@ function convertTechnologies(): Technology[] {
   }));
 }
 
-// Initialize async data loading
-let loadedBuildings: Building[] = [];
-let loadedProvinces: Province[] = [];
-let loadedNations: Nation[] = [];
+// Global data cache
+let worldData: WorldData | null = null;
 let isDataInitialized = false;
-let initializationPromise: Promise<void> | null = null;
+let initializationPromise: Promise<WorldData> | null = null;
 
-// Initialize data loading with better error handling
-async function initializeGameData(): Promise<void> {
-  if (isDataInitialized) {
+// Initialize async data loading using the new modular loader
+async function initializeGameData(): Promise<WorldData> {
+  if (isDataInitialized && worldData) {
     console.log('Game data already initialized');
-    return;
+    return worldData;
   }
   
   if (initializationPromise) {
@@ -1864,61 +1862,55 @@ async function initializeGameData(): Promise<void> {
   
   initializationPromise = (async () => {
     try {
-      console.log('Initializing game data from YAML files...');
+      console.log('Initializing game data using modular loader...');
       
-      // Load all data in parallel with individual error handling
-      const [buildings, provinces, nations] = await Promise.allSettled([
-        loadBuildingsFromYAML(),
-        loadProvincesFromYAML(),
-        loadNationsFromYAML()
-      ]);
+      // Debug what files are available
+      debugAvailableFiles();
       
-      // Handle buildings result
-      if (buildings.status === 'fulfilled' && buildings.value.length > 0) {
-        loadedBuildings = buildings.value;
-        console.log(`✓ Loaded ${buildings.value.length} buildings`);
-      } else {
-        console.warn('Failed to load buildings, using fallback');
-        loadedBuildings = convertBuildings();
+      // Load all data using the new modular loader
+      const data = await loadWorldData();
+      
+      console.log(`✓ Modular loader completed: ${data.nations.length} nations, ${data.provinces.length} provinces, ${Object.keys(data.boundaries).length} boundary files`);
+      
+      // Validate that we have the essential data
+      if (data.nations.length === 0) {
+        console.warn('No nations loaded from modular loader - using fallback');
+        data.nations = convertNations();
       }
       
-      // Handle provinces result
-      if (provinces.status === 'fulfilled' && provinces.value.length > 0) {
-        loadedProvinces = provinces.value;
-        console.log(`✓ Loaded ${provinces.value.length} provinces`);
-        const canadianProvinces = provinces.value.filter(p => p.country === 'Canada');
-        console.log(`✓ ${canadianProvinces.length} Canadian provinces loaded:`, canadianProvinces.map(p => p.name));
-      } else {
-        console.warn('Failed to load provinces, using fallback');
-        loadedProvinces = convertProvinces();
+      if (data.provinces.length === 0) {
+        console.warn('No provinces loaded from modular loader - using fallback');
+        data.provinces = convertProvinces();
       }
       
-      // Handle nations result
-      if (nations.status === 'fulfilled' && nations.value.length > 0) {
-        loadedNations = nations.value;
-        console.log(`✓ Loaded ${nations.value.length} nations`);
-        const canada = nations.value.find(n => n.id === 'CAN');
-        if (canada) {
-          console.log(`✓ Canada found:`, canada.name, 'Leader:', canada.government?.leader);
-        } else {
-          console.warn('⚠ Canada not found in loaded nations');
-        }
-      } else {
-        console.warn('Failed to load nations, using fallback');
-        loadedNations = convertNations();
-      }
-      
+      worldData = data;
       isDataInitialized = true;
-      console.log('Game data initialization completed successfully');
+      
+      // Log some debug info about Canadian data
+      const canada = data.nations.find(n => n.id === 'CAN');
+      if (canada) {
+        console.log('✓ Canada loaded successfully:', canada.name);
+      }
+      
+      const canadianProvinces = data.provinces.filter(p => p.country === 'Canada');
+      console.log(`✓ ${canadianProvinces.length} Canadian provinces loaded:`, canadianProvinces.map(p => p.name));
+      
+      return data;
       
     } catch (error) {
-      console.error('Failed to initialize game data:', error);
+      console.error('Failed to initialize game data using modular loader:', error);
       // Fallback to hardcoded data
-      loadedBuildings = convertBuildings();
-      loadedProvinces = convertProvinces();
-      loadedNations = convertNations();
+      const fallbackData: WorldData = {
+        nations: convertNations(),
+        provinces: convertProvinces(),
+        boundaries: {}
+      };
+      
+      worldData = fallbackData;
       isDataInitialized = true;
       console.log('Using fallback hardcoded data due to initialization error');
+      
+      return fallbackData;
     }
   })();
   
@@ -1927,7 +1919,7 @@ async function initializeGameData(): Promise<void> {
 
 // Don't initialize immediately during module load - let components request it
 
-// Export the converted data
+// Export the converted data (these will be updated by the modular loader)
 export const sampleProvinces: Province[] = [];
 export const sampleNations: Nation[] = [];
 export const sampleEvents: GameEvent[] = convertEvents();
@@ -1935,45 +1927,44 @@ export const gameUnits: Unit[] = convertUnits();
 export const sampleTechnologies: Technology[] = convertTechnologies();
 export const gameBuildings: Building[] = [];
 
-// Load provinces from YAML first, fallback to hardcoded data
+// Initialize data loading automatically when the module loads
+console.log('GameData module loading - will initialize data loader...');
+
+// Eagerly start loading world data
+const eagerInitialize = async () => {
+  try {
+    console.log('Eagerly initializing modular data loader...');
+    await initializeGameData();
+    console.log('Eager initialization completed');
+  } catch (error) {
+    console.error('Eager initialization failed:', error);
+  }
+};
+
+// Start the initialization but don't block module loading
+eagerInitialize();
+
+// Load provinces from modular loader first, fallback to hardcoded data
 export async function getProvinces(): Promise<Province[]> {
   try {
-    console.log('getProvinces() called - trying YAML loader first');
+    console.log('getProvinces() called - using modular loader');
     
-    // Try to load from YAML first
-    const yamlProvinces = await loadProvincesFromYAML();
-    if (yamlProvinces && yamlProvinces.length > 0) {
-      console.log(`getProvinces() loaded ${yamlProvinces.length} provinces from YAML`);
+    const data = await initializeGameData();
+    if (data.provinces && data.provinces.length > 0) {
+      console.log(`getProvinces() loaded ${data.provinces.length} provinces from modular loader`);
       
       // Log Canadian provinces specifically
-      const canadianProvinces = yamlProvinces.filter(p => p.country === 'Canada');
+      const canadianProvinces = data.provinces.filter(p => p.country === 'Canada');
       console.log(`Found ${canadianProvinces.length} Canadian provinces:`, canadianProvinces.map(p => p.name));
       
-      return yamlProvinces;
+      return data.provinces;
     }
     
     // Fallback to hardcoded conversion
-    console.log('YAML loading failed, falling back to hardcoded conversion');
+    console.log('Modular loader returned no provinces, falling back to hardcoded conversion');
     const result = convertProvinces();
     console.log(`getProvinces() converted ${result.length} provinces successfully`);
     
-    if (result.length === 0) {
-      console.error('getProvinces() - convertProvinces returned empty array!');
-      throw new Error('No provinces converted');
-    }
-    
-    // Log first province for debugging
-    if (result.length > 0) {
-      console.log('First province sample:', {
-        id: result[0].id,
-        name: result[0].name,
-        country: result[0].country,
-        hasFeatures: Array.isArray(result[0].features),
-        featuresCount: result[0].features?.length || 0
-      });
-    }
-    
-    console.log(`getProvinces() returning ${result.length} provinces (hardcoded)`);
     return result;
   } catch (error) {
     console.error('Critical error in getProvinces, using emergency fallback:', error);
@@ -2002,73 +1993,43 @@ export async function getProvinces(): Promise<Province[]> {
 
 export async function getNations(): Promise<Nation[]> {
   try {
-    console.log('getNations() called - trying YAML loader first');
+    console.log('getNations() called - using modular loader');
     
-    // Try to load from YAML first
-    const yamlNations = await loadNationsFromYAML();
-    if (yamlNations && yamlNations.length > 0) {
-      console.log(`getNations() loaded ${yamlNations.length} nations from YAML`);
+    const data = await initializeGameData();
+    if (data.nations && data.nations.length > 0) {
+      console.log(`getNations() loaded ${data.nations.length} nations from modular loader`);
       
       // Debug: Log the first few nations to ensure data is correct
-      if (yamlNations.length > 0) {
+      if (data.nations.length > 0) {
         console.log('First nation data:', {
-          id: yamlNations[0].id,
-          name: yamlNations[0].name,
-          capital: yamlNations[0].capital,
-          hasGovernment: !!yamlNations[0].government,
-          hasEconomy: !!yamlNations[0].economy,
-          hasResourceStockpiles: !!yamlNations[0].resourceStockpiles
+          id: data.nations[0].id,
+          name: data.nations[0].name,
+          capital: data.nations[0].capital,
+          hasGovernment: !!data.nations[0].government,
+          hasEconomy: !!data.nations[0].economy,
+          hasResourceStockpiles: !!data.nations[0].resourceStockpiles
         });
         
-        const canada = yamlNations.find(n => n.id === 'CAN');
+        const canada = data.nations.find(n => n.id === 'CAN');
         if (canada) {
-          console.log('Canada data verified from YAML:', {
+          console.log('Canada data verified from modular loader:', {
             name: canada.name,
             leader: canada.government?.leader,
             capital: canada.capital
           });
         } else {
-          console.error('Canada not found in YAML nations!');
+          console.error('Canada not found in modular loader nations!');
         }
       }
       
-      return yamlNations;
+      return data.nations;
     }
     
     // Fallback to hardcoded conversion
-    console.log('YAML loading failed, falling back to hardcoded conversion');
+    console.log('Modular loader returned no nations, falling back to hardcoded conversion');
     const result = convertNations();
     console.log(`getNations() converted ${result.length} nations successfully`);
     
-    if (result.length === 0) {
-      console.error('getNations() - convertNations returned empty array!');
-      throw new Error('No nations converted');
-    }
-    
-    // Debug: Log the first few nations to ensure data is correct
-    if (result.length > 0) {
-      console.log('First nation data:', {
-        id: result[0].id,
-        name: result[0].name,
-        capital: result[0].capital,
-        hasGovernment: !!result[0].government,
-        hasEconomy: !!result[0].economy,
-        hasResourceStockpiles: !!result[0].resourceStockpiles
-      });
-      
-      const canada = result.find(n => n.id === 'CAN');
-      if (canada) {
-        console.log('Canada data verified:', {
-          name: canada.name,
-          leader: canada.government?.leader,
-          capital: canada.capital
-        });
-      } else {
-        console.error('Canada not found in converted nations!');
-      }
-    }
-    
-    console.log(`getNations() returning ${result.length} nations (hardcoded)`);
     return result;
   } catch (error) {
     console.error('Critical error in getNations, using emergency fallback:', error);
@@ -2162,19 +2123,16 @@ export async function loadGameData(): Promise<{
   boundaries: any;
 }> {
   try {
-    console.log('loadGameData called - loading all data');
+    console.log('loadGameData called - loading all data using modular loader');
     
-    const [provinces, nations] = await Promise.all([
-      getProvinces(),
-      getNations()
-    ]);
+    const data = await initializeGameData();
     
-    console.log(`loadGameData returning ${provinces.length} provinces and ${nations.length} nations`);
+    console.log(`loadGameData returning ${data.provinces.length} provinces and ${data.nations.length} nations`);
     
     return {
-      provinces,
-      nations,
-      boundaries: { features: [] } // Placeholder for now
+      provinces: data.provinces,
+      nations: data.nations,
+      boundaries: data.boundaries || { features: [] }
     };
   } catch (error) {
     console.error('Error in loadGameData:', error);
@@ -2197,7 +2155,12 @@ export async function getNationById(id: string): Promise<Nation | undefined> {
 }
 
 export function getProvincesByCountry(country: string): Province[] {
-  const provinces = loadedProvinces.length > 0 ? loadedProvinces : convertProvinces();
+  if (worldData && worldData.provinces) {
+    return worldData.provinces.filter(province => province.country === country);
+  }
+  
+  // Fallback to hardcoded data
+  const provinces = convertProvinces();
   return provinces.filter(province => province.country === country);
 }
 
@@ -2329,8 +2292,18 @@ function isRuralProvince(province: Province): boolean {
 
 export function validateGameData(): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
-  const provinces = loadedProvinces.length > 0 ? loadedProvinces : convertProvinces();
-  const nations = loadedNations.length > 0 ? loadedNations : convertNations();
+  
+  let provinces: Province[] = [];
+  let nations: Nation[] = [];
+  
+  if (worldData) {
+    provinces = worldData.provinces;
+    nations = worldData.nations;
+  } else {
+    // Fallback to hardcoded data
+    provinces = convertProvinces();
+    nations = convertNations();
+  }
 
   // Validate provinces
   if (provinces.length === 0) {

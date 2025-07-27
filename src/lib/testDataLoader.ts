@@ -1,34 +1,40 @@
-// Test file to verify data loading works
-import { loadGameData } from './gameDataModular';
+import { loadWorldData, debugAvailableFiles } from '../data/dataLoader';
 
-export async function testDataLoading() {
-  console.log('=== Testing Data Loading ===');
+export async function testDataLoading(): Promise<void> {
+  console.log('=== Testing Modular Data Loader ===');
   
   try {
-    console.log('Calling loadGameData()...');
-    const result = await loadGameData();
+    // First debug available files
+    console.log('1. Debugging available files...');
+    debugAvailableFiles();
     
-    console.log('Result type:', typeof result);
-    console.log('Result keys:', Object.keys(result));
-    console.log('Provinces:', typeof result.provinces, Array.isArray(result.provinces) ? result.provinces.length : 'NOT_ARRAY');
-    console.log('Nations:', typeof result.nations, Array.isArray(result.nations) ? result.nations.length : 'NOT_ARRAY');
+    // Then try to load the data
+    console.log('2. Loading world data...');
+    const data = await loadWorldData();
     
-    if (Array.isArray(result.provinces) && result.provinces.length > 0) {
-      console.log('First province:', result.provinces[0]);
-      console.log('Canadian provinces:', result.provinces.filter(p => p.country === 'Canada').map(p => `${p.id}: ${p.name}`));
+    console.log('3. Results:');
+    console.log(`- Nations loaded: ${data.nations.length}`);
+    console.log(`- Provinces loaded: ${data.provinces.length}`);
+    console.log(`- Boundaries loaded: ${Object.keys(data.boundaries).length}`);
+    
+    // Check for Canada specifically
+    const canada = data.nations.find(n => n.id === 'CAN');
+    if (canada) {
+      console.log('✓ Canada found:', canada.name);
+    } else {
+      console.error('✗ Canada not found!');
     }
     
-    if (Array.isArray(result.nations) && result.nations.length > 0) {
-      console.log('First nation:', result.nations[0]);
-      console.log('Canada nation:', result.nations.find(n => n.id === 'CAN'));
-    }
+    // Check for Canadian provinces
+    const canadianProvinces = data.provinces.filter(p => p.country === 'Canada');
+    console.log(`✓ Canadian provinces: ${canadianProvinces.length}`);
+    canadianProvinces.forEach(p => console.log(`  - ${p.id}: ${p.name}`));
     
-    console.log('=== Test completed successfully ===');
-    return result;
+    console.log('=== Data Loading Test Complete ===');
     
   } catch (error) {
-    console.error('=== Test failed ===');
+    console.error('=== Data Loading Test Failed ===');
     console.error('Error:', error);
-    throw error;
+    console.error('Stack:', error instanceof Error ? error.stack : 'No stack trace');
   }
 }
