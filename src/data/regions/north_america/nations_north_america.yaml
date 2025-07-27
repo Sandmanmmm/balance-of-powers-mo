@@ -71,8 +71,13 @@ nations:
         technology: 185000
         manpower: 20500000
         water: 85000000
-        lumber: 15000000
         uranium: 850000
+        rare_earth: 75000
+        consumer_goods: 1500000
+        semiconductors: 125000
+        research: 850
+        energy: 2800000
+        industrial_capacity: 500000
     foreign_relations:
       allies:
         - "USA"
@@ -161,7 +166,13 @@ nations:
         technology: 95000
         manpower: 65500000
         water: 12500000
-        silver: 2500000
+        uranium: 25000
+        rare_earth: 45000
+        consumer_goods: 850000
+        semiconductors: 65000
+        research: 425
+        energy: 1850000
+        industrial_capacity: 320000
     foreign_relations:
       allies:
         - "USA"

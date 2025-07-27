@@ -208,10 +208,18 @@ export async function loadWorldData(): Promise<WorldData> {
         const mod = await boundariesModules[path]() as any;
         
         // Handle different boundary file structures
-        if (mod.default) {
-          Object.assign(boundaries, mod.default);
-        } else {
-          Object.assign(boundaries, mod);
+        let boundaryData = mod.default || mod;
+        
+        if (boundaryData && boundaryData.type === 'FeatureCollection' && boundaryData.features) {
+          // Convert GeoJSON FeatureCollection to individual feature objects
+          boundaryData.features.forEach((feature: any) => {
+            if (feature.properties && feature.properties.id) {
+              boundaries[feature.properties.id] = feature;
+            }
+          });
+        } else if (boundaryData && typeof boundaryData === 'object') {
+          // Handle object format directly
+          Object.assign(boundaries, boundaryData);
         }
         
         console.log(`DataLoader: Successfully loaded ${path}`);

@@ -176,6 +176,210 @@
           [-101.2111, 27.7738]
         ]]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CAN_007",
+        "name": "New Brunswick"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-69.0564, 47.4593],
+          [-64.0657, 47.4593],
+          [-64.0657, 44.5990],
+          [-69.0564, 44.5990],
+          [-69.0564, 47.4593]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CAN_008",
+        "name": "Nova Scotia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-66.3249, 47.0357],
+          [-59.7284, 47.0357],
+          [-59.7284, 43.3736],
+          [-66.3249, 43.3736],
+          [-66.3249, 47.0357]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CAN_009",
+        "name": "Prince Edward Island"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-64.4177, 47.0636],
+          [-62.0000, 47.0636],
+          [-62.0000, 45.9574],
+          [-64.4177, 45.9574],
+          [-64.4177, 47.0636]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CAN_010",
+        "name": "Newfoundland and Labrador"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-67.8063, 60.3728],
+          [-52.6480, 60.3728],
+          [-52.6480, 46.5653],
+          [-67.8063, 46.5653],
+          [-67.8063, 60.3728]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CAN_011",
+        "name": "Yukon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-141.0029, 69.6439],
+          [-123.7000, 69.6439],
+          [-123.7000, 60.0000],
+          [-141.0029, 60.0000],
+          [-141.0029, 69.6439]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CAN_012",
+        "name": "Northwest Territories"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-136.2692, 78.7000],
+          [-102.0000, 78.7000],
+          [-102.0000, 60.0000],
+          [-136.2692, 60.0000],
+          [-136.2692, 78.7000]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CAN_013",
+        "name": "Nunavut"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-120.0000, 83.1101],
+          [-61.4052, 83.1101],
+          [-61.4052, 60.0000],
+          [-120.0000, 60.0000],
+          [-120.0000, 83.1101]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_004",
+        "name": "Veracruz"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-98.6250, 22.4537],
+          [-93.5547, 22.4537],
+          [-93.5547, 17.1274],
+          [-98.6250, 17.1274],
+          [-98.6250, 22.4537]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_005",
+        "name": "Yucatán"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-90.5232, 21.6052],
+          [-87.5381, 21.6052],
+          [-87.5381, 19.6426],
+          [-90.5232, 19.6426],
+          [-90.5232, 21.6052]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_006",
+        "name": "Baja California"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-117.1258, 32.7187],
+          [-109.4512, 32.7187],
+          [-109.4512, 28.0000],
+          [-117.1258, 28.0000],
+          [-117.1258, 32.7187]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_007",
+        "name": "Chihuahua"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-109.4512, 31.7872],
+          [-103.2504, 31.7872],
+          [-103.2504, 25.6406],
+          [-109.4512, 25.6406],
+          [-109.4512, 31.7872]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEX_008",
+        "name": "Sonora"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-115.0421, 32.5175],
+          [-108.2070, 32.5175],
+          [-108.2070, 26.0444],
+          [-115.0421, 26.0444],
+          [-115.0421, 32.5175]
+        ]]
+      }
     }
   ]
 }
