@@ -202,8 +202,8 @@ export function NationOverviewPanel({
     const decision = decisions.find(d => d.id === decisionId);
     const choice = decision?.choices[choiceIndex];
     
-    if (choice?.cost && nation.economy.treasury < choice.cost) {
-      toast.error(`Insufficient funds. Need ${formatCurrency(choice.cost)} but only have ${formatCurrency(nation.economy.treasury)}`);
+    if (choice?.cost && (nation.economy?.treasury ?? 0) < choice.cost) {
+      toast.error(`Insufficient funds. Need ${formatCurrency(choice.cost)} but only have ${formatCurrency(nation.economy?.treasury ?? 0)}`);
       return;
     }
     
@@ -225,9 +225,9 @@ export function NationOverviewPanel({
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Crown className="w-4 h-4" />
-            <span>{nation.government.leader}</span>
+            <span>{nation.government?.leader ?? 'Unknown Leader'}</span>
             <Badge variant="outline" className="text-xs">
-              {nation.government.type}
+              {nation.government?.type ?? 'Unknown Type'}
             </Badge>
           </div>
         </div>
@@ -252,9 +252,9 @@ export function NationOverviewPanel({
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold">{formatCurrency(nation.economy.treasury)}</div>
+                <div className="text-lg font-bold">{formatCurrency(nation.economy?.treasury ?? 0)}</div>
                 <div className="text-xs text-muted-foreground">
-                  GDP: {formatCurrency(nation.economy.gdp)}
+                  GDP: {formatCurrency(nation.economy?.gdp ?? 0)}
                 </div>
               </CardContent>
             </Card>
@@ -267,8 +267,8 @@ export function NationOverviewPanel({
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold">{nation.government.approval.toFixed(1)}%</div>
-                <Progress value={nation.government.approval} className="h-2" />
+                <div className="text-lg font-bold">{(nation.government?.approval ?? 0).toFixed(1)}%</div>
+                <Progress value={nation.government?.approval ?? 0} className="h-2" />
               </CardContent>
             </Card>
 
@@ -280,7 +280,7 @@ export function NationOverviewPanel({
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold">{nation.military.equipment}%</div>
+                <div className="text-lg font-bold">{nation.military?.equipment ?? 0}%</div>
                 <div className="text-xs text-muted-foreground">
                   Equipment Level
                 </div>
@@ -295,9 +295,9 @@ export function NationOverviewPanel({
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold">Level {nation.technology.level.toFixed(1)}</div>
+                <div className="text-lg font-bold">Level {(nation.technology?.level ?? 0).toFixed(1)}</div>
                 <div className="text-xs text-muted-foreground">
-                  {nation.technology.researchPoints} RP
+                  {nation.technology?.researchPoints ?? 0} RP
                 </div>
               </CardContent>
             </Card>
@@ -309,7 +309,7 @@ export function NationOverviewPanel({
               <CardTitle className="text-sm font-medium">Current Research</CardTitle>
             </CardHeader>
             <CardContent>
-              {nation.technology.currentResearch && Array.isArray(nation.technology.currentResearch) && nation.technology.currentResearch.length > 0 ? (
+              {nation.technology?.currentResearch && Array.isArray(nation.technology.currentResearch) && nation.technology.currentResearch.length > 0 ? (
                 <div className="space-y-2">
                   {nation.technology.currentResearch.map((tech, index) => (
                     <div key={index} className="flex items-center gap-2 p-2 bg-muted rounded">
@@ -463,7 +463,7 @@ export function NationOverviewPanel({
                                 <Button
                                   size="sm"
                                   onClick={() => handleDecisionMake(decision.id, index)}
-                                  disabled={choice.cost ? nation.economy.treasury < choice.cost : false}
+                                  disabled={choice.cost ? (nation.economy?.treasury ?? 0) < choice.cost : false}
                                   className="w-full"
                                 >
                                   Choose This Option
@@ -491,19 +491,19 @@ export function NationOverviewPanel({
               <CardContent className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span>GDP</span>
-                  <span className="font-mono">{formatCurrency(nation.economy.gdp)}</span>
+                  <span className="font-mono">{formatCurrency(nation.economy?.gdp ?? 0)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Debt</span>
-                  <span className="font-mono">{formatCurrency(nation.economy.debt)}</span>
+                  <span className="font-mono">{formatCurrency(nation.economy?.debt ?? 0)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Inflation</span>
-                  <span className="font-mono">{nation.economy.inflation.toFixed(1)}%</span>
+                  <span className="font-mono">{(nation.economy?.inflation ?? 0).toFixed(1)}%</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Trade Balance</span>
-                  <span className="font-mono">{formatCurrency(nation.economy.tradeBalance)}</span>
+                  <span className="font-mono">{formatCurrency(nation.economy?.tradeBalance ?? 0)}</span>
                 </div>
               </CardContent>
             </Card>
@@ -515,19 +515,19 @@ export function NationOverviewPanel({
               <CardContent className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span>Manpower</span>
-                  <span className="font-mono">{nation.military.manpower.toLocaleString()}</span>
+                  <span className="font-mono">{(nation.military?.manpower ?? 0).toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Equipment Level</span>
-                  <span className="font-mono">{nation.military.equipment}%</span>
+                  <span className="font-mono">{nation.military?.equipment ?? 0}%</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Doctrine</span>
-                  <span className="font-mono">{nation.military.doctrine}</span>
+                  <span className="font-mono">{nation.military?.doctrine ?? 'Unknown'}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Nuclear Capability</span>
-                  <span className="font-mono">{nation.military.nuclearCapability ? 'Yes' : 'No'}</span>
+                  <span className="font-mono">{nation.military?.nuclearCapability ? 'Yes' : 'No'}</span>
                 </div>
               </CardContent>
             </Card>
@@ -540,7 +540,7 @@ export function NationOverviewPanel({
                 <div className="space-y-1">
                   <div className="text-xs font-medium">Allies:</div>
                   <div className="flex flex-wrap gap-1">
-                    {nation.diplomacy.allies.map((ally, index) => (
+                    {(nation.diplomacy?.allies ?? []).map((ally, index) => (
                       <Badge key={index} variant="secondary" className="text-xs">
                         {ally}
                       </Badge>
@@ -550,14 +550,14 @@ export function NationOverviewPanel({
                 <div className="space-y-1">
                   <div className="text-xs font-medium">Trade Partners:</div>
                   <div className="flex flex-wrap gap-1">
-                    {nation.diplomacy.tradePartners.slice(0, 5).map((partner, index) => (
+                    {(nation.diplomacy?.tradePartners ?? []).slice(0, 5).map((partner, index) => (
                       <Badge key={index} variant="outline" className="text-xs">
                         {partner}
                       </Badge>
                     ))}
-                    {nation.diplomacy.tradePartners.length > 5 && (
+                    {(nation.diplomacy?.tradePartners ?? []).length > 5 && (
                       <Badge variant="outline" className="text-xs">
-                        +{nation.diplomacy.tradePartners.length - 5} more
+                        +{(nation.diplomacy?.tradePartners ?? []).length - 5} more
                       </Badge>
                     )}
                   </div>

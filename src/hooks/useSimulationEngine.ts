@@ -394,29 +394,29 @@ function simulateNations(
       let inflationChange = (Math.random() - 0.5) * 0.1; // Base random change
       
       // High debt increases inflation pressure
-      const debtRatio = nation.economy.debt / nation.economy.gdp;
+      const debtRatio = (nation.economy?.debt ?? 0) / (nation.economy?.gdp ?? 1);
       if (debtRatio > 1.0) inflationChange += 0.05;
       else if (debtRatio > 0.6) inflationChange += 0.02;
       
       // Trade balance affects inflation
-      if (nation.economy.tradeBalance < 0) inflationChange += 0.03;
+      if ((nation.economy?.tradeBalance ?? 0) < 0) inflationChange += 0.03;
       
       // Technology can help control inflation
-      if (nation.technology.level > 7) inflationChange -= 0.02;
+      if ((nation.technology?.level ?? 0) > 7) inflationChange -= 0.02;
       
-      const newInflation = Math.max(0, Math.min(15, nation.economy.inflation + inflationChange * weeksElapsed));
+      const newInflation = Math.max(0, Math.min(15, (nation.economy?.inflation ?? 0) + inflationChange * weeksElapsed));
       if (!updates.economy) updates.economy = { ...nation.economy };
       updates.economy.inflation = newInflation;
     }
 
     // 4. Military equipment and manpower changes
     if (Math.random() < 0.15 * weeksElapsed) {
-      const militaryBudgetRatio = nation.economy.gdp * 0.03; // Assume 3% of GDP on military
-      const equipmentMaintenance = nation.military.equipment * 0.02; // 2% decay per week
+      const militaryBudgetRatio = (nation.economy?.gdp ?? 0) * 0.03; // Assume 3% of GDP on military
+      const equipmentMaintenance = (nation.military?.equipment ?? 0) * 0.02; // 2% decay per week
       const equipmentProduction = Math.min(5, militaryBudgetRatio / 1000000000); // Production based on budget
       
       const netEquipmentChange = equipmentProduction - equipmentMaintenance;
-      const newEquipment = Math.max(0, Math.min(100, nation.military.equipment + netEquipmentChange * weeksElapsed));
+      const newEquipment = Math.max(0, Math.min(100, (nation.military?.equipment ?? 0) + netEquipmentChange * weeksElapsed));
       
       updates.military = {
         ...nation.military,
@@ -429,14 +429,14 @@ function simulateNations(
       if (manpowerGain > 0) {
         updates.military = {
           ...updates.military,
-          manpower: nation.military.manpower + manpowerGain
+          manpower: (nation.military?.manpower ?? 0) + manpowerGain
         };
       }
     }
 
     // 5. Research progress with tech level effects
     const researchEfficiency = Math.max(0.5, avgGdpPerCapita / 50000);
-    const techLevelBonus = 1 + (nation.technology.level - 5) * 0.1;
+    const techLevelBonus = 1 + ((nation.technology?.level ?? 5) - 5) * 0.1;
     const baseResearchGain = 25 * researchEfficiency * techLevelBonus * weeksElapsed;
     
     // Random research breakthroughs
@@ -458,13 +458,13 @@ function simulateNations(
 
     // 6. Trade balance fluctuations
     if (Math.random() < 0.25 * weeksElapsed) {
-      const tradeVolatility = nation.economy.gdp * 0.001; // 0.1% of GDP volatility
+      const tradeVolatility = (nation.economy?.gdp ?? 0) * 0.001; // 0.1% of GDP volatility
       const tradeChange = (Math.random() - 0.5) * tradeVolatility * 2;
       
       // Technology and infrastructure improve trade
-      const techTradeBonus = nation.technology.level > 6 ? tradeVolatility * 0.1 : 0;
+      const techTradeBonus = (nation.technology?.level ?? 0) > 6 ? tradeVolatility * 0.1 : 0;
       
-      const newTradeBalance = nation.economy.tradeBalance + tradeChange + techTradeBonus;
+      const newTradeBalance = (nation.economy?.tradeBalance ?? 0) + tradeChange + techTradeBonus;
       if (!updates.economy) updates.economy = { ...nation.economy };
       updates.economy.tradeBalance = newTradeBalance;
     }
@@ -781,28 +781,28 @@ function applyEffectToNation(nation: Nation, effect: any): Partial<Nation> {
     case 'economy.debt':
       updates.economy = {
         ...nation.economy,
-        debt: Math.max(0, nation.economy.debt + effect.change)
+        debt: Math.max(0, (nation.economy?.debt ?? 0) + effect.change)
       };
       break;
       
     case 'government.approval':
       updates.government = {
         ...nation.government,
-        approval: Math.max(0, Math.min(100, nation.government.approval + effect.change))
+        approval: Math.max(0, Math.min(100, (nation.government?.approval ?? 0) + effect.change))
       };
       break;
       
     case 'government.stability':
       updates.government = {
         ...nation.government,
-        stability: Math.max(0, Math.min(100, nation.government.stability + effect.change))
+        stability: Math.max(0, Math.min(100, (nation.government?.stability ?? 0) + effect.change))
       };
       break;
       
     case 'military.equipment':
       updates.military = {
         ...nation.military,
-        equipment: Math.max(0, Math.min(100, nation.military.equipment + effect.change))
+        equipment: Math.max(0, Math.min(100, (nation.military?.equipment ?? 0) + effect.change))
       };
       break;
   }

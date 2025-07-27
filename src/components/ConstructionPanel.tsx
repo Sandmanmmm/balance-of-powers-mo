@@ -105,8 +105,8 @@ export function ConstructionPanel({
       return;
     }
     
-    if (nation.economy.treasury < building.cost) {
-      toast.error(`Insufficient funds. Need ${building.cost.toLocaleString()} but only have ${nation.economy.treasury.toLocaleString()}`);
+    if ((nation.economy?.treasury ?? 0) < building.cost) {
+      toast.error(`Insufficient funds. Need ${building.cost.toLocaleString()} but only have ${(nation.economy?.treasury ?? 0).toLocaleString()}`);
       return;
     }
     
@@ -138,7 +138,7 @@ export function ConstructionPanel({
     return `$${cost}`;
   };
 
-  const canAfford = (cost: number) => nation.economy.treasury >= cost;
+  const canAfford = (cost: number) => (nation.economy?.treasury ?? 0) >= cost;
 
   // Get icon for building category
   const getCategoryIcon = (category: string) => {
@@ -258,7 +258,7 @@ export function ConstructionPanel({
             <CardTitle className="text-sm font-medium">Available Buildings</CardTitle>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Coins className="w-4 h-4" />
-              Treasury: {formatCost(nation.economy.treasury)}
+              Treasury: {formatCost(nation.economy?.treasury ?? 0)}
             </div>
           </CardHeader>
           <CardContent>
