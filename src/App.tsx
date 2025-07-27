@@ -8,9 +8,8 @@ import { GameDataDebug } from './components/GameDataDebug';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
-import { testDataLoading } from './lib/testDataLoader';
-import { testCaribbeanData } from './lib/testCaribbeanData';
-import { testCentralAmericaData } from './lib/testCentralAmerica';
+import { testModularLoader } from './lib/testModularLoader';
+import { testYamlImports } from './lib/testYamlImports';
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
@@ -77,22 +76,23 @@ function App() {
     });
   }, [selectedNation, nations, gameState?.selectedNation]);
 
-  // Test data loading manually
+  // Test the modular loader
   useEffect(() => {
     const runTest = async () => {
       try {
-        console.log('Running manual data loading test...');
-        await testDataLoading();
+        console.log('Running YAML import test...');
+        const importResults = await testYamlImports();
+        console.log('YAML Import Test Results:', importResults);
         
-        console.log('Running Caribbean data test...');
-        const caribbeanResults = await testCaribbeanData();
-        console.log('Caribbean Test Results:', caribbeanResults);
+        console.log('Running modular loader test...');
+        const results = await testModularLoader();
+        console.log('Modular Loader Test Results:', results);
         
-        console.log('Running Central America data test...');
-        const centralAmericaResults = await testCentralAmericaData();
-        console.log('Central America Test Results:', centralAmericaResults);
+        if (!results.success) {
+          console.error('Modular loader test failed:', results.error);
+        }
       } catch (error) {
-        console.error('Manual test failed:', error);
+        console.error('Test exception:', error);
       }
     };
     
