@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Province, Nation, Building, ConstructionProject } from '@/lib/types';
-import { getBuildings, getAvailableBuildings } from '@/lib/gameData';
+import { getBuildings, getAvailableBuildings } from '../data/gameData';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -63,12 +63,12 @@ export function ConstructionPanel({
   useEffect(() => {
     const updateBuildings = async () => {
       try {
-        const buildings = getBuildings();
+        const buildings = await getBuildings();
         setAllBuildings(buildings || []);
         
         if (province && nation) {
           const completedTech = (nation.technology?.completedTech || []);
-          const available = getAvailableBuildings(province, nation, completedTech);
+          const available = getAvailableBuildings(province, nation, completedTech, buildings);
           setAvailableBuildings(available || []);
           
           // Debug log to see what buildings are available

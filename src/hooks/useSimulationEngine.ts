@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { GameState, Province, Nation, GameEvent, Technology } from '../lib/types';
-import { sampleProvinces, sampleNations, sampleEvents, sampleTechnologies, getBuildingById, resourcesData } from '../lib/gameData';
+import { getBuildingById, getResources, type Resource } from '../data/gameData';
 import { toast } from 'sonner';
 import { 
   calculateResourceShortageEffects, 
@@ -46,6 +46,71 @@ export function useSimulationEngine({
   const lastUpdateRef = useRef<number>(Date.now());
   const lastEventCheckRef = useRef<number>(Date.now());
   const aiDecisionCooldownRef = useRef<Map<string, number>>(new Map());
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [resourcesData, setResourcesData] = useState<Record<string, Resource>>({});
+
+  // Load resources data
+  useEffect(() => {
+    const loadResourcesData = async () => {
+      try {
+        const resourcesList = await getResources();
+        setResources(resourcesList);
+        
+        // Convert to lookup object for backwards compatibility
+        const resourcesLookup: Record<string, Resource> = {};
+        resourcesList.forEach(resource => {
+          resourcesLookup[resource.id] = resource;
+        });
+        setResourcesData(resourcesLookup);
+      } catch (error) {
+        console.error('Failed to load resources in simulation engine:', error);
+      }
+    };
+    
+    loadResourcesData();
+  }, []);
+
+  // Log data validation on every simulation tick
+  useEffect(() => {
+    const logDataValidation = () => {
+      console.log('=== SIMULATION ENGINE DATA VALIDATION ===');
+      console.log(`📊 Provinces loaded: ${provinces.length}`);
+      console.log(`🏛️ Nations loaded: ${nations.length}`);
+      console.log(`📦 Resources loaded: ${resources.length}`);
+      
+      // Check data sources
+      if (provinces.length > 0) {
+        const canadianProvinces = provinces.filter(p => p.country === 'Canada');
+        const usProvinces = provinces.filter(p => p.country === 'United States');
+        const chinaProvinces = provinces.filter(p => p.country === 'China');
+        
+        console.log(`🇨🇦 Canadian provinces: ${canadianProvinces.length}`);
+        console.log(`🇺🇸 US provinces: ${usProvinces.length}`);
+        console.log(`🇨🇳 Chinese provinces: ${chinaProvinces.length}`);
+        
+        if (canadianProvinces.length === 0) {
+          console.warn('⚠️ WARNING: No Canadian provinces found!');
+        }
+      }
+      
+      if (nations.length > 0) {
+        const canada = nations.find(n => n.id === 'CAN');
+        const usa = nations.find(n => n.id === 'USA');
+        const china = nations.find(n => n.id === 'CHN');
+        
+        console.log(`✅ Canada loaded: ${!!canada} (${canada?.name || 'N/A'})`);
+        console.log(`✅ USA loaded: ${!!usa} (${usa?.name || 'N/A'})`);
+        console.log(`✅ China loaded: ${!!china} (${china?.name || 'N/A'})`);
+      }
+      
+      console.log('=== END VALIDATION ===');
+    };
+    
+    // Log validation when data changes
+    if (provinces.length > 0 && nations.length > 0) {
+      logDataValidation();
+    }
+  }, [provinces.length, nations.length, resources.length]);
 
   // Ensure we have safe arrays to work with
   const safeProvinces = Array.isArray(provinces) ? provinces.filter(p => p) : [];

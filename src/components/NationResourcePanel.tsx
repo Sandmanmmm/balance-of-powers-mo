@@ -4,16 +4,38 @@ import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Nation } from '../lib/types';
-import { resourcesData, getResourcesByCategory } from '../lib/gameData';
+import { getResources, type Resource } from '../data/gameData';
 import { getResourceShortageStatus } from '../lib/resourceNotifications';
 import { calculateResourceShortageEffects, getShortageEffectDescription } from '../lib/resourceEffects';
 import { AlertTriangle, TrendingUp, TrendingDown, Zap, Shield, Users } from '@phosphor-icons/react';
+import { useState, useEffect } from 'react';
 
 interface NationResourcePanelProps {
   nation: Nation;
 }
 
 export function NationResourcePanel({ nation }: NationResourcePanelProps) {
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadResources = async () => {
+      try {
+        const resourcesData = await getResources();
+        setResources(resourcesData);
+      } catch (error) {
+        console.error('Failed to load resources:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadResources();
+  }, []);
+
+  const getResourcesByCategory = (category: string): Resource[] => {
+    return resources.filter(resource => resource.category === category);
+  };
+
   const stockpiles = nation.resourceStockpiles || {};
   const production = nation.resourceProduction || {};
   const consumption = nation.resourceConsumption || {};
@@ -79,6 +101,22 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
   const shortageEffects = calculateResourceShortageEffects(nation);
   const criticalShortages = Object.entries(shortages).filter(([, severity]) => severity > 0.3);
   const activeTradeAgreements = nation.tradeAgreements?.filter(a => a.status === 'active') || [];
+
+  if (isLoading) {
+    return (
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle>📊 National Resources</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-center py-8">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+            <span className="ml-2">Loading resources...</span>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card className="w-full">

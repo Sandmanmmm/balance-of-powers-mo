@@ -8,11 +8,7 @@ import { GameDataDebug } from './components/GameDataDebug';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
-import { testModularLoader } from './lib/testModularLoader';
-import { testYamlImports } from './lib/testYamlImports';
-import { validateBulletproofLoader } from './lib/validateBulletproofLoader';
-import { testEuropeEastLoading } from './lib/testEuropeEast';
-import { testEuropeExpansion } from './lib/testEuropeExpansion';
+import { getSystemStatus } from './data/gameData';
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
@@ -79,41 +75,31 @@ function App() {
     });
   }, [selectedNation, nations, gameState?.selectedNation]);
 
-  // Test the modular loader
+  // Log comprehensive system status when app loads
   useEffect(() => {
-    const runTest = async () => {
-      try {
-        console.log('🔬 Running bulletproof data loader validation...');
-        await validateBulletproofLoader();
-        
-        console.log('🇪🇺 Testing Eastern Europe data loading...');
-        await testEuropeEastLoading();
-        
-        console.log('🇪🇺 Testing European nations expansion...');
-        const europeResults = await testEuropeExpansion();
-        console.log('European expansion test results:', europeResults);
-        
-        console.log('Running legacy YAML import test...');
-        const importResults = await testYamlImports();
-        console.log('YAML Import Test Results:', importResults);
-        
-        console.log('Running legacy modular loader test...');
-        const results = await testModularLoader();
-        console.log('Modular Loader Test Results:', results);
-        
-        if (!results.success) {
-          console.error('Legacy modular loader test failed:', results.error);
+    const logSystemStatus = async () => {
+      if (isInitialized && Array.isArray(nations) && nations.length > 0) {
+        try {
+          const status = await getSystemStatus();
+          console.log('🔥 === MODULAR DATA SYSTEM STATUS ===');
+          console.log('📊 Data loaded:', status.dataLoaded);
+          console.log('✅ Modular validation:', status.modularValidation.valid ? 'PASSED' : 'FAILED');
+          console.log('📈 Load stats:', status.loadingStats);
+          console.log('💾 Cache info:', status.cacheInfo);
+          console.log('🧪 Sample data:', status.sampleData);
+          console.log('🔥 === END STATUS ===');
+          
+          if (!status.modularValidation.valid) {
+            console.error('❌ MODULAR VALIDATION FAILED:', status.modularValidation.error);
+          }
+        } catch (error) {
+          console.error('Failed to get system status:', error);
         }
-      } catch (error) {
-        console.error('Test exception:', error);
       }
     };
     
-    // Only run once
-    if (!isInitialized) {
-      runTest();
-    }
-  }, [isInitialized]);
+    logSystemStatus();
+  }, [isInitialized, nations]);
 
   // Safety fallback - if we've been loading for too long, force completion
   useEffect(() => {
