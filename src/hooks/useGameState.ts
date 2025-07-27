@@ -73,7 +73,7 @@ export function useGameState() {
       
       const initializeData = async () => {
         try {
-          console.log('Loading game data from modular regional files...');
+          console.log('Loading game data (using legacy for now)...');
           const gameData = await loadGameData();
           
           console.log('loadGameData returned:', {
@@ -81,6 +81,17 @@ export function useGameState() {
             nations: gameData.nations?.length || 0,
             boundaries: gameData.boundaries?.features?.length || 0
           });
+          
+          // Additional validation
+          if (!gameData.provinces || !Array.isArray(gameData.provinces)) {
+            console.error('Invalid provinces data returned:', typeof gameData.provinces);
+            throw new Error('Invalid provinces data');
+          }
+          
+          if (!gameData.nations || !Array.isArray(gameData.nations)) {
+            console.error('Invalid nations data returned:', typeof gameData.nations);
+            throw new Error('Invalid nations data');
+          }
           
           if (Array.isArray(gameData.provinces) && gameData.provinces.length > 0 && 
               Array.isArray(gameData.nations) && gameData.nations.length > 0) {
@@ -93,7 +104,7 @@ export function useGameState() {
             setProvinces(gameData.provinces);
             setNations(gameData.nations);
             setIsInitialized(true);
-            console.log('✓ Modular data initialization completed successfully');
+            console.log('✓ Game data initialization completed successfully');
             
             // Debug: Check if Canada nation exists
             const canadaNation = gameData.nations.find(n => n.id === 'CAN');
@@ -103,11 +114,14 @@ export function useGameState() {
               console.error('❌ Canada nation not found in loaded data');
             }
           } else {
-            console.error('❌ Failed to load provinces or nations from modular files');
+            console.error('❌ Failed to load provinces or nations - invalid data structure');
+            console.error('Provinces:', typeof gameData.provinces, Array.isArray(gameData.provinces) ? gameData.provinces.length : 'NOT_ARRAY');
+            console.error('Nations:', typeof gameData.nations, Array.isArray(gameData.nations) ? gameData.nations.length : 'NOT_ARRAY');
             setIsInitialized(true);
           }
         } catch (error) {
-          console.error('❌ Error during modular data initialization:', error);
+          console.error('❌ Error during game data initialization:', error);
+          console.error('Error details:', error);
           setIsInitialized(true); // Still mark as initialized to prevent infinite loading
         }
       };

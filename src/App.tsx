@@ -8,6 +8,7 @@ import { GameDataDebug } from './components/GameDataDebug';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
+import { testDataLoading } from './lib/testDataLoader';
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
@@ -73,6 +74,23 @@ function App() {
       nationIds: Array.isArray(nations) ? nations.map(n => n?.id).filter(Boolean) : 'NOT_ARRAY'
     });
   }, [selectedNation, nations, gameState?.selectedNation]);
+
+  // Test data loading manually
+  useEffect(() => {
+    const runTest = async () => {
+      try {
+        console.log('Running manual data loading test...');
+        await testDataLoading();
+      } catch (error) {
+        console.error('Manual test failed:', error);
+      }
+    };
+    
+    // Only run once
+    if (!isInitialized) {
+      runTest();
+    }
+  }, [isInitialized]);
 
   // Safety fallback - if we've been loading for too long, force completion
   useEffect(() => {
