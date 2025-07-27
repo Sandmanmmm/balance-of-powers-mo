@@ -9,6 +9,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
 import { testDataLoading } from './lib/testDataLoader';
+import { testCaribbeanData } from './lib/testCaribbeanData';
 
 function ErrorFallback({error, resetErrorBoundary}: {error: Error, resetErrorBoundary?: () => void}) {
   return (
@@ -81,6 +82,10 @@ function App() {
       try {
         console.log('Running manual data loading test...');
         await testDataLoading();
+        
+        console.log('Running Caribbean data test...');
+        const caribbeanResults = await testCaribbeanData();
+        console.log('Caribbean Test Results:', caribbeanResults);
       } catch (error) {
         console.error('Manual test failed:', error);
       }
