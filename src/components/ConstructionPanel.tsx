@@ -64,6 +64,8 @@ export function ConstructionPanel({
     const updateBuildings = async () => {
       try {
         const buildings = await getBuildings();
+        console.log('🏗️ All buildings loaded:', buildings?.length || 0);
+        console.log('🔧 Raw buildings data:', buildings?.slice(0, 3) || []);
         setAllBuildings(buildings || []);
         
         if (province && nation) {
@@ -71,11 +73,19 @@ export function ConstructionPanel({
           const available = getAvailableBuildings(province, nation, completedTech, buildings);
           setAvailableBuildings(available || []);
           
-          // Debug log to see what buildings are available
-          console.log(`Province ${province.name} (${province.id}) features:`, province.features || []);
-          console.log(`Available buildings for ${province.name}:`, available?.map(b => `${b.name} (${b.category})`) || []);
-          console.log(`Total buildings in game:`, buildings?.length || 0);
-          console.log(`Completed tech for nation:`, completedTech || [])
+          // Enhanced debug logs
+          console.log(`🏘️ Province ${province.name} (${province.id}) features:`, province.features || []);
+          console.log(`🏗️ Infrastructure level: ${province.infrastructure?.roads || 'undefined'}`);
+          console.log(`🧪 Completed tech for nation:`, completedTech || []);
+          console.log(`✅ Available buildings for ${province.name}:`, available?.map(b => `${b.name} (${b.category})`) || []);
+          console.log(`📊 Total buildings in game:`, buildings?.length || 0);
+          
+          // Check specific buildings with no requirements
+          const noRequirementBuildings = buildings?.filter(b => 
+            (!b.requiresFeatures || b.requiresFeatures.length === 0) && 
+            (!b.requirements?.infrastructure || b.requirements.infrastructure <= (province.infrastructure?.roads || 0))
+          ) || [];
+          console.log(`🆓 Buildings with no feature requirements and low infrastructure:`, noRequirementBuildings.map(b => `${b.name} (infra: ${b.requirements?.infrastructure || 0})`) || []);
         } else {
           setAvailableBuildings([]);
         }

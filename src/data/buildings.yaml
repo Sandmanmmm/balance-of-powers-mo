@@ -413,6 +413,7 @@ buildings:
     improves:
       housing_capacity: 500
       population_growth: 1
+    requiresFeatures: []
     requirements:
       infrastructure: 1
     icon: "🏠"
@@ -432,6 +433,7 @@ buildings:
     improves:
       industrial_capacity: 1
       employment: 300
+    requiresFeatures: []
     requirements:
       infrastructure: 2
     icon: "🏭"
@@ -450,6 +452,7 @@ buildings:
       steel: 10
     improves:
       energy_security: 2
+    requiresFeatures: []
     requirements:
       infrastructure: 2
     icon: "⚡"
@@ -467,6 +470,7 @@ buildings:
     improves:
       healthcare: 2
       population_health: 1
+    requiresFeatures: []
     requirements:
       infrastructure: 1
     icon: "🏥"
@@ -485,6 +489,7 @@ buildings:
     improves:
       commercial_activity: 2
       employment: 450
+    requiresFeatures: []
     requirements:
       infrastructure: 2
     icon: "🏢"
