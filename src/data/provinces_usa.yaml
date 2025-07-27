@@ -147,3 +147,1268 @@
       Democrats: 57.5
       Republicans: 40.6
       Green: 1.9
+
+- id: US_PA
+  name: "Pennsylvania"
+  country: "United States"
+  population:
+    total: 12800000
+    ethnic_groups:
+      - group: "White"
+        percent: 76
+      - group: "Black"
+        percent: 11
+      - group: "Hispanic"
+        percent: 8
+      - group: "Asian"
+        percent: 4
+  unrest: 6
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "industrial", "farmland"]
+  resource_output:
+    energy: 6000
+    food: 5500
+    industrial_capacity: 11000
+  politics:
+    party_support:
+      Democrats: 50.0
+      Republicans: 48.8
+      Green: 1.2
+
+- id: US_OH
+  name: "Ohio"
+  country: "United States"
+  population:
+    total: 11690000
+    ethnic_groups:
+      - group: "White"
+        percent: 79
+      - group: "Black"
+        percent: 12
+      - group: "Hispanic"
+        percent: 4
+      - group: "Asian"
+        percent: 3
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["urban", "industrial", "farmland"]
+  resource_output:
+    energy: 5500
+    food: 6500
+    industrial_capacity: 9500
+  politics:
+    party_support:
+      Republicans: 53.3
+      Democrats: 45.2
+      Libertarian: 1.5
+
+- id: US_GA
+  name: "Georgia"
+  country: "United States"
+  population:
+    total: 10620000
+    ethnic_groups:
+      - group: "White"
+        percent: 52
+      - group: "Black"
+        percent: 32
+      - group: "Hispanic"
+        percent: 10
+      - group: "Asian"
+        percent: 4
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["urban", "farmland", "coastal"]
+  resource_output:
+    energy: 4500
+    food: 7000
+    industrial_capacity: 8000
+  politics:
+    party_support:
+      Democrats: 49.5
+      Republicans: 49.2
+      Libertarian: 1.3
+
+- id: US_MI
+  name: "Michigan"
+  country: "United States"
+  population:
+    total: 9990000
+    ethnic_groups:
+      - group: "White"
+        percent: 75
+      - group: "Black"
+        percent: 14
+      - group: "Hispanic"
+        percent: 5
+      - group: "Asian"
+        percent: 3
+  unrest: 7
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["urban", "industrial", "farmland"]
+  resource_output:
+    energy: 4500
+    food: 4000
+    industrial_capacity: 12000
+  politics:
+    party_support:
+      Democrats: 50.6
+      Republicans: 47.8
+      Green: 1.6
+
+- id: US_NC
+  name: "North Carolina"
+  country: "United States"
+  population:
+    total: 10490000
+    ethnic_groups:
+      - group: "White"
+        percent: 63
+      - group: "Black"
+        percent: 21
+      - group: "Hispanic"
+        percent: 9
+      - group: "Asian"
+        percent: 3
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "farmland", "urban"]
+  resource_output:
+    energy: 4000
+    food: 6500
+    industrial_capacity: 7500
+  politics:
+    party_support:
+      Republicans: 49.8
+      Democrats: 48.6
+      Libertarian: 1.6
+
+- id: US_WA
+  name: "Washington"
+  country: "United States"
+  population:
+    total: 7610000
+    ethnic_groups:
+      - group: "White"
+        percent: 67
+      - group: "Hispanic"
+        percent: 13
+      - group: "Asian"
+        percent: 9
+      - group: "Black"
+        percent: 4
+  unrest: 6
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["coastal", "tech_hub", "farmland"]
+  resource_output:
+    energy: 3500
+    food: 4500
+    technology: 15000
+    industrial_capacity: 8000
+  politics:
+    party_support:
+      Democrats: 58.0
+      Republicans: 38.8
+      Green: 3.2
+
+- id: US_AZ
+  name: "Arizona"
+  country: "United States"
+  population:
+    total: 7280000
+    ethnic_groups:
+      - group: "White"
+        percent: 54
+      - group: "Hispanic"
+        percent: 31
+      - group: "Native American"
+        percent: 5
+      - group: "Black"
+        percent: 5
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["desert", "urban", "farmland"]
+  resource_output:
+    energy: 3000
+    food: 2500
+    industrial_capacity: 5500
+  politics:
+    party_support:
+      Democrats: 49.4
+      Republicans: 49.1
+      Libertarian: 1.5
+
+- id: US_TN
+  name: "Tennessee"
+  country: "United States"
+  population:
+    total: 6830000
+    ethnic_groups:
+      - group: "White"
+        percent: 73
+      - group: "Black"
+        percent: 17
+      - group: "Hispanic"
+        percent: 5
+      - group: "Asian"
+        percent: 2
+  unrest: 4
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland", "urban"]
+  resource_output:
+    energy: 3500
+    food: 4500
+    industrial_capacity: 6000
+  politics:
+    party_support:
+      Republicans: 60.7
+      Democrats: 37.4
+      Libertarian: 1.9
+
+- id: US_IN
+  name: "Indiana"
+  country: "United States"
+  population:
+    total: 6730000
+    ethnic_groups:
+      - group: "White"
+        percent: 79
+      - group: "Black"
+        percent: 9
+      - group: "Hispanic"
+        percent: 7
+      - group: "Asian"
+        percent: 2
+  unrest: 4
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland", "industrial"]
+  resource_output:
+    energy: 3000
+    food: 5500
+    industrial_capacity: 7000
+  politics:
+    party_support:
+      Republicans: 57.0
+      Democrats: 41.0
+      Libertarian: 2.0
+
+- id: US_MO
+  name: "Missouri"
+  country: "United States"
+  population:
+    total: 6140000
+    ethnic_groups:
+      - group: "White"
+        percent: 79
+      - group: "Black"
+        percent: 11
+      - group: "Hispanic"
+        percent: 4
+      - group: "Asian"
+        percent: 2
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland", "urban"]
+  resource_output:
+    energy: 2800
+    food: 5000
+    industrial_capacity: 5500
+  politics:
+    party_support:
+      Republicans: 56.8
+      Democrats: 41.4
+      Libertarian: 1.8
+
+- id: US_MD
+  name: "Maryland"
+  country: "United States"
+  population:
+    total: 6050000
+    ethnic_groups:
+      - group: "White"
+        percent: 50
+      - group: "Black"
+        percent: 31
+      - group: "Hispanic"
+        percent: 11
+      - group: "Asian"
+        percent: 7
+  unrest: 6
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["coastal", "urban", "tech_hub"]
+  resource_output:
+    energy: 2500
+    food: 1500
+    technology: 8000
+    industrial_capacity: 4500
+  politics:
+    party_support:
+      Democrats: 65.4
+      Republicans: 32.2
+      Green: 2.4
+
+- id: US_WI
+  name: "Wisconsin"
+  country: "United States"
+  population:
+    total: 5820000
+    ethnic_groups:
+      - group: "White"
+        percent: 81
+      - group: "Black"
+        percent: 6
+      - group: "Hispanic"
+        percent: 7
+      - group: "Asian"
+        percent: 3
+  unrest: 4
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland", "industrial"]
+  resource_output:
+    energy: 2500
+    food: 6000
+    industrial_capacity: 6500
+  politics:
+    party_support:
+      Democrats: 49.5
+      Republicans: 48.8
+      Green: 1.7
+
+- id: US_CO
+  name: "Colorado"
+  country: "United States"
+  population:
+    total: 5760000
+    ethnic_groups:
+      - group: "White"
+        percent: 68
+      - group: "Hispanic"
+        percent: 22
+      - group: "Black"
+        percent: 4
+      - group: "Asian"
+        percent: 3
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["urban", "tech_hub", "farmland"]
+  resource_output:
+    energy: 2800
+    food: 3500
+    technology: 7000
+    industrial_capacity: 4500
+  politics:
+    party_support:
+      Democrats: 55.4
+      Republicans: 41.9
+      Libertarian: 2.7
+
+- id: US_MN
+  name: "Minnesota"
+  country: "United States"
+  population:
+    total: 5640000
+    ethnic_groups:
+      - group: "White"
+        percent: 79
+      - group: "Black"
+        percent: 7
+      - group: "Hispanic"
+        percent: 5
+      - group: "Asian"
+        percent: 5
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["farmland", "urban"]
+  resource_output:
+    energy: 2500
+    food: 5500
+    industrial_capacity: 5000
+  politics:
+    party_support:
+      Democrats: 52.4
+      Republicans: 44.9
+      Green: 2.7
+
+- id: US_SC
+  name: "South Carolina"
+  country: "United States"
+  population:
+    total: 5150000
+    ethnic_groups:
+      - group: "White"
+        percent: 64
+      - group: "Black"
+        percent: 27
+      - group: "Hispanic"
+        percent: 6
+      - group: "Asian"
+        percent: 2
+  unrest: 5
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["coastal", "farmland"]
+  resource_output:
+    energy: 2200
+    food: 3500
+    industrial_capacity: 4000
+  politics:
+    party_support:
+      Republicans: 55.1
+      Democrats: 43.4
+      Libertarian: 1.5
+
+- id: US_AL
+  name: "Alabama"
+  country: "United States"
+  population:
+    total: 4900000
+    ethnic_groups:
+      - group: "White"
+        percent: 65
+      - group: "Black"
+        percent: 26
+      - group: "Hispanic"
+        percent: 4
+      - group: "Asian"
+        percent: 1
+  unrest: 4
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["farmland", "industrial"]
+  resource_output:
+    energy: 2000
+    food: 3000
+    industrial_capacity: 4500
+  politics:
+    party_support:
+      Republicans: 62.0
+      Democrats: 36.6
+      Libertarian: 1.4
+
+- id: US_LA
+  name: "Louisiana"
+  country: "United States"
+  population:
+    total: 4650000
+    ethnic_groups:
+      - group: "White"
+        percent: 58
+      - group: "Black"
+        percent: 32
+      - group: "Hispanic"
+        percent: 5
+      - group: "Asian"
+        percent: 2
+  unrest: 6
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["coastal", "oil_rich", "farmland"]
+  resource_output:
+    energy: 2500
+    food: 3500
+    oil: 8000
+    industrial_capacity: 4000
+  politics:
+    party_support:
+      Republicans: 58.5
+      Democrats: 39.9
+      Libertarian: 1.6
+
+- id: US_KY
+  name: "Kentucky"
+  country: "United States"
+  population:
+    total: 4470000
+    ethnic_groups:
+      - group: "White"
+        percent: 84
+      - group: "Black"
+        percent: 8
+      - group: "Hispanic"
+        percent: 4
+      - group: "Asian"
+        percent: 1
+  unrest: 4
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["farmland", "industrial"]
+  resource_output:
+    energy: 2000
+    food: 3000
+    industrial_capacity: 3500
+  politics:
+    party_support:
+      Republicans: 62.5
+      Democrats: 36.2
+      Libertarian: 1.3
+
+- id: US_OR
+  name: "Oregon"
+  country: "United States"
+  population:
+    total: 4220000
+    ethnic_groups:
+      - group: "White"
+        percent: 74
+      - group: "Hispanic"
+        percent: 13
+      - group: "Asian"
+        percent: 5
+      - group: "Black"
+        percent: 2
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "farmland", "tech_hub"]
+  resource_output:
+    energy: 2000
+    food: 4000
+    technology: 6000
+    industrial_capacity: 3500
+  politics:
+    party_support:
+      Democrats: 56.5
+      Republicans: 40.4
+      Green: 3.1
+
+- id: US_OK
+  name: "Oklahoma"
+  country: "United States"
+  population:
+    total: 3960000
+    ethnic_groups:
+      - group: "White"
+        percent: 65
+      - group: "Native American"
+        percent: 9
+      - group: "Hispanic"
+        percent: 11
+      - group: "Black"
+        percent: 7
+  unrest: 4
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["oil_rich", "farmland"]
+  resource_output:
+    energy: 2500
+    food: 3000
+    oil: 6000
+    industrial_capacity: 3000
+  politics:
+    party_support:
+      Republicans: 65.3
+      Democrats: 32.3
+      Libertarian: 2.4
+
+- id: US_CT
+  name: "Connecticut"
+  country: "United States"
+  population:
+    total: 3570000
+    ethnic_groups:
+      - group: "White"
+        percent: 66
+      - group: "Hispanic"
+        percent: 17
+      - group: "Black"
+        percent: 10
+      - group: "Asian"
+        percent: 5
+  unrest: 5
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["urban", "coastal"]
+  resource_output:
+    energy: 1500
+    food: 800
+    technology: 5000
+    industrial_capacity: 3000
+  politics:
+    party_support:
+      Democrats: 59.3
+      Republicans: 39.2
+      Green: 1.5
+
+- id: US_UT
+  name: "Utah"
+  country: "United States"
+  population:
+    total: 3270000
+    ethnic_groups:
+      - group: "White"
+        percent: 78
+      - group: "Hispanic"
+        percent: 15
+      - group: "Asian"
+        percent: 2
+      - group: "Black"
+        percent: 1
+  unrest: 2
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["desert", "tech_hub"]
+  resource_output:
+    energy: 1800
+    food: 1500
+    technology: 4000
+    industrial_capacity: 2500
+  politics:
+    party_support:
+      Republicans: 58.1
+      Democrats: 37.6
+      Libertarian: 4.3
+
+- id: US_IA
+  name: "Iowa"
+  country: "United States"
+  population:
+    total: 3190000
+    ethnic_groups:
+      - group: "White"
+        percent: 85
+      - group: "Hispanic"
+        percent: 6
+      - group: "Black"
+        percent: 4
+      - group: "Asian"
+        percent: 3
+  unrest: 2
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland"]
+  resource_output:
+    energy: 1500
+    food: 6000
+    industrial_capacity: 2000
+  politics:
+    party_support:
+      Republicans: 53.1
+      Democrats: 44.9
+      Libertarian: 2.0
+
+- id: US_NV
+  name: "Nevada"
+  country: "United States"
+  population:
+    total: 3100000
+    ethnic_groups:
+      - group: "White"
+        percent: 48
+      - group: "Hispanic"
+        percent: 29
+      - group: "Black"
+        percent: 10
+      - group: "Asian"
+        percent: 9
+  unrest: 6
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["desert", "urban"]
+  resource_output:
+    energy: 1800
+    food: 500
+    industrial_capacity: 2000
+  politics:
+    party_support:
+      Democrats: 50.1
+      Republicans: 47.7
+      Libertarian: 2.2
+
+- id: US_AR
+  name: "Arkansas"
+  country: "United States"
+  population:
+    total: 3020000
+    ethnic_groups:
+      - group: "White"
+        percent: 72
+      - group: "Black"
+        percent: 15
+      - group: "Hispanic"
+        percent: 8
+      - group: "Asian"
+        percent: 2
+  unrest: 4
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["farmland"]
+  resource_output:
+    energy: 1200
+    food: 3500
+    industrial_capacity: 2000
+  politics:
+    party_support:
+      Republicans: 62.4
+      Democrats: 34.8
+      Libertarian: 2.8
+
+- id: US_MS
+  name: "Mississippi"
+  country: "United States"
+  population:
+    total: 2980000
+    ethnic_groups:
+      - group: "White"
+        percent: 56
+      - group: "Black"
+        percent: 38
+      - group: "Hispanic"
+        percent: 3
+      - group: "Asian"
+        percent: 1
+  unrest: 5
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["farmland", "coastal"]
+  resource_output:
+    energy: 1000
+    food: 2500
+    industrial_capacity: 1500
+  politics:
+    party_support:
+      Republicans: 57.9
+      Democrats: 40.6
+      Libertarian: 1.5
+
+- id: US_KS
+  name: "Kansas"
+  country: "United States"
+  population:
+    total: 2940000
+    ethnic_groups:
+      - group: "White"
+        percent: 76
+      - group: "Hispanic"
+        percent: 12
+      - group: "Black"
+        percent: 6
+      - group: "Asian"
+        percent: 3
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland"]
+  resource_output:
+    energy: 1500
+    food: 4500
+    industrial_capacity: 2000
+  politics:
+    party_support:
+      Republicans: 56.2
+      Democrats: 41.6
+      Libertarian: 2.2
+
+- id: US_NM
+  name: "New Mexico"
+  country: "United States"
+  population:
+    total: 2100000
+    ethnic_groups:
+      - group: "White"
+        percent: 37
+      - group: "Hispanic"
+        percent: 49
+      - group: "Native American"
+        percent: 11
+      - group: "Black"
+        percent: 2
+  unrest: 5
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["desert", "oil_rich"]
+  resource_output:
+    energy: 1200
+    food: 1000
+    oil: 4000
+    industrial_capacity: 1500
+  politics:
+    party_support:
+      Democrats: 54.3
+      Republicans: 43.5
+      Libertarian: 2.2
+
+- id: US_NE
+  name: "Nebraska"
+  country: "United States"
+  population:
+    total: 1940000
+    ethnic_groups:
+      - group: "White"
+        percent: 78
+      - group: "Hispanic"
+        percent: 11
+      - group: "Black"
+        percent: 5
+      - group: "Asian"
+        percent: 3
+  unrest: 2
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland"]
+  resource_output:
+    energy: 1000
+    food: 4000
+    industrial_capacity: 1500
+  politics:
+    party_support:
+      Republicans: 58.7
+      Democrats: 39.2
+      Libertarian: 2.1
+
+- id: US_WV
+  name: "West Virginia"
+  country: "United States"
+  population:
+    total: 1790000
+    ethnic_groups:
+      - group: "White"
+        percent: 92
+      - group: "Black"
+        percent: 4
+      - group: "Hispanic"
+        percent: 1
+      - group: "Asian"
+        percent: 1
+  unrest: 5
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["industrial"]
+  resource_output:
+    energy: 1800
+    food: 500
+    industrial_capacity: 2000
+  politics:
+    party_support:
+      Republicans: 68.6
+      Democrats: 29.7
+      Libertarian: 1.7
+
+- id: US_ID
+  name: "Idaho"
+  country: "United States"
+  population:
+    total: 1790000
+    ethnic_groups:
+      - group: "White"
+        percent: 82
+      - group: "Hispanic"
+        percent: 13
+      - group: "Native American"
+        percent: 2
+      - group: "Asian"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["farmland", "industrial"]
+  resource_output:
+    energy: 800
+    food: 2500
+    industrial_capacity: 1200
+  politics:
+    party_support:
+      Republicans: 63.8
+      Democrats: 33.1
+      Libertarian: 3.1
+
+- id: US_HI
+  name: "Hawaii"
+  country: "United States"
+  population:
+    total: 1420000
+    ethnic_groups:
+      - group: "Asian"
+        percent: 37
+      - group: "White"
+        percent: 25
+      - group: "Hispanic"
+        percent: 10
+      - group: "Native Hawaiian"
+        percent: 10
+  unrest: 4
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "tech_hub"]
+  resource_output:
+    energy: 800
+    food: 1000
+    technology: 2000
+    industrial_capacity: 800
+  politics:
+    party_support:
+      Democrats: 63.7
+      Republicans: 33.4
+      Green: 2.9
+
+- id: US_NH
+  name: "New Hampshire"
+  country: "United States"
+  population:
+    total: 1360000
+    ethnic_groups:
+      - group: "White"
+        percent: 90
+      - group: "Hispanic"
+        percent: 4
+      - group: "Asian"
+        percent: 3
+      - group: "Black"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["farmland", "tech_hub"]
+  resource_output:
+    energy: 600
+    food: 800
+    technology: 2000
+    industrial_capacity: 1000
+  politics:
+    party_support:
+      Democrats: 52.7
+      Republicans: 45.8
+      Libertarian: 1.5
+
+- id: US_ME
+  name: "Maine"
+  country: "United States"
+  population:
+    total: 1340000
+    ethnic_groups:
+      - group: "White"
+        percent: 94
+      - group: "Hispanic"
+        percent: 2
+      - group: "Black"
+        percent: 1
+      - group: "Asian"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["coastal", "farmland"]
+  resource_output:
+    energy: 500
+    food: 1500
+    industrial_capacity: 800
+  politics:
+    party_support:
+      Democrats: 53.1
+      Republicans: 44.0
+      Green: 2.9
+
+- id: US_RI
+  name: "Rhode Island"
+  country: "United States"
+  population:
+    total: 1060000
+    ethnic_groups:
+      - group: "White"
+        percent: 71
+      - group: "Hispanic"
+        percent: 16
+      - group: "Black"
+        percent: 6
+      - group: "Asian"
+        percent: 4
+  unrest: 4
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "urban"]
+  resource_output:
+    energy: 400
+    food: 200
+    technology: 1500
+    industrial_capacity: 800
+  politics:
+    party_support:
+      Democrats: 59.4
+      Republicans: 38.9
+      Green: 1.7
+
+- id: US_MT
+  name: "Montana"
+  country: "United States"
+  population:
+    total: 1070000
+    ethnic_groups:
+      - group: "White"
+        percent: 84
+      - group: "Native American"
+        percent: 6
+      - group: "Hispanic"
+        percent: 4
+      - group: "Black"
+        percent: 1
+  unrest: 3
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["farmland", "oil_rich"]
+  resource_output:
+    energy: 600
+    food: 2000
+    oil: 3000
+    industrial_capacity: 500
+  politics:
+    party_support:
+      Republicans: 56.9
+      Democrats: 40.6
+      Libertarian: 2.5
+
+- id: US_DE
+  name: "Delaware"
+  country: "United States"
+  population:
+    total: 980000
+    ethnic_groups:
+      - group: "White"
+        percent: 62
+      - group: "Black"
+        percent: 22
+      - group: "Hispanic"
+        percent: 9
+      - group: "Asian"
+        percent: 4
+  unrest: 4
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["coastal", "urban"]
+  resource_output:
+    energy: 400
+    food: 300
+    technology: 1200
+    industrial_capacity: 800
+  politics:
+    party_support:
+      Democrats: 58.7
+      Republicans: 39.8
+      Green: 1.5
+
+- id: US_SD
+  name: "South Dakota"
+  country: "United States"
+  population:
+    total: 890000
+    ethnic_groups:
+      - group: "White"
+        percent: 82
+      - group: "Native American"
+        percent: 9
+      - group: "Hispanic"
+        percent: 4
+      - group: "Black"
+        percent: 2
+  unrest: 2
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["farmland"]
+  resource_output:
+    energy: 400
+    food: 2000
+    industrial_capacity: 400
+  politics:
+    party_support:
+      Republicans: 61.8
+      Democrats: 35.6
+      Libertarian: 2.6
+
+- id: US_ND
+  name: "North Dakota"
+  country: "United States"
+  population:
+    total: 760000
+    ethnic_groups:
+      - group: "White"
+        percent: 84
+      - group: "Native American"
+        percent: 5
+      - group: "Hispanic"
+        percent: 4
+      - group: "Black"
+        percent: 3
+  unrest: 2
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["farmland", "oil_rich"]
+  resource_output:
+    energy: 500
+    food: 1500
+    oil: 5000
+    industrial_capacity: 400
+  politics:
+    party_support:
+      Republicans: 65.1
+      Democrats: 31.8
+      Libertarian: 3.1
+
+- id: US_AK
+  name: "Alaska"
+  country: "United States"
+  population:
+    total: 730000
+    ethnic_groups:
+      - group: "White"
+        percent: 61
+      - group: "Native American"
+        percent: 15
+      - group: "Asian"
+        percent: 6
+      - group: "Hispanic"
+        percent: 7
+  unrest: 4
+  infrastructure:
+    roads: 1
+    internet: 3
+  features: ["oil_rich", "coastal"]
+  resource_output:
+    energy: 800
+    food: 200
+    oil: 8000
+    industrial_capacity: 300
+  politics:
+    party_support:
+      Republicans: 52.8
+      Democrats: 42.8
+      Libertarian: 4.4
+
+- id: US_VT
+  name: "Vermont"
+  country: "United States"
+  population:
+    total: 630000
+    ethnic_groups:
+      - group: "White"
+        percent: 94
+      - group: "Hispanic"
+        percent: 2
+      - group: "Asian"
+        percent: 2
+      - group: "Black"
+        percent: 1
+  unrest: 2
+  infrastructure:
+    roads: 3
+    internet: 4
+  features: ["farmland"]
+  resource_output:
+    energy: 300
+    food: 800
+    industrial_capacity: 400
+  politics:
+    party_support:
+      Democrats: 66.1
+      Republicans: 30.7
+      Green: 3.2
+
+- id: US_WY
+  name: "Wyoming"
+  country: "United States"
+  population:
+    total: 580000
+    ethnic_groups:
+      - group: "White"
+        percent: 83
+      - group: "Hispanic"
+        percent: 10
+      - group: "Native American"
+        percent: 2
+      - group: "Black"
+        percent: 1
+  unrest: 2
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["oil_rich", "farmland"]
+  resource_output:
+    energy: 600
+    food: 800
+    oil: 4000
+    industrial_capacity: 300
+  politics:
+    party_support:
+      Republicans: 67.4
+      Democrats: 26.6
+      Libertarian: 6.0
+
+- id: US_DC
+  name: "District of Columbia"
+  country: "United States"
+  population:
+    total: 690000
+    ethnic_groups:
+      - group: "Black"
+        percent: 46
+      - group: "White"
+        percent: 38
+      - group: "Hispanic"
+        percent: 11
+      - group: "Asian"
+        percent: 4
+  unrest: 7
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["urban", "tech_hub"]
+  resource_output:
+    energy: 300
+    food: 50
+    technology: 8000
+    industrial_capacity: 200
+  politics:
+    party_support:
+      Democrats: 92.2
+      Republicans: 5.1
+      Green: 2.7

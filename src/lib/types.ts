@@ -26,12 +26,7 @@ export interface Province {
     }>;
     fortificationLevel: number;
   };
-  resourceOutput: {
-    energy: number;
-    iron: number;
-    food: number;
-    technology: number;
-  };
+  resourceOutput: Record<string, number>;
   politics: {
     partySupport: Record<string, number>;
     governorApproval: number;

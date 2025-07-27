@@ -80,6 +80,28 @@ resources:
     unit: "units"
     base_price: 500
     
+  # Additional Resources for Province Output
+  energy:
+    name: "Energy"
+    category: "infrastructure"
+    description: "General energy production and consumption"
+    unit: "MWh"
+    base_price: 40
+    
+  technology:
+    name: "Technology"
+    category: "knowledge"
+    description: "Technological innovation and development"
+    unit: "points"
+    base_price: 100
+    
+  industrial_capacity:
+    name: "Industrial Capacity"
+    category: "industrial"
+    description: "Manufacturing and production capability"
+    unit: "units"
+    base_price: 200
+    
   # Resource Storage Capacities (tracked separately)
   oil_storage_capacity:
     name: "Oil Storage Capacity"

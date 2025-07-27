@@ -83,12 +83,7 @@ function convertRawProvince(id: string, rawData: any): Province {
       }),
       fortificationLevel: rawData.military?.fortification_level || rawData.military?.fortificationLevel || 1
     },
-    resourceOutput: {
-      energy: rawData.resource_output?.energy || rawData.resourceOutput?.energy || 0,
-      iron: rawData.resource_output?.iron || rawData.resourceOutput?.iron || 0,
-      food: rawData.resource_output?.food || rawData.resourceOutput?.food || 0,
-      technology: rawData.resource_output?.technology || rawData.resourceOutput?.technology || 0
-    },
+    resourceOutput: rawData.resource_output || rawData.resourceOutput || {},
     politics: {
       partySupport: rawData.politics?.party_support || rawData.politics?.partySupport || {},
       governorApproval: rawData.politics?.governor_approval || rawData.politics?.governorApproval || 50
