@@ -2152,6 +2152,36 @@ export function getBuildings(): Building[] {
   }
 }
 
+export function loadBuildingsData(): Building[] {
+  return getBuildings();
+}
+
+export async function loadGameData(): Promise<{
+  provinces: Province[];
+  nations: Nation[];
+  boundaries: any;
+}> {
+  try {
+    console.log('loadGameData called - loading all data');
+    
+    const [provinces, nations] = await Promise.all([
+      getProvinces(),
+      getNations()
+    ]);
+    
+    console.log(`loadGameData returning ${provinces.length} provinces and ${nations.length} nations`);
+    
+    return {
+      provinces,
+      nations,
+      boundaries: { features: [] } // Placeholder for now
+    };
+  } catch (error) {
+    console.error('Error in loadGameData:', error);
+    throw error;
+  }
+}
+
 // Log successful data loading
 console.log(`Loaded ${sampleProvinces.length} provinces, ${sampleNations.length} nations, ${sampleEvents.length} events, ${gameUnits.length} units, ${sampleTechnologies.length} technologies, ${gameBuildings.length} buildings, ${Object.keys(resourcesData).length} resources`);
 

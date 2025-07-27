@@ -275,17 +275,22 @@ async function loadLegacyData(): Promise<{ nations: Nation[], provinces: Provinc
   console.log('Loading legacy data as fallback...');
   
   try {
-    // Load legacy nations
-    const nationsYaml = await import('../data/nations.yaml?raw');
-    const nations = await loadNationsFromYAML(nationsYaml.default);
+    // Import the legacy functions from gameData.ts which are known to work
+    const { getProvinces, getNations } = await import('./gameData');
+    
+    const [provinces, nations] = await Promise.all([
+      getProvinces(),
+      getNations()
+    ]);
 
-    // Load legacy provinces  
-    const provincesYaml = await import('../data/provinces.yaml?raw');
-    const provinces = await loadProvincesFromYAML(provincesYaml.default);
-
-    // Load legacy boundaries
-    const boundariesJson = await import('../data/province-boundaries.json?raw');
-    const boundaries = JSON.parse(boundariesJson.default);
+    // Try to load boundaries
+    let boundaries = { features: [] };
+    try {
+      const boundariesJson = await import('../data/province-boundaries.json?raw');
+      boundaries = JSON.parse(boundariesJson.default);
+    } catch (boundaryError) {
+      console.warn('Could not load boundaries, using empty data:', boundaryError);
+    }
 
     console.log('✓ Legacy data loaded successfully');
     console.log(`✓ Nations: ${nations.length}, Provinces: ${provinces.length}, Boundaries: ${boundaries.features?.length || 0}`);
