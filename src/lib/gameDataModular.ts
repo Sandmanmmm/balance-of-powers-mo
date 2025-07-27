@@ -127,6 +127,14 @@ let loadedNations: Nation[] | null = null;
 let loadedProvinces: Province[] | null = null;
 let loadedBoundaries: any | null = null;
 
+// Clear cache function for debugging
+export function clearDataCache() {
+  loadedNations = null;
+  loadedProvinces = null;
+  loadedBoundaries = null;
+  console.log('Data cache cleared');
+}
+
 /**
  * Loads nation data from all regional files
  */
@@ -141,6 +149,7 @@ async function loadAllNations(): Promise<Nation[]> {
   // Load superpowers
   for (const region of REGIONAL_DATA_CONFIG.superpowers) {
     try {
+      console.log(`Attempting to load nations from superpowers/${region.nations}`);
       const nationsYaml = await import(`../data/regions/superpowers/${region.nations}?raw`);
       const nationData = await loadNationsFromYAML(nationsYaml.default);
       allNations.push(...nationData);
@@ -153,12 +162,14 @@ async function loadAllNations(): Promise<Nation[]> {
   // Load regional nations  
   for (const region of REGIONAL_DATA_CONFIG.regions) {
     try {
+      console.log(`Attempting to load nations from ${region.name}/${region.nations}`);
       const nationsYaml = await import(`../data/regions/${region.name}/${region.nations}?raw`);
       const nationData = await loadNationsFromYAML(nationsYaml.default);
       allNations.push(...nationData);
       console.log(`✓ Loaded ${nationData.length} nations from ${region.name}`);
     } catch (error) {
       console.warn(`⚠ Could not load nations from ${region.name}:`, error);
+      console.error('Full error:', error);
     }
   }
 
@@ -181,24 +192,28 @@ async function loadAllProvinces(): Promise<Province[]> {
   // Load superpower provinces
   for (const region of REGIONAL_DATA_CONFIG.superpowers) {
     try {
+      console.log(`Attempting to load provinces from superpowers/${region.provinces}`);
       const provincesYaml = await import(`../data/regions/superpowers/${region.provinces}?raw`);
       const provinceData = await loadProvincesFromYAML(provincesYaml.default);
       allProvinces.push(...provinceData);
       console.log(`✓ Loaded ${provinceData.length} provinces from ${region.name}`);
     } catch (error) {
       console.warn(`⚠ Could not load provinces from ${region.name}:`, error);
+      console.error('Full error:', error);
     }
   }
 
   // Load regional provinces
   for (const region of REGIONAL_DATA_CONFIG.regions) {
     try {
+      console.log(`Attempting to load provinces from ${region.name}/${region.provinces}`);
       const provincesYaml = await import(`../data/regions/${region.name}/${region.provinces}?raw`);
       const provinceData = await loadProvincesFromYAML(provincesYaml.default);
       allProvinces.push(...provinceData);
       console.log(`✓ Loaded ${provinceData.length} provinces from ${region.name}`);
     } catch (error) {
       console.warn(`⚠ Could not load provinces from ${region.name}:`, error);
+      console.error('Full error:', error);
     }
   }
 
@@ -288,14 +303,8 @@ export async function loadGameData() {
   console.log('Starting game data load...');
   
   try {
-    // Since the modular regional structure doesn't exist yet, 
-    // go directly to legacy loading for now
-    console.log('Using legacy data files directly (modular structure not yet implemented)');
-    return await loadLegacyData();
-
-    // TODO: Enable modular loading once the regional file structure is implemented
-    /*
-    // Try loading modular data
+    // Try loading modular data first
+    console.log('Attempting to load modular regional data...');
     const [nations, provinces, boundaries] = await Promise.all([
       loadAllNations(),
       loadAllProvinces(), 
@@ -309,7 +318,6 @@ export async function loadGameData() {
 
     console.log('✓ Modular data loading completed successfully');
     return { nations, provinces, boundaries };
-    */
 
   } catch (error) {
     console.warn('Modular data loading failed, trying legacy fallback:', error);

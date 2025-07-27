@@ -57,7 +57,8 @@ function App() {
     startConstruction,
     cancelConstruction,
     processConstructionTick,
-    resetGameData
+    resetGameData,
+    forceReload
   } = useGameState();
 
   const selectedProvince = getSelectedProvince();

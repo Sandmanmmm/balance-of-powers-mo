@@ -1,8 +1,9 @@
 import React from 'react';
+import { Button } from '@/components/ui/button';
 import { useGameState } from '../hooks/useGameState';
 
 export function GameDataDebug() {
-  const { provinces, nations, isInitialized } = useGameState();
+  const { provinces, nations, isInitialized, forceReload } = useGameState();
   
   return (
     <div className="p-4 bg-muted rounded text-sm">
@@ -34,6 +35,16 @@ export function GameDataDebug() {
             ))}
           </div>
         )}
+        <div className="pt-2">
+          <Button 
+            size="sm" 
+            variant="outline" 
+            onClick={forceReload}
+            className="text-xs"
+          >
+            Force Reload Data
+          </Button>
+        </div>
       </div>
     </div>
   );

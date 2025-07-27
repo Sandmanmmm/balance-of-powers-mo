@@ -43,7 +43,11 @@ export function useGameState() {
   // Debug: Force clear old state if it's empty
   useEffect(() => {
     if (isInitialized && Array.isArray(nations) && nations.length === 0) {
-      console.warn('useGameState: Nations array is empty after initialization - forcing reload');
+      console.warn('useGameState: Nations array is empty after initialization - clearing cache and forcing reload');
+      // Clear the cache to force fresh data loading
+      import('../lib/gameDataModular').then(({ clearDataCache }) => {
+        clearDataCache();
+      });
       setIsInitialized(false);
     }
   }, [nations, isInitialized]);
@@ -273,6 +277,11 @@ export function useGameState() {
     setGameState(initialGameState);
     setIsInitialized(false);
     
+    // Clear the modular data cache
+    import('../lib/gameDataModular').then(({ clearDataCache }) => {
+      clearDataCache();
+    });
+    
     // Force clear localStorage as backup
     if (typeof window !== 'undefined') {
       console.log('Clearing any cached KV data...');
@@ -288,6 +297,16 @@ export function useGameState() {
       }
     }
   }, [setGameState]);
+
+  const forceReload = useCallback(() => {
+    console.log('useGameState: forceReload called');
+    resetGameData();
+    
+    // Force re-initialization
+    setTimeout(() => {
+      setIsInitialized(false);
+    }, 100);
+  }, [resetGameData]);
 
   const selectProvince = useCallback((provinceId: string | undefined) => {
     updateGameState({ selectedProvince: provinceId });
@@ -528,6 +547,7 @@ export function useGameState() {
     startConstruction,
     cancelConstruction,
     processConstructionTick,
-    resetGameData
+    resetGameData,
+    forceReload
   };
 }
