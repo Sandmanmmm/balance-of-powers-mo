@@ -129,8 +129,12 @@ export function useSimulationEngine({
 
   useEffect(() => {
     // Don't start simulation until we have valid data
-    if (safeProvinces.length === 0 || safeNations.length === 0) {
-      console.log('Simulation paused: waiting for game data to load');
+    if (safeProvinces.length === 0 || safeNations.length === 0 || !Array.isArray(resources) || resources.length === 0) {
+      console.log('Simulation paused: waiting for game data to load', {
+        provinces: safeProvinces.length,
+        nations: safeNations.length,
+        resources: Array.isArray(resources) ? resources.length : 0
+      });
       return;
     }
     
@@ -173,10 +177,10 @@ export function useSimulationEngine({
         simulateNations(context, Math.floor(weeksToAdvance), onUpdateNation);
         
         // Process resource production/consumption with shortage effects
-        processResourceSystem(context, Math.floor(weeksToAdvance), onUpdateProvince, onUpdateNation);
+        processResourceSystem(context, Math.floor(weeksToAdvance), onUpdateProvince, onUpdateNation, resources);
         
         // Process trade agreements
-        processTradeSystem(context, Math.floor(weeksToAdvance), onUpdateNation);
+        processTradeSystem(context, Math.floor(weeksToAdvance), onUpdateNation, resources);
         
         // Process construction projects
         if (onProcessConstructionTick) {
@@ -187,7 +191,7 @@ export function useSimulationEngine({
         const playerNation = context.nations.find(n => n.id === context.gameState.selectedNation);
         if (playerNation) {
           try {
-            // Use state resources variable instead of undefined resources
+            // Use the resources state variable
             const resourcesForNotifications = Array.isArray(resources) ? resources : [];
             checkResourceNotifications(playerNation, context.gameState.currentDate, resourcesForNotifications);
           } catch (error) {
@@ -219,7 +223,7 @@ export function useSimulationEngine({
         clearInterval(intervalRef.current);
       }
     };
-  }, [gameState.isPaused, gameState.timeSpeed, safeProvinces.length, safeNations.length, onAdvanceTime, onUpdateProvince, onUpdateNation, onProcessConstructionTick]);
+  }, [gameState.isPaused, gameState.timeSpeed, safeProvinces.length, safeNations.length, resources.length, onAdvanceTime, onUpdateProvince, onUpdateNation, onProcessConstructionTick]);
 }
 
 function simulateProvinces(
@@ -1102,7 +1106,8 @@ function processResourceSystem(
   context: SimulationContext,
   weeksElapsed: number,
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void,
-  onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
+  onUpdateNation: (nationId: string, updates: Partial<Nation>) => void,
+  resourcesFromState: Resource[]
 ) {
   // Safety checks
   if (!context.nations || !Array.isArray(context.nations)) {
@@ -1114,8 +1119,9 @@ function processResourceSystem(
     return;
   }
 
-  // Get resources data synchronously from cache
-  const resources = getAllResources();
+  // Use the passed resources parameter instead of calling getAllResources
+  const resources = Array.isArray(resourcesFromState) && resourcesFromState.length > 0 ? 
+    resourcesFromState : getAllResources();
   if (!resources || resources.length === 0) {
     console.warn('No resources loaded, skipping resource system processing');
     return;
@@ -1363,7 +1369,7 @@ function processResourceSystem(
   const shortageEffects = calculateResourceShortageEffects({
     ...nation,
     resourceShortages: newShortages
-  }, resources || []);
+  }, resources);
   
   // Apply effects to nation
   const nationEffects = applyShortageEffectsToNation(nation, shortageEffects);
@@ -1398,7 +1404,8 @@ function processResourceSystem(
 function processTradeSystem(
   context: SimulationContext,
   weeksElapsed: number,
-  onUpdateNation: (nationId: string, updates: Partial<Nation>) => void
+  onUpdateNation: (nationId: string, updates: Partial<Nation>) => void,
+  resourcesFromState: Resource[]
 ) {
   // Safety checks
   if (!context.nations || !Array.isArray(context.nations)) {
@@ -1494,7 +1501,7 @@ function processTradeSystem(
         (!Array.isArray(nation.diplomacy?.embargoes) || !nation.diplomacy.embargoes.includes(n.id))
       );
       
-      const tradeOffer = generateAITradeOffer(nation, potentialPartners, resources || []);
+      const tradeOffer = generateAITradeOffer(nation, potentialPartners, resourcesFromState || []);
       
       if (tradeOffer) {
         // Add offer to offering nation
@@ -1506,7 +1513,7 @@ function processTradeSystem(
         // Notify if offer is to player
         if (tradeOffer.toNation === context.gameState.selectedNation) {
           const resourceNames = Object.keys(tradeOffer.offering || {}).map(id => {
-            const resource = (resources || []).find(r => r.id === id);
+            const resource = (resourcesFromState || []).find(r => r.id === id);
             return resource?.name;
           }).filter(Boolean);
           sendTradeNotification('offer_received', {
@@ -1518,7 +1525,7 @@ function processTradeSystem(
         // Auto-evaluate AI response for AI-to-AI offers
         const targetNation = nations.find(n => n && n.id === tradeOffer.toNation);
         if (targetNation && targetNation.id !== context.gameState.selectedNation) {
-          const evaluation = evaluateTradeOfferAI(targetNation, tradeOffer, resources || []);
+          const evaluation = evaluateTradeOfferAI(targetNation, tradeOffer, resourcesFromState || []);
           
           if (evaluation.shouldAccept) {
             // Accept trade offer
