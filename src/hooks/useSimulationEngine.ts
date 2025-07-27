@@ -55,18 +55,26 @@ export function useSimulationEngine({
     const loadResourcesData = async () => {
       try {
         const resourcesList = await getResources();
-        setResources(resourcesList);
+        if (Array.isArray(resourcesList)) {
+          setResources(resourcesList);
+        } else {
+          console.error('Resources list is not an array:', resourcesList);
+          setResources([]);
+        }
 
         // Load events and technologies
         const eventsList = await getEvents();
-        setEvents(eventsList);
+        setEvents(Array.isArray(eventsList) ? eventsList : []);
         
         const technologiesList = await getTechnologies();
-        setTechnologies(technologiesList);
+        setTechnologies(Array.isArray(technologiesList) ? technologiesList : []);
         
-        console.log(`Simulation engine loaded ${resourcesList.length} resources, ${eventsList.length} events, ${technologiesList.length} technologies`);
+        console.log(`Simulation engine loaded ${Array.isArray(resourcesList) ? resourcesList.length : 0} resources, ${Array.isArray(eventsList) ? eventsList.length : 0} events, ${Array.isArray(technologiesList) ? technologiesList.length : 0} technologies`);
       } catch (error) {
         console.error('Failed to load resources in simulation engine:', error);
+        setResources([]);
+        setEvents([]);
+        setTechnologies([]);
       }
     };
     
@@ -79,7 +87,7 @@ export function useSimulationEngine({
       console.log('=== SIMULATION ENGINE DATA VALIDATION ===');
       console.log(`📊 Provinces loaded: ${provinces.length}`);
       console.log(`🏛️ Nations loaded: ${nations.length}`);
-      console.log(`📦 Resources loaded: ${resources.length}`);
+      console.log(`📦 Resources loaded: ${resources?.length || 0}`);
       
       // Check data sources
       if (provinces.length > 0) {
@@ -113,7 +121,7 @@ export function useSimulationEngine({
     if (provinces.length > 0 && nations.length > 0) {
       logDataValidation();
     }
-  }, [provinces.length, nations.length, resources.length]);
+  }, [provinces.length, nations.length, resources?.length || 0]);
 
   // Ensure we have safe arrays to work with
   const safeProvinces = Array.isArray(provinces) ? provinces.filter(p => p) : [];
@@ -1489,7 +1497,7 @@ function processTradeSystem(
         // Notify if offer is to player
         if (tradeOffer.toNation === context.gameState.selectedNation) {
           const resourceNames = Object.keys(tradeOffer.offering || {}).map(id => {
-            const resource = resources.find(r => r.id === id);
+            const resource = resources?.find(r => r.id === id);
             return resource?.name;
           }).filter(Boolean);
           sendTradeNotification('offer_received', {

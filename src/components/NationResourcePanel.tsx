@@ -24,9 +24,15 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
     const loadResources = async () => {
       try {
         const resourcesData = await getResources();
-        setResources(resourcesData);
+        if (Array.isArray(resourcesData)) {
+          setResources(resourcesData);
+        } else {
+          console.error('Resources data is not an array:', resourcesData);
+          setResources([]);
+        }
       } catch (error) {
         console.error('Failed to load resources:', error);
+        setResources([]);
       } finally {
         setIsLoading(false);
       }
@@ -64,11 +70,11 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
   }, [nation]);
 
   const getResourcesByCategory = (category: string): Resource[] => {
-    return resources.filter(resource => resource.category === category);
+    return resources?.filter(resource => resource.category === category) || [];
   };
 
   // Create a lookup object from the resources array for backward compatibility
-  const resourcesData = resources.reduce((acc, resource) => {
+  const resourcesData = (resources || []).reduce((acc, resource) => {
     acc[resource.id] = resource;
     return acc;
   }, {} as Record<string, Resource>);
