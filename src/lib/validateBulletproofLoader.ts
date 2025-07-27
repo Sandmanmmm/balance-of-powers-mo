@@ -36,6 +36,21 @@ export async function validateBulletproofLoader(): Promise<void> {
     console.log(`  🇨🇦 Canada loaded: ${!!canada}`);
     console.log(`  🍁 Canadian provinces: ${canadianProvinces.length}`);
     
+    // Validate China specifically
+    const china = worldData.nations.find(n => n.id === 'CHN');
+    const chineseProvinces = worldData.provinces.filter(p => p.country === 'China');
+    
+    console.log(`  🇨🇳 China loaded: ${!!china}`);
+    console.log(`  🏮 Chinese provinces: ${chineseProvinces.length}`);
+    
+    if (chineseProvinces.length > 0) {
+      const majorProvinces = ['Beijing', 'Shanghai', 'Guangdong', 'Sichuan', 'Xinjiang', 'Tibet'];
+      const foundMajor = majorProvinces.filter(name => 
+        chineseProvinces.some(p => p.name === name)
+      );
+      console.log(`  🏙️ Major Chinese provinces found: ${foundMajor.join(', ')}`);
+    }
+    
     if (hasSummary) {
       const summary = worldData.loadingSummary;
       const successRate = summary.totalFiles > 0 ? (summary.successfulFiles / summary.totalFiles) * 100 : 0;

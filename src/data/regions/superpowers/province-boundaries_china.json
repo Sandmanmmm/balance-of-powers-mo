@@ -1,39 +1,302 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "CHN_BJ",
-        "name": "Beijing"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [115.8142, 40.3707],
-          [117.5145, 40.3707],
-          [117.5145, 39.4424],
-          [115.8142, 39.4424],
-          [115.8142, 40.3707]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "CHN_SH",
-        "name": "Shanghai"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [120.8516, 31.8681],
-          [122.2081, 31.8681],
-          [122.2081, 30.6762],
-          [120.8516, 30.6762],
-          [120.8516, 31.8681]
-        ]]
-      }
+  "CN_BJ": {
+    "type": "Feature",
+    "properties": {"id": "CN_BJ", "name": "Beijing"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [115.7, 40.2], [117.4, 40.2], [117.4, 39.4], [115.7, 39.4], [115.7, 40.2]
+      ]]
     }
-  ]
+  },
+  "CN_SH": {
+    "type": "Feature",
+    "properties": {"id": "CN_SH", "name": "Shanghai"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [120.9, 31.4], [121.9, 31.4], [121.9, 30.7], [120.9, 30.7], [120.9, 31.4]
+      ]]
+    }
+  },
+  "CN_GD": {
+    "type": "Feature",
+    "properties": {"id": "CN_GD", "name": "Guangdong"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [109.8, 25.3], [117.2, 25.3], [117.2, 20.2], [109.8, 20.2], [109.8, 25.3]
+      ]]
+    }
+  },
+  "CN_SD": {
+    "type": "Feature",
+    "properties": {"id": "CN_SD", "name": "Shandong"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [114.8, 38.4], [122.7, 38.4], [122.7, 34.4], [114.8, 34.4], [114.8, 38.4]
+      ]]
+    }
+  },
+  "CN_JS": {
+    "type": "Feature",
+    "properties": {"id": "CN_JS", "name": "Jiangsu"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [116.4, 35.1], [121.9, 35.1], [121.9, 30.7], [116.4, 30.7], [116.4, 35.1]
+      ]]
+    }
+  },
+  "CN_ZJ": {
+    "type": "Feature",
+    "properties": {"id": "CN_ZJ", "name": "Zhejiang"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [118.3, 30.6], [122.0, 30.6], [122.0, 27.1], [118.3, 27.1], [118.3, 30.6]
+      ]]
+    }
+  },
+  "CN_HB": {
+    "type": "Feature",
+    "properties": {"id": "CN_HB", "name": "Hubei"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [108.2, 33.3], [116.1, 33.3], [116.1, 29.0], [108.2, 29.0], [108.2, 33.3]
+      ]]
+    }
+  },
+  "CN_HN": {
+    "type": "Feature",
+    "properties": {"id": "CN_HN", "name": "Hunan"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [108.8, 30.1], [114.3, 30.1], [114.3, 24.6], [108.8, 24.6], [108.8, 30.1]
+      ]]
+    }
+  },
+  "CN_AH": {
+    "type": "Feature",
+    "properties": {"id": "CN_AH", "name": "Anhui"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [114.9, 34.7], [119.3, 34.7], [119.3, 29.4], [114.9, 29.4], [114.9, 34.7]
+      ]]
+    }
+  },
+  "CN_JX": {
+    "type": "Feature",
+    "properties": {"id": "CN_JX", "name": "Jiangxi"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [113.6, 30.0], [118.5, 30.0], [118.5, 24.5], [113.6, 24.5], [113.6, 30.0]
+      ]]
+    }
+  },
+  "CN_FJ": {
+    "type": "Feature",
+    "properties": {"id": "CN_FJ", "name": "Fujian"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [115.8, 28.3], [120.7, 28.3], [120.7, 23.5], [115.8, 23.5], [115.8, 28.3]
+      ]]
+    }
+  },
+  "CN_HEB": {
+    "type": "Feature",
+    "properties": {"id": "CN_HEB", "name": "Hebei"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [113.4, 42.6], [119.8, 42.6], [119.8, 36.0], [113.4, 36.0], [113.4, 42.6]
+      ]]
+    }
+  },
+  "CN_SX": {
+    "type": "Feature",
+    "properties": {"id": "CN_SX", "name": "Shanxi"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [110.2, 40.7], [114.6, 40.7], [114.6, 34.6], [110.2, 34.6], [110.2, 40.7]
+      ]]
+    }
+  },
+  "CN_SAX": {
+    "type": "Feature",
+    "properties": {"id": "CN_SAX", "name": "Shaanxi"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [105.5, 39.6], [111.3, 39.6], [111.3, 31.7], [105.5, 31.7], [105.5, 39.6]
+      ]]
+    }
+  },
+  "CN_NMG": {
+    "type": "Feature",
+    "properties": {"id": "CN_NMG", "name": "Inner Mongolia"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [97.2, 53.3], [126.1, 53.3], [126.1, 37.4], [97.2, 37.4], [97.2, 53.3]
+      ]]
+    }
+  },
+  "CN_LN": {
+    "type": "Feature",
+    "properties": {"id": "CN_LN", "name": "Liaoning"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [118.9, 43.5], [125.7, 43.5], [125.7, 38.7], [118.9, 38.7], [118.9, 43.5]
+      ]]
+    }
+  },
+  "CN_JL": {
+    "type": "Feature",
+    "properties": {"id": "CN_JL", "name": "Jilin"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [121.6, 46.3], [131.2, 46.3], [131.2, 41.6], [121.6, 41.6], [121.6, 46.3]
+      ]]
+    }
+  },
+  "CN_HLJ": {
+    "type": "Feature",
+    "properties": {"id": "CN_HLJ", "name": "Heilongjiang"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [121.2, 53.6], [135.1, 53.6], [135.1, 43.4], [121.2, 43.4], [121.2, 53.6]
+      ]]
+    }
+  },
+  "CN_SC": {
+    "type": "Feature",
+    "properties": {"id": "CN_SC", "name": "Sichuan"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [97.3, 34.3], [108.5, 34.3], [108.5, 26.0], [97.3, 26.0], [97.3, 34.3]
+      ]]
+    }
+  },
+  "CN_YN": {
+    "type": "Feature",
+    "properties": {"id": "CN_YN", "name": "Yunnan"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [97.5, 29.2], [106.2, 29.2], [106.2, 21.1], [97.5, 21.1], [97.5, 29.2]
+      ]]
+    }
+  },
+  "CN_GZ": {
+    "type": "Feature",
+    "properties": {"id": "CN_GZ", "name": "Guizhou"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [103.6, 29.2], [109.6, 29.2], [109.6, 24.6], [103.6, 24.6], [103.6, 29.2]
+      ]]
+    }
+  },
+  "CN_CQ": {
+    "type": "Feature",
+    "properties": {"id": "CN_CQ", "name": "Chongqing"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [105.3, 32.2], [110.2, 32.2], [110.2, 28.2], [105.3, 28.2], [105.3, 32.2]
+      ]]
+    }
+  },
+  "CN_GX": {
+    "type": "Feature",
+    "properties": {"id": "CN_GX", "name": "Guangxi"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [104.4, 26.4], [112.1, 26.4], [112.1, 20.9], [104.4, 20.9], [104.4, 26.4]
+      ]]
+    }
+  },
+  "CN_XJ": {
+    "type": "Feature",
+    "properties": {"id": "CN_XJ", "name": "Xinjiang"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [73.5, 49.2], [96.4, 49.2], [96.4, 34.3], [73.5, 34.3], [73.5, 49.2]
+      ]]
+    }
+  },
+  "CN_XZ": {
+    "type": "Feature",
+    "properties": {"id": "CN_XZ", "name": "Tibet"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [78.4, 36.5], [99.1, 36.5], [99.1, 26.9], [78.4, 26.9], [78.4, 36.5]
+      ]]
+    }
+  },
+  "CN_HAN": {
+    "type": "Feature",
+    "properties": {"id": "CN_HAN", "name": "Hainan"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [108.6, 20.1], [111.1, 20.1], [111.1, 18.1], [108.6, 18.1], [108.6, 20.1]
+      ]]
+    }
+  },
+  "CN_NX": {
+    "type": "Feature",
+    "properties": {"id": "CN_NX", "name": "Ningxia"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [104.2, 39.4], [107.6, 39.4], [107.6, 35.1], [104.2, 35.1], [104.2, 39.4]
+      ]]
+    }
+  },
+  "CN_QH": {
+    "type": "Feature",
+    "properties": {"id": "CN_QH", "name": "Qinghai"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [89.3, 39.2], [103.1, 39.2], [103.1, 31.6], [89.3, 31.6], [89.3, 39.2]
+      ]]
+    }
+  },
+  "CN_GS": {
+    "type": "Feature",
+    "properties": {"id": "CN_GS", "name": "Gansu"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [92.2, 42.9], [108.7, 42.9], [108.7, 32.1], [92.2, 32.1], [92.2, 42.9]
+      ]]
+    }
+  },
+  "CN_TJ": {
+    "type": "Feature",
+    "properties": {"id": "CN_TJ", "name": "Tianjin"},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [116.7, 40.3], [118.0, 40.3], [118.0, 38.6], [116.7, 38.6], [116.7, 40.3]
+      ]]
+    }
+  }
 }
