@@ -30,7 +30,7 @@ export function GameDataDebug() {
             <div className="font-semibold">Nations:</div>
             {nations.map(n => (
               <div key={n.id} className="ml-2">
-                {n.id}: {n.name} ({n.provinces?.length || 0} provinces)
+                {n.id}: {n.name}
               </div>
             ))}
           </div>

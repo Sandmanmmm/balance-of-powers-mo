@@ -1412,3 +1412,33 @@
       Democrats: 92.2
       Republicans: 5.1
       Green: 2.7
+
+- id: US_VA
+  name: "Virginia"
+  country: "United States"
+  population:
+    total: 8540000
+    ethnic_groups:
+      - group: "White"
+        percent: 61
+      - group: "Black"
+        percent: 19
+      - group: "Hispanic"
+        percent: 10
+      - group: "Asian"
+        percent: 7
+  unrest: 5
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "urban", "tech_hub"]
+  resource_output:
+    energy: 3500
+    food: 2500
+    technology: 12000
+    industrial_capacity: 6500
+  politics:
+    party_support:
+      Democrats: 54.1
+      Republicans: 44.0
+      Libertarian: 1.9

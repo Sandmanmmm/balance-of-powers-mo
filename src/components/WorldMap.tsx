@@ -17,7 +17,7 @@ import {
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
 import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid } from '../lib/mapProjection';
-import { loadBoundaries as loadAllBoundariesData } from '../lib/gameDataModular';
+import { loadWorldData } from '../data/dataLoader';
 
 interface WorldMapProps {
   provinces: Province[];
@@ -116,19 +116,26 @@ export function WorldMap({
   useEffect(() => {
     const loadBoundaries = async () => {
       try {
-        const boundaries = await loadAllBoundariesData();
-        setProvinceBoundariesData(boundaries);
-        console.log('✓ Province boundaries loaded:', boundaries?.features?.length || 0);
+        const worldData = await loadWorldData();
+        // Convert object format to GeoJSON FeatureCollection format
+        const features = Object.entries(worldData.boundaries).map(([id, boundary]) => {
+          if (boundary && typeof boundary === 'object' && boundary.type === 'Feature') {
+            return boundary;
+          }
+          return null;
+        }).filter(Boolean);
+        
+        const boundariesData = {
+          type: "FeatureCollection",
+          features: features
+        };
+        
+        setProvinceBoundariesData(boundariesData);
+        console.log('✓ Province boundaries loaded:', features.length);
       } catch (error) {
         console.error('❌ Failed to load province boundaries:', error);
-        // Fallback to legacy data
-        try {
-          const legacyBoundaries = await import('../data/province-boundaries.json');
-          setProvinceBoundariesData(legacyBoundaries.default);
-          console.log('✓ Using legacy boundaries as fallback');
-        } catch (fallbackError) {
-          console.error('❌ Failed to load even legacy boundaries:', fallbackError);
-        }
+        // Fallback to empty data
+        setProvinceBoundariesData({ type: "FeatureCollection", features: [] });
       }
     };
     loadBoundaries();

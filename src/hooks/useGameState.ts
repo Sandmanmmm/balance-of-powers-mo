@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useKV } from '@github/spark/hooks';
 import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
-import { loadGameData, loadBuildingsData } from '../lib/gameDataModular';
+import { getGameData, getBuildings } from '../data/gameData';
 import { validateBuildingPlacement } from './useSimulationEngine';
 
 const initialGameState: GameState = {
@@ -24,7 +24,7 @@ export function useGameState() {
   useEffect(() => {
     const loadBuildings = async () => {
       try {
-        const buildingsData = await loadBuildingsData();
+        const buildingsData = await getBuildings();
         setBuildings(buildingsData);
         console.log('✓ Buildings loaded:', buildingsData.length);
       } catch (error) {
@@ -45,8 +45,8 @@ export function useGameState() {
     if (isInitialized && Array.isArray(nations) && nations.length === 0) {
       console.warn('useGameState: Nations array is empty after initialization - clearing cache and forcing reload');
       // Clear the cache to force fresh data loading
-      import('../lib/gameDataModular').then(({ clearDataCache }) => {
-        clearDataCache();
+      import('../data/gameData').then(({ clearGameDataCache }) => {
+        clearGameDataCache();
       });
       setIsInitialized(false);
     }
@@ -73,13 +73,13 @@ export function useGameState() {
       
       const initializeData = async () => {
         try {
-          console.log('Loading game data (using legacy for now)...');
-          const gameData = await loadGameData();
+          console.log('Loading game data (using modular loader)...');
+          const gameData = await getGameData();
           
-          console.log('loadGameData returned:', {
+          console.log('getGameData returned:', {
             provinces: gameData.provinces?.length || 0,
             nations: gameData.nations?.length || 0,
-            boundaries: gameData.boundaries?.features?.length || 0
+            boundaries: Object.keys(gameData.boundaries || {}).length
           });
           
           // Additional validation
@@ -310,8 +310,8 @@ export function useGameState() {
     setIsInitialized(false);
     
     // Clear the modular data cache
-    import('../lib/gameDataModular').then(({ clearDataCache }) => {
-      clearDataCache();
+    import('../data/gameData').then(({ clearGameDataCache }) => {
+      clearGameDataCache();
     });
     
     // Force clear localStorage as backup
