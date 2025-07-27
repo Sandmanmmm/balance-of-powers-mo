@@ -397,6 +397,98 @@ buildings:
       infrastructure: 1
     icon: "🌾"
 
+  # === GENERAL PURPOSE BUILDINGS (No specific features required) ===
+  
+  - id: "basic_housing"
+    name: "Basic Housing Complex"
+    description: "Standard residential housing for workers"
+    category: "civilian"
+    cost: 800
+    buildTime: 100
+    produces: {}
+    consumes:
+      manpower: 20
+      electricity: 5
+      steel: 5
+    improves:
+      housing_capacity: 500
+      population_growth: 1
+    requirements:
+      infrastructure: 1
+    icon: "🏠"
+
+  - id: "small_factory"
+    name: "Small Manufacturing Plant"
+    description: "Basic manufacturing facility for consumer goods"
+    category: "industrial"
+    cost: 1500
+    buildTime: 120
+    produces:
+      consumer_goods: 15
+    consumes:
+      electricity: 30
+      manpower: 80
+      steel: 8
+    improves:
+      industrial_capacity: 1
+      employment: 300
+    requirements:
+      infrastructure: 2
+    icon: "🏭"
+
+  - id: "basic_power_plant"
+    name: "Basic Power Plant"
+    description: "Simple electrical generation facility"
+    category: "energy"
+    cost: 2000
+    buildTime: 150
+    produces:
+      electricity: 100
+    consumes:
+      manpower: 60
+      oil: 25
+      steel: 10
+    improves:
+      energy_security: 2
+    requirements:
+      infrastructure: 2
+    icon: "⚡"
+
+  - id: "medical_clinic"
+    name: "Medical Clinic"
+    description: "Basic healthcare facility"
+    category: "civilian"
+    cost: 1200
+    buildTime: 100
+    produces: {}
+    consumes:
+      manpower: 50
+      electricity: 15
+    improves:
+      healthcare: 2
+      population_health: 1
+    requirements:
+      infrastructure: 1
+    icon: "🏥"
+
+  - id: "office_complex"
+    name: "Office Complex"
+    description: "Commercial office space for businesses"
+    category: "commercial"
+    cost: 1800
+    buildTime: 140
+    produces:
+      consumer_goods: 8
+    consumes:
+      electricity: 40
+      manpower: 120
+    improves:
+      commercial_activity: 2
+      employment: 450
+    requirements:
+      infrastructure: 2
+    icon: "🏢"
+
   - id: "munitions_depot"
     name: "Military Supply Depot"
     description: "Stores military equipment and ammunition"

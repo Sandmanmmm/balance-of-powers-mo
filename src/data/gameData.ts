@@ -391,17 +391,14 @@ export function getAvailableBuildings(
       return false;
     }
     
-    // Check feature requirements - Province must have ALL required features
+    // Check feature requirements - Province must have AT LEAST ONE required feature
     if (building.requiresFeatures && Array.isArray(building.requiresFeatures) && building.requiresFeatures.length > 0) {
       const provinceFeatures = province.features || [];
-      const hasAllRequiredFeatures = building.requiresFeatures.every(feature => 
+      const hasAnyRequiredFeature = building.requiresFeatures.some(feature => 
         feature && provinceFeatures.includes(feature)
       );
-      if (!hasAllRequiredFeatures) {
-        const missingFeatures = building.requiresFeatures.filter(feature => 
-          feature && !provinceFeatures.includes(feature)
-        );
-        console.log(`Building ${building.name} filtered out - missing features: ${missingFeatures.join(', ')}. Requires: ${building.requiresFeatures.join(', ')}, Province has: ${provinceFeatures.join(', ')}`);
+      if (!hasAnyRequiredFeature) {
+        console.log(`Building ${building.name} filtered out - no matching features. Requires ANY of: ${building.requiresFeatures.join(', ')}, Province has: ${provinceFeatures.join(', ')}`);
         return false;
       }
     }
