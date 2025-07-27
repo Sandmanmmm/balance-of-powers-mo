@@ -187,7 +187,7 @@ export function useSimulationEngine({
         const playerNation = context.nations.find(n => n.id === context.gameState.selectedNation);
         if (playerNation) {
           try {
-            checkResourceNotifications(playerNation, context.gameState.currentDate, resources);
+            checkResourceNotifications(playerNation, context.gameState.currentDate, resources || []);
           } catch (error) {
             console.error('Error checking resource notifications:', error);
           }
@@ -1361,7 +1361,7 @@ function processResourceSystem(
   const shortageEffects = calculateResourceShortageEffects({
     ...nation,
     resourceShortages: newShortages
-  }, resources);
+  }, resources || []);
   
   // Apply effects to nation
   const nationEffects = applyShortageEffectsToNation(nation, shortageEffects);
@@ -1492,7 +1492,7 @@ function processTradeSystem(
         (!Array.isArray(nation.diplomacy?.embargoes) || !nation.diplomacy.embargoes.includes(n.id))
       );
       
-      const tradeOffer = generateAITradeOffer(nation, potentialPartners, resources);
+      const tradeOffer = generateAITradeOffer(nation, potentialPartners, resources || []);
       
       if (tradeOffer) {
         // Add offer to offering nation
@@ -1504,7 +1504,7 @@ function processTradeSystem(
         // Notify if offer is to player
         if (tradeOffer.toNation === context.gameState.selectedNation) {
           const resourceNames = Object.keys(tradeOffer.offering || {}).map(id => {
-            const resource = resources?.find(r => r.id === id);
+            const resource = (resources || []).find(r => r.id === id);
             return resource?.name;
           }).filter(Boolean);
           sendTradeNotification('offer_received', {
@@ -1516,7 +1516,7 @@ function processTradeSystem(
         // Auto-evaluate AI response for AI-to-AI offers
         const targetNation = nations.find(n => n && n.id === tradeOffer.toNation);
         if (targetNation && targetNation.id !== context.gameState.selectedNation) {
-          const evaluation = evaluateTradeOfferAI(targetNation, tradeOffer, resources);
+          const evaluation = evaluateTradeOfferAI(targetNation, tradeOffer, resources || []);
           
           if (evaluation.shouldAccept) {
             // Accept trade offer
