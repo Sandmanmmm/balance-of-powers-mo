@@ -383,29 +383,3 @@ export async function loadGameData(): Promise<{
     boundaries: data.boundaries || { features: [] }
   };
 }
-
-// Convenience functions for individual data access
-export async function getNations(): Promise<Nation[]> {
-  const data = await getGameData();
-  return data.nations;
-}
-
-export async function getProvinces(): Promise<Province[]> {
-  const data = await getGameData();
-  return data.provinces;
-}
-
-export async function getBoundaries() {
-  const data = await getGameData();
-  return data.boundaries;
-}
-
-export async function getBuildings() {
-  const data = await getGameData();
-  return data.buildings;
-}
-
-export async function getResources() {
-  const data = await getGameData();
-  return data.resources;
-}
