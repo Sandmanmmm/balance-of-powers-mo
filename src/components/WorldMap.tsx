@@ -17,7 +17,7 @@ import {
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
 import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid } from '../lib/mapProjection';
-import { loadAllBoundaries } from '../lib/gameDataModular';
+import { loadBoundaries as loadAllBoundariesData } from '../lib/gameDataModular';
 
 interface WorldMapProps {
   provinces: Province[];
@@ -116,7 +116,7 @@ export function WorldMap({
   useEffect(() => {
     const loadBoundaries = async () => {
       try {
-        const boundaries = await loadAllBoundaries();
+        const boundaries = await loadAllBoundariesData();
         setProvinceBoundariesData(boundaries);
         console.log('✓ Province boundaries loaded:', boundaries?.features?.length || 0);
       } catch (error) {

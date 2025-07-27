@@ -273,6 +273,7 @@ async function loadLegacyData(): Promise<{ nations: Nation[], provinces: Provinc
     const boundaries = JSON.parse(boundariesJson.default);
 
     console.log('✓ Legacy data loaded successfully');
+    console.log(`✓ Nations: ${nations.length}, Provinces: ${provinces.length}, Boundaries: ${boundaries.features?.length || 0}`);
     return { nations, provinces, boundaries };
   } catch (error) {
     console.error('Failed to load legacy data:', error);
@@ -287,6 +288,13 @@ export async function loadGameData() {
   console.log('Starting game data load...');
   
   try {
+    // Since the modular regional structure doesn't exist yet, 
+    // go directly to legacy loading for now
+    console.log('Using legacy data files directly (modular structure not yet implemented)');
+    return await loadLegacyData();
+
+    // TODO: Enable modular loading once the regional file structure is implemented
+    /*
     // Try loading modular data
     const [nations, provinces, boundaries] = await Promise.all([
       loadAllNations(),
@@ -301,6 +309,7 @@ export async function loadGameData() {
 
     console.log('✓ Modular data loading completed successfully');
     return { nations, provinces, boundaries };
+    */
 
   } catch (error) {
     console.warn('Modular data loading failed, trying legacy fallback:', error);

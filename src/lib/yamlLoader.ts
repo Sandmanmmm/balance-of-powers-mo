@@ -1,17 +1,19 @@
 import * as yaml from 'js-yaml';
 import { Building, Province, Nation } from './types';
 
-// Import YAML files as raw text
-import buildingsYamlRaw from '../data/buildings.yaml?raw';
-import provincesYamlRaw from '../data/provinces.yaml?raw';
-import nationsYamlRaw from '../data/nations.yaml?raw';
-
-export async function loadBuildingsFromYAML(): Promise<Building[]> {
+export async function loadBuildingsFromYAML(yamlContent?: string): Promise<Building[]> {
   try {
     console.log('Loading buildings from YAML...');
     
+    // Use provided content or fallback to static import
+    let content = yamlContent;
+    if (!content) {
+      const buildingsYamlRaw = await import('../data/buildings.yaml?raw');
+      content = buildingsYamlRaw.default;
+    }
+    
     // Parse the YAML
-    const data = yaml.load(buildingsYamlRaw) as { buildings: any[] };
+    const data = yaml.load(content) as { buildings: any[] };
     
     if (!data.buildings || !Array.isArray(data.buildings)) {
       throw new Error('Invalid buildings.yaml format');
@@ -40,11 +42,18 @@ export async function loadBuildingsFromYAML(): Promise<Building[]> {
   }
 }
 
-export async function loadProvincesFromYAML(): Promise<Province[]> {
+export async function loadProvincesFromYAML(yamlContent?: string): Promise<Province[]> {
   try {
     console.log('Loading provinces from YAML...');
     
-    const data = yaml.load(provincesYamlRaw) as { provinces: Record<string, any> };
+    // Use provided content or fallback to static import
+    let content = yamlContent;
+    if (!content) {
+      const provincesYamlRaw = await import('../data/provinces.yaml?raw');
+      content = provincesYamlRaw.default;
+    }
+    
+    const data = yaml.load(content) as { provinces: Record<string, any> };
     
     if (!data.provinces) {
       throw new Error('Invalid provinces.yaml format');
@@ -128,15 +137,18 @@ export async function loadProvincesFromYAML(): Promise<Province[]> {
   }
 }
 
-export async function loadNationsFromYAML(): Promise<Nation[]> {
+export async function loadNationsFromYAML(yamlContent?: string): Promise<Nation[]> {
   try {
     console.log('Loading nations from YAML...');
     
-    if (!nationsYamlRaw || typeof nationsYamlRaw !== 'string') {
-      throw new Error('Nations YAML data not available');
+    // Use provided content or fallback to static import
+    let content = yamlContent;
+    if (!content) {
+      const nationsYamlRaw = await import('../data/nations.yaml?raw');
+      content = nationsYamlRaw.default;
     }
     
-    const data = yaml.load(nationsYamlRaw) as { nations: Record<string, any> };
+    const data = yaml.load(content) as { nations: Record<string, any> };
     
     if (!data || !data.nations || typeof data.nations !== 'object') {
       throw new Error('Invalid nations.yaml format - missing nations object');
