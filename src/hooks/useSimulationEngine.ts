@@ -1140,6 +1140,7 @@ function processResourceSystem(
               break;
             default:
               startingStockpiles[resource.id] = 100; // Default amount
+            }
           }
         });
       }
