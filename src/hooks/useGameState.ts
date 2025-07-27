@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useKV } from '@github/spark/hooks';
 import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
-import { getBuildings, loadGameData } from '../data/gameData';
+import { getBuildings } from '../data/gameData';
+import { loadGameData } from '../lib/gameData';
 import { validateBuildingPlacement } from './useSimulationEngine';
 
 const initialGameState: GameState = {
