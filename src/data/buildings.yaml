@@ -2563,3 +2563,128 @@ buildings:
       infrastructure: 3
       technology: "astronomy"
     icon: "🔭"
+
+  - id: "timber_mill"
+    name: "Timber Mill"
+    description: "Large-scale lumber processing facility"
+    category: "industrial"
+    cost: 3000
+    buildTime: 200
+    produces:
+      timber: 150
+      wood_products: 80
+      paper: 40
+    consumes:
+      electricity: 40
+      manpower: 120
+      oil: 20
+    improves:
+      forestry_industry: 6
+      lumber_production: 8
+      employment: 500
+    requiresFeatures:
+      - "forestry"
+    requirements:
+      infrastructure: 2
+    icon: "🌲"
+
+  - id: "wine_vineyard"
+    name: "Wine Vineyard"
+    description: "Premium wine production facility"
+    category: "agriculture"
+    cost: 4000
+    buildTime: 300
+    produces:
+      wine: 80
+      luxury_goods: 40
+      tourism: 30
+    consumes:
+      electricity: 25
+      manpower: 80
+      water: 100
+    improves:
+      luxury_production: 4
+      agricultural_diversity: 3
+      tourism_appeal: 2
+      employment: 300
+    requiresFeatures:
+      - "wine"
+      - "agricultural"
+    requirements:
+      infrastructure: 3
+    icon: "🍷"
+
+  - id: "oil_extraction"
+    name: "Oil Extraction Complex"
+    description: "Advanced oil extraction and initial processing"
+    category: "extraction"
+    cost: 8000
+    buildTime: 400
+    produces:
+      oil: 300
+      natural_gas: 100
+      petroleum_products: 50
+    consumes:
+      electricity: 100
+      manpower: 200
+      steel: 40
+    improves:
+      oil_production: 10
+      energy_independence: 6
+      employment: 800
+    requiresFeatures:
+      - "oil_rich"
+    requirements:
+      infrastructure: 3
+    icon: "🛢️"
+
+  - id: "natural_gas_plant"
+    name: "Natural Gas Processing Plant"
+    description: "Natural gas extraction and distribution"
+    category: "energy"
+    cost: 6000
+    buildTime: 350
+    produces:
+      natural_gas: 250
+      electricity: 200
+      petrochemicals: 80
+    consumes:
+      electricity: 60
+      manpower: 120
+      steel: 30
+    improves:
+      energy_production: 8
+      gas_distribution: 6
+      employment: 600
+    requiresFeatures:
+      - "oil_rich"
+      - "energy"
+    requirements:
+      infrastructure: 3
+    icon: "🔥"
+
+  - id: "wilderness_lodge"
+    name: "Wilderness Tourism Lodge"
+    description: "Eco-tourism and outdoor recreation facility"
+    category: "tourism"
+    cost: 3500
+    buildTime: 180
+    produces:
+      tourism: 120
+      outdoor_recreation: 80
+      environmental_education: 40
+    consumes:
+      electricity: 30
+      manpower: 60
+      food: 40
+    improves:
+      eco_tourism: 6
+      environmental_awareness: 4
+      rural_employment: 8
+      employment: 250
+    requiresFeatures:
+      - "wilderness"
+      - "mountains"
+    requirements:
+      infrastructure: 2
+    icon: "🏕️"

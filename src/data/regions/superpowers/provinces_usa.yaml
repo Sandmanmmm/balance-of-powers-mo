@@ -1349,3 +1349,205 @@ provinces:
           level: 4
         - type: "national_park"
           level: 2
+
+  USA_OR:
+    name: "Oregon"
+    country: "United States"
+    coordinates: [44.5720, -122.0709]
+    features:
+      - "coastal"
+      - "forestry"
+      - "renewable_energy"
+      - "tech_hub"
+      - "urban"
+      - "mountains"
+      - "hydroelectric"
+      - "agriculture"
+      - "wine"
+    population:
+      total: 4240000
+      ethnic_groups:
+        - group: "White"
+          percent: 74.9
+        - group: "Hispanic"
+          percent: 13.4
+        - group: "Asian"
+          percent: 4.9
+        - group: "Black"
+          percent: 2.2
+        - group: "Native American"
+          percent: 1.8
+        - group: "Other"
+          percent: 2.8
+    unrest: 5.6
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 185
+      steel: 350
+      rare_earth: 450
+      uranium: 125
+      food: 6500
+      timber: 12500
+      geothermal: 2850
+    military:
+      stationed_units:
+        - "USA_NAT_2"
+      fortification_level: 2
+    resource_output:
+      energy: 8500
+      timber: 8500
+      technology: 4500
+      food: 7500
+      wine: 2500
+    politics:
+      party_support:
+        "Democratic Party": 56.5
+        "Republican Party": 40.4
+        "Other": 3.1
+    buildings:
+      active:
+        - type: "hydroelectric_dam"
+          level: 3
+        - type: "timber_mill"
+          level: 4
+        - type: "tech_center"
+          level: 2
+
+  USA_NM:
+    name: "New Mexico"
+    country: "United States"
+    coordinates: [34.8405, -106.2485]
+    features:
+      - "desert"
+      - "mining"
+      - "nuclear"
+      - "aerospace"
+      - "research"
+      - "oil_rich"
+      - "solar"
+      - "cultural"
+      - "military_testing"
+    population:
+      total: 2120000
+      ethnic_groups:
+        - group: "Hispanic"
+          percent: 49.3
+        - group: "White"
+          percent: 36.5
+        - group: "Native American"
+          percent: 11.0
+        - group: "Black"
+          percent: 2.0
+        - group: "Asian"
+          percent: 1.7
+        - group: "Other"
+          percent: 0.5
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 6500
+      steel: 185
+      rare_earth: 1850
+      uranium: 12500
+      food: 2500
+      copper: 4500
+      natural_gas: 8500
+    military:
+      stationed_units:
+        - "USA_NUKE_1"
+        - "USA_AIR_12"
+      fortification_level: 4
+    resource_output:
+      energy: 12500
+      uranium: 8500
+      oil: 4500
+      copper: 3500
+      research: 6500
+    politics:
+      party_support:
+        "Democratic Party": 54.3
+        "Republican Party": 43.5
+        "Other": 2.2
+    buildings:
+      active:
+        - type: "nuclear_facility"
+          level: 5
+        - type: "research_facility"
+          level: 4
+        - type: "solar_farm"
+          level: 3
+
+  USA_WY:
+    name: "Wyoming"
+    country: "United States"
+    coordinates: [42.7559, -107.3025]
+    features:
+      - "mining"
+      - "energy"
+      - "ranching"
+      - "coal"
+      - "oil_rich"
+      - "rural"
+      - "mountains"
+      - "wilderness"
+      - "tourism"
+    population:
+      total: 577000
+      ethnic_groups:
+        - group: "White"
+          percent: 84.1
+        - group: "Hispanic"
+          percent: 10.2
+        - group: "Native American"
+          percent: 2.7
+        - group: "Black"
+          percent: 1.3
+        - group: "Asian"
+          percent: 1.0
+        - group: "Other"
+          percent: 0.7
+    unrest: 2.4
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 8500
+      steel: 125
+      rare_earth: 450
+      uranium: 2850
+      food: 4500
+      coal: 18500
+      natural_gas: 12500
+    military:
+      stationed_units:
+        - "USA_MIS_2"
+      fortification_level: 3
+    resource_output:
+      energy: 25500
+      coal: 15500
+      oil: 6500
+      natural_gas: 8500
+      ranching: 6500
+    politics:
+      party_support:
+        "Republican Party": 67.4
+        "Democratic Party": 26.6
+        "Other": 6.0
+    buildings:
+      active:
+        - type: "coal_mine"
+          level: 5
+        - type: "oil_extraction"
+          level: 4
+        - type: "ranch"
+          level: 4
