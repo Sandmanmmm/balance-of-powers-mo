@@ -1,2 +1,103 @@
-# South Asia Nations - Placeholder
-nations: {}
+# South Asia Nations
+nations:
+  IND:
+    name: "India"
+    capital: "New Delhi"
+    ideology: "Democratic Republic"
+    leader: "Narendra Modi"
+    government_type: "Federal Parliamentary Republic"
+    gdp: 3737000000000  # $3.737 trillion
+    treasury: 550000000000  # $550 billion
+    stability: 7.2
+    corruption: 4.0
+    unrest: 3.5
+    technology_level: 6.8
+    military_doctrine: "Defensive"
+    policies:
+      tax_policy: "Progressive"
+      trade_policy: "Mixed Economy"
+      military_policy: "Professional Army"
+      education_policy: "Expanding Access"
+      healthcare_policy: "Universal Basic"
+    resources:
+      oil: 12800
+      steel: 28500
+      rare_earth: 18900
+      uranium: 3200
+      food: 125000
+      energy: 89500
+      manpower: 1380000000
+      water: 245000
+    party_composition:
+      "Bharatiya Janata Party": 42.8
+      "Indian National Congress": 28.5
+      "Regional Parties": 20.2
+      "Other": 8.5
+    
+  BGD:
+    name: "Bangladesh"
+    capital: "Dhaka"
+    ideology: "Parliamentary Democracy"
+    leader: "Sheikh Hasina"
+    government_type: "Parliamentary Republic"
+    gdp: 460000000000  # $460 billion
+    treasury: 48000000000  # $48 billion
+    stability: 6.8
+    corruption: 3.2
+    unrest: 4.8
+    technology_level: 4.2
+    military_doctrine: "Defensive"
+    policies:
+      tax_policy: "Moderate"
+      trade_policy: "Export Oriented"
+      military_policy: "Small Professional"
+      education_policy: "Basic Access"
+      healthcare_policy: "Limited Public"
+    resources:
+      oil: 1850
+      steel: 2400
+      rare_earth: 680
+      uranium: 150
+      food: 18500
+      energy: 4500
+      manpower: 165000000
+      water: 28500
+    party_composition:
+      "Awami League": 68.2
+      "Bangladesh Nationalist Party": 22.1
+      "Jamaat-e-Islami": 4.8
+      "Other": 4.9
+
+  NPL:
+    name: "Nepal"
+    capital: "Kathmandu"
+    ideology: "Federal Democratic Republic"
+    leader: "Pushpa Kamal Dahal"
+    government_type: "Federal Parliamentary Republic"
+    gdp: 36000000000  # $36 billion
+    treasury: 5200000000  # $5.2 billion
+    stability: 6.2
+    corruption: 3.8
+    unrest: 4.2
+    technology_level: 3.5
+    military_doctrine: "Defensive"
+    policies:
+      tax_policy: "Progressive"
+      trade_policy: "Import Dependent"
+      military_policy: "Small Professional"
+      education_policy: "Basic Access"
+      healthcare_policy: "Limited Public"
+    resources:
+      oil: 0
+      steel: 1800
+      rare_earth: 3200
+      uranium: 450
+      food: 8500
+      energy: 2800
+      manpower: 29000000
+      water: 12500
+    party_composition:
+      "Nepal Communist Party": 41.2
+      "Nepali Congress": 32.8
+      "Janata Samajwadi Party": 15.5
+      "Other": 10.5

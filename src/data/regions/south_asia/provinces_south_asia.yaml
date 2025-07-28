@@ -144,3 +144,356 @@ provinces:
         "Other": 9.7
     buildings: []
     construction_projects: []
+
+  IND_KER:
+    name: "Kerala"
+    country: "India"
+    coordinates: [10.8505, 76.2711]
+    features:
+      - "coastal"
+      - "tropical"
+      - "spice_rich"
+      - "backwaters"
+      - "high_literacy"
+      - "monsoon_zone"
+      - "coconut_groves"
+    population:
+      total: 35000000
+      ethnic_groups:
+        - group: "Malayalam"
+          percent: 96.7
+        - group: "Tamil"
+          percent: 2.0
+        - group: "Other"
+          percent: 1.3
+    unrest: 2.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 5
+      education: 5
+    resource_deposits:
+      oil: 0
+      steel: 45
+      rare_earth: 120
+      uranium: 0
+      food: 680
+    military:
+      stationed_units: []
+      fortification_level: 2
+    resource_output:
+      energy: 580
+      spices: 450
+      coconut: 1200
+    politics:
+      party_support:
+        "Left Democratic Front": 38.2
+        "United Democratic Front": 36.8
+        "BJP": 15.0
+        "Other": 10.0
+    buildings: []
+    construction_projects: []
+
+  IND_TN:
+    name: "Tamil Nadu"
+    country: "India"
+    coordinates: [11.1271, 78.6569]
+    features:
+      - "coastal"
+      - "industrial"
+      - "textile_hub"
+      - "auto_industry"
+      - "tech_corridor"
+      - "cultural_heritage"
+      - "temple_cities"
+    population:
+      total: 72000000
+      ethnic_groups:
+        - group: "Tamil"
+          percent: 89.4
+        - group: "Telugu"
+          percent: 5.6
+        - group: "Other"
+          percent: 5.0
+    unrest: 3.2
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 380
+      rare_earth: 285
+      uranium: 45
+      food: 920
+    military:
+      stationed_units:
+        - "IND_COAST_3"
+      fortification_level: 2
+    resource_output:
+      energy: 1280
+      automobiles: 850
+      textiles: 680
+    politics:
+      party_support:
+        "Dravida Munnetra Kazhagam": 42.5
+        "All India Anna Dravida Munnetra Kazhagam": 35.2
+        "BJP": 12.8
+        "Other": 9.5
+    buildings: []
+    construction_projects: []
+
+  IND_KAR:
+    name: "Karnataka"
+    country: "India"
+    coordinates: [15.3173, 75.7139]
+    features:
+      - "tech_hub"
+      - "software_capital"
+      - "aerospace"
+      - "biotechnology"
+      - "coffee_plantations"
+      - "diverse_topography"
+      - "startup_ecosystem"
+    population:
+      total: 64000000
+      ethnic_groups:
+        - group: "Kannada"
+          percent: 66.5
+        - group: "Urdu"
+          percent: 10.8
+        - group: "Telugu"
+          percent: 8.2
+        - group: "Other"
+          percent: 14.5
+    unrest: 2.9
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 450
+      rare_earth: 380
+      uranium: 85
+      food: 780
+    military:
+      stationed_units: []
+      fortification_level: 2
+    resource_output:
+      energy: 980
+      software: 1850
+      aerospace: 620
+    politics:
+      party_support:
+        "Indian National Congress": 38.2
+        "Bharatiya Janata Party": 36.5
+        "Janata Dal (Secular)": 15.8
+        "Other": 9.5
+    buildings: []
+    construction_projects: []
+
+  IND_GUJ:
+    name: "Gujarat"
+    country: "India"
+    coordinates: [23.0225, 72.5714]
+    features:
+      - "coastal"
+      - "industrial"
+      - "petrochemical_hub"
+      - "port_cities"
+      - "diamond_cutting"
+      - "textile_industry"
+      - "business_friendly"
+    population:
+      total: 63000000
+      ethnic_groups:
+        - group: "Gujarati"
+          percent: 86.0
+        - group: "Hindi"
+          percent: 8.5
+        - group: "Other"
+          percent: 5.5
+    unrest: 2.5
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 680
+      steel: 320
+      rare_earth: 180
+      uranium: 35
+      food: 650
+    military:
+      stationed_units:
+        - "IND_COAST_2"
+      fortification_level: 2
+    resource_output:
+      energy: 1580
+      petrochemicals: 1250
+      diamonds: 850
+    politics:
+      party_support:
+        "Bharatiya Janata Party": 62.8
+        "Indian National Congress": 28.2
+        "Other": 9.0
+    buildings: []
+    construction_projects: []
+
+  IND_MH:
+    name: "Maharashtra"
+    country: "India"
+    coordinates: [19.7515, 75.7139]
+    features:
+      - "financial_capital"
+      - "bollywood"
+      - "industrial"
+      - "entertainment_hub"
+      - "banking_center"
+      - "automotive"
+      - "pharmaceutical"
+    population:
+      total: 113000000
+      ethnic_groups:
+        - group: "Marathi"
+          percent: 68.9
+        - group: "Hindi"
+          percent: 10.9
+        - group: "Urdu"
+          percent: 7.6
+        - group: "Other"
+          percent: 12.6
+    unrest: 3.1
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 120
+      steel: 850
+      rare_earth: 280
+      uranium: 95
+      food: 1280
+    military:
+      stationed_units:
+        - "IND_NAVY_WEST"
+      fortification_level: 3
+    resource_output:
+      energy: 2280
+      finance: 2850
+      entertainment: 1250
+    politics:
+      party_support:
+        "Bharatiya Janata Party": 41.2
+        "Indian National Congress": 32.8
+        "Shiv Sena": 16.5
+        "Other": 9.5
+    buildings: []
+    construction_projects: []
+
+  IND_UP:
+    name: "Uttar Pradesh"
+    country: "India"
+    coordinates: [26.8467, 80.9462]
+    features:
+      - "most_populous"
+      - "gangetic_plains"
+      - "agricultural"
+      - "cultural_heartland"
+      - "religious_centers"
+      - "political_importance"
+      - "dense_population"
+    population:
+      total: 200000000
+      ethnic_groups:
+        - group: "Hindi"
+          percent: 85.5
+        - group: "Urdu"
+          percent: 11.2
+        - group: "Other"
+          percent: 3.3
+    unrest: 4.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 45
+      steel: 180
+      rare_earth: 120
+      uranium: 25
+      food: 2850
+    military:
+      stationed_units:
+        - "IND_CENTRAL_CMD"
+      fortification_level: 2
+    resource_output:
+      energy: 1580
+      agriculture: 3250
+      handicrafts: 850
+    politics:
+      party_support:
+        "Bharatiya Janata Party": 49.8
+        "Samajwadi Party": 32.1
+        "Bahujan Samaj Party": 12.8
+        "Other": 5.3
+    buildings: []
+    construction_projects: []
+
+  IND_WB:
+    name: "West Bengal"
+    country: "India"
+    coordinates: [22.9868, 87.8550]
+    features:
+      - "cultural_capital"
+      - "intellectual_hub"
+      - "river_delta"
+      - "jute_industry"
+      - "tea_gardens"
+      - "coal_rich"
+      - "literary_tradition"
+    population:
+      total: 92000000
+      ethnic_groups:
+        - group: "Bengali"
+          percent: 86.2
+        - group: "Hindi"
+          percent: 6.9
+        - group: "Urdu"
+          percent: 4.1
+        - group: "Other"
+          percent: 2.8
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 85
+      steel: 450
+      rare_earth: 180
+      uranium: 55
+      food: 1480
+    military:
+      stationed_units:
+        - "IND_EAST_CMD"
+      fortification_level: 2
+    resource_output:
+      energy: 1280
+      coal: 850
+      jute: 450
+    politics:
+      party_support:
+        "All India Trinamool Congress": 47.2
+        "Bharatiya Janata Party": 38.1
+        "Left Front": 9.8
+        "Other": 4.9
+    buildings: []
+    construction_projects: []
