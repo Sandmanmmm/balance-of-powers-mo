@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { geographicDataManager } from '../managers/GeographicDataManager';
 import { Card } from '@/components/ui/card';
+import { geographicDataManager } from '@/managers/GeographicDataManager';
 
 export function MapDebugSummary() {
   const [debugInfo, setDebugInfo] = useState<any>(null);
