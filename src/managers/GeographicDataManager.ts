@@ -114,11 +114,23 @@ export class GeographicDataManager {
       
       let data: GeoJSONFeatureCollection;
       
-      // Check if it's already a FeatureCollection or if it's a Record<string, GeoJSONFeature>
+      // Validate and normalize the data structure
       if (rawData.type === 'FeatureCollection') {
+        // Natural Earth format - use as-is
         data = rawData;
+        
+        // Ensure all features have proper IDs
+        data.features.forEach((feature, index) => {
+          if (!feature.properties) {
+            feature.properties = {};
+          }
+          if (!feature.properties.id) {
+            feature.properties.id = feature.properties.ISO_A3 || feature.properties.NAME || `feature_${index}`;
+          }
+        });
+        
       } else if (typeof rawData === 'object' && !Array.isArray(rawData)) {
-        // Convert Record<string, GeoJSONFeature> to FeatureCollection
+        // Legacy Record<string, GeoJSONFeature> format - convert to FeatureCollection
         const features = Object.entries(rawData).map(([id, feature]: [string, any]) => {
           if (feature && feature.type === 'Feature') {
             // Ensure properties exist and include the ID

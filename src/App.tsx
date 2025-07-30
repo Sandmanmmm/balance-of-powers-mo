@@ -17,7 +17,9 @@ import { LoadedDataSummary } from './components/LoadedDataSummary';
 import { BoundaryFetchTest } from './components/BoundaryFetchTest';
 import { BoundarySystemTest } from './components/BoundarySystemTest';
 import { GeographicSystemStatus } from './components/GeographicSystemStatus';
-import { GeographicSystemTest } from './components/GeographicSystemTest';
+import { BoundaryDebugInfo } from './components/BoundaryDebugInfo';
+import { NaturalEarthValidator } from './components/NaturalEarthValidator';
+import { NaturalEarthStatus } from './components/NaturalEarthStatus';
 import { FinalSystemStatus } from './components/FinalSystemStatus';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
@@ -274,7 +276,13 @@ function App() {
             <GeographicSystemStatus />
           </div>
           <div className="mt-4">
-            <GeographicSystemTest />
+            <BoundaryDebugInfo />
+          </div>
+          <div className="mt-4">
+            <NaturalEarthValidator />
+          </div>
+          <div className="mt-4">
+            <NaturalEarthStatus />
           </div>
         </div>
       </div>

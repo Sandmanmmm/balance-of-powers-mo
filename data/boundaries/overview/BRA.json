@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth",
+    "detailLevel": "overview",
+    "countryCode": "BRA",
+    "countryName": "Brazil",
+    "generatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO_A3": "BRA",
+        "NAME": "Brazil",
+        "ADMIN": "Brazil"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-73.0, 5.0],
+            [-34.8, 5.0],
+            [-34.8, -33.7],
+            [-53.4, -33.7],
+            [-57.6, -30.2],
+            [-57.6, -22.0],
+            [-68.0, -22.0],
+            [-68.0, -18.0],
+            [-70.0, -18.0],
+            [-70.0, -9.7],
+            [-73.0, -9.7],
+            [-73.0, 5.0]
+          ]
+        ]
+      }
+    }
+  ]
+}

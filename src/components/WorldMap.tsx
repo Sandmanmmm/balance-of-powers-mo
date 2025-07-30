@@ -219,11 +219,11 @@ export function WorldMap({
   const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
   const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>('overview');
 
-  // Load province boundaries using the new country-based boundary system
+  // Load Natural Earth country boundaries
   useEffect(() => {
     const loadBoundaries = async () => {
       try {
-        console.log('🌍 WorldMap: Loading province boundaries at', currentDetailLevel, 'detail');
+        console.log('🌍 WorldMap: Loading Natural Earth boundaries at', currentDetailLevel, 'detail');
         
         const allFeatures: any[] = [];
         let totalLoaded = 0;
@@ -234,7 +234,7 @@ export function WorldMap({
         // Create province data map for matching
         const provinceDataMap = new Map(provinces.map(p => [p.id, p]));
         
-        // Comprehensive country name to ISO code mapping
+        // Comprehensive country name to ISO code mapping for Natural Earth data
         const countryCodeMap: Record<string, string> = {
           // North America
           'United States': 'USA',
@@ -457,20 +457,19 @@ export function WorldMap({
         const mappedCountries = countries.filter(country => countryCodeMap[country]);
         const mappedCountryCodes = mappedCountries.map(country => countryCodeMap[country]).filter(Boolean);
         
-        // Get list of actually available boundary files by checking what exists
+        // Get list of actually available boundary files by checking what we've created
         const availableBoundaryFiles = [
-          'ARG', 'AUS', 'BRA', 'CAN', 'CHN', 'DEU', 'EGY', 'ESP', 
-          'FRA', 'GBR', 'IND', 'ITA', 'JPN', 'KOR', 'MEX', 'NLD',
-          'POL', 'RUS', 'TUR', 'UKR', 'USA', 'ZAF'
+          'AUS', 'BRA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR', 'IND', 'MEX', 'RUS', 'USA'
         ];
         
-        // ALWAYS load boundaries for available countries, prioritizing those with province data
+        // ALWAYS load Natural Earth boundaries for available countries
         const allCountriesToLoad = [...new Set([...mappedCountryCodes, ...availableBoundaryFiles])];
         
-        console.log(`🌍 BOUNDARY LOADING DEBUG:`);
+        console.log(`🌍 NATURAL EARTH BOUNDARY LOADING DEBUG:`);
+        console.log(`  Loading Natural Earth Admin 0 boundaries at ${currentDetailLevel} detail level`);
         console.log(`  Provinces loaded from data: ${provinces.length} provinces`);
         console.log(`  Unique countries in province data: ${countries}`);
-        console.log(`  Available boundary files: ${availableBoundaryFiles}`);
+        console.log(`  Available Natural Earth boundary files: ${availableBoundaryFiles}`);
         console.log(`  Mapped countries from provinces: ${mappedCountryCodes}`);
         console.log(`  Final countries to load boundaries for: ${allCountriesToLoad}`);
         
@@ -507,7 +506,7 @@ export function WorldMap({
                 }
               });
               loadResults.successful.push(countryCode);
-              console.log(`✅ Loaded ${features.length} province boundaries for ${countryCode}`);
+              console.log(`✅ Loaded Natural Earth boundaries for ${countryCode}: ${features.length} features (${features[0]?.properties?.NAME || countryCode})`);
             } else {
               loadResults.failed.push(countryCode);
               console.warn(`⚠️ No boundary features found for ${countryCode}`);
@@ -786,14 +785,17 @@ export function WorldMap({
                 provinceId = feature.properties?.id;
                 if (!provinceId) return null;
                 
-                // Get province data if available, but render even without it
+                // Get province data if available, but render country boundaries regardless
                 const province = provinceDataMap.get(provinceId);
                 
                 const isSelected = selectedProvince === provinceId;
                 const isHovered = hoveredProvince === provinceId;
                 
+                // For Natural Earth country boundaries, use the country name from properties
+                const countryName = feature.properties?.NAME || feature.properties?.ADMIN || feature.properties?.country;
+                
                 // Use province data for coloring if available, otherwise use country-based coloring
-                const color = province ? getProvinceColor(province, mapOverlay) : getCountryColor(feature.properties?.country);
+                const color = province ? getProvinceColor(province, mapOverlay) : getCountryColor(countryName);
             
             // Convert coordinates to SVG path
             const pathData = geometryToPath(
@@ -830,9 +832,9 @@ export function WorldMap({
                   fillOpacity={isSelected ? 0.9 : isHovered ? 0.8 : 0.7}
                   className="cursor-pointer transition-all duration-200"
                   onClick={() => {
-                    // Only allow clicking if we have province data
-                    if (province) {
-                      provinceId && handleProvinceClick(provinceId);
+                    // Allow clicking on any valid feature - prioritize province data, but also show country info
+                    if (provinceId) {
+                      handleProvinceClick(provinceId);
                     }
                   }}
                   onMouseEnter={() => provinceId && handleProvinceHover(provinceId)}

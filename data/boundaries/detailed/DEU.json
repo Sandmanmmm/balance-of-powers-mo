@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth",
+    "detailLevel": "detailed",
+    "countryCode": "DEU",
+    "countryName": "Germany",
+    "generatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO_A3": "DEU",
+        "NAME": "Germany",
+        "ADMIN": "Germany"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [5.9, 51.0],
+            [6.2, 52.0],
+            [7.1, 53.6],
+            [8.5, 54.9],
+            [9.9, 54.8],
+            [10.9, 53.4],
+            [11.9, 54.2],
+            [14.1, 54.0],
+            [15.0, 51.0],
+            [14.8, 50.9],
+            [14.3, 51.0],
+            [12.2, 47.7],
+            [13.0, 47.5],
+            [10.5, 47.3],
+            [8.2, 47.7],
+            [7.5, 47.6],
+            [6.2, 49.5],
+            [6.0, 50.8],
+            [5.9, 51.0]
+          ]
+        ]
+      }
+    }
+  ]
+}

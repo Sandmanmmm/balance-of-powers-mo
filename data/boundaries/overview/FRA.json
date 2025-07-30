@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth",
+    "detailLevel": "overview",
+    "countryCode": "FRA",
+    "countryName": "France",
+    "generatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ISO_A3": "FRA",
+        "NAME": "France",
+        "ADMIN": "France"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-4.8, 48.4],
+            [8.2, 49.0],
+            [8.2, 42.6],
+            [3.0, 42.5],
+            [-1.8, 43.4],
+            [-4.8, 48.4]
+          ]
+        ]
+      }
+    }
+  ]
+}
