@@ -1,0 +1,1965 @@
+# North America Provinces (excluding USA)
+
+provinces:
+  # ========================
+  # CANADA PROVINCES & TERRITORIES
+  # ========================
+
+  CAN_001:
+    name: "British Columbia"
+    country: "Canada"
+    coordinates: [53.7267, -127.6476]
+    features:
+      - "coastal"
+      - "mountainous"
+      - "forest_rich"
+      - "temperate_climate"
+      - "urban"
+      - "scenic"
+      - "tourism"
+      - "mineral_deposits"
+    population:
+      total: 5200000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 58
+        - group: "Asian Canadian"
+          percent: 25
+        - group: "Indigenous"
+          percent: 6
+        - group: "Mixed/Other"
+          percent: 11
+    unrest: 2.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 120
+      steel: 180
+      rare_earth: 45
+      uranium: 15
+      food: 350
+    military:
+      stationed_units:
+        - "CAN_NAV_1"
+        - "CAN_INF_2"
+      fortification_level: 2
+    resource_output:
+      energy: 1850
+      steel: 220
+      food: 450
+      technology: 285
+    politics:
+      party_support:
+        "Liberal": 41.2
+        "Conservative": 28.8
+        "NDP": 23.5
+        "Green": 4.8
+        "Other": 1.7
+      governor_approval: 52.8
+    economy:
+      gdp_per_capita: 58000
+      unemployment: 5.8
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  CAN_002:
+    name: "Alberta"
+    country: "Canada"
+    coordinates: [53.9333, -116.5765]
+    features:
+      - "oil_rich"
+      - "plains"
+      - "mountainous"
+      - "temperate_climate"
+      - "energy_hub"
+      - "agricultural"
+      - "industrial"
+      - "uranium_rich"
+    population:
+      total: 4500000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 70
+        - group: "Asian Canadian"
+          percent: 12
+        - group: "Indigenous"
+          percent: 6
+        - group: "Mixed/Other"
+          percent: 12
+    unrest: 4.2
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 2500
+      steel: 85
+      rare_earth: 25
+      uranium: 180
+      food: 800
+    military:
+      stationed_units:
+        - "CAN_INF_3"
+      fortification_level: 1
+    resource_output:
+      energy: 4200
+      steel: 95
+      food: 920
+      technology: 185
+    politics:
+      party_support:
+        "Conservative": 58.3
+        "Liberal": 25.1
+        "NDP": 12.8
+        "Other": 3.8
+      governor_approval: 48.7
+    economy:
+      gdp_per_capita: 78000
+      unemployment: 6.2
+      inflation: 4.1
+    buildings: []
+    construction_projects: []
+
+  CAN_003:
+    name: "Saskatchewan"
+    country: "Canada"
+    coordinates: [52.9399, -106.4509]
+    features:
+      - "plains"
+      - "farmland"
+      - "uranium_rich"
+      - "flat_terrain"
+      - "temperate_climate"
+      - "low_population"
+      - "agricultural"
+    population:
+      total: 1180000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 75
+        - group: "Indigenous"
+          percent: 16
+        - group: "Asian Canadian"
+          percent: 5
+        - group: "Mixed/Other"
+          percent: 4
+    unrest: 1.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 450
+      steel: 25
+      rare_earth: 10
+      uranium: 850
+      food: 1200
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 580
+      steel: 35
+      food: 1350
+      technology: 45
+    politics:
+      party_support:
+        "Conservative": 48.9
+        "NDP": 32.1
+        "Liberal": 15.2
+        "Other": 3.8
+      governor_approval: 55.4
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 4.8
+      inflation: 2.9
+    buildings: []
+    construction_projects: []
+
+  CAN_004:
+    name: "Manitoba"
+    country: "Canada"
+    coordinates: [53.7609, -98.8139]
+    features:
+      - "plains"
+      - "farmland"
+      - "temperate_climate"
+      - "flat_terrain"
+      - "river_access"
+      - "urban"
+    population:
+      total: 1380000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 65
+        - group: "Indigenous"
+          percent: 18
+        - group: "Asian Canadian"
+          percent: 8
+        - group: "Mixed/Other"
+          percent: 9
+    unrest: 2.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 85
+      steel: 45
+      rare_earth: 15
+      uranium: 25
+      food: 950
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 420
+      steel: 55
+      food: 1100
+      technology: 65
+    politics:
+      party_support:
+        "Conservative": 35.2
+        "Liberal": 28.8
+        "NDP": 31.5
+        "Other": 4.5
+      governor_approval: 61.2
+    economy:
+      gdp_per_capita: 46000
+      unemployment: 5.5
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  CAN_005:
+    name: "Ontario"
+    country: "Canada"
+    coordinates: [51.2538, -85.3232]
+    features:
+      - "urban"
+      - "industrial"
+      - "financial_hub"
+      - "tech_hub"
+      - "temperate_climate"
+      - "great_lakes"
+      - "cultural"
+      - "educational"
+      - "high_tech"
+      - "advanced_infrastructure"
+      - "high_density_urban"
+    population:
+      total: 15000000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 55
+        - group: "Asian Canadian"
+          percent: 25
+        - group: "Indigenous"
+          percent: 2
+        - group: "African Canadian"
+          percent: 5
+        - group: "Mixed/Other"
+          percent: 13
+    unrest: 3.5
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 4
+      education: 5
+    resource_deposits:
+      oil: 45
+      iron: 350
+      rare_earth: 85
+      uranium: 125
+      food: 650
+    military:
+      stationed_units:
+        - "CAN_CMD_1"
+        - "CAN_CYB_1"
+      fortification_level: 3
+    resource_output:
+      energy: 3200
+      steel: 450
+      food: 850
+      technology: 1250
+      finance: 2800
+    politics:
+      party_support:
+        "Liberal": 45.8
+        "Conservative": 33.2
+        "NDP": 16.5
+        "Green": 3.2
+        "Other": 1.3
+      governor_approval: 47.9
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 6.1
+      inflation: 3.8
+    buildings: []
+    construction_projects: []
+
+  CAN_006:
+    name: "Quebec"
+    country: "Canada"
+    coordinates: [52.9399, -73.5491]
+    features:
+      - "cultural"
+      - "urban"
+      - "industrial"
+      - "temperate_climate"
+      - "river_access"
+      - "forest_rich"
+      - "hydroelectric"
+      - "french_speaking"
+    population:
+      total: 8600000
+      ethnic_groups:
+        - group: "French Canadian"
+          percent: 78
+        - group: "English Canadian"
+          percent: 8
+        - group: "Indigenous"
+          percent: 2
+        - group: "Immigrant"
+          percent: 12
+    unrest: 4.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 25
+      steel: 185
+      rare_earth: 45
+      uranium: 85
+      food: 580
+    military:
+      stationed_units:
+        - "CAN_INF_4"
+      fortification_level: 2
+    resource_output:
+      energy: 5200
+      steel: 285
+      food: 750
+      technology: 485
+      culture: 850
+    politics:
+      party_support:
+        "Bloc Québécois": 32.8
+        "Liberal": 28.5
+        "Conservative": 18.2
+        "NDP": 12.8
+        "Other": 7.7
+      governor_approval: 41.2
+    economy:
+      gdp_per_capita: 48000
+      unemployment: 4.9
+      inflation: 3.1
+    buildings: []
+    construction_projects: []
+
+  CAN_007:
+    name: "New Brunswick"
+    country: "Canada"
+    coordinates: [46.5653, -66.4619]
+    features:
+      - "coastal"
+      - "forest_rich"
+      - "temperate_climate"
+      - "bilingual"
+      - "maritime"
+    population:
+      total: 790000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 85
+        - group: "French Canadian"
+          percent: 32
+        - group: "Indigenous"
+          percent: 3
+        - group: "Mixed/Other"
+          percent: 5
+    unrest: 2.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 15
+      steel: 25
+      rare_earth: 5
+      uranium: 8
+      food: 285
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 285
+      steel: 35
+      food: 385
+      technology: 45
+    politics:
+      party_support:
+        "Liberal": 48.2
+        "Conservative": 38.5
+        "NDP": 8.8
+        "Green": 3.2
+        "Other": 1.3
+    economy:
+      gdp_per_capita: 42000
+      unemployment: 7.2
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  CAN_008:
+    name: "Nova Scotia"
+    country: "Canada"
+    coordinates: [44.6820, -63.7443]
+    features:
+      - "coastal"
+      - "maritime"
+      - "temperate_climate"
+      - "tourism"
+      - "fishing"
+      - "urban"
+    population:
+      total: 990000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 88
+        - group: "African Canadian"
+          percent: 3
+        - group: "Indigenous"
+          percent: 5
+        - group: "Mixed/Other"
+          percent: 4
+    unrest: 1.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 35
+      steel: 45
+      rare_earth: 15
+      uranium: 12
+      food: 325
+    military:
+      stationed_units:
+        - "CAN_NAV_2"
+      fortification_level: 2
+    resource_output:
+      energy: 385
+      steel: 65
+      food: 425
+      technology: 125
+    politics:
+      party_support:
+        "Liberal": 42.8
+        "Conservative": 35.2
+        "NDP": 18.5
+        "Green": 2.8
+        "Other": 0.7
+    economy:
+      gdp_per_capita: 45000
+      unemployment: 6.8
+      inflation: 2.9
+    buildings: []
+    construction_projects: []
+
+  CAN_009:
+    name: "Prince Edward Island"
+    country: "Canada"
+    coordinates: [46.5107, -63.4168]
+    features:
+      - "coastal"
+      - "maritime"
+      - "farmland"
+      - "tourism"
+      - "small_island"
+    population:
+      total: 165000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 92
+        - group: "Indigenous"
+          percent: 2
+        - group: "Mixed/Other"
+          percent: 6
+    unrest: 0.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 5
+      steel: 8
+      rare_earth: 2
+      uranium: 1
+      food: 185
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 85
+      steel: 12
+      food: 285
+      technology: 25
+    politics:
+      party_support:
+        "Liberal": 51.8
+        "Conservative": 38.2
+        "NDP": 6.5
+        "Green": 2.8
+        "Other": 0.7
+    economy:
+      gdp_per_capita: 41000
+      unemployment: 5.2
+      inflation: 2.5
+    buildings: []
+    construction_projects: []
+
+  CAN_010:
+    name: "Newfoundland and Labrador"
+    country: "Canada"
+    coordinates: [53.1355, -57.6604]
+    features:
+      - "coastal"
+      - "maritime"
+      - "oil_rich"
+      - "fishing"
+      - "remote"
+      - "harsh_climate"
+    population:
+      total: 520000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 92
+        - group: "Indigenous"
+          percent: 5
+        - group: "Mixed/Other"
+          percent: 3
+    unrest: 2.8
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 850
+      steel: 125
+      rare_earth: 45
+      uranium: 35
+      food: 185
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 1250
+      steel: 185
+      food: 285
+      technology: 85
+    politics:
+      party_support:
+        "Liberal": 48.5
+        "Conservative": 42.8
+        "NDP": 6.2
+        "Other": 2.5
+    economy:
+      gdp_per_capita: 52000
+      unemployment: 8.5
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  CAN_011:
+    name: "Yukon"
+    country: "Canada"
+    coordinates: [64.2823, -135.0000]
+    features:
+      - "arctic"
+      - "mineral_deposits"
+      - "remote"
+      - "harsh_climate"
+      - "low_population"
+      - "wilderness"
+    population:
+      total: 42000
+      ethnic_groups:
+        - group: "European Canadian"
+          percent: 68
+        - group: "Indigenous"
+          percent: 23
+        - group: "Mixed/Other"
+          percent: 9
+    unrest: 1.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 185
+      steel: 285
+      rare_earth: 125
+      uranium: 85
+      food: 25
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 125
+      steel: 385
+      food: 45
+      technology: 15
+    politics:
+      party_support:
+        "Liberal": 42.8
+        "Conservative": 35.2
+        "NDP": 18.5
+        "Other": 3.5
+    economy:
+      gdp_per_capita: 68000
+      unemployment: 4.2
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  CAN_012:
+    name: "Northwest Territories"
+    country: "Canada"
+    coordinates: [64.8255, -124.8457]
+    features:
+      - "arctic"
+      - "mineral_deposits"
+      - "oil_rich"
+      - "remote"
+      - "harsh_climate"
+      - "low_population"
+    population:
+      total: 45000
+      ethnic_groups:
+        - group: "Indigenous"
+          percent: 52
+        - group: "European Canadian"
+          percent: 38
+        - group: "Mixed/Other"
+          percent: 10
+    unrest: 1.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 485
+      steel: 185
+      rare_earth: 285
+      uranium: 125
+      food: 15
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 685
+      steel: 285
+      food: 25
+      technology: 25
+    politics:
+      party_support:
+        "Liberal": 38.5
+        "Conservative": 28.2
+        "NDP": 25.8
+        "Other": 7.5
+    economy:
+      gdp_per_capita: 78000
+      unemployment: 5.8
+      inflation: 3.5
+    buildings: []
+    construction_projects: []
+
+  CAN_013:
+    name: "Nunavut"
+    country: "Canada"
+    coordinates: [70.2998, -83.1076]
+    features:
+      - "arctic"
+      - "mineral_deposits"
+      - "remote"
+      - "harsh_climate"
+      - "indigenous_majority"
+      - "low_population"
+    population:
+      total: 40000
+      ethnic_groups:
+        - group: "Inuit"
+          percent: 85
+        - group: "European Canadian"
+          percent: 12
+        - group: "Mixed/Other"
+          percent: 3
+    unrest: 2.2
+    infrastructure:
+      roads: 1
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 125
+      steel: 485
+      rare_earth: 385
+      uranium: 185
+      food: 8
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 85
+      steel: 585
+      food: 15
+      technology: 12
+    politics:
+      party_support:
+        "Liberal": 45.8
+        "Conservative": 28.5
+        "NDP": 22.2
+        "Other": 3.5
+    economy:
+      gdp_per_capita: 58000
+      unemployment: 8.2
+      inflation: 4.5
+    buildings: []
+    construction_projects: []
+
+  # ========================
+  # MEXICO STATES
+  # ========================
+
+  MEX_001:
+    name: "Mexico City"
+    country: "Mexico"
+    coordinates: [19.4326, -99.1332]
+    features:
+      - "urban"
+      - "capital"
+      - "financial_hub"
+      - "cultural"
+      - "high_altitude"
+      - "overpopulated"
+    population:
+      total: 9200000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 65
+        - group: "White"
+          percent: 18
+        - group: "Indigenous"
+          percent: 12
+        - group: "Other"
+          percent: 5
+    unrest: 7.2
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 25
+      steel: 185
+      rare_earth: 45
+      uranium: 15
+      food: 125
+    military:
+      stationed_units:
+        - "MEX_CMD_1"
+        - "MEX_POL_1"
+      fortification_level: 3
+    resource_output:
+      energy: 2800
+      steel: 850
+      finance: 1500
+      culture: 950
+    politics:
+      party_support:
+        "MORENA": 45.8
+        "PAN": 28.5
+        "PRI": 18.2
+        "Other": 7.5
+    economy:
+      gdp_per_capita: 28000
+      unemployment: 8.5
+      inflation: 5.2
+    buildings: []
+    construction_projects: []
+
+  MEX_002:
+    name: "Jalisco"
+    country: "Mexico"
+    coordinates: [20.6597, -103.3496]
+    features:
+      - "urban"
+      - "tech_hub"
+      - "agricultural"
+      - "cultural"
+      - "temperate_climate"
+    population:
+      total: 8350000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 68
+        - group: "White"
+          percent: 25
+        - group: "Indigenous"
+          percent: 5
+        - group: "Other"
+          percent: 2
+    unrest: 4.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 125
+      steel: 85
+      rare_earth: 25
+      uranium: 10
+      food: 650
+    military:
+      stationed_units:
+        - "MEX_INF_2"
+      fortification_level: 2
+    resource_output:
+      energy: 1850
+      technology: 485
+      food: 950
+      culture: 425
+    politics:
+      party_support:
+        "MORENA": 42.1
+        "PAN": 32.8
+        "PRI": 18.5
+        "Other": 6.6
+    economy:
+      gdp_per_capita: 22000
+      unemployment: 6.8
+      inflation: 4.9
+    buildings: []
+    construction_projects: []
+
+  MEX_003:
+    name: "Nuevo León"
+    country: "Mexico"
+    coordinates: [25.5922, -99.9962]
+    features:
+      - "industrial"
+      - "urban"
+      - "tech_hub"
+      - "border_region"
+      - "desert"
+    population:
+      total: 5500000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 58
+        - group: "White"
+          percent: 35
+        - group: "Indigenous"
+          percent: 4
+        - group: "Other"
+          percent: 3
+    unrest: 5.5
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 185
+      steel: 450
+      rare_earth: 85
+      uranium: 25
+      food: 285
+    military:
+      stationed_units:
+        - "MEX_BOR_1"
+      fortification_level: 2
+    resource_output:
+      energy: 2200
+      steel: 1500
+      technology: 650
+    politics:
+      party_support:
+        "PAN": 38.5
+        "MORENA": 35.2
+        "PRI": 18.8
+        "Other": 7.5
+    economy:
+      gdp_per_capita: 32000
+      unemployment: 5.2
+      inflation: 4.1
+    buildings: []
+    construction_projects: []
+
+  MEX_004:
+    name: "Veracruz"
+    country: "Mexico"
+    coordinates: [19.1738, -96.1342]
+    features:
+      - "coastal"
+      - "port"
+      - "oil_rich"
+      - "tropical_climate"
+      - "agricultural"
+    population:
+      total: 8200000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 72
+        - group: "Indigenous"
+          percent: 15
+        - group: "White"
+          percent: 10
+        - group: "Afro-Mexican"
+          percent: 3
+    unrest: 6.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 2850
+      steel: 125
+      rare_earth: 45
+      uranium: 15
+      food: 850
+    military:
+      stationed_units:
+        - "MEX_NAV_1"
+      fortification_level: 2
+    resource_output:
+      energy: 3850
+      food: 1250
+      oil: 2850
+    politics:
+      party_support:
+        "MORENA": 52.8
+        "PAN": 22.5
+        "PRI": 18.2
+        "Other": 6.5
+    economy:
+      gdp_per_capita: 18000
+      unemployment: 9.5
+      inflation: 6.2
+    buildings: []
+    construction_projects: []
+
+  MEX_005:
+    name: "Yucatán"
+    country: "Mexico"
+    coordinates: [20.7099, -89.0943]
+    features:
+      - "coastal"
+      - "tourism"
+      - "mayan_heritage"
+      - "tropical_climate"
+      - "archaeological"
+    population:
+      total: 2320000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 58
+        - group: "Mayan"
+          percent: 30
+        - group: "White"
+          percent: 10
+        - group: "Other"
+          percent: 2
+    unrest: 3.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 125
+      steel: 25
+      rare_earth: 15
+      uranium: 5
+      food: 385
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 485
+      food: 525
+      culture: 685
+    politics:
+      party_support:
+        "PAN": 42.8
+        "MORENA": 32.5
+        "PRI": 18.2
+        "Other": 6.5
+    economy:
+      gdp_per_capita: 24000
+      unemployment: 6.8
+      inflation: 4.5
+    buildings: []
+    construction_projects: []
+
+  MEX_006:
+    name: "Baja California"
+    country: "Mexico"
+    coordinates: [30.8406, -115.2838]
+    features:
+      - "border_region"
+      - "coastal"
+      - "desert"
+      - "maquiladora"
+      - "tech_hub"
+      - "tourism"
+    population:
+      total: 3770000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 62
+        - group: "White"
+          percent: 28
+        - group: "Indigenous"
+          percent: 5
+        - group: "Other"
+          percent: 5
+    unrest: 4.5
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 85
+      steel: 185
+      rare_earth: 125
+      uranium: 25
+      food: 185
+    military:
+      stationed_units:
+        - "MEX_BOR_2"
+      fortification_level: 2
+    resource_output:
+      energy: 1250
+      technology: 485
+      steel: 685
+    politics:
+      party_support:
+        "PAN": 45.2
+        "MORENA": 28.5
+        "PRI": 18.8
+        "Other": 7.5
+    economy:
+      gdp_per_capita: 35000
+      unemployment: 4.8
+      inflation: 3.8
+    buildings: []
+    construction_projects: []
+
+  MEX_007:
+    name: "Chihuahua"
+    country: "Mexico"
+    coordinates: [28.6353, -106.0889]
+    features:
+      - "border_region"
+      - "desert"
+      - "mining"
+      - "industrial"
+      - "maquiladora"
+    population:
+      total: 3800000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 68
+        - group: "White"
+          percent: 22
+        - group: "Indigenous"
+          percent: 8
+        - group: "Other"
+          percent: 2
+    unrest: 7.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 125
+      steel: 850
+      rare_earth: 285
+      uranium: 85
+      food: 285
+    military:
+      stationed_units:
+        - "MEX_BOR_3"
+        - "MEX_SPE_1"
+      fortification_level: 3
+    resource_output:
+      energy: 1850
+      steel: 1285
+      technology: 385
+    politics:
+      party_support:
+        "PAN": 38.5
+        "MORENA": 35.2
+        "PRI": 18.8
+        "Other": 7.5
+    economy:
+      gdp_per_capita: 28000
+      unemployment: 7.2
+      inflation: 5.8
+    buildings: []
+    construction_projects: []
+
+  MEX_008:
+    name: "Sonora"
+    country: "Mexico"
+    coordinates: [29.2972, -110.3309]
+    features:
+      - "border_region"
+      - "desert"
+      - "mining"
+      - "agricultural"
+      - "coastal"
+    population:
+      total: 3000000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 65
+        - group: "White"
+          percent: 25
+        - group: "Indigenous"
+          percent: 8
+        - group: "Other"
+          percent: 2
+    unrest: 6.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 185
+      steel: 485
+      rare_earth: 185
+      uranium: 45
+      food: 485
+    military:
+      stationed_units:
+        - "MEX_BOR_4"
+      fortification_level: 2
+    resource_output:
+      energy: 1485
+      steel: 685
+      food: 685
+    politics:
+      party_support:
+        "PAN": 42.8
+        "MORENA": 32.5
+        "PRI": 18.2
+        "Other": 6.5
+    economy:
+      gdp_per_capita: 26000
+      unemployment: 6.8
+      inflation: 4.8
+    buildings: []
+    construction_projects: []
+
+  # ========================
+  # CENTRAL AMERICAN NATIONS
+  # ========================
+
+  # GUATEMALA
+  GTM_001:
+    name: "Guatemala City"
+    country: "Guatemala"
+    coordinates: [14.6349, -90.5069]
+    features:
+      - "urban"
+      - "capital"
+      - "mountainous"
+      - "cultural"
+      - "financial_hub"
+    population:
+      total: 3000000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 58
+        - group: "Indigenous"
+          percent: 35
+        - group: "White"
+          percent: 5
+        - group: "Other"
+          percent: 2
+    unrest: 8.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 85
+      rare_earth: 45
+      uranium: 0
+      food: 185
+    military:
+      stationed_units:
+        - "GTM_CMD_1"
+        - "GTM_INF_1"
+      fortification_level: 2
+    resource_output:
+      energy: 485
+      food: 285
+      culture: 185
+    politics:
+      party_support:
+        "Vamos": 35.8
+        "UNE": 28.5
+        "Semilla": 22.2
+        "Other": 13.5
+    economy:
+      gdp_per_capita: 4800
+      unemployment: 12.5
+      inflation: 5.2
+    buildings: []
+    construction_projects: []
+
+  GTM_002:
+    name: "Quetzaltenango"
+    country: "Guatemala"
+    coordinates: [14.8333, -91.5167]
+    features:
+      - "mountainous"
+      - "agricultural"
+      - "indigenous_majority"
+      - "coffee_production"
+      - "cool_climate"
+    population:
+      total: 800000
+      ethnic_groups:
+        - group: "Indigenous"
+          percent: 65
+        - group: "Mestizo"
+          percent: 32
+        - group: "White"
+          percent: 2
+        - group: "Other"
+          percent: 1
+    unrest: 6.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 0
+      steel: 25
+      rare_earth: 15
+      uranium: 0
+      food: 485
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 185
+      food: 685
+    politics:
+      party_support:
+        "UNE": 42.8
+        "Vamos": 25.5
+        "Semilla": 18.2
+        "Other": 13.5
+    economy:
+      gdp_per_capita: 3200
+      unemployment: 15.8
+      inflation: 4.8
+    buildings: []
+    construction_projects: []
+
+  # BELIZE
+  BLZ_001:
+    name: "Belize City"
+    country: "Belize"
+    coordinates: [17.5045, -88.1962]
+    features:
+      - "coastal"
+      - "port"
+      - "urban"
+      - "tourism"
+      - "cultural_diversity"
+      - "caribbean_culture"
+    population:
+      total: 70000
+      ethnic_groups:
+        - group: "Creole"
+          percent: 35
+        - group: "Mestizo"
+          percent: 30
+        - group: "Maya"
+          percent: 15
+        - group: "Garifuna"
+          percent: 12
+        - group: "Other"
+          percent: 8
+    unrest: 4.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 85
+      steel: 15
+      rare_earth: 8
+      uranium: 0
+      food: 125
+    military:
+      stationed_units:
+        - "BLZ_POL_1"
+      fortification_level: 1
+    resource_output:
+      energy: 85
+      food: 185
+      tourism: 285
+    politics:
+      party_support:
+        "PUP": 52.8
+        "UDP": 38.5
+        "Other": 8.7
+    economy:
+      gdp_per_capita: 5000
+      unemployment: 9.2
+      inflation: 3.5
+    buildings: []
+    construction_projects: []
+
+  BLZ_002:
+    name: "Cayo District"
+    country: "Belize"
+    coordinates: [17.1500, -89.0667]
+    features:
+      - "jungle"
+      - "tourism"
+      - "agricultural"
+      - "eco_tourism"
+      - "mayan_ruins"
+      - "forest_rich"
+    population:
+      total: 85000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 70
+        - group: "Maya"
+          percent: 15
+        - group: "Creole"
+          percent: 10
+        - group: "Other"
+          percent: 5
+    unrest: 2.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 0
+      steel: 5
+      rare_earth: 12
+      uranium: 0
+      food: 285
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 45
+      food: 385
+      tourism: 485
+    politics:
+      party_support:
+        "PUP": 48.5
+        "UDP": 42.2
+        "Other": 9.3
+    economy:
+      gdp_per_capita: 4200
+      unemployment: 8.5
+      inflation: 3.2
+    buildings: []
+    construction_projects: []
+
+  # EL SALVADOR
+  SLV_001:
+    name: "San Salvador"
+    country: "El Salvador"
+    coordinates: [13.6929, -89.2182]
+    features:
+      - "urban"
+      - "capital"
+      - "volcanic"
+      - "financial_hub"
+      - "overpopulated"
+      - "gang_presence"
+    population:
+      total: 1800000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 88
+        - group: "White"
+          percent: 10
+        - group: "Indigenous"
+          percent: 1
+        - group: "Other"
+          percent: 1
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 85
+      rare_earth: 25
+      uranium: 0
+      food: 125
+    military:
+      stationed_units:
+        - "SLV_CMD_1"
+        - "SLV_SPE_1"
+      fortification_level: 3
+    resource_output:
+      energy: 485
+      finance: 285
+      technology: 185
+    politics:
+      party_support:
+        "Nuevas Ideas": 78.5
+        "ARENA": 12.8
+        "FMLN": 6.2
+        "Other": 2.5
+    economy:
+      gdp_per_capita: 4400
+      unemployment: 7.2
+      inflation: 7.8
+    buildings: []
+    construction_projects: []
+
+  SLV_002:
+    name: "Santa Ana"
+    country: "El Salvador"
+    coordinates: [13.9942, -89.5597]
+    features:
+      - "agricultural"
+      - "coffee_production"
+      - "volcanic"
+      - "mountainous"
+      - "cool_climate"
+    population:
+      total: 525000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 85
+        - group: "White"
+          percent: 12
+        - group: "Indigenous"
+          percent: 2
+        - group: "Other"
+          percent: 1
+    unrest: 4.2
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 25
+      rare_earth: 15
+      uranium: 0
+      food: 485
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 185
+      food: 685
+    politics:
+      party_support:
+        "Nuevas Ideas": 72.5
+        "ARENA": 18.2
+        "FMLN": 6.8
+        "Other": 2.5
+    economy:
+      gdp_per_capita: 3800
+      unemployment: 8.5
+      inflation: 6.2
+    buildings: []
+    construction_projects: []
+
+  # HONDURAS
+  HND_001:
+    name: "Tegucigalpa"
+    country: "Honduras"
+    coordinates: [14.0723, -87.1921]
+    features:
+      - "urban"
+      - "capital"
+      - "mountainous"
+      - "financial_hub"
+      - "gang_presence"
+    population:
+      total: 1400000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 90
+        - group: "Indigenous"
+          percent: 7
+        - group: "Black"
+          percent: 2
+        - group: "White"
+          percent: 1
+    unrest: 8.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 125
+      rare_earth: 85
+      uranium: 0
+      food: 185
+    military:
+      stationed_units:
+        - "HND_CMD_1"
+        - "HND_INF_1"
+      fortification_level: 2
+    resource_output:
+      energy: 385
+      finance: 185
+    politics:
+      party_support:
+        "LIBRE": 48.5
+        "Partido Nacional": 32.8
+        "Liberal": 12.2
+        "Other": 6.5
+    economy:
+      gdp_per_capita: 2500
+      unemployment: 14.2
+      inflation: 9.8
+    buildings: []
+    construction_projects: []
+
+  HND_002:
+    name: "San Pedro Sula"
+    country: "Honduras"
+    coordinates: [15.5047, -88.0251]
+    features:
+      - "industrial"
+      - "urban"
+      - "manufacturing"
+      - "gang_presence"
+      - "economic_hub"
+    population:
+      total: 1200000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 88
+        - group: "Indigenous"
+          percent: 6
+        - group: "Black"
+          percent: 4
+        - group: "White"
+          percent: 2
+    unrest: 9.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 0
+      steel: 185
+      rare_earth: 45
+      uranium: 0
+      food: 125
+    military:
+      stationed_units:
+        - "HND_INF_2"
+      fortification_level: 2
+    resource_output:
+      energy: 485
+      steel: 385
+      technology: 125
+    politics:
+      party_support:
+        "Partido Nacional": 42.8
+        "LIBRE": 35.5
+        "Liberal": 15.2
+        "Other": 6.5
+    economy:
+      gdp_per_capita: 2800
+      unemployment: 12.8
+      inflation: 8.5
+    buildings: []
+    construction_projects: []
+
+  # NICARAGUA
+  NIC_001:
+    name: "Managua"
+    country: "Nicaragua"
+    coordinates: [12.1364, -86.2514]
+    features:
+      - "urban"
+      - "capital"
+      - "lake_proximity"
+      - "volcanic"
+      - "political_center"
+    population:
+      total: 1500000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 69
+        - group: "White"
+          percent: 17
+        - group: "Black"
+          percent: 9
+        - group: "Indigenous"
+          percent: 5
+    unrest: 7.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 0
+      steel: 85
+      rare_earth: 125
+      uranium: 0
+      food: 285
+    military:
+      stationed_units:
+        - "NIC_CMD_1"
+        - "NIC_POL_1"
+      fortification_level: 3
+    resource_output:
+      energy: 485
+      finance: 185
+    politics:
+      party_support:
+        "FSLN": 45.8
+        "Opposition": 38.5
+        "Other": 15.7
+    economy:
+      gdp_per_capita: 2100
+      unemployment: 15.8
+      inflation: 8.2
+    buildings: []
+    construction_projects: []
+
+  NIC_002:
+    name: "León"
+    country: "Nicaragua"
+    coordinates: [12.4340, -86.8777]
+    features:
+      - "colonial"
+      - "cultural"
+      - "university"
+      - "agricultural"
+      - "volcanic"
+    population:
+      total: 205000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 72
+        - group: "White"
+          percent: 18
+        - group: "Indigenous"
+          percent: 6
+        - group: "Black"
+          percent: 4
+    unrest: 5.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 25
+      rare_earth: 45
+      uranium: 0
+      food: 485
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 125
+      food: 585
+      culture: 285
+    politics:
+      party_support:
+        "FSLN": 52.8
+        "Opposition": 32.5
+        "Other": 14.7
+    economy:
+      gdp_per_capita: 1800
+      unemployment: 18.5
+      inflation: 7.8
+    buildings: []
+    construction_projects: []
+
+  # COSTA RICA
+  CRI_001:
+    name: "San José"
+    country: "Costa Rica"
+    coordinates: [9.9281, -84.0907]
+    features:
+      - "urban"
+      - "capital"
+      - "mountainous"
+      - "temperate_climate"
+      - "financial_hub"
+      - "eco_friendly"
+    population:
+      total: 1400000
+      ethnic_groups:
+        - group: "White"
+          percent: 85
+        - group: "Mestizo"
+          percent: 8
+        - group: "Indigenous"
+          percent: 2
+        - group: "Black"
+          percent: 1
+        - group: "Other"
+          percent: 4
+    unrest: 2.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 0
+      steel: 25
+      rare_earth: 85
+      uranium: 0
+      food: 285
+    military:
+      stationed_units: []
+      fortification_level: 0
+    police_units:
+      - "CRI_POL_1"
+      - "CRI_POL_2"
+    resource_output:
+      energy: 685
+      technology: 485
+      tourism: 585
+    politics:
+      party_support:
+        "PPSD": 42.8
+        "PLN": 28.5
+        "PAC": 18.2
+        "Other": 10.5
+    economy:
+      gdp_per_capita: 12400
+      unemployment: 12.2
+      inflation: 8.5
+    buildings: []
+    construction_projects: []
+
+  CRI_002:
+    name: "Puntarenas"
+    country: "Costa Rica"
+    coordinates: [9.9763, -84.8270]
+    features:
+      - "coastal"
+      - "port"
+      - "tourism"
+      - "fishing"
+      - "tropical_climate"
+    population:
+      total: 130000
+      ethnic_groups:
+        - group: "White"
+          percent: 82
+        - group: "Mestizo"
+          percent: 10
+        - group: "Indigenous"
+          percent: 3
+        - group: "Black"
+          percent: 2
+        - group: "Other"
+          percent: 3
+    unrest: 3.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 5
+      rare_earth: 15
+      uranium: 0
+      food: 385
+    military:
+      stationed_units: []
+      fortification_level: 0
+    police_units:
+      - "CRI_COA_1"
+    resource_output:
+      energy: 185
+      food: 485
+      tourism: 685
+    politics:
+      party_support:
+        "PLN": 38.5
+        "PPSD": 32.8
+        "PAC": 18.2
+        "Other": 10.5
+    economy:
+      gdp_per_capita: 11200
+      unemployment: 8.5
+      inflation: 7.2
+    buildings: []
+    construction_projects: []
+
+  # PANAMA
+  PAN_001:
+    name: "Panama City"
+    country: "Panama"
+    coordinates: [8.9824, -79.5199]
+    features:
+      - "urban"
+      - "capital"
+      - "coastal"
+      - "financial_hub"
+      - "canal_proximity"
+      - "international_hub"
+    population:
+      total: 1700000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 65
+        - group: "Indigenous"
+          percent: 12
+        - group: "Black"
+          percent: 9
+        - group: "White"
+          percent: 7
+        - group: "Other"
+          percent: 7
+    unrest: 4.5
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 25
+      steel: 85
+      rare_earth: 125
+      uranium: 0
+      food: 185
+    military:
+      stationed_units: []
+      fortification_level: 0
+    police_units:
+      - "PAN_POL_1"
+      - "PAN_FIN_1"
+    resource_output:
+      energy: 685
+      finance: 1285
+      technology: 485
+    politics:
+      party_support:
+        "PRD": 38.5
+        "Cambio Democrático": 28.5
+        "Panameñista": 22.2
+        "Other": 10.8
+    economy:
+      gdp_per_capita: 15200
+      unemployment: 7.2
+      inflation: 2.8
+    buildings: []
+    construction_projects: []
+
+  PAN_002:
+    name: "Colón"
+    country: "Panama"
+    coordinates: [9.3549, -79.9002]
+    features:
+      - "port"
+      - "canal_proximity"
+      - "free_trade_zone"
+      - "industrial"
+      - "coastal"
+    population:
+      total: 245000
+      ethnic_groups:
+        - group: "Black"
+          percent: 60
+        - group: "Mestizo"
+          percent: 25
+        - group: "Indigenous"
+          percent: 8
+        - group: "White"
+          percent: 4
+        - group: "Other"
+          percent: 3
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 0
+      steel: 45
+      rare_earth: 25
+      uranium: 0
+      food: 85
+    military:
+      stationed_units: []
+      fortification_level: 0
+    police_units:
+      - "PAN_POR_1"
+    resource_output:
+      energy: 385
+      trade: 1485
+      technology: 185
+    politics:
+      party_support:
+        "PRD": 42.8
+        "Panameñista": 28.5
+        "Cambio Democrático": 18.2
+        "Other": 10.5
+    economy:
+      gdp_per_capita: 13800
+      unemployment: 9.5
+      inflation: 3.2
+    buildings: []
+    construction_projects: []

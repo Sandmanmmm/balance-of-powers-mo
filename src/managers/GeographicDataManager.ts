@@ -339,14 +339,15 @@ export class GeographicDataManager {
       filePath = `/data/regions/${region}/province-boundaries_${region}.json`;
     }
     
-    console.log(`🌍 GeographicDataManager: Fetching ${filePath}`);
+    console.log(`🌍 GeographicDataManager: Fetching ${filePath} for region ${region}`);
     
     try {
       const response = await fetch(filePath);
       
       if (!response.ok) {
+        const errorDetails = `Status: ${response.status} ${response.statusText}, URL: ${filePath}`;
         throw new GeographicDataError(
-          `Failed to fetch boundary data: ${response.status} ${response.statusText}`,
+          `Failed to fetch boundary data: ${errorDetails}`,
           region,
           detailLevel
         );
@@ -357,20 +358,20 @@ export class GeographicDataManager {
       // Validate basic GeoJSON structure
       if (!data || data.type !== 'FeatureCollection' || !Array.isArray(data.features)) {
         throw new GeographicDataError(
-          `Invalid GeoJSON structure - expected FeatureCollection`,
+          `Invalid GeoJSON structure - expected FeatureCollection with features array, got type: ${data?.type}, features: ${Array.isArray(data?.features) ? data.features.length : 'not array'}`,
           region,
           detailLevel
         );
       }
       
-      console.log(`📊 GeographicDataManager: Loaded ${data.features.length} features from ${url}`);
+      console.log(`📊 GeographicDataManager: Loaded ${data.features.length} features from ${filePath}`);
       return data as GeoJSONFeatureCollection;
       
     } catch (error) {
       if (error instanceof GeographicDataError) {
         console.error(`❌ GeographicDataManager: ${error.message} (${error.region}/${error.detailLevel})`);
       } else {
-        console.error(`❌ GeographicDataManager: Failed to load ${url}:`, error);
+        console.error(`❌ GeographicDataManager: Failed to load ${filePath} for region ${region}:`, error);
       }
       
       // Return empty collection as fallback

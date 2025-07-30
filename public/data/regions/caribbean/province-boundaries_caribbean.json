@@ -1,0 +1,347 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CUB_001",
+        "name": "Havana",
+        "country": "Cuba"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-82.5, 23.0],
+          [-82.2, 23.0],
+          [-82.2, 23.2],
+          [-82.5, 23.2],
+          [-82.5, 23.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CUB_002",
+        "name": "Santiago de Cuba",
+        "country": "Cuba"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-76.0, 19.8],
+          [-75.6, 19.8],
+          [-75.6, 20.2],
+          [-76.0, 20.2],
+          [-76.0, 19.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JAM_001",
+        "name": "Kingston",
+        "country": "Jamaica"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-77.0, 17.8],
+          [-76.6, 17.8],
+          [-76.6, 18.1],
+          [-77.0, 18.1],
+          [-77.0, 17.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JAM_002",
+        "name": "Spanish Town",
+        "country": "Jamaica"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-77.2, 17.8],
+          [-76.8, 17.8],
+          [-76.8, 18.2],
+          [-77.2, 18.2],
+          [-77.2, 17.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "HTI_001",
+        "name": "Ouest",
+        "country": "Haiti"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-72.5, 18.4],
+          [-72.1, 18.4],
+          [-72.1, 18.8],
+          [-72.5, 18.8],
+          [-72.5, 18.4]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "HTI_002",
+        "name": "Nord",
+        "country": "Haiti"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-72.4, 19.6],
+          [-72.0, 19.6],
+          [-72.0, 19.9],
+          [-72.4, 19.9],
+          [-72.4, 19.6]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DOM_001",
+        "name": "Distrito Nacional",
+        "country": "Dominican Republic"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-70.1, 18.3],
+          [-69.7, 18.3],
+          [-69.7, 18.6],
+          [-70.1, 18.6],
+          [-70.1, 18.3]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DOM_002",
+        "name": "Santiago",
+        "country": "Dominican Republic"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-70.9, 19.3],
+          [-70.5, 19.3],
+          [-70.5, 19.6],
+          [-70.9, 19.6],
+          [-70.9, 19.3]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "TTO_001",
+        "name": "Port of Spain",
+        "country": "Trinidad and Tobago"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-61.7, 10.5],
+          [-61.3, 10.5],
+          [-61.3, 10.8],
+          [-61.7, 10.8],
+          [-61.7, 10.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "TTO_002",
+        "name": "San Fernando",
+        "country": "Trinidad and Tobago"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-61.6, 10.1],
+          [-61.2, 10.1],
+          [-61.2, 10.4],
+          [-61.6, 10.4],
+          [-61.6, 10.1]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BRB_001",
+        "name": "Christ Church",
+        "country": "Barbados"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-59.7, 12.9],
+          [-59.4, 12.9],
+          [-59.4, 13.2],
+          [-59.7, 13.2],
+          [-59.7, 12.9]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BRB_002",
+        "name": "St. Michael",
+        "country": "Barbados"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-59.8, 13.0],
+          [-59.4, 13.0],
+          [-59.4, 13.3],
+          [-59.8, 13.3],
+          [-59.8, 13.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BSB_001",
+        "name": "New Providence",
+        "country": "The Bahamas"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-77.5, 24.9],
+          [-77.1, 24.9],
+          [-77.1, 25.2],
+          [-77.5, 25.2],
+          [-77.5, 24.9]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BSB_002",
+        "name": "Grand Bahama",
+        "country": "The Bahamas"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-78.9, 26.4],
+          [-78.4, 26.4],
+          [-78.4, 26.7],
+          [-78.9, 26.7],
+          [-78.9, 26.4]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRI_001",
+        "name": "San Juan",
+        "country": "Puerto Rico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-66.3, 18.3],
+          [-65.9, 18.3],
+          [-65.9, 18.6],
+          [-66.3, 18.6],
+          [-66.3, 18.3]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRI_002",
+        "name": "Bayamón",
+        "country": "Puerto Rico"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-66.4, 18.2],
+          [-66.0, 18.2],
+          [-66.0, 18.6],
+          [-66.4, 18.6],
+          [-66.4, 18.2]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "GRD_001",
+        "name": "St. George's",
+        "country": "Grenada"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-61.9, 12.0],
+          [-61.6, 12.0],
+          [-61.6, 12.2],
+          [-61.9, 12.2],
+          [-61.9, 12.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "LCA_001",
+        "name": "Castries",
+        "country": "Saint Lucia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-61.1, 13.9],
+          [-60.8, 13.9],
+          [-60.8, 14.2],
+          [-61.1, 14.2],
+          [-61.1, 13.9]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "VCT_001",
+        "name": "Kingstown",
+        "country": "Saint Vincent and the Grenadines"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-61.4, 13.0],
+          [-61.0, 13.0],
+          [-61.0, 13.3],
+          [-61.4, 13.3],
+          [-61.4, 13.0]
+        ]]
+      }
+    }
+  ]
+}

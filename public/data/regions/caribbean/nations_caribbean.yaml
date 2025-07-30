@@ -1,0 +1,822 @@
+# Caribbean Nations - Regional Nation Data
+
+nations:
+  CUB:
+    name: "Cuba"
+    capital: "Havana"
+    flag: "🇨🇺"
+    government:
+      approval: 72.3
+      ruling_party: "Communist Pa
+      election_cycle
+    economy:
+      debt: 45000000000
+      trade_balance: -2500000000
+      currency: "CUP"
+      sectors:
+    economy:
+      gdp: 107000000000
+      debt: 45000000000
+      inflation: 31.0
+      trade_balance: -2500000000
+      treasury: 8500000000
+      currency: "CUP"
+      interest_rate: 12.0
+      sectors:
+        manufacturing: 14.2
+        services: 70.8
+        agriculture: 3.8
+        energy: 5.1
+        technology: 6.1
+    military:
+      manpower: 49000
+        - "Biotechn
+        - "Medical 
+        - "Basic Medicine"
+        - "Tobacco Processing"
+      total_population: 11317000
+        youth: 15.6
+        elderly: 16.2
+        White: 
+        Black: 9.3
+      stockpiles:
+        food: 850000
+        steel: 85000
+        manpower: 5650000
+        uranium: 0
+        consumer_goods: 18
+        research: 185
+        industrial_capacity: 6
+      allies:
+        - "CHN"
+        - "NIC"
+        - "USA"
+        - "CHN"
+        - "VEN"
+    policies:
+      military_doct
+      immigration_p
+
+    name: "Jam
+    flag: "🇯🇲"
+      type: "parlia
+      approval: 48.5
+      ruling_party: "Jamaic
+      election_cycle
+    economy:
+      debt: 13200000000
+      trade_balance: -
+      currency: "J
+      sectors:
+        services: 71.2
+        energy: 3.8
+    military:
+      equipment: 38
+      doctrine: "Coast Guard"
+      military_spendin
+      reserve
+      researchP
+        - "Tour
+        - "Rene
+        - "Basi
+        - "To
+      total_pop
+        youth: 24.5
+        elderly
+        Black: 
+        Other: 
+      stockpile
+        food:
+        steel: 25000
+        manpower: 1350000
+        uranium: 0
+        consumer_goods: 125000
+        research: 85
+
+      
+        - "CAN"
+      rivals: []
+        - "USA"
+        - "GBR"
+    policies:
+      military_doctrine: "defe
+      immigration_po
+
+    name: "Haiti"
+    flag: "🇭🇹"
+      type: "presidenti
+      approval: 25.8
+      ruling
+      election_cycle: 
+    economy:
+      debt: 28500000
+      trade_balance: -950000000
+      currency: "HTG"
+      sectors:
+        services: 58.1
+        energy
+    military:
+      equipment: 15
+      doctrine: "Police 
+      military_spen
+      reserve_forces: 0
+      researc
+        - "Basic Inf
+      completedTech
+    demographics:
+      age_groups:
+        adult: 62.7
+      military_spending_gdp: 1.6
+      conscription: false
+      reserve_forces: 950
+    technology:
+      researchPoints: 85
+      currentResearch:
+        - "Tourism Technology"
+        - "Agricultural Tech"
+        - "Renewable Energy"
+      completedTech:
+        - "Basic Agriculture"
+        - "Mining"
+        - "Tourism"
+    demographics:
+      total_population: 2734000
+      age_groups:
+        youth: 24.5
+        adult: 67.1
+        elderly: 8.4
+      ethnic_composition:
+        Black: 92.1
+        Mixed: 6.1
+        Other: 1.8
+    resources:
+      stockpiles:
+        oil: 0
+        food: 425000
+        electricity: 125000
+        steel: 25000
+        technology: 5850
+        manpower: 1350000
+        water: 485000
+        uranium: 0
+        rare_earth: 12500
+        consumer_goods: 125000
+        semiconductors: 8500
+        research: 85
+        energy: 125000
+        industrial_capacity: 18500
+    foreign_relations:
+      allies:
+      type: "pr
+        - "CAN"
+        - "GBR"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CAN"
+        - "GBR"
+        - "CHN"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "moderate"
+      environmental_policy: "progressive"
+
+  HTI:
+    name: "Haiti"
+    capital: "Port-au-Prince"
+    flag: "🇭🇹"
+    government:
+      type: "presidential_republic"
+      leader: "Ariel Henry"
+      approval: 25.8
+      stability: 28.5
+      ruling_party: "Coalition"
+      ideology: "Mixed"
+      election_cycle: 5
+      last_election: "2016-11-20"
+    economy:
+      gdp: 8498000000
+      debt: 2850000000
+      inflation: 18.2
+      trade_balance: -950000000
+      treasury: 485000000
+      currency: "HTG"
+      interest_rate: 18.5
+      sectors:
+        manufacturing: 9.2
+        services: 58.1
+        agriculture: 22.3
+        energy: 3.8
+        technology: 6.6
+    military:
+      manpower: 0
+      equipment: 15
+      readiness: 25
+      doctrine: "Police Force"
+      nuclear_capability: false
+      military_spending_gdp: 0.0
+      conscription: false
+      reserve_forces: 0
+    technology:
+      researchPoints: 25
+      currentResearch:
+        - "Basic Infrastructure"
+        - "Agricultural Tech"
+      completedTech:
+        - "Basic Agriculture"
+    demographics:
+      total_population: 11400000
+      age_groups:
+        youth: 32.1
+        adult: 62.7
+        elderly: 5.2
+      ethnic_composition:
+        Black: 95.0
+        Mixed: 4.0
+        Other: 1.0
+    resources:
+      stockpiles:
+        oil: 0
+        food: 285000
+        electricity: 85000
+        steel: 8500
+        technology: 1850
+        manpower: 5700000
+        water: 285000
+        uranium: 0
+        rare_earth: 0
+        consumer_goods: 45000
+        semiconductors: 1250
+        research: 25
+        energy: 85000
+        industrial_capacity: 8500
+    foreign_relations:
+      allies:
+        - "USA"
+    government:
+      leader: "K
+      stability: 82.4
+      ideology:
+      last_elec
+      gdp: 2430
+      inflati
+      treasury: 485000
+      interest_rate: 3.5
+        manufacturing: 11.
+        agriculture: 0.8
+        technology: 3.5
+
+      
+      nuclear_capability: fals
+      conscription: false
+    technology:
+      currentRe
+        - "Natural Gas Processing"
+      completedTech:
+        - "Natural G
+    demographics:
+      age_groups:
+        adult: 70.1
+      ethnic_compositio
+        African: 34.2
+        Othe
+      stockpiles:
+        food: 125000
+        steel: 45000
+        manpower: 700000
+        uranium: 0
+        consumer_good
+        research: 85
+        indust
+      allies:
+        - "CAN"
+        - "VEN"
+      trade_partner
+        - "CHN"
+        - "VE
+      tax_level: "mod
+      trade_policy:
+      environmental
+  BRB:
+    capital: "Bridgetown"
+    government:
+      leader: "Mia Mottle
+      stability: 89.2
+      ideology:
+      last_election: "202
+      gdp: 5200000000
+      inflation: 4.1
+      treasury: 850000000
+      interest_rate: 7.0
+        manufacturin
+        agriculture
+        technology: 1.8
+      manpower: 61
+      readiness: 
+      nuclear_capability: false
+      conscriptio
+    technology:
+      currentResear
+        - "Tourism T
+      completedTech:
+        - "Financia
+    demographics:
+      age_groups:
+        adult:
+      ethnic_comp
+        White:
+        Other: 1.0
+      stockpiles:
+        food: 28500
+        steel: 2850
+        manpower: 145000
+        uranium: 0
+        consumer_g
+        research: 45
+        industrial_capacity: 8
+      allies:
+        - "CAN"
+        - "TTO"
+      trade_partners:
+        - "CAN"
+        - "TT
+      tax_level
+      trade_pol
+      environme
+  BSB:
+    capital: "Nassau"
+    government:
+      leader: "
+      stability
+      ideology:
+      last_el
+      gdp: 12800000000
+      inflation: 3.8
+      treasury: 1850000000
+      interest_rate: 4.0
+        manufacturing: 7.1
+
+      
+      manpower: 860
+      readiness: 68
+      nuclear_ca
+      conscript
+    technology:
+      currentResearch:
+        - "Tourism T
+        - "Tourism"
+    demographics:
+      age_groups:
+        adult: 70.1
+      ethnic_composition:
+        Whit
+        Other: 2.6
+      stockpiles:
+        food: 45000
+        steel: 4850
+        manpower: 195000
+        uranium: 0
+        consumer_goods: 
+        resear
+        industrial_capacity
+      allies:
+        agriculture: 0.8
+        energy: 25.7
+        technology: 3.5
+    military:
+      manpower: 4000
+      equipment: 58
+      readiness: 75
+      doctrine: "Coast Guard"
+      nuclear_capability: false
+      military_spending_gdp: 0.7
+      conscription: false
+      reserve_forces: 950
+    technology:
+      researchPoints: 85
+      currentResearch:
+        - "Petrochemical Technology"
+        - "Natural Gas Processing"
+        - "Renewable Energy"
+      completedTech:
+        - "Oil Refining"
+        - "Natural Gas"
+        - "Petrochemicals"
+    demographics:
+      total_population: 1399000
+      age_groups:
+        youth: 19.8
+        adult: 70.1
+        elderly: 10.1
+      ethnic_composition:
+        East_Indian: 35.4
+        African: 34.2
+        Mixed: 22.8
+        Other: 7.6
+    resources:
+      stockpiles:
+        oil: 8500000
+        food: 125000
+        electricity: 485000
+        steel: 45000
+        technology: 5850
+        manpower: 700000
+        water: 285000
+        uranium: 0
+        rare_earth: 0
+        consumer_goods: 185000
+        semiconductors: 12500
+        research: 85
+        energy: 485000
+        industrial_capacity: 38500
+    foreign_relations:
+      allies:
+        - "USA"
+        - "CAN"
+        - "GBR"
+        - "VEN"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "GBR"
+        - "VEN"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "moderate"
+      environmental_policy: "moderate"
+
+  BRB:
+    name: "Barbados"
+    capital: "Bridgetown"
+    flag: "🇧🇧"
+    government:
+      type: "parliamentary_republic"
+      leader: "Mia Mottley"
+      approval: 75.8
+      stability: 89.2
+      ruling_party: "Barbados Labour Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2022-01-19"
+    economy:
+      gdp: 5200000000
+      debt: 3850000000
+      inflation: 4.1
+      trade_balance: -485000000
+      treasury: 850000000
+      currency: "BBD"
+      interest_rate: 7.0
+      sectors:
+        manufacturing: 6.2
+        services: 88.3
+        agriculture: 1.8
+        energy: 1.9
+        technology: 1.8
+    military:
+      manpower: 610
+      equipment: 45
+      readiness: 72
+      doctrine: "Coast Guard"
+      nuclear_capability: false
+      military_spending_gdp: 0.8
+      conscription: false
+      reserve_forces: 430
+    technology:
+      researchPoints: 45
+      currentResearch:
+        - "Financial Technology"
+        - "Tourism Technology"
+        - "Renewable Energy"
+      completedTech:
+        - "Tourism"
+        - "Financial Services"
+        - "Information Technology"
+    demographics:
+      total_population: 287000
+      age_groups:
+        youth: 17.2
+        adult: 69.4
+        elderly: 13.4
+      ethnic_composition:
+        Black: 91.5
+        White: 3.2
+        Mixed: 4.3
+        Other: 1.0
+    resources:
+      stockpiles:
+        oil: 0
+        food: 28500
+        electricity: 58500
+        steel: 2850
+        technology: 2850
+        manpower: 145000
+        water: 85000
+        uranium: 0
+        rare_earth: 0
+        consumer_goods: 58500
+        semiconductors: 4850
+        research: 45
+        energy: 58500
+        industrial_capacity: 8500
+    foreign_relations:
+      allies:
+        - "USA"
+        - "CAN"
+        - "GBR"
+        - "TTO"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CAN"
+        - "GBR"
+        - "TTO"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "selective"
+      environmental_policy: "progressive"
+
+  BSB:
+    name: "The Bahamas"
+    capital: "Nassau"
+    flag: "🇧🇸"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Philip Davis"
+      approval: 62.5
+      stability: 85.7
+      ruling_party: "Progressive Liberal Party"
+      ideology: "Social Liberalism"
+      election_cycle: 5
+      last_election: "2021-09-16"
+    economy:
+      gdp: 12800000000
+      debt: 9850000000
+      inflation: 3.8
+      trade_balance: -1850000000
+      treasury: 1850000000
+      currency: "BSD"
+      interest_rate: 4.0
+      sectors:
+        manufacturing: 7.1
+        services: 89.2
+        agriculture: 1.2
+        energy: 1.8
+        technology: 0.7
+    military:
+      manpower: 860
+      equipment: 42
+      readiness: 68
+      doctrine: "Coast Guard"
+      nuclear_capability: false
+      military_spending_gdp: 0.6
+      conscription: false
+      reserve_forces: 300
+    technology:
+      researchPoints: 25
+      currentResearch:
+        - "Financial Technology"
+        - "Tourism Technology"
+      completedTech:
+        - "Tourism"
+        - "Financial Services"
+    demographics:
+      total_population: 393000
+      age_groups:
+        youth: 22.3
+        adult: 70.1
+        elderly: 7.6
+      ethnic_composition:
+        Black: 90.6
+        White: 4.7
+        Mixed: 2.1
+        Other: 2.6
+    resources:
+      stockpiles:
+        oil: 0
+        food: 45000
+        electricity: 85000
+        steel: 4850
+        technology: 1850
+        manpower: 195000
+        water: 125000
+        uranium: 0
+        rare_earth: 0
+        consumer_goods: 85000
+        semiconductors: 2850
+        research: 25
+        energy: 85000
+        industrial_capacity: 12500
+    foreign_relations:
+      allies:
+        - "USA"
+        - "CAN"
+        - "GBR"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CAN"
+        - "GBR"
+    policies:
+      tax_level: "low"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "selective"
+      environmental_policy: "moderate"
+
+  PRI:
+    name: "Puerto Rico"
+    capital: "San Juan"
+    flag: "🇺🇸"
+    government:
+      type: "unincorporated_territory"
+      leader: "Pedro Pierluisi"
+      approval: 45.2
+      stability: 68.5
+      ruling_party: "New Progressive Party"
+      ideology: "Pro-Statehood"
+      election_cycle: 4
+      last_election: "2020-11-03"
+    economy:
+      gdp: 104200000000
+      debt: 74800000000
+      inflation: 4.5
+      trade_balance: -14850000000
+      treasury: 8500000000
+      currency: "USD"
+      interest_rate: 5.5
+      sectors:
+        manufacturing: 45.8
+        services: 48.7
+        agriculture: 0.8
+        energy: 2.1
+        technology: 2.6
+    military:
+      manpower: 0
+      equipment: 0
+      readiness: 0
+      doctrine: "US Territory"
+      nuclear_capability: false
+      military_spending_gdp: 0.0
+      conscription: false
+      reserve_forces: 0
+    technology:
+      researchPoints: 185
+      currentResearch:
+        - "Pharmaceutical Technology"
+        - "Electronics Manufacturing"
+        - "Renewable Energy"
+      completedTech:
+        - "Pharmaceuticals"
+        - "Electronics"
+        - "Manufacturing"
+    demographics:
+      total_population: 3194000
+      age_groups:
+        youth: 18.2
+        adult: 64.8
+        elderly: 17.0
+      ethnic_composition:
+        White: 75.8
+        Black: 12.4
+        Native_American: 0.5
+        Asian: 0.2
+        Mixed: 11.1
+    resources:
+      stockpiles:
+        oil: 0
+        food: 285000
+        electricity: 485000
+        steel: 185000
+        technology: 12500
+        manpower: 1600000
+        water: 385000
+        uranium: 0
+        rare_earth: 8500
+        consumer_goods: 485000
+        semiconductors: 85000
+        research: 185
+        energy: 485000
+        industrial_capacity: 185000
+    foreign_relations:
+      allies:
+        - "USA"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "DOM"
+        - "MEX"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "none"
+      trade_policy: "us_integrated"
+      immigration_policy: "us_controlled"
+      environmental_policy: "moderate"        - "USA"
+        - "CAN"
+        - "GBR"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CAN"
+        - "GBR"
+    policies:
+      tax_level: "low"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "selective"
+      environmental_policy: "moderate"
+
+  PRI:
+    name: "Puerto Rico"
+    capital: "San Juan"
+    flag: "🇺🇸"
+    government:
+      type: "unincorporated_territory"
+      leader: "Pedro Pierluisi"
+      approval: 45.2
+      stability: 68.5
+      ruling_party: "New Progressive Party"
+      ideology: "Pro-Statehood"
+      election_cycle: 4
+      last_election: "2020-11-03"
+    economy:
+      gdp: 104200000000
+      debt: 74800000000
+      inflation: 4.5
+      trade_balance: -14850000000
+      treasury: 8500000000
+      currency: "USD"
+      interest_rate: 5.5
+      sectors:
+        manufacturing: 45.8
+        services: 48.7
+        agriculture: 0.8
+        energy: 2.1
+        technology: 2.6
+    military:
+      manpower: 0
+      equipment: 0
+      readiness: 0
+      doctrine: "US Territory"
+      nuclear_capability: false
+      military_spending_gdp: 0.0
+      conscription: false
+      reserve_forces: 0
+    technology:
+      researchPoints: 185
+      currentResearch:
+        - "Pharmaceutical Technology"
+        - "Electronics Manufacturing"
+        - "Renewable Energy"
+      completedTech:
+        - "Pharmaceuticals"
+        - "Electronics"
+        - "Manufacturing"
+    demographics:
+      total_population: 3194000
+      age_groups:
+        youth: 18.2
+        adult: 64.8
+        elderly: 17.0
+      ethnic_composition:
+        White: 75.8
+        Black: 12.4
+        Native_American: 0.5
+        Asian: 0.2
+        Mixed: 11.1
+    resources:
+      stockpiles:
+        oil: 0
+        food: 285000
+        electricity: 485000
+        steel: 185000
+        technology: 12500
+        manpower: 1600000
+        water: 385000
+        uranium: 0
+        rare_earth: 8500
+        consumer_goods: 485000
+        semiconductors: 85000
+        research: 185
+        energy: 485000
+        industrial_capacity: 185000
+    foreign_relations:
+      allies:
+        - "USA"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "DOM"
+        - "MEX"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "none"
+      trade_policy: "us_integrated"
+      immigration_policy: "us_controlled"
+      environmental_policy: "moderate"

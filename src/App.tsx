@@ -22,6 +22,8 @@ import { CountryBoundarySystemTest } from './components/CountryBoundarySystemTes
 import { CountryBoundarySystemStatus } from './components/CountryBoundarySystemStatus';
 import { QuickBoundaryTest } from './components/QuickBoundaryTest';
 import { BoundaryLoadingTest } from './components/BoundaryLoadingTest';
+import { MapLoadingTest } from './components/MapLoadingTest';
+import { QuickMapTest } from './components/QuickMapTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -284,6 +286,12 @@ function App() {
           </div>
           <div className="mt-4">
             <BoundaryLoadingTest />
+          </div>
+          <div className="mt-4">
+            <MapLoadingTest />
+          </div>
+          <div className="mt-4">
+            <QuickMapTest />
           </div>
           <div className="mt-4">
             <IndiaMapDebug />

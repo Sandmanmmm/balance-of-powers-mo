@@ -1,0 +1,101 @@
+# China - Superpower Nation Data
+
+nations:
+  CHN:
+    name: "People's Republic of China"
+    capital: "Beijing"
+    flag: "🇨🇳"
+    government:
+      type: "authoritarian"
+      leader: "Xi Jinping"
+      approval: 82.3
+      stability: 85.7
+      ruling_party: "Communist Party of China"
+      ideology: "Socialism with Chinese Characteristics"
+      election_cycle: 0
+      last_election: "N/A"
+      term_limits: "lifetime"
+    economy:
+      gdp: 17734000000000
+      debt: 15800000000000
+      inflation: 2.1
+      trade_balance: 676000000000
+      treasury: 3200000000000
+      currency: "CNY"
+      interest_rate: 3.65
+      sectors:
+        manufacturing: 27.7
+        services: 54.5
+        agriculture: 7.1
+        technology: 10.7
+    military:
+      manpower: 2035000
+      equipment: 88
+      readiness: 89
+      doctrine: "Active Defense"
+      nuclear_capability: true
+      nuclear_warheads: 350
+      military_spending_gdp: 1.7
+      conscription: true
+      reserve_forces: 510000
+    technology:
+      researchPoints: 3800
+      currentResearch:
+        - "Quantum Computing"
+        - "AI Systems"
+        - "5G/6G Networks"
+        - "Space Technology"
+        - "High-Speed Rail"
+      completedTech:
+        - "Internet"
+        - "Nuclear Technology"
+        - "Satellite Technology"
+        - "High-Speed Rail"
+        - "Solar Technology"
+        - "Manufacturing Automation"
+        - "Mobile Technology"
+    demographics:
+      total_population: 1412000000
+      age_groups:
+        youth: 17.9
+        adult: 68.6
+        elderly: 13.5
+      ethnic_composition:
+        Han_Chinese: 91.6
+        Zhuang: 1.3
+        Hui: 1.0
+        Manchu: 0.9
+        Other: 5.2
+    resources:
+      stockpiles:
+        oil: 25000000
+        food: 25000000
+        electricity: 12500000
+        steel: 8500000
+        technology: 1200000
+        manpower: 780000000
+        water: 38000000
+        rare_earth: 15000000
+    foreign_relations:
+      allies:
+        - "RUS"
+        - "PAK"
+        - "PRK"
+        - "IRN"
+      rivals:
+        - "USA"
+        - "IND"
+        - "JPN"
+        - "TWN"
+      trade_partners:
+        - "USA"
+        - "GER"
+        - "JPN"
+        - "KOR"
+        - "AUS"
+    policies:
+      tax_level: "high"
+      military_doctrine: "area_denial"
+      trade_policy: "state_controlled"
+      immigration_policy: "restrictive"
+      environmental_policy: "aggressive"

@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RUS_MOW",
+        "name": "Moscow Oblast"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [35.0000, 57.0000],
+          [40.0000, 57.0000],
+          [40.0000, 54.0000],
+          [35.0000, 54.0000],
+          [35.0000, 57.0000]
+        ]]
+      }
+    }
+  ]
+}

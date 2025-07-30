@@ -1,0 +1,838 @@
+# North America (excluding USA) - Regional Nation Data
+
+nations:
+  CAN:
+    name: "Canada"
+    capital: "Ottawa"
+    flag: "🇨🇦"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Justin Trudeau"
+      approval: 38.2
+      stability: 86.4
+      ruling_party: "Liberal Party"
+      ideology: "Social Liberalism"
+      election_cycle: 4
+      last_election: "2021-09-20"
+      parliamentary_system: true
+    economy:
+      gdp: 1988000000000
+      debt: 1200000000000
+      inflation: 2.9
+      trade_balance: 52000000000
+      treasury: 285000000000
+      currency: "CAD"
+      interest_rate: 5.0
+      sectors:
+        manufacturing: 10.2
+        services: 70.2
+        agriculture: 1.6
+        energy: 8.8
+        technology: 9.2
+    military:
+      manpower: 68000
+      equipment: 85
+      readiness: 87
+      doctrine: "Peacekeeping"
+      nuclear_capability: false
+      military_spending_gdp: 1.4
+      conscription: false
+      reserve_forces: 19000
+    technology:
+      researchPoints: 850
+      currentResearch:
+        - "Green Energy"
+        - "AI Systems"
+        - "Arctic Technology"
+        - "Space Technology"
+      completedTech:
+        - "Internet"
+        - "Renewable Energy"
+        - "Mining Technology"
+        - "Forestry Technology"
+        - "Arctic Engineering"
+    demographics:
+      total_population: 38500000
+      age_groups:
+        youth: 15.3
+        adult: 66.6
+        elderly: 18.1
+      ethnic_composition:
+        European_Canadian: 72.9
+        Indigenous: 5.0
+        Asian: 17.7
+        Other: 4.4
+    resources:
+      stockpiles:
+        oil: 25000000
+        food: 4500000
+        electricity: 2800000
+        steel: 950000
+        technology: 185000
+        manpower: 20500000
+        water: 85000000
+        uranium: 850000
+        rare_earth: 75000
+        consumer_goods: 1500000
+        semiconductors: 125000
+        research: 850
+        energy: 2800000
+        industrial_capacity: 500000
+    foreign_relations:
+      allies:
+        - "USA"
+        - "NATO"
+        - "GBR"
+        - "FRA"
+        - "AUS"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "GBR"
+        - "JPN"
+        - "MEX"
+    policies:
+      tax_level: "high"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "open"
+      environmental_policy: "progressive"
+
+  MEX:
+    name: "Mexico"
+    capital: "Mexico City"
+    flag: "🇲🇽"
+    government:
+      type: "federal_democracy"
+      leader: "Andrés Manuel López Obrador"
+      approval: 58.7
+      stability: 65.2
+      ruling_party: "MORENA"
+      ideology: "Left-wing Populism"
+      election_cycle: 6
+      last_election: "2018-07-01"
+    economy:
+      gdp: 1643000000000
+      debt: 725000000000
+      inflation: 4.6
+      trade_balance: -4500000000
+      treasury: 185000000000
+      currency: "MXN"
+      interest_rate: 11.0
+      sectors:
+        manufacturing: 17.2
+        services: 61.9
+        agriculture: 3.6
+        energy: 7.8
+        technology: 9.5
+    military:
+      manpower: 277000
+      equipment: 62
+      readiness: 71
+      doctrine: "Internal Security"
+      nuclear_capability: false
+      military_spending_gdp: 0.7
+      conscription: true
+      reserve_forces: 81000
+    technology:
+      researchPoints: 425
+      currentResearch:
+        - "Manufacturing Technology"
+        - "Renewable Energy"
+        - "Agricultural Technology"
+      completedTech:
+        - "Internet"
+        - "Manufacturing"
+        - "Oil Refining"
+        - "Agricultural Tech"
+    demographics:
+      total_population: 128900000
+      age_groups:
+        youth: 25.2
+        adult: 67.0
+        elderly: 7.8
+      ethnic_composition:
+        Mestizo: 62.0
+        White: 21.0
+        Indigenous: 7.0
+        Other: 10.0
+    resources:
+      stockpiles:
+        oil: 18500000
+        food: 6200000
+        electricity: 1850000
+        steel: 685000
+        technology: 95000
+        manpower: 65500000
+        water: 12500000
+        uranium: 25000
+        rare_earth: 45000
+        consumer_goods: 850000
+        semiconductors: 65000
+        research: 425
+        energy: 1850000
+        industrial_capacity: 320000
+    foreign_relations:
+      allies:
+        - "USA"
+        - "CAN"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "CAN"
+        - "GER"
+        - "KOR"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "restrictive"
+      environmental_policy: "moderate"
+
+  # Central American Nations
+  GTM:
+    name: "Guatemala"
+    capital: "Guatemala City"
+    flag: "🇬🇹"
+    government:
+      type: "presidential_democracy"
+      leader: "Alejandro Giammattei"
+      approval: 42.3
+      stability: 58.1
+      ruling_party: "Vamos Party"
+      ideology: "Conservatism"
+      election_cycle: 4
+      last_election: "2019-08-11"
+    economy:
+      gdp: 85300000000
+      debt: 32400000000
+      inflation: 4.2
+      trade_balance: -8200000000
+      treasury: 8500000000
+      currency: "GTQ"
+      interest_rate: 1.75
+      sectors:
+        manufacturing: 13.8
+        services: 60.2
+        agriculture: 10.8
+        energy: 2.9
+        technology: 12.3
+    military:
+      manpower: 18500
+      equipment: 45
+      readiness: 62
+      doctrine: "Internal Security"
+      nuclear_capability: false
+      military_spending_gdp: 0.4
+      conscription: false
+      reserve_forces: 63000
+    technology:
+      researchPoints: 125
+      currentResearch:
+        - "Agricultural Technology"
+        - "Textile Manufacturing"
+      completedTech:
+        - "Basic Manufacturing"
+        - "Coffee Production"
+    demographics:
+      total_population: 17900000
+      age_groups:
+        youth: 31.7
+        adult: 61.5
+        elderly: 6.8
+      ethnic_composition:
+        Mestizo: 56.0
+        Indigenous: 41.0
+        White: 1.8
+        Other: 1.2
+    resources:
+      stockpiles:
+        oil: 125000
+        food: 950000
+        electricity: 185000
+        steel: 35000
+        technology: 15000
+        manpower: 8950000
+        water: 2500000
+        uranium: 0
+        rare_earth: 5000
+        consumer_goods: 125000
+        semiconductors: 8500
+        research: 125
+        energy: 185000
+        industrial_capacity: 45000
+    foreign_relations:
+      allies:
+        - "USA"
+        - "SLV"
+        - "HND"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "MEX"
+        - "SLV"
+        - "HND"
+    policies:
+      tax_level: "low"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "moderate"
+      environmental_policy: "weak"
+
+  BLZ:
+    name: "Belize"
+    capital: "Belmopan"
+    flag: "🇧🇿"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Johnny Briceño"
+      approval: 51.8
+      stability: 72.4
+      ruling_party: "People's United Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2020-11-11"
+    economy:
+      gdp: 2000000000
+      debt: 1200000000
+      inflation: 3.2
+      trade_balance: -425000000
+      treasury: 185000000
+      currency: "BZD"
+      interest_rate: 11.0
+      sectors:
+        manufacturing: 8.5
+        services: 68.7
+        agriculture: 10.2
+        energy: 1.8
+        technology: 10.8
+    military:
+      manpower: 1050
+      equipment: 52
+      readiness: 68
+      doctrine: "Coastal Defense"
+      nuclear_capability: false
+      military_spending_gdp: 1.2
+      conscription: false
+      reserve_forces: 700
+    technology:
+      researchPoints: 45
+      currentResearch:
+        - "Eco-Tourism"
+        - "Marine Biology"
+      completedTech:
+        - "Tourism Infrastructure"
+        - "Fishing Technology"
+    demographics:
+      total_population: 400000
+      age_groups:
+        youth: 32.6
+        adult: 62.7
+        elderly: 4.7
+      ethnic_composition:
+        Mestizo: 52.9
+        Creole: 25.9
+        Maya: 11.3
+        Garifuna: 6.1
+        Other: 3.8
+    resources:
+      stockpiles:
+        oil: 45000
+        food: 185000
+        electricity: 35000
+        steel: 8500
+        technology: 5000
+        manpower: 200000
+        water: 850000
+        uranium: 0
+        rare_earth: 1500
+        consumer_goods: 25000
+        semiconductors: 2500
+        research: 45
+        energy: 35000
+        industrial_capacity: 8500
+    foreign_relations:
+      allies:
+        - "USA"
+        - "GBR"
+        - "GTM"
+        - "MEX"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "GBR"
+        - "MEX"
+        - "GTM"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "open"
+      environmental_policy: "progressive"
+
+  SLV:
+    name: "El Salvador"
+    capital: "San Salvador"
+    flag: "🇸🇻"
+    government:
+      type: "presidential_democracy"
+      leader: "Nayib Bukele"
+      approval: 85.2
+      stability: 68.7
+      ruling_party: "Nuevas Ideas"
+      ideology: "Populism"
+      election_cycle: 5
+      last_election: "2019-02-03"
+    economy:
+      gdp: 28400000000
+      debt: 21800000000
+      inflation: 7.2
+      trade_balance: -5200000000
+      treasury: 2850000000
+      currency: "USD"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 20.1
+        services: 64.1
+        agriculture: 5.3
+        energy: 2.8
+        technology: 7.7
+    military:
+      manpower: 25000
+      equipment: 58
+      readiness: 78
+      doctrine: "Anti-Gang Operations"
+      nuclear_capability: false
+      military_spending_gdp: 1.2
+      conscription: false
+      reserve_forces: 9800
+    technology:
+      researchPoints: 85
+      currentResearch:
+        - "Digital Currency"
+        - "Textile Manufacturing"
+      completedTech:
+        - "Bitcoin Infrastructure"
+        - "Manufacturing"
+    demographics:
+      total_population: 6500000
+      age_groups:
+        youth: 27.3
+        adult: 66.1
+        elderly: 6.6
+      ethnic_composition:
+        Mestizo: 86.3
+        White: 12.7
+        Indigenous: 0.2
+        Other: 0.8
+    resources:
+      stockpiles:
+        oil: 85000
+        food: 350000
+        electricity: 125000
+        steel: 25000
+        technology: 8500
+        manpower: 3250000
+        water: 650000
+        uranium: 0
+        rare_earth: 2500
+        consumer_goods: 85000
+        semiconductors: 5500
+        research: 85
+        energy: 125000
+        industrial_capacity: 28500
+    foreign_relations:
+      allies:
+        - "USA"
+        - "GTM"
+        - "HND"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "GTM"
+        - "HND"
+        - "MEX"
+    policies:
+      tax_level: "low"
+      military_doctrine: "anti_crime"
+      trade_policy: "free_trade"
+      immigration_policy: "restrictive"
+      environmental_policy: "weak"
+
+  HND:
+    name: "Honduras"
+    capital: "Tegucigalpa"
+    flag: "🇭🇳"
+    government:
+      type: "presidential_democracy"
+      leader: "Xiomara Castro"
+      approval: 47.8
+      stability: 45.2
+      ruling_party: "Liberty and Refoundation"
+      ideology: "Democratic Socialism"
+      election_cycle: 4
+      last_election: "2021-11-28"
+    economy:
+      gdp: 25300000000
+      debt: 15200000000
+      inflation: 9.1
+      trade_balance: -2100000000
+      treasury: 2530000000
+      currency: "HNL"
+      interest_rate: 7.75
+      sectors:
+        manufacturing: 18.5
+        services: 57.4
+        agriculture: 12.2
+        energy: 2.1
+        technology: 9.8
+    military:
+      manpower: 12000
+      equipment: 42
+      readiness: 55
+      doctrine: "Internal Security"
+      nuclear_capability: false
+      military_spending_gdp: 1.6
+      conscription: false
+      reserve_forces: 60000
+    technology:
+      researchPoints: 65
+      currentResearch:
+        - "Agricultural Technology"
+        - "Mining Technology"
+      completedTech:
+        - "Coffee Production"
+        - "Banana Cultivation"
+    demographics:
+      total_population: 10000000
+      age_groups:
+        youth: 30.2
+        adult: 64.1
+        elderly: 5.7
+      ethnic_composition:
+        Mestizo: 90.0
+        Indigenous: 7.0
+        Black: 2.0
+        White: 1.0
+    resources:
+      stockpiles:
+        oil: 65000
+        food: 525000
+        electricity: 85000
+        steel: 18500
+        technology: 6500
+        manpower: 5000000
+        water: 1250000
+        uranium: 0
+        rare_earth: 3500
+        consumer_goods: 65000
+        semiconductors: 4500
+        research: 65
+        energy: 85000
+        industrial_capacity: 18500
+    foreign_relations:
+      allies:
+        - "USA"
+        - "GTM"
+        - "SLV"
+        - "NIC"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "GTM"
+        - "SLV"
+        - "NIC"
+        - "MEX"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "defensive"
+      trade_policy: "free_trade"
+      immigration_policy: "restrictive"
+      environmental_policy: "weak"
+
+  NIC:
+    name: "Nicaragua"
+    capital: "Managua"
+    flag: "🇳🇮"
+    government:
+      type: "authoritarian_democracy"
+      leader: "Daniel Ortega"
+      approval: 31.4
+      stability: 42.8
+      ruling_party: "Sandinista National Liberation Front"
+      ideology: "Socialism"
+      election_cycle: 5
+      last_election: "2021-11-07"
+    economy:
+      gdp: 13800000000
+      debt: 11100000000
+      inflation: 7.6
+      trade_balance: -1850000000
+      treasury: 1380000000
+      currency: "NIO"
+      interest_rate: 8.50
+      sectors:
+        manufacturing: 15.6
+        services: 55.2
+        agriculture: 15.5
+        energy: 3.2
+        technology: 10.5
+    military:
+      manpower: 12000
+      equipment: 48
+      readiness: 61
+      doctrine: "Revolutionary Defense"
+      nuclear_capability: false
+      military_spending_gdp: 0.6
+      conscription: false
+      reserve_forces: 150000
+    technology:
+      researchPoints: 55
+      currentResearch:
+        - "Geothermal Energy"
+        - "Agricultural Technology"
+      completedTech:
+        - "Coffee Production"
+        - "Cattle Ranching"
+    demographics:
+      total_population: 6700000
+      age_groups:
+        youth: 28.3
+        adult: 65.1
+        elderly: 6.6
+      ethnic_composition:
+        Mestizo: 69.0
+        White: 17.0
+        Black: 9.0
+        Indigenous: 5.0
+    resources:
+      stockpiles:
+        oil: 55000
+        food: 385000
+        electricity: 75000
+        steel: 15500
+        technology: 5500
+        manpower: 3350000
+        water: 2850000
+        uranium: 0
+        rare_earth: 2800
+        consumer_goods: 55000
+        semiconductors: 3500
+        research: 55
+        energy: 75000
+        industrial_capacity: 15500
+    foreign_relations:
+      allies:
+        - "VEN"
+        - "CUB"
+        - "RUS"
+        - "CHN"
+      rivals:
+        - "USA"
+      trade_partners:
+        - "USA"
+        - "MEX"
+        - "VEN"
+        - "CHN"
+        - "CUB"
+    policies:
+      tax_level: "high"
+      military_doctrine: "defensive"
+      trade_policy: "state_controlled"
+      immigration_policy: "restrictive"
+      environmental_policy: "moderate"
+
+  CRI:
+    name: "Costa Rica"
+    capital: "San José"
+    flag: "🇨🇷"
+    government:
+      type: "presidential_democracy"
+      leader: "Rodrigo Chaves"
+      approval: 62.1
+      stability: 84.7
+      ruling_party: "Social Democratic Progress Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2022-04-03"
+    economy:
+      gdp: 64200000000
+      debt: 37800000000
+      inflation: 8.1
+      trade_balance: -2850000000
+      treasury: 6420000000
+      currency: "CRC"
+      interest_rate: 9.0
+      sectors:
+        manufacturing: 20.6
+        services: 73.0
+        agriculture: 4.5
+        energy: 0.9
+        technology: 1.0
+    military:
+      manpower: 0
+      equipment: 0
+      readiness: 0
+      doctrine: "No Military"
+      nuclear_capability: false
+      military_spending_gdp: 0.0
+      conscription: false
+      reserve_forces: 0
+      police_force: 15000
+    technology:
+      researchPoints: 185
+      currentResearch:
+        - "Eco-Tourism"
+        - "Green Technology"
+        - "Medical Technology"
+      completedTech:
+        - "Environmental Conservation"
+        - "Tourism Infrastructure"
+        - "Coffee Production"
+        - "Medical Devices"
+    demographics:
+      total_population: 5200000
+      age_groups:
+        youth: 20.6
+        adult: 69.1
+        elderly: 10.3
+      ethnic_composition:
+        White: 83.6
+        Mestizo: 6.7
+        Indigenous: 2.4
+        Black: 1.1
+        Other: 6.2
+    resources:
+      stockpiles:
+        oil: 25000
+        food: 285000
+        electricity: 185000
+        steel: 12500
+        technology: 18500
+        manpower: 2600000
+        water: 5250000
+        uranium: 0
+        rare_earth: 1850
+        consumer_goods: 185000
+        semiconductors: 12500
+        research: 185
+        energy: 185000
+        industrial_capacity: 28500
+    foreign_relations:
+      allies:
+        - "USA"
+        - "PAN"
+        - "NIC"
+        - "COL"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "MEX"
+        - "NLD"
+        - "GER"
+    policies:
+      tax_level: "high"
+      military_doctrine: "peaceful"
+      trade_policy: "free_trade"
+      immigration_policy: "open"
+      environmental_policy: "progressive"
+
+  PAN:
+    name: "Panama"
+    capital: "Panama City"
+    flag: "🇵🇦"
+    government:
+      type: "presidential_democracy"
+      leader: "Laurentino Cortizo"
+      approval: 28.3
+      stability: 71.5
+      ruling_party: "Democratic Revolutionary Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2019-05-05"
+    economy:
+      gdp: 66800000000
+      debt: 39500000000
+      inflation: 2.9
+      trade_balance: -3250000000
+      treasury: 6680000000
+      currency: "PAB"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 5.7
+        services: 77.7
+        agriculture: 2.4
+        energy: 2.1
+        technology: 12.1
+    military:
+      manpower: 0
+      equipment: 0
+      readiness: 0
+      doctrine: "No Military"
+      nuclear_capability: false
+      military_spending_gdp: 0.0
+      conscription: false
+      reserve_forces: 0
+      police_force: 27000
+    technology:
+      researchPoints: 195
+      currentResearch:
+        - "Shipping Technology"
+        - "Financial Services"
+        - "Logistics"
+      completedTech:
+        - "Canal Operations"
+        - "Banking Systems"
+        - "International Trade"
+        - "Logistics Technology"
+    demographics:
+      total_population: 4400000
+      age_groups:
+        youth: 25.3
+        adult: 65.5
+        elderly: 9.2
+      ethnic_composition:
+        Mestizo: 65.0
+        Indigenous: 12.3
+        Black: 9.2
+        White: 6.8
+        Other: 6.7
+    resources:
+      stockpiles:
+        oil: 35000
+        food: 245000
+        electricity: 125000
+        steel: 18500
+        technology: 19500
+        manpower: 2200000
+        water: 8500000
+        uranium: 0
+        rare_earth: 2850
+        consumer_goods: 195000
+        semiconductors: 18500
+        research: 195
+        energy: 125000
+        industrial_capacity: 25500
+    foreign_relations:
+      allies:
+        - "USA"
+        - "CRI"
+        - "COL"
+        - "CHN"
+      rivals: []
+      trade_partners:
+        - "USA"
+        - "CHN"
+        - "JPN"
+        - "KOR"
+        - "COL"
+        - "ECU"
+    policies:
+      tax_level: "low"
+      military_doctrine: "peaceful"
+      trade_policy: "free_trade"
+      immigration_policy: "open"
+      environmental_policy: "moderate"

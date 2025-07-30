@@ -1,0 +1,197 @@
+provinces:
+  BRA_AM:
+    name: "Amazonas"
+    country: "Brazil"
+    coordinates: [-3.4168, -65.8561]
+    features:
+      - "dense_rainforest"
+      - "high_biodiversity"
+      - "canopy_access"
+      - "river_systems"
+      - "equatorial_location"
+      - "high_humidity"
+      - "isolated"
+    population:
+      total: 4200000
+      ethnic_groups:
+        - group: "Mixed Brazilian"
+          percent: 68.5
+        - group: "Indigenous"
+          percent: 15.2
+        - group: "White Brazilian"
+          percent: 12.8
+        - group: "Black Brazilian"
+          percent: 3.5
+    unrest: 4.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 450
+      steel: 180
+      rare_earth: 320
+      uranium: 80
+      food: 2800
+    military:
+      stationed_units:
+        - "BRA_JUN_1"
+      fortification_level: 1
+    resource_output:
+      energy: 800
+      biodiversity: 1500
+    politics:
+      party_support:
+        "Workers Party": 42.1
+        "Liberal Party": 31.5
+        "Other": 26.4
+    buildings: []
+    construction_projects: []
+
+  ECU_EQ:
+    name: "Equatorial Province"
+    country: "Ecuador"
+    coordinates: [0.0, -78.4678]
+    features:
+      - "equatorial_location"
+      - "extremely_stable_ground"
+      - "low_seismic_activity"
+      - "flat_terrain"
+      - "strategic_location"
+      - "mountainous"
+      - "high_altitude"
+    population:
+      total: 850000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 71.9
+        - group: "Indigenous"
+          percent: 17.1
+        - group: "White"
+          percent: 6.1
+        - group: "Other"
+          percent: 4.9
+    unrest: 3.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 650
+      steel: 120
+      rare_earth: 180
+      uranium: 45
+      food: 320
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 450
+      technology: 200
+    politics:
+      party_support:
+        "PAIS Alliance": 38.2
+        "Creating Opportunities": 29.1
+        "Other": 32.7
+    buildings: []
+    construction_projects: []
+
+  CHL_AT:
+    name: "Atacama Desert Region"
+    country: "Chile"
+    coordinates: [-24.5, -69.25]
+    features:
+      - "vast_desert"
+      - "high_solar_irradiation"
+      - "low_cloud_cover"
+      - "flat_terrain"
+      - "extreme_dryness"
+      - "mineral_rich"
+      - "low_humidity"
+      - "clear_skies"
+    population:
+      total: 320000
+      ethnic_groups:
+        - group: "Chilean"
+          percent: 83.6
+        - group: "Indigenous"
+          percent: 12.1
+        - group: "Other"
+          percent: 4.3
+    unrest: 2.1
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 80
+      steel: 450
+      rare_earth: 650
+      uranium: 120
+      food: 50
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 180
+      mining: 850
+    politics:
+      party_support:
+        "Right-wing Coalition": 51.2
+        "Left-wing Coalition": 33.8
+        "Other": 15.0
+    buildings: []
+    construction_projects: []
+
+  COL_CAR:
+    name: "Caribbean Coast"
+    country: "Colombia"
+    coordinates: [10.9639, -74.7964]
+    features:
+      - "coastal"
+      - "deep_ocean"
+      - "stable_sea_conditions"
+      - "mineral_rich_seabed"
+      - "tropical_climate"
+      - "high_tidal_range"
+      - "suitable_seafloor"
+    population:
+      total: 2800000
+      ethnic_groups:
+        - group: "Mestizo"
+          percent: 62.5
+        - group: "White Colombian"
+          percent: 20.2
+        - group: "Afro-Colombian"
+          percent: 12.8
+        - group: "Indigenous"
+          percent: 4.5
+    unrest: 5.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 1200
+      steel: 280
+      rare_earth: 180
+      uranium: 65
+      food: 850
+    military:
+      stationed_units:
+        - "COL_NAV_1"
+      fortification_level: 2
+    resource_output:
+      energy: 980
+      trade: 650
+    politics:
+      party_support:
+        "Democratic Center": 35.2
+        "Liberal Party": 28.7
+        "Other": 36.1
+    buildings: []
+    construction_projects: []

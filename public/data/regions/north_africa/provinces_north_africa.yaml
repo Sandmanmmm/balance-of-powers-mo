@@ -1,0 +1,144 @@
+provinces:
+  EGY_SAH:
+    name: "Western Desert"
+    country: "Egypt"
+    coordinates: [26.8206, 30.8025]
+    features:
+      - "sahara_desert"
+      - "extreme_heat"
+      - "unlimited_solar"
+      - "vast_desert"
+      - "high_solar_irradiation"
+      - "low_cloud_cover"
+      - "flat_terrain"
+      - "low_humidity"
+    population:
+      total: 450000
+      ethnic_groups:
+        - group: "Egyptian Arab"
+          percent: 92.1
+        - group: "Bedouin"
+          percent: 5.8
+        - group: "Other"
+          percent: 2.1
+    unrest: 3.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 850
+      steel: 120
+      rare_earth: 280
+      uranium: 45
+      food: 80
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 380
+      solar_potential: 2500
+    politics:
+      party_support:
+        "Government Coalition": 68.2
+        "Opposition": 21.8
+        "Other": 10.0
+    buildings: []
+    construction_projects: []
+
+  LBY_SAH:
+    name: "Sahara Interior"
+    country: "Libya"
+    coordinates: [24.0, 17.0]
+    features:
+      - "sahara_desert"
+      - "extreme_heat"
+      - "unlimited_solar"
+      - "vast_desert"
+      - "isolated"
+      - "oil_rich"
+      - "flat_terrain"
+      - "extremely_stable_ground"
+    population:
+      total: 180000
+      ethnic_groups:
+        - group: "Libyan Arab"
+          percent: 94.5
+        - group: "Berber"
+          percent: 3.2
+        - group: "Other"
+          percent: 2.3
+    unrest: 6.8
+    infrastructure:
+      roads: 1
+      internet: 1
+      healthcare: 1
+      education: 1
+    resource_deposits:
+      oil: 2500
+      steel: 80
+      rare_earth: 150
+      uranium: 85
+      food: 20
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 1200
+      oil_extraction: 1800
+    politics:
+      party_support:
+        "Government of National Unity": 45.2
+        "Libyan National Army": 35.8
+        "Other": 19.0
+    buildings: []
+    construction_projects: []
+
+  MAR_ATL:
+    name: "Atlantic Coast"
+    country: "Morocco"
+    coordinates: [33.9716, -6.8498]
+    features:
+      - "coastal"
+      - "deep_ocean"
+      - "high_tidal_range"
+      - "suitable_seafloor"
+      - "stable_sea_conditions"
+      - "strategic_location"
+      - "windy"
+    population:
+      total: 3800000
+      ethnic_groups:
+        - group: "Arab-Berber"
+          percent: 88.2
+        - group: "Berber"
+          percent: 8.5
+        - group: "Other"
+          percent: 3.3
+    unrest: 2.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 120
+      steel: 180
+      rare_earth: 280
+      uranium: 35
+      food: 520
+    military:
+      stationed_units:
+        - "MAR_NAV_1"
+      fortification_level: 2
+    resource_output:
+      energy: 450
+      trade: 680
+    politics:
+      party_support:
+        "Justice and Development": 32.2
+        "Authenticity and Modernity": 28.6
+        "Other": 39.2
+    buildings: []
+    construction_projects: []

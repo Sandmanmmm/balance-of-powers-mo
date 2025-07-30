@@ -1,0 +1,190 @@
+provinces:
+  AUS_GBR:
+    name: "Great Barrier Reef Region"
+    country: "Australia"
+    coordinates: [-16.2839, 145.7781]
+    features:
+      - "deep_ocean"
+      - "stable_sea_conditions"
+      - "coastal"
+      - "mineral_rich_seabed"
+      - "high_biodiversity"
+      - "marine_ecosystem"
+      - "tropical_climate"
+    population:
+      total: 280000
+      ethnic_groups:
+        - group: "Australian"
+          percent: 78.5
+        - group: "Indigenous Australian"
+          percent: 8.2
+        - group: "Other"
+          percent: 13.3
+    unrest: 1.8
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 4
+      education: 3
+    resource_deposits:
+      oil: 320
+      steel: 180
+      rare_earth: 450
+      uranium: 220
+      food: 650
+    military:
+      stationed_units:
+        - "AUS_NAV_1"
+      fortification_level: 2
+    resource_output:
+      energy: 450
+      marine_resources: 850
+    politics:
+      party_support:
+        "Liberal-National Coalition": 51.2
+        "Labor Party": 38.8
+        "Other": 10.0
+    buildings: []
+    construction_projects: []
+
+  AUS_OUT:
+    name: "Outback Central"
+    country: "Australia"
+    coordinates: [-25.0, 133.0]
+    features:
+      - "vast_desert"
+      - "high_solar_irradiation"
+      - "low_cloud_cover"
+      - "flat_terrain"
+      - "isolated"
+      - "extremely_stable_ground"
+      - "low_seismic_activity"
+      - "mineral_rich"
+    population:
+      total: 45000
+      ethnic_groups:
+        - group: "Australian"
+          percent: 72.1
+        - group: "Indigenous Australian"
+          percent: 25.8
+        - group: "Other"
+          percent: 2.1
+    unrest: 2.5
+    infrastructure:
+      roads: 1
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 180
+      steel: 850
+      rare_earth: 1200
+      uranium: 950
+      food: 20
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 120
+      mining: 1800
+    politics:
+      party_support:
+        "Liberal-National Coalition": 48.2
+        "Labor Party": 35.8
+        "Other": 16.0
+    buildings: []
+    construction_projects: []
+
+  NZL_GEO:
+    name: "Geothermal Region"
+    country: "New Zealand"
+    coordinates: [-38.7389, 176.0705]
+    features:
+      - "geothermal_zone"
+      - "volcanic_activity"
+      - "active_volcano"
+      - "renewable_energy_potential"
+      - "unique_geology"
+      - "hot_springs"
+    population:
+      total: 380000
+      ethnic_groups:
+        - group: "European New Zealander"
+          percent: 68.2
+        - group: "Māori"
+          percent: 18.5
+        - group: "Pacific Islander"
+          percent: 8.1
+        - group: "Other"
+          percent: 5.2
+    unrest: 1.2
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 85
+      steel: 120
+      rare_earth: 180
+      uranium: 25
+      food: 280
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 650
+      geothermal: 850
+    politics:
+      party_support:
+        "Labour Party": 42.1
+        "National Party": 35.8
+        "Other": 22.1
+    buildings: []
+    construction_projects: []
+
+  PAL_MIC:
+    name: "Micronesian Maritime Zone"
+    country: "Palau"
+    coordinates: [7.5, 134.58]
+    features:
+      - "deep_ocean"
+      - "stable_seafloor"
+      - "low_seismic_underwater"
+      - "stable_sea_conditions"
+      - "isolated"
+      - "small_island"
+      - "strategic_ocean_location"
+    population:
+      total: 18000
+      ethnic_groups:
+        - group: "Palauan"
+          percent: 72.5
+        - group: "Asian"
+          percent: 21.2
+        - group: "Other"
+          percent: 6.3
+    unrest: 0.8
+    infrastructure:
+      roads: 2
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 5
+      rare_earth: 80
+      uranium: 0
+      food: 150
+    military:
+      stationed_units: []
+      fortification_level: 1
+    resource_output:
+      energy: 25
+      marine_research: 120
+    politics:
+      party_support:
+        "Democratic Party": 58.2
+        "Other": 41.8
+    buildings: []
+    construction_projects: []

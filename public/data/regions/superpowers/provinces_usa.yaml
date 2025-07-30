@@ -1,0 +1,1682 @@
+# United States Provinces - State-Level Administrative Divisions
+
+provinces:
+  USA_CA:
+    name: "California"
+    country: "United States"
+    coordinates: [36.7783, -119.4179]
+    features:
+      - "coastal"
+      - "tech_hub"
+      - "agricultural"
+      - "urban"
+      - "desert"
+      - "mountains"
+      - "high_tech"
+      - "advanced_infrastructure"
+      - "extremely_stable_ground"
+    population:
+      total: 39538000
+      ethnic_groups:
+        - group: "White"
+          percent: 36.5
+        - group: "Hispanic"
+          percent: 39.4
+        - group: "Asian"
+          percent: 15.5
+        - group: "Black"
+          percent: 5.8
+        - group: "Other"
+          percent: 2.8
+    unrest: 6.2
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 2500
+      steel: 150
+      rare_earth: 850
+      uranium: 125
+      food: 8500
+    military:
+      stationed_units:
+        - "USA_PAC_1"
+        - "USA_AIR_6"
+      fortification_level: 3
+    resource_output:
+      energy: 8500
+      technology: 12500
+      food: 15800
+      steel: 1850
+    politics:
+      party_support:
+        "Democratic Party": 64.2
+        "Republican Party": 32.1
+        "Other": 3.7
+    buildings:
+      active:
+        - type: "tech_center"
+          level: 3
+        - type: "solar_farm" 
+          level: 2
+        - type: "university"
+          level: 4
+
+  USA_TX:
+    name: "Texas"
+    country: "United States"
+    coordinates: [31.9686, -99.9018]
+    features:
+      - "oil_rich"
+      - "agricultural"
+      - "urban"
+      - "desert"
+      - "coastal"
+    population:
+      total: 30030000
+      ethnic_groups:
+        - group: "White"
+          percent: 41.2
+        - group: "Hispanic"
+          percent: 39.7
+        - group: "Black"
+          percent: 12.9
+        - group: "Asian"
+          percent: 5.4
+        - group: "Other"
+          percent: 0.8
+    unrest: 4.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 15500
+      steel: 850
+      rare_earth: 125
+      uranium: 250
+      food: 6500
+    military:
+      stationed_units:
+        - "USA_ARM_3"
+        - "USA_AIR_4"
+      fortification_level: 2
+    resource_output:
+      energy: 18500
+      oil: 8500
+      food: 12500
+      steel: 2100
+    politics:
+      party_support:
+        "Republican Party": 52.8
+        "Democratic Party": 46.5
+        "Other": 0.7
+    buildings:
+      active:
+        - type: "oil_refinery"
+          level: 4
+        - type: "power_plant"
+          level: 3
+
+  USA_FL:
+    name: "Florida"
+    country: "United States"
+    coordinates: [27.7663, -81.6868]
+    features:
+      - "coastal"
+      - "tourism"
+      - "urban"
+      - "subtropical"
+      - "agricultural"
+    population:
+      total: 22610000
+      ethnic_groups:
+        - group: "White"
+          percent: 53.4
+        - group: "Hispanic"
+          percent: 26.5
+        - group: "Black"
+          percent: 15.4
+        - group: "Asian"
+          percent: 2.9
+        - group: "Other"
+          percent: 1.8
+    unrest: 5.1
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 850
+      steel: 125
+      rare_earth: 85
+      uranium: 50
+      food: 4500
+    military:
+      stationed_units:
+        - "USA_NAV_2"
+        - "USA_MAR_1"
+      fortification_level: 3
+    resource_output:
+      energy: 4200
+      food: 8500
+      tourism: 6500
+    politics:
+      party_support:
+        "Republican Party": 51.2
+        "Democratic Party": 47.9
+        "Other": 0.9
+    buildings:
+      active:
+        - type: "resort_complex"
+          level: 3
+        - type: "port_facility"
+          level: 2
+
+  USA_NY:
+    name: "New York"
+    country: "United States"
+    coordinates: [42.1657, -74.9481]
+    features:
+      - "financial_hub"
+      - "urban"
+      - "coastal"
+      - "tech_hub"
+      - "cultural"
+    population:
+      total: 19850000
+      ethnic_groups:
+        - group: "White"
+          percent: 55.3
+        - group: "Hispanic"
+          percent: 19.3
+        - group: "Black"
+          percent: 13.7
+        - group: "Asian"
+          percent: 9.0
+        - group: "Other"
+          percent: 2.7
+    unrest: 7.8
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 5
+      education: 5
+    resource_deposits:
+      oil: 125
+      steel: 450
+      rare_earth: 185
+      uranium: 85
+      food: 2500
+    military:
+      stationed_units:
+        - "USA_CYB_1"
+      fortification_level: 4
+    resource_output:
+      energy: 6500
+      technology: 18500
+      finance: 25000
+      culture: 8500
+    politics:
+      party_support:
+        "Democratic Party": 60.9
+        "Republican Party": 37.7
+        "Other": 1.4
+    buildings:
+      active:
+        - type: "financial_center"
+          level: 5
+        - type: "tech_center"
+          level: 4
+        - type: "cultural_district"
+          level: 3
+
+  USA_IL:
+    name: "Illinois"
+    country: "United States"
+    coordinates: [40.3495, -88.9861]
+    features:
+      - "industrial"
+      - "urban"
+      - "agricultural"
+      - "transport_hub"
+    population:
+      total: 12812000
+      ethnic_groups:
+        - group: "White"
+          percent: 60.7
+        - group: "Hispanic"
+          percent: 17.5
+        - group: "Black"
+          percent: 14.1
+        - group: "Asian"
+          percent: 5.8
+        - group: "Other"
+          percent: 1.9
+    unrest: 6.5
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 450
+      steel: 1850
+      rare_earth: 125
+      uranium: 185
+      food: 5500
+    military:
+      stationed_units:
+        - "USA_LOG_2"
+      fortification_level: 2
+    resource_output:
+      energy: 5500
+      steel: 4200
+      food: 8500
+      transport: 3500
+    politics:
+      party_support:
+        "Democratic Party": 57.5
+        "Republican Party": 40.4
+        "Other": 2.1
+    buildings:
+      active:
+        - type: "steel_mill"
+          level: 3
+        - type: "transport_hub"
+          level: 4
+
+  USA_WA:
+    name: "Washington"
+    country: "United States"
+    coordinates: [47.0379, -121.0187]
+    features:
+      - "coastal"
+      - "tech_hub"
+      - "forestry"
+      - "urban"
+      - "mountains"
+      - "hydroelectric"
+    population:
+      total: 7715000
+      ethnic_groups:
+        - group: "White"
+          percent: 67.5
+        - group: "Hispanic"
+          percent: 13.0
+        - group: "Asian"
+          percent: 9.9
+        - group: "Black"
+          percent: 4.4
+        - group: "Other"
+          percent: 5.2
+    unrest: 4.2
+    infrastructure:
+      roads: 4
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 125
+      steel: 250
+      rare_earth: 185
+      uranium: 85
+      food: 3500
+      timber: 8500
+    military:
+      stationed_units:
+        - "USA_PAC_2"
+      fortification_level: 3
+    resource_output:
+      energy: 12500
+      technology: 8500
+      timber: 4500
+      food: 5500
+    politics:
+      party_support:
+        "Democratic Party": 58.4
+        "Republican Party": 39.2
+        "Other": 2.4
+    buildings:
+      active:
+        - type: "hydroelectric_dam"
+          level: 4
+        - type: "tech_center"
+          level: 3
+
+  USA_OH:
+    name: "Ohio"
+    country: "United States"
+    coordinates: [40.3888, -82.7649]
+    features:
+      - "industrial"
+      - "urban"
+      - "agricultural"
+      - "manufacturing"
+    population:
+      total: 11800000
+      ethnic_groups:
+        - group: "White"
+          percent: 78.3
+        - group: "Black"
+          percent: 12.3
+        - group: "Hispanic"
+          percent: 3.9
+        - group: "Asian"
+          percent: 2.5
+        - group: "Other"
+          percent: 3.0
+    unrest: 5.8
+    infrastructure:
+      roads: 4
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 850
+      steel: 2500
+      rare_earth: 125
+      uranium: 185
+      food: 4500
+    military:
+      stationed_units:
+        - "USA_AIR_7"
+      fortification_level: 2
+    resource_output:
+      energy: 6500
+      steel: 5500
+      food: 6500
+      manufacturing: 4200
+    politics:
+      party_support:
+        "Republican Party": 51.7
+        "Democratic Party": 45.2
+        "Other": 3.1
+    buildings:
+      active:
+        - type: "steel_mill"
+          level: 4
+        - type: "manufacturing_plant"
+          level: 3
+
+  USA_GA:
+    name: "Georgia"
+    country: "United States"
+    coordinates: [33.0406, -83.6431]
+    features:
+      - "agricultural"
+      - "urban"
+      - "subtropical"
+      - "transport_hub"
+    population:
+      total: 10800000
+      ethnic_groups:
+        - group: "White"
+          percent: 50.1
+        - group: "Black"
+          percent: 32.6
+        - group: "Hispanic"
+          percent: 9.9
+        - group: "Asian"
+          percent: 4.4
+        - group: "Other"
+          percent: 3.0
+    unrest: 6.2
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 450
+      steel: 350
+      rare_earth: 85
+      uranium: 125
+      food: 6500
+    military:
+      stationed_units:
+        - "USA_ARM_4"
+      fortification_level: 2
+    resource_output:
+      energy: 4500
+      food: 8500
+      transport: 3500
+    politics:
+      party_support:
+        "Democratic Party": 49.5
+        "Republican Party": 49.2
+        "Other": 1.3
+    buildings:
+      active:
+        - type: "agricultural_complex"
+          level: 3
+        - type: "transport_hub"
+          level: 3
+
+  USA_NC:
+    name: "North Carolina"
+    country: "United States"
+    coordinates: [35.6301, -79.8064]
+    features:
+      - "agricultural"
+      - "urban"
+      - "coastal"
+      - "research"
+      - "mountains"
+    population:
+      total: 10550000
+      ethnic_groups:
+        - group: "White"
+          percent: 62.2
+        - group: "Black"
+          percent: 20.2
+        - group: "Hispanic"
+          percent: 9.6
+        - group: "Asian"
+          percent: 3.3
+        - group: "Other"
+          percent: 4.7
+    unrest: 5.4
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 250
+      steel: 450
+      rare_earth: 185
+      uranium: 125
+      food: 5500
+    military:
+      stationed_units:
+        - "USA_MAR_2"
+      fortification_level: 3
+    resource_output:
+      energy: 5500
+      technology: 4500
+      food: 7500
+    politics:
+      party_support:
+        "Republican Party": 49.8
+        "Democratic Party": 48.6
+        "Other": 1.6
+    buildings:
+      active:
+        - type: "research_facility"
+          level: 3
+        - type: "agricultural_complex"
+          level: 2
+
+  USA_MI:
+    name: "Michigan"
+    country: "United States"
+    coordinates: [43.3266, -84.5361]
+    features:
+      - "industrial"
+      - "urban"
+      - "automotive"
+      - "freshwater"
+    population:
+      total: 10040000
+      ethnic_groups:
+        - group: "White"
+          percent: 75.4
+        - group: "Black"
+          percent: 13.7
+        - group: "Hispanic"
+          percent: 5.3
+        - group: "Asian"
+          percent: 3.4
+        - group: "Other"
+          percent: 2.2
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 4
+    resource_deposits:
+      oil: 185
+      steel: 2850
+      rare_earth: 250
+      uranium: 185
+      food: 3500
+    military:
+      stationed_units:
+        - "USA_ARM_5"
+      fortification_level: 2
+    resource_output:
+      energy: 5500
+      steel: 6500
+      automotive: 8500
+    politics:
+      party_support:
+        "Democratic Party": 50.6
+        "Republican Party": 47.8
+        "Other": 1.6
+    buildings:
+      active:
+        - type: "automotive_plant"
+          level: 4
+        - type: "steel_mill"
+          level: 3
+
+  USA_VA:
+    name: "Virginia"
+    country: "United States"
+    coordinates: [37.7693, -78.17]
+    features:
+      - "government"
+      - "urban"
+      - "coastal"
+      - "military"
+      - "historical"
+    population:
+      total: 8650000
+      ethnic_groups:
+        - group: "White"
+          percent: 61.8
+        - group: "Black"
+          percent: 18.3
+        - group: "Hispanic"
+          percent: 10.5
+        - group: "Asian"
+          percent: 7.1
+        - group: "Other"
+          percent: 2.3
+    unrest: 4.8
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 125
+      steel: 650
+      rare_earth: 285
+      uranium: 385
+      food: 3500
+    military:
+      stationed_units:
+        - "USA_GOV_1"
+        - "USA_NAV_3"
+      fortification_level: 5
+    resource_output:
+      energy: 4500
+      government: 12500
+      military: 8500
+    politics:
+      party_support:
+        "Democratic Party": 54.1
+        "Republican Party": 44.0
+        "Other": 1.9
+    buildings:
+      active:
+        - type: "government_complex"
+          level: 5
+        - type: "military_base"
+          level: 4
+
+  USA_AZ:
+    name: "Arizona"
+    country: "United States"
+    coordinates: [33.7298, -111.4312]
+    features:
+      - "desert"
+      - "mining"
+      - "urban"
+      - "solar"
+      - "retirement"
+    population:
+      total: 7280000
+      ethnic_groups:
+        - group: "White"
+          percent: 54.1
+        - group: "Hispanic"
+          percent: 31.7
+        - group: "Native American"
+          percent: 4.6
+        - group: "Black"
+          percent: 4.1
+        - group: "Asian"
+          percent: 3.7
+        - group: "Other"
+          percent: 1.8
+    unrest: 5.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 450
+      steel: 185
+      rare_earth: 1250
+      uranium: 850
+      food: 2500
+      copper: 4500
+    military:
+      stationed_units:
+        - "USA_AIR_8"
+      fortification_level: 2
+    resource_output:
+      energy: 8500
+      copper: 3500
+      solar_energy: 4500
+    politics:
+      party_support:
+        "Republican Party": 49.4
+        "Democratic Party": 49.4
+        "Other": 1.2
+    buildings:
+      active:
+        - type: "solar_farm"
+          level: 4
+        - type: "mining_facility"
+          level: 3
+
+  USA_TN:
+    name: "Tennessee"
+    country: "United States"
+    coordinates: [35.7478, -86.7923]
+    features:
+      - "agricultural"
+      - "urban"
+      - "music"
+      - "industrial"
+    population:
+      total: 6910000
+      ethnic_groups:
+        - group: "White"
+          percent: 73.0
+        - group: "Black"
+          percent: 16.7
+        - group: "Hispanic"
+          percent: 5.6
+        - group: "Asian"
+          percent: 1.9
+        - group: "Other"
+          percent: 2.8
+    unrest: 4.6
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 285
+      steel: 850
+      rare_earth: 125
+      uranium: 185
+      food: 4500
+    military:
+      stationed_units:
+        - "USA_LOG_3"
+      fortification_level: 2
+    resource_output:
+      energy: 4500
+      food: 6500
+      entertainment: 2500
+    politics:
+      party_support:
+        "Republican Party": 60.7
+        "Democratic Party": 37.4
+        "Other": 1.9
+    buildings:
+      active:
+        - type: "agricultural_complex"
+          level: 3
+        - type: "entertainment_district"
+          level: 2
+
+  USA_IN:
+    name: "Indiana"
+    country: "United States"
+    coordinates: [39.8494, -86.2583]
+    features:
+      - "industrial"
+      - "agricultural"
+      - "urban"
+      - "manufacturing"
+    population:
+      total: 6790000
+      ethnic_groups:
+        - group: "White"
+          percent: 78.5
+        - group: "Black"
+          percent: 9.4
+        - group: "Hispanic"
+          percent: 7.2
+        - group: "Asian"
+          percent: 2.5
+        - group: "Other"
+          percent: 2.4
+    unrest: 4.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 450
+      steel: 1850
+      rare_earth: 125
+      uranium: 185
+      food: 5500
+    military:
+      stationed_units:
+        - "USA_LOG_4"
+      fortification_level: 1
+    resource_output:
+      energy: 4500
+      steel: 3500
+      food: 7500
+      manufacturing: 2500
+    politics:
+      party_support:
+        "Republican Party": 57.0
+        "Democratic Party": 41.0
+        "Other": 2.0
+    buildings:
+      active:
+        - type: "steel_mill"
+          level: 2
+        - type: "agricultural_complex"
+          level: 3
+
+  USA_MO:
+    name: "Missouri"
+    country: "United States"
+    coordinates: [38.4561, -92.2884]
+    features:
+      - "agricultural"
+      - "urban"
+      - "transport_hub"
+      - "industrial"
+    population:
+      total: 6200000
+      ethnic_groups:
+        - group: "White"
+          percent: 79.8
+        - group: "Black"
+          percent: 11.4
+        - group: "Hispanic"
+          percent: 4.9
+        - group: "Asian"
+          percent: 2.1
+        - group: "Other"
+          percent: 1.8
+    unrest: 5.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 350
+      steel: 1250
+      rare_earth: 125
+      uranium: 185
+      food: 6500
+    military:
+      stationed_units:
+        - "USA_ARM_6"
+      fortification_level: 2
+    resource_output:
+      energy: 4200
+      food: 8500
+      transport: 3500
+      steel: 2500
+    politics:
+      party_support:
+        "Republican Party": 56.8
+        "Democratic Party": 41.4
+        "Other": 1.8
+    buildings:
+      active:
+        - type: "agricultural_complex"
+          level: 4
+        - type: "transport_hub"
+          level: 3
+
+  USA_MD:
+    name: "Maryland"
+    country: "United States"
+    coordinates: [39.0639, -76.8021]
+    features:
+      - "coastal"
+      - "urban"
+      - "government"
+      - "tech_hub"
+      - "biotech"
+    population:
+      total: 6180000
+      ethnic_groups:
+        - group: "White"
+          percent: 50.0
+        - group: "Black"
+          percent: 29.0
+        - group: "Hispanic"
+          percent: 10.6
+        - group: "Asian"
+          percent: 6.7
+        - group: "Other"
+          percent: 3.7
+    unrest: 5.8
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 5
+      education: 5
+    resource_deposits:
+      oil: 85
+      steel: 350
+      rare_earth: 285
+      uranium: 185
+      food: 2500
+    military:
+      stationed_units:
+        - "USA_CYB_2"
+      fortification_level: 4
+    resource_output:
+      energy: 3500
+      technology: 8500
+      government: 6500
+      biotech: 4500
+    politics:
+      party_support:
+        "Democratic Party": 65.4
+        "Republican Party": 32.2
+        "Other": 2.4
+    buildings:
+      active:
+        - type: "biotech_lab"
+          level: 4
+        - type: "government_complex"
+          level: 3
+
+  USA_WI:
+    name: "Wisconsin"
+    country: "United States"
+    coordinates: [44.2619, -89.6165]
+    features:
+      - "agricultural"
+      - "industrial"
+      - "dairy"
+      - "freshwater"
+    population:
+      total: 5890000
+      ethnic_groups:
+        - group: "White"
+          percent: 81.1
+        - group: "Black"
+          percent: 6.3
+        - group: "Hispanic"
+          percent: 7.0
+        - group: "Asian"
+          percent: 3.0
+        - group: "Other"
+          percent: 2.6
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 185
+      steel: 850
+      rare_earth: 125
+      uranium: 125
+      food: 8500
+    military:
+      stationed_units:
+        - "USA_NAT_1"
+      fortification_level: 1
+    resource_output:
+      energy: 3500
+      food: 12500
+      dairy: 6500
+    politics:
+      party_support:
+        "Democratic Party": 49.4
+        "Republican Party": 48.8
+        "Other": 1.8
+    buildings:
+      active:
+        - type: "dairy_farm"
+          level: 4
+        - type: "agricultural_complex"
+          level: 3
+
+  USA_AK:
+    name: "Alaska"
+    country: "United States"
+    coordinates: [61.2181, -149.9003]
+    features:
+      - "oil_rich"
+      - "arctic"
+      - "fishing"
+      - "mining"
+      - "remote"
+      - "strategic"
+      - "wilderness"
+    population:
+      total: 733000
+      ethnic_groups:
+        - group: "White"
+          percent: 60.2
+        - group: "Native Alaskan"
+          percent: 19.6
+        - group: "Asian"
+          percent: 6.8
+        - group: "Hispanic"
+          percent: 7.3
+        - group: "Black"
+          percent: 3.1
+        - group: "Other"
+          percent: 3.0
+    unrest: 3.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 28500
+      steel: 850
+      rare_earth: 1850
+      uranium: 2850
+      food: 850
+      gold: 4500
+      fish: 8500
+    military:
+      stationed_units:
+        - "USA_ARC_1"
+        - "USA_AIR_9"
+      fortification_level: 4
+    resource_output:
+      energy: 25000
+      oil: 18500
+      fish: 6500
+      gold: 2500
+      strategic_value: 8500
+    politics:
+      party_support:
+        "Republican Party": 52.8
+        "Democratic Party": 42.8
+        "Other": 4.4
+    buildings:
+      active:
+        - type: "oil_extraction"
+          level: 5
+        - type: "fishing_fleet"
+          level: 3
+        - type: "military_radar"
+          level: 4
+
+  USA_HI:
+    name: "Hawaii"
+    country: "United States"
+    coordinates: [21.0943, -157.4983]
+    features:
+      - "tropical"
+      - "tourism"
+      - "volcanic"
+      - "strategic"
+      - "military"
+      - "agricultural"
+      - "renewable_energy"
+      - "remote"
+    population:
+      total: 1460000
+      ethnic_groups:
+        - group: "Asian"
+          percent: 36.5
+        - group: "White"
+          percent: 21.6
+        - group: "Native Hawaiian"
+          percent: 21.3
+        - group: "Hispanic"
+          percent: 11.1
+        - group: "Black"
+          percent: 1.8
+        - group: "Other"
+          percent: 7.7
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 4
+      education: 3
+    resource_deposits:
+      oil: 25
+      steel: 85
+      rare_earth: 185
+      uranium: 25
+      food: 2500
+      geothermal: 4500
+    military:
+      stationed_units:
+        - "USA_PAC_3"
+        - "USA_NAV_4"
+      fortification_level: 5
+    resource_output:
+      energy: 3500
+      tourism: 8500
+      food: 3500
+      geothermal_energy: 2500
+      strategic_value: 12500
+    politics:
+      party_support:
+        "Democratic Party": 63.7
+        "Republican Party": 33.4
+        "Other": 2.9
+    buildings:
+      active:
+        - type: "resort_complex"
+          level: 4
+        - type: "geothermal_plant"
+          level: 3
+        - type: "military_base"
+          level: 5
+
+  USA_MT:
+    name: "Montana"
+    country: "United States"
+    coordinates: [47.0527, -109.6333]
+    features:
+      - "mining"
+      - "agricultural"
+      - "ranching"
+      - "mountains"
+      - "energy"
+      - "rural"
+      - "coal"
+      - "wilderness"
+    population:
+      total: 1085000
+      ethnic_groups:
+        - group: "White"
+          percent: 85.8
+        - group: "Native American"
+          percent: 6.7
+        - group: "Hispanic"
+          percent: 4.0
+        - group: "Asian"
+          percent: 0.9
+        - group: "Black"
+          percent: 0.6
+        - group: "Other"
+          percent: 2.0
+    unrest: 3.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 4500
+      steel: 185
+      rare_earth: 850
+      uranium: 1850
+      food: 6500
+      coal: 12500
+      copper: 2850
+    military:
+      stationed_units:
+        - "USA_MIS_1"
+      fortification_level: 3
+    resource_output:
+      energy: 15500
+      coal: 8500
+      food: 8500
+      copper: 1850
+      ranching: 4500
+    politics:
+      party_support:
+        "Republican Party": 56.9
+        "Democratic Party": 40.6
+        "Other": 2.5
+    buildings:
+      active:
+        - type: "coal_mine"
+          level: 4
+        - type: "ranch"
+          level: 3
+        - type: "nuclear_facility"
+          level: 2
+
+  USA_NV:
+    name: "Nevada"
+    country: "United States"
+    coordinates: [38.3135, -117.0554]
+    features:
+      - "desert"
+      - "mining"
+      - "gaming"
+      - "solar"
+      - "tourism"
+      - "urban"
+      - "military_testing"
+    population:
+      total: 3104000
+      ethnic_groups:
+        - group: "White"
+          percent: 48.2
+        - group: "Hispanic"
+          percent: 29.2
+        - group: "Black"
+          percent: 10.4
+        - group: "Asian"
+          percent: 8.8
+        - group: "Native American"
+          percent: 1.7
+        - group: "Other"
+          percent: 1.7
+    unrest: 4.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 450
+      steel: 125
+      rare_earth: 1850
+      uranium: 2850
+      food: 850
+      gold: 8500
+      silver: 4500
+    military:
+      stationed_units:
+        - "USA_AIR_10"
+        - "USA_TEST_1"
+      fortification_level: 4
+    resource_output:
+      energy: 8500
+      gold: 6500
+      silver: 3500
+      solar_energy: 6500
+      gaming: 12500
+    politics:
+      party_support:
+        "Democratic Party": 50.1
+        "Republican Party": 47.7
+        "Other": 2.2
+    buildings:
+      active:
+        - type: "solar_farm"
+          level: 4
+        - type: "casino_complex"
+          level: 5
+        - type: "mining_facility"
+          level: 4
+
+  USA_CO:
+    name: "Colorado"
+    country: "United States"
+    coordinates: [39.0598, -105.3111]
+    features:
+      - "mountains"
+      - "tech_hub"
+      - "aerospace"
+      - "outdoor_recreation"
+      - "renewable_energy"
+      - "urban"
+      - "mining"
+      - "skiing"
+    population:
+      total: 5760000
+      ethnic_groups:
+        - group: "White"
+          percent: 68.6
+        - group: "Hispanic"
+          percent: 22.3
+        - group: "Black"
+          percent: 3.8
+        - group: "Asian"
+          percent: 3.5
+        - group: "Native American"
+          percent: 1.6
+        - group: "Other"
+          percent: 0.2
+    unrest: 4.1
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 2850
+      steel: 450
+      rare_earth: 1250
+      uranium: 1850
+      food: 4500
+      natural_gas: 8500
+    military:
+      stationed_units:
+        - "USA_SPACE_1"
+        - "USA_AIR_11"
+      fortification_level: 3
+    resource_output:
+      energy: 12500
+      technology: 6500
+      aerospace: 8500
+      recreation: 4500
+      natural_gas: 6500
+    politics:
+      party_support:
+        "Democratic Party": 55.4
+        "Republican Party": 41.9
+        "Other": 2.7
+    buildings:
+      active:
+        - type: "aerospace_facility"
+          level: 4
+        - type: "tech_center"
+          level: 3
+        - type: "ski_resort"
+          level: 3
+
+  USA_UT:
+    name: "Utah"
+    country: "United States"
+    coordinates: [40.1500, -111.8947]
+    features:
+      - "desert"
+      - "mountains"
+      - "mining"
+      - "tech_hub"
+      - "national_parks"
+      - "urban"
+      - "conservative"
+      - "salt_flats"
+    population:
+      total: 3280000
+      ethnic_groups:
+        - group: "White"
+          percent: 78.4
+        - group: "Hispanic"
+          percent: 14.4
+        - group: "Asian"
+          percent: 2.7
+        - group: "Native American"
+          percent: 1.5
+        - group: "Black"
+          percent: 1.3
+        - group: "Other"
+          percent: 1.7
+    unrest: 2.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 1850
+      steel: 285
+      rare_earth: 850
+      uranium: 4500
+      food: 3500
+      copper: 6500
+      salt: 8500
+    military:
+      stationed_units:
+        - "USA_ARM_7"
+      fortification_level: 2
+    resource_output:
+      energy: 6500
+      technology: 4500
+      copper: 4500
+      salt: 6500
+      tourism: 3500
+    politics:
+      party_support:
+        "Republican Party": 58.1
+        "Democratic Party": 37.7
+        "Other": 4.2
+    buildings:
+      active:
+        - type: "tech_center"
+          level: 3
+        - type: "mining_facility"
+          level: 4
+        - type: "national_park"
+          level: 2
+
+  USA_OR:
+    name: "Oregon"
+    country: "United States"
+    coordinates: [44.5720, -122.0709]
+    features:
+      - "coastal"
+      - "forestry"
+      - "renewable_energy"
+      - "tech_hub"
+      - "urban"
+      - "mountains"
+      - "hydroelectric"
+      - "agriculture"
+      - "wine"
+    population:
+      total: 4240000
+      ethnic_groups:
+        - group: "White"
+          percent: 74.9
+        - group: "Hispanic"
+          percent: 13.4
+        - group: "Asian"
+          percent: 4.9
+        - group: "Black"
+          percent: 2.2
+        - group: "Native American"
+          percent: 1.8
+        - group: "Other"
+          percent: 2.8
+    unrest: 5.6
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      oil: 185
+      steel: 350
+      rare_earth: 450
+      uranium: 125
+      food: 6500
+      timber: 12500
+      geothermal: 2850
+    military:
+      stationed_units:
+        - "USA_NAT_2"
+      fortification_level: 2
+    resource_output:
+      energy: 8500
+      timber: 8500
+      technology: 4500
+      food: 7500
+      wine: 2500
+    politics:
+      party_support:
+        "Democratic Party": 56.5
+        "Republican Party": 40.4
+        "Other": 3.1
+    buildings:
+      active:
+        - type: "hydroelectric_dam"
+          level: 3
+        - type: "timber_mill"
+          level: 4
+        - type: "tech_center"
+          level: 2
+
+  USA_NM:
+    name: "New Mexico"
+    country: "United States"
+    coordinates: [34.8405, -106.2485]
+    features:
+      - "desert"
+      - "mining"
+      - "nuclear"
+      - "aerospace"
+      - "research"
+      - "oil_rich"
+      - "solar"
+      - "cultural"
+      - "military_testing"
+    population:
+      total: 2120000
+      ethnic_groups:
+        - group: "Hispanic"
+          percent: 49.3
+        - group: "White"
+          percent: 36.5
+        - group: "Native American"
+          percent: 11.0
+        - group: "Black"
+          percent: 2.0
+        - group: "Asian"
+          percent: 1.7
+        - group: "Other"
+          percent: 0.5
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 6500
+      steel: 185
+      rare_earth: 1850
+      uranium: 12500
+      food: 2500
+      copper: 4500
+      natural_gas: 8500
+    military:
+      stationed_units:
+        - "USA_NUKE_1"
+        - "USA_AIR_12"
+      fortification_level: 4
+    resource_output:
+      energy: 12500
+      uranium: 8500
+      oil: 4500
+      copper: 3500
+      research: 6500
+    politics:
+      party_support:
+        "Democratic Party": 54.3
+        "Republican Party": 43.5
+        "Other": 2.2
+    buildings:
+      active:
+        - type: "nuclear_facility"
+          level: 5
+        - type: "research_facility"
+          level: 4
+        - type: "solar_farm"
+          level: 3
+
+  USA_WY:
+    name: "Wyoming"
+    country: "United States"
+    coordinates: [42.7559, -107.3025]
+    features:
+      - "mining"
+      - "energy"
+      - "ranching"
+      - "coal"
+      - "oil_rich"
+      - "rural"
+      - "mountains"
+      - "wilderness"
+      - "tourism"
+    population:
+      total: 577000
+      ethnic_groups:
+        - group: "White"
+          percent: 84.1
+        - group: "Hispanic"
+          percent: 10.2
+        - group: "Native American"
+          percent: 2.7
+        - group: "Black"
+          percent: 1.3
+        - group: "Asian"
+          percent: 1.0
+        - group: "Other"
+          percent: 0.7
+    unrest: 2.4
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 3
+    resource_deposits:
+      oil: 8500
+      steel: 125
+      rare_earth: 450
+      uranium: 2850
+      food: 4500
+      coal: 18500
+      natural_gas: 12500
+    military:
+      stationed_units:
+        - "USA_MIS_2"
+      fortification_level: 3
+    resource_output:
+      energy: 25500
+      coal: 15500
+      oil: 6500
+      natural_gas: 8500
+      ranching: 6500
+    politics:
+      party_support:
+        "Republican Party": 67.4
+        "Democratic Party": 26.6
+        "Other": 6.0
+    buildings:
+      active:
+        - type: "coal_mine"
+          level: 5
+        - type: "oil_extraction"
+          level: 4
+        - type: "ranch"
+          level: 4
+
+  USA_DC:
+    name: "Washington D.C."
+    country: "United States"
+    coordinates: [38.9072, -77.0369]
+    features:
+      - "government"
+      - "urban"
+      - "political_center"
+      - "diplomatic"
+      - "cultural"
+      - "highly_educated"
+      - "federal_district"
+      - "lobbying"
+      - "monuments"
+    population:
+      total: 705000
+      ethnic_groups:
+        - group: "Black"
+          percent: 45.4
+        - group: "White"
+          percent: 38.0
+        - group: "Hispanic"
+          percent: 11.3
+        - group: "Asian"
+          percent: 4.1
+        - group: "Other"
+          percent: 1.2
+    unrest: 4.5
+    infrastructure:
+      roads: 5
+      internet: 5
+      healthcare: 5
+      education: 5
+    resource_deposits:
+      oil: 0
+      steel: 25
+      rare_earth: 85
+      uranium: 0
+      food: 85
+    military:
+      stationed_units:
+        - "USA_GOV_1"
+        - "USA_SEC_1"
+      fortification_level: 5
+    resource_output:
+      energy: 2500
+      political_power: 25000
+      government: 18500
+      diplomatic: 12500
+      cultural_influence: 8500
+    politics:
+      party_support:
+        "Democratic Party": 92.1
+        "Republican Party": 5.4
+        "Other": 2.5
+    buildings:
+      active:
+        - type: "government_complex"
+          level: 5
+        - type: "diplomatic_center"
+          level: 5
+        - type: "monument_complex"
+          level: 4
+
+  USA_PR:
+    name: "Puerto Rico"
+    country: "United States"
+    coordinates: [18.2208, -66.5901]
+    features:
+      - "tropical"
+      - "coastal"
+      - "tourism"
+      - "pharmaceutical"
+      - "manufacturing"
+      - "caribbean"
+      - "unincorporated_territory"
+      - "bilingual"
+      - "strategic"
+    population:
+      total: 3190000
+      ethnic_groups:
+        - group: "Hispanic"
+          percent: 98.9
+        - group: "White"
+          percent: 75.8
+        - group: "Black"
+          percent: 12.4
+        - group: "Asian"
+          percent: 0.2
+        - group: "Other"
+          percent: 11.6
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 0
+      steel: 85
+      rare_earth: 185
+      uranium: 0
+      food: 3500
+      limestone: 2850
+    military:
+      stationed_units:
+        - "USA_CAR_1"
+      fortification_level: 3
+    resource_output:
+      energy: 3500
+      tourism: 6500
+      pharmaceuticals: 8500
+      manufacturing: 4500
+      agriculture: 3500
+    politics:
+      party_support:
+        "Popular Democratic Party": 48.7
+        "New Progressive Party": 44.2
+        "Puerto Rican Independence Party": 4.1
+        "Other": 3.0
+    buildings:
+      active:
+        - type: "pharmaceutical_plant"
+          level: 4
+        - type: "resort_complex"
+          level: 3
+        - type: "manufacturing_facility"
+          level: 3

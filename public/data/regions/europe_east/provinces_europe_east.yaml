@@ -1,0 +1,809 @@
+# Eastern Europe Provinces
+provinces:
+  # Poland
+  POL_01:
+    id: "POL_01"
+    name: "Mazowieckie"
+    country: "Poland"
+    population: 5400000
+    infrastructure: 3
+    unrest: 2.1
+    features: ["urban", "industrial", "tech_hub"]
+    resources:
+      manpower: 540
+      coal: 120
+      electricity: 450
+    buildings: []
+    construction_queue: []
+    
+  POL_02:
+    id: "POL_02"
+    name: "Silesia"
+    country: "Poland"
+    population: 4600000
+    infrastructure: 3
+    unrest: 3.2
+    features: ["industrial", "coal_rich", "urban"]
+    resources:
+      manpower: 460
+      coal: 850
+      electricity: 380
+    buildings: []
+    construction_queue: []
+    
+  POL_03:
+    id: "POL_03"
+    name: "Lesser Poland"
+    country: "Poland"
+    population: 3400000
+    infrastructure: 2
+    unrest: 1.8
+    features: ["urban", "historic", "tech_hub"]
+    resources:
+      manpower: 340
+      coal: 45
+      electricity: 280
+    buildings: []
+    construction_queue: []
+    
+  # Czech Republic
+  CZE_01:
+    id: "CZE_01"
+    name: "Prague"
+    country: "Czech Republic"
+    population: 1300000
+    infrastructure: 4
+    unrest: 1.2
+    features: ["urban", "tech_hub", "historic"]
+    resources:
+      manpower: 130
+      electricity: 220
+    buildings: []
+    construction_queue: []
+    
+  CZE_02:
+    id: "CZE_02"
+    name: "Bohemia"
+    country: "Czech Republic"
+    population: 6200000
+    infrastructure: 3
+    unrest: 2.1
+    features: ["industrial", "farmland", "historic"]
+    resources:
+      manpower: 620
+      food: 180
+      electricity: 350
+    buildings: []
+    construction_queue: []
+    
+  CZE_03:
+    id: "CZE_03"
+    name: "Moravia"
+    country: "Czech Republic"
+    population: 3200000
+    infrastructure: 2
+    unrest: 2.8
+    features: ["farmland", "industrial"]
+    resources:
+      manpower: 320
+      food: 220
+      electricity: 180
+    buildings: []
+    construction_queue: []
+    
+  # Slovakia
+  SVK_01:
+    id: "SVK_01"
+    name: "Bratislava Region"
+    country: "Slovakia"
+    population: 680000
+    infrastructure: 3
+    unrest: 1.5
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 68
+      electricity: 120
+    buildings: []
+    construction_queue: []
+    
+  SVK_02:
+    id: "SVK_02"
+    name: "Central Slovakia"
+    country: "Slovakia"
+    population: 2400000
+    infrastructure: 2
+    unrest: 3.1
+    features: ["farmland", "mountainous"]
+    resources:
+      manpower: 240
+      food: 180
+    buildings: []
+    construction_queue: []
+    
+  SVK_03:
+    id: "SVK_03"
+    name: "Eastern Slovakia"
+    country: "Slovakia"
+    population: 2380000
+    infrastructure: 2
+    unrest: 4.2
+    features: ["farmland", "mountainous", "coal_rich"]
+    resources:
+      manpower: 238
+      food: 160
+      coal: 280
+    buildings: []
+    construction_queue: []
+    
+  # Hungary
+  HUN_01:
+    id: "HUN_01"
+    name: "Central Hungary"
+    country: "Hungary"
+    population: 2950000
+    infrastructure: 3
+    unrest: 2.8
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 295
+      electricity: 240
+    buildings: []
+    construction_queue: []
+    
+  HUN_02:
+    id: "HUN_02"
+    name: "Great Plain"
+    country: "Hungary"
+    population: 4200000
+    infrastructure: 2
+    unrest: 3.5
+    features: ["farmland", "flat"]
+    resources:
+      manpower: 420
+      food: 480
+    buildings: []
+    construction_queue: []
+    
+  HUN_03:
+    id: "HUN_03"
+    name: "Western Hungary"
+    country: "Hungary"
+    population: 2600000
+    infrastructure: 2
+    unrest: 2.1
+    features: ["farmland", "industrial"]
+    resources:
+      manpower: 260
+      food: 220
+      electricity: 180
+    buildings: []
+    construction_queue: []
+    
+  # Romania
+  ROU_01:
+    id: "ROU_01"
+    name: "Bucharest-Ilfov"
+    country: "Romania"
+    population: 2300000
+    infrastructure: 3
+    unrest: 3.8
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 230
+      electricity: 280
+    buildings: []
+    construction_queue: []
+    
+  ROU_02:
+    id: "ROU_02"
+    name: "Transylvania"
+    country: "Romania"
+    population: 6800000
+    infrastructure: 2
+    unrest: 4.2
+    features: ["mountainous", "farmland", "historic"]
+    resources:
+      manpower: 680
+      food: 420
+    buildings: []
+    construction_queue: []
+    
+  ROU_03:
+    id: "ROU_03"
+    name: "Wallachia"
+    country: "Romania"
+    population: 5200000
+    infrastructure: 2
+    unrest: 4.8
+    features: ["farmland", "oil_rich"]
+    resources:
+      manpower: 520
+      food: 380
+      oil: 280
+    buildings: []
+    construction_queue: []
+    
+  ROU_04:
+    id: "ROU_04"
+    name: "Moldavia"
+    country: "Romania"
+    population: 4900000
+    infrastructure: 1
+    unrest: 5.2
+    features: ["farmland", "rural"]
+    resources:
+      manpower: 490
+      food: 420
+    buildings: []
+    construction_queue: []
+    
+  # Bulgaria
+  BGR_01:
+    id: "BGR_01"
+    name: "Sofia Region"
+    country: "Bulgaria"
+    population: 1400000
+    infrastructure: 3
+    unrest: 4.2
+    features: ["urban", "mountainous"]
+    resources:
+      manpower: 140
+      electricity: 180
+    buildings: []
+    construction_queue: []
+    
+  BGR_02:
+    id: "BGR_02"
+    name: "Plovdiv Region"
+    country: "Bulgaria"
+    population: 2800000
+    infrastructure: 2
+    unrest: 5.1
+    features: ["farmland", "historic"]
+    resources:
+      manpower: 280
+      food: 240
+    buildings: []
+    construction_queue: []
+    
+  BGR_03:
+    id: "BGR_03"
+    name: "Varna Region"
+    country: "Bulgaria"
+    population: 2750000
+    infrastructure: 2
+    unrest: 4.8
+    features: ["coastal", "farmland"]
+    resources:
+      manpower: 275
+      food: 180
+    buildings: []
+    construction_queue: []
+    
+  # Serbia
+  SRB_01:
+    id: "SRB_01"
+    name: "Belgrade Region"
+    country: "Serbia"
+    population: 1700000
+    infrastructure: 3
+    unrest: 5.2
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 170
+      electricity: 220
+    buildings: []
+    construction_queue: []
+    
+  SRB_02:
+    id: "SRB_02"
+    name: "Vojvodina"
+    country: "Serbia"
+    population: 1900000
+    infrastructure: 2
+    unrest: 3.8
+    features: ["farmland", "flat"]
+    resources:
+      manpower: 190
+      food: 320
+    buildings: []
+    construction_queue: []
+    
+  SRB_03:
+    id: "SRB_03"
+    name: "Central Serbia"
+    country: "Serbia"
+    population: 3300000
+    infrastructure: 1
+    unrest: 6.1
+    features: ["mountainous", "farmland"]
+    resources:
+      manpower: 330
+      food: 180
+    buildings: []
+    construction_queue: []
+    
+  # Croatia
+  HRV_01:
+    id: "HRV_01"
+    name: "Zagreb County"
+    country: "Croatia"
+    population: 1200000
+    infrastructure: 3
+    unrest: 3.2
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 120
+      electricity: 180
+    buildings: []
+    construction_queue: []
+    
+  HRV_02:
+    id: "HRV_02"
+    name: "Dalmatia"
+    country: "Croatia"
+    population: 1400000
+    infrastructure: 2
+    unrest: 2.8
+    features: ["coastal", "historic"]
+    resources:
+      manpower: 140
+    buildings: []
+    construction_queue: []
+    
+  HRV_03:
+    id: "HRV_03"
+    name: "Slavonia"
+    country: "Croatia"
+    population: 1280000
+    infrastructure: 2
+    unrest: 4.1
+    features: ["farmland", "flat"]
+    resources:
+      manpower: 128
+      food: 220
+    buildings: []
+    construction_queue: []
+    
+  # Slovenia
+  SVN_01:
+    id: "SVN_01"
+    name: "Central Slovenia"
+    country: "Slovenia"
+    population: 580000
+    infrastructure: 4
+    unrest: 1.8
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 58
+      electricity: 120
+    buildings: []
+    construction_queue: []
+    
+  SVN_02:
+    id: "SVN_02"
+    name: "Eastern Slovenia"
+    country: "Slovenia"
+    population: 870000
+    infrastructure: 3
+    unrest: 2.1
+    features: ["farmland", "industrial"]
+    resources:
+      manpower: 87
+      food: 140
+      electricity: 80
+    buildings: []
+    construction_queue: []
+    
+  SVN_03:
+    id: "SVN_03"
+    name: "Western Slovenia"
+    country: "Slovenia"
+    population: 650000
+    infrastructure: 3
+    unrest: 1.5
+    features: ["mountainous", "coastal"]
+    resources:
+      manpower: 65
+    buildings: []
+    construction_queue: []
+    
+  # Bosnia and Herzegovina
+  BIH_01:
+    id: "BIH_01"
+    name: "Federation of B&H"
+    country: "Bosnia and Herzegovina"
+    population: 2200000
+    infrastructure: 1
+    unrest: 8.2
+    features: ["mountainous", "historic"]
+    resources:
+      manpower: 220
+    buildings: []
+    construction_queue: []
+    
+  BIH_02:
+    id: "BIH_02"
+    name: "Republika Srpska"
+    country: "Bosnia and Herzegovina"
+    population: 1080000
+    infrastructure: 1
+    unrest: 7.8
+    features: ["mountainous", "farmland"]
+    resources:
+      manpower: 108
+      food: 80
+    buildings: []
+    construction_queue: []
+    
+  # Montenegro
+  MNE_01:
+    id: "MNE_01"
+    name: "Podgorica Region"
+    country: "Montenegro"
+    population: 628000
+    infrastructure: 2
+    unrest: 4.5
+    features: ["mountainous", "coastal"]
+    resources:
+      manpower: 63
+    buildings: []
+    construction_queue: []
+    
+  # North Macedonia
+  MKD_01:
+    id: "MKD_01"
+    name: "Skopje Region"
+    country: "North Macedonia"
+    population: 700000
+    infrastructure: 2
+    unrest: 5.8
+    features: ["urban", "mountainous"]
+    resources:
+      manpower: 70
+      electricity: 80
+    buildings: []
+    construction_queue: []
+    
+  MKD_02:
+    id: "MKD_02"
+    name: "Eastern Macedonia"
+    country: "North Macedonia"
+    population: 1380000
+    infrastructure: 1
+    unrest: 6.2
+    features: ["farmland", "mountainous"]
+    resources:
+      manpower: 138
+      food: 120
+    buildings: []
+    construction_queue: []
+    
+  # Albania
+  ALB_01:
+    id: "ALB_01"
+    name: "Tirana County"
+    country: "Albania"
+    population: 900000
+    infrastructure: 2
+    unrest: 5.2
+    features: ["urban", "mountainous"]
+    resources:
+      manpower: 90
+      electricity: 120
+    buildings: []
+    construction_queue: []
+    
+  ALB_02:
+    id: "ALB_02"
+    name: "Central Albania"
+    country: "Albania"
+    population: 1940000
+    infrastructure: 1
+    unrest: 6.8
+    features: ["coastal", "mountainous"]
+    resources:
+      manpower: 194
+    buildings: []
+    construction_queue: []
+    
+  # Ukraine (Major Regions)
+  UKR_01:
+    id: "UKR_01"
+    name: "Kyiv Oblast"
+    country: "Ukraine"
+    population: 4200000
+    infrastructure: 3
+    unrest: 12.8
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 420
+      electricity: 380
+    buildings: []
+    construction_queue: []
+    
+  UKR_02:
+    id: "UKR_02"
+    name: "Kharkiv Oblast"
+    country: "Ukraine"
+    population: 2700000
+    infrastructure: 2
+    unrest: 15.2
+    features: ["industrial", "urban"]
+    resources:
+      manpower: 270
+      electricity: 240
+    buildings: []
+    construction_queue: []
+    
+  UKR_03:
+    id: "UKR_03"
+    name: "Dnipropetrovsk Oblast"
+    country: "Ukraine"
+    population: 3200000
+    infrastructure: 2
+    unrest: 14.1
+    features: ["industrial", "coal_rich"]
+    resources:
+      manpower: 320
+      coal: 420
+      electricity: 280
+    buildings: []
+    construction_queue: []
+    
+  UKR_04:
+    id: "UKR_04"
+    name: "Lviv Oblast"
+    country: "Ukraine"
+    population: 2500000
+    infrastructure: 2
+    unrest: 8.5
+    features: ["historic", "urban"]
+    resources:
+      manpower: 250
+      electricity: 180
+    buildings: []
+    construction_queue: []
+    
+  UKR_05:
+    id: "UKR_05"
+    name: "Odesa Oblast"
+    country: "Ukraine"
+    population: 2400000
+    infrastructure: 2
+    unrest: 11.2
+    features: ["coastal", "urban"]
+    resources:
+      manpower: 240
+      electricity: 180
+    buildings: []
+    construction_queue: []
+    
+  UKR_06:
+    id: "UKR_06"
+    name: "Central Ukraine"
+    country: "Ukraine"
+    population: 25800000
+    infrastructure: 1
+    unrest: 13.8
+    features: ["farmland", "rural"]
+    resources:
+      manpower: 2580
+      food: 1800
+    buildings: []
+    construction_queue: []
+    
+  # Belarus
+  BLR_01:
+    id: "BLR_01"
+    name: "Minsk Region"
+    country: "Belarus"
+    population: 2100000
+    infrastructure: 3
+    unrest: 8.2
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 210
+      electricity: 220
+    buildings: []
+    construction_queue: []
+    
+  BLR_02:
+    id: "BLR_02"
+    name: "Brest Region"
+    country: "Belarus"
+    population: 1400000
+    infrastructure: 2
+    unrest: 7.8
+    features: ["farmland", "flat"]
+    resources:
+      manpower: 140
+      food: 180
+    buildings: []
+    construction_queue: []
+    
+  BLR_03:
+    id: "BLR_03"
+    name: "Gomel Region"
+    country: "Belarus"
+    population: 1450000
+    infrastructure: 2
+    unrest: 9.1
+    features: ["farmland", "forest"]
+    resources:
+      manpower: 145
+      food: 160
+    buildings: []
+    construction_queue: []
+    
+  BLR_04:
+    id: "BLR_04"
+    name: "Northern Belarus"
+    country: "Belarus"
+    population: 4450000
+    infrastructure: 1
+    unrest: 8.5
+    features: ["farmland", "forest"]
+    resources:
+      manpower: 445
+      food: 420
+    buildings: []
+    construction_queue: []
+    
+  # Lithuania
+  LTU_01:
+    id: "LTU_01"
+    name: "Vilnius County"
+    country: "Lithuania"
+    population: 850000
+    infrastructure: 3
+    unrest: 2.1
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 85
+      electricity: 140
+    buildings: []
+    construction_queue: []
+    
+  LTU_02:
+    id: "LTU_02"
+    name: "Kaunas County"
+    country: "Lithuania"
+    population: 600000
+    infrastructure: 3
+    unrest: 2.8
+    features: ["urban", "industrial"]
+    resources:
+      manpower: 60
+      electricity: 120
+    buildings: []
+    construction_queue: []
+    
+  LTU_03:
+    id: "LTU_03"
+    name: "Coastal Lithuania"
+    country: "Lithuania"
+    population: 1270000
+    infrastructure: 2
+    unrest: 3.2
+    features: ["coastal", "farmland"]
+    resources:
+      manpower: 127
+      food: 180
+    buildings: []
+    construction_queue: []
+    
+  # Latvia
+  LVA_01:
+    id: "LVA_01"
+    name: "Riga Region"
+    country: "Latvia"
+    population: 700000
+    infrastructure: 3
+    unrest: 2.8
+    features: ["urban", "coastal"]
+    resources:
+      manpower: 70
+      electricity: 120
+    buildings: []
+    construction_queue: []
+    
+  LVA_02:
+    id: "LVA_02"
+    name: "Vidzeme"
+    country: "Latvia"
+    population: 620000
+    infrastructure: 2
+    unrest: 3.1
+    features: ["farmland", "forest"]
+    resources:
+      manpower: 62
+      food: 140
+    buildings: []
+    construction_queue: []
+    
+  LVA_03:
+    id: "LVA_03"
+    name: "Kurzeme"
+    country: "Latvia"
+    population: 560000
+    infrastructure: 2
+    unrest: 3.5
+    features: ["coastal", "farmland"]
+    resources:
+      manpower: 56
+      food: 120
+    buildings: []
+    construction_queue: []
+    
+  # Estonia
+  EST_01:
+    id: "EST_01"
+    name: "Harju County"
+    country: "Estonia"
+    population: 600000
+    infrastructure: 4
+    unrest: 1.8
+    features: ["urban", "tech_hub", "coastal"]
+    resources:
+      manpower: 60
+      electricity: 140
+    buildings: []
+    construction_queue: []
+    
+  EST_02:
+    id: "EST_02"
+    name: "Tartu County"
+    country: "Estonia"
+    population: 350000
+    infrastructure: 3
+    unrest: 2.1
+    features: ["urban", "tech_hub"]
+    resources:
+      manpower: 35
+      electricity: 80
+    buildings: []
+    construction_queue: []
+    
+  EST_03:
+    id: "EST_03"
+    name: "Rural Estonia"
+    country: "Estonia"
+    population: 380000
+    infrastructure: 2
+    unrest: 2.8
+    features: ["coastal", "farmland", "forest"]
+    resources:
+      manpower: 38
+      food: 80
+    buildings: []
+    construction_queue: []
+    
+  # Moldova
+  MDA_01:
+    id: "MDA_01"
+    name: "Chișinău Municipality"
+    country: "Moldova"
+    population: 700000
+    infrastructure: 2
+    unrest: 6.2
+    features: ["urban"]
+    resources:
+      manpower: 70
+      electricity: 80
+    buildings: []
+    construction_queue: []
+    
+  MDA_02:
+    id: "MDA_02"
+    name: "Central Moldova"
+    country: "Moldova"
+    population: 1920000
+    infrastructure: 1
+    unrest: 7.8
+    features: ["farmland", "rural"]
+    resources:
+      manpower: 192
+      food: 280
+    buildings: []
+    construction_queue: []

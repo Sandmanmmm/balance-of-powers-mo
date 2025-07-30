@@ -113,7 +113,7 @@ export function WorldMap({
   const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
   const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>('overview');
 
-  // Load province boundaries - use regional system primarily
+  // Load province boundaries - prioritize regional system for province-level data
   useEffect(() => {
     const loadBoundaries = async () => {
       try {
@@ -121,13 +121,25 @@ export function WorldMap({
         
         const allFeatures: any[] = [];
         
-        // Load from regional system (primary approach)
+        // Load from regional system (primary approach) - this has the actual province-level data
         console.log('🔄 Loading from regional system...');
         const allRegions = [
-          'superpowers/usa', 'superpowers/china', 'superpowers/india', 'superpowers/russia',
-          'north_america', 'south_america', 'europe_west', 'europe_east', 
-          'caribbean', 'central_asia', 'middle_east', 'north_africa', 
-          'oceania', 'south_asia', 'southeast_asia', 'sub_saharan_africa'
+          'north_america',      // Contains detailed Canada, USA, Mexico provinces
+          'south_america', 
+          'europe_west', 
+          'europe_east', 
+          'caribbean', 
+          'central_asia', 
+          'middle_east', 
+          'north_africa', 
+          'oceania', 
+          'south_asia', 
+          'southeast_asia', 
+          'sub_saharan_africa',
+          'superpowers/usa',    // Try superpowers after general regions
+          'superpowers/china', 
+          'superpowers/india', 
+          'superpowers/russia'
         ];
         
         let totalLoaded = 0;
@@ -144,41 +156,44 @@ export function WorldMap({
           }
         }
         
-        // Only try country-based loading for specific countries that have proper province-level data
-        const countriesWithProvinceBoundaries = ['DEU', 'FRA']; // Countries that actually have province-level boundaries in country files
-        const countries = Array.from(new Set(provinces.map(p => p.country)));
-        const countryCodeMap: Record<string, string> = {
-          'United States': 'USA',
-          'Canada': 'CAN', 
-          'Mexico': 'MEX',
-          'China': 'CHN',
-          'India': 'IND',
-          'Russia': 'RUS',
-          'France': 'FRA',
-          'Germany': 'DEU',
-          'United Kingdom': 'GBR',
-          'Australia': 'AUS'
-        };
+        console.log(`📍 Regional system loaded ${totalLoaded} province-level boundaries`);
         
-        for (const country of countries) {
-          const countryCode = countryCodeMap[country];
-          if (!countryCode || !countriesWithProvinceBoundaries.includes(countryCode)) {
-            continue; // Skip countries that don't have proper province-level boundary files
-          }
+        // If we didn't get enough features from regional system, try country-level as fallback
+        if (totalLoaded < 10) {
+          console.log('🔄 Low province count from regional system, trying country-level fallback...');
           
-          try {
-            console.log(`Attempting to load province boundaries for ${country} (${countryCode})...`);
-            const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
+          const countries = Array.from(new Set(provinces.map(p => p.country)));
+          const countryCodeMap: Record<string, string> = {
+            'United States': 'USA',
+            'Canada': 'CAN', 
+            'Mexico': 'MEX',
+            'China': 'CHN',
+            'India': 'IND',
+            'Russia': 'RUS',
+            'France': 'FRA',
+            'Germany': 'DEU',
+            'United Kingdom': 'GBR',
+            'Australia': 'AUS'
+          };
+          
+          for (const country of countries) {
+            const countryCode = countryCodeMap[country];
+            if (!countryCode) continue;
             
-            // Convert Record<string, GeoJSONFeature> to Feature array
-            const features = Object.values(countryBoundaries);
-            if (features.length > 0) {
-              allFeatures.push(...features);
-              totalLoaded += features.length;
-              console.log(`✓ Loaded ${features.length} provinces from ${country} (country-based)`);
+            try {
+              console.log(`Attempting to load country boundaries for ${country} (${countryCode})...`);
+              const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
+              
+              // Convert Record<string, GeoJSONFeature> to Feature array
+              const features = Object.values(countryBoundaries);
+              if (features.length > 0) {
+                allFeatures.push(...features);
+                totalLoaded += features.length;
+                console.log(`✓ Loaded ${features.length} boundaries from ${country} (country-level fallback)`);
+              }
+            } catch (error) {
+              console.warn(`⚠️ Failed to load country-based boundaries for ${country} (${countryCode}):`, error);
             }
-          } catch (error) {
-            console.warn(`⚠️ Failed to load country-based boundaries for ${country} (${countryCode}):`, error);
           }
         }
         
@@ -189,6 +204,18 @@ export function WorldMap({
         
         setProvinceBoundariesData(boundariesData);
         console.log(`✅ WorldMap: Loaded ${totalLoaded} total province boundaries at ${currentDetailLevel} detail`);
+        
+        // Log province IDs for debugging
+        const provinceIds = allFeatures.map(f => f.properties?.id).filter(Boolean);
+        console.log('🗺️ Province IDs in boundary data:', provinceIds);
+        
+        // Log province data coverage
+        const provinceDataIds = Array.from(provinceDataMap.keys());
+        console.log('📊 Province IDs in game data:', provinceDataIds);
+        
+        // Log matches
+        const matches = provinceIds.filter(id => provinceDataMap.has(id));
+        console.log(`🎯 Matching provinces: ${matches.length}/${provinceIds.length}`, matches);
         
         // Log cache stats
         const stats = geographicDataManager.getStats();

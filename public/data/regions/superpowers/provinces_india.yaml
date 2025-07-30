@@ -1,0 +1,1007 @@
+# India Provinces - All States and Union Territories
+
+# Union Territory - Delhi (National Capital Territory)
+- id: IND_DL
+  name: "Delhi"
+  country: "India"
+  population:
+    total: 32900000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 82
+      - group: "Dravidian"
+        percent: 12
+      - group: "Other"
+        percent: 6
+  unrest: 2.8
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "political_center", "tech_hub"]
+  resource_output:
+    energy: 6500
+    food: 1200
+    industrial_capacity: 8500
+    technology: 12000
+  politics:
+    party_support:
+      BJP: 45.2
+      AAP: 32.8
+      Congress: 15.5
+      Other: 6.5
+
+# Uttar Pradesh - Most Populous State
+- id: IND_UP
+  name: "Uttar Pradesh"
+  country: "India"
+  population:
+    total: 238000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 95
+      - group: "Other"
+        percent: 5
+  unrest: 4.2
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["farmland", "urban", "densely_populated"]
+  resource_output:
+    energy: 3200
+    food: 18500
+    industrial_capacity: 4800
+    technology: 2100
+  politics:
+    party_support:
+      BJP: 52.1
+      SP: 25.3
+      BSP: 12.8
+      Congress: 6.2
+      Other: 3.6
+
+# Maharashtra - Economic Powerhouse
+- id: IND_MH
+  name: "Maharashtra"
+  country: "India"
+  population:
+    total: 123000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 85
+      - group: "Dravidian"
+        percent: 10
+      - group: "Other"
+        percent: 5
+  unrest: 2.5
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "urban", "industrial", "tech_hub", "financial_center"]
+  resource_output:
+    energy: 8500
+    food: 8200
+    industrial_capacity: 22000
+    technology: 18500
+  politics:
+    party_support:
+      BJP: 41.8
+      Shiv_Sena: 18.2
+      NCP: 16.7
+      Congress: 15.1
+      Other: 8.2
+
+# West Bengal - Cultural & Industrial Hub
+- id: IND_WB
+  name: "West Bengal"
+  country: "India"
+  population:
+    total: 98000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 96
+      - group: "Other"
+        percent: 4
+  unrest: 3.8
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["coastal", "urban", "industrial", "cultural_center"]
+  resource_output:
+    energy: 4200
+    food: 7800
+    industrial_capacity: 12500
+    technology: 8200
+  politics:
+    party_support:
+      AITC: 48.9
+      BJP: 38.1
+      CPI_M: 7.8
+      Congress: 3.2
+      Other: 2.0
+
+# Tamil Nadu - South Indian Powerhouse
+- id: IND_TN
+  name: "Tamil Nadu"
+  country: "India"
+  population:
+    total: 76000000
+    ethnic_groups:
+      - group: "Dravidian"
+        percent: 94
+      - group: "Other"
+        percent: 6
+  unrest: 2.1
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "urban", "industrial", "tech_hub"]
+  resource_output:
+    energy: 6800
+    food: 4500
+    industrial_capacity: 18200
+    technology: 15500
+  politics:
+    party_support:
+      DMK: 45.7
+      AIADMK: 33.2
+      BJP: 11.8
+      Congress: 6.1
+      Other: 3.2
+
+# Karnataka - IT Capital
+- id: IND_KA
+  name: "Karnataka"
+  country: "India"
+  population:
+    total: 67000000
+    ethnic_groups:
+      - group: "Dravidian"
+        percent: 85
+      - group: "Indo-Aryan"
+        percent: 12
+      - group: "Other"
+        percent: 3
+  unrest: 2.3
+  infrastructure:
+    roads: 4
+    internet: 5
+  features: ["urban", "tech_hub", "industrial"]
+  resource_output:
+    energy: 5800
+    food: 3200
+    industrial_capacity: 14500
+    technology: 21000
+  politics:
+    party_support:
+      Congress: 42.9
+      BJP: 36.2
+      JDS: 13.3
+      Other: 7.6
+
+# Gujarat - Industrial Powerhouse
+- id: IND_GJ
+  name: "Gujarat"
+  country: "India"
+  population:
+    total: 67000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 96
+      - group: "Other"
+        percent: 4
+  unrest: 1.8
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "industrial", "port", "oil_rich"]
+  resource_output:
+    energy: 9200
+    food: 2800
+    industrial_capacity: 25000
+    technology: 8500
+  politics:
+    party_support:
+      BJP: 62.1
+      Congress: 27.8
+      AAP: 5.2
+      Other: 4.9
+
+# Rajasthan - Largest State
+- id: IND_RJ
+  name: "Rajasthan"
+  country: "India"
+  population:
+    total: 78000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 97
+      - group: "Other"
+        percent: 3
+  unrest: 3.1
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["desert", "mineral_rich", "tourism"]
+  resource_output:
+    energy: 4200
+    food: 3800
+    industrial_capacity: 6500
+    technology: 2100
+  politics:
+    party_support:
+      Congress: 43.1
+      BJP: 41.7
+      BSP: 8.9
+      Other: 6.3
+
+# Andhra Pradesh - Coastal State
+- id: IND_AP
+  name: "Andhra Pradesh"
+  country: "India"
+  population:
+    total: 53000000
+    ethnic_groups:
+      - group: "Dravidian"
+        percent: 95
+      - group: "Other"
+        percent: 5
+  unrest: 2.8
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["coastal", "farmland", "tech_hub"]
+  resource_output:
+    energy: 4800
+    food: 6200
+    industrial_capacity: 8500
+    technology: 6800
+  politics:
+    party_support:
+      YSRCP: 49.9
+      TDP: 39.2
+      BJP: 6.1
+      Congress: 2.8
+      Other: 2.0
+
+# Telangana - New Tech Hub
+- id: IND_TS
+  name: "Telangana"
+  country: "India"
+  population:
+    total: 39000000
+    ethnic_groups:
+      - group: "Dravidian"
+        percent: 92
+      - group: "Indo-Aryan"
+        percent: 6
+      - group: "Other"
+        percent: 2
+  unrest: 2.2
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["urban", "tech_hub", "industrial"]
+  resource_output:
+    energy: 5200
+    food: 2800
+    industrial_capacity: 12000
+    technology: 18000
+  politics:
+    party_support:
+      TRS: 47.4
+      BJP: 35.7
+      Congress: 13.4
+      Other: 3.5
+
+# Odisha - Mineral Rich
+- id: IND_OR
+  name: "Odisha"
+  country: "India"
+  population:
+    total: 45000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 93
+      - group: "Tribal"
+        percent: 5
+      - group: "Other"
+        percent: 2
+  unrest: 3.4
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["coastal", "mineral_rich", "tribal"]
+  resource_output:
+    energy: 3800
+    food: 4200
+    industrial_capacity: 8200
+    technology: 1800
+  politics:
+    party_support:
+      BJD: 42.1
+      BJP: 37.9
+      Congress: 16.1
+      Other: 3.9
+
+# Kerala - Most Literate State
+- id: IND_KL
+  name: "Kerala"
+  country: "India"
+  population:
+    total: 35000000
+    ethnic_groups:
+      - group: "Dravidian"
+        percent: 96
+      - group: "Other"
+        percent: 4
+  unrest: 1.9
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "urban", "tourism", "educated"]
+  resource_output:
+    energy: 3200
+    food: 2100
+    industrial_capacity: 4800
+    technology: 8500
+  politics:
+    party_support:
+      LDF: 45.7
+      UDF: 42.8
+      BJP: 8.1
+      Other: 3.4
+
+# Punjab - Agricultural Hub
+- id: IND_PB
+  name: "Punjab"
+  country: "India"
+  population:
+    total: 30000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 97
+      - group: "Other"
+        percent: 3
+  unrest: 3.5
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["farmland", "border", "agricultural"]
+  resource_output:
+    energy: 2800
+    food: 8500
+    industrial_capacity: 3200
+    technology: 1800
+  politics:
+    party_support:
+      AAP: 42.0
+      Congress: 28.8
+      SAD: 18.9
+      BJP: 8.6
+      Other: 1.7
+
+# Haryana - Industrial State
+- id: IND_HR
+  name: "Haryana"
+  country: "India"
+  population:
+    total: 29000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 97
+      - group: "Other"
+        percent: 3
+  unrest: 2.9
+  infrastructure:
+    roads: 4
+    internet: 3
+  features: ["urban", "industrial", "farmland"]
+  resource_output:
+    energy: 3500
+    food: 4200
+    industrial_capacity: 8500
+    technology: 4200
+  politics:
+    party_support:
+      BJP: 36.5
+      Congress: 39.1
+      JJP: 14.8
+      Other: 9.6
+
+# Bihar - Historical State
+- id: IND_BR
+  name: "Bihar"
+  country: "India"
+  population:
+    total: 128000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 96
+      - group: "Other"
+        percent: 4
+  unrest: 4.8
+  infrastructure:
+    roads: 1
+    internet: 1
+  features: ["farmland", "densely_populated", "developing"]
+  resource_output:
+    energy: 1800
+    food: 6500
+    industrial_capacity: 2100
+    technology: 800
+  politics:
+    party_support:
+      JDU: 23.4
+      RJD: 23.1
+      BJP: 19.5
+      Congress: 9.5
+      Other: 24.5
+
+# Jharkhand - Mineral Rich
+- id: IND_JH
+  name: "Jharkhand"
+  country: "India"
+  population:
+    total: 38000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 68
+      - group: "Tribal"
+        percent: 27
+      - group: "Other"
+        percent: 5
+  unrest: 4.2
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["mineral_rich", "tribal", "forest"]
+  resource_output:
+    energy: 3200
+    food: 2800
+    industrial_capacity: 6500
+    technology: 1200
+  politics:
+    party_support:
+      JMM: 30.7
+      BJP: 31.4
+      Congress: 13.8
+      RJD: 7.3
+      Other: 16.8
+
+# Assam - Gateway to Northeast
+- id: IND_AS
+  name: "Assam"
+  country: "India"
+  population:
+    total: 35000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 61
+      - group: "Tibeto-Burman"
+        percent: 32
+      - group: "Other"
+        percent: 7
+  unrest: 4.5
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["oil_rich", "tea_cultivation", "tribal", "border"]
+  resource_output:
+    energy: 2800
+    food: 3200
+    industrial_capacity: 2100
+    technology: 1100
+  politics:
+    party_support:
+      BJP: 36.3
+      Congress: 30.7
+      AIUDF: 15.3
+      AGP: 8.9
+      Other: 8.8
+
+# Madhya Pradesh - Heart of India
+- id: IND_MP
+  name: "Madhya Pradesh"
+  country: "India"
+  population:
+    total: 85000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 91
+      - group: "Tribal"
+        percent: 8
+      - group: "Other"
+        percent: 1
+  unrest: 3.2
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["farmland", "mineral_rich", "tribal"]
+  resource_output:
+    energy: 4200
+    food: 8500
+    industrial_capacity: 6200
+    technology: 2100
+  politics:
+    party_support:
+      BJP: 41.0
+      Congress: 40.9
+      BSP: 8.5
+      Other: 9.6
+
+# Chhattisgarh - Tribal State
+- id: IND_CG
+  name: "Chhattisgarh"
+  country: "India"
+  population:
+    total: 30000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 68
+      - group: "Tribal"
+        percent: 31
+      - group: "Other"
+        percent: 1
+  unrest: 4.1
+  infrastructure:
+    roads: 2
+    internet: 1
+  features: ["mineral_rich", "tribal", "forest"]
+  resource_output:
+    energy: 3500
+    food: 2800
+    industrial_capacity: 4200
+    technology: 900
+  politics:
+    party_support:
+      Congress: 41.7
+      BJP: 46.1
+      BSP: 4.2
+      Other: 8.0
+
+# Goa - Tourist Paradise
+- id: IND_GA
+  name: "Goa"
+  country: "India"
+  population:
+    total: 1600000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 85
+      - group: "Other"
+        percent: 15
+  unrest: 1.2
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["coastal", "tourism", "small", "port"]
+  resource_output:
+    energy: 800
+    food: 200
+    industrial_capacity: 1200
+    technology: 1800
+  politics:
+    party_support:
+      BJP: 50.1
+      Congress: 23.5
+      AAP: 19.8
+      Other: 6.6
+
+# Himachal Pradesh - Hill State
+- id: IND_HP
+  name: "Himachal Pradesh"
+  country: "India"
+  population:
+    total: 7400000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 97
+      - group: "Tibetan"
+        percent: 2
+      - group: "Other"
+        percent: 1
+  unrest: 1.8
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["mountainous", "tourism", "hydroelectric"]
+  resource_output:
+    energy: 1200
+    food: 800
+    industrial_capacity: 1100
+    technology: 900
+  politics:
+    party_support:
+      Congress: 43.9
+      BJP: 43.0
+      AAP: 1.1
+      Other: 12.0
+
+# Uttarakhand - Hill State
+- id: IND_UK
+  name: "Uttarakhand"
+  country: "India"
+  population:
+    total: 11000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 98
+      - group: "Other"
+        percent: 2
+  unrest: 2.8
+  infrastructure:
+    roads: 3
+    internet: 3
+  features: ["mountainous", "tourism", "hydroelectric", "pilgrimage"]
+  resource_output:
+    energy: 1800
+    food: 1200
+    industrial_capacity: 2100
+    technology: 1500
+  politics:
+    party_support:
+      BJP: 44.3
+      Congress: 37.9
+      BSP: 9.1
+      Other: 8.7
+
+# Jammu and Kashmir - Northern Territory
+- id: IND_JK
+  name: "Jammu and Kashmir"
+  country: "India"
+  population:
+    total: 14000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 73
+      - group: "Tibetan"
+        percent: 15
+      - group: "Other"
+        percent: 12
+  unrest: 6.2
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["mountainous", "border", "conflict_zone", "tourism"]
+  resource_output:
+    energy: 1200
+    food: 1800
+    industrial_capacity: 800
+    technology: 500
+  politics:
+    party_support:
+      JKNC: 25.1
+      BJP: 23.6
+      PDP: 16.8
+      Congress: 12.4
+      Other: 22.1
+
+# Ladakh - Union Territory
+- id: IND_LK
+  name: "Ladakh"
+  country: "India"
+  population:
+    total: 300000
+    ethnic_groups:
+      - group: "Tibetan"
+        percent: 85
+      - group: "Indo-Aryan"
+        percent: 12
+      - group: "Other"
+        percent: 3
+  unrest: 3.5
+  infrastructure:
+    roads: 1
+    internet: 1
+  features: ["mountainous", "border", "strategic", "tourism"]
+  resource_output:
+    energy: 200
+    food: 180
+    industrial_capacity: 100
+    technology: 50
+  politics:
+    party_support:
+      BJP: 45.2
+      Congress: 23.8
+      Independent: 25.6
+      Other: 5.4
+
+# Manipur - Northeastern State
+- id: IND_MN
+  name: "Manipur"
+  country: "India"
+  population:
+    total: 3300000
+    ethnic_groups:
+      - group: "Tibeto-Burman"
+        percent: 60
+      - group: "Indo-Aryan"
+        percent: 35
+      - group: "Other"
+        percent: 5
+  unrest: 5.8
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["border", "tribal", "mountainous", "conflict_zone"]
+  resource_output:
+    energy: 400
+    food: 450
+    industrial_capacity: 280
+    technology: 150
+  politics:
+    party_support:
+      BJP: 37.8
+      INC: 28.4
+      NPP: 18.2
+      NPF: 10.1
+      Other: 5.5
+
+# Mizoram - Northeastern State
+- id: IND_MZ
+  name: "Mizoram"
+  country: "India"
+  population:
+    total: 1200000
+    ethnic_groups:
+      - group: "Tibeto-Burman"
+        percent: 95
+      - group: "Other"
+        percent: 5
+  unrest: 2.1
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["border", "tribal", "mountainous", "educated"]
+  resource_output:
+    energy: 250
+    food: 320
+    industrial_capacity: 180
+    technology: 220
+  politics:
+    party_support:
+      MNF: 37.8
+      ZPM: 28.9
+      Congress: 24.3
+      BJP: 5.4
+      Other: 3.6
+
+# Nagaland - Northeastern State
+- id: IND_NL
+  name: "Nagaland"
+  country: "India"
+  population:
+    total: 2200000
+    ethnic_groups:
+      - group: "Tibeto-Burman"
+        percent: 98
+      - group: "Other"
+        percent: 2
+  unrest: 4.2
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["border", "tribal", "mountainous", "christian_majority"]
+  resource_output:
+    energy: 320
+    food: 380
+    industrial_capacity: 200
+    technology: 120
+  politics:
+    party_support:
+      NDPP: 36.4
+      NPF: 25.7
+      Congress: 18.9
+      BJP: 12.8
+      Other: 6.2
+
+# Tripura - Northeastern State
+- id: IND_TR
+  name: "Tripura"
+  country: "India"
+  population:
+    total: 4000000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 70
+      - group: "Tibeto-Burman"
+        percent: 28
+      - group: "Other"
+        percent: 2
+  unrest: 3.8
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["border", "tribal", "gas_rich"]
+  resource_output:
+    energy: 580
+    food: 620
+    industrial_capacity: 420
+    technology: 180
+  politics:
+    party_support:
+      BJP: 43.6
+      CPI_M: 26.1
+      Congress: 21.7
+      TIPRA: 5.2
+      Other: 3.4
+
+# Meghalaya - Northeastern State
+- id: IND_ML
+  name: "Meghalaya"
+  country: "India"
+  population:
+    total: 3400000
+    ethnic_groups:
+      - group: "Tibeto-Burman"
+        percent: 85
+      - group: "Indo-Aryan"
+        percent: 12
+      - group: "Other"
+        percent: 3
+  unrest: 3.2
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["tribal", "mountainous", "coal_rich", "matriarchal"]
+  resource_output:
+    energy: 450
+    food: 520
+    industrial_capacity: 380
+    technology: 200
+  politics:
+    party_support:
+      NPP: 31.4
+      Congress: 28.7
+      UDP: 19.8
+      BJP: 9.6
+      Other: 10.5
+
+# Arunachal Pradesh - Northeastern State
+- id: IND_AR
+  name: "Arunachal Pradesh"
+  country: "India"
+  population:
+    total: 1500000
+    ethnic_groups:
+      - group: "Tibeto-Burman"
+        percent: 95
+      - group: "Other"
+        percent: 5
+  unrest: 2.8
+  infrastructure:
+    roads: 1
+    internet: 2
+  features: ["border", "tribal", "mountainous", "hydroelectric", "strategic"]
+  resource_output:
+    energy: 1200
+    food: 280
+    industrial_capacity: 150
+    technology: 100
+  politics:
+    party_support:
+      BJP: 46.8
+      Congress: 35.2
+      JDU: 8.7
+      NPP: 4.9
+      Other: 4.4
+
+# Sikkim - Himalayan State
+- id: IND_SK
+  name: "Sikkim"
+  country: "India"
+  population:
+    total: 700000
+    ethnic_groups:
+      - group: "Tibeto-Burman"
+        percent: 62
+      - group: "Indo-Aryan"
+        percent: 35
+      - group: "Other"
+        percent: 3
+  unrest: 1.5
+  infrastructure:
+    roads: 2
+    internet: 3
+  features: ["border", "mountainous", "tourism", "hydroelectric"]
+  resource_output:
+    energy: 450
+    food: 180
+    industrial_capacity: 120
+    technology: 150
+  politics:
+    party_support:
+      SKM: 47.2
+      SDF: 31.8
+      BJP: 12.4
+      Congress: 5.1
+      Other: 3.5
+
+# Puducherry - Union Territory
+- id: IND_PY
+  name: "Puducherry"
+  country: "India"
+  population:
+    total: 1500000
+    ethnic_groups:
+      - group: "Dravidian"
+        percent: 88
+      - group: "Indo-Aryan"
+        percent: 10
+      - group: "Other"
+        percent: 2
+  unrest: 2.2
+  infrastructure:
+    roads: 4
+    internet: 4
+  features: ["coastal", "tourism", "french_heritage", "small"]
+  resource_output:
+    energy: 420
+    food: 280
+    industrial_capacity: 580
+    technology: 650
+  politics:
+    party_support:
+      Congress: 42.1
+      AINRC: 28.4
+      BJP: 15.8
+      DMK: 9.2
+      Other: 4.5
+
+# Chandigarh - Union Territory
+- id: IND_CH
+  name: "Chandigarh"
+  country: "India"
+  population:
+    total: 1200000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 96
+      - group: "Other"
+        percent: 4
+  unrest: 1.8
+  infrastructure:
+    roads: 5
+    internet: 5
+  features: ["urban", "planned_city", "tech_hub", "small"]
+  resource_output:
+    energy: 580
+    food: 120
+    industrial_capacity: 850
+    technology: 1200
+  politics:
+    party_support:
+      BJP: 45.6
+      Congress: 32.8
+      AAP: 16.2
+      Other: 5.4
+
+# Andaman and Nicobar Islands - Union Territory
+- id: IND_AN
+  name: "Andaman and Nicobar Islands"
+  country: "India"
+  population:
+    total: 420000
+    ethnic_groups:
+      - group: "Indo-Aryan"
+        percent: 65
+      - group: "Indigenous"
+        percent: 25
+      - group: "Other"
+        percent: 10
+  unrest: 1.2
+  infrastructure:
+    roads: 2
+    internet: 2
+  features: ["island", "strategic", "naval_base", "tourism", "tribal"]
+  resource_output:
+    energy: 180
+    food: 250
+    industrial_capacity: 120
+    technology: 100
+  politics:
+    party_support:
+      BJP: 58.4
+      Congress: 31.2
+      Independent: 7.8
+      Other: 2.6
