@@ -3,17 +3,7 @@
  * Provides standardized types for GeoJSON features and detail levels
  */
 
-/**
- * Detail levels for geographic data loading
- * - overview: Low-detail boundaries for zoomed-out view
- * - detailed: Medium-detail boundaries for regional view  
- * - ultra: High-detail boundaries for close-up view
- */
-export enum DetailLevel {
-  OVERVIEW = 'overview',
-  DETAILED = 'detailed',
-  ULTRA = 'ultra'
-}
+export type DetailLevel = 'overview' | 'detailed' | 'ultra';
 
 /**
  * GeoJSON geometry types

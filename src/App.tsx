@@ -14,6 +14,8 @@ import { NunavutMapDebug } from './components/NunavutMapDebug';
 import { MapSystemStatus } from './components/MapSystemStatus';
 import { GeographicDataStatus } from './components/GeographicDataStatus';
 import { GeographicDataManagerTest } from './components/GeographicDataManagerTest';
+import { GeographicArchitectureSummary } from './components/GeographicArchitectureSummary';
+import { GeographicDataTester } from './components/GeographicDataTester';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -250,6 +252,12 @@ function App() {
           </div>
           <div className="mt-4">
             <GeographicDataStatus />
+          </div>
+          <div className="mt-4">
+            <GeographicArchitectureSummary />
+          </div>
+          <div className="mt-4">
+            <GeographicDataTester />
           </div>
           <div className="mt-4">
             <IndiaMapDebug />

@@ -1,0 +1,87 @@
+{
+  "RUS_001": {
+    "type": "Feature",
+    "properties": {
+      "id": "RUS_001",
+      "name": "Moscow Oblast"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [35.2000, 56.5000],
+        [40.8000, 56.5000],
+        [40.8000, 54.5000],
+        [35.2000, 54.5000],
+        [35.2000, 56.5000]
+      ]]
+    }
+  },
+  "RUS_002": {
+    "type": "Feature",
+    "properties": {
+      "id": "RUS_002",
+      "name": "Saint Petersburg"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [28.0000, 61.0000],
+        [32.0000, 61.0000],
+        [32.0000, 59.0000],
+        [28.0000, 59.0000],
+        [28.0000, 61.0000]
+      ]]
+    }
+  },
+  "RUS_003": {
+    "type": "Feature",
+    "properties": {
+      "id": "RUS_003",
+      "name": "Siberian Federal District"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [84.0000, 73.0000],
+        [180.0000, 73.0000],
+        [180.0000, 51.0000],
+        [84.0000, 51.0000],
+        [84.0000, 73.0000]
+      ]]
+    }
+  },
+  "RUS_004": {
+    "type": "Feature",
+    "properties": {
+      "id": "RUS_004",
+      "name": "Far Eastern Federal District"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [129.0000, 77.0000],
+        [180.0000, 77.0000],
+        [180.0000, 42.0000],
+        [129.0000, 42.0000],
+        [129.0000, 77.0000]
+      ]]
+    }
+  },
+  "RUS_005": {
+    "type": "Feature",
+    "properties": {
+      "id": "RUS_005",
+      "name": "Ural Federal District"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [51.0000, 69.0000],
+        [84.0000, 69.0000],
+        [84.0000, 51.0000],
+        [51.0000, 51.0000],
+        [51.0000, 69.0000]
+      ]]
+    }
+  }
+}

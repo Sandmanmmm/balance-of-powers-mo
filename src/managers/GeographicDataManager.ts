@@ -12,13 +12,12 @@ import type {
   GeoJSONFeature,
   GeoJSONFeatureCollection,
   GeographicCacheEntry,
-  LoadingStats as BaseLoadingStats,
-  GeographicDataError
+  LoadingStats as BaseLoadingStats
 } from '../types/geo';
-import { DetailLevel } from '../types/geo';
+import { DetailLevel, GeographicDataError } from '../types/geo';
 
 interface CacheEntry {
-  data: GeoJSONFeatureCollection;
+  data: GeoJSONFeatureCollection | Record<string, GeoJSONFeature>;
   detailLevel: DetailLevel;
   size: number; // Estimated size in bytes
   lastAccessed: number;
@@ -48,7 +47,67 @@ export class GeographicDataManager {
   };
 
   /**
-   * Load region data at specified detail level
+   * Load nation boundaries at specified detail level
+   */
+  async loadNationBoundaries(nationCode: string, detailLevel: DetailLevel = 'overview'): Promise<Record<string, GeoJSONFeature>> {
+    const cacheKey = `${nationCode}_${detailLevel}`;
+    this.stats.totalRequests++;
+
+    // Check cache first
+    const cached = this.cache.get(cacheKey);
+    if (cached) {
+      cached.lastAccessed = Date.now();
+      this.stats.cacheHits++;
+      console.log(`📦 GeographicDataManager: Cache hit for ${cacheKey}`);
+      return cached.data as Record<string, GeoJSONFeature>;
+    }
+
+    // Check if already loading
+    const existingPromise = this.loadingPromises.get(cacheKey);
+    if (existingPromise) {
+      console.log(`⏳ GeographicDataManager: Already loading ${cacheKey}, waiting...`);
+      return existingPromise as Promise<Record<string, GeoJSONFeature>>;
+    }
+
+    // Start new load
+    this.stats.cacheMisses++;
+    const loadPromise = this._fetchNationBoundaries(nationCode, detailLevel);
+    this.loadingPromises.set(cacheKey, loadPromise as Promise<GeoJSONFeatureCollection>);
+
+    try {
+      const data = await loadPromise;
+      
+      // Calculate size and create cache entry
+      const dataStr = JSON.stringify(data);
+      const size = dataStr.length * 2; // Rough estimate for UTF-16
+      const entry: CacheEntry = {
+        data: data as GeoJSONFeatureCollection,
+        detailLevel,
+        size,
+        lastAccessed: Date.now(),
+        loadTime: Date.now()
+      };
+
+      // Update stats
+      this.stats.totalBytesLoaded += size;
+      this.stats.averageLoadTime = (this.stats.averageLoadTime * (this.stats.cacheMisses - 1) + 
+        (Date.now() - entry.loadTime)) / this.stats.cacheMisses;
+
+      // Check cache size and evict if needed
+      await this._ensureCacheSize(size);
+      
+      // Add to cache
+      this.cache.set(cacheKey, entry);
+      console.log(`✅ GeographicDataManager: Loaded and cached ${cacheKey} (${this._formatBytes(size)})`);
+      
+      return data;
+    } finally {
+      this.loadingPromises.delete(cacheKey);
+    }
+  }
+
+  /**
+   * Load region data at specified detail level (legacy support)
    */
   async loadRegion(region: string, detailLevel: DetailLevel = 'overview'): Promise<GeoJSONFeatureCollection> {
     const cacheKey = `${region}_${detailLevel}`;
@@ -108,7 +167,24 @@ export class GeographicDataManager {
   }
 
   /**
-   * Upgrade a region to higher detail level
+   * Upgrade a nation to higher detail level
+   */
+  async upgradeNationDetail(nationCode: string, newDetailLevel: DetailLevel): Promise<Record<string, GeoJSONFeature>> {
+    console.log(`🔄 GeographicDataManager: Upgrading ${nationCode} to ${newDetailLevel} detail`);
+    
+    // Remove any existing cache entries for this nation
+    const keysToRemove = Array.from(this.cache.keys()).filter(key => key.startsWith(`${nationCode}_`));
+    for (const key of keysToRemove) {
+      this.cache.delete(key);
+      console.log(`🗑️ GeographicDataManager: Removed cached ${key} for upgrade`);
+    }
+
+    // Load at new detail level
+    return this.loadNationBoundaries(nationCode, newDetailLevel);
+  }
+
+  /**
+   * Upgrade a region to higher detail level (legacy support)
    */
   async upgradeRegionDetail(region: string, newDetailLevel: DetailLevel): Promise<GeoJSONFeatureCollection> {
     console.log(`🔄 GeographicDataManager: Upgrading ${region} to ${newDetailLevel} detail`);
@@ -183,7 +259,53 @@ export class GeographicDataManager {
   }
 
   /**
-   * Private: Fetch region data from server
+   * Private: Fetch nation boundary data from server
+   */
+  private async _fetchNationBoundaries(nationCode: string, detailLevel: DetailLevel): Promise<Record<string, GeoJSONFeature>> {
+    const url = `/data/boundaries/${detailLevel}/${nationCode}.json`;
+    
+    console.log(`🌍 GeographicDataManager: Fetching ${url}`);
+    
+    try {
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new GeographicDataError(
+          `Failed to fetch boundary data: ${response.status} ${response.statusText}`,
+          nationCode,
+          detailLevel
+        );
+      }
+      
+      const data = await response.json();
+      
+      // Validate basic structure - should be Record<string, GeoJSONFeature>
+      if (!data || typeof data !== 'object') {
+        throw new GeographicDataError(
+          `Invalid boundary structure - expected Record<string, GeoJSONFeature>`,
+          nationCode,
+          detailLevel
+        );
+      }
+      
+      const provinceCount = Object.keys(data).length;
+      console.log(`📊 GeographicDataManager: Loaded ${provinceCount} provinces from ${url}`);
+      return data as Record<string, GeoJSONFeature>;
+      
+    } catch (error) {
+      if (error instanceof GeographicDataError) {
+        console.error(`❌ GeographicDataManager: ${error.message} (${error.region}/${error.detailLevel})`);
+      } else {
+        console.error(`❌ GeographicDataManager: Failed to load ${url}:`, error);
+      }
+      
+      // Return empty record as fallback
+      return {};
+    }
+  }
+
+  /**
+   * Private: Fetch region data from server (legacy support)
    */
   private async _fetchRegionData(region: string, detailLevel: DetailLevel): Promise<GeoJSONFeatureCollection> {
     const url = `/data/boundaries/provinces/${region}/${detailLevel}.json`;
