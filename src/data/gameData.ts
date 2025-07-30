@@ -264,13 +264,7 @@ export async function getGameData() {
   }
 }
 
-/**
- * Clear cache function for development/debugging
- */
-export function clearGameDataCache() {
-  console.log('GameData: Clearing modular cache');
-  gameDataCache = null;
-}
+
 
 /**
  * Get comprehensive system status
