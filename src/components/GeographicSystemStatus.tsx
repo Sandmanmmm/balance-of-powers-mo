@@ -223,8 +223,6 @@ export function GeographicSystemStatus() {
         >
           Clear Cache
         </Button>
-          Clear Cache
-        </Button>
       </div>
 
       <div className="text-xs text-muted-foreground">
