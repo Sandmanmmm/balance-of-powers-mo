@@ -5,25 +5,8 @@ import { WorldMap } from './components/WorldMap';
 import { ProvinceInfoPanel } from './components/ProvinceInfoPanel';
 import { GameDashboard } from './components/GameDashboard';
 import { GameDataDebug } from './components/GameDataDebug';
-import { ResourcesDebug } from './components/ResourcesDebug';
-import { BuildingsDebug } from './components/BuildingsDebug';
-import { BuildingAvailabilityDebug } from './components/BuildingAvailabilityDebug';
-import { ChinaMapDebug } from './components/ChinaMapDebug';
-import { IndiaMapDebug } from './components/IndiaMapDebug';
-import { NunavutMapDebug } from './components/NunavutMapDebug';
-import { MapSystemStatus } from './components/MapSystemStatus';
-import { GeographicDataStatus } from './components/GeographicDataStatus';
-import { GeographicDataManagerTest } from './components/GeographicDataManagerTest';
-import { GeographicArchitectureSummary } from './components/GeographicArchitectureSummary';
-import { GeographicDataTester } from './components/GeographicDataTester';
-import { BoundarySystemTester } from './components/BoundarySystemTester';
-import { SystemValidation } from './components/SystemValidation';
-import { CountryBoundarySystemTest } from './components/CountryBoundarySystemTest';
-import { CountryBoundarySystemStatus } from './components/CountryBoundarySystemStatus';
-import { QuickBoundaryTest } from './components/QuickBoundaryTest';
+import { LegacyCleanupStatus } from './components/LegacyCleanupStatus';
 import { BoundaryLoadingTest } from './components/BoundaryLoadingTest';
-import { MapLoadingTest } from './components/MapLoadingTest';
-import { QuickMapTest } from './components/QuickMapTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -182,10 +165,7 @@ function App() {
             <GameDataDebug />
           </div>
           <div className="mt-4">
-            <ResourcesDebug />
-          </div>
-          <div className="mt-4">
-            <BuildingsDebug />
+            <LegacyCleanupStatus />
           </div>
         </div>
       </div>
@@ -246,55 +226,10 @@ function App() {
             <GameDataDebug />
           </div>
           <div className="mt-4">
-            <BuildingsDebug />
-          </div>
-          <div className="mt-4">
-            <MapSystemStatus />
-          </div>
-          <div className="mt-4">
-            <ChinaMapDebug />
-          </div>
-          <div className="mt-4">
-            <NunavutMapDebug />
-          </div>
-          <div className="mt-4">
-            <GeographicDataManagerTest />
-          </div>
-          <div className="mt-4">
-            <GeographicDataStatus />
-          </div>
-          <div className="mt-4">
-            <GeographicArchitectureSummary />
-          </div>
-          <div className="mt-4">
-            <GeographicDataTester />
-          </div>
-          <div className="mt-4">
-            <CountryBoundarySystemStatus />
-          </div>
-          <div className="mt-4">
-            <QuickBoundaryTest />
-          </div>
-          <div className="mt-4">
-            <CountryBoundarySystemTest />
-          </div>
-          <div className="mt-4">
-            <BoundarySystemTester />
-          </div>
-          <div className="mt-4">
-            <SystemValidation />
+            <LegacyCleanupStatus />
           </div>
           <div className="mt-4">
             <BoundaryLoadingTest />
-          </div>
-          <div className="mt-4">
-            <MapLoadingTest />
-          </div>
-          <div className="mt-4">
-            <QuickMapTest />
-          </div>
-          <div className="mt-4">
-            <IndiaMapDebug />
           </div>
         </div>
       </div>

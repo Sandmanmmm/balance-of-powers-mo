@@ -9,13 +9,15 @@ export function QuickMapTest() {
   const testDirectFetch = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('/data/regions/north_america/province-boundaries_north_america.json');
+      // Test new country-based boundary system
+      const response = await fetch('/data/boundaries/overview/CAN.json');
       const data = await response.json();
       
-      const features = data?.features || [];
-      const canadianFeatures = features.filter(f => f.properties?.id?.startsWith('CAN_'));
-      
-      setTestResult(`✅ SUCCESS: Loaded ${features.length} total features, ${canadianFeatures.length} Canadian provinces. First Canadian province: ${canadianFeatures[0]?.properties?.name || 'None'}`);
+      if (data && data.type === 'Feature' && data.properties) {
+        setTestResult(`✅ SUCCESS: Loaded country boundary for ${data.properties.name} (${data.properties.id}). Geometry type: ${data.geometry?.type}`);
+      } else {
+        setTestResult(`❌ UNEXPECTED FORMAT: Expected GeoJSONFeature, got ${data?.type}`);
+      }
     } catch (error) {
       setTestResult(`❌ ERROR: ${error}`);
     }

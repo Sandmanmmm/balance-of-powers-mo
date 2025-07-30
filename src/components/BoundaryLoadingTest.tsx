@@ -10,43 +10,56 @@ export function BoundaryLoadingTest() {
     setIsLoading(true);
     const results: Record<string, any> = {};
 
-    const testRegions = [
-      'superpowers/usa',
-      'superpowers/china', 
-      'superpowers/india',
-      'superpowers/russia',
-      'north_america',
-      'europe_west',
-      'europe_east'
+    // Test the new country-based boundary system
+    const testCountries = [
+      { code: 'USA', name: 'United States' },
+      { code: 'CAN', name: 'Canada' },
+      { code: 'CHN', name: 'China' },
+      { code: 'IND', name: 'India' },
+      { code: 'RUS', name: 'Russia' },
+      { code: 'DEU', name: 'Germany' },
+      { code: 'FRA', name: 'France' },
+      { code: 'MEX', name: 'Mexico' }
     ];
 
-    for (const region of testRegions) {
-      try {
-        const filePath = region.includes('/') 
-          ? `/data/regions/${region.split('/')[0]}/province-boundaries_${region.split('/')[1]}.json`
-          : `/data/regions/${region}/province-boundaries_${region}.json`;
+    const detailLevels = ['overview', 'detailed', 'ultra'];
 
-        console.log(`Testing: ${filePath}`);
-        const response = await fetch(filePath);
+    for (const country of testCountries) {
+      for (const detailLevel of detailLevels) {
+        const testKey = `${country.code}_${detailLevel}`;
         
-        if (response.ok) {
-          const data = await response.json();
-          results[region] = {
-            status: 'success',
-            features: data?.features?.length || 0,
-            type: data?.type || 'unknown'
-          };
-        } else {
-          results[region] = {
+        try {
+          const filePath = `/data/boundaries/${detailLevel}/${country.code}.json`;
+          console.log(`Testing: ${filePath}`);
+          
+          const response = await fetch(filePath);
+          
+          if (response.ok) {
+            const data = await response.json();
+            results[testKey] = {
+              status: 'success',
+              country: country.name,
+              detailLevel,
+              type: data?.type || 'unknown',
+              hasGeometry: !!data?.geometry,
+              geometryType: data?.geometry?.type || 'none'
+            };
+          } else {
+            results[testKey] = {
+              status: 'missing',
+              country: country.name,
+              detailLevel,
+              error: `${response.status} ${response.statusText}`
+            };
+          }
+        } catch (error) {
+          results[testKey] = {
             status: 'failed',
-            error: `${response.status} ${response.statusText}`
+            country: country.name,
+            detailLevel,
+            error: error instanceof Error ? error.message : 'Unknown error'
           };
         }
-      } catch (error) {
-        results[region] = {
-          status: 'failed',
-          error: error instanceof Error ? error.message : 'Unknown error'
-        };
       }
     }
 
@@ -73,12 +86,14 @@ export function BoundaryLoadingTest() {
         </div>
 
         <div className="space-y-2">
-          {Object.entries(testResults).map(([region, result]) => (
-            <div key={region} className="text-sm border rounded p-2">
-              <div className="font-medium">{region}</div>
-              <div className={`text-xs ${result.status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+          {Object.entries(testResults).map(([testKey, result]) => (
+            <div key={testKey} className="text-sm border rounded p-2">
+              <div className="font-medium">{result.country} ({result.detailLevel})</div>
+              <div className={`text-xs ${result.status === 'success' ? 'text-green-600' : result.status === 'missing' ? 'text-yellow-600' : 'text-red-600'}`}>
                 {result.status === 'success' 
-                  ? `✓ ${result.features} features loaded` 
+                  ? `✓ ${result.type} loaded (${result.geometryType})` 
+                  : result.status === 'missing'
+                  ? `⚠ File missing`
                   : `✗ ${result.error}`
                 }
               </div>
