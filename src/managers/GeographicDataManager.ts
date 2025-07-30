@@ -1,5 +1,8 @@
 import { DetailLevel, GeoJSONFeatureCollection, GeoJSONFeature } from '@/types/geo';
 
+// Re-export types for convenience
+export type { DetailLevel, GeoJSONFeatureCollection, GeoJSONFeature } from '@/types/geo';
+
 interface CacheEntry {
   data: GeoJSONFeatureCollection;
   size: number;
@@ -61,6 +64,7 @@ export class GeographicDataManager {
 
   /**
    * Load boundary data for a specific country at a given detail level
+   * @alias loadNationBoundaries
    */
   async loadCountryBoundaries(countryCode: string, detailLevel: DetailLevel): Promise<GeoJSONFeatureCollection> {
     const cacheKey = this.getCacheKey(countryCode, detailLevel);
@@ -207,11 +211,87 @@ export class GeographicDataManager {
   }
 
   /**
-   * Clear all cached data
+   * Alias for loadCountryBoundaries for backwards compatibility
+   * Returns data as Record<string, GeoJSONFeature> to match legacy expectations
    */
-  clearCache(): void {
-    this.cache.clear();
-    console.log('🧹 Geographic cache cleared');
+  async loadNationBoundaries(countryCode: string, detailLevel: DetailLevel): Promise<Record<string, GeoJSONFeature>> {
+    const featureCollection = await this.loadCountryBoundaries(countryCode, detailLevel);
+    
+    // Convert FeatureCollection to Record<string, GeoJSONFeature>
+    const result: Record<string, GeoJSONFeature> = {};
+    featureCollection.features.forEach((feature, index) => {
+      const id = feature.properties?.id || feature.properties?.name || `feature_${index}`;
+      result[id] = feature;
+    });
+    
+    return result;
+  }
+
+  /**
+   * Alias for upgradeRegionDetail for backwards compatibility
+   * Returns data as Record<string, GeoJSONFeature> to match legacy expectations
+   */
+  async upgradeNationDetail(countryCode: string, targetLevel: DetailLevel): Promise<Record<string, GeoJSONFeature>> {
+    const featureCollection = await this.upgradeRegionDetail(countryCode, targetLevel);
+    
+    // Convert FeatureCollection to Record<string, GeoJSONFeature>
+    const result: Record<string, GeoJSONFeature> = {};
+    featureCollection.features.forEach((feature, index) => {
+      const id = feature.properties?.id || feature.properties?.name || `feature_${index}`;
+      result[id] = feature;
+    });
+    
+    return result;
+  }
+
+  /**
+   * Load region data - alias for loadCountryBoundaries for backwards compatibility
+   * Returns data as Record<string, GeoJSONFeature> to match legacy expectations
+   */
+  async loadRegion(regionOrCountryCode: string, detailLevel: DetailLevel): Promise<Record<string, GeoJSONFeature>> {
+    const featureCollection = await this.loadCountryBoundaries(regionOrCountryCode, detailLevel);
+    
+    // Convert FeatureCollection to Record<string, GeoJSONFeature>
+    const result: Record<string, GeoJSONFeature> = {};
+    featureCollection.features.forEach((feature, index) => {
+      const id = feature.properties?.id || feature.properties?.name || `feature_${index}`;
+      result[id] = feature;
+    });
+    
+    return result;
+  }
+
+  /**
+   * Get stats - alias for getCacheStats for backwards compatibility
+   */
+  getStats() {
+    return this.getCacheStats();
+  }
+
+  /**
+   * Get cached regions - returns cached countries
+   */
+  getCachedRegions(): Array<{ region: string; detailLevel: DetailLevel }> {
+    return this.getCachedCountries().map(({ country, detailLevel }) => ({
+      region: country,
+      detailLevel
+    }));
+  }
+
+  /**
+   * Clear cache for a specific region/country, or all if no region specified
+   */
+  clearCache(region?: string): void {
+    if (region) {
+      // Clear specific region
+      const keysToDelete = Array.from(this.cache.keys()).filter(key => key.startsWith(region + '_'));
+      keysToDelete.forEach(key => this.cache.delete(key));
+      console.log(`🧹 Geographic cache cleared for region: ${region}`);
+    } else {
+      // Clear all
+      this.cache.clear();
+      console.log('🧹 Geographic cache cleared');
+    }
   }
 
   /**
@@ -250,4 +330,7 @@ export class GeographicDataManager {
 }
 
 // Global instance
-export const geoManager = new GeographicDataManager();
+export const geographicDataManager = new GeographicDataManager();
+
+// Also export as geoManager for backwards compatibility
+export const geoManager = geographicDataManager;
