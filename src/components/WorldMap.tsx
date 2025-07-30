@@ -453,14 +453,20 @@ export function WorldMap({
         const mappedCountries = countries.filter(country => countryCodeMap[country]);
         const mappedCountryCodes = mappedCountries.map(country => countryCodeMap[country]).filter(Boolean);
         
-        // ALWAYS load boundaries for known countries regardless of province data
-        // This ensures we show the map even if province data is missing
-        const allCountriesToLoad = [...new Set([...knownBoundaryFiles, ...mappedCountryCodes])];
+        // Get list of actually available boundary files by checking what exists
+        const availableBoundaryFiles = [
+          'ARG', 'AUS', 'BRA', 'CAN', 'CHN', 'DEU', 'EGY', 'ESP', 
+          'FRA', 'GBR', 'IND', 'ITA', 'JPN', 'KOR', 'MEX', 'NLD',
+          'POL', 'RUS', 'TUR', 'UKR', 'USA', 'ZAF'
+        ];
+        
+        // ALWAYS load boundaries for available countries, prioritizing those with province data
+        const allCountriesToLoad = [...new Set([...mappedCountryCodes, ...availableBoundaryFiles])];
         
         console.log(`🌍 BOUNDARY LOADING DEBUG:`);
         console.log(`  Provinces loaded from data: ${provinces.length} provinces`);
         console.log(`  Unique countries in province data: ${countries}`);
-        console.log(`  Known boundary files: ${knownBoundaryFiles}`);
+        console.log(`  Available boundary files: ${availableBoundaryFiles}`);
         console.log(`  Mapped countries from provinces: ${mappedCountryCodes}`);
         console.log(`  Final countries to load boundaries for: ${allCountriesToLoad}`);
         

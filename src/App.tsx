@@ -15,6 +15,8 @@ import { NewCountriesTest } from './components/NewCountriesTest';
 import { ForceMapReload } from './components/ForceMapReload';
 import { LoadedDataSummary } from './components/LoadedDataSummary';
 import { BoundaryFetchTest } from './components/BoundaryFetchTest';
+import { BoundarySystemTest } from './components/BoundarySystemTest';
+import { GeographicSystemStatus } from './components/GeographicSystemStatus';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -259,6 +261,12 @@ function App() {
           </div>
           <div className="mt-4">
             <BoundaryFetchTest />
+          </div>
+          <div className="mt-4">
+            <BoundarySystemTest />
+          </div>
+          <div className="mt-4">
+            <GeographicSystemStatus />
           </div>
         </div>
       </div>

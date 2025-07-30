@@ -265,12 +265,20 @@ export class GeographicDataManager {
   private async _fetchNationBoundaries(nationCode: string, detailLevel: DetailLevel): Promise<Record<string, GeoJSONFeature>> {
     const url = `/data/boundaries/${detailLevel}/${nationCode}.json`;
     
-    console.log(`🌍 GeographicDataManager: Fetching ${url}`);
+    console.log(`🌍 GeographicDataManager: Fetching nation boundaries ${nationCode} at ${detailLevel} detail from ${url}`);
     
     try {
       const response = await fetch(url);
       
       if (!response.ok) {
+        console.warn(`⚠️ GeographicDataManager: Nation boundary file not found: ${url} (${response.status})`);
+        
+        // Try fallback to overview level if this was detailed/ultra
+        if (detailLevel !== 'overview') {
+          console.log(`🔄 GeographicDataManager: Falling back to overview detail for ${nationCode}`);
+          return this._fetchNationBoundaries(nationCode, 'overview');
+        }
+        
         throw new GeographicDataError(
           `Failed to fetch boundary data: ${response.status} ${response.statusText}`,
           nationCode,
@@ -280,43 +288,46 @@ export class GeographicDataManager {
       
       const data = await response.json();
       
-      // New structure: Single GeoJSONFeature for the country, not Record<string, GeoJSONFeature>
-      // We need to handle both legacy format and new format
+      // Handle different GeoJSON formats for nation-based boundaries
       
-      if (data && data.type === 'Feature') {
-        // New format: Single GeoJSONFeature representing the entire country
-        // Convert to Record format for compatibility
-        const countryBoundary: Record<string, GeoJSONFeature> = {};
-        countryBoundary[nationCode] = data as GeoJSONFeature;
-        
-        console.log(`📊 GeographicDataManager: Loaded country-level boundary for ${nationCode} from ${url}`);
-        return countryBoundary;
-        
-      } else if (data && typeof data === 'object' && !data.type) {
-        // Legacy format: Record<string, GeoJSONFeature> with province-level boundaries
-        const provinceCount = Object.keys(data).length;
-        console.log(`📊 GeographicDataManager: Loaded ${provinceCount} province-level boundaries from ${url} (province format)`);
-        return data as Record<string, GeoJSONFeature>;
-        
-      } else if (data && data.type === 'FeatureCollection' && Array.isArray(data.features)) {
-        // GeoJSON FeatureCollection format
+      if (data && data.type === 'FeatureCollection' && Array.isArray(data.features)) {
+        // Standard GeoJSON FeatureCollection - contains provinces/states for this nation
         const featureCollection = data as GeoJSONFeatureCollection;
         const boundariesRecord: Record<string, GeoJSONFeature> = {};
         
         featureCollection.features.forEach((feature, index) => {
           if (feature && feature.geometry) {
-            // Use feature id, properties.id, or generate one
-            const featureId = feature.id || feature.properties?.id || feature.properties?.name || `${nationCode}_${index}`;
+            // Use ISO_A3 property, feature id, properties.id, or generate one
+            const featureId = feature.properties?.ISO_A3 || 
+                             feature.id || 
+                             feature.properties?.id || 
+                             feature.properties?.name || 
+                             feature.properties?.NAME || 
+                             `${nationCode}_${index}`;
             boundariesRecord[String(featureId)] = feature as GeoJSONFeature;
           }
         });
         
-        console.log(`📊 GeographicDataManager: Converted FeatureCollection with ${featureCollection.features.length} features to Record format for ${nationCode}`);
+        console.log(`📊 GeographicDataManager: Loaded ${featureCollection.features.length} province/state boundaries for ${nationCode} (${detailLevel})`);
         return boundariesRecord;
+        
+      } else if (data && data.type === 'Feature') {
+        // Single GeoJSONFeature representing the entire country
+        const countryBoundary: Record<string, GeoJSONFeature> = {};
+        countryBoundary[nationCode] = data as GeoJSONFeature;
+        
+        console.log(`📊 GeographicDataManager: Loaded country-level boundary for ${nationCode} (${detailLevel})`);
+        return countryBoundary;
+        
+      } else if (data && typeof data === 'object' && !data.type) {
+        // Legacy format: Record<string, GeoJSONFeature> with province-level boundaries
+        const provinceCount = Object.keys(data).length;
+        console.log(`📊 GeographicDataManager: Loaded ${provinceCount} province boundaries for ${nationCode} (legacy format, ${detailLevel})`);
+        return data as Record<string, GeoJSONFeature>;
         
       } else {
         throw new GeographicDataError(
-          `Invalid boundary structure - expected GeoJSONFeature, Record<string, GeoJSONFeature>, or FeatureCollection`,
+          `Invalid boundary structure for ${nationCode} - expected FeatureCollection, Feature, or Record format, got: ${data?.type || typeof data}`,
           nationCode,
           detailLevel
         );
@@ -324,12 +335,23 @@ export class GeographicDataManager {
       
     } catch (error) {
       if (error instanceof GeographicDataError) {
-        console.error(`❌ GeographicDataManager: ${error.message} (${error.region}/${error.detailLevel})`);
+        console.error(`❌ GeographicDataManager: ${error.message}`);
       } else {
-        console.error(`❌ GeographicDataManager: Failed to load ${url}:`, error);
+        console.error(`❌ GeographicDataManager: Failed to load nation boundaries for ${nationCode} at ${detailLevel}:`, error);
       }
       
-      // Return empty record as fallback
+      // If this was not overview level, try falling back to overview
+      if (detailLevel !== 'overview') {
+        console.log(`🔄 GeographicDataManager: Attempting fallback to overview for ${nationCode}`);
+        try {
+          return await this._fetchNationBoundaries(nationCode, 'overview');
+        } catch (fallbackError) {
+          console.error(`❌ GeographicDataManager: Fallback also failed for ${nationCode}:`, fallbackError);
+        }
+      }
+      
+      // Return empty record as final fallback
+      console.warn(`⚠️ GeographicDataManager: Returning empty boundaries for ${nationCode}`);
       return {};
     }
   }

@@ -1,0 +1,34 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "country": "POL",
+    "detailLevel": "overview",
+    "featureCount": 1,
+    "generatedAt": "2024-01-01T00:00:00.000Z",
+    "source": "generated_placeholder",
+    "note": "Placeholder boundary for Poland"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "POL",
+      "properties": {
+        "id": "POL",
+        "name": "Poland",
+        "country": "Poland",
+        "iso_a3": "POL",
+        "type": "country_boundary"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [16.1343, 48.9194],
+          [22.1343, 48.9194],
+          [22.1343, 54.9194],
+          [16.1343, 54.9194],
+          [16.1343, 48.9194]
+        ]]
+      }
+    }
+  ]
+}

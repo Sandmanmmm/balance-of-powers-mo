@@ -1,0 +1,34 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "country": "NLD",
+    "detailLevel": "overview",
+    "featureCount": 1,
+    "generatedAt": "2024-01-01T00:00:00.000Z",
+    "source": "generated_placeholder",
+    "note": "Placeholder boundary for Netherlands"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "NLD",
+      "properties": {
+        "id": "NLD",
+        "name": "Netherlands",
+        "country": "Netherlands",
+        "iso_a3": "NLD",
+        "type": "country_boundary"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [3.2913, 50.1326],
+          [7.2913, 50.1326],
+          [7.2913, 54.1326],
+          [3.2913, 54.1326],
+          [3.2913, 50.1326]
+        ]]
+      }
+    }
+  ]
+}
