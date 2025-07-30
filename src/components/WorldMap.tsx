@@ -87,17 +87,62 @@ function getProvinceColor(province: Province, overlay: MapOverlayType): string {
       return '#e5e7eb';
     
     default:
-      // Country-based coloring for default view
-      switch (province.country) {
-        case 'Germany': return '#2dd4bf';  // Teal
-        case 'United States': return '#34d399';  // Emerald  
-        case 'Canada': return '#f87171';  // Red
-        case 'China': return '#a78bfa';  // Violet
-        case 'France': return '#60a5fa';  // Blue
-        case 'United Kingdom': return '#f472b6';  // Pink
-        case 'Australia': return '#fbbf24';  // Amber
-        default: return '#e5e7eb';  // Gray
-      }
+      // Country-based coloring for default view - using a more systematic approach
+      const countryColorMap: Record<string, string> = {
+        // North America
+        'United States': '#34d399',  // Emerald
+        'United States of America': '#34d399',  // Emerald
+        'Canada': '#f87171',  // Red
+        'Mexico': '#fbbf24',  // Amber
+        
+        // Superpowers
+        'China': '#a78bfa',  // Violet
+        'People\'s Republic of China': '#a78bfa',  // Violet
+        'India': '#fb7185',  // Rose
+        'Russia': '#06b6d4',  // Cyan
+        'Russian Federation': '#06b6d4',  // Cyan
+        
+        // Europe Major
+        'Germany': '#2dd4bf',  // Teal
+        'France': '#60a5fa',  // Blue
+        'United Kingdom': '#f472b6',  // Pink
+        'Italy': '#84cc16',  // Lime
+        'Spain': '#f59e0b',  // Orange
+        
+        // Europe East
+        'Ukraine': '#8b5cf6',  // Purple
+        'Poland': '#10b981',  // Green
+        'Romania': '#ef4444',  // Red-500
+        'Czech Republic': '#3b82f6',  // Blue-500
+        'Hungary': '#f97316',  // Orange-500
+        
+        // Asia Pacific
+        'Japan': '#ec4899',  // Pink-500
+        'South Korea': '#6366f1',  // Indigo-500
+        'Australia': '#fbbf24',  // Amber
+        'Indonesia': '#14b8a6',  // Teal-500
+        'Thailand': '#a855f7',  // Purple-500
+        
+        // Middle East
+        'Turkey': '#dc2626',  // Red-600
+        'Iran': '#7c3aed',  // Violet-600
+        'Saudi Arabia': '#059669',  // Emerald-600
+        'Israel': '#2563eb',  // Blue-600
+        
+        // South America
+        'Brazil': '#16a34a',  // Green-600
+        'Argentina': '#0891b2',  // Sky-600
+        'Chile': '#c2410c',  // Orange-600
+        'Colombia': '#7c2d12',  // Orange-800
+        
+        // Africa
+        'South Africa': '#be123c',  // Rose-700
+        'Nigeria': '#166534',  // Green-800
+        'Egypt': '#b45309',  // Amber-700
+        'Kenya': '#991b1b',  // Red-800
+      };
+      
+      return countryColorMap[province.country] || '#e5e7eb';  // Gray fallback
   }
 }
 
@@ -124,43 +169,217 @@ export function WorldMap({
         
         // Get unique countries from province data
         const countries = Array.from(new Set(provinces.map(p => p.country)));
+        
+        // Comprehensive country name to ISO code mapping
         const countryCodeMap: Record<string, string> = {
+          // North America
           'United States': 'USA',
-          'Canada': 'CAN', 
+          'United States of America': 'USA',
+          'Canada': 'CAN',
           'Mexico': 'MEX',
-          'China': 'CHN',
-          'India': 'IND',
-          'Russia': 'RUS',
-          'France': 'FRA',
-          'Germany': 'GER',
-          'United Kingdom': 'GBR',
-          'Australia': 'AUS',
-          'Ukraine': 'UKR',
-          'Romania': 'ROU',
-          'Belarus': 'BLR',
-          'Slovenia': 'SVN',
-          'Slovakia': 'SVK',
-          'Serbia': 'SRB',
-          'Poland': 'POL',
-          'Lithuania': 'LTU',
-          'Latvia': 'LVA',
-          'Hungary': 'HUN',
-          'Estonia': 'EST',
-          'Czech Republic': 'CZE',
-          'Croatia': 'HRV',
-          'Bulgaria': 'BGR',
+          
+          // Caribbean and Central America  
           'Cuba': 'CUB',
           'Jamaica': 'JAM',
           'Haiti': 'HTI',
           'Dominican Republic': 'DOM',
+          'Bahamas': 'BHS',
+          'Barbados': 'BRB',
+          'Trinidad and Tobago': 'TTO',
+          'Antigua and Barbuda': 'ATG',
+          'Saint Lucia': 'LCA',
+          'Grenada': 'GRD',
+          'Saint Vincent and the Grenadines': 'VCT',
+          'Dominica': 'DMA',
+          'Saint Kitts and Nevis': 'KNA',
+          'Guatemala': 'GTM',
+          'Belize': 'BLZ',
+          'El Salvador': 'SLV',
+          'Honduras': 'HND',
+          'Nicaragua': 'NIC',
+          'Costa Rica': 'CRI',
+          'Panama': 'PAN',
+          
+          // South America
           'Brazil': 'BRA',
+          'Argentina': 'ARG',
           'Chile': 'CHL',
           'Colombia': 'COL',
-          'Ecuador': 'ECU'
+          'Peru': 'PER',
+          'Venezuela': 'VEN',
+          'Ecuador': 'ECU',
+          'Bolivia': 'BOL',
+          'Paraguay': 'PRY',
+          'Uruguay': 'URY',
+          'Guyana': 'GUY',
+          'Suriname': 'SUR',
+          
+          // Superpowers & Major Powers
+          'China': 'CHN',
+          'People\'s Republic of China': 'CHN',
+          'India': 'IND',
+          'Russia': 'RUS',
+          'Russian Federation': 'RUS',
+          'Germany': 'DEU',
+          'France': 'FRA',
+          'United Kingdom': 'GBR',
+          'Japan': 'JPN',
+          'Australia': 'AUS',
+          'Italy': 'ITA',
+          'Spain': 'ESP',
+          
+          // Europe East
+          'Ukraine': 'UKR',
+          'Poland': 'POL',
+          'Romania': 'ROU',
+          'Czech Republic': 'CZE',
+          'Hungary': 'HUN',
+          'Slovakia': 'SVK',
+          'Bulgaria': 'BGR',
+          'Croatia': 'HRV',
+          'Serbia': 'SRB',
+          'Slovenia': 'SVN',
+          'Bosnia and Herzegovina': 'BIH',
+          'Montenegro': 'MNE',
+          'North Macedonia': 'MKD',
+          'Albania': 'ALB',
+          'Belarus': 'BLR',
+          'Lithuania': 'LTU',
+          'Latvia': 'LVA',
+          'Estonia': 'EST',
+          'Moldova': 'MDA',
+          
+          // Europe West
+          'Netherlands': 'NLD',
+          'Belgium': 'BEL',
+          'Switzerland': 'CHE',
+          'Austria': 'AUT',
+          'Portugal': 'PRT',
+          'Ireland': 'IRL',
+          'Luxembourg': 'LUX',
+          'Denmark': 'DNK',
+          'Sweden': 'SWE',
+          'Norway': 'NOR',
+          'Finland': 'FIN',
+          'Iceland': 'ISL',
+          
+          // Middle East & North Africa
+          'Turkey': 'TUR',
+          'Iran': 'IRN',
+          'Iraq': 'IRQ',
+          'Syria': 'SYR',
+          'Jordan': 'JOR',
+          'Lebanon': 'LBN',
+          'Israel': 'ISR',
+          'Palestine': 'PSE',
+          'Saudi Arabia': 'SAU',
+          'United Arab Emirates': 'ARE',
+          'Kuwait': 'KWT',
+          'Qatar': 'QAT',
+          'Bahrain': 'BHR',
+          'Oman': 'OMN',
+          'Yemen': 'YEM',
+          'Egypt': 'EGY',
+          'Libya': 'LBY',
+          'Tunisia': 'TUN',
+          'Algeria': 'DZA',
+          'Morocco': 'MAR',
+          'Sudan': 'SDN',
+          
+          // South Asia
+          'Pakistan': 'PAK',
+          'Bangladesh': 'BGD',
+          'Sri Lanka': 'LKA',
+          'Nepal': 'NPL',
+          'Bhutan': 'BTN',
+          'Maldives': 'MDV',
+          'Afghanistan': 'AFG',
+          
+          // Southeast Asia
+          'Indonesia': 'IDN',
+          'Thailand': 'THA',
+          'Malaysia': 'MYS',
+          'Singapore': 'SGP',
+          'Philippines': 'PHL',
+          'Vietnam': 'VNM',
+          'Myanmar': 'MMR',
+          'Cambodia': 'KHM',
+          'Laos': 'LAO',
+          'Brunei': 'BRN',
+          'Timor-Leste': 'TLS',
+          
+          // Central Asia
+          'Kazakhstan': 'KAZ',
+          'Uzbekistan': 'UZB',
+          'Turkmenistan': 'TKM',
+          'Kyrgyzstan': 'KGZ',
+          'Tajikistan': 'TJK',
+          'Mongolia': 'MNG',
+          
+          // Africa
+          'South Africa': 'ZAF',
+          'Nigeria': 'NGA',
+          'Kenya': 'KEN',
+          'Ethiopia': 'ETH',
+          'Ghana': 'GHA',
+          'Tanzania': 'TZA',
+          'Uganda': 'UGA',
+          'Mozambique': 'MOZ',
+          'Madagascar': 'MDG',
+          'Cameroon': 'CMR',
+          'Angola': 'AGO',
+          'Mali': 'MLI',
+          'Burkina Faso': 'BFA',
+          'Niger': 'NER',
+          'Malawi': 'MWI',
+          'Zambia': 'ZMB',
+          'Senegal': 'SEN',
+          'Somalia': 'SOM',
+          'Chad': 'TCD',
+          'Guinea': 'GIN',
+          'Rwanda': 'RWA',
+          'Benin': 'BEN',
+          'Burundi': 'BDI',
+          'Tunisia': 'TUN',
+          'South Sudan': 'SSD',
+          'Togo': 'TGO',
+          'Sierra Leone': 'SLE',
+          'Libya': 'LBY',
+          'Liberia': 'LBR',
+          'Mauritania': 'MRT',
+          'Eritrea': 'ERI',
+          'Gambia': 'GMB',
+          'Botswana': 'BWA',
+          'Gabon': 'GAB',
+          'Lesotho': 'LSO',
+          'Guinea-Bissau': 'GNB',
+          'Equatorial Guinea': 'GNQ',
+          'Mauritius': 'MUS',
+          'Eswatini': 'SWZ',
+          'Djibouti': 'DJI',
+          'Comoros': 'COM',
+          'Cape Verde': 'CPV',
+          'Sao Tome and Principe': 'STP',
+          'Seychelles': 'SYC',
+          
+          // Oceania
+          'New Zealand': 'NZL',
+          'Papua New Guinea': 'PNG',
+          'Fiji': 'FJI',
+          'Solomon Islands': 'SLB',
+          'Vanuatu': 'VUT',
+          'Samoa': 'WSM',
+          'Micronesia': 'FSM',
+          'Tonga': 'TON',
+          'Kiribati': 'KIR',
+          'Palau': 'PLW',
+          'Marshall Islands': 'MHL',
+          'Tuvalu': 'TUV',
+          'Nauru': 'NRU'
         };
         
-        console.log(`📍 Loading boundaries for countries:`, countries);
-        console.log(`🔗 Country code mappings available:`, Object.keys(countryCodeMap));
+        console.log(`📍 Loading boundaries for countries from provinces:`, countries);
+        console.log(`🔗 Total country code mappings available:`, Object.keys(countryCodeMap).length);
         
         // Check which countries will be processed
         const mappedCountries = countries.filter(country => countryCodeMap[country]);
@@ -168,9 +387,15 @@ export function WorldMap({
         
         console.log(`✅ Countries with mappings (${mappedCountries.length}):`, mappedCountries);
         console.log(`❌ Countries without mappings (${unmappedCountries.length}):`, unmappedCountries);
+        console.log(`📦 Total provinces loaded:`, provinces.length);
+        console.log(`🏛️ Unique countries in province data:`, countries.length);
         
-        // Also try to load countries that have boundary data but might not have province data loaded yet
-        const availableBoundaryCountries = ['USA', 'CAN', 'MEX', 'CHN', 'IND', 'RUS', 'FRA', 'GER', 'UKR', 'POL', 'BRA', 'AUS'];
+        // Also try to load countries that have boundary data available
+        const availableBoundaryCountries = [
+          'USA', 'CAN', 'MEX', 'CHN', 'IND', 'RUS', 'FRA', 'DEU', 'GBR', 'AUS',
+          'BRA', 'ARG', 'POL', 'UKR', 'DEU', 'ESP', 'ITA', 'JPN', 'KOR', 'TUR',
+          'IRN', 'SAU', 'EGY', 'NGA', 'KEN', 'ZAF', 'THA', 'IDN', 'VNM', 'MYS'
+        ];
         console.log(`🗺️ Available boundary countries:`, availableBoundaryCountries);
         
         // Combine mapped countries with available boundary countries

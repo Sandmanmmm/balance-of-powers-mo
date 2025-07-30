@@ -49,6 +49,184 @@ provinces:
     buildings: []
     construction_projects: []
 
+  BRA_SP:
+    name: "São Paulo"
+    country: "Brazil"
+    coordinates: [-23.5505, -46.6333]
+    features:
+      - "urban"
+      - "industrial"
+      - "tech_hub"
+      - "financial_center"
+    population:
+      total: 46649132
+      ethnic_groups:
+        - group: "White Brazilian"
+          percent: 60.6
+        - group: "Mixed Brazilian"
+          percent: 29.1
+        - group: "Black Brazilian"
+          percent: 7.8
+        - group: "Asian Brazilian"
+          percent: 2.5
+    unrest: 6.8
+    infrastructure:
+      roads: 4
+      internet: 4
+      healthcare: 4
+      education: 4
+    resource_deposits:
+      electricity: 1200
+      steel: 650
+      manpower: 1800
+    resource_output:
+      energy: 1500
+      manufacturing: 2200
+    politics:
+      party_support:
+        "Liberal Party": 38.4
+        "Workers Party": 24.7
+        "Brazilian Social Democracy Party": 18.9
+        "Other": 18.0
+    buildings: []
+    construction_projects: []
+
+  BRA_RJ:
+    name: "Rio de Janeiro"
+    country: "Brazil"
+    coordinates: [-22.9068, -43.1729]
+    features:
+      - "coastal"
+      - "urban"
+      - "tourism"
+      - "cultural"
+      - "oil_rich"
+    population:
+      total: 17366189
+      ethnic_groups:
+        - group: "Mixed Brazilian"
+          percent: 42.8
+        - group: "White Brazilian"
+          percent: 42.0
+        - group: "Black Brazilian"
+          percent: 13.2
+        - group: "Other"
+          percent: 2.0
+    unrest: 8.2
+    infrastructure:
+      roads: 3
+      internet: 4
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      oil: 950
+      electricity: 800
+      manpower: 650
+    resource_output:
+      energy: 900
+      tourism: 450
+    politics:
+      party_support:
+        "Workers Party": 35.2
+        "Liberal Party": 28.6
+        "Brazilian Social Democracy Party": 20.1
+        "Other": 16.1
+    buildings: []
+    construction_projects: []
+
+  BRA_MG:
+    name: "Minas Gerais"
+    country: "Brazil"
+    coordinates: [-19.8157, -43.9542]
+    features:
+      - "mineral_rich"
+      - "mountainous"
+      - "agricultural"
+      - "iron_rich"
+    population:
+      total: 21411923
+      ethnic_groups:
+        - group: "Mixed Brazilian"
+          percent: 46.8
+        - group: "White Brazilian"
+          percent: 43.6
+        - group: "Black Brazilian"
+          percent: 8.9
+        - group: "Other"
+          percent: 0.7
+    unrest: 3.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      healthcare: 3
+      education: 3
+    resource_deposits:
+      iron: 1200
+      rare_earth: 450
+      food: 850
+      manpower: 750
+    resource_output:
+      energy: 650
+      mining: 950
+    politics:
+      party_support:
+        "Liberal Party": 42.3
+        "Workers Party": 25.8
+        "Brazilian Social Democracy Party": 19.4
+        "Other": 12.5
+    buildings: []
+    construction_projects: []
+
+  ECU_EQ:
+    name: "Amazonas"
+    country: "Brazil"
+    coordinates: [-3.4168, -65.8561]
+    features:
+      - "dense_rainforest"
+      - "high_biodiversity"
+      - "canopy_access"
+      - "river_systems"
+      - "equatorial_location"
+      - "high_humidity"
+      - "isolated"
+    population:
+      total: 4200000
+      ethnic_groups:
+        - group: "Mixed Brazilian"
+          percent: 68.5
+        - group: "Indigenous"
+          percent: 15.2
+        - group: "White Brazilian"
+          percent: 12.8
+        - group: "Black Brazilian"
+          percent: 3.5
+    unrest: 4.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      healthcare: 2
+      education: 2
+    resource_deposits:
+      oil: 450
+      steel: 180
+      rare_earth: 320
+      uranium: 80
+      food: 2800
+    military:
+      stationed_units:
+        - "BRA_JUN_1"
+      fortification_level: 1
+    resource_output:
+      energy: 800
+      biodiversity: 1500
+    politics:
+      party_support:
+        "Workers Party": 42.1
+        "Liberal Party": 31.5
+        "Other": 26.4
+    buildings: []
+    construction_projects: []
+
   ECU_EQ:
     name: "Equatorial Province"
     country: "Ecuador"

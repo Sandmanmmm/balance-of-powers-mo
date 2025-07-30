@@ -1,0 +1,78 @@
+{
+  "BRA_001": {
+    "type": "Feature",
+    "id": "BRA_001",
+    "properties": {
+      "id": "BRA_001",
+      "name": "São Paulo",
+      "country": "Brazil",
+      "iso_a3": "BRA",
+      "state_code": "SP"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-50.2, -25.3], [-50.2, -19.8], [-44.2, -19.8], [-44.2, -25.3], [-50.2, -25.3]
+        ]
+      ]
+    }
+  },
+  "BRA_002": {
+    "type": "Feature",
+    "id": "BRA_002",
+    "properties": {
+      "id": "BRA_002",
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "iso_a3": "BRA",
+      "state_code": "RJ"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-45.0, -23.4], [-45.0, -20.8], [-40.9, -20.8], [-40.9, -23.4], [-45.0, -23.4]
+        ]
+      ]
+    }
+  },
+  "BRA_003": {
+    "type": "Feature",
+    "id": "BRA_003",
+    "properties": {
+      "id": "BRA_003",
+      "name": "Minas Gerais",
+      "country": "Brazil",
+      "iso_a3": "BRA",
+      "state_code": "MG"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-51.0, -22.9], [-51.0, -14.2], [-39.8, -14.2], [-39.8, -22.9], [-51.0, -22.9]
+        ]
+      ]
+    }
+  },
+  "BRA_004": {
+    "type": "Feature",
+    "id": "BRA_004",
+    "properties": {
+      "id": "BRA_004",
+      "name": "Amazonas",
+      "country": "Brazil",
+      "iso_a3": "BRA",
+      "state_code": "AM"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-73.8, -9.8], [-73.8, 2.2], [-56.1, 2.2], [-56.1, -9.8], [-73.8, -9.8]
+        ]
+      ]
+    }
+  }
+}

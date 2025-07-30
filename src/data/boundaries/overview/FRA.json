@@ -1,20 +1,59 @@
 {
-  "type": "Feature",
-  "id": "FRA",
-  "properties": {
-    "id": "FRA",
-    "name": "France",
-    "country": "France",
-    "iso_a3": "FRA",
-    "area": 643801,
-    "population": 65273511
-  },
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-      [
-        [-4.6, 42.3], [-4.6, 51.1], [8.2, 51.1], [8.2, 42.3], [-4.6, 42.3]
+  "FRA_001": {
+    "type": "Feature",
+    "id": "FRA_001",
+    "properties": {
+      "id": "FRA_001",
+      "name": "Île-de-France",
+      "country": "France",
+      "iso_a3": "FRA",
+      "region_code": "IDF"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [1.4, 48.1], [1.4, 49.2], [3.6, 49.2], [3.6, 48.1], [1.4, 48.1]
+        ]
       ]
-    ]
+    }
+  },
+  "FRA_002": {
+    "type": "Feature",
+    "id": "FRA_002",
+    "properties": {
+      "id": "FRA_002",
+      "name": "Provence-Alpes-Côte d'Azur",
+      "country": "France",
+      "iso_a3": "FRA",
+      "region_code": "PAC"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [4.2, 43.0], [4.2, 44.9], [7.7, 44.9], [7.7, 43.0], [4.2, 43.0]
+        ]
+      ]
+    }
+  },
+  "FRA_003": {
+    "type": "Feature",
+    "id": "FRA_003",
+    "properties": {
+      "id": "FRA_003",
+      "name": "Nouvelle-Aquitaine",
+      "country": "France",
+      "iso_a3": "FRA",
+      "region_code": "NAQ"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-2.2, 42.8], [-2.2, 47.8], [2.4, 47.8], [2.4, 42.8], [-2.2, 42.8]
+        ]
+      ]
+    }
   }
 }
