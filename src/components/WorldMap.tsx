@@ -169,16 +169,23 @@ export function WorldMap({
         console.log(`✅ Countries with mappings (${mappedCountries.length}):`, mappedCountries);
         console.log(`❌ Countries without mappings (${unmappedCountries.length}):`, unmappedCountries);
         
+        // Also try to load countries that have boundary data but might not have province data loaded yet
+        const availableBoundaryCountries = ['USA', 'CAN', 'MEX', 'CHN', 'IND', 'RUS', 'FRA', 'GER', 'UKR', 'POL', 'BRA', 'AUS'];
+        console.log(`🗺️ Available boundary countries:`, availableBoundaryCountries);
+        
+        // Combine mapped countries with available boundary countries
+        const allCountriesToLoad = Array.from(new Set([
+          ...mappedCountries.map(country => countryCodeMap[country]),
+          ...availableBoundaryCountries
+        ])).filter(Boolean);
+        
+        console.log(`🌍 Will attempt to load boundaries for ${allCountriesToLoad.length} countries:`, allCountriesToLoad);
+        
         // Load boundaries for each country using the new system
-        for (const country of countries) {
-          const countryCode = countryCodeMap[country];
-          if (!countryCode) {
-            console.warn(`⚠️ No country code mapping for ${country}`);
-            continue;
-          }
+        for (const countryCode of allCountriesToLoad) {
           
           try {
-            console.log(`🌍 Loading boundaries for ${country} (${countryCode}) at ${currentDetailLevel} detail...`);
+            console.log(`🌍 Loading boundaries for ${countryCode} at ${currentDetailLevel} detail...`);
             const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
             
             // Convert Record<string, GeoJSONFeature> to Feature array
@@ -193,19 +200,19 @@ export function WorldMap({
                   
                   // Use the province ID from the record key if available, otherwise use country code
                   feature.properties.id = provinceId || countryCode;
-                  feature.properties.name = feature.properties.name || provinceId || country;
-                  feature.properties.country = country;
+                  feature.properties.name = feature.properties.name || provinceId || countryCode;
+                  feature.properties.country = Object.keys(countryCodeMap).find(key => countryCodeMap[key] === countryCode) || countryCode;
                   
                   allFeatures.push(feature);
                   totalLoaded++;
                 }
               }
-              console.log(`✅ Loaded ${features.length} province boundaries for ${country}`);
+              console.log(`✅ Loaded ${features.length} province boundaries for ${countryCode}`);
             } else {
-              console.warn(`⚠️ No boundary features found for ${country} (${countryCode})`);
+              console.warn(`⚠️ No boundary features found for ${countryCode}`);
             }
           } catch (error) {
-            console.warn(`⚠️ Failed to load boundaries for ${country} (${countryCode}):`, error);
+            console.warn(`⚠️ Failed to load boundaries for ${countryCode}:`, error);
           }
         }
         
