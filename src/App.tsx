@@ -7,6 +7,7 @@ import { GameDashboard } from './components/GameDashboard';
 import { GameDataDebug } from './components/GameDataDebug';
 import { LegacyCleanupStatus } from './components/LegacyCleanupStatus';
 import { BoundaryLoadingTest } from './components/BoundaryLoadingTest';
+import { BoundaryFixTest } from './components/BoundaryFixTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -229,7 +230,7 @@ function App() {
             <LegacyCleanupStatus />
           </div>
           <div className="mt-4">
-            <BoundaryLoadingTest />
+            <BoundaryFixTest />
           </div>
         </div>
       </div>
