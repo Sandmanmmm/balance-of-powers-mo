@@ -289,18 +289,34 @@ export class GeographicDataManager {
         const countryBoundary: Record<string, GeoJSONFeature> = {};
         countryBoundary[nationCode] = data as GeoJSONFeature;
         
-        console.log(`📊 GeographicDataManager: Loaded country boundary for ${nationCode} from ${url}`);
+        console.log(`📊 GeographicDataManager: Loaded country-level boundary for ${nationCode} from ${url}`);
         return countryBoundary;
         
       } else if (data && typeof data === 'object' && !data.type) {
         // Legacy format: Record<string, GeoJSONFeature> with province-level boundaries
         const provinceCount = Object.keys(data).length;
-        console.log(`📊 GeographicDataManager: Loaded ${provinceCount} province boundaries from ${url} (legacy format)`);
+        console.log(`📊 GeographicDataManager: Loaded ${provinceCount} province-level boundaries from ${url} (province format)`);
         return data as Record<string, GeoJSONFeature>;
+        
+      } else if (data && data.type === 'FeatureCollection' && Array.isArray(data.features)) {
+        // GeoJSON FeatureCollection format
+        const featureCollection = data as GeoJSONFeatureCollection;
+        const boundariesRecord: Record<string, GeoJSONFeature> = {};
+        
+        featureCollection.features.forEach((feature, index) => {
+          if (feature && feature.geometry) {
+            // Use feature id, properties.id, or generate one
+            const featureId = feature.id || feature.properties?.id || feature.properties?.name || `${nationCode}_${index}`;
+            boundariesRecord[String(featureId)] = feature as GeoJSONFeature;
+          }
+        });
+        
+        console.log(`📊 GeographicDataManager: Converted FeatureCollection with ${featureCollection.features.length} features to Record format for ${nationCode}`);
+        return boundariesRecord;
         
       } else {
         throw new GeographicDataError(
-          `Invalid boundary structure - expected GeoJSONFeature or Record<string, GeoJSONFeature>`,
+          `Invalid boundary structure - expected GeoJSONFeature, Record<string, GeoJSONFeature>, or FeatureCollection`,
           nationCode,
           detailLevel
         );

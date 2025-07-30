@@ -382,29 +382,19 @@ export function WorldMap({
         console.log(`🔗 Total country code mappings available:`, Object.keys(countryCodeMap).length);
         
         // Get all available boundary files from the public directory
-        const availableCountryCodes = ['USA', 'CAN', 'MEX', 'CHN', 'IND', 'RUS', 'FRA', 'GER', 'AUS', 'BRA', 'POL', 'UKR'];
-        console.log(`📁 Available boundary files:`, availableCountryCodes);
+        // This list should match exactly what's in /data/boundaries/overview/
+        const knownBoundaryFiles = ['BRA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR', 'IND', 'MEX', 'RUS', 'USA'];
         
-        // Check which countries will be processed from province data
+        // Also try to get countries from province data that have mappings
         const mappedCountries = countries.filter(country => countryCodeMap[country]);
-        const unmappedCountries = countries.filter(country => !countryCodeMap[country]);
+        const mappedCountryCodes = mappedCountries.map(country => countryCodeMap[country]).filter(Boolean);
         
-        console.log(`✅ Countries with mappings (${mappedCountries.length}):`, mappedCountries);
-        console.log(`❌ Countries without mappings (${unmappedCountries.length}):`, unmappedCountries);
-        console.log(`📦 Total provinces loaded:`, provinces.length);
-        console.log(`🏛️ Unique countries in province data:`, countries.length);
+        // Combine all potential countries to load
+        const allCountriesToLoad = [...new Set([...knownBoundaryFiles, ...mappedCountryCodes])];
         
-        // Get all available boundary countries from the mapping (these are the countries we have data for)
-        const availableBoundaryCountries = Array.from(new Set([
-          ...Object.values(countryCodeMap),
-          ...availableCountryCodes  // Add all known boundary files
-        ]));
-        console.log(`🗺️ Available boundary countries from mapping + files:`, availableBoundaryCountries);
-        
-        // Combine mapped countries with all available country codes
-        const allCountriesToLoad = availableBoundaryCountries.filter(Boolean);
-        
-        console.log(`🌍 Will attempt to load boundaries for ${allCountriesToLoad.length} countries:`, allCountriesToLoad);
+        console.log(`📁 Known boundary files:`, knownBoundaryFiles);
+        console.log(`🔗 Mapped countries from province data:`, mappedCountryCodes);
+        console.log(`🌍 Total countries to attempt loading:`, allCountriesToLoad);
         
         // Load boundaries for each country using the new system
         const loadResults = {

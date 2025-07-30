@@ -554,14 +554,36 @@ export async function loadWorldData(): Promise<WorldData> {
     // LOAD BOUNDARY FILES USING NEW COUNTRY-BASED SYSTEM
     console.log('DataLoader: Loading country boundaries using new system...');
     
-    // Get all nations that were loaded
+    // Get all available boundary files instead of just loaded nations
+    console.log('DataLoader: Discovering available boundary files...');
+    const availableBoundaryFiles = Object.keys(countryBoundariesModules);
+    console.log(`DataLoader: Found ${availableBoundaryFiles.length} boundary files:`, availableBoundaryFiles);
+    
+    // Extract country codes from boundary file paths
+    const availableCountryCodes = new Set<string>();
+    availableBoundaryFiles.forEach(path => {
+      // Extract country code from path like "../data/boundaries/overview/USA.json"
+      const match = path.match(/.*\/([A-Z]{3})\.json$/);
+      if (match && match[1]) {
+        availableCountryCodes.add(match[1]);
+      }
+    });
+    
+    const allCountryCodes = Array.from(availableCountryCodes);
+    console.log(`DataLoader: Available country codes with boundaries: ${allCountryCodes.join(', ')}`);
+    
+    // Also include any loaded nations (in case their codes don't match file names exactly)
     const loadedNationCodes = nations.map(n => n.id);
-    console.log(`DataLoader: Loading boundaries for nations: ${loadedNationCodes.join(', ')}`);
+    console.log(`DataLoader: Loaded nation codes: ${loadedNationCodes.join(', ')}`);
+    
+    // Combine and deduplicate
+    const allNationCodes = [...new Set([...allCountryCodes, ...loadedNationCodes])];
+    console.log(`DataLoader: Loading boundaries for ${allNationCodes.length} countries: ${allNationCodes.join(', ')}`);
     
     const detailLevel: DetailLevel = 'overview'; // Start with overview detail
     let boundariesLoaded = 0;
     
-    for (const nationCode of loadedNationCodes) {
+    for (const nationCode of allNationCodes) {
       try {
         console.log(`DataLoader: Loading boundaries for nation ${nationCode}...`);
         const { geographicDataManager } = await import('../managers/GeographicDataManager');
@@ -582,7 +604,7 @@ export async function loadWorldData(): Promise<WorldData> {
       }
     }
     
-    context.fileMetrics.boundaries.total = loadedNationCodes.length;
+    context.fileMetrics.boundaries.total = allNationCodes.length;
     
     if (boundariesLoaded === 0) {
       addWarning(context, 'No boundary files found! Provinces will be rendered as simple shapes.');
@@ -606,6 +628,22 @@ export async function loadWorldData(): Promise<WorldData> {
     const provincesWithoutBoundaries = provinces.filter(p => !boundaryIds.has(p.id));
     if (provincesWithoutBoundaries.length > 0) {
       addWarning(context, `${provincesWithoutBoundaries.length} provinces missing boundary data: ${provincesWithoutBoundaries.slice(0, 3).map(p => p.id).join(', ')}${provincesWithoutBoundaries.length > 3 ? '...' : ''}`);
+    }
+    
+    // Log boundary loading summary
+    const boundariesByCountry = new Map<string, number>();
+    Object.keys(boundaries).forEach(boundaryId => {
+      // Try to extract country code from boundary ID (e.g., "CAN" from "CAN" or "CAN_ON" from province)
+      const countryMatch = boundaryId.match(/^([A-Z]{2,3})/);
+      if (countryMatch) {
+        const country = countryMatch[1];
+        boundariesByCountry.set(country, (boundariesByCountry.get(country) || 0) + 1);
+      }
+    });
+    
+    console.log('DataLoader: Boundaries loaded by country:');
+    for (const [country, count] of boundariesByCountry.entries()) {
+      console.log(`  ${country}: ${count} boundaries`);
     }
 
     const endTime = performance.now();
