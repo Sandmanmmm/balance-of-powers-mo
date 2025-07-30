@@ -8,25 +8,14 @@
  * - Cache eviction based on memory usage
  */
 
-export type DetailLevel = 'overview' | 'detailed' | 'ultra';
-
-export interface GeoJSONFeature {
-  type: 'Feature';
-  properties: {
-    id: string;
-    name?: string;
-    [key: string]: any;
-  };
-  geometry: {
-    type: 'Polygon' | 'MultiPolygon';
-    coordinates: number[][][] | number[][][][];
-  };
-}
-
-export interface GeoJSONFeatureCollection {
-  type: 'FeatureCollection';
-  features: GeoJSONFeature[];
-}
+import {
+  DetailLevel,
+  GeoJSONFeature,
+  GeoJSONFeatureCollection,
+  GeographicCacheEntry,
+  LoadingStats as BaseLoadingStats,
+  GeographicDataError
+} from '../types/geo';
 
 interface CacheEntry {
   data: GeoJSONFeatureCollection;
@@ -36,7 +25,7 @@ interface CacheEntry {
   loadTime: number;
 }
 
-interface LoadingStats {
+interface LoadingStats extends BaseLoadingStats {
   totalRequests: number;
   cacheHits: number;
   cacheMisses: number;
@@ -205,21 +194,33 @@ export class GeographicDataManager {
       const response = await fetch(url);
       
       if (!response.ok) {
-        throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
+        throw new GeographicDataError(
+          `Failed to fetch boundary data: ${response.status} ${response.statusText}`,
+          region,
+          detailLevel
+        );
       }
       
       const data = await response.json();
       
       // Validate basic GeoJSON structure
       if (!data || data.type !== 'FeatureCollection' || !Array.isArray(data.features)) {
-        throw new Error(`Invalid GeoJSON structure in ${url}`);
+        throw new GeographicDataError(
+          `Invalid GeoJSON structure - expected FeatureCollection`,
+          region,
+          detailLevel
+        );
       }
       
       console.log(`📊 GeographicDataManager: Loaded ${data.features.length} features from ${url}`);
       return data as GeoJSONFeatureCollection;
       
     } catch (error) {
-      console.error(`❌ GeographicDataManager: Failed to load ${url}:`, error);
+      if (error instanceof GeographicDataError) {
+        console.error(`❌ GeographicDataManager: ${error.message} (${error.region}/${error.detailLevel})`);
+      } else {
+        console.error(`❌ GeographicDataManager: Failed to load ${url}:`, error);
+      }
       
       // Return empty collection as fallback
       return {
@@ -284,3 +285,6 @@ export class GeographicDataManager {
 
 // Singleton instance
 export const geographicDataManager = new GeographicDataManager();
+
+// Re-export types for convenience
+export { DetailLevel, GeoJSONFeature, GeoJSONFeatureCollection } from '../types/geo';
