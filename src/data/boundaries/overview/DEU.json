@@ -1,0 +1,20 @@
+{
+  "type": "Feature",
+  "id": "DEU",
+  "properties": {
+    "id": "DEU",
+    "name": "Germany",
+    "country": "Germany",
+    "iso_a3": "DEU",
+    "area": 357114,
+    "population": 83783942
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [5.9, 47.3], [5.9, 55.1], [15.0, 55.1], [15.0, 47.3], [5.9, 47.3]
+      ]
+    ]
+  }
+}

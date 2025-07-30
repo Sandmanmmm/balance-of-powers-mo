@@ -1,0 +1,20 @@
+{
+  "type": "Feature",
+  "id": "MEX",
+  "properties": {
+    "id": "MEX",
+    "name": "Mexico",
+    "country": "Mexico",
+    "iso_a3": "MEX",
+    "area": 1964375,
+    "population": 128932753
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-117.0, 14.0], [-117.0, 32.0], [-86.0, 32.0], [-86.0, 14.0], [-117.0, 14.0]
+      ]
+    ]
+  }
+}

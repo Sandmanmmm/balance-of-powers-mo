@@ -1,0 +1,20 @@
+{
+  "type": "Feature",
+  "id": "IND",
+  "properties": {
+    "id": "IND",
+    "name": "India",
+    "country": "India",
+    "iso_a3": "IND",
+    "area": 3287263,
+    "population": 1380004385
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [68.0, 6.0], [68.0, 37.0], [97.0, 37.0], [97.0, 6.0], [68.0, 6.0]
+      ]
+    ]
+  }
+}

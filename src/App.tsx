@@ -18,6 +18,9 @@ import { GeographicArchitectureSummary } from './components/GeographicArchitectu
 import { GeographicDataTester } from './components/GeographicDataTester';
 import { BoundarySystemTester } from './components/BoundarySystemTester';
 import { SystemValidation } from './components/SystemValidation';
+import { CountryBoundarySystemTest } from './components/CountryBoundarySystemTest';
+import { CountryBoundarySystemStatus } from './components/CountryBoundarySystemStatus';
+import { QuickBoundaryTest } from './components/QuickBoundaryTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -262,6 +265,15 @@ function App() {
           </div>
           <div className="mt-4">
             <GeographicDataTester />
+          </div>
+          <div className="mt-4">
+            <CountryBoundarySystemStatus />
+          </div>
+          <div className="mt-4">
+            <QuickBoundaryTest />
+          </div>
+          <div className="mt-4">
+            <CountryBoundarySystemTest />
           </div>
           <div className="mt-4">
             <BoundarySystemTester />

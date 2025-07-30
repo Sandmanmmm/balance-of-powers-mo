@@ -1,0 +1,20 @@
+{
+  "type": "Feature",
+  "id": "FRA",
+  "properties": {
+    "id": "FRA",
+    "name": "France",
+    "country": "France",
+    "iso_a3": "FRA",
+    "area": 643801,
+    "population": 65273511
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-4.6, 42.3], [-4.6, 51.1], [8.2, 51.1], [8.2, 42.3], [-4.6, 42.3]
+      ]
+    ]
+  }
+}
