@@ -158,7 +158,7 @@ export interface GeographicManagerConfig {
 /**
  * Error types for geographic data loading
  */
-export class GeographicDataError extends Error {
+class GeographicDataError extends Error {
   constructor(
     message: string,
     public region: string,
