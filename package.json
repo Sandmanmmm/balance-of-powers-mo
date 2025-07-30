@@ -1,6 +1,12 @@
 {
   "type": "module",
   "scripts": {
-    "import-natural-earth": "node scripts/importNaturalEarth.js"
+    "import-natural-earth": "node scripts/importNaturalEarth.js",
+    "natural-earth:download": "node scripts/natural-earth-complete.js",
+    "natural-earth:simple": "node scripts/simple-natural-earth.js",
+    "natural-earth:validate": "node scripts/validate-natural-earth.js",
+    "natural-earth:status": "node scripts/natural-earth-complete.js status",
+    "boundaries:setup": "npm run natural-earth:simple && npm run natural-earth:validate",
+    "boundaries:update": "npm run natural-earth:download"
   }
 }
