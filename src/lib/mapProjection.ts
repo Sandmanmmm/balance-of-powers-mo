@@ -52,6 +52,41 @@ export function coordinatesToPath(
 }
 
 /**
+ * Convert MultiPolygon geometry to SVG path string
+ */
+export function multiPolygonToPath(
+  coordinates: number[][][][],
+  config: ProjectionConfig
+): string {
+  if (!coordinates || coordinates.length === 0) return '';
+
+  const paths = coordinates.map((polygon) => {
+    // For each polygon, process only the outer ring (index 0)
+    return coordinatesToPath(polygon[0], config);
+  });
+
+  return paths.join(' ');
+}
+
+/**
+ * Convert geometry (Polygon or MultiPolygon) to SVG path string
+ */
+export function geometryToPath(
+  geometry: any,
+  config: ProjectionConfig
+): string {
+  if (!geometry) return '';
+  
+  if (geometry.type === 'Polygon') {
+    return coordinatesToPath(geometry.coordinates[0], config);
+  } else if (geometry.type === 'MultiPolygon') {
+    return multiPolygonToPath(geometry.coordinates, config);
+  }
+  
+  return '';
+}
+
+/**
  * Get bounding box of coordinates for auto-fitting the map
  */
 export function getCoordinatesBounds(coordinates: number[][]): {
@@ -91,6 +126,12 @@ export function calculateOptimalProjection(
     if (feature.geometry.type === 'Polygon') {
       feature.geometry.coordinates[0].forEach((coord: number[]) => {
         allCoordinates.push(coord);
+      });
+    } else if (feature.geometry.type === 'MultiPolygon') {
+      feature.geometry.coordinates.forEach((polygon: number[][][]) => {
+        polygon[0].forEach((coord: number[]) => {
+          allCoordinates.push(coord);
+        });
       });
     }
   });

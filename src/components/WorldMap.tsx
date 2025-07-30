@@ -16,7 +16,7 @@ import {
 } from '@phosphor-icons/react';
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
-import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid } from '../lib/mapProjection';
+import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid, geometryToPath } from '../lib/mapProjection';
 import { loadWorldData } from '../data/dataLoader';
 
 interface WorldMapProps {
@@ -300,13 +300,24 @@ export function WorldMap({
                 const color = getProvinceColor(province, mapOverlay);
             
             // Convert coordinates to SVG path
-            const pathData = coordinatesToPath(
-              feature.geometry.coordinates[0],
+            const pathData = geometryToPath(
+              feature.geometry,
               projectionConfig
             );
 
             // Calculate centroid for label positioning
-            const centroid = calculatePolygonCentroid(feature.geometry.coordinates[0]);
+            let centroid: [number, number];
+            if (feature.geometry.type === 'Polygon') {
+              centroid = calculatePolygonCentroid(feature.geometry.coordinates[0]);
+            } else if (feature.geometry.type === 'MultiPolygon') {
+              // For MultiPolygon, use the centroid of the largest polygon
+              const largestPolygon = feature.geometry.coordinates.reduce((largest: number[][][], current: number[][][]) => {
+                return current[0].length > largest[0].length ? current : largest;
+              });
+              centroid = calculatePolygonCentroid(largestPolygon[0]);
+            } else {
+              centroid = [0, 0]; // fallback
+            }
             const [labelX, labelY] = projectCoordinates(centroid[0], centroid[1], projectionConfig);
 
             return (
