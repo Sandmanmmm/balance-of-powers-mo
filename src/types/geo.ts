@@ -203,3 +203,31 @@ export interface RegionMetadata {
   version: string;
   supportedDetailLevels: DetailLevel[];
 }
+
+// Explicit export list to fix any module resolution issues
+export type {
+  GeoJSONPosition,
+  GeoJSONGeometry,
+  GeoJSONPoint,
+  GeoJSONLineString,
+  GeoJSONPolygon,
+  GeoJSONMultiPoint,
+  GeoJSONMultiLineString,
+  GeoJSONMultiPolygon,
+  GeoJSONGeometryCollection,
+  GeoJSONFeature,
+  GeoJSONFeatureCollection,
+  RegionalBoundaryData,
+  GeographicCacheEntry,
+  CacheStats,
+  LoadingStats,
+  GeographicManagerConfig,
+  CoordinateTransform,
+  ViewportBounds,
+  RegionMetadata
+};
+
+export {
+  DetailLevel,
+  GeographicDataError
+};

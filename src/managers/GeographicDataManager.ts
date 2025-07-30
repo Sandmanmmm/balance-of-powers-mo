@@ -8,14 +8,14 @@
  * - Cache eviction based on memory usage
  */
 
-import {
-  DetailLevel,
+import type {
   GeoJSONFeature,
   GeoJSONFeatureCollection,
   GeographicCacheEntry,
   LoadingStats as BaseLoadingStats,
   GeographicDataError
 } from '../types/geo';
+import { DetailLevel } from '../types/geo';
 
 interface CacheEntry {
   data: GeoJSONFeatureCollection;
@@ -287,4 +287,5 @@ export class GeographicDataManager {
 export const geographicDataManager = new GeographicDataManager();
 
 // Re-export types for convenience
-export { DetailLevel, GeoJSONFeature, GeoJSONFeatureCollection } from '../types/geo';
+export type { GeoJSONFeature, GeoJSONFeatureCollection } from '../types/geo';
+export { DetailLevel } from '../types/geo';

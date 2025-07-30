@@ -17,8 +17,7 @@ import {
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
 import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid, geometryToPath } from '../lib/mapProjection';
-import { geographicDataManager } from '../managers/GeographicDataManager';
-import { DetailLevel, GeoJSONFeature, GeoJSONFeatureCollection } from '../types/geo';
+import { geographicDataManager, DetailLevel, GeoJSONFeature, GeoJSONFeatureCollection } from '../managers/GeographicDataManager';
 
 interface WorldMapProps {
   provinces: Province[];
