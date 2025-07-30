@@ -8,6 +8,33 @@ import resourcesRaw from './resources.yaml?raw';
 import eventsRaw from './events.yaml?raw';
 import technologiesRaw from './technologies.yaml?raw';
 
+/**
+ * NEW BOUNDARY SYSTEM STRUCTURE
+ * 
+ * Country boundaries are now organized by detail level and ISO country codes:
+ * 
+ * /data/boundaries/{detailLevel}/{ISO_A3}.json
+ * 
+ * Examples:
+ * - /data/boundaries/overview/USA.json
+ * - /data/boundaries/detailed/CAN.json  
+ * - /data/boundaries/ultra/CHN.json
+ * 
+ * Each file contains province-level boundaries for that country as:
+ * Record<string, GeoJSONFeature>
+ * 
+ * Detail Levels:
+ * - overview: Basic country shapes, good for world view
+ * - detailed: More accurate boundaries with better coastlines  
+ * - ultra: High-detail boundaries for close-up viewing
+ * 
+ * This structure allows:
+ * 1. Loading only needed countries
+ * 2. Progressive detail enhancement
+ * 3. Efficient memory management
+ * 4. Cleaner file organization
+ */
+
 // Re-export types for convenience
 export type { Nation, Province };
 

@@ -1,6 +1,7 @@
 import yaml from 'js-yaml';
 import { z } from 'zod';
 import { Province, Nation } from '../lib/types';
+import type { DetailLevel } from '../types/geo';
 
 // Schema validation using Zod
 const NationSchema = z.object({
@@ -309,10 +310,16 @@ const provinceModules = import.meta.glob([
   '../data/regions/*/provinces_*.yaml'
 ], { as: 'raw' });
 
+// Legacy boundary modules for backward compatibility
 const boundariesModules = import.meta.glob([
   '../data/province-boundaries_*.json',
   '../data/regions/**/province-boundaries_*.json',
   '../data/regions/*/province-boundaries_*.json'
+]);
+
+// New country-based boundary modules organized by detail level
+const countryBoundariesModules = import.meta.glob([
+  '../data/boundaries/*/*.json'
 ]);
 
 export async function loadWorldData(): Promise<WorldData> {
@@ -553,16 +560,42 @@ export async function loadWorldData(): Promise<WorldData> {
 
     // LOAD BOUNDARY FILES WITH ENHANCED ERROR HANDLING
     console.log('DataLoader: Loading boundary files...');
-    context.fileMetrics.boundaries.total = Object.keys(boundariesModules).length;
-    console.log(`DataLoader: Found ${context.fileMetrics.boundaries.total} boundary files to process`);
     
-    if (context.fileMetrics.boundaries.total === 0) {
+    // Get all nations that were loaded
+    const loadedNationCodes = nations.map(n => n.id);
+    
+    // Try to load country boundaries using the new structure first
+    console.log('DataLoader: Loading country boundaries using new structure...');
+    const detailLevel: DetailLevel = 'overview'; // Start with overview detail
+    
+    for (const nationCode of loadedNationCodes) {
+      try {
+        console.log(`DataLoader: Loading boundaries for nation ${nationCode}...`);
+        const { geographicDataManager } = await import('../managers/GeographicDataManager');
+        const nationBoundaries = await geographicDataManager.loadNationBoundaries(nationCode, detailLevel);
+        
+        // Merge nation boundaries into the main boundaries object
+        Object.assign(boundaries, nationBoundaries);
+        console.log(`DataLoader: ✓ Loaded ${Object.keys(nationBoundaries).length} boundaries for ${nationCode}`);
+        
+      } catch (error) {
+        console.warn(`DataLoader: Failed to load boundaries for ${nationCode}: ${error}`);
+        // Continue with next nation - we'll try legacy loading below
+      }
+    }
+    
+    // Fallback to legacy boundary loading for any missing data
+    console.log('DataLoader: Loading legacy boundary files...');
+    context.fileMetrics.boundaries.total = Object.keys(boundariesModules).length;
+    console.log(`DataLoader: Found ${context.fileMetrics.boundaries.total} legacy boundary files to process`);
+    
+    if (context.fileMetrics.boundaries.total === 0 && Object.keys(boundaries).length === 0) {
       addWarning(context, 'No boundary files found! Provinces will be rendered as simple shapes.');
     }
     
     for (const path in boundariesModules) {
       try {
-        console.log(`DataLoader: Processing boundary file: ${path}`);
+        console.log(`DataLoader: Processing legacy boundary file: ${path}`);
         const moduleResult = await boundariesModules[path]() as any;
         
         // Handle different boundary file structures
@@ -586,8 +619,11 @@ export async function loadWorldData(): Promise<WorldData> {
                 return;
               }
               
-              boundaries[feature.properties.id] = feature;
-              featuresAdded++;
+              // Only add if not already loaded by new system
+              if (!boundaries[feature.properties.id]) {
+                boundaries[feature.properties.id] = feature;
+                featuresAdded++;
+              }
             } else {
               addWarning(context, `Boundary feature missing ID in ${path}`);
             }
@@ -595,10 +631,10 @@ export async function loadWorldData(): Promise<WorldData> {
           
           if (featuresAdded > 0) {
             context.fileMetrics.boundaries.successful++;
-            console.log(`DataLoader: ✓ Successfully loaded ${featuresAdded} boundary features from ${path}`);
+            console.log(`DataLoader: ✓ Successfully loaded ${featuresAdded} legacy boundary features from ${path}`);
           } else {
-            addWarning(context, `No valid features found in ${path}`);
-            context.fileMetrics.boundaries.failed++;
+            console.log(`DataLoader: All features from ${path} already loaded by new system`);
+            context.fileMetrics.boundaries.successful++;
           }
         } else if (boundaryData && typeof boundaryData === 'object') {
           // Direct object format
@@ -607,8 +643,11 @@ export async function loadWorldData(): Promise<WorldData> {
             // Validate each boundary object
             for (const [key, value] of Object.entries(boundaryData)) {
               if (value && typeof value === 'object') {
-                boundaries[key] = value;
-                featuresAdded++;
+                // Only add if not already loaded by new system
+                if (!boundaries[key]) {
+                  boundaries[key] = value;
+                  featuresAdded++;
+                }
               } else {
                 addWarning(context, `Invalid boundary object for key ${key} in ${path}`);
               }
@@ -616,9 +655,10 @@ export async function loadWorldData(): Promise<WorldData> {
             
             if (featuresAdded > 0) {
               context.fileMetrics.boundaries.successful++;
-              console.log(`DataLoader: ✓ Successfully loaded ${featuresAdded} boundary objects from ${path}`);
+              console.log(`DataLoader: ✓ Successfully loaded ${featuresAdded} legacy boundary objects from ${path}`);
             } else {
-              context.fileMetrics.boundaries.failed++;
+              console.log(`DataLoader: All objects from ${path} already loaded by new system`);
+              context.fileMetrics.boundaries.successful++;
             }
           } else {
             addWarning(context, `Empty boundary object in ${path}`);
@@ -759,6 +799,7 @@ export function debugAvailableFiles(): void {
   console.log('DataLoader Debug - Available files:');
   console.log('Nation files:', Object.keys(nationModules));
   console.log('Province files:', Object.keys(provinceModules));
-  console.log('Boundary files:', Object.keys(boundariesModules));
+  console.log('Legacy boundary files:', Object.keys(boundariesModules));
+  console.log('Country boundary files:', Object.keys(countryBoundariesModules));
   console.log('Detected regions:', getAvailableRegions());
 }

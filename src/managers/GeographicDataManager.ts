@@ -260,7 +260,7 @@ export class GeographicDataManager {
   }
 
   /**
-   * Private: Fetch nation boundary data from server
+   * Private: Fetch nation boundary data from server using new country-based structure
    */
   private async _fetchNationBoundaries(nationCode: string, detailLevel: DetailLevel): Promise<Record<string, GeoJSONFeature>> {
     const url = `/data/boundaries/${detailLevel}/${nationCode}.json`;
@@ -280,18 +280,31 @@ export class GeographicDataManager {
       
       const data = await response.json();
       
-      // Validate basic structure - should be Record<string, GeoJSONFeature>
-      if (!data || typeof data !== 'object') {
+      // New structure: Single GeoJSONFeature for the country, not Record<string, GeoJSONFeature>
+      // We need to handle both legacy format and new format
+      
+      if (data && data.type === 'Feature') {
+        // New format: Single GeoJSONFeature representing the entire country
+        // Convert to Record format for compatibility
+        const countryBoundary: Record<string, GeoJSONFeature> = {};
+        countryBoundary[nationCode] = data as GeoJSONFeature;
+        
+        console.log(`📊 GeographicDataManager: Loaded country boundary for ${nationCode} from ${url}`);
+        return countryBoundary;
+        
+      } else if (data && typeof data === 'object' && !data.type) {
+        // Legacy format: Record<string, GeoJSONFeature> with province-level boundaries
+        const provinceCount = Object.keys(data).length;
+        console.log(`📊 GeographicDataManager: Loaded ${provinceCount} province boundaries from ${url} (legacy format)`);
+        return data as Record<string, GeoJSONFeature>;
+        
+      } else {
         throw new GeographicDataError(
-          `Invalid boundary structure - expected Record<string, GeoJSONFeature>`,
+          `Invalid boundary structure - expected GeoJSONFeature or Record<string, GeoJSONFeature>`,
           nationCode,
           detailLevel
         );
       }
-      
-      const provinceCount = Object.keys(data).length;
-      console.log(`📊 GeographicDataManager: Loaded ${provinceCount} provinces from ${url}`);
-      return data as Record<string, GeoJSONFeature>;
       
     } catch (error) {
       if (error instanceof GeographicDataError) {

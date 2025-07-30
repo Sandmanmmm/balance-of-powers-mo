@@ -113,26 +113,68 @@ export function WorldMap({
   const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
   const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>('overview');
 
-  // Load province boundaries using GeographicDataManager
+  // Load province boundaries using new country-based GeographicDataManager
   useEffect(() => {
     const loadBoundaries = async () => {
       try {
-        console.log('🌍 WorldMap: Loading world boundaries at', currentDetailLevel, 'detail');
+        console.log('🌍 WorldMap: Loading country boundaries at', currentDetailLevel, 'detail');
         
-        // Load boundaries for all major regions at current detail level
-        const regions = ['usa', 'canada', 'mexico', 'china', 'india', 'russia', 'europe_west', 'europe_east'];
+        // Get list of unique countries from provinces
+        const countries = Array.from(new Set(provinces.map(p => p.country)));
+        const countryCodeMap: Record<string, string> = {
+          'United States': 'USA',
+          'Canada': 'CAN', 
+          'Mexico': 'MEX',
+          'China': 'CHN',
+          'India': 'IND',
+          'Russia': 'RUS',
+          'France': 'FRA',
+          'Germany': 'DEU',
+          'United Kingdom': 'GBR',
+          'Australia': 'AUS'
+        };
+        
         const allFeatures: any[] = [];
         
-        for (const region of regions) {
+        // Load boundaries for each country using the new system
+        for (const country of countries) {
+          const countryCode = countryCodeMap[country];
+          if (!countryCode) {
+            console.warn(`No country code mapping for: ${country}`);
+            continue;
+          }
+          
           try {
-            const regionData = await geographicDataManager.loadRegion(region, currentDetailLevel);
-            if (regionData?.features?.length > 0) {
-              allFeatures.push(...regionData.features);
-              console.log(`✓ Loaded ${regionData.features.length} features from ${region}`);
+            console.log(`Loading boundaries for ${country} (${countryCode})...`);
+            const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
+            
+            // Convert Record<string, GeoJSONFeature> to Feature array
+            const features = Object.values(countryBoundaries);
+            if (features.length > 0) {
+              allFeatures.push(...features);
+              console.log(`✓ Loaded ${features.length} provinces from ${country}`);
             }
           } catch (error) {
-            console.warn(`⚠️ Failed to load ${region}:`, error);
-            // Continue loading other regions even if one fails
+            console.warn(`⚠️ Failed to load boundaries for ${country} (${countryCode}):`, error);
+            // Continue loading other countries even if one fails
+          }
+        }
+        
+        // Also try to load from legacy system for any missing data
+        if (allFeatures.length === 0) {
+          console.log('🔄 Falling back to legacy regional loading...');
+          const regions = ['usa', 'canada', 'mexico', 'china', 'india', 'russia', 'europe_west', 'europe_east'];
+          
+          for (const region of regions) {
+            try {
+              const regionData = await geographicDataManager.loadRegion(region, currentDetailLevel);
+              if (regionData?.features?.length > 0) {
+                allFeatures.push(...regionData.features);
+                console.log(`✓ Loaded ${regionData.features.length} features from legacy region ${region}`);
+              }
+            } catch (error) {
+              console.warn(`⚠️ Failed to load legacy region ${region}:`, error);
+            }
           }
         }
         
@@ -204,18 +246,18 @@ export function WorldMap({
     setHoveredProvince(provinceId);
   }, []);
 
-  const handleUpgradeRegion = useCallback(async (region: string) => {
+  const handleUpgradeRegion = useCallback(async (countryCode: string) => {
     const nextDetailLevel: DetailLevel = 
       currentDetailLevel === 'overview' ? 'detailed' :
       currentDetailLevel === 'detailed' ? 'ultra' : 'ultra';
       
     if (nextDetailLevel !== currentDetailLevel) {
       try {
-        console.log(`🔄 Upgrading ${region} to ${nextDetailLevel}`);
-        await geographicDataManager.upgradeRegionDetail(region, nextDetailLevel);
+        console.log(`🔄 Upgrading ${countryCode} to ${nextDetailLevel}`);
+        await geographicDataManager.upgradeNationDetail(countryCode, nextDetailLevel);
         setCurrentDetailLevel(nextDetailLevel);
       } catch (error) {
-        console.error(`Failed to upgrade ${region}:`, error);
+        console.error(`Failed to upgrade ${countryCode}:`, error);
       }
     }
   }, [currentDetailLevel]);
@@ -309,16 +351,21 @@ export function WorldMap({
           <div className="space-y-1">
             <div className="text-xs font-medium text-muted-foreground mb-2">Quick Upgrade</div>
             <div className="grid grid-cols-2 gap-1">
-              {['usa', 'china', 'canada', 'india'].map((region) => (
+              {[
+                { code: 'USA', label: 'USA' },
+                { code: 'CAN', label: 'CAN' },
+                { code: 'CHN', label: 'CHN' },
+                { code: 'IND', label: 'IND' }
+              ].map(({ code, label }) => (
                 <Button
-                  key={region}
+                  key={code}
                   variant="outline"
                   size="sm"
                   className="text-xs px-1"
-                  onClick={() => handleUpgradeRegion(region)}
+                  onClick={() => handleUpgradeRegion(code)}
                   disabled={currentDetailLevel === 'ultra'}
                 >
-                  {region.toUpperCase()}
+                  {label}
                 </Button>
               ))}
             </div>
