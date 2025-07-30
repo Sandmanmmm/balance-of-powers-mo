@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth",
+    "level": "ultra",
+    "country": "DEU",
+    "generated": "2024-01-01T00:00:00.000Z",
+    "enhanced": "2024-01-15T10:00:00.000Z",
+    "version": "1.0.0"
+  },
+  "gameMetadata": {
+    "displayName": "Germany",
+    "region": "Western Europe",
+    "startingYear": 1990,
+    "government": "Federal Republic",
+    "ideology": "Liberal Democracy",
+    "gdpEstimate": 1768000000000,
+    "population": 79479000,
+    "capital": "Berlin"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DEU",
+        "ISO_A3": "DEU",
+        "NAME": "Germany",
+        "ADMIN": "Germany"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [5.9, 51.2],
+            [6.2, 51.8],
+            [6.8, 52.2],
+            [7.5, 52.8],
+            [8.2, 53.2],
+            [9.0, 53.8],
+            [9.8, 54.2],
+            [10.5, 54.8],
+            [11.2, 55.0],
+            [12.0, 54.8],
+            [12.8, 54.5],
+            [13.5, 54.0],
+            [14.2, 53.2],
+            [15.0, 52.2],
+            [15.5, 51.0],
+            [15.8, 49.8],
+            [15.5, 48.5],
+            [15.0, 47.2],
+            [14.2, 46.0],
+            [13.5, 45.0],
+            [12.8, 44.2],
+            [12.0, 43.8],
+            [11.2, 44.0],
+            [10.5, 44.5],
+            [9.8, 45.2],
+            [9.0, 46.0],
+            [8.2, 46.8],
+            [7.5, 47.8],
+            [6.8, 48.8],
+            [6.2, 49.8],
+            [5.9, 51.2]
+          ]
+        ]
+      }
+    }
+  ]
+}

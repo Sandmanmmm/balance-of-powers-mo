@@ -1,159 +1,214 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { geographicDataManager, type DetailLevel } from '../managers/GeographicDataManager';
+import { geographicDataManager } from '@/managers/GeographicDataManager';
+import { DetailLevel } from '@/types/geo';
+
+interface TestResult {
+  country: string;
+  level: DetailLevel;
+  success: boolean;
+  features: number;
+  loadTime: number;
+  error?: string;
+}
 
 export function BoundarySystemTest() {
-  const [testResults, setTestResults] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentTest, setCurrentTest] = useState('');
+  const [testing, setTesting] = useState(false);
+  const [results, setResults] = useState<TestResult[]>([]);
+  const [cacheStats, setCacheStats] = useState<any>(null);
 
-  const testCountries = [
-    { code: 'CAN', name: 'Canada' },
-    { code: 'USA', name: 'United States' },
-    { code: 'CHN', name: 'China' },
-    { code: 'DEU', name: 'Germany' },
-    { code: 'FRA', name: 'France' }
-  ];
+  const testCountries = ['USA', 'CAN', 'CHN', 'RUS', 'DEU', 'FRA'];
+  const testLevels: DetailLevel[] = ['overview', 'detailed', 'ultra'];
 
-  const runBoundaryTests = async () => {
-    setIsLoading(true);
-    setTestResults([]);
-    const results: any[] = [];
-
+  const runTests = async () => {
+    setTesting(true);
+    setResults([]);
+    
+    const newResults: TestResult[] = [];
+    
     for (const country of testCountries) {
-      for (const detailLevel of ['overview', 'detailed', 'ultra'] as DetailLevel[]) {
-        setCurrentTest(`Testing ${country.name} (${detailLevel})`);
+      for (const level of testLevels) {
+        const startTime = performance.now();
         
         try {
-          const startTime = Date.now();
-          const boundaries = await geographicDataManager.loadNationBoundaries(country.code, detailLevel);
-          const loadTime = Date.now() - startTime;
+          console.log(`Testing ${country} at ${level} detail...`);
+          const data = await geographicDataManager.loadCountryBoundaries(country, level);
+          const loadTime = performance.now() - startTime;
           
-          const featureCount = Object.keys(boundaries).length;
-          const firstFeature = Object.values(boundaries)[0];
-          
-          results.push({
-            country: country.code,
-            name: country.name,
-            detailLevel,
+          newResults.push({
+            country,
+            level,
             success: true,
-            featureCount,
+            features: data.features.length,
             loadTime,
-            hasGeometry: firstFeature?.geometry ? true : false,
-            geometryType: firstFeature?.geometry?.type || 'N/A'
           });
           
         } catch (error) {
-          results.push({
-            country: country.code,
-            name: country.name,
-            detailLevel,
+          const loadTime = performance.now() - startTime;
+          newResults.push({
+            country,
+            level,
             success: false,
-            error: error instanceof Error ? error.message : String(error),
-            featureCount: 0,
-            loadTime: 0
+            features: 0,
+            loadTime,
+            error: error instanceof Error ? error.message : String(error)
           });
         }
+        
+        // Update results as we go
+        setResults([...newResults]);
       }
     }
-
-    // Test cache statistics
-    const stats = geographicDataManager.getStats();
-    results.push({
-      type: 'cache_stats',
-      ...stats,
-      currentCacheSizeMB: (stats.currentCacheSize / 1024 / 1024).toFixed(2)
-    });
-
-    setTestResults(results);
-    setIsLoading(false);
-    setCurrentTest('');
+    
+    // Update cache stats
+    setCacheStats(geographicDataManager.getCacheStats());
+    setTesting(false);
   };
 
   const clearCache = () => {
     geographicDataManager.clearCache();
-    console.log('🧹 Cleared GeographicDataManager cache');
+    setCacheStats(geographicDataManager.getCacheStats());
   };
 
+  useEffect(() => {
+    setCacheStats(geographicDataManager.getCacheStats());
+  }, []);
+
+  const getStatusIcon = (success: boolean) => success ? '✅' : '❌';
+  const getStatusColor = (success: boolean) => success ? 'text-green-600' : 'text-red-600';
+
+  const successfulTests = results.filter(r => r.success).length;
+  const totalTests = results.length;
+  const averageLoadTime = results.length > 0 
+    ? results.reduce((sum, r) => sum + r.loadTime, 0) / results.length 
+    : 0;
+
   return (
-    <Card className="p-4 space-y-4">
-      <div className="space-y-2">
-        <h3 className="text-lg font-semibold">Nation-Based Boundary System Test</h3>
-        <p className="text-sm text-muted-foreground">
-          Test the new country-based boundary loading system with detail levels
-        </p>
-      </div>
-
-      <div className="flex space-x-2">
-        <Button 
-          onClick={runBoundaryTests} 
-          disabled={isLoading}
-          variant="default"
-        >
-          {isLoading ? 'Testing...' : 'Run Boundary Tests'}
-        </Button>
-        <Button 
-          onClick={clearCache} 
-          variant="outline"
-        >
-          Clear Cache
-        </Button>
-      </div>
-
-      {isLoading && (
-        <div className="text-sm text-muted-foreground">
-          {currentTest && <p>⏳ {currentTest}</p>}
+    <div className="space-y-4">
+      {/* Header */}
+      <div className="p-4 border rounded-lg bg-card">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-lg font-semibold">Boundary System Test</h3>
+          <button
+            onClick={runTests}
+            disabled={testing}
+            className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded hover:bg-primary/90 disabled:opacity-50"
+          >
+            {testing ? 'Testing...' : 'Run Tests'}
+          </button>
         </div>
-      )}
+        <div className="text-sm text-muted-foreground">
+          Tests loading boundary data for {testCountries.length} countries at {testLevels.length} detail levels
+        </div>
+      </div>
 
-      {testResults.length > 0 && (
-        <div className="space-y-2">
-          <h4 className="font-medium">Test Results:</h4>
-          <div className="grid grid-cols-1 gap-2 max-h-96 overflow-y-auto">
-            {testResults.map((result, index) => {
-              if (result.type === 'cache_stats') {
-                return (
-                  <div key={index} className="p-2 bg-blue-50 border border-blue-200 rounded text-sm">
-                    <strong>Cache Stats:</strong>
-                    <div className="grid grid-cols-2 gap-2 mt-1">
-                      <div>Entries: {result.cacheEntries}</div>
-                      <div>Size: {result.currentCacheSizeMB} MB</div>
-                      <div>Hit Ratio: {(result.hitRatio * 100).toFixed(1)}%</div>
-                      <div>Total Requests: {result.totalRequests}</div>
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <div 
-                  key={index} 
-                  className={`p-2 border rounded text-sm ${
-                    result.success ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'
-                  }`}
-                >
-                  <div className="font-medium">
-                    {result.name} ({result.country}) - {result.detailLevel}
-                  </div>
-                  {result.success ? (
-                    <div className="grid grid-cols-2 gap-1 text-xs mt-1">
-                      <div>Features: {result.featureCount}</div>
-                      <div>Load: {result.loadTime}ms</div>
-                      <div>Geometry: {result.hasGeometry ? '✅' : '❌'}</div>
-                      <div>Type: {result.geometryType}</div>
-                    </div>
-                  ) : (
-                    <div className="text-red-600 text-xs mt-1">
-                      Error: {result.error}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+      {/* Test Summary */}
+      {results.length > 0 && (
+        <div className="grid grid-cols-3 gap-4">
+          <div className="p-3 border rounded bg-card text-center">
+            <div className="text-xl font-bold text-primary">{successfulTests}/{totalTests}</div>
+            <div className="text-xs text-muted-foreground">Tests Passed</div>
+          </div>
+          <div className="p-3 border rounded bg-card text-center">
+            <div className="text-xl font-bold text-primary">{averageLoadTime.toFixed(1)}ms</div>
+            <div className="text-xs text-muted-foreground">Avg Load Time</div>
+          </div>
+          <div className="p-3 border rounded bg-card text-center">
+            <div className="text-xl font-bold text-primary">
+              {results.filter(r => r.success && r.features > 0).length}
+            </div>
+            <div className="text-xs text-muted-foreground">Valid Boundaries</div>
           </div>
         </div>
       )}
-    </Card>
+
+      {/* Test Results */}
+      {results.length > 0 && (
+        <div className="p-4 border rounded-lg bg-card">
+          <h4 className="font-semibold mb-3">Test Results</h4>
+          <div className="space-y-1 max-h-64 overflow-y-auto">
+            {results.map((result, index) => (
+              <div key={index} className="flex items-center justify-between p-2 rounded bg-muted/50 text-sm">
+                <div className="flex items-center gap-2">
+                  <span className={getStatusColor(result.success)}>
+                    {getStatusIcon(result.success)}
+                  </span>
+                  <span className="font-mono">{result.country}</span>
+                  <span className="text-muted-foreground">({result.level})</span>
+                </div>
+                <div className="flex items-center gap-4 text-xs">
+                  {result.success ? (
+                    <>
+                      <span>{result.features} features</span>
+                      <span>{result.loadTime.toFixed(1)}ms</span>
+                    </>
+                  ) : (
+                    <span className="text-red-600 max-w-48 truncate">
+                      {result.error}
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Cache Stats */}
+      {cacheStats && (
+        <div className="p-4 border rounded-lg bg-card">
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="font-semibold">Cache Statistics</h4>
+            <button
+              onClick={clearCache}
+              className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded hover:bg-secondary/80"
+            >
+              Clear Cache
+            </button>
+          </div>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <div className="text-muted-foreground">Cached Entries</div>
+              <div className="font-medium">{cacheStats.entryCount}</div>
+            </div>
+            <div>
+              <div className="text-muted-foreground">Cache Size</div>
+              <div className="font-medium">{cacheStats.totalSizeMB.toFixed(1)} MB</div>
+            </div>
+            <div>
+              <div className="text-muted-foreground">Files Loaded</div>
+              <div className="font-medium">{cacheStats.loadStats.totalFiles}</div>
+            </div>
+            <div>
+              <div className="text-muted-foreground">Load Errors</div>
+              <div className="font-medium">{cacheStats.loadStats.errors.length}</div>
+            </div>
+          </div>
+          
+          {cacheStats.loadStats.errors.length > 0 && (
+            <div className="mt-3">
+              <div className="text-xs text-muted-foreground mb-1">Recent Errors:</div>
+              <div className="text-xs text-red-600 space-y-1">
+                {cacheStats.loadStats.errors.slice(-3).map((error: string, index: number) => (
+                  <div key={index} className="truncate">{error}</div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Loading State */}
+      {testing && (
+        <div className="p-4 border rounded-lg bg-card">
+          <div className="flex items-center gap-2">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+            <span className="text-sm">Testing boundary system...</span>
+          </div>
+          <div className="mt-2 text-xs text-muted-foreground">
+            Progress: {results.length}/{testCountries.length * testLevels.length} tests completed
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
