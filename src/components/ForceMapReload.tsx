@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardConten
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { RefreshCw } from '@phosphor-icons/react';
 
 export function ForceMapReload() {
@@ -19,33 +19,28 @@ export function ForceMapReload() {
       // Force refresh the page to reload all data
       window.location.reload();
       
+    } catch (error) {
+      console.error('Failed to force reload:', error);
+      setIsReloading(false);
     }
+  };
 
-    <Card class
-        <CardTitle className
-     
-    
-
-        </
-          onClick={handleForc
-          classNam
+  return (
+    <Card className="w-full max-w-md">
+      <CardHeader>
+        <CardTitle className="text-sm">Force Map Reload</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Button
+          onClick={handleForceReload}
+          disabled={isReloading}
+          className="w-full"
+          variant="outline"
         >
+          <RefreshCw className={`mr-2 h-4 w-4 ${isReloading ? 'animate-spin' : ''}`} />
+          {isReloading ? 'Reloading...' : 'Force Reload'}
         </Button>
+      </CardContent>
     </Card>
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
