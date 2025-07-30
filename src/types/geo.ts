@@ -228,6 +228,5 @@ export type {
 };
 
 export {
-  DetailLevel,
   GeographicDataError
 };
