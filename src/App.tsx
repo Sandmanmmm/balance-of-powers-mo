@@ -10,7 +10,7 @@ import { BoundaryLoadingTest } from './components/BoundaryLoadingTest';
 import { BoundaryFixTest } from './components/BoundaryFixTest';
 import { CountryBoundaryTest } from './components/CountryBoundaryTest';
 import { MapStatusSummary } from './components/MapStatusSummary';
-import { BoundaryLoadingStatus } from './components/BoundaryLoadingStatus';
+import { MapDebugSummary } from './components/MapDebugSummary';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -242,7 +242,7 @@ function App() {
             <MapStatusSummary />
           </div>
           <div className="mt-4">
-            <BoundaryLoadingStatus />
+            <MapDebugSummary />
           </div>
         </div>
       </div>

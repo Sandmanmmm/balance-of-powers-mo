@@ -146,6 +146,66 @@ function getProvinceColor(province: Province, overlay: MapOverlayType): string {
   }
 }
 
+// Helper function to get country color when no province data is available
+function getCountryColor(countryName?: string): string {
+  if (!countryName) return '#e5e7eb'; // Gray fallback
+  
+  const countryColorMap: Record<string, string> = {
+    // North America
+    'United States': '#fbbf24',  // Amber
+    'Canada': '#34d399',  // Emerald
+    'Mexico': '#f87171',  // Red
+    
+    // Superpowers
+    'China': '#a78bfa',  // Violet
+    'People\'s Republic of China': '#a78bfa',  // Violet
+    'India': '#fb7185',  // Rose
+    'Russia': '#06b6d4',  // Cyan
+    'Russian Federation': '#06b6d4',  // Cyan
+    
+    // Europe Major
+    'Germany': '#2dd4bf',  // Teal
+    'France': '#60a5fa',  // Blue
+    'United Kingdom': '#f472b6',  // Pink
+    'Italy': '#84cc16',  // Lime
+    'Spain': '#f59e0b',  // Orange
+    
+    // Europe East
+    'Ukraine': '#8b5cf6',  // Purple
+    'Poland': '#10b981',  // Green
+    'Romania': '#ef4444',  // Red-500
+    'Czech Republic': '#3b82f6',  // Blue-500
+    'Hungary': '#f97316',  // Orange-500
+    
+    // Asia Pacific
+    'Japan': '#ec4899',  // Pink-500
+    'South Korea': '#6366f1',  // Indigo-500
+    'Australia': '#fbbf24',  // Amber
+    'Indonesia': '#14b8a6',  // Teal-500
+    'Thailand': '#a855f7',  // Purple-500
+    
+    // Middle East
+    'Turkey': '#dc2626',  // Red-600
+    'Iran': '#7c3aed',  // Violet-600
+    'Saudi Arabia': '#059669',  // Emerald-600
+    'Israel': '#2563eb',  // Blue-600
+    
+    // South America
+    'Brazil': '#16a34a',  // Green-600
+    'Argentina': '#0891b2',  // Sky-600
+    'Chile': '#c2410c',  // Orange-600
+    'Colombia': '#7c2d12',  // Orange-800
+    
+    // Africa
+    'South Africa': '#be123c',  // Rose-700
+    'Nigeria': '#166534',  // Green-800
+    'Egypt': '#b45309',  // Amber-700
+    'Kenya': '#991b1b',  // Red-800
+  };
+  
+  return countryColorMap[countryName] || '#d1d5db';  // Light gray fallback
+}
+
 export function WorldMap({ 
   provinces, 
   selectedProvince, 
@@ -382,19 +442,25 @@ export function WorldMap({
         console.log(`🔗 Total country code mappings available:`, Object.keys(countryCodeMap).length);
         
         // Get all available boundary files from the public directory
-        // This list should match exactly what's in /data/boundaries/overview/
+        // Load boundaries for ALL countries that have boundary files available
         const knownBoundaryFiles = ['BRA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR', 'IND', 'MEX', 'RUS', 'USA'];
         
         // Also try to get countries from province data that have mappings
         const mappedCountries = countries.filter(country => countryCodeMap[country]);
         const mappedCountryCodes = mappedCountries.map(country => countryCodeMap[country]).filter(Boolean);
         
-        // Combine all potential countries to load
+        // ALWAYS load boundaries for known countries regardless of province data
+        // This ensures we show the map even if province data is missing
         const allCountriesToLoad = [...new Set([...knownBoundaryFiles, ...mappedCountryCodes])];
         
-        console.log(`📁 Known boundary files:`, knownBoundaryFiles);
-        console.log(`🔗 Mapped countries from province data:`, mappedCountryCodes);
-        console.log(`🌍 Total countries to attempt loading:`, allCountriesToLoad);
+        console.log(`🌍 BOUNDARY LOADING DEBUG:`);
+        console.log(`  Provinces loaded from data: ${provinces.length} provinces`);
+        console.log(`  Unique countries in province data: ${countries}`);
+        console.log(`  Known boundary files: ${knownBoundaryFiles}`);
+        console.log(`  Mapped countries from provinces: ${mappedCountryCodes}`);
+        console.log(`  Final countries to load boundaries for: ${allCountriesToLoad}`);
+        
+
         
         // Load boundaries for each country using the new system
         const loadResults = {
@@ -693,9 +759,8 @@ export function WorldMap({
           {provinceBoundariesData?.features && Array.isArray(provinceBoundariesData.features) && provinceBoundariesData.features
             .filter((feature) => {
               try {
-                const provinceId = feature?.properties?.id;
-                const province = provinceDataMap.get(provinceId);
-                return province && feature.geometry && feature.geometry.coordinates && Array.isArray(feature.geometry.coordinates);
+                // Show ALL valid geometries, regardless of whether they have province data
+                return feature && feature.geometry && feature.geometry.coordinates && Array.isArray(feature.geometry.coordinates);
               } catch (error) {
                 console.warn('Error filtering province feature:', error);
                 return false;
@@ -707,12 +772,14 @@ export function WorldMap({
                 provinceId = feature.properties?.id;
                 if (!provinceId) return null;
                 
+                // Get province data if available, but render even without it
                 const province = provinceDataMap.get(provinceId);
-                if (!province) return null;
                 
                 const isSelected = selectedProvince === provinceId;
                 const isHovered = hoveredProvince === provinceId;
-                const color = getProvinceColor(province, mapOverlay);
+                
+                // Use province data for coloring if available, otherwise use country-based coloring
+                const color = province ? getProvinceColor(province, mapOverlay) : getCountryColor(feature.properties?.country);
             
             // Convert coordinates to SVG path
             const pathData = geometryToPath(
@@ -735,6 +802,9 @@ export function WorldMap({
             }
             const [labelX, labelY] = projectCoordinates(centroid[0], centroid[1], projectionConfig);
 
+            // Get display name - prefer province name, fallback to feature name or country
+            const displayName = province?.name || feature.properties?.name || feature.properties?.country || provinceId;
+
             return (
               <g key={provinceId}>
                 {/* Province boundary */}
@@ -745,7 +815,12 @@ export function WorldMap({
                   strokeWidth={isSelected ? 3 : isHovered ? 2 : 1}
                   fillOpacity={isSelected ? 0.9 : isHovered ? 0.8 : 0.7}
                   className="cursor-pointer transition-all duration-200"
-                  onClick={() => provinceId && handleProvinceClick(provinceId)}
+                  onClick={() => {
+                    // Only allow clicking if we have province data
+                    if (province) {
+                      provinceId && handleProvinceClick(provinceId);
+                    }
+                  }}
                   onMouseEnter={() => provinceId && handleProvinceHover(provinceId)}
                   onMouseLeave={() => handleProvinceHover(null)}
                   filter={mapOverlay === 'none' ? 'url(#landShadow)' : 'none'}
@@ -774,7 +849,7 @@ export function WorldMap({
                         strokeOpacity: 0.8
                       }}
                     >
-                      {province.name}
+                      {displayName}
                     </text>
                     {/* Main text */}
                     <text
@@ -791,7 +866,7 @@ export function WorldMap({
                         fontWeight: isSelected ? 'bold' : 'normal'
                       }}
                     >
-                      {province.name}
+                      {displayName}
                     </text>
                   </g>
                 )}
