@@ -10,6 +10,7 @@ import { BuildingsDebug } from './components/BuildingsDebug';
 import { BuildingAvailabilityDebug } from './components/BuildingAvailabilityDebug';
 import { ChinaMapDebug } from './components/ChinaMapDebug';
 import { IndiaMapDebug } from './components/IndiaMapDebug';
+import { CanadaMapDebug } from './components/CanadaMapDebug';
 import { MapSystemStatus } from './components/MapSystemStatus';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
@@ -238,6 +239,9 @@ function App() {
           </div>
           <div className="mt-4">
             <ChinaMapDebug />
+          </div>
+          <div className="mt-4">
+            <CanadaMapDebug />
           </div>
           <div className="mt-4">
             <IndiaMapDebug />
