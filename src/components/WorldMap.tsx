@@ -220,7 +220,7 @@ export function WorldMap({
           'India': 'IND',
           'Russia': 'RUS',
           'Russian Federation': 'RUS',
-          'Germany': 'DEU',
+          'Germany': 'GER',
           'France': 'FRA',
           'United Kingdom': 'GBR',
           'Japan': 'JPN',
@@ -381,7 +381,11 @@ export function WorldMap({
         console.log(`📍 Loading boundaries for countries from provinces:`, countries);
         console.log(`🔗 Total country code mappings available:`, Object.keys(countryCodeMap).length);
         
-        // Check which countries will be processed
+        // Get all available boundary files from the public directory
+        const availableCountryCodes = ['USA', 'CAN', 'MEX', 'CHN', 'IND', 'RUS', 'FRA', 'GER', 'AUS', 'BRA', 'POL', 'UKR'];
+        console.log(`📁 Available boundary files:`, availableCountryCodes);
+        
+        // Check which countries will be processed from province data
         const mappedCountries = countries.filter(country => countryCodeMap[country]);
         const unmappedCountries = countries.filter(country => !countryCodeMap[country]);
         
@@ -390,25 +394,25 @@ export function WorldMap({
         console.log(`📦 Total provinces loaded:`, provinces.length);
         console.log(`🏛️ Unique countries in province data:`, countries.length);
         
-        // Also try to load countries that have boundary data available
-        const availableBoundaryCountries = [
-          'USA', 'CAN', 'MEX', 'CHN', 'IND', 'RUS', 'FRA', 'DEU', 'GBR', 'AUS',
-          'BRA', 'ARG', 'POL', 'UKR', 'DEU', 'ESP', 'ITA', 'JPN', 'KOR', 'TUR',
-          'IRN', 'SAU', 'EGY', 'NGA', 'KEN', 'ZAF', 'THA', 'IDN', 'VNM', 'MYS'
-        ];
-        console.log(`🗺️ Available boundary countries:`, availableBoundaryCountries);
+        // Get all available boundary countries from the mapping (these are the countries we have data for)
+        const availableBoundaryCountries = Array.from(new Set([
+          ...Object.values(countryCodeMap),
+          ...availableCountryCodes  // Add all known boundary files
+        ]));
+        console.log(`🗺️ Available boundary countries from mapping + files:`, availableBoundaryCountries);
         
-        // Combine mapped countries with available boundary countries
-        const allCountriesToLoad = Array.from(new Set([
-          ...mappedCountries.map(country => countryCodeMap[country]),
-          ...availableBoundaryCountries
-        ])).filter(Boolean);
+        // Combine mapped countries with all available country codes
+        const allCountriesToLoad = availableBoundaryCountries.filter(Boolean);
         
         console.log(`🌍 Will attempt to load boundaries for ${allCountriesToLoad.length} countries:`, allCountriesToLoad);
         
         // Load boundaries for each country using the new system
+        const loadResults = {
+          successful: [] as string[],
+          failed: [] as string[]
+        };
+        
         for (const countryCode of allCountriesToLoad) {
-          
           try {
             console.log(`🌍 Loading boundaries for ${countryCode} at ${currentDetailLevel} detail...`);
             const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
@@ -432,11 +436,14 @@ export function WorldMap({
                   totalLoaded++;
                 }
               }
+              loadResults.successful.push(countryCode);
               console.log(`✅ Loaded ${features.length} province boundaries for ${countryCode}`);
             } else {
+              loadResults.failed.push(countryCode);
               console.warn(`⚠️ No boundary features found for ${countryCode}`);
             }
           } catch (error) {
+            loadResults.failed.push(countryCode);
             console.warn(`⚠️ Failed to load boundaries for ${countryCode}:`, error);
           }
         }
@@ -448,6 +455,9 @@ export function WorldMap({
         
         setProvinceBoundariesData(boundariesData);
         console.log(`✅ WorldMap: Loaded ${totalLoaded} total province boundaries at ${currentDetailLevel} detail`);
+        console.log(`🎯 Load Results: ${loadResults.successful.length} successful, ${loadResults.failed.length} failed`);
+        console.log(`✅ Successfully loaded countries:`, loadResults.successful);
+        console.log(`❌ Failed to load countries:`, loadResults.failed);
         console.log(`🌍 Countries successfully loaded: ${[...new Set(allFeatures.map(f => f.properties?.country))].filter(Boolean).length}`);
         console.log(`🗺️ Features by country:`, [...new Set(allFeatures.map(f => f.properties?.country))].filter(Boolean).reduce((acc, country) => {
           acc[country] = allFeatures.filter(f => f.properties?.country === country).length;
