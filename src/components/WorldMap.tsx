@@ -17,7 +17,7 @@ import {
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
 import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid, geometryToPath } from '../lib/mapProjection';
-import { loadWorldData } from '../data/dataLoader';
+import { geographicDataManager, DetailLevel } from '../managers/GeographicDataManager';
 
 interface WorldMapProps {
   provinces: Province[];
@@ -111,35 +111,56 @@ export function WorldMap({
   const [zoomLevel, setZoomLevel] = useState(1);
   const [hoveredProvince, setHoveredProvince] = useState<string | null>(null);
   const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
+  const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>('overview');
 
-  // Load province boundaries from modular files
+  // Load province boundaries using GeographicDataManager
   useEffect(() => {
     const loadBoundaries = async () => {
       try {
-        const worldData = await loadWorldData();
-        // Convert object format to GeoJSON FeatureCollection format
-        const features = Object.entries(worldData.boundaries).map(([id, boundary]) => {
-          if (boundary && typeof boundary === 'object' && boundary.type === 'Feature') {
-            return boundary;
+        console.log('🌍 WorldMap: Loading world boundaries at', currentDetailLevel, 'detail');
+        
+        // Load boundaries for all major regions at current detail level
+        const regions = ['usa', 'canada', 'mexico', 'china', 'india', 'russia', 'europe_west', 'europe_east'];
+        const allFeatures: any[] = [];
+        
+        for (const region of regions) {
+          try {
+            const regionData = await geographicDataManager.loadRegion(region, currentDetailLevel);
+            if (regionData?.features?.length > 0) {
+              allFeatures.push(...regionData.features);
+              console.log(`✓ Loaded ${regionData.features.length} features from ${region}`);
+            }
+          } catch (error) {
+            console.warn(`⚠️ Failed to load ${region}:`, error);
+            // Continue loading other regions even if one fails
           }
-          return null;
-        }).filter(Boolean);
+        }
         
         const boundariesData = {
           type: "FeatureCollection",
-          features: features
+          features: allFeatures
         };
         
         setProvinceBoundariesData(boundariesData);
-        console.log('✓ Province boundaries loaded:', features.length);
+        console.log(`✅ WorldMap: Loaded ${allFeatures.length} total province boundaries at ${currentDetailLevel} detail`);
+        
+        // Log cache stats
+        const stats = geographicDataManager.getStats();
+        console.log('📊 GeographicDataManager stats:', {
+          cacheEntries: stats.cacheEntries,
+          currentCacheSize: Math.round(stats.currentCacheSize / 1024 / 1024 * 100) / 100 + 'MB',
+          hitRatio: Math.round(stats.hitRatio * 100) + '%'
+        });
+        
       } catch (error) {
         console.error('❌ Failed to load province boundaries:', error);
         // Fallback to empty data
         setProvinceBoundariesData({ type: "FeatureCollection", features: [] });
       }
     };
+    
     loadBoundaries();
-  }, []);
+  }, [currentDetailLevel]);
 
   // Memoize projection configuration
   const projectionConfig: ProjectionConfig = useMemo(() => {
@@ -183,6 +204,22 @@ export function WorldMap({
     setHoveredProvince(provinceId);
   }, []);
 
+  const handleUpgradeRegion = useCallback(async (region: string) => {
+    const nextDetailLevel: DetailLevel = 
+      currentDetailLevel === 'overview' ? 'detailed' :
+      currentDetailLevel === 'detailed' ? 'ultra' : 'ultra';
+      
+    if (nextDetailLevel !== currentDetailLevel) {
+      try {
+        console.log(`🔄 Upgrading ${region} to ${nextDetailLevel}`);
+        await geographicDataManager.upgradeRegionDetail(region, nextDetailLevel);
+        setCurrentDetailLevel(nextDetailLevel);
+      } catch (error) {
+        console.error(`Failed to upgrade ${region}:`, error);
+      }
+    }
+  }, [currentDetailLevel]);
+
   return (
     <div className="relative w-full h-full bg-slate-50 overflow-hidden">
       {/* Loading state */}
@@ -221,6 +258,30 @@ export function WorldMap({
           </div>
         </Card>
 
+        {/* Detail Level Controls */}
+        <Card className="p-2">
+          <div className="space-y-1">
+            <div className="text-xs font-medium text-muted-foreground mb-2">Map Detail</div>
+            <div className="grid grid-cols-3 gap-1">
+              {(['overview', 'detailed', 'ultra'] as DetailLevel[]).map((level) => (
+                <Button
+                  key={level}
+                  variant={currentDetailLevel === level ? "default" : "ghost"}
+                  size="sm"
+                  className="text-xs px-1"
+                  onClick={() => setCurrentDetailLevel(level)}
+                  disabled={currentDetailLevel === level}
+                >
+                  {level.charAt(0).toUpperCase() + level.slice(1)}
+                </Button>
+              ))}
+            </div>
+            <div className="text-xs text-muted-foreground mt-1 text-center">
+              Current: {currentDetailLevel}
+            </div>
+          </div>
+        </Card>
+
         {/* Overlay Controls */}
         <Card className="p-2">
           <div className="space-y-1">
@@ -240,6 +301,32 @@ export function WorldMap({
                 </Button>
               );
             })}
+          </div>
+        </Card>
+
+        {/* Quick Upgrade Controls */}
+        <Card className="p-2">
+          <div className="space-y-1">
+            <div className="text-xs font-medium text-muted-foreground mb-2">Quick Upgrade</div>
+            <div className="grid grid-cols-2 gap-1">
+              {['usa', 'china', 'canada', 'india'].map((region) => (
+                <Button
+                  key={region}
+                  variant="outline"
+                  size="sm"
+                  className="text-xs px-1"
+                  onClick={() => handleUpgradeRegion(region)}
+                  disabled={currentDetailLevel === 'ultra'}
+                >
+                  {region.toUpperCase()}
+                </Button>
+              ))}
+            </div>
+            <div className="text-xs text-muted-foreground mt-1 text-center">
+              {currentDetailLevel === 'ultra' ? 'Max detail' : `Next: ${
+                currentDetailLevel === 'overview' ? 'detailed' : 'ultra'
+              }`}
+            </div>
           </div>
         </Card>
       </div>
