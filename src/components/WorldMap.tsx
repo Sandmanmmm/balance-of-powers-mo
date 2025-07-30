@@ -113,13 +113,39 @@ export function WorldMap({
   const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
   const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>('overview');
 
-  // Load province boundaries using new country-based GeographicDataManager
+  // Load province boundaries - use regional system primarily
   useEffect(() => {
     const loadBoundaries = async () => {
       try {
-        console.log('🌍 WorldMap: Loading country boundaries at', currentDetailLevel, 'detail');
+        console.log('🌍 WorldMap: Loading boundaries at', currentDetailLevel, 'detail');
         
-        // Get list of unique countries from provinces
+        const allFeatures: any[] = [];
+        
+        // Load from regional system (primary approach)
+        console.log('🔄 Loading from regional system...');
+        const allRegions = [
+          'superpowers/usa', 'superpowers/china', 'superpowers/india', 'superpowers/russia',
+          'north_america', 'south_america', 'europe_west', 'europe_east', 
+          'caribbean', 'central_asia', 'middle_east', 'north_africa', 
+          'oceania', 'south_asia', 'southeast_asia', 'sub_saharan_africa'
+        ];
+        
+        let totalLoaded = 0;
+        for (const region of allRegions) {
+          try {
+            const regionData = await geographicDataManager.loadRegion(region, currentDetailLevel);
+            if (regionData?.features?.length > 0) {
+              allFeatures.push(...regionData.features);
+              totalLoaded += regionData.features.length;
+              console.log(`✓ Loaded ${regionData.features.length} features from region ${region}`);
+            }
+          } catch (error) {
+            console.warn(`⚠️ Failed to load region ${region}:`, error);
+          }
+        }
+        
+        // Only try country-based loading for specific countries that have proper province-level data
+        const countriesWithProvinceBoundaries = ['DEU', 'FRA']; // Countries that actually have province-level boundaries in country files
         const countries = Array.from(new Set(provinces.map(p => p.country)));
         const countryCodeMap: Record<string, string> = {
           'United States': 'USA',
@@ -134,47 +160,25 @@ export function WorldMap({
           'Australia': 'AUS'
         };
         
-        const allFeatures: any[] = [];
-        
-        // Load boundaries for each country using the new system
         for (const country of countries) {
           const countryCode = countryCodeMap[country];
-          if (!countryCode) {
-            console.warn(`No country code mapping for: ${country}`);
-            continue;
+          if (!countryCode || !countriesWithProvinceBoundaries.includes(countryCode)) {
+            continue; // Skip countries that don't have proper province-level boundary files
           }
           
           try {
-            console.log(`Loading boundaries for ${country} (${countryCode})...`);
+            console.log(`Attempting to load province boundaries for ${country} (${countryCode})...`);
             const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
             
             // Convert Record<string, GeoJSONFeature> to Feature array
             const features = Object.values(countryBoundaries);
             if (features.length > 0) {
               allFeatures.push(...features);
-              console.log(`✓ Loaded ${features.length} provinces from ${country}`);
+              totalLoaded += features.length;
+              console.log(`✓ Loaded ${features.length} provinces from ${country} (country-based)`);
             }
           } catch (error) {
-            console.warn(`⚠️ Failed to load boundaries for ${country} (${countryCode}):`, error);
-            // Continue loading other countries even if one fails
-          }
-        }
-        
-        // Also try to load from legacy system for any missing data
-        if (allFeatures.length === 0) {
-          console.log('🔄 Falling back to legacy regional loading...');
-          const regions = ['usa', 'canada', 'mexico', 'china', 'india', 'russia', 'europe_west', 'europe_east'];
-          
-          for (const region of regions) {
-            try {
-              const regionData = await geographicDataManager.loadRegion(region, currentDetailLevel);
-              if (regionData?.features?.length > 0) {
-                allFeatures.push(...regionData.features);
-                console.log(`✓ Loaded ${regionData.features.length} features from legacy region ${region}`);
-              }
-            } catch (error) {
-              console.warn(`⚠️ Failed to load legacy region ${region}:`, error);
-            }
+            console.warn(`⚠️ Failed to load country-based boundaries for ${country} (${countryCode}):`, error);
           }
         }
         
@@ -184,7 +188,7 @@ export function WorldMap({
         };
         
         setProvinceBoundariesData(boundariesData);
-        console.log(`✅ WorldMap: Loaded ${allFeatures.length} total province boundaries at ${currentDetailLevel} detail`);
+        console.log(`✅ WorldMap: Loaded ${totalLoaded} total province boundaries at ${currentDetailLevel} detail`);
         
         // Log cache stats
         const stats = geographicDataManager.getStats();

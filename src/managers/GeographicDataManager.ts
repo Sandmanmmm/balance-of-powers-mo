@@ -322,12 +322,27 @@ export class GeographicDataManager {
    * Private: Fetch region data from server (legacy support)
    */
   private async _fetchRegionData(region: string, detailLevel: DetailLevel): Promise<GeoJSONFeatureCollection> {
-    const url = `/data/boundaries/provinces/${region}/${detailLevel}.json`;
+    // Map region names to actual file paths
+    let filePath: string;
     
-    console.log(`🌍 GeographicDataManager: Fetching ${url}`);
+    if (region.includes('/')) {
+      // Handle nested region paths like 'superpowers/usa'
+      const parts = region.split('/');
+      if (parts.length === 2) {
+        const [folder, subregion] = parts;
+        filePath = `/data/regions/${folder}/province-boundaries_${subregion}.json`;
+      } else {
+        filePath = `/data/regions/${region}/province-boundaries_${region}.json`;
+      }
+    } else {
+      // Handle simple region names
+      filePath = `/data/regions/${region}/province-boundaries_${region}.json`;
+    }
+    
+    console.log(`🌍 GeographicDataManager: Fetching ${filePath}`);
     
     try {
-      const response = await fetch(url);
+      const response = await fetch(filePath);
       
       if (!response.ok) {
         throw new GeographicDataError(
