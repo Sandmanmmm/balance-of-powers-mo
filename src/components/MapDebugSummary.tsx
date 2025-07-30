@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react';
-import { geographicDataManager } from '@/man
-export function MapDebugSummary() {
+import { geographicDataManager } from '@/managers/GeographicDataManager';
+import { Card } from '@/components/ui/card';
 
-  useEffect(() => {
-      try {
-        
+interface DebugInfo {
+  stats: any;
+  cachedRegions: any[];
+  boundaryChecks: any[];
+  error?: string;
+}
+
+export function MapDebugSummary() {
+  const [debugInfo, setDebugInfo] = useState<DebugInfo | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadDebugInfo = async () => {
@@ -30,37 +37,46 @@ export function MapDebugSummary() {
           cachedRegions,
           boundaryChecks: boundaryChecks.map(result => 
             result.status === 'fulfilled' ? result.value : { status: 'error', error: result.reason }
-        <di
+          )
         });
-  }
-        setDebugInfo({ error: String(error) });
-    return (
+      } catch (error) {
+        setDebugInfo({ error: String(error) } as DebugInfo);
+      } finally {
         setIsLoading(false);
-       
+      }
     };
 
     loadDebugInfo();
-    <Card
+  }, []);
 
-        
+  if (isLoading) {
     return (
       <Card className="p-4">
         <h3 className="font-semibold mb-2">Map Debug Summary</h3>
         <div className="text-muted-foreground">Loading debug info...</div>
       </Card>
-
+    );
   }
 
   if (debugInfo?.error) {
-            
+    return (
       <Card className="p-4">
         <h3 className="font-semibold mb-2 text-red-600">Map Debug Error</h3>
         <div className="text-red-600 text-sm">{debugInfo.error}</div>
-            )
+      </Card>
     );
+  }
 
+  if (!debugInfo) {
+    return (
+      <Card className="p-4">
+        <h3 className="font-semibold mb-2">Map Debug Summary</h3>
+        <div className="text-muted-foreground">No debug info available</div>
+      </Card>
+    );
+  }
 
-          
+  return (
     <Card className="p-4">
       <h3 className="font-semibold mb-2">Map Debug Summary</h3>
       <div className="space-y-3 text-sm">
@@ -72,7 +88,7 @@ export function MapDebugSummary() {
             <div>Size: {Math.round(debugInfo.stats.currentCacheSize / 1024 / 1024 * 100) / 100}MB</div>
             <div>Hit Ratio: {Math.round(debugInfo.stats.hitRatio * 100)}%</div>
           </div>
-
+        </div>
 
         <div>
           <strong>Cached Regions:</strong>
@@ -86,7 +102,7 @@ export function MapDebugSummary() {
                 </div>
               ))
             )}
-
+          </div>
         </div>
 
         <div>
