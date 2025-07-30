@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "TUR_ISTANBUL",
+        "name": "Istanbul"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [28.0, 40.8],
+          [29.8, 40.8],
+          [29.8, 41.5],
+          [28.0, 41.5],
+          [28.0, 40.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "TUR_ANKARA",
+        "name": "Ankara"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [32.0, 39.5],
+          [33.5, 39.5],
+          [33.5, 40.5],
+          [32.0, 40.5],
+          [32.0, 39.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "TUR_ANTALYA",
+        "name": "Antalya"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [29.0, 36.0],
+          [32.0, 36.0],
+          [32.0, 37.5],
+          [29.0, 37.5],
+          [29.0, 36.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "TUR_IZMIR",
+        "name": "Izmir"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [26.0, 38.0],
+          [28.0, 38.0],
+          [28.0, 39.5],
+          [26.0, 39.5],
+          [26.0, 38.0]
+        ]]
+      }
+    }
+  ]
+}

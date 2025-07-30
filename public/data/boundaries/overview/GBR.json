@@ -1,0 +1,78 @@
+{
+  "GBR_001": {
+    "type": "Feature",
+    "id": "GBR_001",
+    "properties": {
+      "id": "GBR_001",
+      "name": "England",
+      "country": "United Kingdom",
+      "iso_a3": "GBR",
+      "region_code": "ENG"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-6.4, 49.9], [-6.4, 55.8], [1.8, 55.8], [1.8, 49.9], [-6.4, 49.9]
+        ]
+      ]
+    }
+  },
+  "GBR_002": {
+    "type": "Feature",
+    "id": "GBR_002",
+    "properties": {
+      "id": "GBR_002",
+      "name": "Scotland",
+      "country": "United Kingdom",
+      "iso_a3": "GBR",
+      "region_code": "SCT"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-8.6, 54.6], [-8.6, 60.9], [-0.7, 60.9], [-0.7, 54.6], [-8.6, 54.6]
+        ]
+      ]
+    }
+  },
+  "GBR_003": {
+    "type": "Feature",
+    "id": "GBR_003",
+    "properties": {
+      "id": "GBR_003",
+      "name": "Wales",
+      "country": "United Kingdom",
+      "iso_a3": "GBR",
+      "region_code": "WLS"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-5.3, 51.4], [-5.3, 53.4], [-2.7, 53.4], [-2.7, 51.4], [-5.3, 51.4]
+        ]
+      ]
+    }
+  },
+  "GBR_004": {
+    "type": "Feature",
+    "id": "GBR_004",
+    "properties": {
+      "id": "GBR_004",
+      "name": "Northern Ireland",
+      "country": "United Kingdom",
+      "iso_a3": "GBR",
+      "region_code": "NIR"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-8.2, 54.0], [-8.2, 55.3], [-5.4, 55.3], [-5.4, 54.0], [-8.2, 54.0]
+        ]
+      ]
+    }
+  }
+}

@@ -1,179 +1,97 @@
 {
   "MEX_001": {
     "type": "Feature",
+    "id": "MEX_001",
     "properties": {
       "id": "MEX_001",
-      "name": "Baja California"
+      "name": "Mexico City",
+      "country": "Mexico",
+      "iso_a3": "MEX",
+      "state_code": "DF"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [-117.1264, 32.5343],
-        [-114.1315, 32.7187],
-        [-114.1315, 24.0000],
-        [-109.4309, 23.8813],
-        [-109.4309, 29.0000],
-        [-115.0000, 30.5000],
-        [-117.1264, 32.5343]
-      ]]
+      "coordinates": [
+        [
+          [-99.4, 19.6], [-98.9, 19.6], [-98.9, 19.0], [-99.4, 19.0], [-99.4, 19.6]
+        ]
+      ]
     }
   },
   "MEX_002": {
     "type": "Feature",
+    "id": "MEX_002",
     "properties": {
       "id": "MEX_002",
-      "name": "Baja California Sur"
+      "name": "Jalisco",
+      "country": "Mexico",
+      "iso_a3": "MEX",
+      "state_code": "JAL"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [-114.1315, 24.0000],
-        [-109.4309, 23.8813],
-        [-109.4309, 22.8813],
-        [-110.0000, 22.8813],
-        [-112.0000, 24.0000],
-        [-114.1315, 24.0000]
-      ]]
+      "coordinates": [
+        [
+          [-105.7, 22.8], [-101.5, 22.8], [-101.5, 18.9], [-105.7, 18.9], [-105.7, 22.8]
+        ]
+      ]
     }
   },
   "MEX_003": {
     "type": "Feature",
+    "id": "MEX_003",
     "properties": {
       "id": "MEX_003",
-      "name": "Sonora"
+      "name": "Veracruz",
+      "country": "Mexico",
+      "iso_a3": "MEX",
+      "state_code": "VER"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [-114.1315, 32.7187],
-        [-109.0453, 32.7187],
-        [-109.0453, 26.0000],
-        [-109.4309, 23.8813],
-        [-114.1315, 24.0000],
-        [-114.1315, 32.7187]
-      ]]
+      "coordinates": [
+        [
+          [-98.6, 22.5], [-93.6, 22.5], [-93.6, 17.1], [-98.6, 17.1], [-98.6, 22.5]
+        ]
+      ]
     }
   },
   "MEX_004": {
     "type": "Feature",
+    "id": "MEX_004",
     "properties": {
       "id": "MEX_004",
-      "name": "Chihuahua"
+      "name": "Baja California",
+      "country": "Mexico",
+      "iso_a3": "MEX",
+      "state_code": "BC"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [-109.0453, 32.7187],
-        [-103.0000, 32.7187],
-        [-103.0000, 25.5000],
-        [-105.0000, 25.5000],
-        [-109.0453, 26.0000],
-        [-109.0453, 32.7187]
-      ]]
+      "coordinates": [
+        [
+          [-117.1, 32.5], [-109.4, 32.5], [-109.4, 28.0], [-117.1, 28.0], [-117.1, 32.5]
+        ]
+      ]
     }
   },
   "MEX_005": {
     "type": "Feature",
+    "id": "MEX_005",
     "properties": {
       "id": "MEX_005",
-      "name": "Nuevo León"
+      "name": "Chihuahua",
+      "country": "Mexico",
+      "iso_a3": "MEX",
+      "state_code": "CHIH"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [-103.0000, 27.5000],
-        [-98.5000, 27.5000],
-        [-98.5000, 24.5000],
-        [-103.0000, 24.5000],
-        [-103.0000, 27.5000]
-      ]]
-    }
-  },
-  "MEX_006": {
-    "type": "Feature",
-    "properties": {
-      "id": "MEX_006",
-      "name": "Tamaulipas"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [-98.5000, 27.5000],
-        [-97.1393, 25.9017],
-        [-97.1393, 22.2319],
-        [-99.0000, 22.2319],
-        [-99.0000, 24.5000],
-        [-98.5000, 24.5000],
-        [-98.5000, 27.5000]
-      ]]
-    }
-  },
-  "MEX_007": {
-    "type": "Feature",
-    "properties": {
-      "id": "MEX_007",
-      "name": "Mexico City"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [-99.5000, 19.8000],
-        [-98.8000, 19.8000],
-        [-98.8000, 19.0000],
-        [-99.5000, 19.0000],
-        [-99.5000, 19.8000]
-      ]]
-    }
-  },
-  "MEX_008": {
-    "type": "Feature",
-    "properties": {
-      "id": "MEX_008",
-      "name": "Jalisco"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [-105.5000, 22.5000],
-        [-102.5000, 22.5000],
-        [-102.5000, 18.5000],
-        [-105.5000, 18.5000],
-        [-105.5000, 22.5000]
-      ]]
-    }
-  },
-  "MEX_009": {
-    "type": "Feature",
-    "properties": {
-      "id": "MEX_009",
-      "name": "Yucatán"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [-90.5000, 21.6000],
-        [-87.5000, 21.6000],
-        [-87.5000, 19.5000],
-        [-90.5000, 19.5000],
-        [-90.5000, 21.6000]
-      ]]
-    }
-  },
-  "MEX_010": {
-    "type": "Feature",
-    "properties": {
-      "id": "MEX_010",
-      "name": "Veracruz"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [-98.5000, 22.0000],
-        [-96.1000, 22.0000],
-        [-96.1000, 17.0000],
-        [-98.5000, 17.0000],
-        [-98.5000, 22.0000]
-      ]]
+      "coordinates": [
+        [
+          [-109.1, 31.8], [-103.4, 31.8], [-103.4, 25.6], [-109.1, 25.6], [-109.1, 31.8]
+        ]
+      ]
     }
   }
 }

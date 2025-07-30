@@ -280,7 +280,7 @@ export function WorldMap({
           'India': 'IND',
           'Russia': 'RUS',
           'Russian Federation': 'RUS',
-          'Germany': 'GER',
+          'Germany': 'DEU',
           'France': 'FRA',
           'United Kingdom': 'GBR',
           'Japan': 'JPN',
@@ -443,7 +443,11 @@ export function WorldMap({
         
         // Get all available boundary files from the public directory
         // Load boundaries for ALL countries that have boundary files available
-        const knownBoundaryFiles = ['BRA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR', 'IND', 'MEX', 'RUS', 'USA'];
+        const knownBoundaryFiles = [
+          'ARG', 'AUS', 'BRA', 'CAN', 'CHN', 'DEU', 'EGY', 'ESP', 
+          'FRA', 'GBR', 'IND', 'ITA', 'JPN', 'KOR', 'MEX', 'RUS', 
+          'TUR', 'USA', 'ZAF'
+        ];
         
         // Also try to get countries from province data that have mappings
         const mappedCountries = countries.filter(country => countryCodeMap[country]);

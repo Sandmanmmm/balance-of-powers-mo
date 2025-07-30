@@ -1,7 +1,7 @@
 # Western Europe - Regional Nation Data
 
 nations:
-  GER:
+  DEU:
     name: "Germany"
     capital: "Berlin"
     flag: "🇩🇪"

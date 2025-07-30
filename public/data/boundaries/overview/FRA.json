@@ -1,104 +1,59 @@
 {
   "FRA_001": {
     "type": "Feature",
+    "id": "FRA_001",
     "properties": {
       "id": "FRA_001",
-      "name": "Île-de-France"
+      "name": "Île-de-France",
+      "country": "France",
+      "iso_a3": "FRA",
+      "region_code": "IDF"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [1.4462, 49.2411],
-        [3.5586, 49.2411],
-        [3.5586, 48.1198],
-        [1.4462, 48.1198],
-        [1.4462, 49.2411]
-      ]]
+      "coordinates": [
+        [
+          [1.4, 48.1], [1.4, 49.2], [3.6, 49.2], [3.6, 48.1], [1.4, 48.1]
+        ]
+      ]
     }
   },
   "FRA_002": {
     "type": "Feature",
+    "id": "FRA_002",
     "properties": {
       "id": "FRA_002",
-      "name": "Provence-Alpes-Côte d'Azur"
+      "name": "Provence-Alpes-Côte d'Azur",
+      "country": "France",
+      "iso_a3": "FRA",
+      "region_code": "PAC"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [4.2278, 44.9330],
-        [7.7187, 44.9330],
-        [7.7187, 43.0203],
-        [4.2278, 43.0203],
-        [4.2278, 44.9330]
-      ]]
+      "coordinates": [
+        [
+          [4.2, 43.0], [4.2, 44.9], [7.7, 44.9], [7.7, 43.0], [4.2, 43.0]
+        ]
+      ]
     }
   },
   "FRA_003": {
     "type": "Feature",
+    "id": "FRA_003",
     "properties": {
       "id": "FRA_003",
-      "name": "Nouvelle-Aquitaine"
+      "name": "Nouvelle-Aquitaine",
+      "country": "France",
+      "iso_a3": "FRA",
+      "region_code": "NAQ"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [-1.7881, 47.0794],
-        [2.5178, 47.0794],
-        [2.5178, 42.7776],
-        [-1.7881, 42.7776],
-        [-1.7881, 47.0794]
-      ]]
-    }
-  },
-  "FRA_004": {
-    "type": "Feature",
-    "properties": {
-      "id": "FRA_004",
-      "name": "Occitanie"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [-0.3275, 45.0446],
-        [4.8633, 45.0446],
-        [4.8633, 42.3328],
-        [-0.3275, 42.3328],
-        [-0.3275, 45.0446]
-      ]]
-    }
-  },
-  "FRA_005": {
-    "type": "Feature",
-    "properties": {
-      "id": "FRA_005",
-      "name": "Auvergne-Rhône-Alpes"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [2.1167, 46.8036],
-        [7.1445, 46.8036],
-        [7.1445, 44.1178],
-        [2.1167, 44.1178],
-        [2.1167, 46.8036]
-      ]]
-    }
-  },
-  "FRA_006": {
-    "type": "Feature",
-    "properties": {
-      "id": "FRA_006",
-      "name": "Hauts-de-France"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [1.3733, 51.0889],
-        [4.2667, 51.0889],
-        [4.2667, 49.5611],
-        [1.3733, 49.5611],
-        [1.3733, 51.0889]
-      ]]
+      "coordinates": [
+        [
+          [-2.2, 42.8], [-2.2, 47.8], [2.4, 47.8], [2.4, 42.8], [-2.2, 42.8]
+        ]
+      ]
     }
   }
 }

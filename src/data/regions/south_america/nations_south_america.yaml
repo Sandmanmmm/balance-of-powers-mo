@@ -1,4 +1,89 @@
 nations:
+  BRA:
+    name: "Brazil"
+    capital: "Brasília"
+    flag: "🇧🇷"
+    government:
+      type: "federal_republic"
+      leader: "Luiz Inácio Lula da Silva"
+      approval: 53.2
+      stability: 72.5
+      ruling_party: "Workers' Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2022-10-30"
+    economy:
+      gdp: 2055000000000
+      debt: 1455000000000
+      inflation: 4.6
+      trade_balance: 61000000000
+      treasury: 95000000000
+      currency: "BRL"
+      interest_rate: 13.25
+      sectors:
+        manufacturing: 11.3
+        services: 71.7
+        agriculture: 6.6
+        technology: 10.4
+    military:
+      manpower: 366500
+      equipment: 82
+      readiness: 85
+      doctrine: "Defensive"
+      nuclear_capability: false
+      defense_budget: 19200000000
+    technology:
+      research_points: 24500
+      current_research: ["renewable_energy", "biotechnology", "aerospace"]
+      completed_tech: ["basic_manufacturing", "agriculture_tech", "infrastructure"]
+      tech_level: 2.8
+    diplomacy:
+      allies: ["ARG", "URY", "CHL"]
+      enemies: []
+      embargoes: []
+      sanctions: []
+      trade_partners: ["CHN", "USA", "DEU", "ARG", "NLD"]
+    resource_stockpiles:
+      food: 12400000
+      water: 89000000
+      oil: 3200000
+      iron: 8900000
+      electricity: 567000
+      manpower: 110000000
+      coal: 320000
+      uranium: 156000
+      rare_earth: 67000
+      aluminum: 1200000
+      copper: 890000
+    resource_production:
+      food: 42000
+      water: 156000
+      oil: 8900
+      iron: 12000
+      electricity: 24000
+      manpower: 2400000
+      coal: 1200
+      aluminum: 3400
+      copper: 2100
+    resource_consumption:
+      food: 38000
+      water: 89000
+      oil: 12000
+      electricity: 19000
+      iron: 8900
+      coal: 2100
+      aluminum: 2900
+      copper: 1800
+    shortageNotifications: {}
+    resourceEfficiency:
+      food: 1.0
+      water: 1.0
+      oil: 1.0
+      electricity: 1.0
+      iron: 1.0
+      coal: 1.0
+      aluminum: 1.0
+      copper: 1.0
   ARG:
     name: "Argentina"
     capital: "Buenos Aires"

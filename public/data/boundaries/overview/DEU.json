@@ -1,0 +1,59 @@
+{
+  "DEU_001": {
+    "type": "Feature",
+    "id": "DEU_001",
+    "properties": {
+      "id": "DEU_001",
+      "name": "Bavaria",
+      "country": "Germany",
+      "iso_a3": "DEU",
+      "state_code": "BY"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [8.9, 47.3], [8.9, 50.5], [13.8, 50.5], [13.8, 47.3], [8.9, 47.3]
+        ]
+      ]
+    }
+  },
+  "DEU_002": {
+    "type": "Feature",
+    "id": "DEU_002",
+    "properties": {
+      "id": "DEU_002",
+      "name": "North Rhine-Westphalia",
+      "country": "Germany",
+      "iso_a3": "DEU",
+      "state_code": "NW"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [5.9, 50.3], [5.9, 52.5], [9.4, 52.5], [9.4, 50.3], [5.9, 50.3]
+        ]
+      ]
+    }
+  },
+  "DEU_003": {
+    "type": "Feature",
+    "id": "DEU_003",
+    "properties": {
+      "id": "DEU_003",
+      "name": "Berlin",
+      "country": "Germany",
+      "iso_a3": "DEU",
+      "state_code": "BE"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [13.1, 52.3], [13.1, 52.7], [13.7, 52.7], [13.7, 52.3], [13.1, 52.3]
+        ]
+      ]
+    }
+  }
+}

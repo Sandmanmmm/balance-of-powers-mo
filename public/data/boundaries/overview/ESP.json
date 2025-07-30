@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ESP_MADRID",
+        "name": "Madrid"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-4.5, 40.0],
+          [-3.0, 40.0],
+          [-3.0, 41.0],
+          [-4.5, 41.0],
+          [-4.5, 40.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ESP_CATALONIA",
+        "name": "Catalonia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [0.0, 40.5],
+          [3.3, 40.5],
+          [3.3, 42.9],
+          [0.0, 42.9],
+          [0.0, 40.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ESP_ANDALUSIA",
+        "name": "Andalusia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-7.5, 36.0],
+          [-1.6, 36.0],
+          [-1.6, 38.7],
+          [-7.5, 38.7],
+          [-7.5, 36.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ESP_GALICIA",
+        "name": "Galicia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-9.3, 42.0],
+          [-6.8, 42.0],
+          [-6.8, 43.8],
+          [-9.3, 43.8],
+          [-9.3, 42.0]
+        ]]
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ARG_BUENOS_AIRES",
+        "name": "Buenos Aires"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-60.0, -35.5],
+          [-56.5, -35.5],
+          [-56.5, -33.5],
+          [-60.0, -33.5],
+          [-60.0, -35.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ARG_CORDOBA",
+        "name": "Córdoba"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-66.0, -35.0],
+          [-62.0, -35.0],
+          [-62.0, -29.5],
+          [-66.0, -29.5],
+          [-66.0, -35.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ARG_SANTA_FE",
+        "name": "Santa Fe"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-62.0, -34.0],
+          [-58.0, -34.0],
+          [-58.0, -28.0],
+          [-62.0, -28.0],
+          [-62.0, -34.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ARG_PATAGONIA",
+        "name": "Patagonia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-73.0, -55.0],
+          [-63.0, -55.0],
+          [-63.0, -40.0],
+          [-73.0, -40.0],
+          [-73.0, -55.0]
+        ]]
+      }
+    }
+  ]
+}

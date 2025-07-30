@@ -1,172 +1,97 @@
 {
   "CHN_001": {
     "type": "Feature",
+    "id": "CHN_001",
     "properties": {
       "id": "CHN_001",
-      "name": "Beijing"
+      "name": "Beijing",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "BJ"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [115.4074, 41.0610],
-        [117.5050, 41.0610],
-        [117.5050, 39.4429],
-        [115.4074, 39.4429],
-        [115.4074, 41.0610]
-      ]]
+      "coordinates": [
+        [
+          [115.4, 40.6], [117.6, 40.6], [117.6, 39.4], [115.4, 39.4], [115.4, 40.6]
+        ]
+      ]
     }
   },
   "CHN_002": {
     "type": "Feature",
+    "id": "CHN_002",
     "properties": {
       "id": "CHN_002",
-      "name": "Shanghai"
+      "name": "Shanghai",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "SH"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [120.8516, 31.8701],
-        [122.2088, 31.8701],
-        [122.2088, 30.6753],
-        [120.8516, 30.6753],
-        [120.8516, 31.8701]
-      ]]
+      "coordinates": [
+        [
+          [120.8, 31.9], [122.2, 31.9], [122.2, 30.7], [120.8, 30.7], [120.8, 31.9]
+        ]
+      ]
     }
   },
   "CHN_003": {
     "type": "Feature",
+    "id": "CHN_003",
     "properties": {
       "id": "CHN_003",
-      "name": "Guangdong"
+      "name": "Guangdong",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "GD"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [109.7453, 25.3154],
-        [117.1951, 25.3154],
-        [117.1951, 20.1817],
-        [109.7453, 20.1817],
-        [109.7453, 25.3154]
-      ]]
+      "coordinates": [
+        [
+          [109.7, 25.3], [117.2, 25.3], [117.2, 20.2], [109.7, 20.2], [109.7, 25.3]
+        ]
+      ]
     }
   },
   "CHN_004": {
     "type": "Feature",
+    "id": "CHN_004",
     "properties": {
       "id": "CHN_004",
-      "name": "Sichuan"
+      "name": "Sichuan",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "SC"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [97.3521, 34.3188],
-        [110.1806, 34.3188],
-        [110.1806, 26.0336],
-        [97.3521, 26.0336],
-        [97.3521, 34.3188]
-      ]]
+      "coordinates": [
+        [
+          [97.3, 33.2], [110.1, 33.2], [110.1, 26.0], [97.3, 26.0], [97.3, 33.2]
+        ]
+      ]
     }
   },
   "CHN_005": {
     "type": "Feature",
+    "id": "CHN_005",
     "properties": {
       "id": "CHN_005",
-      "name": "Xinjiang"
+      "name": "Xinjiang",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "XJ"
     },
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[
-        [73.4997, 49.1806],
-        [96.3864, 49.1806],
-        [96.3864, 34.2257],
-        [73.4997, 34.2257],
-        [73.4997, 49.1806]
-      ]]
-    }
-  },
-  "CHN_006": {
-    "type": "Feature",
-    "properties": {
-      "id": "CHN_006",
-      "name": "Tibet"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [78.3955, 36.4929],
-        [99.1167, 36.4929],
-        [99.1167, 26.8548],
-        [78.3955, 26.8548],
-        [78.3955, 36.4929]
-      ]]
-    }
-  },
-  "CHN_007": {
-    "type": "Feature",
-    "properties": {
-      "id": "CHN_007",
-      "name": "Inner Mongolia"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [97.1671, 53.3370],
-        [126.0440, 53.3370],
-        [126.0440, 37.3939],
-        [97.1671, 37.3939],
-        [97.1671, 53.3370]
-      ]]
-    }
-  },
-  "CHN_008": {
-    "type": "Feature",
-    "properties": {
-      "id": "CHN_008",
-      "name": "Heilongjiang"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [121.1178, 53.5609],
-        [135.0858, 53.5609],
-        [135.0858, 43.4269],
-        [121.1178, 43.4269],
-        [121.1178, 53.5609]
-      ]]
-    }
-  },
-  "CHN_009": {
-    "type": "Feature",
-    "properties": {
-      "id": "CHN_009",
-      "name": "Jilin"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [121.6184, 46.2874],
-        [131.1895, 46.2874],
-        [131.1895, 40.8757],
-        [121.6184, 40.8757],
-        [121.6184, 46.2874]
-      ]]
-    }
-  },
-  "CHN_010": {
-    "type": "Feature",
-    "properties": {
-      "id": "CHN_010",
-      "name": "Liaoning"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [118.8828, 43.2960],
-        [125.7183, 43.2960],
-        [125.7183, 38.7430],
-        [118.8828, 38.7430],
-        [118.8828, 43.2960]
-      ]]
+      "coordinates": [
+        [
+          [73.4, 49.2], [96.4, 49.2], [96.4, 34.3], [73.4, 34.3], [73.4, 49.2]
+        ]
+      ]
     }
   }
 }

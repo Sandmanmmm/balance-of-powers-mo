@@ -12,6 +12,9 @@ import { CountryBoundaryTest } from './components/CountryBoundaryTest';
 import { MapStatusSummary } from './components/MapStatusSummary';
 import { MapDebugSummary } from './components/MapDebugSummary';
 import { NewCountriesTest } from './components/NewCountriesTest';
+import { ForceMapReload } from './components/ForceMapReload';
+import { LoadedDataSummary } from './components/LoadedDataSummary';
+import { BoundaryFetchTest } from './components/BoundaryFetchTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -247,6 +250,15 @@ function App() {
           </div>
           <div className="mt-4">
             <NewCountriesTest />
+          </div>
+          <div className="mt-4">
+            <ForceMapReload />
+          </div>
+          <div className="mt-4">
+            <LoadedDataSummary />
+          </div>
+          <div className="mt-4">
+            <BoundaryFetchTest />
           </div>
         </div>
       </div>

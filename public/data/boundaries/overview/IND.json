@@ -1,171 +1,20 @@
 {
-  "IND_001": {
-    "type": "Feature",
-    "properties": {
-      "id": "IND_001",
-      "name": "Maharashtra"
-    },
-    "geometry": {
-      "coordinates": [[
-        [80.8826, 21.14
-        [72.6581, 15.6024],
-      ]]
+  "type": "Feature",
+  "id": "IND",
+  "properties": {
+    "id": "IND",
+    "name": "India",
+    "country": "India",
+    "iso_a3": "IND",
+    "area": 3287263,
+    "population": 1380004385
   },
-    "type": "Feature",
-      "id": "IND_002",
-    },
-     
-    
-        [84.63
-        [77.0000, 30.5
-    }
-  "IND_003": {
-    "properties": {
-      
-    "geometry": {
-      "coordinates": [[
-        [88.1766, 27.52
-        [83.3254, 24.2958],
-      ]]
-  },
-    "type": "Feature",
-      "id": "IND_004",
-    },
-     
-    
-        [89.83
-        [85.8080, 27.2
-    }
-  "IND_005": {
-    "properties": {
-      
-    "geometry": {
-      "coordinates": [[
-        [84.7750, 19.91
-        [76.7635, 12.6269],
-      ]]
-  },
-    "type": "Feature",
-        [83.3254, 27.5218]
-      ]]
-    }
-  },
-  "IND_004": {
-    "type": "Feature",
-    "properties": {
-      "id": "IND_004",
-      "name": "West Bengal"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [85.8080, 27.2314],
-        [89.8333, 27.2314],
-        [89.8333, 21.5007],
-        [85.8080, 21.5007],
-        [85.8080, 27.2314]
-      ]]
-    }
-  },
-  "IND_005": {
-    "type": "Feature",
-    "properties": {
-      "id": "IND_005",
-      "name": "Andhra Pradesh"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [76.7635, 19.9169],
-        [84.7750, 19.9169],
-        [84.7750, 12.6269],
-        [76.7635, 12.6269],
-        [76.7635, 19.9169]
-      ]]
-    }
-  },
-  "IND_006": {
-    "type": "Feature",
-    "properties": {
-      "id": "IND_006",
-      "name": "Tamil Nadu"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [76.2500, 13.4000],
-  "IND_009": {
-    "properties": {
-      "name": "Gujarat"
-    "geometry": {
-      "c
-     
-    
-      ]]
-  },
-    "type": "Featur
-      "id": "IND_010",
-    },
-      
-        [81.3380,
-        [87.5300, 17.780
-        [81.3380, 22.56
-    }
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [68.0, 6.0], [68.0, 37.0], [97.0, 37.0], [97.0, 6.0], [68.0, 6.0]
+      ]
+    ]
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

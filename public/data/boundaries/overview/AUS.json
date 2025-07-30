@@ -1,36 +1,107 @@
 {
-  "AUS_001": {
-    "type": "Feature",
-    "properties": {
-      "id": "AUS_001",
-      "name": "New South Wales"
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AUS_NSW",
+        "name": "New South Wales"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [140.0, -37.5],
+          [153.5, -37.5],
+          [153.5, -28.0],
+          [140.0, -28.0],
+          [140.0, -37.5]
+        ]]
+      }
     },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [140.9993, -28.1579],
-        [153.6385, -28.1579],
-        [153.6385, -37.5051],
-        [140.9993, -37.5051],
-        [140.9993, -28.1579]
-      ]]
-    }
-  },
-  "AUS_002": {
-    "type": "Feature",
-    "properties": {
-      "id": "AUS_002",
-      "name": "Victoria"
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AUS_VIC",
+        "name": "Victoria"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [140.0, -39.2],
+          [150.0, -39.2],
+          [150.0, -34.0],
+          [140.0, -34.0],
+          [140.0, -39.2]
+        ]]
+      }
     },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [140.9615, -33.9806],
-        [149.9766, -33.9806],
-        [149.9766, -39.1591],
-        [140.9615, -39.1591],
-        [140.9615, -33.9806]
-      ]]
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AUS_QLD",
+        "name": "Queensland"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [138.0, -29.0],
+          [153.5, -29.0],
+          [153.5, -10.0],
+          [138.0, -10.0],
+          [138.0, -29.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AUS_WA",
+        "name": "Western Australia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [112.0, -35.0],
+          [129.0, -35.0],
+          [129.0, -13.5],
+          [112.0, -13.5],
+          [112.0, -35.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AUS_SA",
+        "name": "South Australia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [129.0, -38.0],
+          [141.0, -38.0],
+          [141.0, -26.0],
+          [129.0, -26.0],
+          [129.0, -38.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AUS_NT",
+        "name": "Northern Territory"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [129.0, -26.0],
+          [138.0, -26.0],
+          [138.0, -10.9],
+          [129.0, -10.9],
+          [129.0, -26.0]
+        ]]
+      }
     }
-  }
+  ]
 }

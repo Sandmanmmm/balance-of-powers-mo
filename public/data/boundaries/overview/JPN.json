@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JPN_TOKYO",
+        "name": "Tokyo"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [139.5, 35.5],
+          [140.2, 35.5],
+          [140.2, 36.0],
+          [139.5, 36.0],
+          [139.5, 35.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JPN_OSAKA",
+        "name": "Osaka"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [135.0, 34.4],
+          [135.8, 34.4],
+          [135.8, 35.0],
+          [135.0, 35.0],
+          [135.0, 34.4]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JPN_HOKKAIDO",
+        "name": "Hokkaido"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [139.0, 41.0],
+          [146.0, 41.0],
+          [146.0, 45.5],
+          [139.0, 45.5],
+          [139.0, 41.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JPN_KYUSHU",
+        "name": "Kyushu"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [129.0, 31.0],
+          [132.0, 31.0],
+          [132.0, 34.0],
+          [129.0, 34.0],
+          [129.0, 31.0]
+        ]]
+      }
+    }
+  ]
+}

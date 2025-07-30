@@ -103,8 +103,8 @@ let gameDataCache: {
   cacheTimestamp: number;
 } | null = null;
 
-// Cache TTL for development (5 minutes)
-const CACHE_TTL = 5 * 60 * 1000;
+// Cache TTL for development (30 seconds for faster development)
+const CACHE_TTL = 30 * 1000;
 
 // Create resourcesData export for backward compatibility
 let resourcesDataCache: Record<string, Resource> | null = null;
@@ -124,6 +124,15 @@ export const resourcesData: Record<string, Resource> = new Proxy({}, {
     return resourcesDataCache ? prop in resourcesDataCache : false;
   }
 });
+
+/**
+ * Clear all cached game data (useful for development)
+ */
+export function clearGameDataCache() {
+  console.log('🗑️ Clearing game data cache...');
+  gameDataCache = null;
+  resourcesDataCache = null;
+}
 
 /**
  * Main function to get all game data using the modular regions approach

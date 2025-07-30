@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZAF_GAUTENG",
+        "name": "Gauteng"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [27.0, -26.8],
+          [29.0, -26.8],
+          [29.0, -25.2],
+          [27.0, -25.2],
+          [27.0, -26.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZAF_WESTERN_CAPE",
+        "name": "Western Cape"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [17.5, -35.0],
+          [24.0, -35.0],
+          [24.0, -31.0],
+          [17.5, -31.0],
+          [17.5, -35.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZAF_KWAZULU_NATAL",
+        "name": "KwaZulu-Natal"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [28.5, -31.5],
+          [32.9, -31.5],
+          [32.9, -26.8],
+          [28.5, -26.8],
+          [28.5, -31.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZAF_EASTERN_CAPE",
+        "name": "Eastern Cape"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [24.0, -33.5],
+          [30.0, -33.5],
+          [30.0, -30.5],
+          [24.0, -30.5],
+          [24.0, -33.5]
+        ]]
+      }
+    }
+  ]
+}
