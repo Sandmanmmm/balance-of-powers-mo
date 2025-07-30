@@ -8,6 +8,8 @@ import { GameDataDebug } from './components/GameDataDebug';
 import { LegacyCleanupStatus } from './components/LegacyCleanupStatus';
 import { BoundaryLoadingTest } from './components/BoundaryLoadingTest';
 import { BoundaryFixTest } from './components/BoundaryFixTest';
+import { CountryBoundaryTest } from './components/CountryBoundaryTest';
+import { MapStatusSummary } from './components/MapStatusSummary';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -231,6 +233,12 @@ function App() {
           </div>
           <div className="mt-4">
             <BoundaryFixTest />
+          </div>
+          <div className="mt-4">
+            <CountryBoundaryTest />
+          </div>
+          <div className="mt-4">
+            <MapStatusSummary />
           </div>
         </div>
       </div>

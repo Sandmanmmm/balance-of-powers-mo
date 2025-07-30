@@ -1,0 +1,172 @@
+{
+  "GER_001": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_001",
+      "name": "Bayern"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [8.9767, 50.1049],
+        [13.8346, 50.1049],
+        [13.8346, 47.2701],
+        [8.9767, 47.2701],
+        [8.9767, 50.1049]
+      ]]
+    }
+  },
+  "GER_002": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_002",
+      "name": "Baden-Württemberg"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [7.5113, 49.7913],
+        [10.5000, 49.7913],
+        [10.5000, 47.5323],
+        [7.5113, 47.5323],
+        [7.5113, 49.7913]
+      ]]
+    }
+  },
+  "GER_003": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_003",
+      "name": "Nordrhein-Westfalen"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [5.8663, 52.5314],
+        [9.4612, 52.5314],
+        [9.4612, 50.3227],
+        [5.8663, 50.3227],
+        [5.8663, 52.5314]
+      ]]
+    }
+  },
+  "GER_004": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_004",
+      "name": "Niedersachsen"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [6.6544, 53.8945],
+        [11.5981, 53.8945],
+        [11.5981, 51.2953],
+        [6.6544, 51.2953],
+        [6.6544, 53.8945]
+      ]]
+    }
+  },
+  "GER_005": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_005",
+      "name": "Hessen"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [7.7727, 51.6554],
+        [10.2361, 51.6554],
+        [10.2361, 49.3963],
+        [7.7727, 49.3963],
+        [7.7727, 51.6554]
+      ]]
+    }
+  },
+  "GER_006": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_006",
+      "name": "Sachsen"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [11.8721, 51.6854],
+        [15.0419, 51.6854],
+        [15.0419, 50.1715],
+        [11.8721, 50.1715],
+        [11.8721, 51.6854]
+      ]]
+    }
+  },
+  "GER_007": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_007",
+      "name": "Berlin"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [13.0883, 52.6755],
+        [13.7606, 52.6755],
+        [13.7606, 52.3389],
+        [13.0883, 52.3389],
+        [13.0883, 52.6755]
+      ]]
+    }
+  },
+  "GER_008": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_008",
+      "name": "Hamburg"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [9.7316, 53.7544],
+        [10.3252, 53.7544],
+        [10.3252, 53.3951],
+        [9.7316, 53.3951],
+        [9.7316, 53.7544]
+      ]]
+    }
+  },
+  "GER_009": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_009",
+      "name": "Schleswig-Holstein"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [8.0000, 55.0583],
+        [11.3132, 55.0583],
+        [11.3132, 53.3595],
+        [8.0000, 53.3595],
+        [8.0000, 55.0583]
+      ]]
+    }
+  },
+  "GER_010": {
+    "type": "Feature",
+    "properties": {
+      "id": "GER_010",
+      "name": "Rheinland-Pfalz"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [6.1173, 50.9422],
+        [8.5085, 50.9422],
+        [8.5085, 48.9664],
+        [6.1173, 48.9664],
+        [6.1173, 50.9422]
+      ]]
+    }
+  }
+}

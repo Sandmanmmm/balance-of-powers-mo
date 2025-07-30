@@ -132,12 +132,42 @@ export function WorldMap({
           'India': 'IND',
           'Russia': 'RUS',
           'France': 'FRA',
-          'Germany': 'DEU',
+          'Germany': 'GER',
           'United Kingdom': 'GBR',
-          'Australia': 'AUS'
+          'Australia': 'AUS',
+          'Ukraine': 'UKR',
+          'Romania': 'ROU',
+          'Belarus': 'BLR',
+          'Slovenia': 'SVN',
+          'Slovakia': 'SVK',
+          'Serbia': 'SRB',
+          'Poland': 'POL',
+          'Lithuania': 'LTU',
+          'Latvia': 'LVA',
+          'Hungary': 'HUN',
+          'Estonia': 'EST',
+          'Czech Republic': 'CZE',
+          'Croatia': 'HRV',
+          'Bulgaria': 'BGR',
+          'Cuba': 'CUB',
+          'Jamaica': 'JAM',
+          'Haiti': 'HTI',
+          'Dominican Republic': 'DOM',
+          'Brazil': 'BRA',
+          'Chile': 'CHL',
+          'Colombia': 'COL',
+          'Ecuador': 'ECU'
         };
         
         console.log(`📍 Loading boundaries for countries:`, countries);
+        console.log(`🔗 Country code mappings available:`, Object.keys(countryCodeMap));
+        
+        // Check which countries will be processed
+        const mappedCountries = countries.filter(country => countryCodeMap[country]);
+        const unmappedCountries = countries.filter(country => !countryCodeMap[country]);
+        
+        console.log(`✅ Countries with mappings (${mappedCountries.length}):`, mappedCountries);
+        console.log(`❌ Countries without mappings (${unmappedCountries.length}):`, unmappedCountries);
         
         // Load boundaries for each country using the new system
         for (const country of countries) {
@@ -186,6 +216,11 @@ export function WorldMap({
         
         setProvinceBoundariesData(boundariesData);
         console.log(`✅ WorldMap: Loaded ${totalLoaded} total province boundaries at ${currentDetailLevel} detail`);
+        console.log(`🌍 Countries successfully loaded: ${[...new Set(allFeatures.map(f => f.properties?.country))].filter(Boolean).length}`);
+        console.log(`🗺️ Features by country:`, [...new Set(allFeatures.map(f => f.properties?.country))].filter(Boolean).reduce((acc, country) => {
+          acc[country] = allFeatures.filter(f => f.properties?.country === country).length;
+          return acc;
+        }, {} as Record<string, number>));
         
         // Log province IDs for debugging
         const provinceIds = allFeatures.map(f => f.properties?.id).filter(Boolean);
