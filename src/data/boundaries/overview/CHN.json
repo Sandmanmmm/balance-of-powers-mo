@@ -1,20 +1,97 @@
 {
-  "type": "Feature",
-  "id": "CHN",
-  "properties": {
-    "id": "CHN",
-    "name": "China",
-    "country": "China",
-    "iso_a3": "CHN",
-    "area": 9596960,
-    "population": 1439323776
-  },
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-      [
-        [73.0, 18.0], [73.0, 54.0], [134.0, 54.0], [134.0, 18.0], [73.0, 18.0]
+  "CHN_001": {
+    "type": "Feature",
+    "id": "CHN_001",
+    "properties": {
+      "id": "CHN_001",
+      "name": "Beijing",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "BJ"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [115.4, 40.6], [117.6, 40.6], [117.6, 39.4], [115.4, 39.4], [115.4, 40.6]
+        ]
       ]
-    ]
+    }
+  },
+  "CHN_002": {
+    "type": "Feature",
+    "id": "CHN_002",
+    "properties": {
+      "id": "CHN_002",
+      "name": "Shanghai",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "SH"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [120.8, 31.9], [122.2, 31.9], [122.2, 30.7], [120.8, 30.7], [120.8, 31.9]
+        ]
+      ]
+    }
+  },
+  "CHN_003": {
+    "type": "Feature",
+    "id": "CHN_003",
+    "properties": {
+      "id": "CHN_003",
+      "name": "Guangdong",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "GD"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [109.7, 25.3], [117.2, 25.3], [117.2, 20.2], [109.7, 20.2], [109.7, 25.3]
+        ]
+      ]
+    }
+  },
+  "CHN_004": {
+    "type": "Feature",
+    "id": "CHN_004",
+    "properties": {
+      "id": "CHN_004",
+      "name": "Sichuan",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "SC"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [97.3, 33.2], [110.1, 33.2], [110.1, 26.0], [97.3, 26.0], [97.3, 33.2]
+        ]
+      ]
+    }
+  },
+  "CHN_005": {
+    "type": "Feature",
+    "id": "CHN_005",
+    "properties": {
+      "id": "CHN_005",
+      "name": "Xinjiang",
+      "country": "China",
+      "iso_a3": "CHN",
+      "province_code": "XJ"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [73.4, 49.2], [96.4, 49.2], [96.4, 34.3], [73.4, 34.3], [73.4, 49.2]
+        ]
+      ]
+    }
   }
 }

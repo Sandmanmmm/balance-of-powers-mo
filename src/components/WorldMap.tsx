@@ -113,7 +113,7 @@ export function WorldMap({
   const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
   const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>('overview');
 
-  // Load province boundaries - use legacy backup files since regional system lacks boundary files
+  // Load province boundaries using the new country-based boundary system
   useEffect(() => {
     const loadBoundaries = async () => {
       try {
@@ -122,90 +122,60 @@ export function WorldMap({
         const allFeatures: any[] = [];
         let totalLoaded = 0;
         
-        // Strategy 1: Load province-level boundaries from legacy backup (these contain detailed province polygons)
-        console.log('📍 Loading detailed province boundaries from legacy backup...');
+        // Get unique countries from province data
+        const countries = Array.from(new Set(provinces.map(p => p.country)));
+        const countryCodeMap: Record<string, string> = {
+          'United States': 'USA',
+          'Canada': 'CAN', 
+          'Mexico': 'MEX',
+          'China': 'CHN',
+          'India': 'IND',
+          'Russia': 'RUS',
+          'France': 'FRA',
+          'Germany': 'DEU',
+          'United Kingdom': 'GBR',
+          'Australia': 'AUS'
+        };
         
-        const legacyBoundaryFiles = [
-          '/data/legacy_backup/province-boundaries.json',  // Contains Canada and some other countries
-          '/data/legacy_backup/province-boundaries_usa.json',
-          '/data/legacy_backup/province-boundaries_china.json',
-          '/data/legacy_backup/province-boundaries_india.json',
-          '/data/legacy_backup/province-boundaries_russia.json',
-          '/data/legacy_backup/province-boundaries_europe_west.json'
-        ];
+        console.log(`📍 Loading boundaries for countries:`, countries);
         
-        for (const boundaryFile of legacyBoundaryFiles) {
+        // Load boundaries for each country using the new system
+        for (const country of countries) {
+          const countryCode = countryCodeMap[country];
+          if (!countryCode) {
+            console.warn(`⚠️ No country code mapping for ${country}`);
+            continue;
+          }
+          
           try {
-            console.log(`Attempting to load legacy boundaries from ${boundaryFile}...`);
-            const response = await fetch(boundaryFile);
-            if (response.ok) {
-              const data = await response.json();
-              if (data && data.features && Array.isArray(data.features)) {
-                allFeatures.push(...data.features);
-                totalLoaded += data.features.length;
-                console.log(`✓ Loaded ${data.features.length} province boundaries from ${boundaryFile}`);
+            console.log(`🌍 Loading boundaries for ${country} (${countryCode}) at ${currentDetailLevel} detail...`);
+            const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
+            
+            // Convert Record<string, GeoJSONFeature> to Feature array
+            const features = Object.entries(countryBoundaries);
+            if (features.length > 0) {
+              for (const [provinceId, feature] of features) {
+                if (feature && feature.geometry) {
+                  // Ensure proper properties for province mapping
+                  if (!feature.properties) {
+                    feature.properties = {};
+                  }
+                  
+                  // Use the province ID from the record key if available, otherwise use country code
+                  feature.properties.id = provinceId || countryCode;
+                  feature.properties.name = feature.properties.name || provinceId || country;
+                  feature.properties.country = country;
+                  
+                  allFeatures.push(feature);
+                  totalLoaded++;
+                }
               }
+              console.log(`✅ Loaded ${features.length} province boundaries for ${country}`);
             } else {
-              console.log(`⚠️ Could not fetch ${boundaryFile}: ${response.status}`);
+              console.warn(`⚠️ No boundary features found for ${country} (${countryCode})`);
             }
           } catch (error) {
-            console.warn(`⚠️ Failed to load ${boundaryFile}:`, error);
-          }
-        }
-        
-        console.log(`📍 Legacy system loaded ${totalLoaded} detailed province boundaries`);
-        
-        
-        // Strategy 2: If legacy boundaries don't exist or are insufficient, use country-level outlines as fallback
-        if (totalLoaded < 5) {
-          console.log('🔄 No detailed province boundaries available, using country outlines as fallback...');
-          
-          const countries = Array.from(new Set(provinces.map(p => p.country)));
-          const countryCodeMap: Record<string, string> = {
-            'United States': 'USA',
-            'Canada': 'CAN', 
-            'Mexico': 'MEX',
-            'China': 'CHN',
-            'India': 'IND',
-            'Russia': 'RUS',
-            'France': 'FRA',
-            'Germany': 'DEU',
-            'United Kingdom': 'GBR',
-            'Australia': 'AUS'
-          };
-          
-          for (const country of countries) {
-            const countryCode = countryCodeMap[country];
-            if (!countryCode) continue;
-            
-            try {
-              console.log(`Loading country outline for ${country} (${countryCode})...`);
-              const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
-              
-              // Convert Record<string, GeoJSONFeature> to Feature array
-              const features = Object.values(countryBoundaries);
-              if (features.length > 0) {
-                // For country outlines, ensure proper province mapping
-                for (const feature of features) {
-                  if (feature && feature.geometry) {
-                    // Add proper properties for province mapping
-                    if (!feature.properties?.id) {
-                      feature.properties = { 
-                        ...feature.properties, 
-                        id: countryCode,
-                        name: country,
-                        country: country
-                      };
-                    }
-                    allFeatures.push(feature);
-                    totalLoaded++;
-                  }
-                }
-                console.log(`✓ Added ${features.length} country outline(s) for ${country}`);
-              }
-            } catch (error) {
-              console.warn(`⚠️ Failed to load country-based boundaries for ${country} (${countryCode}):`, error);
-            }
+            console.warn(`⚠️ Failed to load boundaries for ${country} (${countryCode}):`, error);
           }
         }
         
