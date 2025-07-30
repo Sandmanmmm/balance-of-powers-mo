@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Card } from '@/components/ui/card';
-import { geographicDataManager } from '@/managers/GeographicDataManager';
-
+import { geographicDataManager } from '@/man
 export function MapDebugSummary() {
-  const [debugInfo, setDebugInfo] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+      try {
+        
 
   useEffect(() => {
     const loadDebugInfo = async () => {
@@ -30,37 +30,37 @@ export function MapDebugSummary() {
           cachedRegions,
           boundaryChecks: boundaryChecks.map(result => 
             result.status === 'fulfilled' ? result.value : { status: 'error', error: result.reason }
-          )
+        <di
         });
-      } catch (error) {
+  }
         setDebugInfo({ error: String(error) });
-      } finally {
+    return (
         setIsLoading(false);
-      }
+       
     };
 
     loadDebugInfo();
-  }, []);
+    <Card
 
-  if (isLoading) {
+        
     return (
       <Card className="p-4">
         <h3 className="font-semibold mb-2">Map Debug Summary</h3>
         <div className="text-muted-foreground">Loading debug info...</div>
       </Card>
-    );
+
   }
 
   if (debugInfo?.error) {
-    return (
+            
       <Card className="p-4">
         <h3 className="font-semibold mb-2 text-red-600">Map Debug Error</h3>
         <div className="text-red-600 text-sm">{debugInfo.error}</div>
-      </Card>
+            )
     );
-  }
 
-  return (
+
+          
     <Card className="p-4">
       <h3 className="font-semibold mb-2">Map Debug Summary</h3>
       <div className="space-y-3 text-sm">
@@ -72,7 +72,7 @@ export function MapDebugSummary() {
             <div>Size: {Math.round(debugInfo.stats.currentCacheSize / 1024 / 1024 * 100) / 100}MB</div>
             <div>Hit Ratio: {Math.round(debugInfo.stats.hitRatio * 100)}%</div>
           </div>
-        </div>
+
 
         <div>
           <strong>Cached Regions:</strong>
@@ -86,7 +86,7 @@ export function MapDebugSummary() {
                 </div>
               ))
             )}
-          </div>
+
         </div>
 
         <div>
