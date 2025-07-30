@@ -12,16 +12,16 @@ import {
   Clock, 
   Coins, 
   Hammer, 
-  CheckCircle2, 
-  AlertCircle, 
-  Building2,
+  CheckCircle, 
+  Warning, 
+  Buildings,
   GridFour,
   Lightning,
   Factory,
   MagnifyingGlass,
   Storefront,
-  Road,
-  TreePine,
+  Path,
+  Tree,
   ShieldCheck,
   MapPin,
   Airplane,
@@ -167,17 +167,17 @@ export function ConstructionPanel({
       case 'extraction': return <MagnifyingGlass className="w-3 h-3" />;
       case 'energy': return <Lightning className="w-3 h-3" />;
       case 'industrial': return <Factory className="w-3 h-3" />;
-      case 'technology': return <Building2 className="w-3 h-3" />;
-      case 'research': return <Building2 className="w-3 h-3" />;
+      case 'technology': return <Buildings className="w-3 h-3" />;
+      case 'research': return <Buildings className="w-3 h-3" />;
       case 'commercial': return <Storefront className="w-3 h-3" />;
-      case 'infrastructure': return <Road className="w-3 h-3" />;
-      case 'agriculture': return <TreePine className="w-3 h-3" />;
+      case 'infrastructure': return <Path className="w-3 h-3" />;
+      case 'agriculture': return <Tree className="w-3 h-3" />;
       case 'military': return <ShieldCheck className="w-3 h-3" />;
       case 'civilian': return <Users className="w-3 h-3" />;
-      case 'environmental': return <TreePine className="w-3 h-3" />;
+      case 'environmental': return <Tree className="w-3 h-3" />;
       case 'tourism': return <MapPin className="w-3 h-3" />;
       case 'aerospace': return <Airplane className="w-3 h-3" />;
-      default: return <Building2 className="w-3 h-3" />;
+      default: return <Buildings className="w-3 h-3" />;
     }
   };
 
@@ -185,7 +185,7 @@ export function ConstructionPanel({
     <div className="space-y-4">
       {/* Province Header */}
       <div className="flex items-center gap-2">
-        <Building2 className="w-5 h-5 text-primary" />
+        <Buildings className="w-5 h-5 text-primary" />
         <h3 className="text-lg font-semibold">Construction - {province.name}</h3>
         {!isPlayerControlled && (
           <Badge variant="secondary">View Only</Badge>
@@ -197,7 +197,7 @@ export function ConstructionPanel({
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-600" />
+              <CheckCircle className="w-4 h-4 text-green-600" />
               Existing Buildings
             </CardTitle>
           </CardHeader>
@@ -305,7 +305,7 @@ export function ConstructionPanel({
                 <div className="space-y-3">
                   {(filteredBuildings || []).length === 0 ? (
                     <div className="text-center py-8 text-muted-foreground">
-                      <AlertCircle className="w-8 h-8 mx-auto mb-2" />
+                      <Warning className="w-8 h-8 mx-auto mb-2" />
                       <p className="font-medium">No available buildings for this province</p>
                       <div className="text-xs space-y-1 mt-3 bg-muted p-3 rounded-md">
                         <p><span className="font-medium">Province features:</span> {(province.features && Array.isArray(province.features) && province.features.length > 0) ? province.features.join(', ') : 'none'}</p>

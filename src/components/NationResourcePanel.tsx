@@ -7,7 +7,7 @@ import { Nation } from '../lib/types';
 import { getResources, type Resource } from '../data/gameData';
 import { getResourceShortageStatus } from '../lib/resourceNotifications';
 import { calculateResourceShortageEffects, getShortageEffectDescription } from '../lib/resourceEffects';
-import { AlertTriangle, TrendingUp, TrendingDown, Zap, Shield, Users } from '@phosphor-icons/react';
+import { Warning, TrendUp, TrendDown, Lightning, Shield, Users } from '@phosphor-icons/react';
 import { useState, useEffect } from 'react';
 
 interface NationResourcePanelProps {
@@ -168,7 +168,7 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
           <Badge variant="outline">{nation.name}</Badge>
           {criticalShortages.length > 0 && (
             <Badge variant="destructive" className="ml-auto">
-              <AlertTriangle size={14} className="mr-1" />
+              <Warning size={14} className="mr-1" />
               {criticalShortages.length} Critical
             </Badge>
           )}
@@ -189,7 +189,7 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
             <div className="grid grid-cols-3 gap-4 mb-4">
               <Card className="p-3">
                 <div className="flex items-center gap-2">
-                  <Zap className="text-blue-500" size={20} />
+                  <Lightning className="text-blue-500" size={20} />
                   <div>
                     <div className="text-sm text-muted-foreground">Efficiency</div>
                     <div className="font-bold">
@@ -235,7 +235,7 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
                         <div className="font-medium flex items-center gap-2">
                           {resource.name}
                           {status.shortage > 0.3 && (
-                            <AlertTriangle size={16} className="text-red-500" />
+                            <Warning size={16} className="text-red-500" />
                           )}
                         </div>
                         <div className="text-sm text-muted-foreground">
@@ -252,7 +252,7 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
                     <div className="flex items-center gap-2">
                       <div className="text-right text-sm">
                         <div className={`font-medium ${status.net >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                          {status.net >= 0 ? <TrendingUp size={16} className="inline mr-1" /> : <TrendingDown size={16} className="inline mr-1" />}
+                          {status.net >= 0 ? <TrendUp size={16} className="inline mr-1" /> : <TrendDown size={16} className="inline mr-1" />}
                           {status.net >= 0 ? '+' : ''}{formatNumber(status.net)}/week
                         </div>
                         <div className="text-muted-foreground">
@@ -292,7 +292,7 @@ export function NationResourcePanel({ nation }: NationResourcePanelProps) {
                     return (
                       <Card key={index} className="p-4">
                         <div className="flex items-start gap-3">
-                          <AlertTriangle className={severityColor} size={20} />
+                          <Warning className={severityColor} size={20} />
                           <div className="flex-1">
                             <div className="font-semibold">{resource?.name} Shortage</div>
                             <div className="text-sm text-muted-foreground mb-2">

@@ -17,7 +17,7 @@ import {
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
 import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid, geometryToPath } from '../lib/mapProjection';
-import { geographicDataManager, DetailLevel, GeoJSONFeature, GeoJSONFeatureCollection } from '../managers/GeographicDataManager';
+import { geographicDataManager, type DetailLevel, type GeoJSONFeature, type GeoJSONFeatureCollection } from '../managers/GeographicDataManager';
 
 interface WorldMapProps {
   provinces: Province[];
@@ -165,7 +165,7 @@ export function WorldMap({
   // Memoize projection configuration
   const projectionConfig: ProjectionConfig = useMemo(() => {
     if (!provinceBoundariesData?.features) {
-      return { centerLon: 0, centerLat: 0, scale: 1, svgWidth: 1000, svgHeight: 600 };
+      return { centerLon: 0, centerLat: 0, scale: 1, width: 1000, height: 600 };
     }
     return calculateOptimalProjection(
       provinceBoundariesData.features,
@@ -375,8 +375,9 @@ export function WorldMap({
               }
             })
             .map((feature) => {
+              let provinceId: string | undefined;
               try {
-                const provinceId = feature.properties?.id;
+                provinceId = feature.properties?.id;
                 if (!provinceId) return null;
                 
                 const province = provinceDataMap.get(provinceId);
@@ -417,8 +418,8 @@ export function WorldMap({
                   strokeWidth={isSelected ? 3 : isHovered ? 2 : 1}
                   fillOpacity={isSelected ? 0.9 : isHovered ? 0.8 : 0.7}
                   className="cursor-pointer transition-all duration-200"
-                  onClick={() => handleProvinceClick(provinceId)}
-                  onMouseEnter={() => handleProvinceHover(provinceId)}
+                  onClick={() => provinceId && handleProvinceClick(provinceId)}
+                  onMouseEnter={() => provinceId && handleProvinceHover(provinceId)}
                   onMouseLeave={() => handleProvinceHover(null)}
                   filter={mapOverlay === 'none' ? 'url(#landShadow)' : 'none'}
                   style={{

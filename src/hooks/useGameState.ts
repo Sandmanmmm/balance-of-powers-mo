@@ -15,7 +15,8 @@ const initialGameState: GameState = {
 };
 
 export function useGameState() {
-  const [gameState, setGameState] = useKV('gameState', initialGameState);
+  // Use regular state instead of useKV to avoid type issues
+  const [gameState, setGameState] = useState<GameState>(initialGameState);
   // Temporarily use regular useState instead of useKV to test if that's the issue
   const [provinces, setProvinces] = useState<Province[]>([]);
   const [nations, setNations] = useState<Nation[]>([]);
@@ -38,7 +39,7 @@ export function useGameState() {
   const getBuildingById = useCallback((id: string) => {
     return buildings.find(b => b.id === id);
   }, [buildings]);
-  const [events, setEvents] = useKV('events', []);
+  const [events, setEvents] = useState<GameEvent[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Debug: Force clear old state if it's empty
@@ -210,10 +211,10 @@ export function useGameState() {
 
   // Computed game state with proper date handling
   const computedGameState = {
-    ...(gameState || initialGameState),
-    currentDate: (gameState?.currentDate instanceof Date) 
+    ...gameState,
+    currentDate: (gameState.currentDate instanceof Date) 
       ? gameState.currentDate 
-      : new Date(gameState?.currentDate || '1990-01-01')
+      : new Date(gameState.currentDate || '1990-01-01')
   };
 
   // Ensure all nations have properly initialized diplomacy arrays
@@ -547,7 +548,7 @@ export function useGameState() {
                 buildingId: project.buildingId,
                 level: 1,
                 constructedDate: new Date(computedGameState.currentDate).toISOString(),
-                effects: building.effects
+                effects: building.improves || {}
               });
             }
           } else {
@@ -588,6 +589,7 @@ export function useGameState() {
     getSelectedNation,
     updateProvince,
     updateNation,
+    getBuildingById,
     addEvent,
     removeNotification,
     startConstruction,

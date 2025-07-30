@@ -12,9 +12,10 @@ import type {
   GeoJSONFeature,
   GeoJSONFeatureCollection,
   GeographicCacheEntry,
-  LoadingStats as BaseLoadingStats
+  LoadingStats as BaseLoadingStats,
+  DetailLevel
 } from '../types/geo';
-import { DetailLevel, GeographicDataError } from '../types/geo';
+import { GeographicDataError } from '../types/geo';
 
 interface CacheEntry {
   data: GeoJSONFeatureCollection | Record<string, GeoJSONFeature>;
@@ -409,5 +410,4 @@ export class GeographicDataManager {
 export const geographicDataManager = new GeographicDataManager();
 
 // Re-export types for convenience
-export type { GeoJSONFeature, GeoJSONFeatureCollection } from '../types/geo';
-export { DetailLevel } from '../types/geo';
+export type { GeoJSONFeature, GeoJSONFeatureCollection, DetailLevel } from '../types/geo';

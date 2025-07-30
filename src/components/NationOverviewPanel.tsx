@@ -16,9 +16,9 @@ import {
   Atom, 
   Users,
   Flag,
-  Settings,
+  Gear,
   FileText,
-  AlertTriangle
+  Warning
 } from '@phosphor-icons/react';
 import { toast } from 'sonner';
 
@@ -327,7 +327,7 @@ export function NationOverviewPanel({
 
         <TabsContent value="policies" className="space-y-4">
           <div className="flex items-center gap-2 mb-4">
-            <Settings className="w-5 h-5" />
+            <Gear className="w-5 h-5" />
             <h3 className="text-lg font-semibold">National Policies</h3>
             {!isPlayerNation && (
               <Badge variant="secondary">View Only</Badge>
@@ -416,7 +416,7 @@ export function NationOverviewPanel({
                     </div>
                     {decision.timeLimit && (
                       <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <AlertTriangle className="w-3 h-3" />
+                        <Warning className="w-3 h-3" />
                         Time limit: {decision.timeLimit}
                       </div>
                     )}

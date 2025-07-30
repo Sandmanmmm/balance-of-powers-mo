@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle, AlertCircle, Clock, Database } from '@phosphor-icons/react';
+import { CheckCircle, Warning, Clock, Database } from '@phosphor-icons/react';
 
 interface LoadingSummary {
   totalFiles: number;
@@ -42,7 +42,7 @@ export function DataLoadingSummary({ warnings, summary, isVisible = false }: Dat
           {successRate >= 75 ? (
             <CheckCircle size={16} className="text-green-500" />
           ) : (
-            <AlertCircle size={16} className="text-yellow-500" />
+            <Warning size={16} className="text-yellow-500" />
           )}
           <span>Success Rate: {successRate.toFixed(1)}%</span>
         </div>
@@ -65,7 +65,7 @@ export function DataLoadingSummary({ warnings, summary, isVisible = false }: Dat
       {warnings.length > 0 && (
         <div className="space-y-2">
           <div className="flex items-center gap-2">
-            <AlertCircle size={16} className="text-yellow-500" />
+            <Warning size={16} className="text-yellow-500" />
             <span className="text-sm font-medium">Warnings ({warnings.length})</span>
           </div>
           <div className="max-h-32 overflow-y-auto space-y-1">

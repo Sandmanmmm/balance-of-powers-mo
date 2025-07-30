@@ -66,6 +66,7 @@ function App() {
     getSelectedNation,
     updateProvince,
     updateNation,
+    getBuildingById,
     startConstruction,
     cancelConstruction,
     processConstructionTick,
@@ -154,7 +155,8 @@ function App() {
     onAdvanceTime: advanceTime,
     onUpdateProvince: updateProvince,
     onUpdateNation: updateNation,
-    onProcessConstructionTick: processConstructionTick
+    onProcessConstructionTick: processConstructionTick,
+    getBuildingById: getBuildingById
   });
 
   // Show loading state if not initialized OR no data is loaded

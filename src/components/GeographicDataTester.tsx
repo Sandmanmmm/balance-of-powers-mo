@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { geographicDataManager } from '../managers/GeographicDataManager';
-import { DetailLevel } from '../types/geo';
+import type { DetailLevel } from '../types/geo';
 import type { GeoJSONFeature } from '../types/geo';
 
 export function GeographicDataTester() {

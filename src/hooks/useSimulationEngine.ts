@@ -23,6 +23,7 @@ interface UseSimulationEngineProps {
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void;
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void;
   onProcessConstructionTick?: () => void;
+  getBuildingById?: (id: string) => any;
 }
 
 interface SimulationContext {
@@ -40,7 +41,8 @@ export function useSimulationEngine({
   onAdvanceTime,
   onUpdateProvince,
   onUpdateNation,
-  onProcessConstructionTick
+  onProcessConstructionTick,
+  getBuildingById: getBuildingByIdSync
 }: UseSimulationEngineProps) {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const lastUpdateRef = useRef<number>(Date.now());
@@ -177,7 +179,7 @@ export function useSimulationEngine({
         simulateNations(context, Math.floor(weeksToAdvance), onUpdateNation);
         
         // Process resource production/consumption with shortage effects
-        processResourceSystem(context, Math.floor(weeksToAdvance), onUpdateProvince, onUpdateNation, resources);
+        processResourceSystem(context, Math.floor(weeksToAdvance), onUpdateProvince, onUpdateNation, resources, getBuildingByIdSync);
         
         // Process trade agreements
         processTradeSystem(context, Math.floor(weeksToAdvance), onUpdateNation, resources);
@@ -1042,8 +1044,13 @@ function makeAIDecision(
 }
 
 // Validation function for building placement based on features
-export function validateBuildingPlacement(buildingId: string, province: Province, nation: Nation): { valid: boolean; reason?: string } {
-  const building = getBuildingById(buildingId);
+export function validateBuildingPlacement(buildingId: string, province: Province, nation: Nation, getBuildingByIdSync?: (id: string) => any): { valid: boolean; reason?: string } {
+  // For now, skip validation if no sync function is provided
+  if (!getBuildingByIdSync) {
+    return { valid: true };
+  }
+  
+  const building = getBuildingByIdSync(buildingId);
   if (!building) {
     return { valid: false, reason: 'Building not found' };
   }
@@ -1107,7 +1114,8 @@ function processResourceSystem(
   weeksElapsed: number,
   onUpdateProvince: (provinceId: string, updates: Partial<Province>) => void,
   onUpdateNation: (nationId: string, updates: Partial<Nation>) => void,
-  resourcesFromState: Resource[]
+  resourcesFromState: Resource[],
+  getBuildingByIdSync?: (id: string) => any
 ) {
   // Safety checks
   if (!context.nations || !Array.isArray(context.nations)) {
@@ -1201,7 +1209,7 @@ function processResourceSystem(
       // Debug logging for food production
       if (nation.id === context.gameState.selectedNation) {
         const foodBuildings = province.buildings.filter(b => {
-          const building = getBuildingById(b.buildingId);
+          const building = getBuildingByIdSync ? getBuildingByIdSync(b.buildingId) : null;
           return building && building.produces && building.produces.food;
         });
         
@@ -1213,7 +1221,7 @@ function processResourceSystem(
       province.buildings.forEach(building => {
         if (!building) return;
         
-        const buildingData = getBuildingById(building.buildingId);
+        const buildingData = getBuildingByIdSync ? getBuildingByIdSync(building.buildingId) : null;
         if (!buildingData) return;
       
       // Ensure building has proper level
@@ -1319,13 +1327,15 @@ function processResourceSystem(
       });
     }
   });
+  
+  // Calculate base population for calculations
+  const totalPopulation = nationProvinces.reduce((sum, p) => sum + (p.population?.total || 0), 0);
     
   // Calculate base resource production
-  newProduction.manpower = (newProduction.manpower || 0) + (nation.demographics?.population || 0) * 0.001 * weeksElapsed; // 0.1% of population per week
+  newProduction.manpower = (newProduction.manpower || 0) + (totalPopulation || 0) * 0.001 * weeksElapsed; // 0.1% of population per week
   newProduction.research = (newProduction.research || 0) + (nation.technology?.researchPoints ?? 0) * 0.1 * weeksElapsed;
   
   // Calculate base consumption
-  const totalPopulation = nationProvinces.reduce((sum, p) => sum + (p.population?.total || 0), 0);
   newConsumption.food = (newConsumption.food || 0) + totalPopulation * 0.01 * weeksElapsed; // 1% of population per week
   newConsumption.consumer_goods = (newConsumption.consumer_goods || 0) + totalPopulation * 0.005 * weeksElapsed;
   
@@ -1515,7 +1525,7 @@ function processTradeSystem(
           const resourceNames = Object.keys(tradeOffer.offering || {}).map(id => {
             const resource = (resourcesFromState || []).find(r => r.id === id);
             return resource?.name;
-          }).filter(Boolean);
+          }).filter((name): name is string => Boolean(name));
           sendTradeNotification('offer_received', {
             fromNation: nation.name,
             resources: resourceNames

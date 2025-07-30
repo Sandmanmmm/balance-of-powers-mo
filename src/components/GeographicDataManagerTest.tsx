@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { geographicDataManager, DetailLevel } from '../managers/GeographicDataManager';
+import { geographicDataManager, type DetailLevel } from '../managers/GeographicDataManager';
 import { completeMigration } from '../utils/migrationHelper';
 import { Play, CheckCircle, XCircle, Clock } from '@phosphor-icons/react';
 

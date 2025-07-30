@@ -4,7 +4,15 @@ import { useGameState } from '../hooks/useGameState';
 
 export function BuildingAvailabilityDebug() {
   const { provinces, nations, getSelectedProvince, getSelectedNation } = useGameState();
-  const [buildingData, setBuildingData] = useState<any>(null);
+  const [buildingData, setBuildingData] = useState<{
+    totalBuildings: number;
+    buildingsWithNoFeatures: number;
+    sampleBuildingsNoFeatures: { id: string; name: string; }[];
+    basicBuildings: { id: string; name: string; infrastructureReq: any; }[];
+    availableForCurrentProvince: number;
+    availableBuildings: { id: string; name: string; }[];
+    error?: string;
+  } | null>(null);
   
   const selectedProvince = getSelectedProvince();
   const selectedNation = getSelectedNation();
@@ -27,20 +35,30 @@ export function BuildingAvailabilityDebug() {
             id: b.id, 
             name: b.name,
             infrastructureReq: b.requirements?.infrastructure || 0
-          })) || []
+          })) || [],
+          availableForCurrentProvince: 0,
+          availableBuildings: [] as { id: string; name: string; }[]
         };
         
         if (selectedProvince && selectedNation) {
           const completedTech = selectedNation.technology?.completedTech || [];
           const available = getAvailableBuildings(selectedProvince, selectedNation, completedTech, buildings);
           data.availableForCurrentProvince = available?.length || 0;
-          data.availableBuildings = available?.map(b => ({ id: b.id, name: b.name })) || [];
+          data.availableBuildings = available?.map(b => ({ id: b.id, name: b.name })) || [] as { id: string; name: string; }[];
         }
         
         setBuildingData(data);
       } catch (error) {
         console.error('Building debug error:', error);
-        setBuildingData({ error: error.message });
+        setBuildingData({
+          totalBuildings: 0,
+          buildingsWithNoFeatures: 0,
+          sampleBuildingsNoFeatures: [],
+          basicBuildings: [],
+          availableForCurrentProvince: 0,
+          availableBuildings: [] as { id: string; name: string; }[],
+          error: error.message
+        });
       }
     };
     

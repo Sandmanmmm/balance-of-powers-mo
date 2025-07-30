@@ -890,35 +890,35 @@ export function convertNations(): Nation[] {
       gdp: data.economy.gdp,
       debt: data.economy.debt,
       inflation: data.economy.inflation,
-      tradeBalance: data.economy.trade_balance || data.economy.tradeBalance,
+      tradeBalance: data.economy.trade_balance || (data.economy as any).tradeBalance || 0,
       treasury: data.economy.treasury
     },
     military: {
       manpower: data.military.manpower,
       equipment: data.military.equipment,
-      readiness: data.military.readiness || 100,
+      readiness: (data.military as any).readiness || 100,
       doctrine: data.military.doctrine,
-      nuclearCapability: data.military.nuclear_capability ?? data.military.nuclearCapability ?? false
+      nuclearCapability: data.military.nuclear_capability ?? (data.military as any).nuclearCapability ?? false
     },
     technology: {
-      researchPoints: data.technology.research_points ?? data.technology.researchPoints ?? 0,
-      currentResearch: data.technology.current_research ?? data.technology.currentResearch ?? [],
-      completedTech: data.technology.completed_tech ?? data.technology.completedTech ?? [],
-      level: data.technology.tech_level ?? data.technology.level ?? 1.0
+      researchPoints: data.technology.research_points ?? (data.technology as any).researchPoints ?? 0,
+      currentResearch: data.technology.current_research ?? (data.technology as any).currentResearch ?? [],
+      completedTech: data.technology.completed_tech ?? (data.technology as any).completedTech ?? [],
+      level: (data.technology as any).tech_level ?? (data.technology as any).level ?? 1.0
     },
     diplomacy: {
       allies: data.diplomacy.allies || [],
       enemies: data.diplomacy.enemies || [],
-      embargoes: data.diplomacy.embargoes || [],
-      sanctions: data.diplomacy.sanctions || [],
-      tradePartners: data.diplomacy.trade_partners ?? data.diplomacy.tradePartners ?? []
+      embargoes: (data.diplomacy as any).embargoes || [],
+      sanctions: (data.diplomacy as any).sanctions || [],
+      tradePartners: data.diplomacy.trade_partners ?? (data.diplomacy as any).tradePartners ?? []
     },
-    resourceStockpiles: data.resourceStockpiles || data.resource_stockpiles || {},
-    resourceProduction: data.resourceProduction || data.resource_production || {},
-    resourceConsumption: data.resourceConsumption || data.resource_consumption || {},
-    resourceShortages: data.resourceShortages || data.resource_shortages || {},
-    resourceEfficiency: data.resourceEfficiency || data.resource_efficiency || { overall: 1.0 },
-    tradeOffers: data.tradeOffers || data.trade_offers || [],
-    tradeAgreements: data.tradeAgreements || data.trade_agreements || []
+    resourceStockpiles: data.resourceStockpiles || (data as any).resource_stockpiles || {},
+    resourceProduction: data.resourceProduction || (data as any).resource_production || {},
+    resourceConsumption: data.resourceConsumption || (data as any).resource_consumption || {},
+    resourceShortages: (data as any).resourceShortages || (data as any).resource_shortages || {},
+    resourceEfficiency: (data as any).resourceEfficiency || (data as any).resource_efficiency || { overall: 1.0 },
+    tradeOffers: (data as any).tradeOffers || (data as any).trade_offers || [],
+    tradeAgreements: (data as any).tradeAgreements || (data as any).trade_agreements || []
   }));
 }
