@@ -1,1 +1,70 @@
-nations: {}
+nations:
+  AUS:
+    name: "Australia"
+    capital: "Canberra"
+    flag: "🇦🇺"
+    government:
+      type: "federal_democracy"
+      leader: "Anthony Albanese"
+      approval: 45.2
+      stability: 82.5
+      ruling_party: "Australian Labor Party"
+      ideology: "Social Democracy"
+      election_cycle: 3
+      last_election: "2022-05-21"
+      parliamentary_control: "majority"
+    economy:
+      gdp: 1550000000000
+      debt: 750000000000
+      inflation: 7.0
+      trade_balance: 68000000000
+      treasury: 180000000000
+      currency: "AUD"
+      interest_rate: 4.1
+      sectors:
+        manufacturing: 5.8
+        services: 70.2
+        agriculture: 2.8
+        mining: 21.2
+    military:
+      manpower: 85000
+      equipment: 82
+      readiness: 88
+      doctrine: "Coalition Warfare"
+      nuclear_capability: false
+      nuclear_warheads: 0
+      military_spending_gdp: 2.1
+      conscription: false
+      reserve_forces: 44000
+    technology:
+      researchPoints: 2200
+      currentResearch:
+        - "Mining Technology"
+        - "Solar Energy"
+        - "Defense Systems"
+        - "Agriculture Tech"
+      completedTech:
+        - "Internet"
+        - "Nuclear Power"
+        - "Steel Production"
+        - "Mining"
+        - "Telecommunications"
+    demographics:
+      population: 25700000
+      growth_rate: 1.3
+      median_age: 37.5
+      urban_population: 86.2
+      ethnic_groups:
+        Anglo-Australian: 57.2
+        Other European: 21.0
+        Asian: 17.4
+        Aboriginal: 3.3
+        Other: 1.1
+    resources:
+      stockpiles:
+        food: 2200
+        water: 850
+        energy: 1450
+        fuel: 680
+        manpower: 1200
+        money: 180000000000

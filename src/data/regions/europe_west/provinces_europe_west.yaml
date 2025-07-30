@@ -229,3 +229,382 @@ provinces:
         "Labour Party": 18.6
         "Liberal Democrats": 5.2
         "Greens": 3.4
+    buildings: []
+    construction_queue: []
+
+  # Italy Provinces
+  ITA_LOMBARDY:
+    name: "Lombardy"
+    country: "Italy"
+    population:
+      total: 10100000
+      ethnic_groups:
+        Italian: 88.0
+        Romanian: 2.5
+        Moroccan: 1.5
+        Albanian: 1.0
+        Other: 7.0
+    demographics:
+      growth_rate: 0.3
+      median_age: 45.8
+      urban_percentage: 94.0
+    unrest: 2.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 0
+      airports: 2
+    politics:
+      party_support:
+        Lega: 28.0
+        Brothers_of_Italy: 24.0
+        Democratic_Party: 22.0
+        Five_Star: 15.0
+        Other: 11.0
+    economy:
+      gdp_contribution: 22.0
+      unemployment: 5.2
+      avg_income: 38000
+    features:
+      - "urban"
+      - "industrial"
+      - "tech_hub"
+      - "financial_center"
+    resources:
+      stockpiles:
+        food: 180
+        water: 220
+        energy: 280
+        fuel: 150
+        manpower: 520
+    buildings: []
+    construction_queue: []
+
+  ITA_LAZIO:
+    name: "Lazio"
+    country: "Italy"
+    population:
+      total: 5900000
+      ethnic_groups:
+        Italian: 85.0
+        Romanian: 3.5
+        Bangladeshi: 1.5
+        Moroccan: 1.0
+        Other: 9.0
+    demographics:
+      growth_rate: 0.1
+      median_age: 46.2
+      urban_percentage: 88.0
+    unrest: 3.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 1
+      airports: 2
+    politics:
+      party_support:
+        Democratic_Party: 32.0
+        Brothers_of_Italy: 28.0
+        Five_Star: 18.0
+        Lega: 12.0
+        Other: 10.0
+    economy:
+      gdp_contribution: 12.0
+      unemployment: 8.5
+      avg_income: 32000
+    features:
+      - "urban"
+      - "government_center"
+      - "coastal"
+      - "cultural_center"
+    resources:
+      stockpiles:
+        food: 120
+        water: 180
+        energy: 220
+        fuel: 120
+        manpower: 280
+    buildings: []
+    construction_queue: []
+
+  ITA_SICILY:
+    name: "Sicily"
+    country: "Italy"
+    population:
+      total: 4950000
+      ethnic_groups:
+        Italian: 93.0
+        Moroccan: 2.0
+        Romanian: 1.5
+        Tunisian: 1.0
+        Other: 2.5
+    demographics:
+      growth_rate: -0.5
+      median_age: 44.8
+      urban_percentage: 67.0
+    unrest: 4.1
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        Brothers_of_Italy: 35.0
+        Five_Star: 25.0
+        Democratic_Party: 18.0
+        Lega: 12.0
+        Other: 10.0
+    economy:
+      gdp_contribution: 4.0
+      unemployment: 17.2
+      avg_income: 22000
+    features:
+      - "coastal"
+      - "tourism"
+      - "farming"
+      - "volcanic"
+    resources:
+      stockpiles:
+        food: 280
+        water: 150
+        energy: 120
+        fuel: 85
+        manpower: 180
+    buildings: []
+    construction_queue: []
+
+  ITA_VENETO:
+    name: "Veneto"
+    country: "Italy"
+    population:
+      total: 4900000
+      ethnic_groups:
+        Italian: 90.0
+        Romanian: 2.5
+        Moroccan: 1.5
+        Albanian: 1.0
+        Other: 5.0
+    demographics:
+      growth_rate: 0.2
+      median_age: 46.5
+      urban_percentage: 85.0
+    unrest: 2.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        Lega: 32.0
+        Brothers_of_Italy: 22.0
+        Democratic_Party: 20.0
+        Five_Star: 12.0
+        Other: 14.0
+    economy:
+      gdp_contribution: 9.0
+      unemployment: 6.8
+      avg_income: 35000
+    features:
+      - "industrial"
+      - "coastal"
+      - "tourism"
+      - "tech_manufacturing"
+    resources:
+      stockpiles:
+        food: 145
+        water: 180
+        energy: 185
+        fuel: 120
+        manpower: 280
+    buildings: []
+    construction_queue: []
+
+  # Spain Provinces
+  ESP_MADRID:
+    name: "Madrid"
+    country: "Spain"
+    population:
+      total: 6700000
+      ethnic_groups:
+        Spanish: 80.0
+        Romanian: 3.5
+        Moroccan: 2.5
+        Ecuadorian: 2.0
+        Other: 12.0
+    demographics:
+      growth_rate: 0.8
+      median_age: 43.2
+      urban_percentage: 100.0
+    unrest: 3.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 0
+      airports: 2
+    politics:
+      party_support:
+        People_Party: 42.0
+        PSOE: 28.0
+        Vox: 15.0
+        Podemos: 10.0
+        Other: 5.0
+    economy:
+      gdp_contribution: 20.0
+      unemployment: 10.2
+      avg_income: 32000
+    features:
+      - "urban"
+      - "government_center"
+      - "financial_center"
+      - "tech_hub"
+    resources:
+      stockpiles:
+        food: 145
+        water: 220
+        energy: 280
+        fuel: 180
+        manpower: 380
+    buildings: []
+    construction_queue: []
+
+  ESP_CATALONIA:
+    name: "Catalonia"
+    country: "Spain"
+    population:
+      total: 7750000
+      ethnic_groups:
+        Catalan: 45.0
+        Spanish: 35.0
+        Moroccan: 3.5
+        Romanian: 2.5
+        Other: 14.0
+    demographics:
+      growth_rate: 0.5
+      median_age: 44.1
+      urban_percentage: 95.0
+    unrest: 4.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 3
+      airports: 1
+    politics:
+      party_support:
+        ERC: 25.0
+        PSC: 23.0
+        Junts: 20.0
+        People_Party: 15.0
+        Other: 17.0
+    economy:
+      gdp_contribution: 25.0
+      unemployment: 9.8
+      avg_income: 30000
+    features:
+      - "urban"
+      - "coastal"
+      - "industrial"
+      - "tech_hub"
+    resources:
+      stockpiles:
+        food: 165
+        water: 280
+        energy: 320
+        fuel: 220
+        manpower: 420
+    buildings: []
+    construction_queue: []
+
+  ESP_ANDALUSIA:
+    name: "Andalusia"
+    country: "Spain"
+    population:
+      total: 8500000
+      ethnic_groups:
+        Spanish: 88.0
+        Moroccan: 4.0
+        Romanian: 2.0
+        Senegalese: 1.5
+        Other: 4.5
+    demographics:
+      growth_rate: 0.2
+      median_age: 42.8
+      urban_percentage: 78.0
+    unrest: 3.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 2
+    politics:
+      party_support:
+        PSOE: 38.0
+        People_Party: 28.0
+        Vox: 18.0
+        Podemos: 12.0
+        Other: 4.0
+    economy:
+      gdp_contribution: 14.0
+      unemployment: 18.5
+      avg_income: 24000
+    features:
+      - "coastal"
+      - "tourism"
+      - "farming"
+      - "oil_refining"
+    resources:
+      stockpiles:
+        food: 420
+        water: 320
+        energy: 180
+        fuel: 150
+        manpower: 380
+    buildings: []
+    construction_queue: []
+
+  ESP_GALICIA:
+    name: "Galicia"
+    country: "Spain"
+    population:
+      total: 2700000
+      ethnic_groups:
+        Galician: 55.0
+        Spanish: 42.0
+        Portuguese: 2.0
+        Other: 1.0
+    demographics:
+      growth_rate: -0.8
+      median_age: 50.2
+      urban_percentage: 72.0
+    unrest: 1.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        People_Party: 42.0
+        PSOE: 28.0
+        BNG: 18.0
+        Podemos: 8.0
+        Other: 4.0
+    economy:
+      gdp_contribution: 6.0
+      unemployment: 12.5
+      avg_income: 26000
+    features:
+      - "coastal"
+      - "fishing"
+      - "farming"
+      - "Celtic_culture"
+    resources:
+      stockpiles:
+        food: 280
+        water: 350
+        energy: 120
+        fuel: 85
+        manpower: 120
+    buildings: []
+    construction_queue: []

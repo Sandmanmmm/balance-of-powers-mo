@@ -1,1 +1,182 @@
-provinces: {}
+provinces:
+  # South Africa Provinces
+  ZAF_GAUTENG:
+    name: "Gauteng"
+    country: "South Africa"
+    population:
+      total: 15800000
+      ethnic_groups:
+        Black_African: 77.4
+        White: 12.3
+        Coloured: 3.8
+        Indian_Asian: 6.5
+    demographics:
+      growth_rate: 2.3
+      median_age: 28.5
+      urban_percentage: 97.0
+    unrest: 6.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 0
+      airports: 2
+    politics:
+      party_support:
+        ANC: 50.2
+        DA: 27.8
+        EFF: 14.2
+        Other: 7.8
+    economy:
+      gdp_contribution: 35.0
+      unemployment: 29.8
+      avg_income: 8500
+    features:
+      - "urban"
+      - "financial_center"
+      - "industrial"
+      - "mining_hub"
+    resources:
+      stockpiles:
+        food: 280
+        water: 420
+        energy: 650
+        fuel: 380
+        manpower: 780
+    buildings: []
+    construction_queue: []
+
+  ZAF_WESTERN_CAPE:
+    name: "Western Cape"
+    country: "South Africa"
+    population:
+      total: 7000000
+      ethnic_groups:
+        Coloured: 48.8
+        Black_African: 32.9
+        White: 15.7
+        Indian_Asian: 2.6
+    demographics:
+      growth_rate: 1.8
+      median_age: 30.2
+      urban_percentage: 90.0
+    unrest: 3.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 3
+      airports: 1
+    politics:
+      party_support:
+        DA: 55.4
+        ANC: 28.6
+        EFF: 8.8
+        Other: 7.2
+    economy:
+      gdp_contribution: 14.0
+      unemployment: 22.5
+      avg_income: 9200
+    features:
+      - "coastal"
+      - "tourism"
+      - "wine_region"
+      - "tech_hub"
+    resources:
+      stockpiles:
+        food: 420
+        water: 350
+        energy: 450
+        fuel: 320
+        manpower: 280
+    buildings: []
+    construction_queue: []
+
+  ZAF_KWAZULU_NATAL:
+    name: "KwaZulu-Natal"
+    country: "South Africa"
+    population:
+      total: 11500000
+      ethnic_groups:
+        Black_African: 86.8
+        Indian_Asian: 7.4
+        White: 4.2
+        Coloured: 1.6
+    demographics:
+      growth_rate: 1.2
+      median_age: 26.8
+      urban_percentage: 68.0
+    unrest: 8.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        ANC: 54.2
+        IFP: 16.8
+        DA: 13.2
+        EFF: 9.5
+        Other: 6.3
+    economy:
+      gdp_contribution: 16.0
+      unemployment: 35.2
+      avg_income: 6800
+    features:
+      - "coastal"
+      - "industrial"
+      - "farming"
+      - "cultural_center"
+    resources:
+      stockpiles:
+        food: 580
+        water: 480
+        energy: 380
+        fuel: 250
+        manpower: 450
+    buildings: []
+    construction_queue: []
+
+  ZAF_EASTERN_CAPE:
+    name: "Eastern Cape"
+    country: "South Africa"
+    population:
+      total: 6700000
+      ethnic_groups:
+        Black_African: 86.3
+        Coloured: 8.3
+        White: 4.7
+        Indian_Asian: 0.7
+    demographics:
+      growth_rate: 0.8
+      median_age: 28.5
+      urban_percentage: 62.0
+    unrest: 5.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        ANC: 68.2
+        DA: 14.8
+        EFF: 10.2
+        Other: 6.8
+    economy:
+      gdp_contribution: 8.0
+      unemployment: 42.8
+      avg_income: 5200
+    features:
+      - "coastal"
+      - "farming"
+      - "automotive"
+      - "rural"
+    resources:
+      stockpiles:
+        food: 450
+        water: 380
+        energy: 280
+        fuel: 180
+        manpower: 220
+    buildings: []
+    construction_queue: []

@@ -1,1 +1,66 @@
-nations: {}
+nations:
+  ZAF:
+    name: "South Africa"
+    capital: "Cape Town"
+    flag: "🇿🇦"
+    government:
+      type: "parliamentary_republic"
+      leader: "Cyril Ramaphosa"
+      approval: 38.2
+      stability: 54.8
+      ruling_party: "African National Congress"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2019-05-08"
+    economy:
+      gdp: 419000000000
+      debt: 285000000000
+      inflation: 5.4
+      trade_balance: 15000000000
+      treasury: 45000000000
+      currency: "ZAR"
+      interest_rate: 8.25
+      sectors:
+        manufacturing: 12.8
+        services: 61.4
+        agriculture: 2.4
+        mining: 23.4
+    military:
+      manpower: 73000
+      equipment: 65
+      readiness: 78
+      doctrine: "Regional Defense"
+      nuclear_capability: false
+      nuclear_warheads: 0
+      military_spending_gdp: 1.1
+      conscription: false
+      reserve_forces: 15000
+    technology:
+      researchPoints: 320
+      currentResearch:
+        - "Mining Technology"
+        - "Solar Energy"
+        - "Medical Research"
+      completedTech:
+        - "Internet"
+        - "Mining"
+        - "Steel Production"
+        - "Nuclear Technology"
+    demographics:
+      population: 60400000
+      growth_rate: 1.2
+      median_age: 28.2
+      urban_population: 67.4
+      ethnic_groups:
+        Black_African: 81.0
+        Coloured: 8.8
+        White: 7.9
+        Indian_Asian: 2.3
+    resources:
+      stockpiles:
+        food: 1680
+        water: 920
+        energy: 1250
+        fuel: 580
+        manpower: 2850
+        money: 45000000000

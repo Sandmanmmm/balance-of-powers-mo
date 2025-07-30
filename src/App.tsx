@@ -11,6 +11,7 @@ import { BoundaryFixTest } from './components/BoundaryFixTest';
 import { CountryBoundaryTest } from './components/CountryBoundaryTest';
 import { MapStatusSummary } from './components/MapStatusSummary';
 import { MapDebugSummary } from './components/MapDebugSummary';
+import { NewCountriesTest } from './components/NewCountriesTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -243,6 +244,9 @@ function App() {
           </div>
           <div className="mt-4">
             <MapDebugSummary />
+          </div>
+          <div className="mt-4">
+            <NewCountriesTest />
           </div>
         </div>
       </div>

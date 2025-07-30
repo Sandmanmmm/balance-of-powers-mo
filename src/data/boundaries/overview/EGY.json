@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EGY_CAIRO",
+        "name": "Cairo"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [30.5, 29.5],
+          [32.0, 29.5],
+          [32.0, 31.0],
+          [30.5, 31.0],
+          [30.5, 29.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EGY_ALEXANDRIA",
+        "name": "Alexandria"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [29.0, 31.0],
+          [30.5, 31.0],
+          [30.5, 31.5],
+          [29.0, 31.5],
+          [29.0, 31.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EGY_ASWAN",
+        "name": "Aswan"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [31.5, 23.5],
+          [33.5, 23.5],
+          [33.5, 25.0],
+          [31.5, 25.0],
+          [31.5, 23.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EGY_SINAI",
+        "name": "Sinai"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [32.5, 28.0],
+          [35.0, 28.0],
+          [35.0, 31.5],
+          [32.5, 31.5],
+          [32.5, 28.0]
+        ]]
+      }
+    }
+  ]
+}

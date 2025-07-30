@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KOR_SEOUL",
+        "name": "Seoul"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [126.5, 37.0],
+          [127.5, 37.0],
+          [127.5, 38.0],
+          [126.5, 38.0],
+          [126.5, 37.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KOR_BUSAN",
+        "name": "Busan"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [128.5, 35.0],
+          [129.5, 35.0],
+          [129.5, 35.5],
+          [128.5, 35.5],
+          [128.5, 35.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KOR_GYEONGGI",
+        "name": "Gyeonggi"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [126.0, 36.8],
+          [128.0, 36.8],
+          [128.0, 38.3],
+          [126.0, 38.3],
+          [126.0, 36.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KOR_JEJU",
+        "name": "Jeju"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [126.0, 33.0],
+          [127.0, 33.0],
+          [127.0, 33.6],
+          [126.0, 33.6],
+          [126.0, 33.0]
+        ]]
+      }
+    }
+  ]
+}

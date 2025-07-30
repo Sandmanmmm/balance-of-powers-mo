@@ -1,1 +1,179 @@
-provinces: {}
+provinces:
+  # Turkey Provinces
+  TUR_ISTANBUL:
+    name: "Istanbul"
+    country: "Turkey"
+    population:
+      total: 15800000
+      ethnic_groups:
+        Turkish: 70.0
+        Kurdish: 15.0
+        Arab: 5.0
+        Other: 10.0
+    demographics:
+      growth_rate: 1.8
+      median_age: 32.5
+      urban_percentage: 100.0
+    unrest: 4.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 3
+      airports: 2
+    politics:
+      party_support:
+        AKP: 42.0
+        CHP: 35.0
+        HDP: 12.0
+        Other: 11.0
+    economy:
+      gdp_contribution: 30.0
+      unemployment: 8.5
+      avg_income: 8500
+    features:
+      - "urban"
+      - "coastal"
+      - "financial_center"
+      - "cultural_center"
+    resources:
+      stockpiles:
+        food: 420
+        water: 580
+        energy: 750
+        fuel: 380
+        manpower: 850
+    buildings: []
+    construction_queue: []
+
+  TUR_ANKARA:
+    name: "Ankara"
+    country: "Turkey"
+    population:
+      total: 5700000
+      ethnic_groups:
+        Turkish: 85.0
+        Kurdish: 8.0
+        Other: 7.0
+    demographics:
+      growth_rate: 1.2
+      median_age: 33.8
+      urban_percentage: 95.0
+    unrest: 2.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 0
+      airports: 1
+    politics:
+      party_support:
+        AKP: 50.0
+        CHP: 28.0
+        MHP: 15.0
+        Other: 7.0
+    economy:
+      gdp_contribution: 12.0
+      unemployment: 6.2
+      avg_income: 7200
+    features:
+      - "urban"
+      - "government_center"
+      - "tech_hub"
+      - "industrial"
+    resources:
+      stockpiles:
+        food: 180
+        water: 280
+        energy: 350
+        fuel: 220
+        manpower: 320
+    buildings: []
+    construction_queue: []
+
+  TUR_ANTALYA:
+    name: "Antalya"
+    country: "Turkey"
+    population:
+      total: 2650000
+      ethnic_groups:
+        Turkish: 80.0
+        Kurdish: 10.0
+        Other: 10.0
+    demographics:
+      growth_rate: 2.5
+      median_age: 35.2
+      urban_percentage: 78.0
+    unrest: 1.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        AKP: 55.0
+        CHP: 25.0
+        MHP: 12.0
+        Other: 8.0
+    economy:
+      gdp_contribution: 8.0
+      unemployment: 7.8
+      avg_income: 6800
+    features:
+      - "coastal"
+      - "tourism"
+      - "farming"
+      - "Mediterranean"
+    resources:
+      stockpiles:
+        food: 280
+        water: 220
+        energy: 180
+        fuel: 120
+        manpower: 150
+    buildings: []
+    construction_queue: []
+
+  TUR_IZMIR:
+    name: "Izmir"
+    country: "Turkey"
+    population:
+      total: 4400000
+      ethnic_groups:
+        Turkish: 75.0
+        Kurdish: 12.0
+        Greek: 3.0
+        Other: 10.0
+    demographics:
+      growth_rate: 1.1
+      median_age: 34.5
+      urban_percentage: 88.0
+    unrest: 3.5
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 3
+      airports: 1
+    politics:
+      party_support:
+        CHP: 48.0
+        AKP: 35.0
+        HDP: 8.0
+        Other: 9.0
+    economy:
+      gdp_contribution: 15.0
+      unemployment: 9.2
+      avg_income: 7800
+    features:
+      - "coastal"
+      - "industrial"
+      - "commercial_hub"
+      - "Aegean"
+    resources:
+      stockpiles:
+        food: 220
+        water: 350
+        energy: 420
+        fuel: 280
+        manpower: 250
+    buildings: []
+    construction_queue: []

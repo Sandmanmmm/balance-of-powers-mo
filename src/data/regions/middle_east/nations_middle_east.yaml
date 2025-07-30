@@ -1,2 +1,66 @@
-# Placeholder regions - prevent import errors
-nations: {}
+# Middle East Nations
+nations:
+  TUR:
+    name: "Turkey"
+    capital: "Ankara"
+    flag: "🇹🇷"
+    government:
+      type: "presidential_republic"
+      leader: "Recep Tayyip Erdoğan"
+      approval: 49.5
+      stability: 58.2
+      ruling_party: "Justice and Development Party"
+      ideology: "Islamic Democracy"
+      election_cycle: 5
+      last_election: "2023-05-28"
+    economy:
+      gdp: 820000000000
+      debt: 465000000000
+      inflation: 64.0
+      trade_balance: -53000000000
+      treasury: 75000000000
+      currency: "TRY"
+      interest_rate: 40.0
+      sectors:
+        manufacturing: 19.3
+        services: 64.5
+        agriculture: 5.8
+        technology: 10.4
+    military:
+      manpower: 355000
+      equipment: 82
+      readiness: 88
+      doctrine: "Regional Power"
+      nuclear_capability: false
+      nuclear_warheads: 0
+      military_spending_gdp: 2.4
+      conscription: true
+      reserve_forces: 380000
+    technology:
+      researchPoints: 650
+      currentResearch:
+        - "Defense Technology"
+        - "Drone Technology"
+        - "Nuclear Energy"
+      completedTech:
+        - "Internet"
+        - "Steel Production"
+        - "Automotive"
+        - "Textiles"
+    demographics:
+      population: 84300000
+      growth_rate: 0.6
+      median_age: 32.4
+      urban_population: 76.0
+      ethnic_groups:
+        Turkish: 70.0
+        Kurdish: 19.0
+        Other: 11.0
+    resources:
+      stockpiles:
+        food: 1850
+        water: 1420
+        energy: 1650
+        fuel: 580
+        manpower: 3850
+        money: 75000000000

@@ -1,2 +1,139 @@
-# Southeast Asia Nations - Placeholder
-nations: {}
+# Southeast Asia Nations
+nations:
+  # East Asian Major Powers
+  JPN:
+    name: "Japan"
+    capital: "Tokyo"
+    flag: "🇯🇵"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Fumio Kishida"
+      approval: 35.2
+      stability: 85.3
+      ruling_party: "Liberal Democratic Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2021-10-31"
+      parliamentary_control: "coalition"
+    economy:
+      gdp: 4937000000000
+      debt: 12000000000000
+      inflation: 3.0
+      trade_balance: 127000000000
+      treasury: 450000000000
+      currency: "JPY"
+      interest_rate: -0.1
+      sectors:
+        manufacturing: 21.0
+        services: 69.5
+        agriculture: 1.1
+        technology: 8.4
+    military:
+      manpower: 247000
+      equipment: 88
+      readiness: 85
+      doctrine: "Self-Defense"
+      nuclear_capability: false
+      nuclear_warheads: 0
+      military_spending_gdp: 1.0
+      conscription: false
+      reserve_forces: 32000
+    technology:
+      researchPoints: 3800
+      currentResearch:
+        - "Robotics"
+        - "Clean Energy"
+        - "Space Technology"
+        - "Quantum Computing"
+      completedTech:
+        - "High-Speed Rail"
+        - "Advanced Manufacturing"
+        - "Nuclear Power"
+        - "Internet"
+        - "Electronics"
+    demographics:
+      population: 125800000
+      growth_rate: -0.3
+      median_age: 48.6
+      urban_population: 91.8
+      ethnic_groups:
+        Japanese: 98.1
+        Korean: 0.5
+        Chinese: 0.4
+        Other: 1.0
+    resources:
+      stockpiles:
+        food: 850
+        water: 1200
+        energy: 950
+        fuel: 450
+        manpower: 3500
+        money: 450000000000
+
+  KOR:
+    name: "South Korea"
+    capital: "Seoul"
+    flag: "🇰🇷"
+    government:
+      type: "democratic_republic"
+      leader: "Yoon Suk Yeol"
+      approval: 31.8
+      stability: 78.5
+      ruling_party: "People Power Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2022-03-09"
+      parliamentary_control: "conservative"
+    economy:
+      gdp: 1811000000000
+      debt: 850000000000
+      inflation: 3.6
+      trade_balance: 30000000000
+      treasury: 180000000000
+      currency: "KRW"
+      interest_rate: 3.5
+      sectors:
+        manufacturing: 28.0
+        services: 59.2
+        agriculture: 2.3
+        technology: 10.5
+    military:
+      manpower: 599000
+      equipment: 85
+      readiness: 90
+      doctrine: "Combined Arms"
+      nuclear_capability: false
+      nuclear_warheads: 0
+      military_spending_gdp: 2.6
+      conscription: true
+      reserve_forces: 3100000
+    technology:
+      researchPoints: 2800
+      currentResearch:
+        - "Semiconductors"
+        - "5G Technology"
+        - "Electric Vehicles"
+        - "Nuclear Technology"
+      completedTech:
+        - "Electronics"
+        - "Internet"
+        - "Steel Production"
+        - "Shipbuilding"
+        - "Automotive"
+    demographics:
+      population: 51780000
+      growth_rate: 0.1
+      median_age: 44.9
+      urban_population: 81.4
+      ethnic_groups:
+        Korean: 96.0
+        Chinese: 2.0
+        Other: 2.0
+    resources:
+      stockpiles:
+        food: 650
+        water: 800
+        energy: 750
+        fuel: 300
+        manpower: 2800
+        money: 180000000000

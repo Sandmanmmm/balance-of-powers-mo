@@ -373,3 +373,185 @@ provinces:
         "Other": 36.1
     buildings: []
     construction_projects: []
+
+  # Argentina Provinces
+  ARG_BUENOS_AIRES:
+    name: "Buenos Aires"
+    country: "Argentina"
+    population:
+      total: 17600000
+      ethnic_groups:
+        European: 85.0
+        Mestizo: 8.0
+        Indigenous: 2.0
+        Arab: 2.0
+        Other: 3.0
+    demographics:
+      growth_rate: 1.1
+      median_age: 32.8
+      urban_percentage: 96.0
+    unrest: 3.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 3
+      airports: 2
+    politics:
+      party_support:
+        La_Libertad_Avanza: 35.0
+        Frente_de_Todos: 28.0
+        Juntos_por_el_Cambio: 25.0
+        Other: 12.0
+    economy:
+      gdp_contribution: 40.0
+      unemployment: 6.8
+      avg_income: 12000
+    features:
+      - "urban"
+      - "coastal"
+      - "financial_center"
+      - "government_center"
+    resources:
+      stockpiles:
+        food: 850
+        water: 1200
+        energy: 950
+        fuel: 420
+        manpower: 850
+    buildings: []
+    construction_queue: []
+
+  ARG_CORDOBA:
+    name: "Córdoba"
+    country: "Argentina"
+    population:
+      total: 3800000
+      ethnic_groups:
+        European: 88.0
+        Mestizo: 7.0
+        Indigenous: 2.0
+        Other: 3.0
+    demographics:
+      growth_rate: 0.8
+      median_age: 34.2
+      urban_percentage: 88.0
+    unrest: 2.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 0
+      airports: 1
+    politics:
+      party_support:
+        Juntos_por_el_Cambio: 42.0
+        La_Libertad_Avanza: 28.0
+        Frente_de_Todos: 22.0
+        Other: 8.0
+    economy:
+      gdp_contribution: 8.0
+      unemployment: 5.2
+      avg_income: 10000
+    features:
+      - "urban"
+      - "industrial"
+      - "automotive"
+      - "tech_manufacturing"
+    resources:
+      stockpiles:
+        food: 420
+        water: 580
+        energy: 450
+        fuel: 280
+        manpower: 220
+    buildings: []
+    construction_queue: []
+
+  ARG_SANTA_FE:
+    name: "Santa Fe"
+    country: "Argentina"
+    population:
+      total: 3400000
+      ethnic_groups:
+        European: 87.0
+        Mestizo: 8.0
+        Indigenous: 2.0
+        Other: 3.0
+    demographics:
+      growth_rate: 0.6
+      median_age: 35.8
+      urban_percentage: 85.0
+    unrest: 2.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        Juntos_por_el_Cambio: 38.0
+        La_Libertad_Avanza: 30.0
+        Frente_de_Todos: 25.0
+        Other: 7.0
+    economy:
+      gdp_contribution: 9.0
+      unemployment: 4.8
+      avg_income: 11000
+    features:
+      - "farmland"
+      - "industrial"
+      - "coastal"
+      - "soybean_production"
+    resources:
+      stockpiles:
+        food: 1200
+        water: 850
+        energy: 380
+        fuel: 220
+        manpower: 180
+    buildings: []
+    construction_queue: []
+
+  ARG_PATAGONIA:
+    name: "Patagonia"
+    country: "Argentina"
+    population:
+      total: 2200000
+      ethnic_groups:
+        European: 82.0
+        Indigenous: 10.0
+        Mestizo: 5.0
+        Other: 3.0
+    demographics:
+      growth_rate: 1.5
+      median_age: 29.5
+      urban_percentage: 75.0
+    unrest: 1.8
+    infrastructure:
+      roads: 1
+      internet: 2
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        Juntos_por_el_Cambio: 45.0
+        La_Libertad_Avanza: 25.0
+        Frente_de_Todos: 18.0
+        Other: 12.0
+    economy:
+      gdp_contribution: 5.0
+      unemployment: 3.5
+      avg_income: 15000
+    features:
+      - "oil_rich"
+      - "sheep_farming"
+      - "coastal"
+      - "windy"
+    resources:
+      stockpiles:
+        food: 680
+        water: 420
+        energy: 850
+        fuel: 950
+        manpower: 95
+    buildings: []
+    construction_queue: []

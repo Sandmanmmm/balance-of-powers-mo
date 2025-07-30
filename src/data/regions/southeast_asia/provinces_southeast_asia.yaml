@@ -1,2 +1,360 @@
-# Southeast Asia Provinces - Placeholder
-provinces: {}
+# Southeast Asia Provinces
+provinces:
+  # Japan Provinces
+  JPN_TOKYO:
+    name: "Tokyo"
+    country: "Japan"
+    population:
+      total: 14000000
+      ethnic_groups:
+        Japanese: 95.0
+        Korean: 2.0
+        Chinese: 1.5
+        Other: 1.5
+    demographics:
+      growth_rate: 0.2
+      median_age: 45.5
+      urban_percentage: 100.0
+    unrest: 2.1
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 2
+      airports: 3
+    politics:
+      party_support:
+        LDP: 35.0
+        CDP: 25.0
+        JCP: 15.0
+        Other: 25.0
+    economy:
+      gdp_contribution: 32.0
+      unemployment: 2.8
+      avg_income: 52000
+    features:
+      - "urban"
+      - "tech_hub"
+      - "financial_center"
+      - "coastal"
+    resources:
+      stockpiles:
+        food: 120
+        water: 180
+        energy: 150
+        fuel: 80
+        manpower: 580
+    buildings: []
+    construction_queue: []
+
+  JPN_OSAKA:
+    name: "Osaka"
+    country: "Japan"
+    population:
+      total: 8800000
+      ethnic_groups:
+        Japanese: 96.0
+        Korean: 2.5
+        Chinese: 1.0
+        Other: 0.5
+    demographics:
+      growth_rate: -0.1
+      median_age: 47.2
+      urban_percentage: 99.0
+    unrest: 1.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 3
+      airports: 2
+    politics:
+      party_support:
+        LDP: 32.0
+        CDP: 28.0
+        JCP: 12.0
+        Other: 28.0
+    economy:
+      gdp_contribution: 18.0
+      unemployment: 3.1
+      avg_income: 48000
+    features:
+      - "urban"
+      - "industrial"
+      - "coastal"
+      - "commercial_hub"
+    resources:
+      stockpiles:
+        food: 85
+        water: 120
+        energy: 95
+        fuel: 65
+        manpower: 380
+    buildings: []
+    construction_queue: []
+
+  JPN_HOKKAIDO:
+    name: "Hokkaido"
+    country: "Japan"
+    population:
+      total: 5200000
+      ethnic_groups:
+        Japanese: 98.5
+        Ainu: 1.0
+        Other: 0.5
+    demographics:
+      growth_rate: -0.8
+      median_age: 51.2
+      urban_percentage: 68.0
+    unrest: 1.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 1
+    politics:
+      party_support:
+        LDP: 40.0
+        CDP: 22.0
+        JCP: 8.0
+        Other: 30.0
+    economy:
+      gdp_contribution: 8.0
+      unemployment: 4.2
+      avg_income: 38000
+    features:
+      - "farmland"
+      - "cold_climate"
+      - "fishing"
+      - "natural_resources"
+    resources:
+      stockpiles:
+        food: 180
+        water: 220
+        energy: 65
+        fuel: 45
+        manpower: 220
+    buildings: []
+    construction_queue: []
+
+  JPN_KYUSHU:
+    name: "Kyushu"
+    country: "Japan"
+    population:
+      total: 12900000
+      ethnic_groups:
+        Japanese: 97.0
+        Korean: 2.0
+        Chinese: 0.8
+        Other: 0.2
+    demographics:
+      growth_rate: -0.2
+      median_age: 48.8
+      urban_percentage: 75.0
+    unrest: 1.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 2
+    politics:
+      party_support:
+        LDP: 38.0
+        CDP: 24.0
+        JCP: 10.0
+        Other: 28.0
+    economy:
+      gdp_contribution: 12.0
+      unemployment: 3.8
+      avg_income: 42000
+    features:
+      - "industrial"
+      - "coastal"
+      - "volcanic"
+      - "tech_manufacturing"
+    resources:
+      stockpiles:
+        food: 95
+        water: 140
+        energy: 110
+        fuel: 70
+        manpower: 440
+    buildings: []
+    construction_queue: []
+
+  # South Korea Provinces
+  KOR_SEOUL:
+    name: "Seoul"
+    country: "South Korea"
+    population:
+      total: 9720000
+      ethnic_groups:
+        Korean: 95.5
+        Chinese: 2.0
+        American: 1.0
+        Other: 1.5
+    demographics:
+      growth_rate: 0.3
+      median_age: 42.8
+      urban_percentage: 100.0
+    unrest: 3.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 1
+      airports: 2
+    politics:
+      party_support:
+        PPP: 32.0
+        DP: 38.0
+        JP: 12.0
+        Other: 18.0
+    economy:
+      gdp_contribution: 52.0
+      unemployment: 3.5
+      avg_income: 45000
+    features:
+      - "urban"
+      - "tech_hub"
+      - "financial_center"
+      - "government_center"
+    resources:
+      stockpiles:
+        food: 95
+        water: 120
+        energy: 140
+        fuel: 85
+        manpower: 420
+    buildings: []
+    construction_queue: []
+
+  KOR_BUSAN:
+    name: "Busan"
+    country: "South Korea"
+    population:
+      total: 3400000
+      ethnic_groups:
+        Korean: 97.0
+        Chinese: 1.5
+        Japanese: 1.0
+        Other: 0.5
+    demographics:
+      growth_rate: -0.1
+      median_age: 45.2
+      urban_percentage: 95.0
+    unrest: 2.1
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 3
+      airports: 1
+    politics:
+      party_support:
+        PPP: 35.0
+        DP: 35.0
+        JP: 10.0
+        Other: 20.0
+    economy:
+      gdp_contribution: 15.0
+      unemployment: 4.1
+      avg_income: 38000
+    features:
+      - "urban"
+      - "coastal"
+      - "industrial"
+      - "shipbuilding"
+    resources:
+      stockpiles:
+        food: 65
+        water: 85
+        energy: 75
+        fuel: 45
+        manpower: 180
+    buildings: []
+    construction_queue: []
+
+  KOR_GYEONGGI:
+    name: "Gyeonggi"
+    country: "South Korea"
+    population:
+      total: 13500000
+      ethnic_groups:
+        Korean: 96.0
+        Chinese: 2.0
+        Other: 2.0
+    demographics:
+      growth_rate: 0.8
+      median_age: 40.5
+      urban_percentage: 85.0
+    unrest: 2.8
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 1
+      airports: 1
+    politics:
+      party_support:
+        PPP: 30.0
+        DP: 40.0
+        JP: 15.0
+        Other: 15.0
+    economy:
+      gdp_contribution: 28.0
+      unemployment: 3.2
+      avg_income: 42000
+    features:
+      - "urban"
+      - "tech_manufacturing"
+      - "suburban"
+      - "industrial"
+    resources:
+      stockpiles:
+        food: 85
+        water: 110
+        energy: 95
+        fuel: 65
+        manpower: 580
+    buildings: []
+    construction_queue: []
+
+  KOR_JEJU:
+    name: "Jeju"
+    country: "South Korea"
+    population:
+      total: 670000
+      ethnic_groups:
+        Korean: 98.0
+        Chinese: 1.0
+        Other: 1.0
+    demographics:
+      growth_rate: 1.2
+      median_age: 43.5
+      urban_percentage: 45.0
+    unrest: 0.8
+    infrastructure:
+      roads: 1
+      internet: 2
+      ports: 1
+      airports: 1
+    politics:
+      party_support:
+        PPP: 25.0
+        DP: 45.0
+        JP: 20.0
+        Other: 10.0
+    economy:
+      gdp_contribution: 2.5
+      unemployment: 2.8
+      avg_income: 35000
+    features:
+      - "tourism"
+      - "volcanic"
+      - "coastal"
+      - "fishing"
+    resources:
+      stockpiles:
+        food: 45
+        water: 55
+        energy: 25
+        fuel: 20
+        manpower: 35
+    buildings: []
+    construction_queue: []

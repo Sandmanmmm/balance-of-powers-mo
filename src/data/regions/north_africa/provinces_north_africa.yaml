@@ -1,51 +1,184 @@
 provinces:
-  EGY_SAH:
-    name: "Western Desert"
+  # Egypt Provinces
+  EGY_CAIRO:
+    name: "Cairo"
     country: "Egypt"
-    coordinates: [26.8206, 30.8025]
-    features:
-      - "sahara_desert"
-      - "extreme_heat"
-      - "unlimited_solar"
-      - "vast_desert"
-      - "high_solar_irradiation"
-      - "low_cloud_cover"
-      - "flat_terrain"
-      - "low_humidity"
     population:
-      total: 450000
+      total: 20900000
       ethnic_groups:
-        - group: "Egyptian Arab"
-          percent: 92.1
-        - group: "Bedouin"
-          percent: 5.8
-        - group: "Other"
-          percent: 2.1
-    unrest: 3.2
+        Egyptian_Arab: 97.0
+        Nubian: 1.5
+        Bedouin: 1.0
+        Other: 0.5
+    demographics:
+      growth_rate: 2.1
+      median_age: 24.8
+      urban_percentage: 100.0
+    unrest: 5.2
     infrastructure:
-      roads: 2
+      roads: 3
       internet: 2
-      healthcare: 2
-      education: 2
-    resource_deposits:
-      oil: 850
-      steel: 120
-      rare_earth: 280
-      uranium: 45
-      food: 80
-    military:
-      stationed_units: []
-      fortification_level: 1
-    resource_output:
-      energy: 380
-      solar_potential: 2500
+      ports: 1
+      airports: 2
     politics:
       party_support:
-        "Government Coalition": 68.2
-        "Opposition": 21.8
-        "Other": 10.0
+        Nations_Future_Party: 65.0
+        Al_Wafd: 15.0
+        Free_Egyptians: 12.0
+        Other: 8.0
+    economy:
+      gdp_contribution: 35.0
+      unemployment: 12.5
+      avg_income: 3200
+    features:
+      - "urban"
+      - "government_center"
+      - "cultural_center"
+      - "desert"
+    resources:
+      stockpiles:
+        food: 450
+        water: 680
+        energy: 850
+        fuel: 420
+        manpower: 950
     buildings: []
-    construction_projects: []
+    construction_queue: []
+
+  EGY_ALEXANDRIA:
+    name: "Alexandria"
+    country: "Egypt"
+    population:
+      total: 5200000
+      ethnic_groups:
+        Egyptian_Arab: 95.0
+        Greek: 2.0
+        Italian: 1.5
+        Other: 1.5
+    demographics:
+      growth_rate: 1.8
+      median_age: 26.2
+      urban_percentage: 100.0
+    unrest: 3.8
+    infrastructure:
+      roads: 3
+      internet: 2
+      ports: 3
+      airports: 1
+    politics:
+      party_support:
+        Nations_Future_Party: 58.0
+        Al_Wafd: 22.0
+        Free_Egyptians: 15.0
+        Other: 5.0
+    economy:
+      gdp_contribution: 18.0
+      unemployment: 10.2
+      avg_income: 3800
+    features:
+      - "coastal"
+      - "commercial_hub"
+      - "industrial"
+      - "Mediterranean"
+    resources:
+      stockpiles:
+        food: 280
+        water: 420
+        energy: 450
+        fuel: 320
+        manpower: 320
+    buildings: []
+    construction_queue: []
+
+  EGY_ASWAN:
+    name: "Aswan"
+    country: "Egypt"
+    population:
+      total: 1500000
+      ethnic_groups:
+        Egyptian_Arab: 80.0
+        Nubian: 18.0
+        Other: 2.0
+    demographics:
+      growth_rate: 1.5
+      median_age: 27.5
+      urban_percentage: 65.0
+    unrest: 2.8
+    infrastructure:
+      roads: 2
+      internet: 1
+      ports: 1
+      airports: 1
+    politics:
+      party_support:
+        Nations_Future_Party: 72.0
+        Al_Wafd: 12.0
+        Free_Egyptians: 8.0
+        Other: 8.0
+    economy:
+      gdp_contribution: 4.0
+      unemployment: 8.5
+      avg_income: 2800
+    features:
+      - "desert"
+      - "hydroelectric"
+      - "tourism"
+      - "ancient_sites"
+    resources:
+      stockpiles:
+        food: 120
+        water: 850
+        energy: 950
+        fuel: 180
+        manpower: 85
+    buildings: []
+    construction_queue: []
+
+  EGY_SINAI:
+    name: "Sinai"
+    country: "Egypt"
+    population:
+      total: 600000
+      ethnic_groups:
+        Egyptian_Arab: 70.0
+        Bedouin: 28.0
+        Other: 2.0
+    demographics:
+      growth_rate: 2.8
+      median_age: 22.5
+      urban_percentage: 45.0
+    unrest: 6.5
+    infrastructure:
+      roads: 1
+      internet: 1
+      ports: 1
+      airports: 1
+    politics:
+      party_support:
+        Nations_Future_Party: 55.0
+        Al_Wafd: 8.0
+        Free_Egyptians: 5.0
+        Other: 32.0
+    economy:
+      gdp_contribution: 2.0
+      unemployment: 18.5
+      avg_income: 2200
+    features:
+      - "desert"
+      - "coastal"
+      - "oil_rich"
+      - "strategic_location"
+    resources:
+      stockpiles:
+        food: 85
+        water: 120
+        energy: 280
+        fuel: 420
+        manpower: 35
+    buildings: []
+    construction_queue: []
+
+  # Keeping existing Libya and Morocco entries with minimal changes for compatibility
 
   LBY_SAH:
     name: "Sahara Interior"

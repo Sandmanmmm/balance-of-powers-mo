@@ -247,3 +247,137 @@ nations:
       trade_policy: "free_trade"
       immigration_policy: "restrictive"
       environmental_policy: "moderate"
+
+  ITA:
+    name: "Italy"
+    capital: "Rome"
+    flag: "🇮🇹"
+    government:
+      type: "parliamentary_republic"
+      leader: "Giorgia Meloni"
+      approval: 43.2
+      stability: 68.5
+      ruling_party: "Brothers of Italy"
+      ideology: "National Conservatism"
+      election_cycle: 5
+      last_election: "2022-09-25"
+    economy:
+      gdp: 2110000000000
+      debt: 2650000000000
+      inflation: 5.9
+      trade_balance: 58000000000
+      treasury: 145000000000
+      currency: "EUR"
+      interest_rate: 2.1
+      sectors:
+        manufacturing: 16.3
+        services: 73.9
+        agriculture: 2.1
+        technology: 7.7
+    military:
+      manpower: 170000
+      equipment: 75
+      readiness: 82
+      doctrine: "Regional Defense"
+      nuclear_capability: false
+      nuclear_warheads: 0
+      military_spending_gdp: 1.5
+      conscription: false
+      reserve_forces: 18000
+    technology:
+      researchPoints: 850
+      currentResearch:
+        - "Renewable Energy"
+        - "Automotive Technology"
+        - "Design Innovation"
+      completedTech:
+        - "Internet"
+        - "Automotive"
+        - "Fashion Technology"
+        - "Food Processing"
+    demographics:
+      population: 59100000
+      growth_rate: -0.2
+      median_age: 47.4
+      urban_population: 71.0
+      ethnic_groups:
+        Italian: 91.5
+        Romanian: 1.1
+        Moroccan: 0.5
+        Albanian: 0.5
+        Other: 6.4
+    resources:
+      stockpiles:
+        food: 1850
+        water: 3200
+        energy: 1950
+        fuel: 850
+        manpower: 2400
+        money: 145000000000
+
+  ESP:
+    name: "Spain"
+    capital: "Madrid"
+    flag: "🇪🇸"
+    government:
+      type: "parliamentary_monarchy"
+      leader: "Pedro Sánchez"
+      approval: 38.5
+      stability: 74.2
+      ruling_party: "Spanish Socialist Workers' Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2023-07-23"
+    economy:
+      gdp: 1400000000000
+      debt: 1520000000000
+      inflation: 3.2
+      trade_balance: 18000000000
+      treasury: 125000000000
+      currency: "EUR"
+      interest_rate: 2.1
+      sectors:
+        manufacturing: 12.2
+        services: 74.2
+        agriculture: 2.7
+        technology: 10.9
+    military:
+      manpower: 121000
+      equipment: 78
+      readiness: 85
+      doctrine: "NATO Integration"
+      nuclear_capability: false
+      nuclear_warheads: 0
+      military_spending_gdp: 1.3
+      conscription: false
+      reserve_forces: 15000
+    technology:
+      researchPoints: 720
+      currentResearch:
+        - "Solar Energy"
+        - "High-Speed Rail"
+        - "Tourism Technology"
+      completedTech:
+        - "Internet"
+        - "Renewable Energy"
+        - "Transportation"
+        - "Tourism"
+    demographics:
+      population: 47400000
+      growth_rate: 0.1
+      median_age: 44.9
+      urban_population: 81.0
+      ethnic_groups:
+        Spanish: 84.8
+        Catalan: 7.5
+        Galician: 2.8
+        Basque: 1.2
+        Other: 3.7
+    resources:
+      stockpiles:
+        food: 1680
+        water: 2450
+        energy: 1520
+        fuel: 650
+        manpower: 1950
+        money: 125000000000

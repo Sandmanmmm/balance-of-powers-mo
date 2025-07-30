@@ -1,190 +1,277 @@
 provinces:
-  AUS_GBR:
-    name: "Great Barrier Reef Region"
+  # Australia Provinces
+  AUS_NSW:
+    name: "New South Wales"
     country: "Australia"
-    coordinates: [-16.2839, 145.7781]
-    features:
-      - "deep_ocean"
-      - "stable_sea_conditions"
-      - "coastal"
-      - "mineral_rich_seabed"
-      - "high_biodiversity"
-      - "marine_ecosystem"
-      - "tropical_climate"
     population:
-      total: 280000
+      total: 8200000
       ethnic_groups:
-        - group: "Australian"
-          percent: 78.5
-        - group: "Indigenous Australian"
-          percent: 8.2
-        - group: "Other"
-          percent: 13.3
-    unrest: 1.8
+        Anglo-Australian: 55.0
+        Other European: 20.0
+        Asian: 18.0
+        Aboriginal: 3.0
+        Other: 4.0
+    demographics:
+      growth_rate: 1.4
+      median_age: 38.2
+      urban_percentage: 89.0
+    unrest: 2.8
     infrastructure:
       roads: 3
-      internet: 4
-      healthcare: 4
-      education: 3
-    resource_deposits:
-      oil: 320
-      steel: 180
-      rare_earth: 450
-      uranium: 220
-      food: 650
-    military:
-      stationed_units:
-        - "AUS_NAV_1"
-      fortification_level: 2
-    resource_output:
-      energy: 450
-      marine_resources: 850
+      internet: 3
+      ports: 3
+      airports: 2
     politics:
       party_support:
-        "Liberal-National Coalition": 51.2
-        "Labor Party": 38.8
-        "Other": 10.0
-    buildings: []
-    construction_projects: []
-
-  AUS_OUT:
-    name: "Outback Central"
-    country: "Australia"
-    coordinates: [-25.0, 133.0]
+        Labor: 45.0
+        Liberal: 38.0
+        Greens: 12.0
+        Other: 5.0
+    economy:
+      gdp_contribution: 35.0
+      unemployment: 3.8
+      avg_income: 62000
     features:
-      - "vast_desert"
-      - "high_solar_irradiation"
-      - "low_cloud_cover"
-      - "flat_terrain"
-      - "isolated"
-      - "extremely_stable_ground"
-      - "low_seismic_activity"
-      - "mineral_rich"
+      - "urban"
+      - "coastal"
+      - "commercial_hub"
+      - "tech_hub"
+    resources:
+      stockpiles:
+        food: 280
+        water: 320
+        energy: 450
+        fuel: 180
+        manpower: 420
+    buildings: []
+    construction_queue: []
+
+  AUS_VIC:
+    name: "Victoria"
+    country: "Australia"
     population:
-      total: 45000
+      total: 6700000
       ethnic_groups:
-        - group: "Australian"
-          percent: 72.1
-        - group: "Indigenous Australian"
-          percent: 25.8
-        - group: "Other"
-          percent: 2.1
-    unrest: 2.5
+        Anglo-Australian: 58.0
+        Other European: 22.0
+        Asian: 15.0
+        Aboriginal: 1.0
+        Other: 4.0
+    demographics:
+      growth_rate: 2.1
+      median_age: 37.8
+      urban_percentage: 91.0
+    unrest: 2.2
+    infrastructure:
+      roads: 3
+      internet: 3
+      ports: 2
+      airports: 2
+    politics:
+      party_support:
+        Labor: 48.0
+        Liberal: 35.0
+        Greens: 13.0
+        Other: 4.0
+    economy:
+      gdp_contribution: 28.0
+      unemployment: 3.5
+      avg_income: 58000
+    features:
+      - "urban"
+      - "coastal"
+      - "industrial"
+      - "cultural_center"
+    resources:
+      stockpiles:
+        food: 220
+        water: 250
+        energy: 380
+        fuel: 150
+        manpower: 340
+    buildings: []
+    construction_queue: []
+
+  AUS_QLD:
+    name: "Queensland"
+    country: "Australia"
+    population:
+      total: 5200000
+      ethnic_groups:
+        Anglo-Australian: 60.0
+        Other European: 18.0
+        Asian: 14.0
+        Aboriginal: 4.5
+        Other: 3.5
+    demographics:
+      growth_rate: 1.8
+      median_age: 36.5
+      urban_percentage: 85.0
+    unrest: 1.8
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 2
+      airports: 2
+    politics:
+      party_support:
+        Liberal: 42.0
+        Labor: 40.0
+        Greens: 10.0
+        Other: 8.0
+    economy:
+      gdp_contribution: 20.0
+      unemployment: 4.2
+      avg_income: 54000
+    features:
+      - "tropical"
+      - "coastal"
+      - "tourism"
+      - "mining"
+    resources:
+      stockpiles:
+        food: 380
+        water: 420
+        energy: 320
+        fuel: 280
+        manpower: 280
+    buildings: []
+    construction_queue: []
+
+  AUS_WA:
+    name: "Western Australia"
+    country: "Australia"
+    population:
+      total: 2700000
+      ethnic_groups:
+        Anglo-Australian: 58.0
+        Other European: 20.0
+        Asian: 16.0
+        Aboriginal: 3.5
+        Other: 2.5
+    demographics:
+      growth_rate: 1.2
+      median_age: 36.8
+      urban_percentage: 78.0
+    unrest: 1.5
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 3
+      airports: 1
+    politics:
+      party_support:
+        Liberal: 48.0
+        Labor: 35.0
+        Greens: 10.0
+        Other: 7.0
+    economy:
+      gdp_contribution: 16.0
+      unemployment: 3.8
+      avg_income: 72000
+    features:
+      - "mining"
+      - "coastal"
+      - "desert"
+      - "oil_rich"
+    resources:
+      stockpiles:
+        food: 180
+        water: 150
+        energy: 580
+        fuel: 420
+        manpower: 140
+    buildings: []
+    construction_queue: []
+
+  AUS_SA:
+    name: "South Australia"
+    country: "Australia"
+    population:
+      total: 1770000
+      ethnic_groups:
+        Anglo-Australian: 62.0
+        Other European: 25.0
+        Asian: 8.0
+        Aboriginal: 2.5
+        Other: 2.5
+    demographics:
+      growth_rate: 0.8
+      median_age: 40.2
+      urban_percentage: 85.0
+    unrest: 1.2
+    infrastructure:
+      roads: 2
+      internet: 2
+      ports: 1
+      airports: 1
+    politics:
+      party_support:
+        Liberal: 44.0
+        Labor: 42.0
+        Greens: 9.0
+        Other: 5.0
+    economy:
+      gdp_contribution: 8.0
+      unemployment: 4.5
+      avg_income: 52000
+    features:
+      - "farmland"
+      - "desert"
+      - "coastal"
+      - "wine_region"
+    resources:
+      stockpiles:
+        food: 320
+        water: 180
+        energy: 220
+        fuel: 120
+        manpower: 95
+    buildings: []
+    construction_queue: []
+
+  AUS_NT:
+    name: "Northern Territory"
+    country: "Australia"
+    population:
+      total: 246000
+      ethnic_groups:
+        Anglo-Australian: 45.0
+        Aboriginal: 30.0
+        Other European: 15.0
+        Asian: 8.0
+        Other: 2.0
+    demographics:
+      growth_rate: 1.5
+      median_age: 31.2
+      urban_percentage: 68.0
+    unrest: 3.2
     infrastructure:
       roads: 1
       internet: 2
-      healthcare: 2
-      education: 2
-    resource_deposits:
-      oil: 180
-      steel: 850
-      rare_earth: 1200
-      uranium: 950
-      food: 20
-    military:
-      stationed_units: []
-      fortification_level: 1
-    resource_output:
-      energy: 120
-      mining: 1800
+      ports: 1
+      airports: 1
     politics:
       party_support:
-        "Liberal-National Coalition": 48.2
-        "Labor Party": 35.8
-        "Other": 16.0
-    buildings: []
-    construction_projects: []
-
-  NZL_GEO:
-    name: "Geothermal Region"
-    country: "New Zealand"
-    coordinates: [-38.7389, 176.0705]
+        Labor: 52.0
+        Liberal: 28.0
+        Greens: 8.0
+        Other: 12.0
+    economy:
+      gdp_contribution: 1.5
+      unemployment: 4.8
+      avg_income: 68000
     features:
-      - "geothermal_zone"
-      - "volcanic_activity"
-      - "active_volcano"
-      - "renewable_energy_potential"
-      - "unique_geology"
-      - "hot_springs"
-    population:
-      total: 380000
-      ethnic_groups:
-        - group: "European New Zealander"
-          percent: 68.2
-        - group: "Māori"
-          percent: 18.5
-        - group: "Pacific Islander"
-          percent: 8.1
-        - group: "Other"
-          percent: 5.2
-    unrest: 1.2
-    infrastructure:
-      roads: 4
-      internet: 4
-      healthcare: 4
-      education: 4
-    resource_deposits:
-      oil: 85
-      steel: 120
-      rare_earth: 180
-      uranium: 25
-      food: 280
-    military:
-      stationed_units: []
-      fortification_level: 1
-    resource_output:
-      energy: 650
-      geothermal: 850
-    politics:
-      party_support:
-        "Labour Party": 42.1
-        "National Party": 35.8
-        "Other": 22.1
+      - "desert"
+      - "mining"
+      - "tropical"
+      - "uranium_rich"
+    resources:
+      stockpiles:
+        food: 85
+        water: 95
+        energy: 180
+        fuel: 95
+        manpower: 15
     buildings: []
-    construction_projects: []
-
-  PAL_MIC:
-    name: "Micronesian Maritime Zone"
-    country: "Palau"
-    coordinates: [7.5, 134.58]
-    features:
-      - "deep_ocean"
-      - "stable_seafloor"
-      - "low_seismic_underwater"
-      - "stable_sea_conditions"
-      - "isolated"
-      - "small_island"
-      - "strategic_ocean_location"
-    population:
-      total: 18000
-      ethnic_groups:
-        - group: "Palauan"
-          percent: 72.5
-        - group: "Asian"
-          percent: 21.2
-        - group: "Other"
-          percent: 6.3
-    unrest: 0.8
-    infrastructure:
-      roads: 2
-      internet: 3
-      healthcare: 3
-      education: 3
-    resource_deposits:
-      oil: 0
-      steel: 5
-      rare_earth: 80
-      uranium: 0
-      food: 150
-    military:
-      stationed_units: []
-      fortification_level: 1
-    resource_output:
-      energy: 25
-      marine_research: 120
-    politics:
-      party_support:
-        "Democratic Party": 58.2
-        "Other": 41.8
-    buildings: []
-    construction_projects: []
+    construction_queue: []
