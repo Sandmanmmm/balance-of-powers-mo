@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { geographicDataManager } from '../managers/GeographicDataManager';
+import { geoManager } from '../managers/GeographicDataManager';
+import { DetailLevel } from '../types/geo';
 
 export function GeographicSystemStatus() {
   const [systemStatus, setSystemStatus] = useState<any>(null);
@@ -12,8 +13,8 @@ export function GeographicSystemStatus() {
     setIsLoading(true);
     try {
       // Test loading boundaries from different detail levels
-      const testCountries = ['USA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR', 'NLD', 'POL', 'UKR'];
-      const detailLevels = ['overview', 'detailed', 'ultra'];
+      const testCountries = ['USA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR'];
+      const detailLevels: DetailLevel[] = ['overview', 'detailed', 'ultra'];
       
       const testResults = [];
       let totalBoundariesLoaded = 0;
@@ -22,9 +23,9 @@ export function GeographicSystemStatus() {
         for (const level of detailLevels) {
           try {
             const startTime = Date.now();
-            const boundaries = await geographicDataManager.loadNationBoundaries(country, level as any);
+            const boundaries = await geoManager.loadCountryBoundaries(country, level);
             const loadTime = Date.now() - startTime;
-            const featureCount = Object.keys(boundaries).length;
+            const featureCount = boundaries.features?.length || 0;
             
             testResults.push({
               country,
@@ -32,7 +33,7 @@ export function GeographicSystemStatus() {
               success: true,
               featureCount,
               loadTime,
-              hasValidGeometry: Object.values(boundaries).some(f => f.geometry?.coordinates)
+              hasValidGeometry: boundaries.features?.some(f => f.geometry?.coordinates)
             });
             
             totalBoundariesLoaded += featureCount;
@@ -48,10 +49,10 @@ export function GeographicSystemStatus() {
       }
       
       // Get cache statistics
-      const cacheStats = geographicDataManager.getStats();
+      const cacheStats = geoManager.getCacheStats();
       
-      // Get cached regions info
-      const cachedRegions = geographicDataManager.getCachedRegions();
+      // Get cached countries info
+      const cachedCountries = geoManager.getCachedCountries();
       
       const status = {
         timestamp: new Date().toISOString(),
@@ -60,11 +61,12 @@ export function GeographicSystemStatus() {
         failedLoads: testResults.filter(r => !r.success).length,
         totalBoundariesLoaded,
         cacheStats: {
-          ...cacheStats,
-          currentCacheSizeMB: (cacheStats.currentCacheSize / 1024 / 1024).toFixed(2),
-          hitRatioPercent: (cacheStats.hitRatio * 100).toFixed(1)
+          entryCount: cacheStats.entryCount,
+          totalSizeMB: cacheStats.totalSizeMB.toFixed(2),
+          utilizationPercent: cacheStats.utilizationPercent.toFixed(1),
+          totalFiles: cacheStats.loadStats.totalFiles
         },
-        cachedRegions: cachedRegions.slice(0, 10), // Top 10 most recently accessed
+        cachedCountries: cachedCountries.slice(0, 10), // Top 10 most recently accessed
         testResults: testResults.sort((a, b) => {
           if (a.country !== b.country) return a.country.localeCompare(b.country);
           const levelOrder = { overview: 1, detailed: 2, ultra: 3 };
@@ -152,10 +154,10 @@ export function GeographicSystemStatus() {
         <div>
           <h4 className="font-medium mb-2">Cache Performance</h4>
           <div className="space-y-1 text-sm">
-            <div>Size: {systemStatus.cacheStats.currentCacheSizeMB} MB</div>
-            <div>Entries: {systemStatus.cacheStats.cacheEntries}</div>
-            <div>Hit Rate: {systemStatus.cacheStats.hitRatioPercent}%</div>
-            <div>Requests: {systemStatus.cacheStats.totalRequests}</div>
+            <div>Size: {systemStatus.cacheStats.totalSizeMB} MB</div>
+            <div>Entries: {systemStatus.cacheStats.entryCount}</div>
+            <div>Utilization: {systemStatus.cacheStats.utilizationPercent}%</div>
+            <div>Files: {systemStatus.cacheStats.totalFiles}</div>
           </div>
         </div>
         
@@ -215,10 +217,12 @@ export function GeographicSystemStatus() {
           {isLoading ? 'Checking...' : 'Refresh Status'}
         </Button>
         <Button 
-          onClick={() => geographicDataManager.clearCache()} 
+          onClick={() => geoManager.clearCache()} 
           variant="outline" 
           size="sm"
         >
+          Clear Cache
+        </Button>
           Clear Cache
         </Button>
       </div>

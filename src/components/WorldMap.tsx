@@ -17,7 +17,8 @@ import {
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
 import { coordinatesToPath, calculateOptimalProjection, ProjectionConfig, projectCoordinates, calculatePolygonCentroid, geometryToPath } from '../lib/mapProjection';
-import { geographicDataManager, type DetailLevel, type GeoJSONFeature, type GeoJSONFeatureCollection } from '../managers/GeographicDataManager';
+import { geoManager } from '../managers/GeographicDataManager';
+import { DetailLevel, GeoJSONFeature, GeoJSONFeatureCollection } from '../types/geo';
 
 interface WorldMapProps {
   provinces: Province[];
@@ -229,6 +230,9 @@ export function WorldMap({
         
         // Get unique countries from province data
         const countries = Array.from(new Set(provinces.map(p => p.country)));
+        
+        // Create province data map for matching
+        const provinceDataMap = new Map(provinces.map(p => [p.id, p]));
         
         // Comprehensive country name to ISO code mapping
         const countryCodeMap: Record<string, string> = {
@@ -481,27 +485,27 @@ export function WorldMap({
         for (const countryCode of allCountriesToLoad) {
           try {
             console.log(`🌍 Loading boundaries for ${countryCode} at ${currentDetailLevel} detail...`);
-            const countryBoundaries = await geographicDataManager.loadNationBoundaries(countryCode, currentDetailLevel);
+            const countryBoundaries = await geoManager.loadCountryBoundaries(countryCode, currentDetailLevel);
             
-            // Convert Record<string, GeoJSONFeature> to Feature array
-            const features = Object.entries(countryBoundaries);
+            // Convert FeatureCollection to Feature array
+            const features = countryBoundaries.features || [];
             if (features.length > 0) {
-              for (const [provinceId, feature] of features) {
+              features.forEach((feature) => {
                 if (feature && feature.geometry) {
                   // Ensure proper properties for province mapping
                   if (!feature.properties) {
                     feature.properties = {};
                   }
                   
-                  // Use the province ID from the record key if available, otherwise use country code
-                  feature.properties.id = provinceId || countryCode;
-                  feature.properties.name = feature.properties.name || provinceId || countryCode;
+                  // Use the feature's existing ID or fall back to country code
+                  feature.properties.id = feature.properties.id || feature.properties.ISO_A3 || countryCode;
+                  feature.properties.name = feature.properties.name || feature.properties.NAME || countryCode;
                   feature.properties.country = Object.keys(countryCodeMap).find(key => countryCodeMap[key] === countryCode) || countryCode;
                   
                   allFeatures.push(feature);
                   totalLoaded++;
                 }
-              }
+              });
               loadResults.successful.push(countryCode);
               console.log(`✅ Loaded ${features.length} province boundaries for ${countryCode}`);
             } else {
@@ -543,11 +547,11 @@ export function WorldMap({
         console.log(`🎯 Matching provinces: ${matches.length}/${provinceIds.length}`, matches);
         
         // Log cache stats
-        const stats = geographicDataManager.getStats();
+        const stats = geoManager.getCacheStats();
         console.log('📊 GeographicDataManager stats:', {
-          cacheEntries: stats.cacheEntries,
-          currentCacheSize: Math.round(stats.currentCacheSize / 1024 / 1024 * 100) / 100 + 'MB',
-          hitRatio: Math.round(stats.hitRatio * 100) + '%'
+          cacheEntries: stats.entryCount,
+          currentCacheSize: Math.round(stats.totalSizeMB * 100) / 100 + 'MB',
+          utilization: Math.round(stats.utilizationPercent) + '%'
         });
         
       } catch (error) {
@@ -558,7 +562,7 @@ export function WorldMap({
     };
     
     loadBoundaries();
-  }, [currentDetailLevel]);
+  }, [currentDetailLevel, provinces]);
 
   // Memoize projection configuration
   const projectionConfig: ProjectionConfig = useMemo(() => {

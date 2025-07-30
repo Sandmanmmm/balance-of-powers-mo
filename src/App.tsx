@@ -17,6 +17,8 @@ import { LoadedDataSummary } from './components/LoadedDataSummary';
 import { BoundaryFetchTest } from './components/BoundaryFetchTest';
 import { BoundarySystemTest } from './components/BoundarySystemTest';
 import { GeographicSystemStatus } from './components/GeographicSystemStatus';
+import { GeographicSystemTest } from './components/GeographicSystemTest';
+import { FinalSystemStatus } from './components/FinalSystemStatus';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -266,7 +268,13 @@ function App() {
             <BoundarySystemTest />
           </div>
           <div className="mt-4">
+            <FinalSystemStatus />
+          </div>
+          <div className="mt-4">
             <GeographicSystemStatus />
+          </div>
+          <div className="mt-4">
+            <GeographicSystemTest />
           </div>
         </div>
       </div>
