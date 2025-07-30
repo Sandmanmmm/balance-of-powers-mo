@@ -148,7 +148,7 @@ export interface GeographicManagerConfig {
 /**
  * Error types for geographic data loading
  */
-class GeographicDataError extends Error {
+export class GeographicDataError extends Error {
   constructor(
     message: string,
     public region: string,
@@ -194,7 +194,6 @@ export interface RegionMetadata {
   supportedDetailLevels: DetailLevel[];
 }
 
-// Explicit export list to fix any module resolution issues
 export type {
   GeoJSONPosition,
   GeoJSONGeometry,
@@ -215,8 +214,4 @@ export type {
   CoordinateTransform,
   ViewportBounds,
   RegionMetadata
-};
-
-export {
-  GeographicDataError
 };

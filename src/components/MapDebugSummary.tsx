@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Card } from '@/components/ui/card';
 import { geographicDataManager } from '../managers/GeographicDataManager';
+import { Card } from '@/components/ui/card';
 
 export function MapDebugSummary() {
   const [debugInfo, setDebugInfo] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadDebugInfo = async () => {
       try {
+        const knownCountries = ['CAN', 'USA', 'MEX', 'FRA', 'GBR', 'DEU', 'CHN', 'RUS', 'IND'];
+        
         const stats = geographicDataManager.getStats();
         const cachedRegions = geographicDataManager.getCachedRegions();
         
-        // Check what boundary files exist
-        const knownCountries = ['BRA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR', 'IND', 'MEX', 'RUS', 'USA'];
         const boundaryChecks = await Promise.allSettled(
           knownCountries.map(async (country) => {
             try {
@@ -32,35 +33,38 @@ export function MapDebugSummary() {
           )
         });
       } catch (error) {
-        console.error('Failed to load debug info:', error);
         setDebugInfo({ error: String(error) });
+      } finally {
+        setIsLoading(false);
       }
     };
 
     loadDebugInfo();
   }, []);
 
-  if (!debugInfo) {
+  if (isLoading) {
     return (
       <Card className="p-4">
-        <div className="text-sm text-muted-foreground">Loading debug info...</div>
+        <h3 className="font-semibold mb-2">Map Debug Summary</h3>
+        <div className="text-muted-foreground">Loading debug info...</div>
       </Card>
     );
   }
 
-  if (debugInfo.error) {
+  if (debugInfo?.error) {
     return (
       <Card className="p-4">
-        <div className="text-sm text-red-600">Debug Error: {debugInfo.error}</div>
+        <h3 className="font-semibold mb-2 text-red-600">Map Debug Error</h3>
+        <div className="text-red-600 text-sm">{debugInfo.error}</div>
       </Card>
     );
   }
 
   return (
-    <Card className="p-4 max-w-lg">
-      <h3 className="text-lg font-semibold mb-3">Map System Debug</h3>
-      
+    <Card className="p-4">
+      <h3 className="font-semibold mb-2">Map Debug Summary</h3>
       <div className="space-y-3 text-sm">
+        
         <div>
           <strong>Cache Stats:</strong>
           <div className="ml-2">
