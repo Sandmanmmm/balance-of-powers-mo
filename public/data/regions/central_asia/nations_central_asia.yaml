@@ -1,1 +1,419 @@
-nations: {}
+# Central Asia - Regional Nation Data
+
+nations:
+  KAZ:
+    name: "Kazakhstan"
+    capital: "Nur-Sultan"
+    flag: "🇰🇿"
+    government:
+      type: "presidential_republic"
+      leader: "Kassym-Jomart Tokayev"
+      approval: 68.5
+      stability: 78.2
+      ruling_party: "Amanat"
+      ideology: "Authoritarian Democracy"
+      election_cycle: 7
+      last_election: "2022-11-20"
+    economy:
+      gdp: 220000000000
+      debt: 85000000000
+      inflation: 15.0
+      trade_balance: 28500000000
+      treasury: 28500000000
+      currency: "KZT"
+      interest_rate: 16.75
+      sectors:
+        manufacturing: 12.8
+        services: 54.2
+        agriculture: 4.8
+        technology: 28.2
+    military:
+      manpower: 65000
+      equipment: 62
+      readiness: 70
+      doctrine: "Regional Defense"
+      nuclear_capability: false
+      military_spending_gdp: 1.02
+      conscription: true
+      reserve_forces: 32000
+    technology:
+      researchPoints: 285
+      currentResearch:
+        - "Oil Technology"
+        - "Mining Technology"
+        - "Nuclear Technology"
+      completedTech:
+        - "Internet"
+        - "Oil Extraction"
+        - "Nuclear Physics"
+    demographics:
+      population: 19600000
+      median_age: 31.6
+      birth_rate: 2.55
+      life_expectancy: 73.2
+      literacy_rate: 99.8
+      urbanization: 57.7
+    diplomacy:
+      allies: ["RUS", "CHN"]
+      enemies: []
+      trade_partners: ["RUS", "CHN", "ITA", "NLD", "TUR"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 4850000
+      steel: 285000
+      rare_earth: 28500
+      uranium: 285000
+      food: 850000
+    resource_production:
+      oil: 1850000
+      steel: 85000
+      rare_earth: 8500
+      uranium: 28500
+      food: 485000
+    resource_consumption:
+      oil: 285000
+      steel: 118500
+      rare_earth: 2850
+      uranium: 1850
+      food: 450000
+
+  UZB:
+    name: "Uzbekistan"
+    capital: "Tashkent"
+    flag: "🇺🇿"
+    government:
+      type: "presidential_republic"
+      leader: "Shavkat Mirziyoyev"
+      approval: 78.5
+      stability: 82.8
+      ruling_party: "UzLiDeP"
+      ideology: "Authoritarian"
+      election_cycle: 7
+      last_election: "2021-10-24"
+    economy:
+      gdp: 80000000000
+      debt: 28500000000
+      inflation: 11.8
+      trade_balance: 2850000000
+      treasury: 8500000000
+      currency: "UZS"
+      interest_rate: 14.0
+      sectors:
+        manufacturing: 14.2
+        services: 45.8
+        agriculture: 28.5
+        technology: 11.5
+    military:
+      manpower: 65000
+      equipment: 55
+      readiness: 75
+      doctrine: "Regional Defense"
+      nuclear_capability: false
+      military_spending_gdp: 4.0
+      conscription: true
+      reserve_forces: 20000
+    technology:
+      researchPoints: 185
+      currentResearch:
+        - "Agriculture Technology"
+        - "Natural Gas"
+        - "Textiles"
+      completedTech:
+        - "Internet"
+        - "Agriculture Technology"
+        - "Textiles"
+    demographics:
+      population: 35000000
+      median_age: 28.1
+      birth_rate: 2.09
+      life_expectancy: 71.7
+      literacy_rate: 100.0
+      urbanization: 50.5
+    diplomacy:
+      allies: ["RUS", "KAZ"]
+      enemies: []
+      trade_partners: ["RUS", "CHN", "KAZ", "TUR", "KOR"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 285000
+      steel: 85000
+      rare_earth: 8500
+      uranium: 18500
+      food: 1285000
+    resource_production:
+      oil: 28500
+      steel: 28500
+      rare_earth: 850
+      uranium: 2850
+      food: 850000
+    resource_consumption:
+      oil: 185000
+      steel: 85000
+      rare_earth: 2850
+      uranium: 850
+      food: 780000
+
+  KGZ:
+    name: "Kyrgyzstan"
+    capital: "Bishkek"
+    flag: "🇰🇬"
+    government:
+      type: "presidential_republic"
+      leader: "Sadyr Japarov"
+      approval: 58.5
+      stability: 52.8
+      ruling_party: "Mekenchil"
+      ideology: "Nationalism"
+      election_cycle: 6
+      last_election: "2021-01-10"
+    economy:
+      gdp: 9600000000
+      debt: 4850000000
+      inflation: 11.1
+      trade_balance: -1850000000
+      treasury: 485000000
+      currency: "KGS"
+      interest_rate: 9.5
+    military:
+      manpower: 12500
+      equipment: 42
+      readiness: 55
+      doctrine: "Mountain Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 125
+      currentResearch: ["Mining Technology", "Agriculture Technology"]
+      completedTech: ["Basic Manufacturing"]
+      level: 4.2
+    diplomacy:
+      allies: ["RUS", "KAZ"]
+      enemies: []
+      neutrality: 65.5
+
+  TJK:
+    name: "Tajikistan"
+    capital: "Dushanbe"
+    flag: "🇹🇯"
+    government:
+      type: "presidential_republic"
+      leader: "Emomali Rahmon"
+      approval: 75.5
+      stability: 68.5
+      ruling_party: "People's Democratic Party"
+      ideology: "Authoritarianism"
+      election_cycle: 7
+      last_election: "2020-10-11"
+    economy:
+      gdp: 8500000000
+      debt: 3850000000
+      inflation: 8.0
+      trade_balance: -1250000000
+      treasury: 285000000
+      currency: "TJS"
+      interest_rate: 14.5
+    military:
+      manpower: 8800
+      equipment: 38
+      readiness: 52
+      doctrine: "Border Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 95
+      currentResearch: ["Hydropower", "Agriculture Technology"]
+      completedTech: ["Basic Manufacturing"]
+      level: 3.8
+    diplomacy:
+      allies: ["RUS", "CHN"]
+      enemies: []
+      neutrality: 58.5
+
+  TKM:
+    name: "Turkmenistan"
+    capital: "Ashgabat"
+    flag: "🇹🇲"
+    government:
+      type: "presidential_republic"
+      leader: "Serdar Berdimuhamedow"
+      approval: 85.5
+      stability: 78.5
+      ruling_party: "Democratic Party"
+      ideology: "Authoritarianism"
+      election_cycle: 7
+      last_election: "2022-03-12"
+    economy:
+      gdp: 57000000000
+      debt: 12500000000
+      inflation: 13.1
+      trade_balance: 8500000000
+      treasury: 18500000000
+      currency: "TMT"
+      interest_rate: 12.0
+    military:
+      manpower: 36500
+      equipment: 52
+      readiness: 62
+      doctrine: "Desert Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 185
+      currentResearch: ["Natural Gas Technology", "Desert Agriculture"]
+      completedTech: ["Natural Gas Extraction", "Basic Manufacturing"]
+      level: 5.2
+    diplomacy:
+      allies: ["RUS", "CHN"]
+      enemies: []
+      neutrality: 68.5
+
+  ARM:
+    name: "Armenia"
+    capital: "Yerevan"
+    flag: "🇦🇲"
+    government:
+      type: "parliamentary_republic"
+      leader: "Nikol Pashinyan"
+      approval: 45.8
+      stability: 58.5
+      ruling_party: "Civil Contract"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2021-06-20"
+    economy:
+      gdp: 19500000000
+      debt: 12500000000
+      inflation: 8.3
+      trade_balance: -2850000000
+      treasury: 1850000000
+      currency: "AMD"
+      interest_rate: 7.75
+    military:
+      manpower: 44800
+      equipment: 52
+      readiness: 68
+      doctrine: "Mountain Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 225
+      currentResearch: ["Information Technology", "Renewable Energy"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 6.2
+    diplomacy:
+      allies: ["RUS", "FRA"]
+      enemies: ["AZE", "TUR"]
+      neutrality: 45.5
+
+  AZE:
+    name: "Azerbaijan"
+    capital: "Baku"
+    flag: "🇦🇿"
+    government:
+      type: "presidential_republic"
+      leader: "Ilham Aliyev"
+      approval: 75.5
+      stability: 68.5
+      ruling_party: "New Azerbaijan Party"
+      ideology: "Authoritarianism"
+      election_cycle: 7
+      last_election: "2024-02-07"
+    economy:
+      gdp: 54000000000
+      debt: 18500000000
+      inflation: 2.6
+      trade_balance: 12500000000
+      treasury: 28500000000
+      currency: "AZN"
+      interest_rate: 7.25
+    military:
+      manpower: 66950
+      equipment: 65
+      readiness: 75
+      doctrine: "Energy Security"
+      nuclearCapability: false
+    technology:
+      researchPoints: 285
+      currentResearch: ["Oil Technology", "Natural Gas Technology"]
+      completedTech: ["Oil Extraction", "Natural Gas Processing"]
+      level: 5.8
+    diplomacy:
+      allies: ["TUR", "ISR"]
+      enemies: ["ARM"]
+      neutrality: 52.5
+
+  GEO:
+    name: "Georgia"
+    capital: "Tbilisi"
+    flag: "🇬🇪"
+    government:
+      type: "parliamentary_republic"
+      leader: "Irakli Garibashvili"
+      approval: 52.8
+      stability: 65.5
+      ruling_party: "Georgian Dream"
+      ideology: "Conservative Democracy"
+      election_cycle: 4
+      last_election: "2020-10-31"
+    economy:
+      gdp: 24500000000
+      debt: 15500000000
+      inflation: 9.6
+      trade_balance: -3250000000
+      treasury: 2850000000
+      currency: "GEL"
+      interest_rate: 11.0
+    military:
+      manpower: 37000
+      equipment: 55
+      readiness: 68
+      doctrine: "Territorial Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 195
+      currentResearch: ["Tourism Technology", "Wine Production"]
+      completedTech: ["Internet", "Agriculture Technology"]
+      level: 5.5
+    diplomacy:
+      allies: ["USA", "UKR"]
+      enemies: ["RUS"]
+      neutrality: 35.5
+
+  MNG:
+    name: "Mongolia"
+    capital: "Ulaanbaatar"
+    flag: "🇲🇳"
+    government:
+      type: "parliamentary_republic"
+      leader: "Ukhnaagiin Khürelsükh"
+      approval: 58.5
+      stability: 68.5
+      ruling_party: "Mongolian People's Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2024-06-28"
+    economy:
+      gdp: 15000000000
+      debt: 8500000000
+      inflation: 15.1
+      trade_balance: 2850000000
+      treasury: 4850000000
+      currency: "MNT"
+      interest_rate: 12.0
+    military:
+      manpower: 10000
+      equipment: 42
+      readiness: 55
+      doctrine: "Nomadic Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 165
+      currentResearch: ["Mining Technology", "Livestock Management"]
+      completedTech: ["Nomadic Technology", "Basic Manufacturing"]
+      level: 4.8
+    diplomacy:
+      allies: ["RUS", "CHN"]
+      enemies: []
+      neutrality: 85.5

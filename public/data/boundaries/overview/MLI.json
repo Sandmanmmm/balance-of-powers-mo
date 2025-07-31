@@ -1,0 +1,672 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "MLI",
+    "generated": "2025-07-31T02:54:50.091Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Mali",
+        "SOV_A3": "MLI",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Mali",
+        "ADM0_A3": "MLI",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Mali",
+        "GU_A3": "MLI",
+        "SU_DIF": 0,
+        "SUBUNIT": "Mali",
+        "SU_A3": "MLI",
+        "BRK_DIFF": 0,
+        "NAME": "Mali",
+        "NAME_LONG": "Mali",
+        "BRK_A3": "MLI",
+        "BRK_NAME": "Mali",
+        "BRK_GROUP": null,
+        "ABBREV": "Mali",
+        "POSTAL": "ML",
+        "FORMAL_EN": "Republic of Mali",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Mali",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Mali",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 1,
+        "MAPCOLOR13": 7,
+        "POP_EST": 19658031,
+        "POP_RANK": 14,
+        "POP_YEAR": 2019,
+        "GDP_MD": 17279,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "5. Low income",
+        "FIPS_10": "ML",
+        "ISO_A2": "ML",
+        "ISO_A2_EH": "ML",
+        "ISO_A3": "MLI",
+        "ISO_A3_EH": "MLI",
+        "ISO_N3": "466",
+        "ISO_N3_EH": "466",
+        "UN_A3": "466",
+        "WB_A2": "ML",
+        "WB_A3": "MLI",
+        "WOE_ID": 23424891,
+        "WOE_ID_EH": 23424891,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "MLI",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "MLI",
+        "ADM0_A3_US": "MLI",
+        "ADM0_A3_FR": "MLI",
+        "ADM0_A3_RU": "MLI",
+        "ADM0_A3_ES": "MLI",
+        "ADM0_A3_CN": "MLI",
+        "ADM0_A3_TW": "MLI",
+        "ADM0_A3_IN": "MLI",
+        "ADM0_A3_NP": "MLI",
+        "ADM0_A3_PK": "MLI",
+        "ADM0_A3_DE": "MLI",
+        "ADM0_A3_GB": "MLI",
+        "ADM0_A3_BR": "MLI",
+        "ADM0_A3_IL": "MLI",
+        "ADM0_A3_PS": "MLI",
+        "ADM0_A3_SA": "MLI",
+        "ADM0_A3_EG": "MLI",
+        "ADM0_A3_MA": "MLI",
+        "ADM0_A3_PT": "MLI",
+        "ADM0_A3_AR": "MLI",
+        "ADM0_A3_JP": "MLI",
+        "ADM0_A3_KO": "MLI",
+        "ADM0_A3_VN": "MLI",
+        "ADM0_A3_TR": "MLI",
+        "ADM0_A3_ID": "MLI",
+        "ADM0_A3_PL": "MLI",
+        "ADM0_A3_GR": "MLI",
+        "ADM0_A3_IT": "MLI",
+        "ADM0_A3_NL": "MLI",
+        "ADM0_A3_SE": "MLI",
+        "ADM0_A3_BD": "MLI",
+        "ADM0_A3_UA": "MLI",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Western Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 4,
+        "LONG_LEN": 4,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 7,
+        "LABEL_X": -2.038455,
+        "LABEL_Y": 18.692713,
+        "NE_ID": 1159321063,
+        "WIKIDATAID": "Q912",
+        "NAME_AR": "مالي",
+        "NAME_BN": "মালি",
+        "NAME_DE": "Mali",
+        "NAME_EN": "Mali",
+        "NAME_ES": "Malí",
+        "NAME_FA": "مالی",
+        "NAME_FR": "Mali",
+        "NAME_EL": "Μάλι",
+        "NAME_HE": "מאלי",
+        "NAME_HI": "माली",
+        "NAME_HU": "Mali",
+        "NAME_ID": "Mali",
+        "NAME_IT": "Mali",
+        "NAME_JA": "マリ共和国",
+        "NAME_KO": "말리",
+        "NAME_NL": "Mali",
+        "NAME_PL": "Mali",
+        "NAME_PT": "Mali",
+        "NAME_RU": "Мали",
+        "NAME_SV": "Mali",
+        "NAME_TR": "Mali",
+        "NAME_UK": "Малі",
+        "NAME_UR": "مالی",
+        "NAME_VI": "Mali",
+        "NAME_ZH": "马里",
+        "NAME_ZHT": "馬利共和國",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "MLI"
+      },
+      "bbox": [
+        -12.17075,
+        10.096361,
+        4.27021,
+        24.974574
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -11.513943,
+              12.442988
+            ],
+            [
+              -11.467899,
+              12.754519
+            ],
+            [
+              -11.553398,
+              13.141214
+            ],
+            [
+              -11.927716,
+              13.422075
+            ],
+            [
+              -12.124887,
+              13.994727
+            ],
+            [
+              -12.17075,
+              14.616834
+            ],
+            [
+              -11.834208,
+              14.799097
+            ],
+            [
+              -11.666078,
+              15.388208
+            ],
+            [
+              -11.349095,
+              15.411256
+            ],
+            [
+              -10.650791,
+              15.132746
+            ],
+            [
+              -10.086846,
+              15.330486
+            ],
+            [
+              -9.700255,
+              15.264107
+            ],
+            [
+              -9.550238,
+              15.486497
+            ],
+            [
+              -5.537744,
+              15.50169
+            ],
+            [
+              -5.315277,
+              16.201854
+            ],
+            [
+              -5.488523,
+              16.325102
+            ],
+            [
+              -5.971129,
+              20.640833
+            ],
+            [
+              -6.453787,
+              24.956591
+            ],
+            [
+              -4.923337,
+              24.974574
+            ],
+            [
+              -1.550055,
+              22.792666
+            ],
+            [
+              1.823228,
+              20.610809
+            ],
+            [
+              2.060991,
+              20.142233
+            ],
+            [
+              2.683588,
+              19.85623
+            ],
+            [
+              3.146661,
+              19.693579
+            ],
+            [
+              3.158133,
+              19.057364
+            ],
+            [
+              4.267419,
+              19.155265
+            ],
+            [
+              4.27021,
+              16.852227
+            ],
+            [
+              3.723422,
+              16.184284
+            ],
+            [
+              3.638259,
+              15.56812
+            ],
+            [
+              2.749993,
+              15.409525
+            ],
+            [
+              1.385528,
+              15.323561
+            ],
+            [
+              1.015783,
+              14.968182
+            ],
+            [
+              0.374892,
+              14.928908
+            ],
+            [
+              -0.266257,
+              14.924309
+            ],
+            [
+              -0.515854,
+              15.116158
+            ],
+            [
+              -1.066363,
+              14.973815
+            ],
+            [
+              -2.001035,
+              14.559008
+            ],
+            [
+              -2.191825,
+              14.246418
+            ],
+            [
+              -2.967694,
+              13.79815
+            ],
+            [
+              -3.103707,
+              13.541267
+            ],
+            [
+              -3.522803,
+              13.337662
+            ],
+            [
+              -4.006391,
+              13.472485
+            ],
+            [
+              -4.280405,
+              13.228444
+            ],
+            [
+              -4.427166,
+              12.542646
+            ],
+            [
+              -5.220942,
+              11.713859
+            ],
+            [
+              -5.197843,
+              11.375146
+            ],
+            [
+              -5.470565,
+              10.95127
+            ],
+            [
+              -5.404342,
+              10.370737
+            ],
+            [
+              -5.816926,
+              10.222555
+            ],
+            [
+              -6.050452,
+              10.096361
+            ],
+            [
+              -6.205223,
+              10.524061
+            ],
+            [
+              -6.493965,
+              10.411303
+            ],
+            [
+              -6.666461,
+              10.430811
+            ],
+            [
+              -6.850507,
+              10.138994
+            ],
+            [
+              -7.622759,
+              10.147236
+            ],
+            [
+              -7.89959,
+              10.297382
+            ],
+            [
+              -8.029944,
+              10.206535
+            ],
+            [
+              -8.335377,
+              10.494812
+            ],
+            [
+              -8.282357,
+              10.792597
+            ],
+            [
+              -8.407311,
+              10.909257
+            ],
+            [
+              -8.620321,
+              10.810891
+            ],
+            [
+              -8.581305,
+              11.136246
+            ],
+            [
+              -8.376305,
+              11.393646
+            ],
+            [
+              -8.786099,
+              11.812561
+            ],
+            [
+              -8.905265,
+              12.088358
+            ],
+            [
+              -9.127474,
+              12.30806
+            ],
+            [
+              -9.327616,
+              12.334286
+            ],
+            [
+              -9.567912,
+              12.194243
+            ],
+            [
+              -9.890993,
+              12.060479
+            ],
+            [
+              -10.165214,
+              11.844084
+            ],
+            [
+              -10.593224,
+              11.923975
+            ],
+            [
+              -10.87083,
+              12.177887
+            ],
+            [
+              -11.036556,
+              12.211245
+            ],
+            [
+              -11.297574,
+              12.077971
+            ],
+            [
+              -11.456169,
+              12.076834
+            ],
+            [
+              -11.513943,
+              12.442988
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,59 +1,600 @@
 {
-  "DEU_001": {
-    "type": "Feature",
-    "id": "DEU_001",
-    "properties": {
-      "id": "DEU_001",
-      "name": "Bavaria",
-      "country": "Germany",
-      "iso_a3": "DEU",
-      "state_code": "BY"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [8.9, 47.3], [8.9, 50.5], [13.8, 50.5], [13.8, 47.3], [8.9, 47.3]
-        ]
-      ]
-    }
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "DEU",
+    "generated": "2025-07-31T02:54:50.180Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
   },
-  "DEU_002": {
-    "type": "Feature",
-    "id": "DEU_002",
-    "properties": {
-      "id": "DEU_002",
-      "name": "North Rhine-Westphalia",
-      "country": "Germany",
-      "iso_a3": "DEU",
-      "state_code": "NW"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [5.9, 50.3], [5.9, 52.5], [9.4, 52.5], [9.4, 50.3], [5.9, 50.3]
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "Germany",
+        "SOV_A3": "DEU",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Germany",
+        "ADM0_A3": "DEU",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Germany",
+        "GU_A3": "DEU",
+        "SU_DIF": 0,
+        "SUBUNIT": "Germany",
+        "SU_A3": "DEU",
+        "BRK_DIFF": 0,
+        "NAME": "Germany",
+        "NAME_LONG": "Germany",
+        "BRK_A3": "DEU",
+        "BRK_NAME": "Germany",
+        "BRK_GROUP": null,
+        "ABBREV": "Ger.",
+        "POSTAL": "D",
+        "FORMAL_EN": "Federal Republic of Germany",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Germany",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Germany",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 5,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 1,
+        "POP_EST": 83132799,
+        "POP_RANK": 16,
+        "POP_YEAR": 2019,
+        "GDP_MD": 3861123,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "1. Developed region: G7",
+        "INCOME_GRP": "1. High income: OECD",
+        "FIPS_10": "GM",
+        "ISO_A2": "DE",
+        "ISO_A2_EH": "DE",
+        "ISO_A3": "DEU",
+        "ISO_A3_EH": "DEU",
+        "ISO_N3": "276",
+        "ISO_N3_EH": "276",
+        "UN_A3": "276",
+        "WB_A2": "DE",
+        "WB_A3": "DEU",
+        "WOE_ID": 23424829,
+        "WOE_ID_EH": 23424829,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "DEU",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "DEU",
+        "ADM0_A3_US": "DEU",
+        "ADM0_A3_FR": "DEU",
+        "ADM0_A3_RU": "DEU",
+        "ADM0_A3_ES": "DEU",
+        "ADM0_A3_CN": "DEU",
+        "ADM0_A3_TW": "DEU",
+        "ADM0_A3_IN": "DEU",
+        "ADM0_A3_NP": "DEU",
+        "ADM0_A3_PK": "DEU",
+        "ADM0_A3_DE": "DEU",
+        "ADM0_A3_GB": "DEU",
+        "ADM0_A3_BR": "DEU",
+        "ADM0_A3_IL": "DEU",
+        "ADM0_A3_PS": "DEU",
+        "ADM0_A3_SA": "DEU",
+        "ADM0_A3_EG": "DEU",
+        "ADM0_A3_MA": "DEU",
+        "ADM0_A3_PT": "DEU",
+        "ADM0_A3_AR": "DEU",
+        "ADM0_A3_JP": "DEU",
+        "ADM0_A3_KO": "DEU",
+        "ADM0_A3_VN": "DEU",
+        "ADM0_A3_TR": "DEU",
+        "ADM0_A3_ID": "DEU",
+        "ADM0_A3_PL": "DEU",
+        "ADM0_A3_GR": "DEU",
+        "ADM0_A3_IT": "DEU",
+        "ADM0_A3_NL": "DEU",
+        "ADM0_A3_SE": "DEU",
+        "ADM0_A3_BD": "DEU",
+        "ADM0_A3_UA": "DEU",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Europe",
+        "REGION_UN": "Europe",
+        "SUBREGION": "Western Europe",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 1.7,
+        "MAX_LABEL": 6.7,
+        "LABEL_X": 9.678348,
+        "LABEL_Y": 50.961733,
+        "NE_ID": 1159320539,
+        "WIKIDATAID": "Q183",
+        "NAME_AR": "ألمانيا",
+        "NAME_BN": "জার্মানি",
+        "NAME_DE": "Deutschland",
+        "NAME_EN": "Germany",
+        "NAME_ES": "Alemania",
+        "NAME_FA": "آلمان",
+        "NAME_FR": "Allemagne",
+        "NAME_EL": "Γερμανία",
+        "NAME_HE": "גרמניה",
+        "NAME_HI": "जर्मनी",
+        "NAME_HU": "Németország",
+        "NAME_ID": "Jerman",
+        "NAME_IT": "Germania",
+        "NAME_JA": "ドイツ",
+        "NAME_KO": "독일",
+        "NAME_NL": "Duitsland",
+        "NAME_PL": "Niemcy",
+        "NAME_PT": "Alemanha",
+        "NAME_RU": "Германия",
+        "NAME_SV": "Tyskland",
+        "NAME_TR": "Almanya",
+        "NAME_UK": "Німеччина",
+        "NAME_UR": "جرمنی",
+        "NAME_VI": "Đức",
+        "NAME_ZH": "德国",
+        "NAME_ZHT": "德國",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "DEU"
+      },
+      "bbox": [
+        5.988658,
+        47.302488,
+        15.016996,
+        54.983104
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.119686,
+              53.757029
+            ],
+            [
+              14.353315,
+              53.248171
+            ],
+            [
+              14.074521,
+              52.981263
+            ],
+            [
+              14.4376,
+              52.62485
+            ],
+            [
+              14.685026,
+              52.089947
+            ],
+            [
+              14.607098,
+              51.745188
+            ],
+            [
+              15.016996,
+              51.106674
+            ],
+            [
+              14.570718,
+              51.002339
+            ],
+            [
+              14.307013,
+              51.117268
+            ],
+            [
+              14.056228,
+              50.926918
+            ],
+            [
+              13.338132,
+              50.733234
+            ],
+            [
+              12.966837,
+              50.484076
+            ],
+            [
+              12.240111,
+              50.266338
+            ],
+            [
+              12.415191,
+              49.969121
+            ],
+            [
+              12.521024,
+              49.547415
+            ],
+            [
+              13.031329,
+              49.307068
+            ],
+            [
+              13.595946,
+              48.877172
+            ],
+            [
+              13.243357,
+              48.416115
+            ],
+            [
+              12.884103,
+              48.289146
+            ],
+            [
+              13.025851,
+              47.637584
+            ],
+            [
+              12.932627,
+              47.467646
+            ],
+            [
+              12.62076,
+              47.672388
+            ],
+            [
+              12.141357,
+              47.703083
+            ],
+            [
+              11.426414,
+              47.523766
+            ],
+            [
+              10.544504,
+              47.566399
+            ],
+            [
+              10.402084,
+              47.302488
+            ],
+            [
+              9.896068,
+              47.580197
+            ],
+            [
+              9.594226,
+              47.525058
+            ],
+            [
+              8.522612,
+              47.830828
+            ],
+            [
+              8.317301,
+              47.61358
+            ],
+            [
+              7.466759,
+              47.620582
+            ],
+            [
+              7.593676,
+              48.333019
+            ],
+            [
+              8.099279,
+              49.017784
+            ],
+            [
+              6.65823,
+              49.201958
+            ],
+            [
+              6.18632,
+              49.463803
+            ],
+            [
+              6.242751,
+              49.902226
+            ],
+            [
+              6.043073,
+              50.128052
+            ],
+            [
+              6.156658,
+              50.803721
+            ],
+            [
+              5.988658,
+              51.851616
+            ],
+            [
+              6.589397,
+              51.852029
+            ],
+            [
+              6.84287,
+              52.22844
+            ],
+            [
+              7.092053,
+              53.144043
+            ],
+            [
+              6.90514,
+              53.482162
+            ],
+            [
+              7.100425,
+              53.693932
+            ],
+            [
+              7.936239,
+              53.748296
+            ],
+            [
+              8.121706,
+              53.527792
+            ],
+            [
+              8.800734,
+              54.020786
+            ],
+            [
+              8.572118,
+              54.395646
+            ],
+            [
+              8.526229,
+              54.962744
+            ],
+            [
+              9.282049,
+              54.830865
+            ],
+            [
+              9.921906,
+              54.983104
+            ],
+            [
+              9.93958,
+              54.596642
+            ],
+            [
+              10.950112,
+              54.363607
+            ],
+            [
+              10.939467,
+              54.008693
+            ],
+            [
+              11.956252,
+              54.196486
+            ],
+            [
+              12.51844,
+              54.470371
+            ],
+            [
+              13.647467,
+              54.075511
+            ],
+            [
+              14.119686,
+              53.757029
+            ]
+          ]
         ]
-      ]
+      }
     }
-  },
-  "DEU_003": {
-    "type": "Feature",
-    "id": "DEU_003",
-    "properties": {
-      "id": "DEU_003",
-      "name": "Berlin",
-      "country": "Germany",
-      "iso_a3": "DEU",
-      "state_code": "BE"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [13.1, 52.3], [13.1, 52.7], [13.7, 52.7], [13.7, 52.3], [13.1, 52.3]
-        ]
-      ]
-    }
-  }
+  ]
 }

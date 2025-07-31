@@ -1,0 +1,638 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "NZL",
+    "generated": "2025-07-31T02:54:50.202Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "New Zealand",
+        "SOV_A3": "NZ1",
+        "ADM0_DIF": 1,
+        "LEVEL": 2,
+        "TYPE": "Country",
+        "TLC": "1",
+        "ADMIN": "New Zealand",
+        "ADM0_A3": "NZL",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "New Zealand",
+        "GU_A3": "NZL",
+        "SU_DIF": 0,
+        "SUBUNIT": "New Zealand",
+        "SU_A3": "NZL",
+        "BRK_DIFF": 0,
+        "NAME": "New Zealand",
+        "NAME_LONG": "New Zealand",
+        "BRK_A3": "NZL",
+        "BRK_NAME": "New Zealand",
+        "BRK_GROUP": null,
+        "ABBREV": "N.Z.",
+        "POSTAL": "NZ",
+        "FORMAL_EN": "New Zealand",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "New Zealand",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "New Zealand",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 3,
+        "MAPCOLOR8": 3,
+        "MAPCOLOR9": 4,
+        "MAPCOLOR13": 4,
+        "POP_EST": 4917000,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 206928,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "2. Developed region: nonG7",
+        "INCOME_GRP": "1. High income: OECD",
+        "FIPS_10": "NZ",
+        "ISO_A2": "NZ",
+        "ISO_A2_EH": "NZ",
+        "ISO_A3": "NZL",
+        "ISO_A3_EH": "NZL",
+        "ISO_N3": "554",
+        "ISO_N3_EH": "554",
+        "UN_A3": "554",
+        "WB_A2": "NZ",
+        "WB_A3": "NZL",
+        "WOE_ID": 23424916,
+        "WOE_ID_EH": 23424916,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "NZL",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "NZL",
+        "ADM0_A3_US": "NZL",
+        "ADM0_A3_FR": "NZL",
+        "ADM0_A3_RU": "NZL",
+        "ADM0_A3_ES": "NZL",
+        "ADM0_A3_CN": "NZL",
+        "ADM0_A3_TW": "NZL",
+        "ADM0_A3_IN": "NZL",
+        "ADM0_A3_NP": "NZL",
+        "ADM0_A3_PK": "NZL",
+        "ADM0_A3_DE": "NZL",
+        "ADM0_A3_GB": "NZL",
+        "ADM0_A3_BR": "NZL",
+        "ADM0_A3_IL": "NZL",
+        "ADM0_A3_PS": "NZL",
+        "ADM0_A3_SA": "NZL",
+        "ADM0_A3_EG": "NZL",
+        "ADM0_A3_MA": "NZL",
+        "ADM0_A3_PT": "NZL",
+        "ADM0_A3_AR": "NZL",
+        "ADM0_A3_JP": "NZL",
+        "ADM0_A3_KO": "NZL",
+        "ADM0_A3_VN": "NZL",
+        "ADM0_A3_TR": "NZL",
+        "ADM0_A3_ID": "NZL",
+        "ADM0_A3_PL": "NZL",
+        "ADM0_A3_GR": "NZL",
+        "ADM0_A3_IT": "NZL",
+        "ADM0_A3_NL": "NZL",
+        "ADM0_A3_SE": "NZL",
+        "ADM0_A3_BD": "NZL",
+        "ADM0_A3_UA": "NZL",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Oceania",
+        "REGION_UN": "Oceania",
+        "SUBREGION": "Australia and New Zealand",
+        "REGION_WB": "East Asia & Pacific",
+        "NAME_LEN": 11,
+        "LONG_LEN": 11,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2,
+        "MAX_LABEL": 6.7,
+        "LABEL_X": 172.787,
+        "LABEL_Y": -39.759,
+        "NE_ID": 1159321135,
+        "WIKIDATAID": "Q664",
+        "NAME_AR": "نيوزيلندا",
+        "NAME_BN": "নিউজিল্যান্ড",
+        "NAME_DE": "Neuseeland",
+        "NAME_EN": "New Zealand",
+        "NAME_ES": "Nueva Zelanda",
+        "NAME_FA": "نیوزیلند",
+        "NAME_FR": "Nouvelle-Zélande",
+        "NAME_EL": "Νέα Ζηλανδία",
+        "NAME_HE": "ניו זילנד",
+        "NAME_HI": "न्यूज़ीलैण्ड",
+        "NAME_HU": "Új-Zéland",
+        "NAME_ID": "Selandia Baru",
+        "NAME_IT": "Nuova Zelanda",
+        "NAME_JA": "ニュージーランド",
+        "NAME_KO": "뉴질랜드",
+        "NAME_NL": "Nieuw-Zeeland",
+        "NAME_PL": "Nowa Zelandia",
+        "NAME_PT": "Nova Zelândia",
+        "NAME_RU": "Новая Зеландия",
+        "NAME_SV": "Nya Zeeland",
+        "NAME_TR": "Yeni Zelanda",
+        "NAME_UK": "Нова Зеландія",
+        "NAME_UR": "نیوزی لینڈ",
+        "NAME_VI": "New Zealand",
+        "NAME_ZH": "新西兰",
+        "NAME_ZHT": "新西蘭",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "NZL"
+      },
+      "bbox": [
+        166.509144,
+        -46.641235,
+        178.517094,
+        -34.450662
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                176.885824,
+                -40.065978
+              ],
+              [
+                176.508017,
+                -40.604808
+              ],
+              [
+                176.01244,
+                -41.289624
+              ],
+              [
+                175.239567,
+                -41.688308
+              ],
+              [
+                175.067898,
+                -41.425895
+              ],
+              [
+                174.650973,
+                -41.281821
+              ],
+              [
+                175.22763,
+                -40.459236
+              ],
+              [
+                174.900157,
+                -39.908933
+              ],
+              [
+                173.824047,
+                -39.508854
+              ],
+              [
+                173.852262,
+                -39.146602
+              ],
+              [
+                174.574802,
+                -38.797683
+              ],
+              [
+                174.743474,
+                -38.027808
+              ],
+              [
+                174.697017,
+                -37.381129
+              ],
+              [
+                174.292028,
+                -36.711092
+              ],
+              [
+                174.319004,
+                -36.534824
+              ],
+              [
+                173.840997,
+                -36.121981
+              ],
+              [
+                173.054171,
+                -35.237125
+              ],
+              [
+                172.636005,
+                -34.529107
+              ],
+              [
+                173.007042,
+                -34.450662
+              ],
+              [
+                173.551298,
+                -35.006183
+              ],
+              [
+                174.32939,
+                -35.265496
+              ],
+              [
+                174.612009,
+                -36.156397
+              ],
+              [
+                175.336616,
+                -37.209098
+              ],
+              [
+                175.357596,
+                -36.526194
+              ],
+              [
+                175.808887,
+                -36.798942
+              ],
+              [
+                175.95849,
+                -37.555382
+              ],
+              [
+                176.763195,
+                -37.881253
+              ],
+              [
+                177.438813,
+                -37.961248
+              ],
+              [
+                178.010354,
+                -37.579825
+              ],
+              [
+                178.517094,
+                -37.695373
+              ],
+              [
+                178.274731,
+                -38.582813
+              ],
+              [
+                177.97046,
+                -39.166343
+              ],
+              [
+                177.206993,
+                -39.145776
+              ],
+              [
+                176.939981,
+                -39.449736
+              ],
+              [
+                177.032946,
+                -39.879943
+              ],
+              [
+                176.885824,
+                -40.065978
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                169.667815,
+                -43.555326
+              ],
+              [
+                170.52492,
+                -43.031688
+              ],
+              [
+                171.12509,
+                -42.512754
+              ],
+              [
+                171.569714,
+                -41.767424
+              ],
+              [
+                171.948709,
+                -41.514417
+              ],
+              [
+                172.097227,
+                -40.956104
+              ],
+              [
+                172.79858,
+                -40.493962
+              ],
+              [
+                173.020375,
+                -40.919052
+              ],
+              [
+                173.247234,
+                -41.331999
+              ],
+              [
+                173.958405,
+                -40.926701
+              ],
+              [
+                174.247587,
+                -41.349155
+              ],
+              [
+                174.248517,
+                -41.770008
+              ],
+              [
+                173.876447,
+                -42.233184
+              ],
+              [
+                173.22274,
+                -42.970038
+              ],
+              [
+                172.711246,
+                -43.372288
+              ],
+              [
+                173.080113,
+                -43.853344
+              ],
+              [
+                172.308584,
+                -43.865694
+              ],
+              [
+                171.452925,
+                -44.242519
+              ],
+              [
+                171.185138,
+                -44.897104
+              ],
+              [
+                170.616697,
+                -45.908929
+              ],
+              [
+                169.831422,
+                -46.355775
+              ],
+              [
+                169.332331,
+                -46.641235
+              ],
+              [
+                168.411354,
+                -46.619945
+              ],
+              [
+                167.763745,
+                -46.290197
+              ],
+              [
+                166.676886,
+                -46.219917
+              ],
+              [
+                166.509144,
+                -45.852705
+              ],
+              [
+                167.046424,
+                -45.110941
+              ],
+              [
+                168.303763,
+                -44.123973
+              ],
+              [
+                168.949409,
+                -43.935819
+              ],
+              [
+                169.667815,
+                -43.555326
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

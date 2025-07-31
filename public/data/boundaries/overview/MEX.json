@@ -1,97 +1,1048 @@
 {
-  "MEX_001": {
-    "type": "Feature",
-    "id": "MEX_001",
-    "properties": {
-      "id": "MEX_001",
-      "name": "Mexico City",
-      "country": "Mexico",
-      "iso_a3": "MEX",
-      "state_code": "DF"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-99.4, 19.6], [-98.9, 19.6], [-98.9, 19.0], [-99.4, 19.0], [-99.4, 19.6]
-        ]
-      ]
-    }
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "MEX",
+    "generated": "2025-07-31T02:54:50.055Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
   },
-  "MEX_002": {
-    "type": "Feature",
-    "id": "MEX_002",
-    "properties": {
-      "id": "MEX_002",
-      "name": "Jalisco",
-      "country": "Mexico",
-      "iso_a3": "MEX",
-      "state_code": "JAL"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-105.7, 22.8], [-101.5, 22.8], [-101.5, 18.9], [-105.7, 18.9], [-105.7, 22.8]
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "Mexico",
+        "SOV_A3": "MEX",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Mexico",
+        "ADM0_A3": "MEX",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Mexico",
+        "GU_A3": "MEX",
+        "SU_DIF": 0,
+        "SUBUNIT": "Mexico",
+        "SU_A3": "MEX",
+        "BRK_DIFF": 0,
+        "NAME": "Mexico",
+        "NAME_LONG": "Mexico",
+        "BRK_A3": "MEX",
+        "BRK_NAME": "Mexico",
+        "BRK_GROUP": null,
+        "ABBREV": "Mex.",
+        "POSTAL": "MX",
+        "FORMAL_EN": "United Mexican States",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Mexico",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Mexico",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 6,
+        "MAPCOLOR8": 1,
+        "MAPCOLOR9": 7,
+        "MAPCOLOR13": 3,
+        "POP_EST": 127575529,
+        "POP_RANK": 17,
+        "POP_YEAR": 2019,
+        "GDP_MD": 1268870,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "4. Emerging region: MIKT",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "MX",
+        "ISO_A2": "MX",
+        "ISO_A2_EH": "MX",
+        "ISO_A3": "MEX",
+        "ISO_A3_EH": "MEX",
+        "ISO_N3": "484",
+        "ISO_N3_EH": "484",
+        "UN_A3": "484",
+        "WB_A2": "MX",
+        "WB_A3": "MEX",
+        "WOE_ID": 23424900,
+        "WOE_ID_EH": 23424900,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "MEX",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "MEX",
+        "ADM0_A3_US": "MEX",
+        "ADM0_A3_FR": "MEX",
+        "ADM0_A3_RU": "MEX",
+        "ADM0_A3_ES": "MEX",
+        "ADM0_A3_CN": "MEX",
+        "ADM0_A3_TW": "MEX",
+        "ADM0_A3_IN": "MEX",
+        "ADM0_A3_NP": "MEX",
+        "ADM0_A3_PK": "MEX",
+        "ADM0_A3_DE": "MEX",
+        "ADM0_A3_GB": "MEX",
+        "ADM0_A3_BR": "MEX",
+        "ADM0_A3_IL": "MEX",
+        "ADM0_A3_PS": "MEX",
+        "ADM0_A3_SA": "MEX",
+        "ADM0_A3_EG": "MEX",
+        "ADM0_A3_MA": "MEX",
+        "ADM0_A3_PT": "MEX",
+        "ADM0_A3_AR": "MEX",
+        "ADM0_A3_JP": "MEX",
+        "ADM0_A3_KO": "MEX",
+        "ADM0_A3_VN": "MEX",
+        "ADM0_A3_TR": "MEX",
+        "ADM0_A3_ID": "MEX",
+        "ADM0_A3_PL": "MEX",
+        "ADM0_A3_GR": "MEX",
+        "ADM0_A3_IT": "MEX",
+        "ADM0_A3_NL": "MEX",
+        "ADM0_A3_SE": "MEX",
+        "ADM0_A3_BD": "MEX",
+        "ADM0_A3_UA": "MEX",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "North America",
+        "REGION_UN": "Americas",
+        "SUBREGION": "Central America",
+        "REGION_WB": "Latin America & Caribbean",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2,
+        "MAX_LABEL": 6.7,
+        "LABEL_X": -102.289448,
+        "LABEL_Y": 23.919988,
+        "NE_ID": 1159321055,
+        "WIKIDATAID": "Q96",
+        "NAME_AR": "المكسيك",
+        "NAME_BN": "মেক্সিকো",
+        "NAME_DE": "Mexiko",
+        "NAME_EN": "Mexico",
+        "NAME_ES": "México",
+        "NAME_FA": "مکزیک",
+        "NAME_FR": "Mexique",
+        "NAME_EL": "Μεξικό",
+        "NAME_HE": "מקסיקו",
+        "NAME_HI": "मेक्सिको",
+        "NAME_HU": "Mexikó",
+        "NAME_ID": "Meksiko",
+        "NAME_IT": "Messico",
+        "NAME_JA": "メキシコ",
+        "NAME_KO": "멕시코",
+        "NAME_NL": "Mexico",
+        "NAME_PL": "Meksyk",
+        "NAME_PT": "México",
+        "NAME_RU": "Мексика",
+        "NAME_SV": "Mexiko",
+        "NAME_TR": "Meksika",
+        "NAME_UK": "Мексика",
+        "NAME_UR": "میکسیکو",
+        "NAME_VI": "México",
+        "NAME_ZH": "墨西哥",
+        "NAME_ZHT": "墨西哥",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "MEX"
+      },
+      "bbox": [
+        -117.12776,
+        14.538829,
+        -86.811982,
+        32.72083
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -117.12776,
+              32.53534
+            ],
+            [
+              -115.99135,
+              32.61239
+            ],
+            [
+              -114.72139,
+              32.72083
+            ],
+            [
+              -114.815,
+              32.52528
+            ],
+            [
+              -113.30498,
+              32.03914
+            ],
+            [
+              -111.02361,
+              31.33472
+            ],
+            [
+              -109.035,
+              31.34194
+            ],
+            [
+              -108.24194,
+              31.34222
+            ],
+            [
+              -108.24,
+              31.754854
+            ],
+            [
+              -106.50759,
+              31.75452
+            ],
+            [
+              -106.1429,
+              31.39995
+            ],
+            [
+              -105.63159,
+              31.08383
+            ],
+            [
+              -105.03737,
+              30.64402
+            ],
+            [
+              -104.70575,
+              30.12173
+            ],
+            [
+              -104.45697,
+              29.57196
+            ],
+            [
+              -103.94,
+              29.27
+            ],
+            [
+              -103.11,
+              28.97
+            ],
+            [
+              -102.48,
+              29.76
+            ],
+            [
+              -101.6624,
+              29.7793
+            ],
+            [
+              -100.9576,
+              29.38071
+            ],
+            [
+              -100.45584,
+              28.69612
+            ],
+            [
+              -100.11,
+              28.11
+            ],
+            [
+              -99.52,
+              27.54
+            ],
+            [
+              -99.3,
+              26.84
+            ],
+            [
+              -99.02,
+              26.37
+            ],
+            [
+              -98.24,
+              26.06
+            ],
+            [
+              -97.53,
+              25.84
+            ],
+            [
+              -97.140008,
+              25.869997
+            ],
+            [
+              -97.528072,
+              24.992144
+            ],
+            [
+              -97.702946,
+              24.272343
+            ],
+            [
+              -97.776042,
+              22.93258
+            ],
+            [
+              -97.872367,
+              22.444212
+            ],
+            [
+              -97.699044,
+              21.898689
+            ],
+            [
+              -97.38896,
+              21.411019
+            ],
+            [
+              -97.189333,
+              20.635433
+            ],
+            [
+              -96.525576,
+              19.890931
+            ],
+            [
+              -96.292127,
+              19.320371
+            ],
+            [
+              -95.900885,
+              18.828024
+            ],
+            [
+              -94.839063,
+              18.562717
+            ],
+            [
+              -94.42573,
+              18.144371
+            ],
+            [
+              -93.548651,
+              18.423837
+            ],
+            [
+              -92.786114,
+              18.524839
+            ],
+            [
+              -92.037348,
+              18.704569
+            ],
+            [
+              -91.407903,
+              18.876083
+            ],
+            [
+              -90.77187,
+              19.28412
+            ],
+            [
+              -90.53359,
+              19.867418
+            ],
+            [
+              -90.451476,
+              20.707522
+            ],
+            [
+              -90.278618,
+              20.999855
+            ],
+            [
+              -89.601321,
+              21.261726
+            ],
+            [
+              -88.543866,
+              21.493675
+            ],
+            [
+              -87.658417,
+              21.458846
+            ],
+            [
+              -87.05189,
+              21.543543
+            ],
+            [
+              -86.811982,
+              21.331515
+            ],
+            [
+              -86.845908,
+              20.849865
+            ],
+            [
+              -87.383291,
+              20.255405
+            ],
+            [
+              -87.621054,
+              19.646553
+            ],
+            [
+              -87.43675,
+              19.472403
+            ],
+            [
+              -87.58656,
+              19.04013
+            ],
+            [
+              -87.837191,
+              18.259816
+            ],
+            [
+              -88.090664,
+              18.516648
+            ],
+            [
+              -88.300031,
+              18.499982
+            ],
+            [
+              -88.490123,
+              18.486831
+            ],
+            [
+              -88.848344,
+              17.883198
+            ],
+            [
+              -89.029857,
+              18.001511
+            ],
+            [
+              -89.150909,
+              17.955468
+            ],
+            [
+              -89.14308,
+              17.808319
+            ],
+            [
+              -90.067934,
+              17.819326
+            ],
+            [
+              -91.00152,
+              17.817595
+            ],
+            [
+              -91.002269,
+              17.254658
+            ],
+            [
+              -91.453921,
+              17.252177
+            ],
+            [
+              -91.08167,
+              16.918477
+            ],
+            [
+              -90.711822,
+              16.687483
+            ],
+            [
+              -90.600847,
+              16.470778
+            ],
+            [
+              -90.438867,
+              16.41011
+            ],
+            [
+              -90.464473,
+              16.069562
+            ],
+            [
+              -91.74796,
+              16.066565
+            ],
+            [
+              -92.229249,
+              15.251447
+            ],
+            [
+              -92.087216,
+              15.064585
+            ],
+            [
+              -92.20323,
+              14.830103
+            ],
+            [
+              -92.22775,
+              14.538829
+            ],
+            [
+              -93.359464,
+              15.61543
+            ],
+            [
+              -93.875169,
+              15.940164
+            ],
+            [
+              -94.691656,
+              16.200975
+            ],
+            [
+              -95.250227,
+              16.128318
+            ],
+            [
+              -96.053382,
+              15.752088
+            ],
+            [
+              -96.557434,
+              15.653515
+            ],
+            [
+              -97.263592,
+              15.917065
+            ],
+            [
+              -98.01303,
+              16.107312
+            ],
+            [
+              -98.947676,
+              16.566043
+            ],
+            [
+              -99.697397,
+              16.706164
+            ],
+            [
+              -100.829499,
+              17.171071
+            ],
+            [
+              -101.666089,
+              17.649026
+            ],
+            [
+              -101.918528,
+              17.91609
+            ],
+            [
+              -102.478132,
+              17.975751
+            ],
+            [
+              -103.50099,
+              18.292295
+            ],
+            [
+              -103.917527,
+              18.748572
+            ],
+            [
+              -104.99201,
+              19.316134
+            ],
+            [
+              -105.493038,
+              19.946767
+            ],
+            [
+              -105.731396,
+              20.434102
+            ],
+            [
+              -105.397773,
+              20.531719
+            ],
+            [
+              -105.500661,
+              20.816895
+            ],
+            [
+              -105.270752,
+              21.076285
+            ],
+            [
+              -105.265817,
+              21.422104
+            ],
+            [
+              -105.603161,
+              21.871146
+            ],
+            [
+              -105.693414,
+              22.26908
+            ],
+            [
+              -106.028716,
+              22.773752
+            ],
+            [
+              -106.90998,
+              23.767774
+            ],
+            [
+              -107.915449,
+              24.548915
+            ],
+            [
+              -108.401905,
+              25.172314
+            ],
+            [
+              -109.260199,
+              25.580609
+            ],
+            [
+              -109.444089,
+              25.824884
+            ],
+            [
+              -109.291644,
+              26.442934
+            ],
+            [
+              -109.801458,
+              26.676176
+            ],
+            [
+              -110.391732,
+              27.162115
+            ],
+            [
+              -110.641019,
+              27.859876
+            ],
+            [
+              -111.178919,
+              27.941241
+            ],
+            [
+              -111.759607,
+              28.467953
+            ],
+            [
+              -112.228235,
+              28.954409
+            ],
+            [
+              -112.271824,
+              29.266844
+            ],
+            [
+              -112.809594,
+              30.021114
+            ],
+            [
+              -113.163811,
+              30.786881
+            ],
+            [
+              -113.148669,
+              31.170966
+            ],
+            [
+              -113.871881,
+              31.567608
+            ],
+            [
+              -114.205737,
+              31.524045
+            ],
+            [
+              -114.776451,
+              31.799532
+            ],
+            [
+              -114.9367,
+              31.393485
+            ],
+            [
+              -114.771232,
+              30.913617
+            ],
+            [
+              -114.673899,
+              30.162681
+            ],
+            [
+              -114.330974,
+              29.750432
+            ],
+            [
+              -113.588875,
+              29.061611
+            ],
+            [
+              -113.424053,
+              28.826174
+            ],
+            [
+              -113.271969,
+              28.754783
+            ],
+            [
+              -113.140039,
+              28.411289
+            ],
+            [
+              -112.962298,
+              28.42519
+            ],
+            [
+              -112.761587,
+              27.780217
+            ],
+            [
+              -112.457911,
+              27.525814
+            ],
+            [
+              -112.244952,
+              27.171727
+            ],
+            [
+              -111.616489,
+              26.662817
+            ],
+            [
+              -111.284675,
+              25.73259
+            ],
+            [
+              -110.987819,
+              25.294606
+            ],
+            [
+              -110.710007,
+              24.826004
+            ],
+            [
+              -110.655049,
+              24.298595
+            ],
+            [
+              -110.172856,
+              24.265548
+            ],
+            [
+              -109.771847,
+              23.811183
+            ],
+            [
+              -109.409104,
+              23.364672
+            ],
+            [
+              -109.433392,
+              23.185588
+            ],
+            [
+              -109.854219,
+              22.818272
+            ],
+            [
+              -110.031392,
+              22.823078
+            ],
+            [
+              -110.295071,
+              23.430973
+            ],
+            [
+              -110.949501,
+              24.000964
+            ],
+            [
+              -111.670568,
+              24.484423
+            ],
+            [
+              -112.182036,
+              24.738413
+            ],
+            [
+              -112.148989,
+              25.470125
+            ],
+            [
+              -112.300711,
+              26.012004
+            ],
+            [
+              -112.777297,
+              26.32196
+            ],
+            [
+              -113.464671,
+              26.768186
+            ],
+            [
+              -113.59673,
+              26.63946
+            ],
+            [
+              -113.848937,
+              26.900064
+            ],
+            [
+              -114.465747,
+              27.14209
+            ],
+            [
+              -115.055142,
+              27.722727
+            ],
+            [
+              -114.982253,
+              27.7982
+            ],
+            [
+              -114.570366,
+              27.741485
+            ],
+            [
+              -114.199329,
+              28.115003
+            ],
+            [
+              -114.162018,
+              28.566112
+            ],
+            [
+              -114.931842,
+              29.279479
+            ],
+            [
+              -115.518654,
+              29.556362
+            ],
+            [
+              -115.887365,
+              30.180794
+            ],
+            [
+              -116.25835,
+              30.836464
+            ],
+            [
+              -116.721526,
+              31.635744
+            ],
+            [
+              -117.12776,
+              32.53534
+            ]
+          ]
         ]
-      ]
+      }
     }
-  },
-  "MEX_003": {
-    "type": "Feature",
-    "id": "MEX_003",
-    "properties": {
-      "id": "MEX_003",
-      "name": "Veracruz",
-      "country": "Mexico",
-      "iso_a3": "MEX",
-      "state_code": "VER"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-98.6, 22.5], [-93.6, 22.5], [-93.6, 17.1], [-98.6, 17.1], [-98.6, 22.5]
-        ]
-      ]
-    }
-  },
-  "MEX_004": {
-    "type": "Feature",
-    "id": "MEX_004",
-    "properties": {
-      "id": "MEX_004",
-      "name": "Baja California",
-      "country": "Mexico",
-      "iso_a3": "MEX",
-      "state_code": "BC"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-117.1, 32.5], [-109.4, 32.5], [-109.4, 28.0], [-117.1, 28.0], [-117.1, 32.5]
-        ]
-      ]
-    }
-  },
-  "MEX_005": {
-    "type": "Feature",
-    "id": "MEX_005",
-    "properties": {
-      "id": "MEX_005",
-      "name": "Chihuahua",
-      "country": "Mexico",
-      "iso_a3": "MEX",
-      "state_code": "CHIH"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-109.1, 31.8], [-103.4, 31.8], [-103.4, 25.6], [-109.1, 25.6], [-109.1, 31.8]
-        ]
-      ]
-    }
-  }
+  ]
 }

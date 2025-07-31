@@ -1,0 +1,550 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "AZE",
+    "generated": "2025-07-31T02:54:50.212Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "SOVEREIGNT": "Azerbaijan",
+        "SOV_A3": "AZE",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Azerbaijan",
+        "ADM0_A3": "AZE",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Azerbaijan",
+        "GU_A3": "AZE",
+        "SU_DIF": 0,
+        "SUBUNIT": "Azerbaijan",
+        "SU_A3": "AZE",
+        "BRK_DIFF": 0,
+        "NAME": "Azerbaijan",
+        "NAME_LONG": "Azerbaijan",
+        "BRK_A3": "AZE",
+        "BRK_NAME": "Azerbaijan",
+        "BRK_GROUP": null,
+        "ABBREV": "Aze.",
+        "POSTAL": "AZ",
+        "FORMAL_EN": "Republic of Azerbaijan",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Azerbaijan",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Azerbaijan",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 6,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 8,
+        "POP_EST": 10023318,
+        "POP_RANK": 14,
+        "POP_YEAR": 2019,
+        "GDP_MD": 48047,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "AJ",
+        "ISO_A2": "AZ",
+        "ISO_A2_EH": "AZ",
+        "ISO_A3": "AZE",
+        "ISO_A3_EH": "AZE",
+        "ISO_N3": "031",
+        "ISO_N3_EH": "031",
+        "UN_A3": "031",
+        "WB_A2": "AZ",
+        "WB_A3": "AZE",
+        "WOE_ID": 23424741,
+        "WOE_ID_EH": 23424741,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "AZE",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "AZE",
+        "ADM0_A3_US": "AZE",
+        "ADM0_A3_FR": "AZE",
+        "ADM0_A3_RU": "AZE",
+        "ADM0_A3_ES": "AZE",
+        "ADM0_A3_CN": "AZE",
+        "ADM0_A3_TW": "AZE",
+        "ADM0_A3_IN": "AZE",
+        "ADM0_A3_NP": "AZE",
+        "ADM0_A3_PK": "AZE",
+        "ADM0_A3_DE": "AZE",
+        "ADM0_A3_GB": "AZE",
+        "ADM0_A3_BR": "AZE",
+        "ADM0_A3_IL": "AZE",
+        "ADM0_A3_PS": "AZE",
+        "ADM0_A3_SA": "AZE",
+        "ADM0_A3_EG": "AZE",
+        "ADM0_A3_MA": "AZE",
+        "ADM0_A3_PT": "AZE",
+        "ADM0_A3_AR": "AZE",
+        "ADM0_A3_JP": "AZE",
+        "ADM0_A3_KO": "AZE",
+        "ADM0_A3_VN": "AZE",
+        "ADM0_A3_TR": "AZE",
+        "ADM0_A3_ID": "AZE",
+        "ADM0_A3_PL": "AZE",
+        "ADM0_A3_GR": "AZE",
+        "ADM0_A3_IT": "AZE",
+        "ADM0_A3_NL": "AZE",
+        "ADM0_A3_SE": "AZE",
+        "ADM0_A3_BD": "AZE",
+        "ADM0_A3_UA": "AZE",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Western Asia",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 10,
+        "LONG_LEN": 10,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4,
+        "MAX_LABEL": 9,
+        "LABEL_X": 47.210994,
+        "LABEL_Y": 40.402387,
+        "NE_ID": 1159320381,
+        "WIKIDATAID": "Q227",
+        "NAME_AR": "أذربيجان",
+        "NAME_BN": "আজারবাইজান",
+        "NAME_DE": "Aserbaidschan",
+        "NAME_EN": "Azerbaijan",
+        "NAME_ES": "Azerbaiyán",
+        "NAME_FA": "جمهوری آذربایجان",
+        "NAME_FR": "Azerbaïdjan",
+        "NAME_EL": "Αζερμπαϊτζάν",
+        "NAME_HE": "אזרבייג'ן",
+        "NAME_HI": "अज़रबैजान",
+        "NAME_HU": "Azerbajdzsán",
+        "NAME_ID": "Azerbaijan",
+        "NAME_IT": "Azerbaigian",
+        "NAME_JA": "アゼルバイジャン",
+        "NAME_KO": "아제르바이잔",
+        "NAME_NL": "Azerbeidzjan",
+        "NAME_PL": "Azerbejdżan",
+        "NAME_PT": "Azerbaijão",
+        "NAME_RU": "Азербайджан",
+        "NAME_SV": "Azerbajdzjan",
+        "NAME_TR": "Azerbaycan",
+        "NAME_UK": "Азербайджан",
+        "NAME_UR": "آذربائیجان",
+        "NAME_VI": "Azerbaijan",
+        "NAME_ZH": "阿塞拜疆",
+        "NAME_ZHT": "亞塞拜然",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "AZE"
+      },
+      "bbox": [
+        44.79399,
+        38.270378,
+        50.392821,
+        41.860675
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                46.404951,
+                41.860675
+              ],
+              [
+                46.686071,
+                41.827137
+              ],
+              [
+                47.373315,
+                41.219732
+              ],
+              [
+                47.815666,
+                41.151416
+              ],
+              [
+                47.987283,
+                41.405819
+              ],
+              [
+                48.584353,
+                41.808869
+              ],
+              [
+                49.110264,
+                41.282287
+              ],
+              [
+                49.618915,
+                40.572924
+              ],
+              [
+                50.08483,
+                40.526157
+              ],
+              [
+                50.392821,
+                40.256561
+              ],
+              [
+                49.569202,
+                40.176101
+              ],
+              [
+                49.395259,
+                39.399482
+              ],
+              [
+                49.223228,
+                39.049219
+              ],
+              [
+                48.856532,
+                38.815486
+              ],
+              [
+                48.883249,
+                38.320245
+              ],
+              [
+                48.634375,
+                38.270378
+              ],
+              [
+                48.010744,
+                38.794015
+              ],
+              [
+                48.355529,
+                39.288765
+              ],
+              [
+                48.060095,
+                39.582235
+              ],
+              [
+                47.685079,
+                39.508364
+              ],
+              [
+                46.50572,
+                38.770605
+              ],
+              [
+                46.483499,
+                39.464155
+              ],
+              [
+                46.034534,
+                39.628021
+              ],
+              [
+                45.610012,
+                39.899994
+              ],
+              [
+                45.891907,
+                40.218476
+              ],
+              [
+                45.359175,
+                40.561504
+              ],
+              [
+                45.560351,
+                40.81229
+              ],
+              [
+                45.179496,
+                40.985354
+              ],
+              [
+                44.97248,
+                41.248129
+              ],
+              [
+                45.217426,
+                41.411452
+              ],
+              [
+                45.962601,
+                41.123873
+              ],
+              [
+                46.501637,
+                41.064445
+              ],
+              [
+                46.637908,
+                41.181673
+              ],
+              [
+                46.145432,
+                41.722802
+              ],
+              [
+                46.404951,
+                41.860675
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                46.143623,
+                38.741201
+              ],
+              [
+                45.457722,
+                38.874139
+              ],
+              [
+                44.952688,
+                39.335765
+              ],
+              [
+                44.79399,
+                39.713003
+              ],
+              [
+                45.001987,
+                39.740004
+              ],
+              [
+                45.298145,
+                39.471751
+              ],
+              [
+                45.739978,
+                39.473999
+              ],
+              [
+                45.735379,
+                39.319719
+              ],
+              [
+                46.143623,
+                38.741201
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

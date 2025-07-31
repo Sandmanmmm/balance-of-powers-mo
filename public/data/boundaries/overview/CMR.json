@@ -1,0 +1,612 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "CMR",
+    "generated": "2025-07-31T02:54:50.097Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Cameroon",
+        "SOV_A3": "CMR",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Cameroon",
+        "ADM0_A3": "CMR",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Cameroon",
+        "GU_A3": "CMR",
+        "SU_DIF": 0,
+        "SUBUNIT": "Cameroon",
+        "SU_A3": "CMR",
+        "BRK_DIFF": 0,
+        "NAME": "Cameroon",
+        "NAME_LONG": "Cameroon",
+        "BRK_A3": "CMR",
+        "BRK_NAME": "Cameroon",
+        "BRK_GROUP": null,
+        "ABBREV": "Cam.",
+        "POSTAL": "CM",
+        "FORMAL_EN": "Republic of Cameroon",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Cameroon",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Cameroon",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 1,
+        "MAPCOLOR13": 3,
+        "POP_EST": 25876380,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 39007,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "CM",
+        "ISO_A2": "CM",
+        "ISO_A2_EH": "CM",
+        "ISO_A3": "CMR",
+        "ISO_A3_EH": "CMR",
+        "ISO_N3": "120",
+        "ISO_N3_EH": "120",
+        "UN_A3": "120",
+        "WB_A2": "CM",
+        "WB_A3": "CMR",
+        "WOE_ID": 23424785,
+        "WOE_ID_EH": 23424785,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "CMR",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "CMR",
+        "ADM0_A3_US": "CMR",
+        "ADM0_A3_FR": "CMR",
+        "ADM0_A3_RU": "CMR",
+        "ADM0_A3_ES": "CMR",
+        "ADM0_A3_CN": "CMR",
+        "ADM0_A3_TW": "CMR",
+        "ADM0_A3_IN": "CMR",
+        "ADM0_A3_NP": "CMR",
+        "ADM0_A3_PK": "CMR",
+        "ADM0_A3_DE": "CMR",
+        "ADM0_A3_GB": "CMR",
+        "ADM0_A3_BR": "CMR",
+        "ADM0_A3_IL": "CMR",
+        "ADM0_A3_PS": "CMR",
+        "ADM0_A3_SA": "CMR",
+        "ADM0_A3_EG": "CMR",
+        "ADM0_A3_MA": "CMR",
+        "ADM0_A3_PT": "CMR",
+        "ADM0_A3_AR": "CMR",
+        "ADM0_A3_JP": "CMR",
+        "ADM0_A3_KO": "CMR",
+        "ADM0_A3_VN": "CMR",
+        "ADM0_A3_TR": "CMR",
+        "ADM0_A3_ID": "CMR",
+        "ADM0_A3_PL": "CMR",
+        "ADM0_A3_GR": "CMR",
+        "ADM0_A3_IT": "CMR",
+        "ADM0_A3_NL": "CMR",
+        "ADM0_A3_SE": "CMR",
+        "ADM0_A3_BD": "CMR",
+        "ADM0_A3_UA": "CMR",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Middle Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 8,
+        "LONG_LEN": 8,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 12.473488,
+        "LABEL_Y": 4.585041,
+        "NE_ID": 1159320509,
+        "WIKIDATAID": "Q1009",
+        "NAME_AR": "الكاميرون",
+        "NAME_BN": "ক্যামেরুন",
+        "NAME_DE": "Kamerun",
+        "NAME_EN": "Cameroon",
+        "NAME_ES": "Camerún",
+        "NAME_FA": "کامرون",
+        "NAME_FR": "Cameroun",
+        "NAME_EL": "Καμερούν",
+        "NAME_HE": "קמרון",
+        "NAME_HI": "कैमरुन",
+        "NAME_HU": "Kamerun",
+        "NAME_ID": "Kamerun",
+        "NAME_IT": "Camerun",
+        "NAME_JA": "カメルーン",
+        "NAME_KO": "카메룬",
+        "NAME_NL": "Kameroen",
+        "NAME_PL": "Kamerun",
+        "NAME_PT": "Camarões",
+        "NAME_RU": "Камерун",
+        "NAME_SV": "Kamerun",
+        "NAME_TR": "Kamerun",
+        "NAME_UK": "Камерун",
+        "NAME_UR": "کیمرون",
+        "NAME_VI": "Cameroon",
+        "NAME_ZH": "喀麦隆",
+        "NAME_ZHT": "喀麥隆",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "CMR"
+      },
+      "bbox": [
+        8.488816,
+        1.727673,
+        16.012852,
+        12.859396
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.495787,
+              12.859396
+            ],
+            [
+              14.89336,
+              12.21905
+            ],
+            [
+              14.960152,
+              11.555574
+            ],
+            [
+              14.923565,
+              10.891325
+            ],
+            [
+              15.467873,
+              9.982337
+            ],
+            [
+              14.909354,
+              9.992129
+            ],
+            [
+              14.627201,
+              9.920919
+            ],
+            [
+              14.171466,
+              10.021378
+            ],
+            [
+              13.954218,
+              9.549495
+            ],
+            [
+              14.544467,
+              8.965861
+            ],
+            [
+              14.979996,
+              8.796104
+            ],
+            [
+              15.120866,
+              8.38215
+            ],
+            [
+              15.436092,
+              7.692812
+            ],
+            [
+              15.27946,
+              7.421925
+            ],
+            [
+              14.776545,
+              6.408498
+            ],
+            [
+              14.53656,
+              6.226959
+            ],
+            [
+              14.459407,
+              5.451761
+            ],
+            [
+              14.558936,
+              5.030598
+            ],
+            [
+              14.478372,
+              4.732605
+            ],
+            [
+              14.950953,
+              4.210389
+            ],
+            [
+              15.03622,
+              3.851367
+            ],
+            [
+              15.405396,
+              3.335301
+            ],
+            [
+              15.862732,
+              3.013537
+            ],
+            [
+              15.907381,
+              2.557389
+            ],
+            [
+              16.012852,
+              2.26764
+            ],
+            [
+              15.940919,
+              1.727673
+            ],
+            [
+              15.146342,
+              1.964015
+            ],
+            [
+              14.337813,
+              2.227875
+            ],
+            [
+              13.075822,
+              2.267097
+            ],
+            [
+              12.951334,
+              2.321616
+            ],
+            [
+              12.35938,
+              2.192812
+            ],
+            [
+              11.751665,
+              2.326758
+            ],
+            [
+              11.276449,
+              2.261051
+            ],
+            [
+              9.649158,
+              2.283866
+            ],
+            [
+              9.795196,
+              3.073404
+            ],
+            [
+              9.404367,
+              3.734527
+            ],
+            [
+              8.948116,
+              3.904129
+            ],
+            [
+              8.744924,
+              4.352215
+            ],
+            [
+              8.488816,
+              4.495617
+            ],
+            [
+              8.500288,
+              4.771983
+            ],
+            [
+              8.757533,
+              5.479666
+            ],
+            [
+              9.233163,
+              6.444491
+            ],
+            [
+              9.522706,
+              6.453482
+            ],
+            [
+              10.118277,
+              7.03877
+            ],
+            [
+              10.497375,
+              7.055358
+            ],
+            [
+              11.058788,
+              6.644427
+            ],
+            [
+              11.745774,
+              6.981383
+            ],
+            [
+              11.839309,
+              7.397042
+            ],
+            [
+              12.063946,
+              7.799808
+            ],
+            [
+              12.218872,
+              8.305824
+            ],
+            [
+              12.753672,
+              8.717763
+            ],
+            [
+              12.955468,
+              9.417772
+            ],
+            [
+              13.1676,
+              9.640626
+            ],
+            [
+              13.308676,
+              10.160362
+            ],
+            [
+              13.57295,
+              10.798566
+            ],
+            [
+              14.415379,
+              11.572369
+            ],
+            [
+              14.468192,
+              11.904752
+            ],
+            [
+              14.577178,
+              12.085361
+            ],
+            [
+              14.181336,
+              12.483657
+            ],
+            [
+              14.213531,
+              12.802035
+            ],
+            [
+              14.495787,
+              12.859396
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

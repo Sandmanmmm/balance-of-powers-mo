@@ -1,0 +1,616 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "DZA",
+    "generated": "2025-07-31T02:54:50.132Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Algeria",
+        "SOV_A3": "DZA",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Algeria",
+        "ADM0_A3": "DZA",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Algeria",
+        "GU_A3": "DZA",
+        "SU_DIF": 0,
+        "SUBUNIT": "Algeria",
+        "SU_A3": "DZA",
+        "BRK_DIFF": 0,
+        "NAME": "Algeria",
+        "NAME_LONG": "Algeria",
+        "BRK_A3": "DZA",
+        "BRK_NAME": "Algeria",
+        "BRK_GROUP": null,
+        "ABBREV": "Alg.",
+        "POSTAL": "DZ",
+        "FORMAL_EN": "People's Democratic Republic of Algeria",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Algeria",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Algeria",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 5,
+        "MAPCOLOR8": 1,
+        "MAPCOLOR9": 6,
+        "MAPCOLOR13": 3,
+        "POP_EST": 43053054,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 171091,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "AG",
+        "ISO_A2": "DZ",
+        "ISO_A2_EH": "DZ",
+        "ISO_A3": "DZA",
+        "ISO_A3_EH": "DZA",
+        "ISO_N3": "012",
+        "ISO_N3_EH": "012",
+        "UN_A3": "012",
+        "WB_A2": "DZ",
+        "WB_A3": "DZA",
+        "WOE_ID": 23424740,
+        "WOE_ID_EH": 23424740,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "DZA",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "DZA",
+        "ADM0_A3_US": "DZA",
+        "ADM0_A3_FR": "DZA",
+        "ADM0_A3_RU": "DZA",
+        "ADM0_A3_ES": "DZA",
+        "ADM0_A3_CN": "DZA",
+        "ADM0_A3_TW": "DZA",
+        "ADM0_A3_IN": "DZA",
+        "ADM0_A3_NP": "DZA",
+        "ADM0_A3_PK": "DZA",
+        "ADM0_A3_DE": "DZA",
+        "ADM0_A3_GB": "DZA",
+        "ADM0_A3_BR": "DZA",
+        "ADM0_A3_IL": "DZA",
+        "ADM0_A3_PS": "DZA",
+        "ADM0_A3_SA": "DZA",
+        "ADM0_A3_EG": "DZA",
+        "ADM0_A3_MA": "DZA",
+        "ADM0_A3_PT": "DZA",
+        "ADM0_A3_AR": "DZA",
+        "ADM0_A3_JP": "DZA",
+        "ADM0_A3_KO": "DZA",
+        "ADM0_A3_VN": "DZA",
+        "ADM0_A3_TR": "DZA",
+        "ADM0_A3_ID": "DZA",
+        "ADM0_A3_PL": "DZA",
+        "ADM0_A3_GR": "DZA",
+        "ADM0_A3_IT": "DZA",
+        "ADM0_A3_NL": "DZA",
+        "ADM0_A3_SE": "DZA",
+        "ADM0_A3_BD": "DZA",
+        "ADM0_A3_UA": "DZA",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Northern Africa",
+        "REGION_WB": "Middle East & North Africa",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2.5,
+        "MAX_LABEL": 7,
+        "LABEL_X": 2.808241,
+        "LABEL_Y": 27.397406,
+        "NE_ID": 1159320565,
+        "WIKIDATAID": "Q262",
+        "NAME_AR": "الجزائر",
+        "NAME_BN": "আলজেরিয়া",
+        "NAME_DE": "Algerien",
+        "NAME_EN": "Algeria",
+        "NAME_ES": "Argelia",
+        "NAME_FA": "الجزایر",
+        "NAME_FR": "Algérie",
+        "NAME_EL": "Αλγερία",
+        "NAME_HE": "אלג'יריה",
+        "NAME_HI": "अल्जीरिया",
+        "NAME_HU": "Algéria",
+        "NAME_ID": "Aljazair",
+        "NAME_IT": "Algeria",
+        "NAME_JA": "アルジェリア",
+        "NAME_KO": "알제리",
+        "NAME_NL": "Algerije",
+        "NAME_PL": "Algieria",
+        "NAME_PT": "Argélia",
+        "NAME_RU": "Алжир",
+        "NAME_SV": "Algeriet",
+        "NAME_TR": "Cezayir",
+        "NAME_UK": "Алжир",
+        "NAME_UR": "الجزائر",
+        "NAME_VI": "Algérie",
+        "NAME_ZH": "阿尔及利亚",
+        "NAME_ZHT": "阿爾及利亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "DZA"
+      },
+      "bbox": [
+        -8.6844,
+        19.057364,
+        11.999506,
+        37.118381
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -8.6844,
+              27.395744
+            ],
+            [
+              -8.665124,
+              27.589479
+            ],
+            [
+              -8.66559,
+              27.656426
+            ],
+            [
+              -8.674116,
+              28.841289
+            ],
+            [
+              -7.059228,
+              29.579228
+            ],
+            [
+              -6.060632,
+              29.7317
+            ],
+            [
+              -5.242129,
+              30.000443
+            ],
+            [
+              -4.859646,
+              30.501188
+            ],
+            [
+              -3.690441,
+              30.896952
+            ],
+            [
+              -3.647498,
+              31.637294
+            ],
+            [
+              -3.06898,
+              31.724498
+            ],
+            [
+              -2.616605,
+              32.094346
+            ],
+            [
+              -1.307899,
+              32.262889
+            ],
+            [
+              -1.124551,
+              32.651522
+            ],
+            [
+              -1.388049,
+              32.864015
+            ],
+            [
+              -1.733455,
+              33.919713
+            ],
+            [
+              -1.792986,
+              34.527919
+            ],
+            [
+              -2.169914,
+              35.168396
+            ],
+            [
+              -1.208603,
+              35.714849
+            ],
+            [
+              -0.127454,
+              35.888662
+            ],
+            [
+              0.503877,
+              36.301273
+            ],
+            [
+              1.466919,
+              36.605647
+            ],
+            [
+              3.161699,
+              36.783905
+            ],
+            [
+              4.815758,
+              36.865037
+            ],
+            [
+              5.32012,
+              36.716519
+            ],
+            [
+              6.26182,
+              37.110655
+            ],
+            [
+              7.330385,
+              37.118381
+            ],
+            [
+              7.737078,
+              36.885708
+            ],
+            [
+              8.420964,
+              36.946427
+            ],
+            [
+              8.217824,
+              36.433177
+            ],
+            [
+              8.376368,
+              35.479876
+            ],
+            [
+              8.140981,
+              34.655146
+            ],
+            [
+              7.524482,
+              34.097376
+            ],
+            [
+              7.612642,
+              33.344115
+            ],
+            [
+              8.430473,
+              32.748337
+            ],
+            [
+              8.439103,
+              32.506285
+            ],
+            [
+              9.055603,
+              32.102692
+            ],
+            [
+              9.48214,
+              30.307556
+            ],
+            [
+              9.805634,
+              29.424638
+            ],
+            [
+              9.859998,
+              28.95999
+            ],
+            [
+              9.683885,
+              28.144174
+            ],
+            [
+              9.756128,
+              27.688259
+            ],
+            [
+              9.629056,
+              27.140953
+            ],
+            [
+              9.716286,
+              26.512206
+            ],
+            [
+              9.319411,
+              26.094325
+            ],
+            [
+              9.910693,
+              25.365455
+            ],
+            [
+              9.948261,
+              24.936954
+            ],
+            [
+              10.303847,
+              24.379313
+            ],
+            [
+              10.771364,
+              24.562532
+            ],
+            [
+              11.560669,
+              24.097909
+            ],
+            [
+              11.999506,
+              23.471668
+            ],
+            [
+              8.572893,
+              21.565661
+            ],
+            [
+              5.677566,
+              19.601207
+            ],
+            [
+              4.267419,
+              19.155265
+            ],
+            [
+              3.158133,
+              19.057364
+            ],
+            [
+              3.146661,
+              19.693579
+            ],
+            [
+              2.683588,
+              19.85623
+            ],
+            [
+              2.060991,
+              20.142233
+            ],
+            [
+              1.823228,
+              20.610809
+            ],
+            [
+              -1.550055,
+              22.792666
+            ],
+            [
+              -4.923337,
+              24.974574
+            ],
+            [
+              -8.6844,
+              27.395744
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

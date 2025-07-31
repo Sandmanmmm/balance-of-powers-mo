@@ -1,0 +1,574 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 50m (Detailed)",
+    "level": "detailed",
+    "country": "PSE",
+    "generated": "2025-07-31T02:54:50.957Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "SOVEREIGNT": "Israel",
+        "SOV_A3": "IS1",
+        "ADM0_DIF": 1,
+        "LEVEL": 2,
+        "TYPE": "Indeterminate",
+        "TLC": "1",
+        "ADMIN": "Palestine",
+        "ADM0_A3": "PSX",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Palestine",
+        "GU_A3": "PSX",
+        "SU_DIF": 0,
+        "SUBUNIT": "Palestine",
+        "SU_A3": "PSX",
+        "BRK_DIFF": 0,
+        "NAME": "Palestine",
+        "NAME_LONG": "Palestine",
+        "BRK_A3": "PSX",
+        "BRK_NAME": "Palestine",
+        "BRK_GROUP": null,
+        "ABBREV": "Pal.",
+        "POSTAL": "PAL",
+        "FORMAL_EN": "West Bank and Gaza",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": null,
+        "NOTE_ADM0": null,
+        "NOTE_BRK": "Partial self-admin.",
+        "NAME_SORT": "Palestine (West Bank and Gaza)",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 3,
+        "MAPCOLOR8": 2,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 8,
+        "POP_EST": 4685306,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 16276,
+        "GDP_YEAR": 2018,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "-99",
+        "ISO_A2": "PS",
+        "ISO_A2_EH": "PS",
+        "ISO_A3": "PSE",
+        "ISO_A3_EH": "PSE",
+        "ISO_N3": "275",
+        "ISO_N3_EH": "275",
+        "UN_A3": "275",
+        "WB_A2": "GZ",
+        "WB_A3": "WBG",
+        "WOE_ID": 28289408,
+        "WOE_ID_EH": 28289408,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "PSX",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "PSX",
+        "ADM0_A3_US": "PSX",
+        "ADM0_A3_FR": "PSX",
+        "ADM0_A3_RU": "PSX",
+        "ADM0_A3_ES": "PSX",
+        "ADM0_A3_CN": "PSX",
+        "ADM0_A3_TW": "PSX",
+        "ADM0_A3_IN": "PSX",
+        "ADM0_A3_NP": "PSX",
+        "ADM0_A3_PK": "PSX",
+        "ADM0_A3_DE": "PSX",
+        "ADM0_A3_GB": "PSX",
+        "ADM0_A3_BR": "PSX",
+        "ADM0_A3_IL": "PSX",
+        "ADM0_A3_PS": "PSX",
+        "ADM0_A3_SA": "PSX",
+        "ADM0_A3_EG": "PSX",
+        "ADM0_A3_MA": "PSX",
+        "ADM0_A3_PT": "PSX",
+        "ADM0_A3_AR": "PSX",
+        "ADM0_A3_JP": "PSX",
+        "ADM0_A3_KO": "PSX",
+        "ADM0_A3_VN": "PSX",
+        "ADM0_A3_TR": "PSX",
+        "ADM0_A3_ID": "PSX",
+        "ADM0_A3_PL": "PSX",
+        "ADM0_A3_GR": "PSX",
+        "ADM0_A3_IT": "PSX",
+        "ADM0_A3_NL": "PSX",
+        "ADM0_A3_SE": "PSX",
+        "ADM0_A3_BD": "PSX",
+        "ADM0_A3_UA": "PSX",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Western Asia",
+        "REGION_WB": "Middle East & North Africa",
+        "NAME_LEN": 9,
+        "LONG_LEN": 9,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": -99,
+        "MIN_ZOOM": 7,
+        "MIN_LABEL": 4.5,
+        "MAX_LABEL": 9.5,
+        "LABEL_X": 35.291341,
+        "LABEL_Y": 32.047431,
+        "NE_ID": 1159320899,
+        "WIKIDATAID": "Q23792",
+        "NAME_AR": "فلسطين",
+        "NAME_BN": "ফিলিস্তিন অঞ্চল",
+        "NAME_DE": "Palästina",
+        "NAME_EN": "Palestine",
+        "NAME_ES": "Palestina",
+        "NAME_FA": "فلسطین",
+        "NAME_FR": "Palestine",
+        "NAME_EL": "Παλαιστίνη",
+        "NAME_HE": "ארץ ישראל",
+        "NAME_HI": "फ़िलिस्तीनी राज्यक्षेत्र",
+        "NAME_HU": "Palesztina",
+        "NAME_ID": "Palestina",
+        "NAME_IT": "Palestina",
+        "NAME_JA": "パレスチナ",
+        "NAME_KO": "팔레스타인",
+        "NAME_NL": "Palestina",
+        "NAME_PL": "Palestyna",
+        "NAME_PT": "Palestina",
+        "NAME_RU": "Палестина",
+        "NAME_SV": "Palestina",
+        "NAME_TR": "Filistin",
+        "NAME_UK": "Палестина",
+        "NAME_UR": "فلسطین",
+        "NAME_VI": "Palestine",
+        "NAME_ZH": "巴勒斯坦",
+        "NAME_ZHT": "巴勒斯坦地區",
+        "FCLASS_ISO": "Admin-0 dependency",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 dependency",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": "Admin-0 country",
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": "Admin-0 country",
+        "FCLASS_SA": "Admin-0 country",
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": "Admin-0 country",
+        "FCLASS_UA": null,
+        "id": "PSE"
+      },
+      "bbox": [
+        34.198145,
+        31.208301,
+        35.57207,
+        32.534424
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                34.477344,
+                31.584863
+              ],
+              [
+                34.524121,
+                31.54165
+              ],
+              [
+                34.525586,
+                31.525635
+              ],
+              [
+                34.350195,
+                31.362744
+              ],
+              [
+                34.34834,
+                31.29292
+              ],
+              [
+                34.245313,
+                31.208301
+              ],
+              [
+                34.2125,
+                31.292285
+              ],
+              [
+                34.198145,
+                31.322607
+              ],
+              [
+                34.387305,
+                31.483789
+              ],
+              [
+                34.477344,
+                31.584863
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                35.551465,
+                32.395508
+              ],
+              [
+                35.57207,
+                32.237891
+              ],
+              [
+                35.534766,
+                32.103027
+              ],
+              [
+                35.531445,
+                31.984912
+              ],
+              [
+                35.558984,
+                31.765527
+              ],
+              [
+                35.499414,
+                31.672363
+              ],
+              [
+                35.46543,
+                31.562354
+              ],
+              [
+                35.450586,
+                31.479297
+              ],
+              [
+                35.408691,
+                31.48291
+              ],
+              [
+                35.27666,
+                31.422803
+              ],
+              [
+                35.101172,
+                31.366211
+              ],
+              [
+                34.907813,
+                31.351318
+              ],
+              [
+                34.880469,
+                31.368164
+              ],
+              [
+                34.872754,
+                31.396875
+              ],
+              [
+                34.929199,
+                31.536572
+              ],
+              [
+                34.950977,
+                31.602295
+              ],
+              [
+                35.034668,
+                31.673242
+              ],
+              [
+                35.153418,
+                31.734473
+              ],
+              [
+                35.203711,
+                31.75
+              ],
+              [
+                35.198047,
+                31.776318
+              ],
+              [
+                35.127148,
+                31.816748
+              ],
+              [
+                35.053223,
+                31.837939
+              ],
+              [
+                34.983008,
+                31.816797
+              ],
+              [
+                34.961133,
+                31.82334
+              ],
+              [
+                34.953809,
+                31.84126
+              ],
+              [
+                34.97832,
+                31.866406
+              ],
+              [
+                34.989746,
+                31.913281
+              ],
+              [
+                34.978809,
+                31.991602
+              ],
+              [
+                34.971387,
+                32.087109
+              ],
+              [
+                34.955957,
+                32.160937
+              ],
+              [
+                34.999512,
+                32.281055
+              ],
+              [
+                35.010547,
+                32.338184
+              ],
+              [
+                35.065039,
+                32.460449
+              ],
+              [
+                35.193262,
+                32.534424
+              ],
+              [
+                35.303809,
+                32.512939
+              ],
+              [
+                35.362109,
+                32.507471
+              ],
+              [
+                35.386719,
+                32.493018
+              ],
+              [
+                35.402637,
+                32.450635
+              ],
+              [
+                35.484375,
+                32.40166
+              ],
+              [
+                35.551465,
+                32.395508
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

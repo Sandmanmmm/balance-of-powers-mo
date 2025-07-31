@@ -1,0 +1,562 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "OMN",
+    "generated": "2025-07-31T02:54:50.138Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "SOVEREIGNT": "Oman",
+        "SOV_A3": "OMN",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Oman",
+        "ADM0_A3": "OMN",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Oman",
+        "GU_A3": "OMN",
+        "SU_DIF": 0,
+        "SUBUNIT": "Oman",
+        "SU_A3": "OMN",
+        "BRK_DIFF": 0,
+        "NAME": "Oman",
+        "NAME_LONG": "Oman",
+        "BRK_A3": "OMN",
+        "BRK_NAME": "Oman",
+        "BRK_GROUP": null,
+        "ABBREV": "Oman",
+        "POSTAL": "OM",
+        "FORMAL_EN": "Sultanate of Oman",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Oman",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Oman",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 1,
+        "MAPCOLOR13": 6,
+        "POP_EST": 4974986,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 76331,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "2. High income: nonOECD",
+        "FIPS_10": "MU",
+        "ISO_A2": "OM",
+        "ISO_A2_EH": "OM",
+        "ISO_A3": "OMN",
+        "ISO_A3_EH": "OMN",
+        "ISO_N3": "512",
+        "ISO_N3_EH": "512",
+        "UN_A3": "512",
+        "WB_A2": "OM",
+        "WB_A3": "OMN",
+        "WOE_ID": 23424898,
+        "WOE_ID_EH": 23424898,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "OMN",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "OMN",
+        "ADM0_A3_US": "OMN",
+        "ADM0_A3_FR": "OMN",
+        "ADM0_A3_RU": "OMN",
+        "ADM0_A3_ES": "OMN",
+        "ADM0_A3_CN": "OMN",
+        "ADM0_A3_TW": "OMN",
+        "ADM0_A3_IN": "OMN",
+        "ADM0_A3_NP": "OMN",
+        "ADM0_A3_PK": "OMN",
+        "ADM0_A3_DE": "OMN",
+        "ADM0_A3_GB": "OMN",
+        "ADM0_A3_BR": "OMN",
+        "ADM0_A3_IL": "OMN",
+        "ADM0_A3_PS": "OMN",
+        "ADM0_A3_SA": "OMN",
+        "ADM0_A3_EG": "OMN",
+        "ADM0_A3_MA": "OMN",
+        "ADM0_A3_PT": "OMN",
+        "ADM0_A3_AR": "OMN",
+        "ADM0_A3_JP": "OMN",
+        "ADM0_A3_KO": "OMN",
+        "ADM0_A3_VN": "OMN",
+        "ADM0_A3_TR": "OMN",
+        "ADM0_A3_ID": "OMN",
+        "ADM0_A3_PL": "OMN",
+        "ADM0_A3_GR": "OMN",
+        "ADM0_A3_IT": "OMN",
+        "ADM0_A3_NL": "OMN",
+        "ADM0_A3_SE": "OMN",
+        "ADM0_A3_BD": "OMN",
+        "ADM0_A3_UA": "OMN",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Western Asia",
+        "REGION_WB": "Middle East & North Africa",
+        "NAME_LEN": 4,
+        "LONG_LEN": 4,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4,
+        "MAX_LABEL": 9,
+        "LABEL_X": 57.336553,
+        "LABEL_Y": 22.120427,
+        "NE_ID": 1159321151,
+        "WIKIDATAID": "Q842",
+        "NAME_AR": "سلطنة عمان",
+        "NAME_BN": "ওমান",
+        "NAME_DE": "Oman",
+        "NAME_EN": "Oman",
+        "NAME_ES": "Omán",
+        "NAME_FA": "عمان",
+        "NAME_FR": "Oman",
+        "NAME_EL": "Ομάν",
+        "NAME_HE": "עומאן",
+        "NAME_HI": "ओमान",
+        "NAME_HU": "Omán",
+        "NAME_ID": "Oman",
+        "NAME_IT": "Oman",
+        "NAME_JA": "オマーン",
+        "NAME_KO": "오만",
+        "NAME_NL": "Oman",
+        "NAME_PL": "Oman",
+        "NAME_PT": "Omã",
+        "NAME_RU": "Оман",
+        "NAME_SV": "Oman",
+        "NAME_TR": "Umman",
+        "NAME_UK": "Оман",
+        "NAME_UR": "عمان",
+        "NAME_VI": "Oman",
+        "NAME_ZH": "阿曼",
+        "NAME_ZHT": "阿曼",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "OMN"
+      },
+      "bbox": [
+        52.00001,
+        16.651051,
+        59.80806,
+        26.395934
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                55.208341,
+                22.70833
+              ],
+              [
+                55.234489,
+                23.110993
+              ],
+              [
+                55.525841,
+                23.524869
+              ],
+              [
+                55.528632,
+                23.933604
+              ],
+              [
+                55.981214,
+                24.130543
+              ],
+              [
+                55.804119,
+                24.269604
+              ],
+              [
+                55.886233,
+                24.920831
+              ],
+              [
+                56.396847,
+                24.924732
+              ],
+              [
+                56.84514,
+                24.241673
+              ],
+              [
+                57.403453,
+                23.878594
+              ],
+              [
+                58.136948,
+                23.747931
+              ],
+              [
+                58.729211,
+                23.565668
+              ],
+              [
+                59.180502,
+                22.992395
+              ],
+              [
+                59.450098,
+                22.660271
+              ],
+              [
+                59.80806,
+                22.533612
+              ],
+              [
+                59.806148,
+                22.310525
+              ],
+              [
+                59.442191,
+                21.714541
+              ],
+              [
+                59.282408,
+                21.433886
+              ],
+              [
+                58.861141,
+                21.114035
+              ],
+              [
+                58.487986,
+                20.428986
+              ],
+              [
+                58.034318,
+                20.481437
+              ],
+              [
+                57.826373,
+                20.243002
+              ],
+              [
+                57.665762,
+                19.736005
+              ],
+              [
+                57.7887,
+                19.06757
+              ],
+              [
+                57.694391,
+                18.94471
+              ],
+              [
+                57.234264,
+                18.947991
+              ],
+              [
+                56.609651,
+                18.574267
+              ],
+              [
+                56.512189,
+                18.087113
+              ],
+              [
+                56.283521,
+                17.876067
+              ],
+              [
+                55.661492,
+                17.884128
+              ],
+              [
+                55.269939,
+                17.632309
+              ],
+              [
+                55.2749,
+                17.228354
+              ],
+              [
+                54.791002,
+                16.950697
+              ],
+              [
+                54.239253,
+                17.044981
+              ],
+              [
+                53.570508,
+                16.707663
+              ],
+              [
+                53.108573,
+                16.651051
+              ],
+              [
+                52.782184,
+                17.349742
+              ],
+              [
+                52.00001,
+                19.000003
+              ],
+              [
+                54.999982,
+                19.999994
+              ],
+              [
+                55.666659,
+                22.000001
+              ],
+              [
+                55.208341,
+                22.70833
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                56.261042,
+                25.714606
+              ],
+              [
+                56.070821,
+                26.055464
+              ],
+              [
+                56.362017,
+                26.395934
+              ],
+              [
+                56.485679,
+                26.309118
+              ],
+              [
+                56.391421,
+                25.895991
+              ],
+              [
+                56.261042,
+                25.714606
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,78 +1,598 @@
 {
-  "GBR_001": {
-    "type": "Feature",
-    "id": "GBR_001",
-    "properties": {
-      "id": "GBR_001",
-      "name": "England",
-      "country": "United Kingdom",
-      "iso_a3": "GBR",
-      "region_code": "ENG"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-6.4, 49.9], [-6.4, 55.8], [1.8, 55.8], [1.8, 49.9], [-6.4, 49.9]
-        ]
-      ]
-    }
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "GBR",
+    "generated": "2025-07-31T02:54:50.210Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
   },
-  "GBR_002": {
-    "type": "Feature",
-    "id": "GBR_002",
-    "properties": {
-      "id": "GBR_002",
-      "name": "Scotland",
-      "country": "United Kingdom",
-      "iso_a3": "GBR",
-      "region_code": "SCT"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-8.6, 54.6], [-8.6, 60.9], [-0.7, 60.9], [-0.7, 54.6], [-8.6, 54.6]
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "United Kingdom",
+        "SOV_A3": "GB1",
+        "ADM0_DIF": 1,
+        "LEVEL": 2,
+        "TYPE": "Country",
+        "TLC": "1",
+        "ADMIN": "United Kingdom",
+        "ADM0_A3": "GBR",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "United Kingdom",
+        "GU_A3": "GBR",
+        "SU_DIF": 0,
+        "SUBUNIT": "United Kingdom",
+        "SU_A3": "GBR",
+        "BRK_DIFF": 0,
+        "NAME": "United Kingdom",
+        "NAME_LONG": "United Kingdom",
+        "BRK_A3": "GBR",
+        "BRK_NAME": "United Kingdom",
+        "BRK_GROUP": null,
+        "ABBREV": "U.K.",
+        "POSTAL": "GB",
+        "FORMAL_EN": "United Kingdom of Great Britain and Northern Ireland",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "United Kingdom",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "United Kingdom",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 6,
+        "MAPCOLOR8": 6,
+        "MAPCOLOR9": 6,
+        "MAPCOLOR13": 3,
+        "POP_EST": 66834405,
+        "POP_RANK": 16,
+        "POP_YEAR": 2019,
+        "GDP_MD": 2829108,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "1. Developed region: G7",
+        "INCOME_GRP": "1. High income: OECD",
+        "FIPS_10": "UK",
+        "ISO_A2": "GB",
+        "ISO_A2_EH": "GB",
+        "ISO_A3": "GBR",
+        "ISO_A3_EH": "GBR",
+        "ISO_N3": "826",
+        "ISO_N3_EH": "826",
+        "UN_A3": "826",
+        "WB_A2": "GB",
+        "WB_A3": "GBR",
+        "WOE_ID": -90,
+        "WOE_ID_EH": 23424975,
+        "WOE_NOTE": "Eh ID includes Channel Islands and Isle of Man. UK constituent countries of England (24554868), Wales (12578049), Scotland (12578048), and Northern Ireland (20070563).",
+        "ADM0_ISO": "GBR",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "GBR",
+        "ADM0_A3_US": "GBR",
+        "ADM0_A3_FR": "GBR",
+        "ADM0_A3_RU": "GBR",
+        "ADM0_A3_ES": "GBR",
+        "ADM0_A3_CN": "GBR",
+        "ADM0_A3_TW": "GBR",
+        "ADM0_A3_IN": "GBR",
+        "ADM0_A3_NP": "GBR",
+        "ADM0_A3_PK": "GBR",
+        "ADM0_A3_DE": "GBR",
+        "ADM0_A3_GB": "GBR",
+        "ADM0_A3_BR": "GBR",
+        "ADM0_A3_IL": "GBR",
+        "ADM0_A3_PS": "GBR",
+        "ADM0_A3_SA": "GBR",
+        "ADM0_A3_EG": "GBR",
+        "ADM0_A3_MA": "GBR",
+        "ADM0_A3_PT": "GBR",
+        "ADM0_A3_AR": "GBR",
+        "ADM0_A3_JP": "GBR",
+        "ADM0_A3_KO": "GBR",
+        "ADM0_A3_VN": "GBR",
+        "ADM0_A3_TR": "GBR",
+        "ADM0_A3_ID": "GBR",
+        "ADM0_A3_PL": "GBR",
+        "ADM0_A3_GR": "GBR",
+        "ADM0_A3_IT": "GBR",
+        "ADM0_A3_NL": "GBR",
+        "ADM0_A3_SE": "GBR",
+        "ADM0_A3_BD": "GBR",
+        "ADM0_A3_UA": "GBR",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Europe",
+        "REGION_UN": "Europe",
+        "SUBREGION": "Northern Europe",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 14,
+        "LONG_LEN": 14,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 1.7,
+        "MAX_LABEL": 6.7,
+        "LABEL_X": -2.116346,
+        "LABEL_Y": 54.402739,
+        "NE_ID": 1159320713,
+        "WIKIDATAID": "Q145",
+        "NAME_AR": "المملكة المتحدة",
+        "NAME_BN": "যুক্তরাজ্য",
+        "NAME_DE": "Vereinigtes Königreich",
+        "NAME_EN": "United Kingdom",
+        "NAME_ES": "Reino Unido",
+        "NAME_FA": "بریتانیا",
+        "NAME_FR": "Royaume-Uni",
+        "NAME_EL": "Ηνωμένο Βασίλειο",
+        "NAME_HE": "הממלכה המאוחדת",
+        "NAME_HI": "यूनाइटेड किंगडम",
+        "NAME_HU": "Egyesült Királyság",
+        "NAME_ID": "Britania Raya",
+        "NAME_IT": "Regno Unito",
+        "NAME_JA": "イギリス",
+        "NAME_KO": "영국",
+        "NAME_NL": "Verenigd Koninkrijk",
+        "NAME_PL": "Wielka Brytania",
+        "NAME_PT": "Reino Unido",
+        "NAME_RU": "Великобритания",
+        "NAME_SV": "Storbritannien",
+        "NAME_TR": "Birleşik Krallık",
+        "NAME_UK": "Велика Британія",
+        "NAME_UR": "مملکت متحدہ",
+        "NAME_VI": "Vương quốc Liên hiệp Anh và Bắc Ireland",
+        "NAME_ZH": "英国",
+        "NAME_ZHT": "英國",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "GBR"
+      },
+      "bbox": [
+        -7.572168,
+        49.96,
+        1.681531,
+        58.635
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -6.197885,
+                53.867565
+              ],
+              [
+                -6.95373,
+                54.073702
+              ],
+              [
+                -7.572168,
+                54.059956
+              ],
+              [
+                -7.366031,
+                54.595841
+              ],
+              [
+                -7.572168,
+                55.131622
+              ],
+              [
+                -6.733847,
+                55.17286
+              ],
+              [
+                -5.661949,
+                54.554603
+              ],
+              [
+                -6.197885,
+                53.867565
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -3.093831,
+                53.404547
+              ],
+              [
+                -3.09208,
+                53.404441
+              ],
+              [
+                -2.945009,
+                53.985
+              ],
+              [
+                -3.614701,
+                54.600937
+              ],
+              [
+                -3.630005,
+                54.615013
+              ],
+              [
+                -4.844169,
+                54.790971
+              ],
+              [
+                -5.082527,
+                55.061601
+              ],
+              [
+                -4.719112,
+                55.508473
+              ],
+              [
+                -5.047981,
+                55.783986
+              ],
+              [
+                -5.586398,
+                55.311146
+              ],
+              [
+                -5.644999,
+                56.275015
+              ],
+              [
+                -6.149981,
+                56.78501
+              ],
+              [
+                -5.786825,
+                57.818848
+              ],
+              [
+                -5.009999,
+                58.630013
+              ],
+              [
+                -4.211495,
+                58.550845
+              ],
+              [
+                -3.005005,
+                58.635
+              ],
+              [
+                -4.073828,
+                57.553025
+              ],
+              [
+                -3.055002,
+                57.690019
+              ],
+              [
+                -1.959281,
+                57.6848
+              ],
+              [
+                -2.219988,
+                56.870017
+              ],
+              [
+                -3.119003,
+                55.973793
+              ],
+              [
+                -2.085009,
+                55.909998
+              ],
+              [
+                -2.005676,
+                55.804903
+              ],
+              [
+                -1.114991,
+                54.624986
+              ],
+              [
+                -0.430485,
+                54.464376
+              ],
+              [
+                0.184981,
+                53.325014
+              ],
+              [
+                0.469977,
+                52.929999
+              ],
+              [
+                1.681531,
+                52.73952
+              ],
+              [
+                1.559988,
+                52.099998
+              ],
+              [
+                1.050562,
+                51.806761
+              ],
+              [
+                1.449865,
+                51.289428
+              ],
+              [
+                0.550334,
+                50.765739
+              ],
+              [
+                -0.787517,
+                50.774989
+              ],
+              [
+                -2.489998,
+                50.500019
+              ],
+              [
+                -2.956274,
+                50.69688
+              ],
+              [
+                -3.617448,
+                50.228356
+              ],
+              [
+                -4.542508,
+                50.341837
+              ],
+              [
+                -5.245023,
+                49.96
+              ],
+              [
+                -5.776567,
+                50.159678
+              ],
+              [
+                -4.30999,
+                51.210001
+              ],
+              [
+                -3.414851,
+                51.426009
+              ],
+              [
+                -3.422719,
+                51.426848
+              ],
+              [
+                -4.984367,
+                51.593466
+              ],
+              [
+                -5.267296,
+                51.9914
+              ],
+              [
+                -4.222347,
+                52.301356
+              ],
+              [
+                -4.770013,
+                52.840005
+              ],
+              [
+                -4.579999,
+                53.495004
+              ],
+              [
+                -3.093831,
+                53.404547
+              ]
+            ]
+          ]
         ]
-      ]
+      }
     }
-  },
-  "GBR_003": {
-    "type": "Feature",
-    "id": "GBR_003",
-    "properties": {
-      "id": "GBR_003",
-      "name": "Wales",
-      "country": "United Kingdom",
-      "iso_a3": "GBR",
-      "region_code": "WLS"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-5.3, 51.4], [-5.3, 53.4], [-2.7, 53.4], [-2.7, 51.4], [-5.3, 51.4]
-        ]
-      ]
-    }
-  },
-  "GBR_004": {
-    "type": "Feature",
-    "id": "GBR_004",
-    "properties": {
-      "id": "GBR_004",
-      "name": "Northern Ireland",
-      "country": "United Kingdom",
-      "iso_a3": "GBR",
-      "region_code": "NIR"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-8.2, 54.0], [-8.2, 55.3], [-5.4, 55.3], [-5.4, 54.0], [-8.2, 54.0]
-        ]
-      ]
-    }
-  }
+  ]
 }

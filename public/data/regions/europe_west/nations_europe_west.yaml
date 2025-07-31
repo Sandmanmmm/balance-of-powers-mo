@@ -247,3 +247,980 @@ nations:
       trade_policy: "free_trade"
       immigration_policy: "restrictive"
       environmental_policy: "moderate"
+
+  ITA:
+    name: "Italy"
+    capital: "Rome"
+    flag: "🇮🇹"
+    government:
+      type: "parliamentary_republic"
+      leader: "Giorgia Meloni"
+      approval: 42.5
+      stability: 68.2
+      ruling_party: "Brothers of Italy"
+      ideology: "National Conservatism"
+      election_cycle: 5
+      last_election: "2022-09-25"
+    economy:
+      gdp: 2110000000000
+      debt: 2750000000000
+      inflation: 5.7
+      trade_balance: 58000000000
+      treasury: 185000000000
+      currency: "EUR"
+      interest_rate: 2.1
+      sectors:
+        manufacturing: 16.8
+        services: 73.2
+        agriculture: 2.1
+        technology: 7.9
+    military:
+      manpower: 165000
+      equipment: 82
+      readiness: 80
+      doctrine: "NATO Standard"
+      nuclear_capability: false
+      military_spending_gdp: 1.54
+      conscription: false
+      reserve_forces: 18000
+    technology:
+      researchPoints: 980
+      currentResearch:
+        - "Aerospace Technology"
+        - "Fashion Technology"
+        - "Renewable Energy"
+      completedTech:
+        - "Internet"
+        - "Precision Manufacturing"
+        - "Design Technology"
+        - "Engineering"
+    demographics:
+      population: 59000000
+      median_age: 47.9
+      birth_rate: 1.25
+      life_expectancy: 84.0
+      literacy_rate: 99.2
+      urbanization: 71.0
+    diplomacy:
+      allies: ["USA", "GER", "FRA", "GBR"]
+      enemies: []
+      trade_partners: ["GER", "FRA", "USA", "CHN", "ESP"]
+      international_relations:
+        NATO: "member"
+        G7: "member"
+        UN_Security_Council: false
+        EU: "founding_member"
+    resource_stockpiles:
+      oil: 185000
+      steel: 985000
+      rare_earth: 28500
+      uranium: 8500
+      food: 1850000
+    resource_production:
+      oil: 18500
+      steel: 285000
+      rare_earth: 850
+      uranium: 285
+      food: 1285000
+    resource_consumption:
+      oil: 1285000
+      steel: 385000
+      rare_earth: 18500
+      uranium: 850
+      food: 1185000
+
+  ESP:
+    name: "Spain"
+    capital: "Madrid"
+    flag: "🇪🇸"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Pedro Sánchez"
+      approval: 38.5
+      stability: 75.8
+      ruling_party: "Spanish Socialist Workers' Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2023-07-23"
+    economy:
+      gdp: 1390000000000
+      debt: 1580000000000
+      inflation: 3.1
+      trade_balance: 18500000000
+      treasury: 125000000000
+      currency: "EUR"
+      interest_rate: 2.1
+      sectors:
+        manufacturing: 12.2
+        services: 74.8
+        agriculture: 2.8
+        technology: 10.2
+    military:
+      manpower: 120000
+      equipment: 78
+      readiness: 80
+      doctrine: "NATO Standard"
+      nuclear_capability: false
+      military_spending_gdp: 1.26
+      conscription: false
+      reserve_forces: 15000
+    technology:
+      researchPoints: 680
+      currentResearch:
+        - "Renewable Energy"
+        - "Tourism Technology"
+        - "Agriculture Technology"
+      completedTech:
+        - "Internet"
+        - "Renewable Energy"
+        - "Construction Technology"
+    demographics:
+      population: 47000000
+      median_age: 44.9
+      birth_rate: 1.19
+      life_expectancy: 83.8
+      literacy_rate: 98.4
+      urbanization: 81.0
+    diplomacy:
+      allies: ["USA", "FRA", "GER", "PRT"]
+      enemies: []
+      trade_partners: ["GER", "FRA", "ITA", "PRT", "USA"]
+      international_relations:
+        NATO: "member"
+        G20: false
+        UN_Security_Council: false
+        EU: "member"
+    resource_stockpiles:
+      oil: 85000
+      steel: 485000
+      rare_earth: 18500
+      uranium: 2850
+      food: 1485000
+    resource_production:
+      oil: 8500
+      steel: 185000
+      rare_earth: 850
+      uranium: 185
+      food: 985000
+    resource_consumption:
+      oil: 1185000
+      steel: 285000
+      rare_earth: 8500
+      uranium: 450
+      food: 850000
+
+  NLD:
+    name: "Netherlands"
+    capital: "Amsterdam"
+    flag: "🇳🇱"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Mark Rutte"
+      approval: 48.2
+      stability: 88.5
+      ruling_party: "People's Party for Freedom"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2023-11-22"
+    economy:
+      gdp: 914000000000
+      debt: 485000000000
+      inflation: 4.0
+      trade_balance: 85000000000
+      treasury: 85000000000
+      currency: "EUR"
+      interest_rate: 2.1
+      sectors:
+        manufacturing: 12.8
+        services: 73.2
+        agriculture: 1.8
+        technology: 12.2
+    military:
+      manpower: 53000
+      equipment: 85
+      readiness: 90
+      doctrine: "NATO Standard"
+      nuclear_capability: false
+      military_spending_gdp: 2.12
+      conscription: false
+      reserve_forces: 5000
+    technology:
+      researchPoints: 1285
+      currentResearch:
+        - "Sustainable Technology"
+        - "Maritime Technology"
+        - "AI Systems"
+      completedTech:
+        - "Internet"
+        - "Advanced Engineering"
+        - "Sustainable Technology"
+        - "Maritime Engineering"
+    demographics:
+      population: 17500000
+      median_age: 43.2
+      birth_rate: 1.57
+      life_expectancy: 82.3
+      literacy_rate: 99.0
+      urbanization: 92.2
+    diplomacy:
+      allies: ["USA", "GER", "GBR", "BEL"]
+      enemies: []
+      trade_partners: ["GER", "BEL", "GBR", "FRA", "USA"]
+      international_relations:
+        NATO: "member"
+        G20: false
+        UN_Security_Council: false
+        EU: "founding_member"
+    resource_stockpiles:
+      oil: 185000
+      steel: 485000
+      rare_earth: 28500
+      uranium: 8500
+      food: 985000
+    resource_production:
+      oil: 28500
+      steel: 185000
+      rare_earth: 2850
+      uranium: 285
+      food: 585000
+    resource_consumption:
+      oil: 885000
+      steel: 285000
+      rare_earth: 18500
+      uranium: 850
+      food: 485000
+
+  PRT:
+    name: "Portugal"
+    capital: "Lisbon"
+    flag: "🇵🇹"
+    government:
+      type: "republic"
+      leader: "António Costa"
+      approval: 56.8
+      stability: 82.1
+      ruling_party: "Socialist Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2022-01-30"
+    economy:
+      gdp: 238000000000
+      debt: 280000000000
+      inflation: 4.2
+      trade_balance: -18000000000
+      treasury: 8000000000
+      currency: "EUR"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 22.1
+        services: 65.2
+        agriculture: 2.2
+        technology: 10.5
+    military:
+      manpower: 27000
+      equipment: 78
+      readiness: 82
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 420
+      currentResearch: ["Renewable Energy", "Tourism Technology"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.5
+    diplomacy:
+      allies: ["USA", "ESP", "FRA", "GBR"]
+      enemies: []
+      neutrality: 88.2
+
+  BEL:
+    name: "Belgium"
+    capital: "Brussels"
+    flag: "🇧🇪"
+    government:
+      type: "federal_monarchy"
+      leader: "Alexander De Croo"
+      approval: 48.3
+      stability: 76.5
+      ruling_party: "Open Vld"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2019-05-26"
+    economy:
+      gdp: 521000000000
+      debt: 520000000000
+      inflation: 3.1
+      trade_balance: 8000000000
+      treasury: 18000000000
+      currency: "EUR"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 22.5
+        services: 69.1
+        agriculture: 0.7
+        technology: 7.7
+    military:
+      manpower: 25000
+      equipment: 85
+      readiness: 85
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 650
+      currentResearch: ["Defense Technology", "EU Integration"]
+      completedTech: ["Internet", "Modern Manufacturing", "Advanced Logistics"]
+      level: 8.2
+    diplomacy:
+      allies: ["USA", "GER", "FRA", "NLD", "GBR"]
+      enemies: []
+      neutrality: 90.1
+
+  CHE:
+    name: "Switzerland"
+    capital: "Bern"
+    flag: "🇨🇭"
+    government:
+      type: "federal_republic"
+      leader: "Alain Berset"
+      approval: 72.5
+      stability: 93.8
+      ruling_party: "Federal Council"
+      ideology: "Neutral Democracy"
+      election_cycle: 4
+      last_election: "2019-10-20"
+    economy:
+      gdp: 752000000000
+      debt: 280000000000
+      inflation: 0.9
+      trade_balance: 45000000000
+      treasury: 85000000000
+      currency: "CHF"
+      interest_rate: -0.75
+      sectors:
+        manufacturing: 25.8
+        services: 71.6
+        agriculture: 0.7
+        technology: 1.9
+    military:
+      manpower: 21000
+      equipment: 90
+      readiness: 92
+      doctrine: "Swiss Doctrine"
+      nuclearCapability: false
+    technology:
+      researchPoints: 1200
+      currentResearch: ["Precision Manufacturing", "Financial Technology"]
+      completedTech: ["Internet", "Modern Manufacturing", "Advanced Banking"]
+      level: 9.1
+    diplomacy:
+      allies: []
+      enemies: []
+      neutrality: 98.5
+
+  AUT:
+    name: "Austria"
+    capital: "Vienna"
+    flag: "🇦🇹"
+    government:
+      type: "federal_republic"
+      leader: "Karl Nehammer"
+      approval: 52.1
+      stability: 81.7
+      ruling_party: "ÖVP"
+      ideology: "Conservative Democracy"
+      election_cycle: 4
+      last_election: "2019-09-29"
+    economy:
+      gdp: 433000000000
+      debt: 350000000000
+      inflation: 2.8
+      trade_balance: 2000000000
+      treasury: 15000000000
+      currency: "EUR"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 28.4
+        services: 62.1
+        agriculture: 1.3
+        technology: 8.2
+    military:
+      manpower: 22000
+      equipment: 82
+      readiness: 84
+      doctrine: "Neutral Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 580
+      currentResearch: ["Green Energy", "Tourism Technology"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 8.0
+    diplomacy:
+      allies: ["GER", "CHE"]
+      enemies: []
+      neutrality: 91.8
+
+  SWE:
+    name: "Sweden"
+    capital: "Stockholm"
+    flag: "🇸🇪"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Ulf Kristersson"
+      approval: 45.8
+      stability: 87.2
+      ruling_party: "Moderate Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2022-09-11"
+    economy:
+      gdp: 541000000000
+      debt: 220000000000
+      inflation: 1.8
+      trade_balance: 8000000000
+      treasury: 35000000000
+      currency: "SEK"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 26.2
+        services: 65.4
+        agriculture: 1.6
+        technology: 6.8
+    military:
+      manpower: 24000
+      equipment: 88
+      readiness: 89
+      doctrine: "Nordic Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 950
+      currentResearch: ["Green Energy", "Defense Technology"]
+      completedTech: ["Internet", "Modern Manufacturing", "Renewable Energy"]
+      level: 8.8
+    diplomacy:
+      allies: ["NOR", "FIN", "DNK", "USA"]
+      enemies: []
+      neutrality: 78.5
+
+  NOR:
+    name: "Norway"
+    capital: "Oslo"
+    flag: "🇳🇴"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Jonas Gahr Støre"
+      approval: 68.4
+      stability: 91.5
+      ruling_party: "Labour Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2021-09-13"
+    economy:
+      gdp: 362000000000
+      debt: 180000000000
+      inflation: 1.3
+      trade_balance: 18000000000
+      treasury: 65000000000
+      currency: "NOK"
+      interest_rate: 0.25
+      sectors:
+        manufacturing: 8.5
+        services: 61.2
+        agriculture: 2.1
+        technology: 28.2
+    military:
+      manpower: 23000
+      equipment: 92
+      readiness: 91
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 1100
+      currentResearch: ["Energy Technology", "Maritime Technology"]
+      completedTech: ["Internet", "Modern Manufacturing", "Oil Extraction"]
+      level: 9.2
+    diplomacy:
+      allies: ["USA", "SWE", "FIN", "DNK", "GBR"]
+      enemies: []
+      neutrality: 82.1
+
+  FIN:
+    name: "Finland"
+    capital: "Helsinki"
+    flag: "🇫🇮"
+    government:
+      type: "republic"
+      leader: "Sanna Marin"
+      approval: 64.7
+      stability: 89.8
+      ruling_party: "Social Democratic Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2019-04-14"
+    economy:
+      gdp: 269000000000
+      debt: 150000000000
+      inflation: 2.1
+      trade_balance: 2000000000
+      treasury: 18000000000
+      currency: "EUR"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 27.9
+        services: 62.6
+        agriculture: 2.8
+        technology: 6.7
+    military:
+      manpower: 23000
+      equipment: 86
+      readiness: 88
+      doctrine: "Nordic Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 720
+      currentResearch: ["Technology Innovation", "Forest Industry"]
+      completedTech: ["Internet", "Modern Manufacturing", "Nokia Legacy"]
+      level: 8.4
+    diplomacy:
+      allies: ["SWE", "NOR", "DNK", "USA"]
+      enemies: []
+      neutrality: 85.2
+
+  DNK:
+    name: "Denmark"
+    capital: "Copenhagen"
+    flag: "🇩🇰"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Mette Frederiksen"
+      approval: 58.9
+      stability: 88.4
+      ruling_party: "Social Democrats"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2022-11-01"
+    economy:
+      gdp: 348000000000
+      debt: 110000000000
+      inflation: 2.4
+      trade_balance: 18000000000
+      treasury: 28000000000
+      currency: "DKK"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 23.1
+        services: 68.2
+        agriculture: 1.3
+        technology: 7.4
+    military:
+      manpower: 16000
+      equipment: 89
+      readiness: 87
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 680
+      currentResearch: ["Wind Energy", "Biotech"]
+      completedTech: ["Internet", "Modern Manufacturing", "Wind Power"]
+      level: 8.6
+    diplomacy:
+      allies: ["NOR", "SWE", "FIN", "USA", "GER"]
+      enemies: []
+      neutrality: 86.7
+
+  IRL:
+    name: "Ireland"
+    capital: "Dublin"
+    flag: "🇮🇪"
+    government:
+      type: "republic"
+      leader: "Micheál Martin"
+      approval: 61.5
+      stability: 88.9
+      ruling_party: "Fianna Fáil"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2020-02-08"
+    economy:
+      gdp: 426000000000
+      debt: 220000000000
+      inflation: 2.4
+      trade_balance: 85000000000
+      treasury: 28000000000
+      currency: "EUR"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 38.1
+        services: 56.8
+        agriculture: 1.2
+        technology: 3.9
+    military:
+      manpower: 8700
+      equipment: 82
+      readiness: 85
+      doctrine: "Neutral Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 920
+      currentResearch: ["Pharmaceutical Technology", "Tech Innovation"]
+      completedTech: ["Internet", "Modern Manufacturing", "Pharmaceuticals"]
+      level: 8.8
+    diplomacy:
+      allies: ["GBR", "USA", "FRA"]
+      enemies: []
+      neutrality: 92.5
+
+  LUX:
+    name: "Luxembourg"
+    capital: "Luxembourg City"
+    flag: "🇱🇺"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Xavier Bettel"
+      approval: 68.2
+      stability: 91.5
+      ruling_party: "Democratic Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2018-10-14"
+    economy:
+      gdp: 73000000000
+      debt: 15000000000
+      inflation: 1.8
+      trade_balance: 5000000000
+      treasury: 12000000000
+      currency: "EUR"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 5.5
+        services: 86.8
+        agriculture: 0.3
+        technology: 7.4
+    military:
+      manpower: 1000
+      equipment: 88
+      readiness: 80
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 680
+      currentResearch: ["Financial Technology", "EU Integration"]
+      completedTech: ["Internet", "Modern Manufacturing", "Banking"]
+      level: 8.9
+    diplomacy:
+      allies: ["BEL", "GER", "FRA", "USA"]
+      enemies: []
+      neutrality: 95.1
+
+  GRC:
+    display_name: "Greece"
+    code: "GRC"
+    region: "europe_west"
+    politics:
+      government_type: "Parliamentary Republic"
+      approval: 42.8
+      stability: 65.5
+      ruling_party: "New Democracy"
+      ideology: "Liberal Conservatism"
+      election_cycle: 4
+      last_election: "2023-06-25"
+    economy:
+      gdp: 219000000000
+      debt: 355000000000
+      inflation: 3.1
+      trade_balance: -18500000000
+    military:
+      active_personnel: 142700
+      reserves: 291000
+      defense_budget: 5850000000
+      nuclear_weapons: 0
+    resources:
+      oil: 12500
+      steel: 285000
+      rare_earth: 8500
+      uranium: 1850
+      food: 3850000
+    resource_consumption:
+      oil: 385000
+      steel: 185000
+      rare_earth: 8500
+      uranium: 1250
+      food: 4250000
+
+  ISL:
+    display_name: "Iceland"
+    code: "ISL"
+    region: "europe_west"
+    politics:
+      government_type: "Parliamentary Republic"
+      approval: 58.5
+      stability: 85.2
+      ruling_party: "Independence Party"
+      ideology: "Liberal Conservatism"
+      election_cycle: 4
+      last_election: "2021-09-25"
+    economy:
+      gdp: 28000000000
+      debt: 18500000000
+      inflation: 8.3
+      trade_balance: 485000000
+    military:
+      active_personnel: 0
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 8500
+      rare_earth: 2850
+      uranium: 0
+      food: 485000
+    resource_consumption:
+      oil: 28500
+      steel: 18500
+      rare_earth: 1250
+      uranium: 185
+      food: 385000
+
+  CYP:
+    display_name: "Cyprus"
+    code: "CYP"
+    region: "europe_west"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 48.5
+      stability: 68.5
+      ruling_party: "Democratic Rally"
+      ideology: "Liberal Conservatism"
+      election_cycle: 5
+      last_election: "2023-02-12"
+    economy:
+      gdp: 28500000000
+      debt: 22500000000
+      inflation: 1.9
+      trade_balance: -3850000000
+    military:
+      active_personnel: 12000
+      reserves: 50000
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 8500
+      rare_earth: 1850
+      uranium: 0
+      food: 485000
+    resource_consumption:
+      oil: 48500
+      steel: 28500
+      rare_earth: 2850
+      uranium: 285
+      food: 585000
+
+  MLT:
+    display_name: "Malta"
+    code: "MLT"
+    region: "europe_west"
+    politics:
+      government_type: "Parliamentary Republic"
+      approval: 58.5
+      stability: 78.5
+      ruling_party: "Labour Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2022-03-26"
+    economy:
+      gdp: 18500000000
+      debt: 12500000000
+      inflation: 6.1
+      trade_balance: -1850000000
+    military:
+      active_personnel: 2000
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 2850
+      rare_earth: 850
+      uranium: 0
+      food: 185000
+    resource_consumption:
+      oil: 18500
+      steel: 12500
+      rare_earth: 1850
+      uranium: 185
+      food: 225000
+
+  AND:
+    display_name: "Andorra"
+    code: "AND"
+    region: "europe_west"
+    politics:
+      government_type: "Parliamentary Co-Principality"
+      approval: 78.5
+      stability: 88.5
+      ruling_party: "Democrats for Andorra"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2023-04-02"
+    economy:
+      gdp: 3500000000
+      debt: 485000000
+      inflation: 1.8
+      trade_balance: 285000000
+    military:
+      active_personnel: 0
+      reserves: 0
+      defense_budget: 0
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 285
+      rare_earth: 185
+      uranium: 0
+      food: 18500
+    resource_consumption:
+      oil: 2850
+      steel: 1850
+      rare_earth: 285
+      uranium: 28
+      food: 28500
+
+  SMR:
+    display_name: "San Marino"
+    code: "SMR"
+    region: "europe_west"
+    politics:
+      government_type: "Parliamentary Republic"
+      approval: 85.5
+      stability: 95.5
+      ruling_party: "Christian Democratic Party"
+      ideology: "Christian Democracy"
+      election_cycle: 5
+      last_election: "2024-06-09"
+    economy:
+      gdp: 1800000000
+      debt: 285000000
+      inflation: 2.1
+      trade_balance: 185000000
+    military:
+      active_personnel: 0
+      reserves: 0
+      defense_budget: 0
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 185
+      rare_earth: 85
+      uranium: 0
+      food: 8500
+    resource_consumption:
+      oil: 1850
+      steel: 850
+      rare_earth: 185
+      uranium: 18
+      food: 18500
+
+  MCO:
+    display_name: "Monaco"
+    code: "MCO"
+    region: "europe_west"
+    politics:
+      government_type: "Constitutional Monarchy"
+      approval: 88.5
+      stability: 95.5
+      ruling_party: "Prince of Monaco"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 5
+      last_election: "2023-02-05"
+    economy:
+      gdp: 7500000000
+      debt: 485000000
+      inflation: 2.8
+      trade_balance: 1850000000
+    military:
+      active_personnel: 0
+      reserves: 0
+      defense_budget: 0
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 485
+      rare_earth: 185
+      uranium: 0
+      food: 18500
+    resource_consumption:
+      oil: 4850
+      steel: 2850
+      rare_earth: 485
+      uranium: 48
+      food: 48500
+
+  LIE:
+    display_name: "Liechtenstein"
+    code: "LIE"
+    region: "europe_west"
+    politics:
+      government_type: "Constitutional Monarchy"
+      approval: 95.5
+      stability: 98.5
+      ruling_party: "Progressive Citizens' Party"
+      ideology: "Liberal Conservatism"
+      election_cycle: 4
+      last_election: "2021-02-07"
+    economy:
+      gdp: 6500000000
+      debt: 285000000
+      inflation: 2.1
+      trade_balance: 2850000000
+    military:
+      active_personnel: 0
+      reserves: 0
+      defense_budget: 0
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 185
+      rare_earth: 85
+      uranium: 0
+      food: 8500
+    resource_consumption:
+      oil: 1850
+      steel: 850
+      rare_earth: 185
+      uranium: 18
+      food: 18500
+
+  VAT:
+    display_name: "Vatican City"
+    code: "VAT"
+    region: "europe_west"
+    politics:
+      government_type: "Absolute Monarchy"
+      approval: 98.5
+      stability: 99.5
+      ruling_party: "Pope Francis"
+      ideology: "Theocracy"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 450000000
+      debt: 0
+      inflation: 0.0
+      trade_balance: 185000000
+    military:
+      active_personnel: 135
+      reserves: 0
+      defense_budget: 0
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 28
+      rare_earth: 18
+      uranium: 0
+      food: 850
+    resource_consumption:
+      oil: 285
+      steel: 185
+      rare_earth: 48
+      uranium: 5
+      food: 2850

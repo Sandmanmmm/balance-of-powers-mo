@@ -1,0 +1,834 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "PHL",
+    "generated": "2025-07-31T02:54:50.215Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "Philippines",
+        "SOV_A3": "PHL",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Philippines",
+        "ADM0_A3": "PHL",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Philippines",
+        "GU_A3": "PHL",
+        "SU_DIF": 0,
+        "SUBUNIT": "Philippines",
+        "SU_A3": "PHL",
+        "BRK_DIFF": 0,
+        "NAME": "Philippines",
+        "NAME_LONG": "Philippines",
+        "BRK_A3": "PHL",
+        "BRK_NAME": "Philippines",
+        "BRK_GROUP": null,
+        "ABBREV": "Phil.",
+        "POSTAL": "PH",
+        "FORMAL_EN": "Republic of the Philippines",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Philippines",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Philippines",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 3,
+        "MAPCOLOR8": 2,
+        "MAPCOLOR9": 2,
+        "MAPCOLOR13": 8,
+        "POP_EST": 108116615,
+        "POP_RANK": 17,
+        "POP_YEAR": 2019,
+        "GDP_MD": 376795,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "5. Emerging region: G20",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "RP",
+        "ISO_A2": "PH",
+        "ISO_A2_EH": "PH",
+        "ISO_A3": "PHL",
+        "ISO_A3_EH": "PHL",
+        "ISO_N3": "608",
+        "ISO_N3_EH": "608",
+        "UN_A3": "608",
+        "WB_A2": "PH",
+        "WB_A3": "PHL",
+        "WOE_ID": 23424934,
+        "WOE_ID_EH": 23424934,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "PHL",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "PHL",
+        "ADM0_A3_US": "PHL",
+        "ADM0_A3_FR": "PHL",
+        "ADM0_A3_RU": "PHL",
+        "ADM0_A3_ES": "PHL",
+        "ADM0_A3_CN": "PHL",
+        "ADM0_A3_TW": "PHL",
+        "ADM0_A3_IN": "PHL",
+        "ADM0_A3_NP": "PHL",
+        "ADM0_A3_PK": "PHL",
+        "ADM0_A3_DE": "PHL",
+        "ADM0_A3_GB": "PHL",
+        "ADM0_A3_BR": "PHL",
+        "ADM0_A3_IL": "PHL",
+        "ADM0_A3_PS": "PHL",
+        "ADM0_A3_SA": "PHL",
+        "ADM0_A3_EG": "PHL",
+        "ADM0_A3_MA": "PHL",
+        "ADM0_A3_PT": "PHL",
+        "ADM0_A3_AR": "PHL",
+        "ADM0_A3_JP": "PHL",
+        "ADM0_A3_KO": "PHL",
+        "ADM0_A3_VN": "PHL",
+        "ADM0_A3_TR": "PHL",
+        "ADM0_A3_ID": "PHL",
+        "ADM0_A3_PL": "PHL",
+        "ADM0_A3_GR": "PHL",
+        "ADM0_A3_IT": "PHL",
+        "ADM0_A3_NL": "PHL",
+        "ADM0_A3_SE": "PHL",
+        "ADM0_A3_BD": "PHL",
+        "ADM0_A3_UA": "PHL",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "South-Eastern Asia",
+        "REGION_WB": "East Asia & Pacific",
+        "NAME_LEN": 11,
+        "LONG_LEN": 11,
+        "ABBREV_LEN": 5,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2.5,
+        "MAX_LABEL": 7,
+        "LABEL_X": 122.465,
+        "LABEL_Y": 11.198,
+        "NE_ID": 1159321169,
+        "WIKIDATAID": "Q928",
+        "NAME_AR": "الفلبين",
+        "NAME_BN": "ফিলিপাইন",
+        "NAME_DE": "Philippinen",
+        "NAME_EN": "Philippines",
+        "NAME_ES": "Filipinas",
+        "NAME_FA": "فیلیپین",
+        "NAME_FR": "Philippines",
+        "NAME_EL": "Φιλιππίνες",
+        "NAME_HE": "הפיליפינים",
+        "NAME_HI": "फ़िलीपीन्स",
+        "NAME_HU": "Fülöp-szigetek",
+        "NAME_ID": "Filipina",
+        "NAME_IT": "Filippine",
+        "NAME_JA": "フィリピン",
+        "NAME_KO": "필리핀",
+        "NAME_NL": "Filipijnen",
+        "NAME_PL": "Filipiny",
+        "NAME_PT": "Filipinas",
+        "NAME_RU": "Филиппины",
+        "NAME_SV": "Filippinerna",
+        "NAME_TR": "Filipinler",
+        "NAME_UK": "Філіппіни",
+        "NAME_UR": "فلپائن",
+        "NAME_VI": "Philippines",
+        "NAME_ZH": "菲律宾",
+        "NAME_ZHT": "菲律賓",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "PHL"
+      },
+      "bbox": [
+        117.174275,
+        5.581003,
+        126.537424,
+        18.505227
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                120.833896,
+                12.704496
+              ],
+              [
+                120.323436,
+                13.466413
+              ],
+              [
+                121.180128,
+                13.429697
+              ],
+              [
+                121.527394,
+                13.06959
+              ],
+              [
+                121.26219,
+                12.20556
+              ],
+              [
+                120.833896,
+                12.704496
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                122.586089,
+                9.981045
+              ],
+              [
+                122.837081,
+                10.261157
+              ],
+              [
+                122.947411,
+                10.881868
+              ],
+              [
+                123.49885,
+                10.940624
+              ],
+              [
+                123.337774,
+                10.267384
+              ],
+              [
+                124.077936,
+                11.232726
+              ],
+              [
+                123.982438,
+                10.278779
+              ],
+              [
+                123.623183,
+                9.950091
+              ],
+              [
+                123.309921,
+                9.318269
+              ],
+              [
+                122.995883,
+                9.022189
+              ],
+              [
+                122.380055,
+                9.713361
+              ],
+              [
+                122.586089,
+                9.981045
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                126.376814,
+                8.414706
+              ],
+              [
+                126.478513,
+                7.750354
+              ],
+              [
+                126.537424,
+                7.189381
+              ],
+              [
+                126.196773,
+                6.274294
+              ],
+              [
+                125.831421,
+                7.293715
+              ],
+              [
+                125.363852,
+                6.786485
+              ],
+              [
+                125.683161,
+                6.049657
+              ],
+              [
+                125.396512,
+                5.581003
+              ],
+              [
+                124.219788,
+                6.161355
+              ],
+              [
+                123.93872,
+                6.885136
+              ],
+              [
+                124.243662,
+                7.36061
+              ],
+              [
+                123.610212,
+                7.833527
+              ],
+              [
+                123.296071,
+                7.418876
+              ],
+              [
+                122.825506,
+                7.457375
+              ],
+              [
+                122.085499,
+                6.899424
+              ],
+              [
+                121.919928,
+                7.192119
+              ],
+              [
+                122.312359,
+                8.034962
+              ],
+              [
+                122.942398,
+                8.316237
+              ],
+              [
+                123.487688,
+                8.69301
+              ],
+              [
+                123.841154,
+                8.240324
+              ],
+              [
+                124.60147,
+                8.514158
+              ],
+              [
+                124.764612,
+                8.960409
+              ],
+              [
+                125.471391,
+                8.986997
+              ],
+              [
+                125.412118,
+                9.760335
+              ],
+              [
+                126.222714,
+                9.286074
+              ],
+              [
+                126.306637,
+                8.782487
+              ],
+              [
+                126.376814,
+                8.414706
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                118.504581,
+                9.316383
+              ],
+              [
+                117.174275,
+                8.3675
+              ],
+              [
+                117.664477,
+                9.066889
+              ],
+              [
+                118.386914,
+                9.6845
+              ],
+              [
+                118.987342,
+                10.376292
+              ],
+              [
+                119.511496,
+                11.369668
+              ],
+              [
+                119.689677,
+                10.554291
+              ],
+              [
+                119.029458,
+                10.003653
+              ],
+              [
+                118.504581,
+                9.316383
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                122.336957,
+                18.224883
+              ],
+              [
+                122.174279,
+                17.810283
+              ],
+              [
+                122.515654,
+                17.093505
+              ],
+              [
+                122.252311,
+                16.262444
+              ],
+              [
+                121.662786,
+                15.931018
+              ],
+              [
+                121.50507,
+                15.124814
+              ],
+              [
+                121.728829,
+                14.328376
+              ],
+              [
+                122.258925,
+                14.218202
+              ],
+              [
+                122.701276,
+                14.336541
+              ],
+              [
+                123.950295,
+                13.782131
+              ],
+              [
+                123.855107,
+                13.237771
+              ],
+              [
+                124.181289,
+                12.997527
+              ],
+              [
+                124.077419,
+                12.536677
+              ],
+              [
+                123.298035,
+                13.027526
+              ],
+              [
+                122.928652,
+                13.55292
+              ],
+              [
+                122.671355,
+                13.185836
+              ],
+              [
+                122.03465,
+                13.784482
+              ],
+              [
+                121.126385,
+                13.636687
+              ],
+              [
+                120.628637,
+                13.857656
+              ],
+              [
+                120.679384,
+                14.271016
+              ],
+              [
+                120.991819,
+                14.525393
+              ],
+              [
+                120.693336,
+                14.756671
+              ],
+              [
+                120.564145,
+                14.396279
+              ],
+              [
+                120.070429,
+                14.970869
+              ],
+              [
+                119.920929,
+                15.406347
+              ],
+              [
+                119.883773,
+                16.363704
+              ],
+              [
+                120.286488,
+                16.034629
+              ],
+              [
+                120.390047,
+                17.599081
+              ],
+              [
+                120.715867,
+                18.505227
+              ],
+              [
+                121.321308,
+                18.504065
+              ],
+              [
+                121.937601,
+                18.218552
+              ],
+              [
+                122.246006,
+                18.47895
+              ],
+              [
+                122.336957,
+                18.224883
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                122.03837,
+                11.415841
+              ],
+              [
+                121.883548,
+                11.891755
+              ],
+              [
+                122.483821,
+                11.582187
+              ],
+              [
+                123.120217,
+                11.58366
+              ],
+              [
+                123.100838,
+                11.165934
+              ],
+              [
+                122.637714,
+                10.741308
+              ],
+              [
+                122.00261,
+                10.441017
+              ],
+              [
+                121.967367,
+                10.905691
+              ],
+              [
+                122.03837,
+                11.415841
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                125.502552,
+                12.162695
+              ],
+              [
+                125.783465,
+                11.046122
+              ],
+              [
+                125.011884,
+                11.311455
+              ],
+              [
+                125.032761,
+                10.975816
+              ],
+              [
+                125.277449,
+                10.358722
+              ],
+              [
+                124.801819,
+                10.134679
+              ],
+              [
+                124.760168,
+                10.837995
+              ],
+              [
+                124.459101,
+                10.88993
+              ],
+              [
+                124.302522,
+                11.495371
+              ],
+              [
+                124.891013,
+                11.415583
+              ],
+              [
+                124.87799,
+                11.79419
+              ],
+              [
+                124.266762,
+                12.557761
+              ],
+              [
+                125.227116,
+                12.535721
+              ],
+              [
+                125.502552,
+                12.162695
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

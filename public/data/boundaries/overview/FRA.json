@@ -1,59 +1,674 @@
 {
-  "FRA_001": {
-    "type": "Feature",
-    "id": "FRA_001",
-    "properties": {
-      "id": "FRA_001",
-      "name": "Île-de-France",
-      "country": "France",
-      "iso_a3": "FRA",
-      "region_code": "IDF"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [1.4, 48.1], [1.4, 49.2], [3.6, 49.2], [3.6, 48.1], [1.4, 48.1]
-        ]
-      ]
-    }
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "FRA",
+    "generated": "2025-07-31T02:54:50.078Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
   },
-  "FRA_002": {
-    "type": "Feature",
-    "id": "FRA_002",
-    "properties": {
-      "id": "FRA_002",
-      "name": "Provence-Alpes-Côte d'Azur",
-      "country": "France",
-      "iso_a3": "FRA",
-      "region_code": "PAC"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [4.2, 43.0], [4.2, 44.9], [7.7, 44.9], [7.7, 43.0], [4.2, 43.0]
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "France",
+        "SOV_A3": "FR1",
+        "ADM0_DIF": 1,
+        "LEVEL": 2,
+        "TYPE": "Country",
+        "TLC": "1",
+        "ADMIN": "France",
+        "ADM0_A3": "FRA",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "France",
+        "GU_A3": "FRA",
+        "SU_DIF": 0,
+        "SUBUNIT": "France",
+        "SU_A3": "FRA",
+        "BRK_DIFF": 0,
+        "NAME": "France",
+        "NAME_LONG": "France",
+        "BRK_A3": "FRA",
+        "BRK_NAME": "France",
+        "BRK_GROUP": null,
+        "ABBREV": "Fr.",
+        "POSTAL": "F",
+        "FORMAL_EN": "French Republic",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "France",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "France",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 7,
+        "MAPCOLOR8": 5,
+        "MAPCOLOR9": 9,
+        "MAPCOLOR13": 11,
+        "POP_EST": 67059887,
+        "POP_RANK": 16,
+        "POP_YEAR": 2019,
+        "GDP_MD": 2715518,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "1. Developed region: G7",
+        "INCOME_GRP": "1. High income: OECD",
+        "FIPS_10": "FR",
+        "ISO_A2": "-99",
+        "ISO_A2_EH": "FR",
+        "ISO_A3": "-99",
+        "ISO_A3_EH": "FRA",
+        "ISO_N3": "-99",
+        "ISO_N3_EH": "250",
+        "UN_A3": "250",
+        "WB_A2": "FR",
+        "WB_A3": "FRA",
+        "WOE_ID": -90,
+        "WOE_ID_EH": 23424819,
+        "WOE_NOTE": "Includes only Metropolitan France (including Corsica)",
+        "ADM0_ISO": "FRA",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "FRA",
+        "ADM0_A3_US": "FRA",
+        "ADM0_A3_FR": "FRA",
+        "ADM0_A3_RU": "FRA",
+        "ADM0_A3_ES": "FRA",
+        "ADM0_A3_CN": "FRA",
+        "ADM0_A3_TW": "FRA",
+        "ADM0_A3_IN": "FRA",
+        "ADM0_A3_NP": "FRA",
+        "ADM0_A3_PK": "FRA",
+        "ADM0_A3_DE": "FRA",
+        "ADM0_A3_GB": "FRA",
+        "ADM0_A3_BR": "FRA",
+        "ADM0_A3_IL": "FRA",
+        "ADM0_A3_PS": "FRA",
+        "ADM0_A3_SA": "FRA",
+        "ADM0_A3_EG": "FRA",
+        "ADM0_A3_MA": "FRA",
+        "ADM0_A3_PT": "FRA",
+        "ADM0_A3_AR": "FRA",
+        "ADM0_A3_JP": "FRA",
+        "ADM0_A3_KO": "FRA",
+        "ADM0_A3_VN": "FRA",
+        "ADM0_A3_TR": "FRA",
+        "ADM0_A3_ID": "FRA",
+        "ADM0_A3_PL": "FRA",
+        "ADM0_A3_GR": "FRA",
+        "ADM0_A3_IT": "FRA",
+        "ADM0_A3_NL": "FRA",
+        "ADM0_A3_SE": "FRA",
+        "ADM0_A3_BD": "FRA",
+        "ADM0_A3_UA": "FRA",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Europe",
+        "REGION_UN": "Europe",
+        "SUBREGION": "Western Europe",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 3,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 1.7,
+        "MAX_LABEL": 6.7,
+        "LABEL_X": 2.552275,
+        "LABEL_Y": 46.696113,
+        "NE_ID": 1159320637,
+        "WIKIDATAID": "Q142",
+        "NAME_AR": "فرنسا",
+        "NAME_BN": "ফ্রান্স",
+        "NAME_DE": "Frankreich",
+        "NAME_EN": "France",
+        "NAME_ES": "Francia",
+        "NAME_FA": "فرانسه",
+        "NAME_FR": "France",
+        "NAME_EL": "Γαλλία",
+        "NAME_HE": "צרפת",
+        "NAME_HI": "फ़्रान्स",
+        "NAME_HU": "Franciaország",
+        "NAME_ID": "Prancis",
+        "NAME_IT": "Francia",
+        "NAME_JA": "フランス",
+        "NAME_KO": "프랑스",
+        "NAME_NL": "Frankrijk",
+        "NAME_PL": "Francja",
+        "NAME_PT": "França",
+        "NAME_RU": "Франция",
+        "NAME_SV": "Frankrike",
+        "NAME_TR": "Fransa",
+        "NAME_UK": "Франція",
+        "NAME_UR": "فرانس",
+        "NAME_VI": "Pháp",
+        "NAME_ZH": "法国",
+        "NAME_ZHT": "法國",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "FRA"
+      },
+      "bbox": [
+        -54.524754,
+        2.053389,
+        9.560016,
+        51.148506
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -51.657797,
+                4.156232
+              ],
+              [
+                -52.249338,
+                3.241094
+              ],
+              [
+                -52.556425,
+                2.504705
+              ],
+              [
+                -52.939657,
+                2.124858
+              ],
+              [
+                -53.418465,
+                2.053389
+              ],
+              [
+                -53.554839,
+                2.334897
+              ],
+              [
+                -53.778521,
+                2.376703
+              ],
+              [
+                -54.088063,
+                2.105557
+              ],
+              [
+                -54.524754,
+                2.311849
+              ],
+              [
+                -54.269705,
+                2.732392
+              ],
+              [
+                -54.181726,
+                3.18978
+              ],
+              [
+                -54.006931,
+                3.620038
+              ],
+              [
+                -54.399542,
+                4.212611
+              ],
+              [
+                -54.478633,
+                4.896756
+              ],
+              [
+                -53.958045,
+                5.756548
+              ],
+              [
+                -53.618453,
+                5.646529
+              ],
+              [
+                -52.882141,
+                5.409851
+              ],
+              [
+                -51.823343,
+                4.565768
+              ],
+              [
+                -51.657797,
+                4.156232
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                6.18632,
+                49.463803
+              ],
+              [
+                6.65823,
+                49.201958
+              ],
+              [
+                8.099279,
+                49.017784
+              ],
+              [
+                7.593676,
+                48.333019
+              ],
+              [
+                7.466759,
+                47.620582
+              ],
+              [
+                7.192202,
+                47.449766
+              ],
+              [
+                6.736571,
+                47.541801
+              ],
+              [
+                6.768714,
+                47.287708
+              ],
+              [
+                6.037389,
+                46.725779
+              ],
+              [
+                6.022609,
+                46.27299
+              ],
+              [
+                6.5001,
+                46.429673
+              ],
+              [
+                6.843593,
+                45.991147
+              ],
+              [
+                6.802355,
+                45.70858
+              ],
+              [
+                7.096652,
+                45.333099
+              ],
+              [
+                6.749955,
+                45.028518
+              ],
+              [
+                7.007562,
+                44.254767
+              ],
+              [
+                7.549596,
+                44.127901
+              ],
+              [
+                7.435185,
+                43.693845
+              ],
+              [
+                6.529245,
+                43.128892
+              ],
+              [
+                4.556963,
+                43.399651
+              ],
+              [
+                3.100411,
+                43.075201
+              ],
+              [
+                2.985999,
+                42.473015
+              ],
+              [
+                1.826793,
+                42.343385
+              ],
+              [
+                0.701591,
+                42.795734
+              ],
+              [
+                0.338047,
+                42.579546
+              ],
+              [
+                -1.502771,
+                43.034014
+              ],
+              [
+                -1.901351,
+                43.422802
+              ],
+              [
+                -1.384225,
+                44.02261
+              ],
+              [
+                -1.193798,
+                46.014918
+              ],
+              [
+                -2.225724,
+                47.064363
+              ],
+              [
+                -2.963276,
+                47.570327
+              ],
+              [
+                -4.491555,
+                47.954954
+              ],
+              [
+                -4.59235,
+                48.68416
+              ],
+              [
+                -3.295814,
+                48.901692
+              ],
+              [
+                -1.616511,
+                48.644421
+              ],
+              [
+                -1.933494,
+                49.776342
+              ],
+              [
+                -0.989469,
+                49.347376
+              ],
+              [
+                1.338761,
+                50.127173
+              ],
+              [
+                1.639001,
+                50.946606
+              ],
+              [
+                2.513573,
+                51.148506
+              ],
+              [
+                2.658422,
+                50.796848
+              ],
+              [
+                3.123252,
+                50.780363
+              ],
+              [
+                3.588184,
+                50.378992
+              ],
+              [
+                4.286023,
+                49.907497
+              ],
+              [
+                4.799222,
+                49.985373
+              ],
+              [
+                5.674052,
+                49.529484
+              ],
+              [
+                5.897759,
+                49.442667
+              ],
+              [
+                6.18632,
+                49.463803
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                8.746009,
+                42.628122
+              ],
+              [
+                9.390001,
+                43.009985
+              ],
+              [
+                9.560016,
+                42.152492
+              ],
+              [
+                9.229752,
+                41.380007
+              ],
+              [
+                8.775723,
+                41.583612
+              ],
+              [
+                8.544213,
+                42.256517
+              ],
+              [
+                8.746009,
+                42.628122
+              ]
+            ]
+          ]
         ]
-      ]
+      }
     }
-  },
-  "FRA_003": {
-    "type": "Feature",
-    "id": "FRA_003",
-    "properties": {
-      "id": "FRA_003",
-      "name": "Nouvelle-Aquitaine",
-      "country": "France",
-      "iso_a3": "FRA",
-      "region_code": "NAQ"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [-2.2, 42.8], [-2.2, 47.8], [2.4, 47.8], [2.4, 42.8], [-2.2, 42.8]
-        ]
-      ]
-    }
-  }
+  ]
 }

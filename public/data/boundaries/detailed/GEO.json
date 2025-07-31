@@ -1,0 +1,1024 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 50m (Detailed)",
+    "level": "detailed",
+    "country": "GEO",
+    "generated": "2025-07-31T02:54:50.985Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "SOVEREIGNT": "Georgia",
+        "SOV_A3": "GEO",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Georgia",
+        "ADM0_A3": "GEO",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Georgia",
+        "GU_A3": "GEO",
+        "SU_DIF": 0,
+        "SUBUNIT": "Georgia",
+        "SU_A3": "GEO",
+        "BRK_DIFF": 0,
+        "NAME": "Georgia",
+        "NAME_LONG": "Georgia",
+        "BRK_A3": "GEO",
+        "BRK_NAME": "Georgia",
+        "BRK_GROUP": null,
+        "ABBREV": "Geo.",
+        "POSTAL": "GE",
+        "FORMAL_EN": "Georgia",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Georgia",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Georgia",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 5,
+        "MAPCOLOR8": 1,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 2,
+        "POP_EST": 3720382,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 17477,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "GG",
+        "ISO_A2": "GE",
+        "ISO_A2_EH": "GE",
+        "ISO_A3": "GEO",
+        "ISO_A3_EH": "GEO",
+        "ISO_N3": "268",
+        "ISO_N3_EH": "268",
+        "UN_A3": "268",
+        "WB_A2": "GE",
+        "WB_A3": "GEO",
+        "WOE_ID": 23424823,
+        "WOE_ID_EH": 23424823,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "GEO",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "GEO",
+        "ADM0_A3_US": "GEO",
+        "ADM0_A3_FR": "GEO",
+        "ADM0_A3_RU": "GEO",
+        "ADM0_A3_ES": "GEO",
+        "ADM0_A3_CN": "GEO",
+        "ADM0_A3_TW": "GEO",
+        "ADM0_A3_IN": "GEO",
+        "ADM0_A3_NP": "GEO",
+        "ADM0_A3_PK": "GEO",
+        "ADM0_A3_DE": "GEO",
+        "ADM0_A3_GB": "GEO",
+        "ADM0_A3_BR": "GEO",
+        "ADM0_A3_IL": "GEO",
+        "ADM0_A3_PS": "GEO",
+        "ADM0_A3_SA": "GEO",
+        "ADM0_A3_EG": "GEO",
+        "ADM0_A3_MA": "GEO",
+        "ADM0_A3_PT": "GEO",
+        "ADM0_A3_AR": "GEO",
+        "ADM0_A3_JP": "GEO",
+        "ADM0_A3_KO": "GEO",
+        "ADM0_A3_VN": "GEO",
+        "ADM0_A3_TR": "GEO",
+        "ADM0_A3_ID": "GEO",
+        "ADM0_A3_PL": "GEO",
+        "ADM0_A3_GR": "GEO",
+        "ADM0_A3_IT": "GEO",
+        "ADM0_A3_NL": "GEO",
+        "ADM0_A3_SE": "GEO",
+        "ADM0_A3_BD": "GEO",
+        "ADM0_A3_UA": "GEO",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Western Asia",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4,
+        "MAX_LABEL": 9,
+        "LABEL_X": 43.735724,
+        "LABEL_Y": 41.870087,
+        "NE_ID": 1159320779,
+        "WIKIDATAID": "Q230",
+        "NAME_AR": "جورجيا",
+        "NAME_BN": "জর্জিয়া",
+        "NAME_DE": "Georgien",
+        "NAME_EN": "Georgia",
+        "NAME_ES": "Georgia",
+        "NAME_FA": "گرجستان",
+        "NAME_FR": "Géorgie",
+        "NAME_EL": "Γεωργία",
+        "NAME_HE": "גאורגיה",
+        "NAME_HI": "जॉर्जिया",
+        "NAME_HU": "Grúzia",
+        "NAME_ID": "Georgia",
+        "NAME_IT": "Georgia",
+        "NAME_JA": "ジョージア",
+        "NAME_KO": "조지아",
+        "NAME_NL": "Georgië",
+        "NAME_PL": "Gruzja",
+        "NAME_PT": "Geórgia",
+        "NAME_RU": "Грузия",
+        "NAME_SV": "Georgien",
+        "NAME_TR": "Gürcistan",
+        "NAME_UK": "Грузія",
+        "NAME_UR": "جارجیا",
+        "NAME_VI": "Gruzia",
+        "NAME_ZH": "格鲁吉亚",
+        "NAME_ZHT": "喬治亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "GEO"
+      },
+      "bbox": [
+        39.97832,
+        41.070215,
+        46.672559,
+        43.569775
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              43.439453,
+              41.107129
+            ],
+            [
+              43.441602,
+              41.125977
+            ],
+            [
+              43.433398,
+              41.155518
+            ],
+            [
+              43.402344,
+              41.176562
+            ],
+            [
+              43.358984,
+              41.190137
+            ],
+            [
+              43.279297,
+              41.185205
+            ],
+            [
+              43.205469,
+              41.19917
+            ],
+            [
+              43.152832,
+              41.236426
+            ],
+            [
+              43.141016,
+              41.264844
+            ],
+            [
+              43.171289,
+              41.287939
+            ],
+            [
+              43.149023,
+              41.307129
+            ],
+            [
+              43.057129,
+              41.352832
+            ],
+            [
+              42.906738,
+              41.466846
+            ],
+            [
+              42.82168,
+              41.492383
+            ],
+            [
+              42.787891,
+              41.563721
+            ],
+            [
+              42.754102,
+              41.578906
+            ],
+            [
+              42.682422,
+              41.585742
+            ],
+            [
+              42.606836,
+              41.578809
+            ],
+            [
+              42.59043,
+              41.570703
+            ],
+            [
+              42.567383,
+              41.559277
+            ],
+            [
+              42.50791,
+              41.470068
+            ],
+            [
+              42.466406,
+              41.439844
+            ],
+            [
+              42.364355,
+              41.454004
+            ],
+            [
+              42.27998,
+              41.475
+            ],
+            [
+              42.211133,
+              41.486719
+            ],
+            [
+              42.077734,
+              41.494092
+            ],
+            [
+              41.925781,
+              41.495654
+            ],
+            [
+              41.823535,
+              41.432373
+            ],
+            [
+              41.779395,
+              41.440527
+            ],
+            [
+              41.701758,
+              41.471582
+            ],
+            [
+              41.576563,
+              41.497314
+            ],
+            [
+              41.510059,
+              41.51748
+            ],
+            [
+              41.701758,
+              41.70542
+            ],
+            [
+              41.758789,
+              41.817139
+            ],
+            [
+              41.760742,
+              41.884863
+            ],
+            [
+              41.762988,
+              41.97002
+            ],
+            [
+              41.663281,
+              42.146875
+            ],
+            [
+              41.577734,
+              42.397852
+            ],
+            [
+              41.48877,
+              42.659326
+            ],
+            [
+              41.419434,
+              42.737646
+            ],
+            [
+              41.128711,
+              42.828125
+            ],
+            [
+              41.061621,
+              42.930859
+            ],
+            [
+              40.836621,
+              43.063477
+            ],
+            [
+              40.524023,
+              43.121045
+            ],
+            [
+              40.462109,
+              43.145703
+            ],
+            [
+              40.190625,
+              43.312402
+            ],
+            [
+              39.97832,
+              43.419824
+            ],
+            [
+              40.02373,
+              43.484863
+            ],
+            [
+              40.08457,
+              43.553125
+            ],
+            [
+              40.150195,
+              43.569775
+            ],
+            [
+              40.342285,
+              43.542725
+            ],
+            [
+              40.518945,
+              43.512012
+            ],
+            [
+              40.648047,
+              43.533887
+            ],
+            [
+              40.80166,
+              43.479932
+            ],
+            [
+              40.941992,
+              43.418066
+            ],
+            [
+              41.083105,
+              43.374463
+            ],
+            [
+              41.358203,
+              43.333398
+            ],
+            [
+              41.460742,
+              43.276318
+            ],
+            [
+              41.580566,
+              43.219238
+            ],
+            [
+              42.05,
+              43.190137
+            ],
+            [
+              42.087793,
+              43.199121
+            ],
+            [
+              42.122266,
+              43.207324
+            ],
+            [
+              42.279688,
+              43.228076
+            ],
+            [
+              42.419043,
+              43.224219
+            ],
+            [
+              42.566016,
+              43.155127
+            ],
+            [
+              42.660254,
+              43.159082
+            ],
+            [
+              42.760645,
+              43.16958
+            ],
+            [
+              42.890039,
+              43.132617
+            ],
+            [
+              42.991602,
+              43.091504
+            ],
+            [
+              43.000195,
+              43.049658
+            ],
+            [
+              43.08916,
+              42.989062
+            ],
+            [
+              43.347949,
+              42.89668
+            ],
+            [
+              43.557813,
+              42.844482
+            ],
+            [
+              43.623047,
+              42.807715
+            ],
+            [
+              43.782617,
+              42.747021
+            ],
+            [
+              43.79873,
+              42.727783
+            ],
+            [
+              43.79541,
+              42.702979
+            ],
+            [
+              43.749902,
+              42.65752
+            ],
+            [
+              43.738379,
+              42.616992
+            ],
+            [
+              43.759863,
+              42.593848
+            ],
+            [
+              43.825977,
+              42.571533
+            ],
+            [
+              43.957422,
+              42.566553
+            ],
+            [
+              44.004688,
+              42.595605
+            ],
+            [
+              44.102734,
+              42.616357
+            ],
+            [
+              44.199707,
+              42.653613
+            ],
+            [
+              44.329492,
+              42.703516
+            ],
+            [
+              44.505859,
+              42.748633
+            ],
+            [
+              44.576465,
+              42.748486
+            ],
+            [
+              44.644336,
+              42.734717
+            ],
+            [
+              44.691797,
+              42.709619
+            ],
+            [
+              44.771094,
+              42.616797
+            ],
+            [
+              44.850488,
+              42.746826
+            ],
+            [
+              44.870996,
+              42.756396
+            ],
+            [
+              44.943359,
+              42.730273
+            ],
+            [
+              45.071582,
+              42.694141
+            ],
+            [
+              45.160254,
+              42.675
+            ],
+            [
+              45.208203,
+              42.648242
+            ],
+            [
+              45.34375,
+              42.529785
+            ],
+            [
+              45.562891,
+              42.535742
+            ],
+            [
+              45.655566,
+              42.517676
+            ],
+            [
+              45.705273,
+              42.498096
+            ],
+            [
+              45.727539,
+              42.475049
+            ],
+            [
+              45.688379,
+              42.357373
+            ],
+            [
+              45.634277,
+              42.234717
+            ],
+            [
+              45.638574,
+              42.205078
+            ],
+            [
+              45.726562,
+              42.158887
+            ],
+            [
+              45.845996,
+              42.109961
+            ],
+            [
+              45.910352,
+              42.070703
+            ],
+            [
+              45.954004,
+              42.0354
+            ],
+            [
+              46.048438,
+              42.00874
+            ],
+            [
+              46.159766,
+              41.992041
+            ],
+            [
+              46.212695,
+              41.989893
+            ],
+            [
+              46.267773,
+              41.960352
+            ],
+            [
+              46.411523,
+              41.904639
+            ],
+            [
+              46.429883,
+              41.890967
+            ],
+            [
+              46.405469,
+              41.855078
+            ],
+            [
+              46.348242,
+              41.790186
+            ],
+            [
+              46.302539,
+              41.75708
+            ],
+            [
+              46.251855,
+              41.751758
+            ],
+            [
+              46.201855,
+              41.736865
+            ],
+            [
+              46.184277,
+              41.702148
+            ],
+            [
+              46.182129,
+              41.65708
+            ],
+            [
+              46.190527,
+              41.624854
+            ],
+            [
+              46.203516,
+              41.612598
+            ],
+            [
+              46.254688,
+              41.602148
+            ],
+            [
+              46.305469,
+              41.507715
+            ],
+            [
+              46.384961,
+              41.459863
+            ],
+            [
+              46.508789,
+              41.405566
+            ],
+            [
+              46.618945,
+              41.34375
+            ],
+            [
+              46.672559,
+              41.286816
+            ],
+            [
+              46.662402,
+              41.245508
+            ],
+            [
+              46.626367,
+              41.159668
+            ],
+            [
+              46.534375,
+              41.088574
+            ],
+            [
+              46.45791,
+              41.070215
+            ],
+            [
+              46.430957,
+              41.077051
+            ],
+            [
+              46.380762,
+              41.099316
+            ],
+            [
+              46.27998,
+              41.154443
+            ],
+            [
+              46.170703,
+              41.197852
+            ],
+            [
+              46.086523,
+              41.183838
+            ],
+            [
+              46.03125,
+              41.167285
+            ],
+            [
+              45.921973,
+              41.186719
+            ],
+            [
+              45.792773,
+              41.224414
+            ],
+            [
+              45.725488,
+              41.261621
+            ],
+            [
+              45.695703,
+              41.289014
+            ],
+            [
+              45.715625,
+              41.337646
+            ],
+            [
+              45.422266,
+              41.425293
+            ],
+            [
+              45.280957,
+              41.449561
+            ],
+            [
+              45.217188,
+              41.423193
+            ],
+            [
+              45.001367,
+              41.290967
+            ],
+            [
+              44.975879,
+              41.27749
+            ],
+            [
+              44.811328,
+              41.259375
+            ],
+            [
+              44.810938,
+              41.248584
+            ],
+            [
+              44.848535,
+              41.220166
+            ],
+            [
+              44.841406,
+              41.211377
+            ],
+            [
+              44.564844,
+              41.208203
+            ],
+            [
+              44.473047,
+              41.191016
+            ],
+            [
+              44.227344,
+              41.21333
+            ],
+            [
+              44.146484,
+              41.203369
+            ],
+            [
+              44.077246,
+              41.18252
+            ],
+            [
+              43.90918,
+              41.158984
+            ],
+            [
+              43.793164,
+              41.131104
+            ],
+            [
+              43.64502,
+              41.11665
+            ],
+            [
+              43.491992,
+              41.115527
+            ],
+            [
+              43.439453,
+              41.107129
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

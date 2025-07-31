@@ -1,0 +1,25 @@
+{
+  "generated": "2025-07-31T02:50:26.107Z",
+  "pipeline_version": "1.0.0-simple",
+  "source": "Multiple (World Atlas, Natural Earth GitHub)",
+  "countries": [
+    "GBR"
+  ],
+  "levels": {
+    "overview": {
+      "files": 0,
+      "countries": []
+    },
+    "detailed": {
+      "files": 1,
+      "countries": [
+        "GBR"
+      ]
+    },
+    "ultra": {
+      "files": 0,
+      "countries": []
+    }
+  },
+  "total_files": 1
+}

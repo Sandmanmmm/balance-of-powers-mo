@@ -1,0 +1,544 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "SEN",
+    "generated": "2025-07-31T02:54:50.090Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Senegal",
+        "SOV_A3": "SEN",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Senegal",
+        "ADM0_A3": "SEN",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Senegal",
+        "GU_A3": "SEN",
+        "SU_DIF": 0,
+        "SUBUNIT": "Senegal",
+        "SU_A3": "SEN",
+        "BRK_DIFF": 0,
+        "NAME": "Senegal",
+        "NAME_LONG": "Senegal",
+        "BRK_A3": "SEN",
+        "BRK_NAME": "Senegal",
+        "BRK_GROUP": null,
+        "ABBREV": "Sen.",
+        "POSTAL": "SN",
+        "FORMAL_EN": "Republic of Senegal",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Senegal",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Senegal",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 6,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 5,
+        "POP_EST": 16296364,
+        "POP_RANK": 14,
+        "POP_YEAR": 2019,
+        "GDP_MD": 23578,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "SG",
+        "ISO_A2": "SN",
+        "ISO_A2_EH": "SN",
+        "ISO_A3": "SEN",
+        "ISO_A3_EH": "SEN",
+        "ISO_N3": "686",
+        "ISO_N3_EH": "686",
+        "UN_A3": "686",
+        "WB_A2": "SN",
+        "WB_A3": "SEN",
+        "WOE_ID": 23424943,
+        "WOE_ID_EH": 23424943,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "SEN",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "SEN",
+        "ADM0_A3_US": "SEN",
+        "ADM0_A3_FR": "SEN",
+        "ADM0_A3_RU": "SEN",
+        "ADM0_A3_ES": "SEN",
+        "ADM0_A3_CN": "SEN",
+        "ADM0_A3_TW": "SEN",
+        "ADM0_A3_IN": "SEN",
+        "ADM0_A3_NP": "SEN",
+        "ADM0_A3_PK": "SEN",
+        "ADM0_A3_DE": "SEN",
+        "ADM0_A3_GB": "SEN",
+        "ADM0_A3_BR": "SEN",
+        "ADM0_A3_IL": "SEN",
+        "ADM0_A3_PS": "SEN",
+        "ADM0_A3_SA": "SEN",
+        "ADM0_A3_EG": "SEN",
+        "ADM0_A3_MA": "SEN",
+        "ADM0_A3_PT": "SEN",
+        "ADM0_A3_AR": "SEN",
+        "ADM0_A3_JP": "SEN",
+        "ADM0_A3_KO": "SEN",
+        "ADM0_A3_VN": "SEN",
+        "ADM0_A3_TR": "SEN",
+        "ADM0_A3_ID": "SEN",
+        "ADM0_A3_PL": "SEN",
+        "ADM0_A3_GR": "SEN",
+        "ADM0_A3_IT": "SEN",
+        "ADM0_A3_NL": "SEN",
+        "ADM0_A3_SE": "SEN",
+        "ADM0_A3_BD": "SEN",
+        "ADM0_A3_UA": "SEN",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Western Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2.7,
+        "MAX_LABEL": 8,
+        "LABEL_X": -14.778586,
+        "LABEL_Y": 15.138125,
+        "NE_ID": 1159321243,
+        "WIKIDATAID": "Q1041",
+        "NAME_AR": "السنغال",
+        "NAME_BN": "সেনেগাল",
+        "NAME_DE": "Senegal",
+        "NAME_EN": "Senegal",
+        "NAME_ES": "Senegal",
+        "NAME_FA": "سنگال",
+        "NAME_FR": "Sénégal",
+        "NAME_EL": "Σενεγάλη",
+        "NAME_HE": "סנגל",
+        "NAME_HI": "सेनेगल",
+        "NAME_HU": "Szenegál",
+        "NAME_ID": "Senegal",
+        "NAME_IT": "Senegal",
+        "NAME_JA": "セネガル",
+        "NAME_KO": "세네갈",
+        "NAME_NL": "Senegal",
+        "NAME_PL": "Senegal",
+        "NAME_PT": "Senegal",
+        "NAME_RU": "Сенегал",
+        "NAME_SV": "Senegal",
+        "NAME_TR": "Senegal",
+        "NAME_UK": "Сенегал",
+        "NAME_UR": "سینیگال",
+        "NAME_VI": "Sénégal",
+        "NAME_ZH": "塞内加尔",
+        "NAME_ZHT": "塞內加爾",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "SEN"
+      },
+      "bbox": [
+        -17.625043,
+        12.33209,
+        -11.467899,
+        16.598264
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -16.713729,
+              13.594959
+            ],
+            [
+              -17.126107,
+              14.373516
+            ],
+            [
+              -17.625043,
+              14.729541
+            ],
+            [
+              -17.185173,
+              14.919477
+            ],
+            [
+              -16.700706,
+              15.621527
+            ],
+            [
+              -16.463098,
+              16.135036
+            ],
+            [
+              -16.12069,
+              16.455663
+            ],
+            [
+              -15.623666,
+              16.369337
+            ],
+            [
+              -15.135737,
+              16.587282
+            ],
+            [
+              -14.577348,
+              16.598264
+            ],
+            [
+              -14.099521,
+              16.304302
+            ],
+            [
+              -13.435738,
+              16.039383
+            ],
+            [
+              -12.830658,
+              15.303692
+            ],
+            [
+              -12.17075,
+              14.616834
+            ],
+            [
+              -12.124887,
+              13.994727
+            ],
+            [
+              -11.927716,
+              13.422075
+            ],
+            [
+              -11.553398,
+              13.141214
+            ],
+            [
+              -11.467899,
+              12.754519
+            ],
+            [
+              -11.513943,
+              12.442988
+            ],
+            [
+              -11.658301,
+              12.386583
+            ],
+            [
+              -12.203565,
+              12.465648
+            ],
+            [
+              -12.278599,
+              12.35444
+            ],
+            [
+              -12.499051,
+              12.33209
+            ],
+            [
+              -13.217818,
+              12.575874
+            ],
+            [
+              -13.700476,
+              12.586183
+            ],
+            [
+              -15.548477,
+              12.62817
+            ],
+            [
+              -15.816574,
+              12.515567
+            ],
+            [
+              -16.147717,
+              12.547762
+            ],
+            [
+              -16.677452,
+              12.384852
+            ],
+            [
+              -16.841525,
+              13.151394
+            ],
+            [
+              -15.931296,
+              13.130284
+            ],
+            [
+              -15.691001,
+              13.270353
+            ],
+            [
+              -15.511813,
+              13.27857
+            ],
+            [
+              -15.141163,
+              13.509512
+            ],
+            [
+              -14.712197,
+              13.298207
+            ],
+            [
+              -14.277702,
+              13.280585
+            ],
+            [
+              -13.844963,
+              13.505042
+            ],
+            [
+              -14.046992,
+              13.794068
+            ],
+            [
+              -14.376714,
+              13.62568
+            ],
+            [
+              -14.687031,
+              13.630357
+            ],
+            [
+              -15.081735,
+              13.876492
+            ],
+            [
+              -15.39877,
+              13.860369
+            ],
+            [
+              -15.624596,
+              13.623587
+            ],
+            [
+              -16.713729,
+              13.594959
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,622 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "MYS",
+    "generated": "2025-07-31T02:54:50.217Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Malaysia",
+        "SOV_A3": "MYS",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Malaysia",
+        "ADM0_A3": "MYS",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Malaysia",
+        "GU_A3": "MYS",
+        "SU_DIF": 0,
+        "SUBUNIT": "Malaysia",
+        "SU_A3": "MYS",
+        "BRK_DIFF": 0,
+        "NAME": "Malaysia",
+        "NAME_LONG": "Malaysia",
+        "BRK_A3": "MYS",
+        "BRK_NAME": "Malaysia",
+        "BRK_GROUP": null,
+        "ABBREV": "Malay.",
+        "POSTAL": "MY",
+        "FORMAL_EN": "Malaysia",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Malaysia",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Malaysia",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 6,
+        "POP_EST": 31949777,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 364681,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "MY",
+        "ISO_A2": "MY",
+        "ISO_A2_EH": "MY",
+        "ISO_A3": "MYS",
+        "ISO_A3_EH": "MYS",
+        "ISO_N3": "458",
+        "ISO_N3_EH": "458",
+        "UN_A3": "458",
+        "WB_A2": "MY",
+        "WB_A3": "MYS",
+        "WOE_ID": 23424901,
+        "WOE_ID_EH": 23424901,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "MYS",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "MYS",
+        "ADM0_A3_US": "MYS",
+        "ADM0_A3_FR": "MYS",
+        "ADM0_A3_RU": "MYS",
+        "ADM0_A3_ES": "MYS",
+        "ADM0_A3_CN": "MYS",
+        "ADM0_A3_TW": "MYS",
+        "ADM0_A3_IN": "MYS",
+        "ADM0_A3_NP": "MYS",
+        "ADM0_A3_PK": "MYS",
+        "ADM0_A3_DE": "MYS",
+        "ADM0_A3_GB": "MYS",
+        "ADM0_A3_BR": "MYS",
+        "ADM0_A3_IL": "MYS",
+        "ADM0_A3_PS": "MYS",
+        "ADM0_A3_SA": "MYS",
+        "ADM0_A3_EG": "MYS",
+        "ADM0_A3_MA": "MYS",
+        "ADM0_A3_PT": "MYS",
+        "ADM0_A3_AR": "MYS",
+        "ADM0_A3_JP": "MYS",
+        "ADM0_A3_KO": "MYS",
+        "ADM0_A3_VN": "MYS",
+        "ADM0_A3_TR": "MYS",
+        "ADM0_A3_ID": "MYS",
+        "ADM0_A3_PL": "MYS",
+        "ADM0_A3_GR": "MYS",
+        "ADM0_A3_IT": "MYS",
+        "ADM0_A3_NL": "MYS",
+        "ADM0_A3_SE": "MYS",
+        "ADM0_A3_BD": "MYS",
+        "ADM0_A3_UA": "MYS",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "South-Eastern Asia",
+        "REGION_WB": "East Asia & Pacific",
+        "NAME_LEN": 8,
+        "LONG_LEN": 8,
+        "ABBREV_LEN": 6,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 113.83708,
+        "LABEL_Y": 2.528667,
+        "NE_ID": 1159321083,
+        "WIKIDATAID": "Q833",
+        "NAME_AR": "ماليزيا",
+        "NAME_BN": "মালয়েশিয়া",
+        "NAME_DE": "Malaysia",
+        "NAME_EN": "Malaysia",
+        "NAME_ES": "Malasia",
+        "NAME_FA": "مالزی",
+        "NAME_FR": "Malaisie",
+        "NAME_EL": "Μαλαισία",
+        "NAME_HE": "מלזיה",
+        "NAME_HI": "मलेशिया",
+        "NAME_HU": "Malajzia",
+        "NAME_ID": "Malaysia",
+        "NAME_IT": "Malaysia",
+        "NAME_JA": "マレーシア",
+        "NAME_KO": "말레이시아",
+        "NAME_NL": "Maleisië",
+        "NAME_PL": "Malezja",
+        "NAME_PT": "Malásia",
+        "NAME_RU": "Малайзия",
+        "NAME_SV": "Malaysia",
+        "NAME_TR": "Malezya",
+        "NAME_UK": "Малайзія",
+        "NAME_UR": "ملائیشیا",
+        "NAME_VI": "Malaysia",
+        "NAME_ZH": "马来西亚",
+        "NAME_ZHT": "馬來西亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "MYS"
+      },
+      "bbox": [
+        100.085757,
+        0.773131,
+        119.181904,
+        6.928053
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                100.085757,
+                6.464489
+              ],
+              [
+                100.259596,
+                6.642825
+              ],
+              [
+                101.075516,
+                6.204867
+              ],
+              [
+                101.154219,
+                5.691384
+              ],
+              [
+                101.814282,
+                5.810808
+              ],
+              [
+                102.141187,
+                6.221636
+              ],
+              [
+                102.371147,
+                6.128205
+              ],
+              [
+                102.961705,
+                5.524495
+              ],
+              [
+                103.381215,
+                4.855001
+              ],
+              [
+                103.438575,
+                4.181606
+              ],
+              [
+                103.332122,
+                3.726698
+              ],
+              [
+                103.429429,
+                3.382869
+              ],
+              [
+                103.502448,
+                2.791019
+              ],
+              [
+                103.854674,
+                2.515454
+              ],
+              [
+                104.247932,
+                1.631141
+              ],
+              [
+                104.228811,
+                1.293048
+              ],
+              [
+                103.519707,
+                1.226334
+              ],
+              [
+                102.573615,
+                1.967115
+              ],
+              [
+                101.390638,
+                2.760814
+              ],
+              [
+                101.27354,
+                3.270292
+              ],
+              [
+                100.695435,
+                3.93914
+              ],
+              [
+                100.557408,
+                4.76728
+              ],
+              [
+                100.196706,
+                5.312493
+              ],
+              [
+                100.30626,
+                6.040562
+              ],
+              [
+                100.085757,
+                6.464489
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                117.882035,
+                4.137551
+              ],
+              [
+                117.015214,
+                4.306094
+              ],
+              [
+                115.865517,
+                4.306559
+              ],
+              [
+                115.519078,
+                3.169238
+              ],
+              [
+                115.134037,
+                2.821482
+              ],
+              [
+                114.621355,
+                1.430688
+              ],
+              [
+                113.80585,
+                1.217549
+              ],
+              [
+                112.859809,
+                1.49779
+              ],
+              [
+                112.380252,
+                1.410121
+              ],
+              [
+                111.797548,
+                0.904441
+              ],
+              [
+                111.159138,
+                0.976478
+              ],
+              [
+                110.514061,
+                0.773131
+              ],
+              [
+                109.830227,
+                1.338136
+              ],
+              [
+                109.66326,
+                2.006467
+              ],
+              [
+                110.396135,
+                1.663775
+              ],
+              [
+                111.168853,
+                1.850637
+              ],
+              [
+                111.370081,
+                2.697303
+              ],
+              [
+                111.796928,
+                2.885897
+              ],
+              [
+                112.995615,
+                3.102395
+              ],
+              [
+                113.712935,
+                3.893509
+              ],
+              [
+                114.204017,
+                4.525874
+              ],
+              [
+                114.659596,
+                4.007637
+              ],
+              [
+                114.869557,
+                4.348314
+              ],
+              [
+                115.347461,
+                4.316636
+              ],
+              [
+                115.4057,
+                4.955228
+              ],
+              [
+                115.45071,
+                5.44773
+              ],
+              [
+                116.220741,
+                6.143191
+              ],
+              [
+                116.725103,
+                6.924771
+              ],
+              [
+                117.129626,
+                6.928053
+              ],
+              [
+                117.643393,
+                6.422166
+              ],
+              [
+                117.689075,
+                5.98749
+              ],
+              [
+                118.347691,
+                5.708696
+              ],
+              [
+                119.181904,
+                5.407836
+              ],
+              [
+                119.110694,
+                5.016128
+              ],
+              [
+                118.439727,
+                4.966519
+              ],
+              [
+                118.618321,
+                4.478202
+              ],
+              [
+                117.882035,
+                4.137551
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

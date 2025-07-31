@@ -1,0 +1,672 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "IRN",
+    "generated": "2025-07-31T02:54:50.165Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "Iran",
+        "SOV_A3": "IRN",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Iran",
+        "ADM0_A3": "IRN",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Iran",
+        "GU_A3": "IRN",
+        "SU_DIF": 0,
+        "SUBUNIT": "Iran",
+        "SU_A3": "IRN",
+        "BRK_DIFF": 0,
+        "NAME": "Iran",
+        "NAME_LONG": "Iran",
+        "BRK_A3": "IRN",
+        "BRK_NAME": "Iran",
+        "BRK_GROUP": null,
+        "ABBREV": "Iran",
+        "POSTAL": "IRN",
+        "FORMAL_EN": "Islamic Republic of Iran",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Iran",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Iran, Islamic Rep.",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 4,
+        "MAPCOLOR8": 3,
+        "MAPCOLOR9": 4,
+        "MAPCOLOR13": 13,
+        "POP_EST": 82913906,
+        "POP_RANK": 16,
+        "POP_YEAR": 2019,
+        "GDP_MD": 453996,
+        "GDP_YEAR": 2018,
+        "ECONOMY": "5. Emerging region: G20",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "IR",
+        "ISO_A2": "IR",
+        "ISO_A2_EH": "IR",
+        "ISO_A3": "IRN",
+        "ISO_A3_EH": "IRN",
+        "ISO_N3": "364",
+        "ISO_N3_EH": "364",
+        "UN_A3": "364",
+        "WB_A2": "IR",
+        "WB_A3": "IRN",
+        "WOE_ID": 23424851,
+        "WOE_ID_EH": 23424851,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "IRN",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "IRN",
+        "ADM0_A3_US": "IRN",
+        "ADM0_A3_FR": "IRN",
+        "ADM0_A3_RU": "IRN",
+        "ADM0_A3_ES": "IRN",
+        "ADM0_A3_CN": "IRN",
+        "ADM0_A3_TW": "IRN",
+        "ADM0_A3_IN": "IRN",
+        "ADM0_A3_NP": "IRN",
+        "ADM0_A3_PK": "IRN",
+        "ADM0_A3_DE": "IRN",
+        "ADM0_A3_GB": "IRN",
+        "ADM0_A3_BR": "IRN",
+        "ADM0_A3_IL": "IRN",
+        "ADM0_A3_PS": "IRN",
+        "ADM0_A3_SA": "IRN",
+        "ADM0_A3_EG": "IRN",
+        "ADM0_A3_MA": "IRN",
+        "ADM0_A3_PT": "IRN",
+        "ADM0_A3_AR": "IRN",
+        "ADM0_A3_JP": "IRN",
+        "ADM0_A3_KO": "IRN",
+        "ADM0_A3_VN": "IRN",
+        "ADM0_A3_TR": "IRN",
+        "ADM0_A3_ID": "IRN",
+        "ADM0_A3_PL": "IRN",
+        "ADM0_A3_GR": "IRN",
+        "ADM0_A3_IT": "IRN",
+        "ADM0_A3_NL": "IRN",
+        "ADM0_A3_SE": "IRN",
+        "ADM0_A3_BD": "IRN",
+        "ADM0_A3_UA": "IRN",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Southern Asia",
+        "REGION_WB": "Middle East & North Africa",
+        "NAME_LEN": 4,
+        "LONG_LEN": 4,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2.5,
+        "MAX_LABEL": 6.7,
+        "LABEL_X": 54.931495,
+        "LABEL_Y": 32.166225,
+        "NE_ID": 1159320881,
+        "WIKIDATAID": "Q794",
+        "NAME_AR": "إيران",
+        "NAME_BN": "ইরান",
+        "NAME_DE": "Iran",
+        "NAME_EN": "Iran",
+        "NAME_ES": "Irán",
+        "NAME_FA": "ایران",
+        "NAME_FR": "Iran",
+        "NAME_EL": "Ιράν",
+        "NAME_HE": "איראן",
+        "NAME_HI": "ईरान",
+        "NAME_HU": "Irán",
+        "NAME_ID": "Iran",
+        "NAME_IT": "Iran",
+        "NAME_JA": "イラン",
+        "NAME_KO": "이란",
+        "NAME_NL": "Iran",
+        "NAME_PL": "Iran",
+        "NAME_PT": "Irão",
+        "NAME_RU": "Иран",
+        "NAME_SV": "Iran",
+        "NAME_TR": "İran",
+        "NAME_UK": "Іран",
+        "NAME_UR": "ایران",
+        "NAME_VI": "Iran",
+        "NAME_ZH": "伊朗",
+        "NAME_ZHT": "伊朗",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "IRN"
+      },
+      "bbox": [
+        44.109225,
+        25.078237,
+        63.316632,
+        39.713003
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.567971,
+              29.926778
+            ],
+            [
+              48.014568,
+              30.452457
+            ],
+            [
+              48.004698,
+              30.985137
+            ],
+            [
+              47.685286,
+              30.984853
+            ],
+            [
+              47.849204,
+              31.709176
+            ],
+            [
+              47.334661,
+              32.469155
+            ],
+            [
+              46.109362,
+              33.017287
+            ],
+            [
+              45.416691,
+              33.967798
+            ],
+            [
+              45.64846,
+              34.748138
+            ],
+            [
+              46.151788,
+              35.093259
+            ],
+            [
+              46.07634,
+              35.677383
+            ],
+            [
+              45.420618,
+              35.977546
+            ],
+            [
+              44.772677,
+              37.170437
+            ],
+            [
+              44.77267,
+              37.17045
+            ],
+            [
+              44.225756,
+              37.971584
+            ],
+            [
+              44.421403,
+              38.281281
+            ],
+            [
+              44.109225,
+              39.428136
+            ],
+            [
+              44.79399,
+              39.713003
+            ],
+            [
+              44.952688,
+              39.335765
+            ],
+            [
+              45.457722,
+              38.874139
+            ],
+            [
+              46.143623,
+              38.741201
+            ],
+            [
+              46.50572,
+              38.770605
+            ],
+            [
+              47.685079,
+              39.508364
+            ],
+            [
+              48.060095,
+              39.582235
+            ],
+            [
+              48.355529,
+              39.288765
+            ],
+            [
+              48.010744,
+              38.794015
+            ],
+            [
+              48.634375,
+              38.270378
+            ],
+            [
+              48.883249,
+              38.320245
+            ],
+            [
+              49.199612,
+              37.582874
+            ],
+            [
+              50.147771,
+              37.374567
+            ],
+            [
+              50.842354,
+              36.872814
+            ],
+            [
+              52.264025,
+              36.700422
+            ],
+            [
+              53.82579,
+              36.965031
+            ],
+            [
+              53.921598,
+              37.198918
+            ],
+            [
+              54.800304,
+              37.392421
+            ],
+            [
+              55.511578,
+              37.964117
+            ],
+            [
+              56.180375,
+              37.935127
+            ],
+            [
+              56.619366,
+              38.121394
+            ],
+            [
+              57.330434,
+              38.029229
+            ],
+            [
+              58.436154,
+              37.522309
+            ],
+            [
+              59.234762,
+              37.412988
+            ],
+            [
+              60.377638,
+              36.527383
+            ],
+            [
+              61.123071,
+              36.491597
+            ],
+            [
+              61.210817,
+              35.650072
+            ],
+            [
+              60.803193,
+              34.404102
+            ],
+            [
+              60.52843,
+              33.676446
+            ],
+            [
+              60.9637,
+              33.528832
+            ],
+            [
+              60.536078,
+              32.981269
+            ],
+            [
+              60.863655,
+              32.18292
+            ],
+            [
+              60.941945,
+              31.548075
+            ],
+            [
+              61.699314,
+              31.379506
+            ],
+            [
+              61.781222,
+              30.73585
+            ],
+            [
+              60.874248,
+              29.829239
+            ],
+            [
+              61.369309,
+              29.303276
+            ],
+            [
+              61.771868,
+              28.699334
+            ],
+            [
+              62.72783,
+              28.259645
+            ],
+            [
+              62.755426,
+              27.378923
+            ],
+            [
+              63.233898,
+              27.217047
+            ],
+            [
+              63.316632,
+              26.756532
+            ],
+            [
+              61.874187,
+              26.239975
+            ],
+            [
+              61.497363,
+              25.078237
+            ],
+            [
+              59.616134,
+              25.380157
+            ],
+            [
+              58.525761,
+              25.609962
+            ],
+            [
+              57.397251,
+              25.739902
+            ],
+            [
+              56.970766,
+              26.966106
+            ],
+            [
+              56.492139,
+              27.143305
+            ],
+            [
+              55.72371,
+              26.964633
+            ],
+            [
+              54.71509,
+              26.480658
+            ],
+            [
+              53.493097,
+              26.812369
+            ],
+            [
+              52.483598,
+              27.580849
+            ],
+            [
+              51.520763,
+              27.86569
+            ],
+            [
+              50.852948,
+              28.814521
+            ],
+            [
+              50.115009,
+              30.147773
+            ],
+            [
+              49.57685,
+              29.985715
+            ],
+            [
+              48.941333,
+              30.31709
+            ],
+            [
+              48.567971,
+              29.926778
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

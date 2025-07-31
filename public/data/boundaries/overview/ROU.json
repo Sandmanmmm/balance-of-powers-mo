@@ -1,0 +1,544 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "ROU",
+    "generated": "2025-07-31T02:54:50.176Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Romania",
+        "SOV_A3": "ROU",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Romania",
+        "ADM0_A3": "ROU",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Romania",
+        "GU_A3": "ROU",
+        "SU_DIF": 0,
+        "SUBUNIT": "Romania",
+        "SU_A3": "ROU",
+        "BRK_DIFF": 0,
+        "NAME": "Romania",
+        "NAME_LONG": "Romania",
+        "BRK_A3": "ROU",
+        "BRK_NAME": "Romania",
+        "BRK_GROUP": null,
+        "ABBREV": "Rom.",
+        "POSTAL": "RO",
+        "FORMAL_EN": "Romania",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Romania",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Romania",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 13,
+        "POP_EST": 19356544,
+        "POP_RANK": 14,
+        "POP_YEAR": 2019,
+        "GDP_MD": 250077,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "2. Developed region: nonG7",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "RO",
+        "ISO_A2": "RO",
+        "ISO_A2_EH": "RO",
+        "ISO_A3": "ROU",
+        "ISO_A3_EH": "ROU",
+        "ISO_N3": "642",
+        "ISO_N3_EH": "642",
+        "UN_A3": "642",
+        "WB_A2": "RO",
+        "WB_A3": "ROM",
+        "WOE_ID": 23424933,
+        "WOE_ID_EH": 23424933,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "ROU",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "ROU",
+        "ADM0_A3_US": "ROU",
+        "ADM0_A3_FR": "ROU",
+        "ADM0_A3_RU": "ROU",
+        "ADM0_A3_ES": "ROU",
+        "ADM0_A3_CN": "ROU",
+        "ADM0_A3_TW": "ROU",
+        "ADM0_A3_IN": "ROU",
+        "ADM0_A3_NP": "ROU",
+        "ADM0_A3_PK": "ROU",
+        "ADM0_A3_DE": "ROU",
+        "ADM0_A3_GB": "ROU",
+        "ADM0_A3_BR": "ROU",
+        "ADM0_A3_IL": "ROU",
+        "ADM0_A3_PS": "ROU",
+        "ADM0_A3_SA": "ROU",
+        "ADM0_A3_EG": "ROU",
+        "ADM0_A3_MA": "ROU",
+        "ADM0_A3_PT": "ROU",
+        "ADM0_A3_AR": "ROU",
+        "ADM0_A3_JP": "ROU",
+        "ADM0_A3_KO": "ROU",
+        "ADM0_A3_VN": "ROU",
+        "ADM0_A3_TR": "ROU",
+        "ADM0_A3_ID": "ROU",
+        "ADM0_A3_PL": "ROU",
+        "ADM0_A3_GR": "ROU",
+        "ADM0_A3_IT": "ROU",
+        "ADM0_A3_NL": "ROU",
+        "ADM0_A3_SE": "ROU",
+        "ADM0_A3_BD": "ROU",
+        "ADM0_A3_UA": "ROU",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Europe",
+        "REGION_UN": "Europe",
+        "SUBREGION": "Eastern Europe",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 24.972624,
+        "LABEL_Y": 45.733237,
+        "NE_ID": 1159321199,
+        "WIKIDATAID": "Q218",
+        "NAME_AR": "رومانيا",
+        "NAME_BN": "রোমানিয়া",
+        "NAME_DE": "Rumänien",
+        "NAME_EN": "Romania",
+        "NAME_ES": "Rumania",
+        "NAME_FA": "رومانی",
+        "NAME_FR": "Roumanie",
+        "NAME_EL": "Ρουμανία",
+        "NAME_HE": "רומניה",
+        "NAME_HI": "रोमानिया",
+        "NAME_HU": "Románia",
+        "NAME_ID": "Rumania",
+        "NAME_IT": "Romania",
+        "NAME_JA": "ルーマニア",
+        "NAME_KO": "루마니아",
+        "NAME_NL": "Roemenië",
+        "NAME_PL": "Rumunia",
+        "NAME_PT": "Roménia",
+        "NAME_RU": "Румыния",
+        "NAME_SV": "Rumänien",
+        "NAME_TR": "Romanya",
+        "NAME_UK": "Румунія",
+        "NAME_UR": "رومانیہ",
+        "NAME_VI": "Romania",
+        "NAME_ZH": "罗马尼亚",
+        "NAME_ZHT": "羅馬尼亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "ROU"
+      },
+      "bbox": [
+        20.220192,
+        43.688445,
+        29.626543,
+        48.220881
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.233554,
+              45.488283
+            ],
+            [
+              28.679779,
+              45.304031
+            ],
+            [
+              29.149725,
+              45.464925
+            ],
+            [
+              29.603289,
+              45.293308
+            ],
+            [
+              29.626543,
+              45.035391
+            ],
+            [
+              29.141612,
+              44.82021
+            ],
+            [
+              28.837858,
+              44.913874
+            ],
+            [
+              28.558081,
+              43.707462
+            ],
+            [
+              27.970107,
+              43.812468
+            ],
+            [
+              27.2424,
+              44.175986
+            ],
+            [
+              26.065159,
+              43.943494
+            ],
+            [
+              25.569272,
+              43.688445
+            ],
+            [
+              24.100679,
+              43.741051
+            ],
+            [
+              23.332302,
+              43.897011
+            ],
+            [
+              22.944832,
+              43.823785
+            ],
+            [
+              22.65715,
+              44.234923
+            ],
+            [
+              22.474008,
+              44.409228
+            ],
+            [
+              22.705726,
+              44.578003
+            ],
+            [
+              22.459022,
+              44.702517
+            ],
+            [
+              22.145088,
+              44.478422
+            ],
+            [
+              21.562023,
+              44.768947
+            ],
+            [
+              21.483526,
+              45.18117
+            ],
+            [
+              20.874313,
+              45.416375
+            ],
+            [
+              20.762175,
+              45.734573
+            ],
+            [
+              20.220192,
+              46.127469
+            ],
+            [
+              21.021952,
+              46.316088
+            ],
+            [
+              21.626515,
+              46.994238
+            ],
+            [
+              22.099768,
+              47.672439
+            ],
+            [
+              22.710531,
+              47.882194
+            ],
+            [
+              23.142236,
+              48.096341
+            ],
+            [
+              23.760958,
+              47.985598
+            ],
+            [
+              24.402056,
+              47.981878
+            ],
+            [
+              24.866317,
+              47.737526
+            ],
+            [
+              25.207743,
+              47.891056
+            ],
+            [
+              25.945941,
+              47.987149
+            ],
+            [
+              26.19745,
+              48.220881
+            ],
+            [
+              26.619337,
+              48.220726
+            ],
+            [
+              26.924176,
+              48.123264
+            ],
+            [
+              27.233873,
+              47.826771
+            ],
+            [
+              27.551166,
+              47.405117
+            ],
+            [
+              28.12803,
+              46.810476
+            ],
+            [
+              28.160018,
+              46.371563
+            ],
+            [
+              28.054443,
+              45.944586
+            ],
+            [
+              28.233554,
+              45.488283
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

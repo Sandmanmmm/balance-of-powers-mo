@@ -1,2 +1,822 @@
-# Southeast Asia Nations - Placeholder
-nations: {}
+# Southeast Asia - Regional Nation Data
+
+nations:
+  JPN:
+    name: "Japan"
+    capital: "Tokyo"
+    flag: "🇯🇵"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Fumio Kishida"
+      approval: 42.8
+      stability: 88.5
+      ruling_party: "Liberal Democratic Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2021-10-31"
+    economy:
+      gdp: 4230000000000
+      debt: 10700000000000
+      inflation: 3.2
+      trade_balance: -12000000000
+      treasury: 185000000000
+      currency: "JPY"
+      interest_rate: -0.1
+      sectors:
+        manufacturing: 20.8
+        services: 70.9
+        agriculture: 1.1
+        technology: 7.2
+    military:
+      manpower: 247000
+      equipment: 92
+      readiness: 95
+      doctrine: "Self-Defense"
+      nuclear_capability: false
+      military_spending_gdp: 1.24
+      conscription: false
+      reserve_forces: 32000
+    technology:
+      researchPoints: 2850
+      currentResearch:
+        - "AI Systems"
+        - "Robotics"
+        - "Clean Energy"
+      completedTech:
+        - "Internet"
+        - "Advanced Manufacturing"
+        - "Precision Engineering"
+        - "Electronics"
+        - "Automation"
+    demographics:
+      population: 125000000
+      median_age: 48.6
+      birth_rate: 1.30
+      life_expectancy: 84.8
+      literacy_rate: 99.0
+      urbanization: 91.8
+    diplomacy:
+      allies: ["USA", "AUS", "GBR", "KOR"]
+      enemies: []
+      trade_partners: ["USA", "CHN", "KOR", "THA", "GER"]
+      international_relations:
+        NATO: false
+        G7: "member"
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 85000
+      steel: 2850000
+      rare_earth: 185000
+      uranium: 8500
+      food: 1850000
+    resource_production:
+      oil: 3500
+      steel: 850000
+      rare_earth: 2800
+      uranium: 185
+      food: 485000
+    resource_consumption:
+      oil: 3850000
+      steel: 720000
+      rare_earth: 85000
+      uranium: 1850
+      food: 520000
+
+  KOR:
+    name: "South Korea"
+    capital: "Seoul"
+    flag: "🇰🇷"
+    government:
+      type: "presidential_republic"
+      leader: "Yoon Suk-yeol"
+      approval: 38.5
+      stability: 82.8
+      ruling_party: "People Power Party"
+      ideology: "Conservative Democracy"
+      election_cycle: 5
+      last_election: "2022-03-09"
+    economy:
+      gdp: 1810000000000
+      debt: 985000000000
+      inflation: 3.6
+      trade_balance: 28000000000
+      treasury: 125000000000
+      currency: "KRW"
+      interest_rate: 3.5
+      sectors:
+        manufacturing: 27.8
+        services: 59.2
+        agriculture: 2.2
+        technology: 10.8
+    military:
+      manpower: 500000
+      equipment: 89
+      readiness: 92
+      doctrine: "High-Tech Defense"
+      nuclear_capability: false
+      military_spending_gdp: 2.78
+      conscription: true
+      reserve_forces: 2700000
+    technology:
+      researchPoints: 1950
+      currentResearch:
+        - "Semiconductors"
+        - "5G Technology"
+        - "Defense Systems"
+      completedTech:
+        - "Internet"
+        - "Advanced Electronics"
+        - "Shipbuilding"
+        - "Telecommunications"
+    demographics:
+      population: 51000000
+      median_age: 44.9
+      birth_rate: 0.81
+      life_expectancy: 83.5
+      literacy_rate: 97.9
+      urbanization: 81.4
+    diplomacy:
+      allies: ["USA", "JPN", "AUS"]
+      enemies: []
+      trade_partners: ["CHN", "USA", "JPN", "VNM", "GER"]
+      international_relations:
+        NATO: false
+        G20: "member"
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 45000
+      steel: 1850000
+      rare_earth: 85000
+      uranium: 4500
+      food: 950000
+    resource_production:
+      oil: 850
+      steel: 720000
+      rare_earth: 8500
+      uranium: 285
+      food: 285000
+    resource_consumption:
+      oil: 2850000
+      steel: 585000
+      rare_earth: 45000
+      uranium: 850
+      food: 320000
+
+  IDN:
+    name: "Indonesia"
+    capital: "Jakarta"
+    flag: "🇮🇩"
+    government:
+      type: "presidential_republic"
+      leader: "Joko Widodo"
+      approval: 72.5
+      stability: 75.8
+      ruling_party: "Indonesian Democratic Party"
+      ideology: "Pancasila Democracy"
+      election_cycle: 5
+      last_election: "2019-04-17"
+    economy:
+      gdp: 1417000000000
+      debt: 485000000000
+      inflation: 4.2
+      trade_balance: 35000000000
+      treasury: 85000000000
+      currency: "IDR"
+      interest_rate: 5.75
+      sectors:
+        manufacturing: 19.7
+        services: 44.2
+        agriculture: 12.8
+        technology: 23.3
+    military:
+      manpower: 395000
+      equipment: 68
+      readiness: 75
+      doctrine: "Archipelagic Defense"
+      nuclear_capability: false
+      military_spending_gdp: 0.72
+      conscription: false
+      reserve_forces: 400000
+    technology:
+      researchPoints: 580
+      currentResearch:
+        - "Palm Oil Technology"
+        - "Maritime Systems"
+        - "Mining Technology"
+      completedTech:
+        - "Internet"
+        - "Basic Manufacturing"
+        - "Agriculture Technology"
+    demographics:
+      population: 275000000
+      median_age: 30.2
+      birth_rate: 2.15
+      life_expectancy: 71.7
+      literacy_rate: 96.0
+      urbanization: 56.6
+    diplomacy:
+      allies: ["USA", "AUS"]
+      enemies: []
+      trade_partners: ["CHN", "JPN", "USA", "SGP", "MYS"]
+      international_relations:
+        NATO: false
+        G20: "member"
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 2850000
+      steel: 485000
+      rare_earth: 125000
+      uranium: 8500
+      food: 3850000
+    resource_production:
+      oil: 850000
+      steel: 185000
+      rare_earth: 18500
+      uranium: 285
+      food: 2850000
+    resource_consumption:
+      oil: 1850000
+      steel: 285000
+      rare_earth: 8500
+      uranium: 450
+      food: 2950000
+
+  THA:
+    name: "Thailand"
+    capital: "Bangkok"
+    flag: "🇹🇭"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Srettha Thavisin"
+      approval: 58.2
+      stability: 72.5
+      ruling_party: "Pheu Thai Party"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 4
+      last_election: "2023-05-14"
+    economy:
+      gdp: 534000000000
+      debt: 285000000000
+      inflation: 1.8
+      trade_balance: 18500000000
+      treasury: 45000000000
+      currency: "THB"
+      interest_rate: 2.5
+      sectors:
+        manufacturing: 27.2
+        services: 58.8
+        agriculture: 8.2
+        technology: 5.8
+    military:
+      manpower: 360000
+      equipment: 75
+      readiness: 80
+      doctrine: "Regional Defense"
+      nuclear_capability: false
+      military_spending_gdp: 1.41
+      conscription: true
+      reserve_forces: 200000
+    technology:
+      researchPoints: 485
+      currentResearch:
+        - "Agriculture Technology"
+        - "Tourism Systems"
+        - "Manufacturing"
+      completedTech:
+        - "Internet"
+        - "Basic Manufacturing"
+        - "Food Processing"
+    demographics:
+      population: 70000000
+      median_age: 40.1
+      birth_rate: 1.51
+      life_expectancy: 77.1
+      literacy_rate: 93.8
+      urbanization: 51.4
+    diplomacy:
+      allies: ["USA", "JPN"]
+      enemies: []
+      trade_partners: ["CHN", "JPN", "USA", "MYS", "SGP"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 185000
+      steel: 285000
+      rare_earth: 18500
+      uranium: 850
+      food: 1850000
+    resource_production:
+      oil: 28500
+      steel: 85000
+      rare_earth: 2850
+      uranium: 85
+      food: 1285000
+    resource_consumption:
+      oil: 1185000
+      steel: 95000
+      rare_earth: 4500
+      uranium: 185
+      food: 1150000
+
+  VNM:
+    name: "Vietnam"
+    capital: "Hanoi"
+    flag: "🇻🇳"
+    government:
+      type: "communist_republic"
+      leader: "Vo Van Thuong"
+      approval: 68.5
+      stability: 82.8
+      ruling_party: "Communist Party of Vietnam"
+      ideology: "Socialist Republic"
+      election_cycle: 5
+      last_election: "2021-05-23"
+    economy:
+      gdp: 408000000000
+      debt: 185000000000
+      inflation: 3.2
+      trade_balance: 11500000000
+      treasury: 28500000000
+      currency: "VND"
+      interest_rate: 4.5
+      sectors:
+        manufacturing: 24.2
+        services: 41.6
+        agriculture: 14.8
+        technology: 19.4
+    military:
+      manpower: 482000
+      equipment: 72
+      readiness: 85
+      doctrine: "People's Defense"
+      nuclear_capability: false
+      military_spending_gdp: 2.32
+      conscription: true
+      reserve_forces: 5000000
+    technology:
+      researchPoints: 380
+      currentResearch:
+        - "Electronics Manufacturing"
+        - "Agriculture Technology"
+        - "Infrastructure"
+      completedTech:
+        - "Internet"
+        - "Basic Manufacturing"
+        - "Textiles"
+    demographics:
+      population: 98000000
+      median_age: 32.5
+      birth_rate: 1.94
+      life_expectancy: 75.4
+      literacy_rate: 95.8
+      urbanization: 37.3
+    diplomacy:
+      allies: ["CHN", "RUS"]
+      enemies: []
+      trade_partners: ["CHN", "USA", "KOR", "JPN", "THA"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 285000
+      steel: 185000
+      rare_earth: 28500
+      uranium: 1850
+      food: 2850000
+    resource_production:
+      oil: 18500
+      steel: 85000
+      rare_earth: 8500
+      uranium: 185
+      food: 1850000
+    resource_consumption:
+      oil: 485000
+      steel: 125000
+      rare_earth: 2850
+      uranium: 285
+      food: 1750000
+
+  MYS:
+    name: "Malaysia"
+    capital: "Kuala Lumpur"
+    flag: "🇲🇾"
+    government:
+      type: "federal_monarchy"
+      leader: "Anwar Ibrahim"
+      approval: 54.3
+      stability: 76.8
+      ruling_party: "Pakatan Harapan"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2022-11-19"
+    economy:
+      gdp: 432000000000
+      debt: 260000000000
+      inflation: 3.4
+      trade_balance: 38000000000
+      treasury: 22000000000
+      currency: "MYR"
+      interest_rate: 3.0
+      sectors:
+        manufacturing: 22.8
+        services: 54.1
+        agriculture: 7.1
+        technology: 16.0
+    military:
+      manpower: 113000
+      equipment: 78
+      readiness: 83
+      doctrine: "Regional Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 680
+      currentResearch: ["Palm Oil Technology", "Electronics Manufacturing"]
+      completedTech: ["Internet", "Modern Manufacturing", "Petroleum Refining"]
+      level: 7.8
+    diplomacy:
+      allies: ["IDN", "THA", "SGP", "USA"]
+      enemies: []
+      neutrality: 85.2
+
+  PHL:
+    name: "Philippines"
+    capital: "Manila"
+    flag: "🇵🇭"
+    government:
+      type: "republic"
+      leader: "Ferdinand Marcos Jr."
+      approval: 67.8
+      stability: 71.2
+      ruling_party: "PFP"
+      ideology: "Conservative Democracy"
+      election_cycle: 6
+      last_election: "2022-05-09"
+    economy:
+      gdp: 394000000000
+      debt: 220000000000
+      inflation: 5.4
+      trade_balance: -45000000000
+      treasury: 15000000000
+      currency: "PHP"
+      interest_rate: 5.5
+      sectors:
+        manufacturing: 18.2
+        services: 61.9
+        agriculture: 8.6
+        technology: 11.3
+    military:
+      manpower: 143000
+      equipment: 65
+      readiness: 75
+      doctrine: "Island Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 520
+      currentResearch: ["Maritime Technology", "Call Center Technology"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.2
+    diplomacy:
+      allies: ["USA", "JPN", "AUS"]
+      enemies: []
+      neutrality: 72.8
+
+  SGP:
+    name: "Singapore"
+    capital: "Singapore"
+    flag: "🇸🇬"
+    government:
+      type: "republic"
+      leader: "Lee Hsien Loong"
+      approval: 78.5
+      stability: 95.2
+      ruling_party: "People's Action Party"
+      ideology: "Technocratic Democracy"
+      election_cycle: 5
+      last_election: "2020-07-10"
+    economy:
+      gdp: 372000000000
+      debt: 485000000000
+      inflation: 2.3
+      trade_balance: 65000000000
+      treasury: 85000000000
+      currency: "SGD"
+      interest_rate: 1.5
+      sectors:
+        manufacturing: 20.8
+        services: 70.5
+        agriculture: 0.0
+        technology: 8.7
+    military:
+      manpower: 72000
+      equipment: 95
+      readiness: 92
+      doctrine: "Total Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 1450
+      currentResearch: ["AI Technology", "Smart City Systems"]
+      completedTech: ["Internet", "Modern Manufacturing", "Financial Technology"]
+      level: 9.4
+    diplomacy:
+      allies: ["USA", "MYS", "IDN", "AUS"]
+      enemies: []
+      neutrality: 88.5
+
+  MMR:
+    name: "Myanmar"
+    capital: "Naypyidaw"
+    flag: "🇲🇲"
+    government:
+      type: "military_junta"
+      leader: "Min Aung Hlaing"
+      approval: 15.2
+      stability: 22.8
+      ruling_party: "State Administration Council"
+      ideology: "Military Authoritarianism"
+      election_cycle: 0
+      last_election: "2020-11-08"
+    economy:
+      gdp: 71000000000
+      debt: 28000000000
+      inflation: 12.8
+      trade_balance: -2000000000
+      treasury: 2000000000
+      currency: "MMK"
+      interest_rate: 8.0
+      sectors:
+        manufacturing: 15.2
+        services: 41.8
+        agriculture: 24.8
+        technology: 18.2
+    military:
+      manpower: 406000
+      equipment: 52
+      readiness: 65
+      doctrine: "Internal Security"
+      nuclearCapability: false
+    technology:
+      researchPoints: 180
+      currentResearch: ["Resource Extraction", "Internal Security"]
+      completedTech: ["Internet", "Basic Manufacturing"]
+      level: 5.8
+    diplomacy:
+      allies: ["CHN", "RUS"]
+      enemies: []
+      neutrality: 35.2
+
+  LKA:
+    name: "Sri Lanka"
+    capital: "Colombo"
+    flag: "🇱🇰"
+    government:
+      type: "republic"
+      leader: "Ranil Wickremesinghe"
+      approval: 28.5
+      stability: 42.1
+      ruling_party: "United National Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2019-11-16"
+    economy:
+      gdp: 84000000000
+      debt: 78000000000
+      inflation: 25.9
+      trade_balance: -8000000000
+      treasury: 1000000000
+      currency: "LKR"
+      interest_rate: 15.5
+      sectors:
+        manufacturing: 16.4
+        services: 56.8
+        agriculture: 7.4
+        technology: 19.4
+    military:
+      manpower: 346000
+      equipment: 58
+      readiness: 72
+      doctrine: "Coastal Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 280
+      currentResearch: ["Tea Technology", "Tourism"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 6.5
+    diplomacy:
+      allies: ["IND", "CHN"]
+      enemies: []
+      neutrality: 75.8
+
+  PRK:
+    display_name: "North Korea"
+    code: "PRK"
+    region: "southeast_asia"
+    politics:
+      government_type: "Socialist Republic"
+      approval: 85.5
+      stability: 68.5
+      ruling_party: "Workers' Party of Korea"
+      ideology: "Juche"
+      election_cycle: 0
+      last_election: "2019-03-10"
+    economy:
+      gdp: 32000000000
+      debt: 8500000000
+      inflation: 0.5
+      trade_balance: -1850000000
+    military:
+      active_personnel: 1280000
+      reserves: 600000
+      defense_budget: 4850000000
+      nuclear_weapons: 45
+    resources:
+      oil: 0
+      steel: 385000
+      rare_earth: 28500
+      uranium: 12500
+      food: 2850000
+    resource_consumption:
+      oil: 185000
+      steel: 285000
+      rare_earth: 8500
+      uranium: 4850
+      food: 5850000
+
+  TWN:
+    display_name: "Taiwan"
+    code: "TWN"
+    region: "southeast_asia"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 52.8
+      stability: 75.5
+      ruling_party: "Democratic Progressive Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2024-01-13"
+    economy:
+      gdp: 790000000000
+      debt: 185000000000
+      inflation: 2.9
+      trade_balance: 85000000000
+    military:
+      active_personnel: 188000
+      reserves: 1657000
+      defense_budget: 19500000000
+      nuclear_weapons: 0
+    resources:
+      oil: 2850
+      steel: 185000
+      rare_earth: 1850
+      uranium: 0
+      food: 3850000
+    resource_consumption:
+      oil: 985000
+      steel: 1850000
+      rare_earth: 485000
+      uranium: 1250
+      food: 4850000
+
+  BRN:
+    display_name: "Brunei"
+    code: "BRN"
+    region: "southeast_asia"
+    politics:
+      government_type: "Absolute Monarchy"
+      approval: 85.5
+      stability: 88.5
+      ruling_party: "Sultan of Brunei"
+      ideology: "Absolute Monarchy"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 15000000000
+      debt: 2850000000
+      inflation: 1.7
+      trade_balance: 4850000000
+    military:
+      active_personnel: 7000
+      reserves: 700
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 2850000
+      steel: 8500
+      rare_earth: 1850
+      uranium: 285
+      food: 185000
+    resource_consumption:
+      oil: 285000
+      steel: 18500
+      rare_earth: 2850
+      uranium: 185
+      food: 285000
+
+  KHM:
+    display_name: "Cambodia"
+    code: "KHM"
+    region: "southeast_asia"
+    politics:
+      government_type: "Constitutional Monarchy"
+      approval: 58.5
+      stability: 62.5
+      ruling_party: "Cambodian People's Party"
+      ideology: "Authoritarianism"
+      election_cycle: 5
+      last_election: "2023-07-23"
+    economy:
+      gdp: 28000000000
+      debt: 12500000000
+      inflation: 5.3
+      trade_balance: -4850000000
+    military:
+      active_personnel: 124000
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 8500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 485
+      food: 8500000
+    resource_consumption:
+      oil: 185000
+      steel: 85000
+      rare_earth: 4850
+      uranium: 285
+      food: 12500000
+
+  LAO:
+    display_name: "Laos"
+    code: "LAO"
+    region: "southeast_asia"
+    politics:
+      government_type: "Socialist Republic"
+      approval: 75.5
+      stability: 68.5
+      ruling_party: "Lao People's Revolutionary Party"
+      ideology: "Socialism"
+      election_cycle: 5
+      last_election: "2021-02-21"
+    economy:
+      gdp: 19000000000
+      debt: 14500000000
+      inflation: 22.8
+      trade_balance: -2850000000
+    military:
+      active_personnel: 29000
+      reserves: 100000
+      defense_budget: 185000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 18500
+      rare_earth: 8500
+      uranium: 1250
+      food: 4850000
+    resource_consumption:
+      oil: 85000
+      steel: 28500
+      rare_earth: 4850
+      uranium: 485
+      food: 7850000
+
+  TLS:
+    name: "Timor-Leste"
+    capital: "Dili"
+    flag: "🇹🇱"
+    government:
+      type: "parliamentary_republic"
+      leader: "Xanana Gusmão"
+      approval: 58.5
+      stability: 68.5
+      ruling_party: "National Congress for Timorese Reconstruction"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2023-05-21"
+    economy:
+      gdp: 2150000000
+      debt: 850000000
+      inflation: 3.8
+      trade_balance: 1850000000
+      treasury: 1850000000
+      currency: "USD"
+      interest_rate: 2.5
+    military:
+      manpower: 2080
+      equipment: 28
+      readiness: 58
+      doctrine: "Defense Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 48
+      currentResearch: ["Oil Technology", "Agriculture Technology"]
+      completedTech: ["Basic Infrastructure"]
+      level: 4.2
+    diplomacy:
+      allies: ["AUS", "PRT"]
+      enemies: []
+      neutrality: 85.5

@@ -1,0 +1,564 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "MDG",
+    "generated": "2025-07-31T02:54:50.122Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Madagascar",
+        "SOV_A3": "MDG",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Madagascar",
+        "ADM0_A3": "MDG",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Madagascar",
+        "GU_A3": "MDG",
+        "SU_DIF": 0,
+        "SUBUNIT": "Madagascar",
+        "SU_A3": "MDG",
+        "BRK_DIFF": 0,
+        "NAME": "Madagascar",
+        "NAME_LONG": "Madagascar",
+        "BRK_A3": "MDG",
+        "BRK_NAME": "Madagascar",
+        "BRK_GROUP": null,
+        "ABBREV": "Mad.",
+        "POSTAL": "MG",
+        "FORMAL_EN": "Republic of Madagascar",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Madagascar",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Madagascar",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 6,
+        "MAPCOLOR8": 5,
+        "MAPCOLOR9": 2,
+        "MAPCOLOR13": 3,
+        "POP_EST": 26969307,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 14114,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "5. Low income",
+        "FIPS_10": "MA",
+        "ISO_A2": "MG",
+        "ISO_A2_EH": "MG",
+        "ISO_A3": "MDG",
+        "ISO_A3_EH": "MDG",
+        "ISO_N3": "450",
+        "ISO_N3_EH": "450",
+        "UN_A3": "450",
+        "WB_A2": "MG",
+        "WB_A3": "MDG",
+        "WOE_ID": 23424883,
+        "WOE_ID_EH": 23424883,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "MDG",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "MDG",
+        "ADM0_A3_US": "MDG",
+        "ADM0_A3_FR": "MDG",
+        "ADM0_A3_RU": "MDG",
+        "ADM0_A3_ES": "MDG",
+        "ADM0_A3_CN": "MDG",
+        "ADM0_A3_TW": "MDG",
+        "ADM0_A3_IN": "MDG",
+        "ADM0_A3_NP": "MDG",
+        "ADM0_A3_PK": "MDG",
+        "ADM0_A3_DE": "MDG",
+        "ADM0_A3_GB": "MDG",
+        "ADM0_A3_BR": "MDG",
+        "ADM0_A3_IL": "MDG",
+        "ADM0_A3_PS": "MDG",
+        "ADM0_A3_SA": "MDG",
+        "ADM0_A3_EG": "MDG",
+        "ADM0_A3_MA": "MDG",
+        "ADM0_A3_PT": "MDG",
+        "ADM0_A3_AR": "MDG",
+        "ADM0_A3_JP": "MDG",
+        "ADM0_A3_KO": "MDG",
+        "ADM0_A3_VN": "MDG",
+        "ADM0_A3_TR": "MDG",
+        "ADM0_A3_ID": "MDG",
+        "ADM0_A3_PL": "MDG",
+        "ADM0_A3_GR": "MDG",
+        "ADM0_A3_IT": "MDG",
+        "ADM0_A3_NL": "MDG",
+        "ADM0_A3_SE": "MDG",
+        "ADM0_A3_BD": "MDG",
+        "ADM0_A3_UA": "MDG",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Eastern Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 10,
+        "LONG_LEN": 10,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2.7,
+        "MAX_LABEL": 7,
+        "LABEL_X": 46.704241,
+        "LABEL_Y": -18.628288,
+        "NE_ID": 1159321051,
+        "WIKIDATAID": "Q1019",
+        "NAME_AR": "مدغشقر",
+        "NAME_BN": "মাদাগাস্কার",
+        "NAME_DE": "Madagaskar",
+        "NAME_EN": "Madagascar",
+        "NAME_ES": "Madagascar",
+        "NAME_FA": "ماداگاسکار",
+        "NAME_FR": "Madagascar",
+        "NAME_EL": "Μαδαγασκάρη",
+        "NAME_HE": "מדגסקר",
+        "NAME_HI": "मेडागास्कर",
+        "NAME_HU": "Madagaszkár",
+        "NAME_ID": "Madagaskar",
+        "NAME_IT": "Madagascar",
+        "NAME_JA": "マダガスカル",
+        "NAME_KO": "마다가스카르",
+        "NAME_NL": "Madagaskar",
+        "NAME_PL": "Madagaskar",
+        "NAME_PT": "Madagáscar",
+        "NAME_RU": "Мадагаскар",
+        "NAME_SV": "Madagaskar",
+        "NAME_TR": "Madagaskar",
+        "NAME_UK": "Мадагаскар",
+        "NAME_UR": "مڈغاسکر",
+        "NAME_VI": "Madagascar",
+        "NAME_ZH": "马达加斯加",
+        "NAME_ZHT": "馬達加斯加",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "MDG"
+      },
+      "bbox": [
+        43.254187,
+        -25.601434,
+        50.476537,
+        -12.040557
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.543519,
+              -12.469833
+            ],
+            [
+              49.808981,
+              -12.895285
+            ],
+            [
+              50.056511,
+              -13.555761
+            ],
+            [
+              50.217431,
+              -14.758789
+            ],
+            [
+              50.476537,
+              -15.226512
+            ],
+            [
+              50.377111,
+              -15.706069
+            ],
+            [
+              50.200275,
+              -16.000263
+            ],
+            [
+              49.860606,
+              -15.414253
+            ],
+            [
+              49.672607,
+              -15.710204
+            ],
+            [
+              49.863344,
+              -16.451037
+            ],
+            [
+              49.774564,
+              -16.875042
+            ],
+            [
+              49.498612,
+              -17.106036
+            ],
+            [
+              49.435619,
+              -17.953064
+            ],
+            [
+              49.041792,
+              -19.118781
+            ],
+            [
+              48.548541,
+              -20.496888
+            ],
+            [
+              47.930749,
+              -22.391501
+            ],
+            [
+              47.547723,
+              -23.781959
+            ],
+            [
+              47.095761,
+              -24.94163
+            ],
+            [
+              46.282478,
+              -25.178463
+            ],
+            [
+              45.409508,
+              -25.601434
+            ],
+            [
+              44.833574,
+              -25.346101
+            ],
+            [
+              44.03972,
+              -24.988345
+            ],
+            [
+              43.763768,
+              -24.460677
+            ],
+            [
+              43.697778,
+              -23.574116
+            ],
+            [
+              43.345654,
+              -22.776904
+            ],
+            [
+              43.254187,
+              -22.057413
+            ],
+            [
+              43.433298,
+              -21.336475
+            ],
+            [
+              43.893683,
+              -21.163307
+            ],
+            [
+              43.89637,
+              -20.830459
+            ],
+            [
+              44.374325,
+              -20.072366
+            ],
+            [
+              44.464397,
+              -19.435454
+            ],
+            [
+              44.232422,
+              -18.961995
+            ],
+            [
+              44.042976,
+              -18.331387
+            ],
+            [
+              43.963084,
+              -17.409945
+            ],
+            [
+              44.312469,
+              -16.850496
+            ],
+            [
+              44.446517,
+              -16.216219
+            ],
+            [
+              44.944937,
+              -16.179374
+            ],
+            [
+              45.502732,
+              -15.974373
+            ],
+            [
+              45.872994,
+              -15.793454
+            ],
+            [
+              46.312243,
+              -15.780018
+            ],
+            [
+              46.882183,
+              -15.210182
+            ],
+            [
+              47.70513,
+              -14.594303
+            ],
+            [
+              48.005215,
+              -14.091233
+            ],
+            [
+              47.869047,
+              -13.663869
+            ],
+            [
+              48.293828,
+              -13.784068
+            ],
+            [
+              48.84506,
+              -13.089175
+            ],
+            [
+              48.863509,
+              -12.487868
+            ],
+            [
+              49.194651,
+              -12.040557
+            ],
+            [
+              49.543519,
+              -12.469833
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

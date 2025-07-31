@@ -1,72 +1,745 @@
 {
   "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "ZAF",
+    "generated": "2025-07-31T02:54:50.052Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
   "features": [
     {
       "type": "Feature",
       "properties": {
-        "id": "ZAF_GAUTENG",
-        "name": "Gauteng"
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "South Africa",
+        "SOV_A3": "ZAF",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "South Africa",
+        "ADM0_A3": "ZAF",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "South Africa",
+        "GU_A3": "ZAF",
+        "SU_DIF": 0,
+        "SUBUNIT": "South Africa",
+        "SU_A3": "ZAF",
+        "BRK_DIFF": 0,
+        "NAME": "South Africa",
+        "NAME_LONG": "South Africa",
+        "BRK_A3": "ZAF",
+        "BRK_NAME": "South Africa",
+        "BRK_GROUP": null,
+        "ABBREV": "S.Af.",
+        "POSTAL": "ZA",
+        "FORMAL_EN": "Republic of South Africa",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "South Africa",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "South Africa",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 3,
+        "MAPCOLOR9": 4,
+        "MAPCOLOR13": 2,
+        "POP_EST": 58558270,
+        "POP_RANK": 16,
+        "POP_YEAR": 2019,
+        "GDP_MD": 351431,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "5. Emerging region: G20",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "SF",
+        "ISO_A2": "ZA",
+        "ISO_A2_EH": "ZA",
+        "ISO_A3": "ZAF",
+        "ISO_A3_EH": "ZAF",
+        "ISO_N3": "710",
+        "ISO_N3_EH": "710",
+        "UN_A3": "710",
+        "WB_A2": "ZA",
+        "WB_A3": "ZAF",
+        "WOE_ID": 23424942,
+        "WOE_ID_EH": 23424942,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "ZAF",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "ZAF",
+        "ADM0_A3_US": "ZAF",
+        "ADM0_A3_FR": "ZAF",
+        "ADM0_A3_RU": "ZAF",
+        "ADM0_A3_ES": "ZAF",
+        "ADM0_A3_CN": "ZAF",
+        "ADM0_A3_TW": "ZAF",
+        "ADM0_A3_IN": "ZAF",
+        "ADM0_A3_NP": "ZAF",
+        "ADM0_A3_PK": "ZAF",
+        "ADM0_A3_DE": "ZAF",
+        "ADM0_A3_GB": "ZAF",
+        "ADM0_A3_BR": "ZAF",
+        "ADM0_A3_IL": "ZAF",
+        "ADM0_A3_PS": "ZAF",
+        "ADM0_A3_SA": "ZAF",
+        "ADM0_A3_EG": "ZAF",
+        "ADM0_A3_MA": "ZAF",
+        "ADM0_A3_PT": "ZAF",
+        "ADM0_A3_AR": "ZAF",
+        "ADM0_A3_JP": "ZAF",
+        "ADM0_A3_KO": "ZAF",
+        "ADM0_A3_VN": "ZAF",
+        "ADM0_A3_TR": "ZAF",
+        "ADM0_A3_ID": "ZAF",
+        "ADM0_A3_PL": "ZAF",
+        "ADM0_A3_GR": "ZAF",
+        "ADM0_A3_IT": "ZAF",
+        "ADM0_A3_NL": "ZAF",
+        "ADM0_A3_SE": "ZAF",
+        "ADM0_A3_BD": "ZAF",
+        "ADM0_A3_UA": "ZAF",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Southern Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 12,
+        "LONG_LEN": 12,
+        "ABBREV_LEN": 5,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 1.7,
+        "MAX_LABEL": 6.7,
+        "LABEL_X": 23.665734,
+        "LABEL_Y": -29.708776,
+        "NE_ID": 1159321431,
+        "WIKIDATAID": "Q258",
+        "NAME_AR": "جنوب أفريقيا",
+        "NAME_BN": "দক্ষিণ আফ্রিকা",
+        "NAME_DE": "Südafrika",
+        "NAME_EN": "South Africa",
+        "NAME_ES": "Sudáfrica",
+        "NAME_FA": "آفریقای جنوبی",
+        "NAME_FR": "Afrique du Sud",
+        "NAME_EL": "Νότια Αφρική",
+        "NAME_HE": "דרום אפריקה",
+        "NAME_HI": "दक्षिण अफ़्रीका",
+        "NAME_HU": "Dél-afrikai Köztársaság",
+        "NAME_ID": "Afrika Selatan",
+        "NAME_IT": "Sudafrica",
+        "NAME_JA": "南アフリカ共和国",
+        "NAME_KO": "남아프리카 공화국",
+        "NAME_NL": "Zuid-Afrika",
+        "NAME_PL": "Południowa Afryka",
+        "NAME_PT": "África do Sul",
+        "NAME_RU": "ЮАР",
+        "NAME_SV": "Sydafrika",
+        "NAME_TR": "Güney Afrika Cumhuriyeti",
+        "NAME_UK": "Південно-Африканська Республіка",
+        "NAME_UR": "جنوبی افریقا",
+        "NAME_VI": "Cộng hòa Nam Phi",
+        "NAME_ZH": "南非",
+        "NAME_ZHT": "南非",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "ZAF"
       },
+      "bbox": [
+        16.344977,
+        -34.819166,
+        32.83012,
+        -22.091313
+      ],
       "geometry": {
         "type": "Polygon",
-        "coordinates": [[
-          [27.0, -26.8],
-          [29.0, -26.8],
-          [29.0, -25.2],
-          [27.0, -25.2],
-          [27.0, -26.8]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "ZAF_WESTERN_CAPE",
-        "name": "Western Cape"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [17.5, -35.0],
-          [24.0, -35.0],
-          [24.0, -31.0],
-          [17.5, -31.0],
-          [17.5, -35.0]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "ZAF_KWAZULU_NATAL",
-        "name": "KwaZulu-Natal"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [28.5, -31.5],
-          [32.9, -31.5],
-          [32.9, -26.8],
-          [28.5, -26.8],
-          [28.5, -31.5]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "ZAF_EASTERN_CAPE",
-        "name": "Eastern Cape"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [24.0, -33.5],
-          [30.0, -33.5],
-          [30.0, -30.5],
-          [24.0, -30.5],
-          [24.0, -33.5]
-        ]]
+        "coordinates": [
+          [
+            [
+              16.344977,
+              -28.576705
+            ],
+            [
+              16.824017,
+              -28.082162
+            ],
+            [
+              17.218929,
+              -28.355943
+            ],
+            [
+              17.387497,
+              -28.783514
+            ],
+            [
+              17.836152,
+              -28.856378
+            ],
+            [
+              18.464899,
+              -29.045462
+            ],
+            [
+              19.002127,
+              -28.972443
+            ],
+            [
+              19.894734,
+              -28.461105
+            ],
+            [
+              19.895768,
+              -24.76779
+            ],
+            [
+              20.165726,
+              -24.917962
+            ],
+            [
+              20.758609,
+              -25.868136
+            ],
+            [
+              20.66647,
+              -26.477453
+            ],
+            [
+              20.889609,
+              -26.828543
+            ],
+            [
+              21.605896,
+              -26.726534
+            ],
+            [
+              22.105969,
+              -26.280256
+            ],
+            [
+              22.579532,
+              -25.979448
+            ],
+            [
+              22.824271,
+              -25.500459
+            ],
+            [
+              23.312097,
+              -25.26869
+            ],
+            [
+              23.73357,
+              -25.390129
+            ],
+            [
+              24.211267,
+              -25.670216
+            ],
+            [
+              25.025171,
+              -25.71967
+            ],
+            [
+              25.664666,
+              -25.486816
+            ],
+            [
+              25.765849,
+              -25.174845
+            ],
+            [
+              25.941652,
+              -24.696373
+            ],
+            [
+              26.485753,
+              -24.616327
+            ],
+            [
+              26.786407,
+              -24.240691
+            ],
+            [
+              27.11941,
+              -23.574323
+            ],
+            [
+              28.017236,
+              -22.827754
+            ],
+            [
+              29.432188,
+              -22.091313
+            ],
+            [
+              29.839037,
+              -22.102216
+            ],
+            [
+              30.322883,
+              -22.271612
+            ],
+            [
+              30.659865,
+              -22.151567
+            ],
+            [
+              31.191409,
+              -22.25151
+            ],
+            [
+              31.670398,
+              -23.658969
+            ],
+            [
+              31.930589,
+              -24.369417
+            ],
+            [
+              31.752408,
+              -25.484284
+            ],
+            [
+              31.837778,
+              -25.843332
+            ],
+            [
+              31.333158,
+              -25.660191
+            ],
+            [
+              31.04408,
+              -25.731452
+            ],
+            [
+              30.949667,
+              -26.022649
+            ],
+            [
+              30.676609,
+              -26.398078
+            ],
+            [
+              30.685962,
+              -26.743845
+            ],
+            [
+              31.282773,
+              -27.285879
+            ],
+            [
+              31.86806,
+              -27.177927
+            ],
+            [
+              32.071665,
+              -26.73382
+            ],
+            [
+              32.83012,
+              -26.742192
+            ],
+            [
+              32.580265,
+              -27.470158
+            ],
+            [
+              32.462133,
+              -28.301011
+            ],
+            [
+              32.203389,
+              -28.752405
+            ],
+            [
+              31.521001,
+              -29.257387
+            ],
+            [
+              31.325561,
+              -29.401978
+            ],
+            [
+              30.901763,
+              -29.909957
+            ],
+            [
+              30.622813,
+              -30.423776
+            ],
+            [
+              30.055716,
+              -31.140269
+            ],
+            [
+              28.925553,
+              -32.172041
+            ],
+            [
+              28.219756,
+              -32.771953
+            ],
+            [
+              27.464608,
+              -33.226964
+            ],
+            [
+              26.419452,
+              -33.61495
+            ],
+            [
+              25.909664,
+              -33.66704
+            ],
+            [
+              25.780628,
+              -33.944646
+            ],
+            [
+              25.172862,
+              -33.796851
+            ],
+            [
+              24.677853,
+              -33.987176
+            ],
+            [
+              23.594043,
+              -33.794474
+            ],
+            [
+              22.988189,
+              -33.916431
+            ],
+            [
+              22.574157,
+              -33.864083
+            ],
+            [
+              21.542799,
+              -34.258839
+            ],
+            [
+              20.689053,
+              -34.417175
+            ],
+            [
+              20.071261,
+              -34.795137
+            ],
+            [
+              19.616405,
+              -34.819166
+            ],
+            [
+              19.193278,
+              -34.462599
+            ],
+            [
+              18.855315,
+              -34.444306
+            ],
+            [
+              18.424643,
+              -33.997873
+            ],
+            [
+              18.377411,
+              -34.136521
+            ],
+            [
+              18.244499,
+              -33.867752
+            ],
+            [
+              18.25008,
+              -33.281431
+            ],
+            [
+              17.92519,
+              -32.611291
+            ],
+            [
+              18.24791,
+              -32.429131
+            ],
+            [
+              18.221762,
+              -31.661633
+            ],
+            [
+              17.566918,
+              -30.725721
+            ],
+            [
+              17.064416,
+              -29.878641
+            ],
+            [
+              17.062918,
+              -29.875954
+            ],
+            [
+              16.344977,
+              -28.576705
+            ]
+          ],
+          [
+            [
+              28.978263,
+              -28.955597
+            ],
+            [
+              28.5417,
+              -28.647502
+            ],
+            [
+              28.074338,
+              -28.851469
+            ],
+            [
+              27.532511,
+              -29.242711
+            ],
+            [
+              26.999262,
+              -29.875954
+            ],
+            [
+              27.749397,
+              -30.645106
+            ],
+            [
+              28.107205,
+              -30.545732
+            ],
+            [
+              28.291069,
+              -30.226217
+            ],
+            [
+              28.8484,
+              -30.070051
+            ],
+            [
+              29.018415,
+              -29.743766
+            ],
+            [
+              29.325166,
+              -29.257387
+            ],
+            [
+              28.978263,
+              -28.955597
+            ]
+          ]
+        ]
       }
     }
   ]

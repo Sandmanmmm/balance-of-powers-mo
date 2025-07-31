@@ -836,3 +836,98 @@ nations:
       trade_policy: "free_trade"
       immigration_policy: "open"
       environmental_policy: "moderate"
+
+  GRL:
+    name: "Greenland"
+    capital: "Nuuk"
+    flag: "🇬🇱"
+    government:
+      type: "autonomous_territory"
+      leader: "Múte Bourup Egede"
+      approval: 68.5
+      stability: 82.1
+      ruling_party: "Inuit Ataqatigiit"
+      ideology: "Democratic Socialism"
+      election_cycle: 4
+      last_election: "2021-04-06"
+      autonomous_status: "Self-governing territory of Denmark"
+    economy:
+      gdp: 3100000000
+      debt: 450000000
+      inflation: 2.1
+      trade_balance: -650000000
+      treasury: 420000000
+      currency: "DKK"
+      interest_rate: 3.25
+      sectors:
+        manufacturing: 3.8
+        services: 68.2
+        agriculture: 1.2
+        energy: 4.1
+        technology: 2.7
+        fishing: 15.8
+        mining: 4.2
+    military:
+      manpower: 0
+      equipment: 15
+      readiness: 45
+      doctrine: "Danish Defense"
+      nuclear_capability: false
+      military_spending_gdp: 0.0
+      conscription: false
+      reserve_forces: 0
+      defense_agreement: "Denmark"
+    technology:
+      researchPoints: 85
+      currentResearch:
+        - "Arctic Technology"
+        - "Sustainable Fishing"
+        - "Climate Adaptation"
+      completedTech:
+        - "Fishing Technology"
+        - "Arctic Navigation"
+        - "Renewable Energy"
+    demographics:
+      total_population: 56367
+      age_groups:
+        youth: 22.8
+        adult: 66.4
+        elderly: 10.8
+      ethnic_composition:
+        Inuit: 88.0
+        Danish: 7.5
+        Other: 4.5
+    resources:
+      stockpiles:
+        oil: 0
+        food: 28000
+        electricity: 42000
+        fish: 185000
+        rare_earth_minerals: 125000
+      natural_resources:
+        fish: "abundant"
+        rare_earth_minerals: "significant"
+        ice: "abundant"
+        renewable_energy_potential: "high"
+    international_relations:
+      eu_member: false
+      nato_member: true
+      un_member: false
+      allies:
+        - "DNK"
+        - "USA"
+        - "CAN"
+        - "ISL"
+      rivals: []
+      trade_partners:
+        - "DNK"
+        - "CAN"
+        - "USA"
+        - "ISL"
+        - "NOR"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "none"
+      trade_policy: "danish_integrated"
+      immigration_policy: "controlled"
+      environmental_policy: "progressive"

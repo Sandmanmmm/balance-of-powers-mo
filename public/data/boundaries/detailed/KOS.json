@@ -1,0 +1,656 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 50m (Detailed)",
+    "level": "detailed",
+    "country": "KOS",
+    "generated": "2025-07-31T02:54:50.943Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "SOVEREIGNT": "Kosovo",
+        "SOV_A3": "KOS",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Disputed",
+        "TLC": "1",
+        "ADMIN": "Kosovo",
+        "ADM0_A3": "KOS",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Kosovo",
+        "GU_A3": "KOS",
+        "SU_DIF": 0,
+        "SUBUNIT": "Kosovo",
+        "SU_A3": "KOS",
+        "BRK_DIFF": 0,
+        "NAME": "Kosovo",
+        "NAME_LONG": "Kosovo",
+        "BRK_A3": "KOS",
+        "BRK_NAME": "Kosovo",
+        "BRK_GROUP": null,
+        "ABBREV": "Kos.",
+        "POSTAL": "KO",
+        "FORMAL_EN": "Republic of Kosovo",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Kosovo",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Kosovo",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 2,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 11,
+        "POP_EST": 1794248,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 7926,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "KV",
+        "ISO_A2": "-99",
+        "ISO_A2_EH": "XK",
+        "ISO_A3": "-99",
+        "ISO_A3_EH": "-99",
+        "ISO_N3": "-99",
+        "ISO_N3_EH": "-99",
+        "UN_A3": "-099",
+        "WB_A2": "KV",
+        "WB_A3": "KSV",
+        "WOE_ID": -90,
+        "WOE_ID_EH": 29389201,
+        "WOE_NOTE": "Subunit of Serbia in WOE still; should include 29389201, 29389207, 29389218, 29389209 and 29389214.",
+        "ADM0_ISO": "SRB",
+        "ADM0_DIFF": "1",
+        "ADM0_TLC": "KOS",
+        "ADM0_A3_US": "KOS",
+        "ADM0_A3_FR": "KOS",
+        "ADM0_A3_RU": "SRB",
+        "ADM0_A3_ES": "SRB",
+        "ADM0_A3_CN": "SRB",
+        "ADM0_A3_TW": "KOS",
+        "ADM0_A3_IN": "SRB",
+        "ADM0_A3_NP": "SRB",
+        "ADM0_A3_PK": "KOS",
+        "ADM0_A3_DE": "KOS",
+        "ADM0_A3_GB": "SRB",
+        "ADM0_A3_BR": "KOS",
+        "ADM0_A3_IL": "KOS",
+        "ADM0_A3_PS": "SRB",
+        "ADM0_A3_SA": "KOS",
+        "ADM0_A3_EG": "KOS",
+        "ADM0_A3_MA": "SRB",
+        "ADM0_A3_PT": "KOS",
+        "ADM0_A3_AR": "SRB",
+        "ADM0_A3_JP": "KOS",
+        "ADM0_A3_KO": "KOS",
+        "ADM0_A3_VN": "SRB",
+        "ADM0_A3_TR": "KOS",
+        "ADM0_A3_ID": "SRB",
+        "ADM0_A3_PL": "KOS",
+        "ADM0_A3_GR": "SRB",
+        "ADM0_A3_IT": "KOS",
+        "ADM0_A3_NL": "KOS",
+        "ADM0_A3_SE": "KOS",
+        "ADM0_A3_BD": "KOS",
+        "ADM0_A3_UA": "SRB",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Europe",
+        "REGION_UN": "Europe",
+        "SUBREGION": "Southern Europe",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 5,
+        "MAX_LABEL": 10,
+        "LABEL_X": 20.860719,
+        "LABEL_Y": 42.593587,
+        "NE_ID": 1159321007,
+        "WIKIDATAID": "Q1246",
+        "NAME_AR": "كوسوفو",
+        "NAME_BN": "কসোভো",
+        "NAME_DE": "Kosovo",
+        "NAME_EN": "Kosovo",
+        "NAME_ES": "Kosovo",
+        "NAME_FA": "کوزووو",
+        "NAME_FR": "Kosovo",
+        "NAME_EL": "Κοσσυφοπέδιο",
+        "NAME_HE": "קוסובו",
+        "NAME_HI": "कोसोवो गणराज्य",
+        "NAME_HU": "Koszovó",
+        "NAME_ID": "Kosovo",
+        "NAME_IT": "Kosovo",
+        "NAME_JA": "コソボ共和国",
+        "NAME_KO": "코소보",
+        "NAME_NL": "Kosovo",
+        "NAME_PL": "Kosowo",
+        "NAME_PT": "Kosovo",
+        "NAME_RU": "Республика Косово",
+        "NAME_SV": "Kosovo",
+        "NAME_TR": "Kosova",
+        "NAME_UK": "Косово",
+        "NAME_UR": "کوسووہ",
+        "NAME_VI": "Kosovo",
+        "NAME_ZH": "科索沃",
+        "NAME_ZHT": "科索沃",
+        "FCLASS_ISO": "Unrecognized",
+        "TLC_DIFF": "1",
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": "Admin-0 country",
+        "FCLASS_FR": "Admin-0 country",
+        "FCLASS_RU": "Admin-1 region",
+        "FCLASS_ES": "Unrecognized",
+        "FCLASS_CN": "Unrecognized",
+        "FCLASS_TW": "Admin-0 country",
+        "FCLASS_IN": "Admin-1 region",
+        "FCLASS_NP": "Unrecognized",
+        "FCLASS_PK": "Admin-0 country",
+        "FCLASS_DE": "Admin-0 country",
+        "FCLASS_GB": "Admin-0 country",
+        "FCLASS_BR": "Unrecognized",
+        "FCLASS_IL": "Admin-0 country",
+        "FCLASS_PS": "Unrecognized",
+        "FCLASS_SA": "Admin-0 country",
+        "FCLASS_EG": "Admin-0 country",
+        "FCLASS_MA": "Unrecognized",
+        "FCLASS_PT": "Admin-0 country",
+        "FCLASS_AR": "Unrecognized",
+        "FCLASS_JP": "Admin-0 country",
+        "FCLASS_KO": "Admin-0 country",
+        "FCLASS_VN": "Unrecognized",
+        "FCLASS_TR": "Admin-0 country",
+        "FCLASS_ID": "Unrecognized",
+        "FCLASS_PL": "Admin-0 country",
+        "FCLASS_GR": "Unrecognized",
+        "FCLASS_IT": "Admin-0 country",
+        "FCLASS_NL": "Admin-0 country",
+        "FCLASS_SE": "Admin-0 country",
+        "FCLASS_BD": "Admin-0 country",
+        "FCLASS_UA": "Unrecognized",
+        "id": "KOS"
+      },
+      "bbox": [
+        20.029492,
+        41.853809,
+        21.75293,
+        43.261084
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.344336,
+              42.82793
+            ],
+            [
+              20.468848,
+              42.85791
+            ],
+            [
+              20.486816,
+              42.879053
+            ],
+            [
+              20.458398,
+              42.924561
+            ],
+            [
+              20.475098,
+              42.953027
+            ],
+            [
+              20.624023,
+              43.03418
+            ],
+            [
+              20.648535,
+              43.070947
+            ],
+            [
+              20.657617,
+              43.099854
+            ],
+            [
+              20.637598,
+              43.130371
+            ],
+            [
+              20.609668,
+              43.178418
+            ],
+            [
+              20.623145,
+              43.198633
+            ],
+            [
+              20.700586,
+              43.226367
+            ],
+            [
+              20.763379,
+              43.258594
+            ],
+            [
+              20.800586,
+              43.261084
+            ],
+            [
+              20.823828,
+              43.237939
+            ],
+            [
+              20.823828,
+              43.213965
+            ],
+            [
+              20.844434,
+              43.173437
+            ],
+            [
+              20.890723,
+              43.15166
+            ],
+            [
+              20.967676,
+              43.116016
+            ],
+            [
+              21.057031,
+              43.091699
+            ],
+            [
+              21.127051,
+              43.043018
+            ],
+            [
+              21.222656,
+              42.956201
+            ],
+            [
+              21.237109,
+              42.913232
+            ],
+            [
+              21.323145,
+              42.874707
+            ],
+            [
+              21.403027,
+              42.831543
+            ],
+            [
+              21.390625,
+              42.751416
+            ],
+            [
+              21.6625,
+              42.681494
+            ],
+            [
+              21.723828,
+              42.681982
+            ],
+            [
+              21.75293,
+              42.669824
+            ],
+            [
+              21.752148,
+              42.651514
+            ],
+            [
+              21.730664,
+              42.595459
+            ],
+            [
+              21.619043,
+              42.423242
+            ],
+            [
+              21.609863,
+              42.387451
+            ],
+            [
+              21.52998,
+              42.35
+            ],
+            [
+              21.518945,
+              42.328418
+            ],
+            [
+              21.541602,
+              42.280811
+            ],
+            [
+              21.5625,
+              42.24751
+            ],
+            [
+              21.56084,
+              42.247656
+            ],
+            [
+              21.389551,
+              42.219824
+            ],
+            [
+              21.331738,
+              42.187158
+            ],
+            [
+              21.297559,
+              42.130078
+            ],
+            [
+              21.286621,
+              42.100391
+            ],
+            [
+              21.256348,
+              42.099512
+            ],
+            [
+              21.206055,
+              42.128955
+            ],
+            [
+              21.14248,
+              42.175
+            ],
+            [
+              21.059766,
+              42.171289
+            ],
+            [
+              20.778125,
+              42.071045
+            ],
+            [
+              20.750391,
+              42.018359
+            ],
+            [
+              20.744141,
+              41.904297
+            ],
+            [
+              20.725,
+              41.873535
+            ],
+            [
+              20.694922,
+              41.853809
+            ],
+            [
+              20.578516,
+              41.866211
+            ],
+            [
+              20.566211,
+              41.873682
+            ],
+            [
+              20.581445,
+              41.917432
+            ],
+            [
+              20.575391,
+              42.013086
+            ],
+            [
+              20.522852,
+              42.171484
+            ],
+            [
+              20.485449,
+              42.223389
+            ],
+            [
+              20.408301,
+              42.274951
+            ],
+            [
+              20.348242,
+              42.308789
+            ],
+            [
+              20.240527,
+              42.338965
+            ],
+            [
+              20.185742,
+              42.425879
+            ],
+            [
+              20.103516,
+              42.524658
+            ],
+            [
+              20.063965,
+              42.547266
+            ],
+            [
+              20.070312,
+              42.55708
+            ],
+            [
+              20.089258,
+              42.631543
+            ],
+            [
+              20.065723,
+              42.68584
+            ],
+            [
+              20.029492,
+              42.732031
+            ],
+            [
+              20.054297,
+              42.760059
+            ],
+            [
+              20.12998,
+              42.759766
+            ],
+            [
+              20.192578,
+              42.754639
+            ],
+            [
+              20.215137,
+              42.798828
+            ],
+            [
+              20.344336,
+              42.82793
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

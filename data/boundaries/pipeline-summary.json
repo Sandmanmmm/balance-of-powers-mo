@@ -1,75 +1,55 @@
 {
-  "generated": "2024-01-15T10:30:00.000Z",
-  "pipeline_version": "1.0.0",
-  "status": "PARTIAL_COMPLETE",
-  "summary": {
-    "total_files": 21,
-    "valid_files": 21,
-    "invalid_files": 0,
-    "unique_countries": 11,
-    "detail_levels": 3
-  },
-  "levels": {
+  "pipeline_completed": "2025-07-31T02:50:26.138Z",
+  "version": "1.0.0",
+  "status": "SUCCESS",
+  "before_state": {
     "overview": {
-      "files": 11,
-      "countries": ["AUS", "BRA", "CAN", "CHN", "DEU", "FRA", "GBR", "IND", "MEX", "RUS", "USA"],
-      "status": "COMPLETE"
+      "files": 0,
+      "countries": []
     },
     "detailed": {
-      "files": 4,
-      "countries": ["CAN", "DEU", "FRA", "USA"],
-      "status": "PARTIAL"
+      "files": 0,
+      "countries": []
     },
     "ultra": {
-      "files": 6,
-      "countries": ["CAN", "CHN", "DEU", "FRA", "IND", "RUS", "USA"],
-      "status": "PARTIAL"
+      "files": 0,
+      "countries": []
     }
   },
-  "expected_countries": {
-    "major_powers": ["USA", "CHN", "RUS", "IND", "DEU", "GBR", "FRA", "JPN"],
-    "regional_powers": ["CAN", "BRA", "AUS", "MEX", "ITA", "ESP", "TUR", "SAU"],
-    "coverage": {
-      "major_powers_complete": 7,
-      "regional_powers_complete": 4,
-      "total_expected": 16,
-      "total_available": 11,
-      "coverage_percentage": 69
+  "after_state": {
+    "overview": {
+      "files": 0,
+      "countries": []
+    },
+    "detailed": {
+      "files": 1,
+      "countries": [
+        "GBR"
+      ]
+    },
+    "ultra": {
+      "files": 0,
+      "countries": []
     }
   },
-  "file_structure": {
-    "data/boundaries/overview/": "Core countries with basic boundaries",
-    "data/boundaries/detailed/": "Medium detail for key regions",
-    "data/boundaries/ultra/": "High detail for strategic countries"
+  "changes": {
+    "overview": 0,
+    "detailed": 1,
+    "ultra": 0
   },
-  "data_sources": {
-    "primary": "Natural Earth via GitHub repositories",
-    "secondary": "World Atlas TopoJSON converted to GeoJSON",
-    "fallback": "Generated simplified boundaries for completeness"
+  "totals": {
+    "total_files": 1,
+    "unique_countries": 1,
+    "files_added": 1
   },
-  "next_steps": [
-    "Add remaining major powers (JPN, GBR) to ultra detail",
-    "Complete detailed level for all major powers",
-    "Add regional powers (ITA, ESP, TUR, SAU)",
-    "Validate all boundary files for game compatibility",
-    "Integrate with GeographicDataManager for dynamic loading"
-  ],
   "recommendations": [
-    "Priority: Complete ultra detail for Japan and UK",
-    "Priority: Add detailed boundaries for China, Russia, India",
-    "Enhancement: Add provincial boundaries for federal countries",
-    "Performance: Implement boundary simplification for overview level",
-    "Testing: Validate map rendering with new boundary data"
+    "Consider adding more countries for global coverage",
+    "Ultra detail level has fewer files than detailed - investigate"
   ],
-  "pipeline_readiness": {
-    "for_development": true,
-    "for_testing": true,
-    "for_production": false,
-    "missing_for_production": [
-      "Complete country coverage",
-      "Provincial boundary integration",
-      "Performance optimization",
-      "Data validation pipeline"
-    ]
-  }
+  "next_steps": [
+    "Test the game with new boundary data",
+    "Verify all expected countries are present",
+    "Check map rendering performance",
+    "Add any missing provincial boundaries"
+  ]
 }

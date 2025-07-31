@@ -101,3 +101,231 @@ nations:
       "Nepali Congress": 32.8
       "Janata Samajwadi Party": 15.5
       "Other": 10.5
+
+  PAK:
+    name: "Pakistan"
+    capital: "Islamabad"
+    flag: "🇵🇰"
+    government:
+      type: "federal_republic"
+      leader: "Shehbaz Sharif"
+      approval: 38.5
+      stability: 52.8
+      ruling_party: "Pakistan Muslim League"
+      ideology: "Islamic Democracy"
+      election_cycle: 5
+      last_election: "2018-07-25"
+    economy:
+      gdp: 347000000000
+      debt: 270000000000
+      inflation: 11.5
+      trade_balance: -48000000000
+      treasury: 8000000000
+      currency: "PKR"
+      interest_rate: 16.0
+      sectors:
+        manufacturing: 12.8
+        services: 58.8
+        agriculture: 22.7
+        technology: 5.7
+    military:
+      manpower: 654000
+      equipment: 68
+      readiness: 78
+      doctrine: "Nuclear Deterrence"
+      nuclearCapability: true
+      nuclear_warheads: 165
+    technology:
+      researchPoints: 420
+      currentResearch: ["Nuclear Technology", "Defense Systems"]
+      completedTech: ["Internet", "Modern Manufacturing", "Nuclear Weapons"]
+      level: 6.8
+    diplomacy:
+      allies: ["CHN", "TUR", "SAU"]
+      enemies: ["IND"]
+      neutrality: 45.2
+
+  AFG:
+    name: "Afghanistan"
+    capital: "Kabul"
+    flag: "🇦🇫"
+    government:
+      type: "islamic_emirate"
+      leader: "Hibatullah Akhundzada"
+      approval: 25.5
+      stability: 38.2
+      ruling_party: "Taliban"
+      ideology: "Islamic Fundamentalism"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 14800000000
+      debt: 2850000000
+      inflation: 2.3
+      trade_balance: -1850000000
+      treasury: 485000000
+      currency: "AFN"
+      interest_rate: 15.0
+    military:
+      manpower: 75000
+      equipment: 35
+      readiness: 55
+      doctrine: "Guerrilla Warfare"
+      nuclearCapability: false
+    technology:
+      researchPoints: 85
+      currentResearch: ["Basic Manufacturing", "Agriculture Technology"]
+      completedTech: ["Traditional Warfare"]
+      level: 2.8
+    diplomacy:
+      allies: ["PAK"]
+      enemies: []
+      neutrality: 45.5
+
+  LKA:
+    name: "Sri Lanka"
+    capital: "Colombo"
+    flag: "🇱🇰"
+    government:
+      type: "presidential_republic"
+      leader: "Ranil Wickremesinghe"
+      approval: 35.8
+      stability: 52.5
+      ruling_party: "United National Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2019-11-16"
+    economy:
+      gdp: 84000000000
+      debt: 115000000000
+      inflation: 1.0
+      trade_balance: -4850000000
+      treasury: 2850000000
+      currency: "LKR"
+      interest_rate: 9.0
+    military:
+      manpower: 246000
+      equipment: 58
+      readiness: 68
+      doctrine: "Island Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 285
+      currentResearch: ["Tourism Technology", "Tea Production"]
+      completedTech: ["Internet", "Modern Agriculture"]
+      level: 6.2
+    diplomacy:
+      allies: ["IND", "CHN"]
+      enemies: []
+      neutrality: 75.5
+
+  BTN:
+    name: "Bhutan"
+    capital: "Thimphu"
+    flag: "🇧🇹"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Jigme Khesar Namgyel Wangchuck"
+      approval: 88.5
+      stability: 85.5
+      ruling_party: "People's Democratic Party"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 5
+      last_election: "2023-11-30"
+    economy:
+      gdp: 2850000000
+      debt: 3850000000
+      inflation: 4.2
+      trade_balance: -485000000
+      treasury: 1250000000
+      currency: "BTN"
+      interest_rate: 5.0
+    military:
+      manpower: 8000
+      equipment: 35
+      readiness: 68
+      doctrine: "Mountain Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 85
+      currentResearch: ["Hydropower", "Sustainable Development"]
+      completedTech: ["Traditional Technology", "Basic Manufacturing"]
+      level: 4.5
+    diplomacy:
+      allies: ["IND"]
+      enemies: []
+      neutrality: 95.5
+
+  NPL:
+    name: "Nepal"
+    capital: "Kathmandu"
+    flag: "🇳🇵"
+    government:
+      type: "federal_republic"
+      leader: "Pushpa Kamal Dahal"
+      approval: 35.8
+      stability: 48.5
+      ruling_party: "Maoist Centre"
+      ideology: "Democratic Socialism"
+      election_cycle: 5
+      last_election: "2022-11-20"
+    economy:
+      gdp: 40000000000
+      debt: 8500000000
+      inflation: 7.1
+      trade_balance: -8500000000
+      treasury: 2850000000
+      currency: "NPR"
+      interest_rate: 7.0
+    military:
+      manpower: 95000
+      equipment: 42
+      readiness: 55
+      doctrine: "Mountain Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 125
+      currentResearch: ["Hydropower", "Agriculture Technology"]
+      completedTech: ["Basic Manufacturing", "Tourism"]
+      level: 4.8
+    diplomacy:
+      allies: ["IND", "CHN"]
+      enemies: []
+      neutrality: 82.5
+
+  MDV:
+    name: "Maldives"
+    capital: "Malé"
+    flag: "🇲🇻"
+    government:
+      type: "presidential_republic"
+      leader: "Ibrahim Mohamed Solih"
+      approval: 48.5
+      stability: 62.5
+      ruling_party: "Maldivian Democratic Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2023-09-30"
+    economy:
+      gdp: 6500000000
+      debt: 4850000000
+      inflation: 2.3
+      trade_balance: -1850000000
+      treasury: 485000000
+      currency: "MVR"
+      interest_rate: 6.0
+    military:
+      manpower: 0
+      equipment: 28
+      readiness: 45
+      doctrine: "Coast Guard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 85
+      currentResearch: ["Tourism Technology", "Marine Technology"]
+      completedTech: ["Tourism", "Traditional Technology"]
+      level: 5.8
+    diplomacy:
+      allies: ["IND"]
+      enemies: []
+      neutrality: 88.5

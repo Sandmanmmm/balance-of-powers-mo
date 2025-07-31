@@ -1,0 +1,600 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "NER",
+    "generated": "2025-07-31T02:54:50.095Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Niger",
+        "SOV_A3": "NER",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Niger",
+        "ADM0_A3": "NER",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Niger",
+        "GU_A3": "NER",
+        "SU_DIF": 0,
+        "SUBUNIT": "Niger",
+        "SU_A3": "NER",
+        "BRK_DIFF": 0,
+        "NAME": "Niger",
+        "NAME_LONG": "Niger",
+        "BRK_A3": "NER",
+        "BRK_NAME": "Niger",
+        "BRK_GROUP": null,
+        "ABBREV": "Niger",
+        "POSTAL": "NE",
+        "FORMAL_EN": "Republic of Niger",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Niger",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Niger",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 4,
+        "MAPCOLOR8": 5,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 13,
+        "POP_EST": 23310715,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 12911,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "5. Low income",
+        "FIPS_10": "NG",
+        "ISO_A2": "NE",
+        "ISO_A2_EH": "NE",
+        "ISO_A3": "NER",
+        "ISO_A3_EH": "NER",
+        "ISO_N3": "562",
+        "ISO_N3_EH": "562",
+        "UN_A3": "562",
+        "WB_A2": "NE",
+        "WB_A3": "NER",
+        "WOE_ID": 23424906,
+        "WOE_ID_EH": 23424906,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "NER",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "NER",
+        "ADM0_A3_US": "NER",
+        "ADM0_A3_FR": "NER",
+        "ADM0_A3_RU": "NER",
+        "ADM0_A3_ES": "NER",
+        "ADM0_A3_CN": "NER",
+        "ADM0_A3_TW": "NER",
+        "ADM0_A3_IN": "NER",
+        "ADM0_A3_NP": "NER",
+        "ADM0_A3_PK": "NER",
+        "ADM0_A3_DE": "NER",
+        "ADM0_A3_GB": "NER",
+        "ADM0_A3_BR": "NER",
+        "ADM0_A3_IL": "NER",
+        "ADM0_A3_PS": "NER",
+        "ADM0_A3_SA": "NER",
+        "ADM0_A3_EG": "NER",
+        "ADM0_A3_MA": "NER",
+        "ADM0_A3_PT": "NER",
+        "ADM0_A3_AR": "NER",
+        "ADM0_A3_JP": "NER",
+        "ADM0_A3_KO": "NER",
+        "ADM0_A3_VN": "NER",
+        "ADM0_A3_TR": "NER",
+        "ADM0_A3_ID": "NER",
+        "ADM0_A3_PL": "NER",
+        "ADM0_A3_GR": "NER",
+        "ADM0_A3_IT": "NER",
+        "ADM0_A3_NL": "NER",
+        "ADM0_A3_SE": "NER",
+        "ADM0_A3_BD": "NER",
+        "ADM0_A3_UA": "NER",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Western Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 5,
+        "LONG_LEN": 5,
+        "ABBREV_LEN": 5,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 9.504356,
+        "LABEL_Y": 17.446195,
+        "NE_ID": 1159321087,
+        "WIKIDATAID": "Q1032",
+        "NAME_AR": "النيجر",
+        "NAME_BN": "নাইজার",
+        "NAME_DE": "Niger",
+        "NAME_EN": "Niger",
+        "NAME_ES": "Níger",
+        "NAME_FA": "نیجر",
+        "NAME_FR": "Niger",
+        "NAME_EL": "Νίγηρας",
+        "NAME_HE": "ניז'ר",
+        "NAME_HI": "नाइजर",
+        "NAME_HU": "Niger",
+        "NAME_ID": "Niger",
+        "NAME_IT": "Niger",
+        "NAME_JA": "ニジェール",
+        "NAME_KO": "니제르",
+        "NAME_NL": "Niger",
+        "NAME_PL": "Niger",
+        "NAME_PT": "Níger",
+        "NAME_RU": "Нигер",
+        "NAME_SV": "Niger",
+        "NAME_TR": "Nijer",
+        "NAME_UK": "Нігер",
+        "NAME_UR": "نائجر",
+        "NAME_VI": "Niger",
+        "NAME_ZH": "尼日尔",
+        "NAME_ZHT": "尼日",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "NER"
+      },
+      "bbox": [
+        0.295646,
+        11.660167,
+        15.903247,
+        23.471668
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.8513,
+              22.86295
+            ],
+            [
+              15.096888,
+              21.308519
+            ],
+            [
+              15.47106,
+              21.04845
+            ],
+            [
+              15.487148,
+              20.730415
+            ],
+            [
+              15.903247,
+              20.387619
+            ],
+            [
+              15.685741,
+              19.95718
+            ],
+            [
+              15.300441,
+              17.92795
+            ],
+            [
+              15.247731,
+              16.627306
+            ],
+            [
+              13.97217,
+              15.68437
+            ],
+            [
+              13.540394,
+              14.367134
+            ],
+            [
+              13.956699,
+              13.996691
+            ],
+            [
+              13.954477,
+              13.353449
+            ],
+            [
+              14.595781,
+              13.330427
+            ],
+            [
+              14.495787,
+              12.859396
+            ],
+            [
+              14.213531,
+              12.802035
+            ],
+            [
+              14.181336,
+              12.483657
+            ],
+            [
+              13.995353,
+              12.461565
+            ],
+            [
+              13.318702,
+              13.556356
+            ],
+            [
+              13.083987,
+              13.596147
+            ],
+            [
+              12.302071,
+              13.037189
+            ],
+            [
+              11.527803,
+              13.32898
+            ],
+            [
+              10.989593,
+              13.387323
+            ],
+            [
+              10.701032,
+              13.246918
+            ],
+            [
+              10.114814,
+              13.277252
+            ],
+            [
+              9.524928,
+              12.851102
+            ],
+            [
+              9.014933,
+              12.826659
+            ],
+            [
+              7.804671,
+              13.343527
+            ],
+            [
+              7.330747,
+              13.098038
+            ],
+            [
+              6.820442,
+              13.115091
+            ],
+            [
+              6.445426,
+              13.492768
+            ],
+            [
+              5.443058,
+              13.865924
+            ],
+            [
+              4.368344,
+              13.747482
+            ],
+            [
+              4.107946,
+              13.531216
+            ],
+            [
+              3.967283,
+              12.956109
+            ],
+            [
+              3.680634,
+              12.552903
+            ],
+            [
+              3.61118,
+              11.660167
+            ],
+            [
+              2.848643,
+              12.235636
+            ],
+            [
+              2.490164,
+              12.233052
+            ],
+            [
+              2.154474,
+              11.94015
+            ],
+            [
+              2.177108,
+              12.625018
+            ],
+            [
+              1.024103,
+              12.851826
+            ],
+            [
+              0.993046,
+              13.33575
+            ],
+            [
+              0.429928,
+              13.988733
+            ],
+            [
+              0.295646,
+              14.444235
+            ],
+            [
+              0.374892,
+              14.928908
+            ],
+            [
+              1.015783,
+              14.968182
+            ],
+            [
+              1.385528,
+              15.323561
+            ],
+            [
+              2.749993,
+              15.409525
+            ],
+            [
+              3.638259,
+              15.56812
+            ],
+            [
+              3.723422,
+              16.184284
+            ],
+            [
+              4.27021,
+              16.852227
+            ],
+            [
+              4.267419,
+              19.155265
+            ],
+            [
+              5.677566,
+              19.601207
+            ],
+            [
+              8.572893,
+              21.565661
+            ],
+            [
+              11.999506,
+              23.471668
+            ],
+            [
+              13.581425,
+              23.040506
+            ],
+            [
+              14.143871,
+              22.491289
+            ],
+            [
+              14.8513,
+              22.86295
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

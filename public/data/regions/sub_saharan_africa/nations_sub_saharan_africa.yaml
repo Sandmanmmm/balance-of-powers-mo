@@ -1,1 +1,1816 @@
-nations: {}
+# Sub-Saharan Africa - Regional Nation Data
+
+nations:
+  NGA:
+    name: "Nigeria"
+    capital: "Abuja"
+    flag: "🇳🇬"
+    government:
+      type: "federal_republic"
+      leader: "Bola Tinubu"
+      approval: 45.8
+      stability: 58.2
+      ruling_party: "All Progressives Congress"
+      ideology: "Democratic"
+      election_cycle: 4
+      last_election: "2023-02-25"
+    economy:
+      gdp: 440000000000
+      debt: 185000000000
+      inflation: 22.8
+      trade_balance: 18500000000
+      treasury: 28500000000
+      currency: "NGN"
+      interest_rate: 18.75
+      sectors:
+        manufacturing: 8.8
+        services: 52.2
+        agriculture: 21.2
+        technology: 17.8
+    military:
+      manpower: 230000
+      equipment: 45
+      readiness: 65
+      doctrine: "Regional Security"
+      nuclear_capability: false
+      military_spending_gdp: 0.62
+      conscription: false
+      reserve_forces: 82000
+    technology:
+      researchPoints: 285
+      currentResearch:
+        - "Oil Technology"
+        - "Agriculture Technology"
+        - "Telecommunications"
+      completedTech:
+        - "Internet"
+        - "Basic Manufacturing"
+        - "Oil Extraction"
+    demographics:
+      population: 218000000
+      median_age: 18.1
+      birth_rate: 5.32
+      life_expectancy: 54.7
+      literacy_rate: 62.0
+      urbanization: 52.0
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      trade_partners: ["CHN", "USA", "IND", "ESP", "FRA"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 8500000
+      steel: 185000
+      rare_earth: 18500
+      uranium: 8500
+      food: 1850000
+    resource_production:
+      oil: 1850000
+      steel: 28500
+      rare_earth: 850
+      uranium: 285
+      food: 2850000
+    resource_consumption:
+      oil: 485000
+      steel: 185000
+      rare_earth: 8500
+      uranium: 450
+      food: 2950000
+
+  ZAF:
+    name: "South Africa"
+    capital: "Cape Town"
+    flag: "🇿🇦"
+    government:
+      type: "parliamentary_republic"
+      leader: "Cyril Ramaphosa"
+      approval: 38.5
+      stability: 65.8
+      ruling_party: "African National Congress"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2019-05-08"
+    economy:
+      gdp: 419000000000
+      debt: 285000000000
+      inflation: 5.4
+      trade_balance: 8500000000
+      treasury: 18500000000
+      currency: "ZAR"
+      interest_rate: 8.25
+      sectors:
+        manufacturing: 13.2
+        services: 61.8
+        agriculture: 2.8
+        technology: 22.2
+    military:
+      manpower: 78000
+      equipment: 72
+      readiness: 75
+      doctrine: "Regional Stability"
+      nuclear_capability: false
+      military_spending_gdp: 1.18
+      conscription: false
+      reserve_forces: 15000
+    technology:
+      researchPoints: 580
+      currentResearch:
+        - "Mining Technology"
+        - "Renewable Energy"
+        - "Medical Research"
+      completedTech:
+        - "Internet"
+        - "Advanced Mining"
+        - "Nuclear Physics"
+        - "Medical Technology"
+    demographics:
+      population: 60000000
+      median_age: 27.6
+      birth_rate: 2.41
+      life_expectancy: 64.1
+      literacy_rate: 87.0
+      urbanization: 67.4
+    diplomacy:
+      allies: ["BRA", "IND", "CHN"]
+      enemies: []
+      trade_partners: ["CHN", "GER", "USA", "JPN", "GBR"]
+      international_relations:
+        NATO: false
+        G20: "member"
+        UN_Security_Council: false
+        BRICS: "member"
+    resource_stockpiles:
+      oil: 185000
+      steel: 1850000
+      rare_earth: 85000
+      uranium: 185000
+      food: 850000
+    resource_production:
+      oil: 18500
+      steel: 485000
+      rare_earth: 18500
+      uranium: 8500
+      food: 585000
+    resource_consumption:
+      oil: 585000
+      steel: 285000
+      rare_earth: 8500
+      uranium: 2850
+      food: 650000
+
+  KEN:
+    name: "Kenya"
+    capital: "Nairobi"
+    flag: "🇰🇪"
+    government:
+      type: "presidential_republic"
+      leader: "William Ruto"
+      approval: 52.8
+      stability: 72.5
+      ruling_party: "Kenya Kwanza"
+      ideology: "Democratic"
+      election_cycle: 5
+      last_election: "2022-08-09"
+    economy:
+      gdp: 110000000000
+      debt: 85000000000
+      inflation: 7.9
+      trade_balance: -8500000000
+      treasury: 8500000000
+      currency: "KES"
+      interest_rate: 10.5
+      sectors:
+        manufacturing: 7.8
+        services: 54.2
+        agriculture: 21.2
+        technology: 16.8
+    military:
+      manpower: 24000
+      equipment: 58
+      readiness: 75
+      doctrine: "Regional Peacekeeping"
+      nuclear_capability: false
+      military_spending_gdp: 1.25
+      conscription: false
+      reserve_forces: 5000
+    technology:
+      researchPoints: 185
+      currentResearch:
+        - "Agriculture Technology"
+        - "Mobile Technology"
+        - "Renewable Energy"
+      completedTech:
+        - "Internet"
+        - "Mobile Banking"
+        - "Agriculture Technology"
+    demographics:
+      population: 54000000
+      median_age: 20.0
+      birth_rate: 3.52
+      life_expectancy: 66.7
+      literacy_rate: 81.5
+      urbanization: 28.0
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      trade_partners: ["CHN", "IND", "USA", "UAE", "UGA"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 28500
+      steel: 85000
+      rare_earth: 8500
+      uranium: 1850
+      food: 1185000
+    resource_production:
+      oil: 850
+      steel: 18500
+      rare_earth: 850
+      uranium: 185
+      food: 950000
+    resource_consumption:
+      oil: 118500
+      steel: 28500
+      rare_earth: 2850
+      uranium: 285
+      food: 985000
+
+  ETH:
+    display_name: "Ethiopia"
+    code: "ETH"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Federal Republic"
+      approval: 45.2
+      stability: 58.7
+      ruling_party: "Prosperity Party"
+      ideology: "Nationalism"
+      election_cycle: 5
+      last_election: "2021-06-21"
+    economy:
+      gdp: 127000000000
+      debt: 42000000000
+      inflation: 26.8
+      trade_balance: -4200000000
+    military:
+      active_personnel: 162000
+      reserves: 0
+      defense_budget: 850000000
+      nuclear_weapons: 0
+    resources:
+      oil: 12500
+      steel: 145000
+      rare_earth: 8500
+      uranium: 1250
+      food: 12500000
+    resource_consumption:
+      oil: 65000
+      steel: 85000
+      rare_earth: 4500
+      uranium: 850
+      food: 24500000
+
+  GHA:
+    display_name: "Ghana"
+    code: "GHA"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 52.8
+      stability: 68.5
+      ruling_party: "New Patriotic Party"
+      ideology: "Liberal Conservatism"
+      election_cycle: 4
+      last_election: "2020-12-07"
+    economy:
+      gdp: 78000000000
+      debt: 42000000000
+      inflation: 12.6
+      trade_balance: -2800000000
+    military:
+      active_personnel: 15500
+      reserves: 0
+      defense_budget: 295000000
+      nuclear_weapons: 0
+    resources:
+      oil: 125000
+      steel: 85000
+      rare_earth: 15000
+      uranium: 2500
+      food: 8500000
+    resource_consumption:
+      oil: 185000
+      steel: 65000
+      rare_earth: 3500
+      uranium: 650
+      food: 9200000
+
+  UGA:
+    display_name: "Uganda"
+    code: "UGA"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 38.5
+      stability: 55.2
+      ruling_party: "National Resistance Movement"
+      ideology: "Nationalism"
+      election_cycle: 5
+      last_election: "2021-01-14"
+    economy:
+      gdp: 47000000000
+      debt: 22000000000
+      inflation: 7.2
+      trade_balance: -2200000000
+    military:
+      active_personnel: 45000
+      reserves: 10000
+      defense_budget: 650000000
+      nuclear_weapons: 0
+    resources:
+      oil: 85000
+      steel: 45000
+      rare_earth: 8500
+      uranium: 1250
+      food: 12500000
+    resource_consumption:
+      oil: 125000
+      steel: 35000
+      rare_earth: 2850
+      uranium: 485
+      food: 14500000
+
+  TZA:
+    display_name: "Tanzania"
+    code: "TZA"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 55.8
+      stability: 62.5
+      ruling_party: "Chama Cha Mapinduzi"
+      ideology: "African Socialism"
+      election_cycle: 5
+      last_election: "2020-10-28"
+    economy:
+      gdp: 71000000000
+      debt: 35000000000
+      inflation: 4.1
+      trade_balance: -3500000000
+    military:
+      active_personnel: 27000
+      reserves: 80000
+      defense_budget: 385000000
+      nuclear_weapons: 0
+    resources:
+      oil: 45000
+      steel: 125000
+      rare_earth: 12500
+      uranium: 2850
+      food: 18500000
+    resource_consumption:
+      oil: 185000
+      steel: 85000
+      rare_earth: 4500
+      uranium: 650
+      food: 22500000
+
+  CMR:
+    display_name: "Cameroon"
+    code: "CMR"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 38.5
+      stability: 45.2
+      ruling_party: "Cameroon People's Democratic Movement"
+      ideology: "Authoritarianism"
+      election_cycle: 7
+      last_election: "2018-10-07"
+    economy:
+      gdp: 45000000000
+      debt: 28500000000
+      inflation: 6.1
+      trade_balance: -1850000000
+    military:
+      active_personnel: 40000
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 485000
+      steel: 28500
+      rare_earth: 4850
+      uranium: 1250
+      food: 8500000
+    resource_consumption:
+      oil: 185000
+      steel: 85000
+      rare_earth: 2850
+      uranium: 485
+      food: 12500000
+
+  CIV:
+    display_name: "Ivory Coast"
+    code: "CIV"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 52.8
+      stability: 58.5
+      ruling_party: "Rally of the Republicans"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2020-10-31"
+    economy:
+      gdp: 70000000000
+      debt: 28500000000
+      inflation: 4.2
+      trade_balance: 2850000000
+    military:
+      active_personnel: 25400
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 185000
+      steel: 48500
+      rare_earth: 8500
+      uranium: 1850
+      food: 12500000
+    resource_consumption:
+      oil: 285000
+      steel: 125000
+      rare_earth: 4850
+      uranium: 650
+      food: 15500000
+
+  AGO:
+    display_name: "Angola"
+    code: "AGO"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 48.5
+      stability: 58.5
+      ruling_party: "People's Movement for the Liberation of Angola"
+      ideology: "Democratic Socialism"
+      election_cycle: 5
+      last_election: "2022-08-24"
+    economy:
+      gdp: 107000000000
+      debt: 85000000000
+      inflation: 25.8
+      trade_balance: 18500000000
+    military:
+      active_personnel: 107000
+      reserves: 0
+      defense_budget: 3850000000
+      nuclear_weapons: 0
+    resources:
+      oil: 4850000
+      steel: 285000
+      rare_earth: 12500
+      uranium: 1850
+      food: 8500000
+    resource_consumption:
+      oil: 485000
+      steel: 185000
+      rare_earth: 8500
+      uranium: 850
+      food: 12500000
+
+  ZWE:
+    display_name: "Zimbabwe"
+    code: "ZWE"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 28.5
+      stability: 35.2
+      ruling_party: "ZANU-PF"
+      ideology: "African Nationalism"
+      election_cycle: 5
+      last_election: "2023-08-23"
+    economy:
+      gdp: 31000000000
+      debt: 18500000000
+      inflation: 176.0
+      trade_balance: -2850000000
+    military:
+      active_personnel: 29000
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 185000
+      rare_earth: 28500
+      uranium: 4850
+      food: 3850000
+    resource_consumption:
+      oil: 128500
+      steel: 85000
+      rare_earth: 8500
+      uranium: 1250
+      food: 8500000
+
+  BWA:
+    display_name: "Botswana"
+    code: "BWA"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Parliamentary Republic"
+      approval: 68.5
+      stability: 78.5
+      ruling_party: "Botswana Democratic Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2019-10-23"
+    economy:
+      gdp: 20000000000
+      debt: 4850000000
+      inflation: 12.2
+      trade_balance: 2850000000
+    military:
+      active_personnel: 9000
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 28500
+      rare_earth: 1850
+      uranium: 8500
+      food: 2850000
+    resource_consumption:
+      oil: 48500
+      steel: 28500
+      rare_earth: 2850
+      uranium: 485
+      food: 3850000
+
+  SEN:
+    display_name: "Senegal"
+    code: "SEN"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 68.5
+      stability: 75.5
+      ruling_party: "Benno Bokk Yakaar"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2024-03-24"
+    economy:
+      gdp: 28000000000
+      debt: 18500000000
+      inflation: 1.7
+      trade_balance: -4850000000
+    military:
+      active_personnel: 13600
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 8500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 1250
+      food: 8500000
+    resource_consumption:
+      oil: 185000
+      steel: 85000
+      rare_earth: 4850
+      uranium: 485
+      food: 12500000
+
+  COD:
+    display_name: "Democratic Republic of Congo"
+    code: "COD"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 35.8
+      stability: 28.5
+      ruling_party: "Union for Democracy and Social Progress"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2023-12-20"
+    economy:
+      gdp: 58000000000
+      debt: 14500000000
+      inflation: 8.9
+      trade_balance: 2850000000
+    military:
+      active_personnel: 134000
+      reserves: 0
+      defense_budget: 285000000
+      nuclear_weapons: 0
+    resources:
+      oil: 285000
+      steel: 185000
+      rare_earth: 185000
+      uranium: 28500
+      food: 28500000
+    resource_consumption:
+      oil: 85000
+      steel: 48500
+      rare_earth: 18500
+      uranium: 2850
+      food: 48500000
+
+  MOZ:
+    display_name: "Mozambique"
+    code: "MOZ"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 42.8
+      stability: 48.5
+      ruling_party: "FRELIMO"
+      ideology: "Democratic Socialism"
+      election_cycle: 5
+      last_election: "2019-10-15"
+    economy:
+      gdp: 16000000000
+      debt: 12500000000
+      inflation: 10.3
+      trade_balance: -2850000000
+    military:
+      active_personnel: 11200
+      reserves: 0
+      defense_budget: 185000000
+      nuclear_weapons: 0
+    resources:
+      oil: 185000
+      steel: 48500
+      rare_earth: 8500
+      uranium: 1850
+      food: 18500000
+    resource_consumption:
+      oil: 128500
+      steel: 48500
+      rare_earth: 4850
+      uranium: 485
+      food: 28500000
+
+  ZMB:
+    display_name: "Zambia"
+    code: "ZMB"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 52.8
+      stability: 58.5
+      ruling_party: "United Party for National Development"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2021-08-12"
+    economy:
+      gdp: 23000000000
+      debt: 18500000000
+      inflation: 15.7
+      trade_balance: 4850000000
+    military:
+      active_personnel: 15100
+      reserves: 3000
+      defense_budget: 385000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 85000
+      rare_earth: 12500
+      uranium: 4850
+      food: 8500000
+    resource_consumption:
+      oil: 185000
+      steel: 185000
+      rare_earth: 8500
+      uranium: 1250
+      food: 12500000
+
+  NAM:
+    display_name: "Namibia"
+    code: "NAM"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 58.5
+      stability: 68.5
+      ruling_party: "South West Africa People's Organisation"
+      ideology: "Democratic Socialism"
+      election_cycle: 5
+      last_election: "2024-11-27"
+    economy:
+      gdp: 12500000000
+      debt: 8500000000
+      inflation: 5.6
+      trade_balance: 1850000000
+    military:
+      active_personnel: 9000
+      reserves: 6000
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 48500
+      rare_earth: 18500
+      uranium: 28500
+      food: 2850000
+    resource_consumption:
+      oil: 48500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 1250
+      food: 3850000
+
+  RWA:
+    display_name: "Rwanda"
+    code: "RWA"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 78.5
+      stability: 82.5
+      ruling_party: "Rwandan Patriotic Front"
+      ideology: "Developmental State"
+      election_cycle: 7
+      last_election: "2024-07-15"
+    economy:
+      gdp: 11500000000
+      debt: 8500000000
+      inflation: 13.9
+      trade_balance: -1850000000
+    military:
+      active_personnel: 33000
+      reserves: 0
+      defense_budget: 185000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 18500
+      rare_earth: 8500
+      uranium: 485
+      food: 8500000
+    resource_consumption:
+      oil: 85000
+      steel: 48500
+      rare_earth: 2850
+      uranium: 285
+      food: 12500000
+
+  MDG:
+    display_name: "Madagascar"
+    code: "MDG"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 42.8
+      stability: 55.2
+      ruling_party: "I Love Madagascar"
+      ideology: "Populism"
+      election_cycle: 5
+      last_election: "2023-11-16"
+    economy:
+      gdp: 15500000000
+      debt: 8500000000
+      inflation: 8.3
+      trade_balance: -1850000000
+    military:
+      active_personnel: 13500
+      reserves: 8100
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 8500
+      steel: 28500
+      rare_earth: 18500
+      uranium: 1850
+      food: 18500000
+    resource_consumption:
+      oil: 48500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 485
+      food: 28500000
+
+  MLI:
+    display_name: "Mali"
+    code: "MLI"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Military Junta"
+      approval: 38.5
+      stability: 35.2
+      ruling_party: "National Committee for the Salvation of the People"
+      ideology: "Military Rule"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 19000000000
+      debt: 8500000000
+      inflation: 3.0
+      trade_balance: 1850000000
+    military:
+      active_personnel: 7350
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 48500
+      rare_earth: 8500
+      uranium: 1850
+      food: 12500000
+    resource_consumption:
+      oil: 85000
+      steel: 48500
+      rare_earth: 4850
+      uranium: 485
+      food: 18500000
+
+  MUS:
+    display_name: "Mauritius"
+    code: "MUS"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Parliamentary Republic"
+      approval: 58.5
+      stability: 78.5
+      ruling_party: "Militant Socialist Movement"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2019-11-07"
+    economy:
+      gdp: 14500000000
+      debt: 12500000000
+      inflation: 10.8
+      trade_balance: -1850000000
+    military:
+      active_personnel: 0
+      reserves: 0
+      defense_budget: 28500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 2850
+      rare_earth: 485
+      uranium: 0
+      food: 485000
+    resource_consumption:
+      oil: 28500
+      steel: 18500
+      rare_earth: 1850
+      uranium: 185
+      food: 585000
+
+  SYC:
+    display_name: "Seychelles"
+    code: "SYC"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 52.8
+      stability: 72.5
+      ruling_party: "United Seychelles"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2020-10-22"
+    economy:
+      gdp: 1700000000
+      debt: 850000000
+      inflation: 2.6
+      trade_balance: -485000000
+    military:
+      active_personnel: 420
+      reserves: 0
+      defense_budget: 18500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 485
+      rare_earth: 185
+      uranium: 0
+      food: 85000
+    resource_consumption:
+      oil: 8500
+      steel: 4850
+      rare_earth: 850
+      uranium: 85
+      food: 125000
+
+  BFA:
+    display_name: "Burkina Faso"
+    code: "BFA"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Military Junta"
+      approval: 35.8
+      stability: 28.5
+      ruling_party: "Patriotic Movement for Safeguard and Restoration"
+      ideology: "Military Rule"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 19500000000
+      debt: 8500000000
+      inflation: 14.7
+      trade_balance: -1850000000
+    military:
+      active_personnel: 11200
+      reserves: 45000
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 28500
+      rare_earth: 8500
+      uranium: 1850
+      food: 12500000
+    resource_consumption:
+      oil: 85000
+      steel: 48500
+      rare_earth: 4850
+      uranium: 485
+      food: 18500000
+
+  NER:
+    display_name: "Niger"
+    code: "NER"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Military Junta"
+      approval: 28.5
+      stability: 25.2
+      ruling_party: "National Council for the Safeguard of the Homeland"
+      ideology: "Military Rule"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 15500000000
+      debt: 8500000000
+      inflation: 4.2
+      trade_balance: 1850000000
+    military:
+      active_personnel: 25000
+      reserves: 0
+      defense_budget: 285000000
+      nuclear_weapons: 0
+    resources:
+      oil: 18500
+      steel: 18500
+      rare_earth: 8500
+      uranium: 18500
+      food: 18500000
+    resource_consumption:
+      oil: 48500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 1250
+      food: 28500000
+
+  TCD:
+    display_name: "Chad"
+    code: "TCD"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 42.8
+      stability: 38.5
+      ruling_party: "Patriotic Salvation Movement"
+      ideology: "Authoritarianism"
+      election_cycle: 6
+      last_election: "2024-05-06"
+    economy:
+      gdp: 12500000000
+      debt: 8500000000
+      inflation: 4.8
+      trade_balance: 1850000000
+    military:
+      active_personnel: 25350
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 485000
+      steel: 18500
+      rare_earth: 4850
+      uranium: 1250
+      food: 12500000
+    resource_consumption:
+      oil: 28500
+      steel: 28500
+      rare_earth: 2850
+      uranium: 485
+      food: 18500000
+
+  CAF:
+    display_name: "Central African Republic"
+    code: "CAF"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 25.8
+      stability: 18.5
+      ruling_party: "United Hearts Movement"
+      ideology: "Nationalism"
+      election_cycle: 5
+      last_election: "2020-12-27"
+    economy:
+      gdp: 2850000000
+      debt: 1850000000
+      inflation: 8.9
+      trade_balance: -485000000
+    military:
+      active_personnel: 7000
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 8500
+      rare_earth: 18500
+      uranium: 4850
+      food: 4850000
+    resource_consumption:
+      oil: 18500
+      steel: 8500
+      rare_earth: 4850
+      uranium: 850
+      food: 8500000
+
+  SLE:
+    display_name: "Sierra Leone"
+    code: "SLE"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 48.5
+      stability: 58.5
+      ruling_party: "Sierra Leone People's Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2023-06-24"
+    economy:
+      gdp: 4850000000
+      debt: 2850000000
+      inflation: 27.2
+      trade_balance: -485000000
+    military:
+      active_personnel: 8500
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 18500
+      rare_earth: 8500
+      uranium: 1250
+      food: 4850000
+    resource_consumption:
+      oil: 28500
+      steel: 18500
+      rare_earth: 2850
+      uranium: 285
+      food: 8500000
+
+  LBR:
+    display_name: "Liberia"
+    code: "LBR"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 52.8
+      stability: 68.5
+      ruling_party: "Coalition for Democratic Change"
+      ideology: "Liberal Democracy"
+      election_cycle: 6
+      last_election: "2023-10-10"
+    economy:
+      gdp: 4050000000
+      debt: 1850000000
+      inflation: 7.8
+      trade_balance: -485000000
+    military:
+      active_personnel: 2050
+      reserves: 0
+      defense_budget: 18500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 285000
+      rare_earth: 4850
+      uranium: 850
+      food: 4850000
+    resource_consumption:
+      oil: 28500
+      steel: 18500
+      rare_earth: 2850
+      uranium: 285
+      food: 8500000
+
+  GIN:
+    display_name: "Guinea"
+    code: "GIN"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Military Junta"
+      approval: 28.5
+      stability: 35.2
+      ruling_party: "National Committee of Reconciliation and Development"
+      ideology: "Military Rule"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 18500000000
+      debt: 8500000000
+      inflation: 12.9
+      trade_balance: 1850000000
+    military:
+      active_personnel: 45000
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 185000
+      rare_earth: 28500
+      uranium: 1850
+      food: 18500000
+    resource_consumption:
+      oil: 85000
+      steel: 85000
+      rare_earth: 8500
+      uranium: 850
+      food: 28500000
+
+  CPV:
+    display_name: "Cape Verde"
+    code: "CPV"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Parliamentary Republic"
+      approval: 68.5
+      stability: 82.5
+      ruling_party: "African Party for the Independence of Cape Verde"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2021-04-18"
+    economy:
+      gdp: 2150000000
+      debt: 1850000000
+      inflation: 4.4
+      trade_balance: -850000000
+    military:
+      active_personnel: 1200
+      reserves: 0
+      defense_budget: 18500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 1850
+      rare_earth: 485
+      uranium: 185
+      food: 485000
+    resource_consumption:
+      oil: 18500
+      steel: 8500
+      rare_earth: 1850
+      uranium: 185
+      food: 650000
+
+  STP:
+    display_name: "São Tomé and Príncipe"
+    code: "STP"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Parliamentary Republic"
+      approval: 52.8
+      stability: 65.5
+      ruling_party: "Independent Democratic Action"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2022-09-25"
+    economy:
+      gdp: 485000000
+      debt: 285000000
+      inflation: 18.4
+      trade_balance: -185000000
+    military:
+      active_personnel: 0
+      reserves: 0
+      defense_budget: 2850000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 485
+      rare_earth: 185
+      uranium: 85
+      food: 185000
+    resource_consumption:
+      oil: 8500
+      steel: 2850
+      rare_earth: 850
+      uranium: 85
+      food: 285000
+
+  COM:
+    display_name: "Comoros"
+    code: "COM"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 42.8
+      stability: 55.2
+      ruling_party: "Convention for the Renewal of the Comoros"
+      ideology: "Islamic Democracy"
+      election_cycle: 5
+      last_election: "2024-01-14"
+    economy:
+      gdp: 1350000000
+      debt: 485000000
+      inflation: 1.8
+      trade_balance: -285000000
+    military:
+      active_personnel: 0
+      reserves: 0
+      defense_budget: 8500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 485
+      rare_earth: 185
+      uranium: 85
+      food: 285000
+    resource_consumption:
+      oil: 8500
+      steel: 2850
+      rare_earth: 850
+      uranium: 85
+      food: 485000
+
+  DJI:
+    display_name: "Djibouti"
+    code: "DJI"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 48.5
+      stability: 68.5
+      ruling_party: "People's Rally for Progress"
+      ideology: "Authoritarianism"
+      election_cycle: 5
+      last_election: "2021-04-09"
+    economy:
+      gdp: 3850000000
+      debt: 1850000000
+      inflation: 1.2
+      trade_balance: 485000000
+    military:
+      active_personnel: 10450
+      reserves: 0
+      defense_budget: 48500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 8500
+      rare_earth: 1850
+      uranium: 485
+      food: 485000
+    resource_consumption:
+      oil: 28500
+      steel: 18500
+      rare_earth: 2850
+      uranium: 285
+      food: 850000
+
+  ERI:
+    display_name: "Eritrea"
+    code: "ERI"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "One-Party State"
+      approval: 25.8
+      stability: 35.2
+      ruling_party: "People's Front for Democracy and Justice"
+      ideology: "Authoritarianism"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 2850000000
+      debt: 1850000000
+      inflation: 12.3
+      trade_balance: -485000000
+    military:
+      active_personnel: 201800
+      reserves: 120000
+      defense_budget: 285000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 28500
+      rare_earth: 8500
+      uranium: 1850
+      food: 2850000
+    resource_consumption:
+      oil: 18500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 485
+      food: 4850000
+
+  SOM:
+    display_name: "Somalia"
+    code: "SOM"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Federal Republic"
+      approval: 35.8
+      stability: 25.2
+      ruling_party: "Somali National Party"
+      ideology: "Federalism"
+      election_cycle: 4
+      last_election: "2022-05-15"
+    economy:
+      gdp: 8850000000
+      debt: 4850000000
+      inflation: 3.2
+      trade_balance: -1850000000
+    military:
+      active_personnel: 19800
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 8500
+      steel: 18500
+      rare_earth: 4850
+      uranium: 850
+      food: 8500000
+    resource_consumption:
+      oil: 28500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 485
+      food: 18500000
+
+  BEN:
+    display_name: "Benin"
+    code: "BEN"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 58.5
+      stability: 72.5
+      ruling_party: "Progressive Union for Renewal"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2021-04-11"
+    economy:
+      gdp: 18500000000
+      debt: 8500000000
+      inflation: 3.0
+      trade_balance: -1850000000
+    military:
+      active_personnel: 7500
+      reserves: 0
+      defense_budget: 185000000
+      nuclear_weapons: 0
+    resources:
+      oil: 18500
+      steel: 28500
+      rare_earth: 8500
+      uranium: 1250
+      food: 12500000
+    resource_consumption:
+      oil: 48500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 485
+      food: 18500000
+
+  TGO:
+    display_name: "Togo"
+    code: "TGO"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 42.8
+      stability: 48.5
+      ruling_party: "Union for the Republic"
+      ideology: "Authoritarianism"
+      election_cycle: 5
+      last_election: "2020-02-22"
+    economy:
+      gdp: 8500000000
+      debt: 4850000000
+      inflation: 6.1
+      trade_balance: -485000000
+    military:
+      active_personnel: 8550
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 18500
+      rare_earth: 4850
+      uranium: 850
+      food: 4850000
+    resource_consumption:
+      oil: 28500
+      steel: 18500
+      rare_earth: 2850
+      uranium: 285
+      food: 8500000
+
+  GNQ:
+    display_name: "Equatorial Guinea"
+    code: "GNQ"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 25.8
+      stability: 35.2
+      ruling_party: "Democratic Party of Equatorial Guinea"
+      ideology: "Authoritarianism"
+      election_cycle: 7
+      last_election: "2022-11-20"
+    economy:
+      gdp: 12500000000
+      debt: 4850000000
+      inflation: 4.8
+      trade_balance: 8500000000
+    military:
+      active_personnel: 1450
+      reserves: 0
+      defense_budget: 185000000
+      nuclear_weapons: 0
+    resources:
+      oil: 1850000
+      steel: 8500
+      rare_earth: 2850
+      uranium: 485
+      food: 1850000
+    resource_consumption:
+      oil: 185000
+      steel: 28500
+      rare_earth: 2850
+      uranium: 285
+      food: 2850000
+
+  GAB:
+    display_name: "Gabon"
+    code: "GAB"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Military Junta"
+      approval: 48.5
+      stability: 55.2
+      ruling_party: "Committee for the Transition and Restoration of Institutions"
+      ideology: "Military Rule"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 20500000000
+      debt: 8500000000
+      inflation: 2.9
+      trade_balance: 4850000000
+    military:
+      active_personnel: 4700
+      reserves: 0
+      defense_budget: 285000000
+      nuclear_weapons: 0
+    resources:
+      oil: 485000
+      steel: 48500
+      rare_earth: 8500
+      uranium: 2850
+      food: 2850000
+    resource_consumption:
+      oil: 285000
+      steel: 48500
+      rare_earth: 4850
+      uranium: 850
+      food: 4850000
+
+  BDI:
+    display_name: "Burundi"
+    code: "BDI"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 38.5
+      stability: 45.2
+      ruling_party: "National Council for the Defense of Democracy"
+      ideology: "Nationalism"
+      election_cycle: 5
+      last_election: "2020-05-20"
+    economy:
+      gdp: 3850000000
+      debt: 2850000000
+      inflation: 18.8
+      trade_balance: -485000000
+    military:
+      active_personnel: 30000
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 8500
+      rare_earth: 4850
+      uranium: 850
+      food: 8500000
+    resource_consumption:
+      oil: 18500
+      steel: 8500
+      rare_earth: 2850
+      uranium: 285
+      food: 12500000
+
+  COG:
+    display_name: "Republic of the Congo"
+    code: "COG"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 42.8
+      stability: 55.2
+      ruling_party: "Congolese Labour Party"
+      ideology: "Democratic Socialism"
+      election_cycle: 5
+      last_election: "2021-03-21"
+    economy:
+      gdp: 12500000000
+      debt: 8500000000
+      inflation: 3.2
+      trade_balance: 2850000000
+    military:
+      active_personnel: 10000
+      reserves: 0
+      defense_budget: 285000000
+      nuclear_weapons: 0
+    resources:
+      oil: 285000
+      steel: 28500
+      rare_earth: 8500
+      uranium: 1850
+      food: 4850000
+    resource_consumption:
+      oil: 85000
+      steel: 28500
+      rare_earth: 4850
+      uranium: 485
+      food: 8500000
+
+  GMB:
+    display_name: "Gambia"
+    code: "GMB"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 65.8
+      stability: 75.5
+      ruling_party: "National People's Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2021-12-04"
+    economy:
+      gdp: 2150000000
+      debt: 850000000
+      inflation: 11.5
+      trade_balance: -485000000
+    military:
+      active_personnel: 800
+      reserves: 0
+      defense_budget: 18500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 2850
+      rare_earth: 1850
+      uranium: 485
+      food: 2850000
+    resource_consumption:
+      oil: 18500
+      steel: 8500
+      rare_earth: 2850
+      uranium: 285
+      food: 4850000
+
+  GNB:
+    display_name: "Guinea-Bissau"
+    code: "GNB"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 35.8
+      stability: 38.5
+      ruling_party: "African Party for the Independence of Guinea and Cape Verde"
+      ideology: "African Socialism"
+      election_cycle: 5
+      last_election: "2023-12-04"
+    economy:
+      gdp: 1650000000
+      debt: 485000000
+      inflation: 8.1
+      trade_balance: -285000000
+    military:
+      active_personnel: 4450
+      reserves: 0
+      defense_budget: 28500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 1850
+      rare_earth: 2850
+      uranium: 485
+      food: 2850000
+    resource_consumption:
+      oil: 18500
+      steel: 8500
+      rare_earth: 2850
+      uranium: 285
+      food: 4850000
+
+  LSO:
+    display_name: "Lesotho"
+    code: "LSO"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Constitutional Monarchy"
+      approval: 48.5
+      stability: 58.5
+      ruling_party: "Revolution for Prosperity"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2022-10-07"
+    economy:
+      gdp: 2850000000
+      debt: 1850000000
+      inflation: 8.1
+      trade_balance: -485000000
+    military:
+      active_personnel: 2000
+      reserves: 0
+      defense_budget: 48500000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 8500
+      rare_earth: 2850
+      uranium: 485
+      food: 1850000
+    resource_consumption:
+      oil: 28500
+      steel: 18500
+      rare_earth: 2850
+      uranium: 285
+      food: 2850000
+
+  MRT:
+    display_name: "Mauritania"
+    code: "MRT"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 42.8
+      stability: 55.2
+      ruling_party: "Union for the Republic"
+      ideology: "Authoritarianism"
+      election_cycle: 5
+      last_election: "2024-06-29"
+    economy:
+      gdp: 9850000000
+      debt: 4850000000
+      inflation: 4.6
+      trade_balance: 1850000000
+    military:
+      active_personnel: 15850
+      reserves: 5000
+      defense_budget: 185000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 285000
+      rare_earth: 8500
+      uranium: 1850
+      food: 4850000
+    resource_consumption:
+      oil: 48500
+      steel: 85000
+      rare_earth: 4850
+      uranium: 485
+      food: 8500000
+
+  MWI:
+    display_name: "Malawi"
+    code: "MWI"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Presidential Republic"
+      approval: 52.8
+      stability: 65.5
+      ruling_party: "Malawi Congress Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2020-06-23"
+    economy:
+      gdp: 13500000000
+      debt: 8500000000
+      inflation: 20.9
+      trade_balance: -1850000000
+    military:
+      active_personnel: 5300
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 18500
+      rare_earth: 8500
+      uranium: 2850
+      food: 18500000
+    resource_consumption:
+      oil: 48500
+      steel: 28500
+      rare_earth: 4850
+      uranium: 485
+      food: 28500000
+
+  SSD:
+    display_name: "South Sudan"
+    code: "SSD"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Federal Republic"
+      approval: 25.8
+      stability: 18.5
+      ruling_party: "Sudan People's Liberation Movement"
+      ideology: "Federalism"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 3850000000
+      debt: 2850000000
+      inflation: 25.2
+      trade_balance: 1850000000
+    military:
+      active_personnel: 185000
+      reserves: 0
+      defense_budget: 485000000
+      nuclear_weapons: 0
+    resources:
+      oil: 485000
+      steel: 18500
+      rare_earth: 4850
+      uranium: 1250
+      food: 8500000
+    resource_consumption:
+      oil: 28500
+      steel: 18500
+      rare_earth: 2850
+      uranium: 485
+      food: 18500000
+
+  SWZ:
+    display_name: "Eswatini"
+    code: "SWZ"
+    region: "sub_saharan_africa"
+    politics:
+      government_type: "Absolute Monarchy"
+      approval: 35.8
+      stability: 48.5
+      ruling_party: "None (Absolute Monarchy)"
+      ideology: "Traditional Monarchy"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 4850000000
+      debt: 1850000000
+      inflation: 10.7
+      trade_balance: 485000000
+    military:
+      active_personnel: 3000
+      reserves: 0
+      defense_budget: 85000000
+      nuclear_weapons: 0
+    resources:
+      oil: 0
+      steel: 28500
+      rare_earth: 2850
+      uranium: 485
+      food: 2850000
+    resource_consumption:
+      oil: 28500
+      steel: 28500
+      rare_earth: 2850
+      uranium: 285
+      food: 3850000

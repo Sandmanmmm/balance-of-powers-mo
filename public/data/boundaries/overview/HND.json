@@ -1,0 +1,596 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "HND",
+    "generated": "2025-07-31T02:54:50.068Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "SOVEREIGNT": "Honduras",
+        "SOV_A3": "HND",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Honduras",
+        "ADM0_A3": "HND",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Honduras",
+        "GU_A3": "HND",
+        "SU_DIF": 0,
+        "SUBUNIT": "Honduras",
+        "SU_A3": "HND",
+        "BRK_DIFF": 0,
+        "NAME": "Honduras",
+        "NAME_LONG": "Honduras",
+        "BRK_A3": "HND",
+        "BRK_NAME": "Honduras",
+        "BRK_GROUP": null,
+        "ABBREV": "Hond.",
+        "POSTAL": "HN",
+        "FORMAL_EN": "Republic of Honduras",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Honduras",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Honduras",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 5,
+        "MAPCOLOR9": 2,
+        "MAPCOLOR13": 5,
+        "POP_EST": 9746117,
+        "POP_RANK": 13,
+        "POP_YEAR": 2019,
+        "GDP_MD": 25095,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "HO",
+        "ISO_A2": "HN",
+        "ISO_A2_EH": "HN",
+        "ISO_A3": "HND",
+        "ISO_A3_EH": "HND",
+        "ISO_N3": "340",
+        "ISO_N3_EH": "340",
+        "UN_A3": "340",
+        "WB_A2": "HN",
+        "WB_A3": "HND",
+        "WOE_ID": 23424841,
+        "WOE_ID_EH": 23424841,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "HND",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "HND",
+        "ADM0_A3_US": "HND",
+        "ADM0_A3_FR": "HND",
+        "ADM0_A3_RU": "HND",
+        "ADM0_A3_ES": "HND",
+        "ADM0_A3_CN": "HND",
+        "ADM0_A3_TW": "HND",
+        "ADM0_A3_IN": "HND",
+        "ADM0_A3_NP": "HND",
+        "ADM0_A3_PK": "HND",
+        "ADM0_A3_DE": "HND",
+        "ADM0_A3_GB": "HND",
+        "ADM0_A3_BR": "HND",
+        "ADM0_A3_IL": "HND",
+        "ADM0_A3_PS": "HND",
+        "ADM0_A3_SA": "HND",
+        "ADM0_A3_EG": "HND",
+        "ADM0_A3_MA": "HND",
+        "ADM0_A3_PT": "HND",
+        "ADM0_A3_AR": "HND",
+        "ADM0_A3_JP": "HND",
+        "ADM0_A3_KO": "HND",
+        "ADM0_A3_VN": "HND",
+        "ADM0_A3_TR": "HND",
+        "ADM0_A3_ID": "HND",
+        "ADM0_A3_PL": "HND",
+        "ADM0_A3_GR": "HND",
+        "ADM0_A3_IT": "HND",
+        "ADM0_A3_NL": "HND",
+        "ADM0_A3_SE": "HND",
+        "ADM0_A3_BD": "HND",
+        "ADM0_A3_UA": "HND",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "North America",
+        "REGION_UN": "Americas",
+        "SUBREGION": "Central America",
+        "REGION_WB": "Latin America & Caribbean",
+        "NAME_LEN": 8,
+        "LONG_LEN": 8,
+        "ABBREV_LEN": 5,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4.5,
+        "MAX_LABEL": 9.5,
+        "LABEL_X": -86.887604,
+        "LABEL_Y": 14.794801,
+        "NE_ID": 1159320827,
+        "WIKIDATAID": "Q783",
+        "NAME_AR": "هندوراس",
+        "NAME_BN": "হন্ডুরাস",
+        "NAME_DE": "Honduras",
+        "NAME_EN": "Honduras",
+        "NAME_ES": "Honduras",
+        "NAME_FA": "هندوراس",
+        "NAME_FR": "Honduras",
+        "NAME_EL": "Ονδούρα",
+        "NAME_HE": "הונדורס",
+        "NAME_HI": "हौण्डुरस",
+        "NAME_HU": "Honduras",
+        "NAME_ID": "Honduras",
+        "NAME_IT": "Honduras",
+        "NAME_JA": "ホンジュラス",
+        "NAME_KO": "온두라스",
+        "NAME_NL": "Honduras",
+        "NAME_PL": "Honduras",
+        "NAME_PT": "Honduras",
+        "NAME_RU": "Гондурас",
+        "NAME_SV": "Honduras",
+        "NAME_TR": "Honduras",
+        "NAME_UK": "Гондурас",
+        "NAME_UR": "ہونڈوراس",
+        "NAME_VI": "Honduras",
+        "NAME_ZH": "洪都拉斯",
+        "NAME_ZHT": "宏都拉斯",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "HND"
+      },
+      "bbox": [
+        -89.353326,
+        12.984686,
+        -83.147219,
+        16.005406
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.147219,
+              14.995829
+            ],
+            [
+              -83.489989,
+              15.016267
+            ],
+            [
+              -83.628585,
+              14.880074
+            ],
+            [
+              -83.975721,
+              14.749436
+            ],
+            [
+              -84.228342,
+              14.748764
+            ],
+            [
+              -84.449336,
+              14.621614
+            ],
+            [
+              -84.649582,
+              14.666805
+            ],
+            [
+              -84.820037,
+              14.819587
+            ],
+            [
+              -84.924501,
+              14.790493
+            ],
+            [
+              -85.052787,
+              14.551541
+            ],
+            [
+              -85.148751,
+              14.560197
+            ],
+            [
+              -85.165365,
+              14.35437
+            ],
+            [
+              -85.514413,
+              14.079012
+            ],
+            [
+              -85.698665,
+              13.960078
+            ],
+            [
+              -85.801295,
+              13.836055
+            ],
+            [
+              -86.096264,
+              14.038187
+            ],
+            [
+              -86.312142,
+              13.771356
+            ],
+            [
+              -86.520708,
+              13.778487
+            ],
+            [
+              -86.755087,
+              13.754845
+            ],
+            [
+              -86.733822,
+              13.263093
+            ],
+            [
+              -86.880557,
+              13.254204
+            ],
+            [
+              -87.005769,
+              13.025794
+            ],
+            [
+              -87.316654,
+              12.984686
+            ],
+            [
+              -87.489409,
+              13.297535
+            ],
+            [
+              -87.793111,
+              13.38448
+            ],
+            [
+              -87.723503,
+              13.78505
+            ],
+            [
+              -87.859515,
+              13.893312
+            ],
+            [
+              -88.065343,
+              13.964626
+            ],
+            [
+              -88.503998,
+              13.845486
+            ],
+            [
+              -88.541231,
+              13.980155
+            ],
+            [
+              -88.843073,
+              14.140507
+            ],
+            [
+              -89.058512,
+              14.340029
+            ],
+            [
+              -89.353326,
+              14.424133
+            ],
+            [
+              -89.145535,
+              14.678019
+            ],
+            [
+              -89.22522,
+              14.874286
+            ],
+            [
+              -89.154811,
+              15.066419
+            ],
+            [
+              -88.68068,
+              15.346247
+            ],
+            [
+              -88.225023,
+              15.727722
+            ],
+            [
+              -88.121153,
+              15.688655
+            ],
+            [
+              -87.901813,
+              15.864458
+            ],
+            [
+              -87.61568,
+              15.878799
+            ],
+            [
+              -87.522921,
+              15.797279
+            ],
+            [
+              -87.367762,
+              15.84694
+            ],
+            [
+              -86.903191,
+              15.756713
+            ],
+            [
+              -86.440946,
+              15.782835
+            ],
+            [
+              -86.119234,
+              15.893449
+            ],
+            [
+              -86.001954,
+              16.005406
+            ],
+            [
+              -85.683317,
+              15.953652
+            ],
+            [
+              -85.444004,
+              15.885749
+            ],
+            [
+              -85.182444,
+              15.909158
+            ],
+            [
+              -84.983722,
+              15.995923
+            ],
+            [
+              -84.52698,
+              15.857224
+            ],
+            [
+              -84.368256,
+              15.835158
+            ],
+            [
+              -84.063055,
+              15.648244
+            ],
+            [
+              -83.773977,
+              15.424072
+            ],
+            [
+              -83.410381,
+              15.270903
+            ],
+            [
+              -83.147219,
+              14.995829
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

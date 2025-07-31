@@ -1,0 +1,592 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 50m (Detailed)",
+    "level": "detailed",
+    "country": "CYP",
+    "generated": "2025-07-31T02:54:51.027Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "SOVEREIGNT": "Cyprus",
+        "SOV_A3": "CYP",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Cyprus",
+        "ADM0_A3": "CYP",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Cyprus",
+        "GU_A3": "CYP",
+        "SU_DIF": 0,
+        "SUBUNIT": "Cyprus",
+        "SU_A3": "CYP",
+        "BRK_DIFF": 0,
+        "NAME": "Cyprus",
+        "NAME_LONG": "Cyprus",
+        "BRK_A3": "CYP",
+        "BRK_NAME": "Cyprus",
+        "BRK_GROUP": null,
+        "ABBREV": "Cyp.",
+        "POSTAL": "CY",
+        "FORMAL_EN": "Republic of Cyprus",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Cyprus",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Cyprus",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 2,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 7,
+        "POP_EST": 1198575,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 24948,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "2. High income: nonOECD",
+        "FIPS_10": "CY",
+        "ISO_A2": "CY",
+        "ISO_A2_EH": "CY",
+        "ISO_A3": "CYP",
+        "ISO_A3_EH": "CYP",
+        "ISO_N3": "196",
+        "ISO_N3_EH": "196",
+        "UN_A3": "196",
+        "WB_A2": "CY",
+        "WB_A3": "CYP",
+        "WOE_ID": -90,
+        "WOE_ID_EH": 23424994,
+        "WOE_NOTE": "WOE lists as subunit of united Cyprus",
+        "ADM0_ISO": "CYP",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "CYP",
+        "ADM0_A3_US": "CYP",
+        "ADM0_A3_FR": "CYP",
+        "ADM0_A3_RU": "CYP",
+        "ADM0_A3_ES": "CYP",
+        "ADM0_A3_CN": "CYP",
+        "ADM0_A3_TW": "CYP",
+        "ADM0_A3_IN": "CYP",
+        "ADM0_A3_NP": "CYP",
+        "ADM0_A3_PK": "CYP",
+        "ADM0_A3_DE": "CYP",
+        "ADM0_A3_GB": "CYP",
+        "ADM0_A3_BR": "CYP",
+        "ADM0_A3_IL": "CYP",
+        "ADM0_A3_PS": "CYP",
+        "ADM0_A3_SA": "CYP",
+        "ADM0_A3_EG": "CYP",
+        "ADM0_A3_MA": "CYP",
+        "ADM0_A3_PT": "CYP",
+        "ADM0_A3_AR": "CYP",
+        "ADM0_A3_JP": "CYP",
+        "ADM0_A3_KO": "CYP",
+        "ADM0_A3_VN": "CYP",
+        "ADM0_A3_TR": "CYP",
+        "ADM0_A3_ID": "CYP",
+        "ADM0_A3_PL": "CYP",
+        "ADM0_A3_GR": "CYP",
+        "ADM0_A3_IT": "CYP",
+        "ADM0_A3_NL": "CYP",
+        "ADM0_A3_SE": "CYP",
+        "ADM0_A3_BD": "CYP",
+        "ADM0_A3_UA": "CYP",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Western Asia",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4.5,
+        "MAX_LABEL": 9.5,
+        "LABEL_X": 33.084182,
+        "LABEL_Y": 34.913329,
+        "NE_ID": 1159320533,
+        "WIKIDATAID": "Q229",
+        "NAME_AR": "قبرص",
+        "NAME_BN": "সাইপ্রাস",
+        "NAME_DE": "Republik Zypern",
+        "NAME_EN": "Cyprus",
+        "NAME_ES": "Chipre",
+        "NAME_FA": "قبرس",
+        "NAME_FR": "Chypre",
+        "NAME_EL": "Κύπρος",
+        "NAME_HE": "קפריסין",
+        "NAME_HI": "साइप्रस",
+        "NAME_HU": "Ciprus",
+        "NAME_ID": "Siprus",
+        "NAME_IT": "Cipro",
+        "NAME_JA": "キプロス",
+        "NAME_KO": "키프로스",
+        "NAME_NL": "Cyprus",
+        "NAME_PL": "Cypr",
+        "NAME_PT": "Chipre",
+        "NAME_RU": "Кипр",
+        "NAME_SV": "Cypern",
+        "NAME_TR": "Kıbrıs Cumhuriyeti",
+        "NAME_UK": "Кіпр",
+        "NAME_UR": "قبرص",
+        "NAME_VI": "Cộng hòa Síp",
+        "NAME_ZH": "塞浦路斯",
+        "NAME_ZHT": "賽普勒斯",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "CYP"
+      },
+      "bbox": [
+        32.300977,
+        34.56958,
+        34.050195,
+        35.182666
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              32.712695,
+              35.171045
+            ],
+            [
+              32.720215,
+              35.145361
+            ],
+            [
+              32.784082,
+              35.115771
+            ],
+            [
+              32.869434,
+              35.089404
+            ],
+            [
+              32.919531,
+              35.087842
+            ],
+            [
+              32.985938,
+              35.116406
+            ],
+            [
+              33.077539,
+              35.146191
+            ],
+            [
+              33.191016,
+              35.173145
+            ],
+            [
+              33.24834,
+              35.156934
+            ],
+            [
+              33.325586,
+              35.153613
+            ],
+            [
+              33.383789,
+              35.162695
+            ],
+            [
+              33.424219,
+              35.140918
+            ],
+            [
+              33.455957,
+              35.101416
+            ],
+            [
+              33.463867,
+              35.004932
+            ],
+            [
+              33.475781,
+              35.000342
+            ],
+            [
+              33.525684,
+              35.038672
+            ],
+            [
+              33.614453,
+              35.022754
+            ],
+            [
+              33.675391,
+              35.017871
+            ],
+            [
+              33.725781,
+              35.037305
+            ],
+            [
+              33.756934,
+              35.039746
+            ],
+            [
+              33.792285,
+              35.048193
+            ],
+            [
+              33.832031,
+              35.067187
+            ],
+            [
+              33.866406,
+              35.093604
+            ],
+            [
+              33.90332,
+              35.085449
+            ],
+            [
+              33.965723,
+              35.056787
+            ],
+            [
+              34.004492,
+              35.065234
+            ],
+            [
+              34.023633,
+              35.045557
+            ],
+            [
+              34.050195,
+              34.988379
+            ],
+            [
+              33.936523,
+              34.971484
+            ],
+            [
+              33.822461,
+              34.965918
+            ],
+            [
+              33.758984,
+              34.973242
+            ],
+            [
+              33.699414,
+              34.969873
+            ],
+            [
+              33.514453,
+              34.806445
+            ],
+            [
+              33.414941,
+              34.750879
+            ],
+            [
+              33.296582,
+              34.717725
+            ],
+            [
+              33.176074,
+              34.698047
+            ],
+            [
+              33.115527,
+              34.695557
+            ],
+            [
+              33.062305,
+              34.674805
+            ],
+            [
+              33.024902,
+              34.636914
+            ],
+            [
+              33.023926,
+              34.6
+            ],
+            [
+              33.00791,
+              34.56958
+            ],
+            [
+              32.941797,
+              34.575879
+            ],
+            [
+              32.914258,
+              34.635498
+            ],
+            [
+              32.867188,
+              34.661133
+            ],
+            [
+              32.750098,
+              34.647803
+            ],
+            [
+              32.692969,
+              34.649365
+            ],
+            [
+              32.505566,
+              34.70625
+            ],
+            [
+              32.449023,
+              34.729443
+            ],
+            [
+              32.41377,
+              34.778027
+            ],
+            [
+              32.317188,
+              34.95332
+            ],
+            [
+              32.300977,
+              35.082959
+            ],
+            [
+              32.390918,
+              35.049805
+            ],
+            [
+              32.475,
+              35.08999
+            ],
+            [
+              32.555957,
+              35.155762
+            ],
+            [
+              32.652344,
+              35.182666
+            ],
+            [
+              32.712695,
+              35.171045
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

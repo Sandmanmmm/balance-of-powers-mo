@@ -1,0 +1,544 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "NAM",
+    "generated": "2025-07-31T02:54:50.088Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Namibia",
+        "SOV_A3": "NAM",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Namibia",
+        "ADM0_A3": "NAM",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Namibia",
+        "GU_A3": "NAM",
+        "SU_DIF": 0,
+        "SUBUNIT": "Namibia",
+        "SU_A3": "NAM",
+        "BRK_DIFF": 0,
+        "NAME": "Namibia",
+        "NAME_LONG": "Namibia",
+        "BRK_A3": "NAM",
+        "BRK_NAME": "Namibia",
+        "BRK_GROUP": null,
+        "ABBREV": "Nam.",
+        "POSTAL": "NA",
+        "FORMAL_EN": "Republic of Namibia",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Namibia",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Namibia",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 4,
+        "MAPCOLOR8": 1,
+        "MAPCOLOR9": 1,
+        "MAPCOLOR13": 7,
+        "POP_EST": 2494530,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 12366,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "WA",
+        "ISO_A2": "NA",
+        "ISO_A2_EH": "NA",
+        "ISO_A3": "NAM",
+        "ISO_A3_EH": "NAM",
+        "ISO_N3": "516",
+        "ISO_N3_EH": "516",
+        "UN_A3": "516",
+        "WB_A2": "NA",
+        "WB_A3": "NAM",
+        "WOE_ID": 23424987,
+        "WOE_ID_EH": 23424987,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "NAM",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "NAM",
+        "ADM0_A3_US": "NAM",
+        "ADM0_A3_FR": "NAM",
+        "ADM0_A3_RU": "NAM",
+        "ADM0_A3_ES": "NAM",
+        "ADM0_A3_CN": "NAM",
+        "ADM0_A3_TW": "NAM",
+        "ADM0_A3_IN": "NAM",
+        "ADM0_A3_NP": "NAM",
+        "ADM0_A3_PK": "NAM",
+        "ADM0_A3_DE": "NAM",
+        "ADM0_A3_GB": "NAM",
+        "ADM0_A3_BR": "NAM",
+        "ADM0_A3_IL": "NAM",
+        "ADM0_A3_PS": "NAM",
+        "ADM0_A3_SA": "NAM",
+        "ADM0_A3_EG": "NAM",
+        "ADM0_A3_MA": "NAM",
+        "ADM0_A3_PT": "NAM",
+        "ADM0_A3_AR": "NAM",
+        "ADM0_A3_JP": "NAM",
+        "ADM0_A3_KO": "NAM",
+        "ADM0_A3_VN": "NAM",
+        "ADM0_A3_TR": "NAM",
+        "ADM0_A3_ID": "NAM",
+        "ADM0_A3_PL": "NAM",
+        "ADM0_A3_GR": "NAM",
+        "ADM0_A3_IT": "NAM",
+        "ADM0_A3_NL": "NAM",
+        "ADM0_A3_SE": "NAM",
+        "ADM0_A3_BD": "NAM",
+        "ADM0_A3_UA": "NAM",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Southern Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 7.5,
+        "LABEL_X": 17.108166,
+        "LABEL_Y": -20.575298,
+        "NE_ID": 1159321085,
+        "WIKIDATAID": "Q1030",
+        "NAME_AR": "ناميبيا",
+        "NAME_BN": "নামিবিয়া",
+        "NAME_DE": "Namibia",
+        "NAME_EN": "Namibia",
+        "NAME_ES": "Namibia",
+        "NAME_FA": "نامیبیا",
+        "NAME_FR": "Namibie",
+        "NAME_EL": "Ναμίμπια",
+        "NAME_HE": "נמיביה",
+        "NAME_HI": "नामीबिया",
+        "NAME_HU": "Namíbia",
+        "NAME_ID": "Namibia",
+        "NAME_IT": "Namibia",
+        "NAME_JA": "ナミビア",
+        "NAME_KO": "나미비아",
+        "NAME_NL": "Namibië",
+        "NAME_PL": "Namibia",
+        "NAME_PT": "Namíbia",
+        "NAME_RU": "Намибия",
+        "NAME_SV": "Namibia",
+        "NAME_TR": "Namibya",
+        "NAME_UK": "Намібія",
+        "NAME_UR": "نمیبیا",
+        "NAME_VI": "Namibia",
+        "NAME_ZH": "纳米比亚",
+        "NAME_ZHT": "納米比亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "NAM"
+      },
+      "bbox": [
+        11.734199,
+        -29.045462,
+        25.084443,
+        -16.941343
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.895768,
+              -24.76779
+            ],
+            [
+              19.894734,
+              -28.461105
+            ],
+            [
+              19.002127,
+              -28.972443
+            ],
+            [
+              18.464899,
+              -29.045462
+            ],
+            [
+              17.836152,
+              -28.856378
+            ],
+            [
+              17.387497,
+              -28.783514
+            ],
+            [
+              17.218929,
+              -28.355943
+            ],
+            [
+              16.824017,
+              -28.082162
+            ],
+            [
+              16.344977,
+              -28.576705
+            ],
+            [
+              15.601818,
+              -27.821247
+            ],
+            [
+              15.210472,
+              -27.090956
+            ],
+            [
+              14.989711,
+              -26.117372
+            ],
+            [
+              14.743214,
+              -25.39292
+            ],
+            [
+              14.408144,
+              -23.853014
+            ],
+            [
+              14.385717,
+              -22.656653
+            ],
+            [
+              14.257714,
+              -22.111208
+            ],
+            [
+              13.868642,
+              -21.699037
+            ],
+            [
+              13.352498,
+              -20.872834
+            ],
+            [
+              12.826845,
+              -19.673166
+            ],
+            [
+              12.608564,
+              -19.045349
+            ],
+            [
+              11.794919,
+              -18.069129
+            ],
+            [
+              11.734199,
+              -17.301889
+            ],
+            [
+              12.215461,
+              -17.111668
+            ],
+            [
+              12.814081,
+              -16.941343
+            ],
+            [
+              13.462362,
+              -16.971212
+            ],
+            [
+              14.058501,
+              -17.423381
+            ],
+            [
+              14.209707,
+              -17.353101
+            ],
+            [
+              18.263309,
+              -17.309951
+            ],
+            [
+              18.956187,
+              -17.789095
+            ],
+            [
+              21.377176,
+              -17.930636
+            ],
+            [
+              23.215048,
+              -17.523116
+            ],
+            [
+              24.033862,
+              -17.295843
+            ],
+            [
+              24.682349,
+              -17.353411
+            ],
+            [
+              25.07695,
+              -17.578823
+            ],
+            [
+              25.084443,
+              -17.661816
+            ],
+            [
+              24.520705,
+              -17.887125
+            ],
+            [
+              24.217365,
+              -17.889347
+            ],
+            [
+              23.579006,
+              -18.281261
+            ],
+            [
+              23.196858,
+              -17.869038
+            ],
+            [
+              21.65504,
+              -18.219146
+            ],
+            [
+              20.910641,
+              -18.252219
+            ],
+            [
+              20.881134,
+              -21.814327
+            ],
+            [
+              19.895458,
+              -21.849157
+            ],
+            [
+              19.895768,
+              -24.76779
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

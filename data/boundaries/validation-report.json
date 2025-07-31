@@ -1,0 +1,96 @@
+{
+  "generated": "2025-07-31T02:54:54.015Z",
+  "validator_version": "1.0.0",
+  "levels": {
+    "overview": {
+      "valid": 0,
+      "invalid": 0,
+      "missing": 20,
+      "errors": [
+        "Missing: USA",
+        "Missing: CAN",
+        "Missing: MEX",
+        "Missing: BRA",
+        "Missing: ARG",
+        "Missing: GBR",
+        "Missing: FRA",
+        "Missing: DEU",
+        "Missing: ITA",
+        "Missing: ESP",
+        "Missing: RUS",
+        "Missing: CHN",
+        "Missing: IND",
+        "Missing: JPN",
+        "Missing: AUS",
+        "Missing: ZAF",
+        "Missing: EGY",
+        "Missing: TUR",
+        "Missing: SAU",
+        "Missing: IRN"
+      ]
+    },
+    "detailed": {
+      "valid": 1,
+      "invalid": 0,
+      "missing": 19,
+      "errors": [
+        "Missing: USA",
+        "Missing: CAN",
+        "Missing: MEX",
+        "Missing: BRA",
+        "Missing: ARG",
+        "Missing: FRA",
+        "Missing: DEU",
+        "Missing: ITA",
+        "Missing: ESP",
+        "Missing: RUS",
+        "Missing: CHN",
+        "Missing: IND",
+        "Missing: JPN",
+        "Missing: AUS",
+        "Missing: ZAF",
+        "Missing: EGY",
+        "Missing: TUR",
+        "Missing: SAU",
+        "Missing: IRN"
+      ]
+    },
+    "ultra": {
+      "valid": 0,
+      "invalid": 0,
+      "missing": 20,
+      "errors": [
+        "Missing: USA",
+        "Missing: CAN",
+        "Missing: MEX",
+        "Missing: BRA",
+        "Missing: ARG",
+        "Missing: GBR",
+        "Missing: FRA",
+        "Missing: DEU",
+        "Missing: ITA",
+        "Missing: ESP",
+        "Missing: RUS",
+        "Missing: CHN",
+        "Missing: IND",
+        "Missing: JPN",
+        "Missing: AUS",
+        "Missing: ZAF",
+        "Missing: EGY",
+        "Missing: TUR",
+        "Missing: SAU",
+        "Missing: IRN"
+      ]
+    }
+  },
+  "summary": {
+    "total_valid": 1,
+    "total_invalid": 0,
+    "total_missing": 59,
+    "total_files": 1
+  },
+  "recommendations": [
+    "Download missing country boundary files",
+    "Ensure all expected countries have files at all detail levels"
+  ]
+}

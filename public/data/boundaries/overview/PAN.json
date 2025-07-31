@@ -1,0 +1,576 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "PAN",
+    "generated": "2025-07-31T02:54:50.064Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "SOVEREIGNT": "Panama",
+        "SOV_A3": "PAN",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Panama",
+        "ADM0_A3": "PAN",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Panama",
+        "GU_A3": "PAN",
+        "SU_DIF": 0,
+        "SUBUNIT": "Panama",
+        "SU_A3": "PAN",
+        "BRK_DIFF": 0,
+        "NAME": "Panama",
+        "NAME_LONG": "Panama",
+        "BRK_A3": "PAN",
+        "BRK_NAME": "Panama",
+        "BRK_GROUP": null,
+        "ABBREV": "Pan.",
+        "POSTAL": "PA",
+        "FORMAL_EN": "Republic of Panama",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Panama",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Panama",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 4,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 6,
+        "MAPCOLOR13": 3,
+        "POP_EST": 4246439,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 66800,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "PM",
+        "ISO_A2": "PA",
+        "ISO_A2_EH": "PA",
+        "ISO_A3": "PAN",
+        "ISO_A3_EH": "PAN",
+        "ISO_N3": "591",
+        "ISO_N3_EH": "591",
+        "UN_A3": "591",
+        "WB_A2": "PA",
+        "WB_A3": "PAN",
+        "WOE_ID": 23424924,
+        "WOE_ID_EH": 23424924,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "PAN",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "PAN",
+        "ADM0_A3_US": "PAN",
+        "ADM0_A3_FR": "PAN",
+        "ADM0_A3_RU": "PAN",
+        "ADM0_A3_ES": "PAN",
+        "ADM0_A3_CN": "PAN",
+        "ADM0_A3_TW": "PAN",
+        "ADM0_A3_IN": "PAN",
+        "ADM0_A3_NP": "PAN",
+        "ADM0_A3_PK": "PAN",
+        "ADM0_A3_DE": "PAN",
+        "ADM0_A3_GB": "PAN",
+        "ADM0_A3_BR": "PAN",
+        "ADM0_A3_IL": "PAN",
+        "ADM0_A3_PS": "PAN",
+        "ADM0_A3_SA": "PAN",
+        "ADM0_A3_EG": "PAN",
+        "ADM0_A3_MA": "PAN",
+        "ADM0_A3_PT": "PAN",
+        "ADM0_A3_AR": "PAN",
+        "ADM0_A3_JP": "PAN",
+        "ADM0_A3_KO": "PAN",
+        "ADM0_A3_VN": "PAN",
+        "ADM0_A3_TR": "PAN",
+        "ADM0_A3_ID": "PAN",
+        "ADM0_A3_PL": "PAN",
+        "ADM0_A3_GR": "PAN",
+        "ADM0_A3_IT": "PAN",
+        "ADM0_A3_NL": "PAN",
+        "ADM0_A3_SE": "PAN",
+        "ADM0_A3_BD": "PAN",
+        "ADM0_A3_UA": "PAN",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "North America",
+        "REGION_UN": "Americas",
+        "SUBREGION": "Central America",
+        "REGION_WB": "Latin America & Caribbean",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4,
+        "MAX_LABEL": 9,
+        "LABEL_X": -80.352106,
+        "LABEL_Y": 8.72198,
+        "NE_ID": 1159321161,
+        "WIKIDATAID": "Q804",
+        "NAME_AR": "بنما",
+        "NAME_BN": "পানামা",
+        "NAME_DE": "Panama",
+        "NAME_EN": "Panama",
+        "NAME_ES": "Panamá",
+        "NAME_FA": "پاناما",
+        "NAME_FR": "Panama",
+        "NAME_EL": "Παναμάς",
+        "NAME_HE": "פנמה",
+        "NAME_HI": "पनामा",
+        "NAME_HU": "Panama",
+        "NAME_ID": "Panama",
+        "NAME_IT": "Panama",
+        "NAME_JA": "パナマ",
+        "NAME_KO": "파나마",
+        "NAME_NL": "Panama",
+        "NAME_PL": "Panama",
+        "NAME_PT": "Panamá",
+        "NAME_RU": "Панама",
+        "NAME_SV": "Panama",
+        "NAME_TR": "Panama",
+        "NAME_UK": "Панама",
+        "NAME_UR": "پاناما",
+        "NAME_VI": "Panama",
+        "NAME_ZH": "巴拿马",
+        "NAME_ZHT": "巴拿馬",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "PAN"
+      },
+      "bbox": [
+        -82.965783,
+        7.220541,
+        -77.242566,
+        9.61161
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.353361,
+              8.670505
+            ],
+            [
+              -77.474723,
+              8.524286
+            ],
+            [
+              -77.242566,
+              7.935278
+            ],
+            [
+              -77.431108,
+              7.638061
+            ],
+            [
+              -77.753414,
+              7.70984
+            ],
+            [
+              -77.881571,
+              7.223771
+            ],
+            [
+              -78.214936,
+              7.512255
+            ],
+            [
+              -78.429161,
+              8.052041
+            ],
+            [
+              -78.182096,
+              8.319182
+            ],
+            [
+              -78.435465,
+              8.387705
+            ],
+            [
+              -78.622121,
+              8.718124
+            ],
+            [
+              -79.120307,
+              8.996092
+            ],
+            [
+              -79.557877,
+              8.932375
+            ],
+            [
+              -79.760578,
+              8.584515
+            ],
+            [
+              -80.164481,
+              8.333316
+            ],
+            [
+              -80.382659,
+              8.298409
+            ],
+            [
+              -80.480689,
+              8.090308
+            ],
+            [
+              -80.00369,
+              7.547524
+            ],
+            [
+              -80.276671,
+              7.419754
+            ],
+            [
+              -80.421158,
+              7.271572
+            ],
+            [
+              -80.886401,
+              7.220541
+            ],
+            [
+              -81.059543,
+              7.817921
+            ],
+            [
+              -81.189716,
+              7.647906
+            ],
+            [
+              -81.519515,
+              7.70661
+            ],
+            [
+              -81.721311,
+              8.108963
+            ],
+            [
+              -82.131441,
+              8.175393
+            ],
+            [
+              -82.390934,
+              8.292362
+            ],
+            [
+              -82.820081,
+              8.290864
+            ],
+            [
+              -82.850958,
+              8.073823
+            ],
+            [
+              -82.965783,
+              8.225028
+            ],
+            [
+              -82.913176,
+              8.423517
+            ],
+            [
+              -82.829771,
+              8.626295
+            ],
+            [
+              -82.868657,
+              8.807266
+            ],
+            [
+              -82.719183,
+              8.925709
+            ],
+            [
+              -82.927155,
+              9.07433
+            ],
+            [
+              -82.932891,
+              9.476812
+            ],
+            [
+              -82.546196,
+              9.566135
+            ],
+            [
+              -82.187123,
+              9.207449
+            ],
+            [
+              -82.207586,
+              8.995575
+            ],
+            [
+              -81.808567,
+              8.950617
+            ],
+            [
+              -81.714154,
+              9.031955
+            ],
+            [
+              -81.439287,
+              8.786234
+            ],
+            [
+              -80.947302,
+              8.858504
+            ],
+            [
+              -80.521901,
+              9.111072
+            ],
+            [
+              -79.9146,
+              9.312765
+            ],
+            [
+              -79.573303,
+              9.61161
+            ],
+            [
+              -79.021192,
+              9.552931
+            ],
+            [
+              -79.05845,
+              9.454565
+            ],
+            [
+              -78.500888,
+              9.420459
+            ],
+            [
+              -78.055928,
+              9.24773
+            ],
+            [
+              -77.729514,
+              8.946844
+            ],
+            [
+              -77.353361,
+              8.670505
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,1 +1,222 @@
-nations: {}
+nations:
+  EGY:
+    name: "Egypt"
+    capital: "Cairo"
+    flag: "🇪🇬"
+    government:
+      type: "presidential_republic"
+      leader: "Abdel Fattah el-Sisi"
+      approval: 68.5
+      stability: 65.2
+      ruling_party: "Nation's Future Party"
+      ideology: "Authoritarianism"
+      election_cycle: 6
+      last_election: "2023-12-10"
+    economy:
+      gdp: 477000000000
+      debt: 165000000000
+      inflation: 11.4
+      trade_balance: -18500000000
+      treasury: 24500000000
+      currency: "EGP"
+      interest_rate: 19.25
+    military:
+      manpower: 438500
+      equipment: 72
+      readiness: 78
+      doctrine: "Regional Power"
+      nuclearCapability: false
+    technology:
+      researchPoints: 485
+      currentResearch: ["Defense Systems", "Renewable Energy"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 6.5
+    diplomacy:
+      allies: ["SAU", "UAE", "JOR"]
+      enemies: []
+      neutrality: 58.5
+
+  LBY:
+    name: "Libya"
+    capital: "Tripoli"
+    flag: "🇱🇾"
+    government:
+      type: "transitional_government"
+      leader: "Abdul Hamid Dbeibeh"
+      approval: 32.5
+      stability: 28.5
+      ruling_party: "Government of National Unity"
+      ideology: "Transitional"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 25000000000
+      debt: 18500000000
+      inflation: 4.5
+      trade_balance: 8500000000
+      treasury: 12500000000
+      currency: "LYD"
+      interest_rate: 9.0
+    military:
+      manpower: 35000
+      equipment: 45
+      readiness: 42
+      doctrine: "Militia System"
+      nuclearCapability: false
+    technology:
+      researchPoints: 125
+      currentResearch: ["Oil Technology", "Basic Infrastructure"]
+      completedTech: ["Oil Extraction"]
+      level: 4.2
+    diplomacy:
+      allies: []
+      enemies: []
+      neutrality: 45.5
+
+  TUN:
+    name: "Tunisia"
+    capital: "Tunis"
+    flag: "🇹🇳"
+    government:
+      type: "presidential_republic"
+      leader: "Kais Saied"
+      approval: 42.8
+      stability: 58.5
+      ruling_party: "Independent"
+      ideology: "Populism"
+      election_cycle: 5
+      last_election: "2019-10-13"
+    economy:
+      gdp: 46000000000
+      debt: 32000000000
+      inflation: 8.3
+      trade_balance: -2850000000
+      treasury: 3850000000
+      currency: "TND"
+      interest_rate: 8.0
+    military:
+      manpower: 35800
+      equipment: 55
+      readiness: 68
+      doctrine: "Border Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 225
+      currentResearch: ["Tourism Technology", "Agriculture Technology"]
+      completedTech: ["Internet", "Basic Manufacturing"]
+      level: 5.8
+    diplomacy:
+      allies: ["EGY", "FRA"]
+      enemies: []
+      neutrality: 65.5
+
+  DZA:
+    name: "Algeria"
+    capital: "Algiers"
+    flag: "🇩🇿"
+    government:
+      type: "presidential_republic"
+      leader: "Abdelmadjid Tebboune"
+      approval: 48.5
+      stability: 62.5
+      ruling_party: "National Liberation Front"
+      ideology: "Arab Nationalism"
+      election_cycle: 5
+      last_election: "2019-12-12"
+    economy:
+      gdp: 195000000000
+      debt: 85000000000
+      inflation: 8.1
+      trade_balance: 18500000000
+      treasury: 28500000000
+      currency: "DZD"
+      interest_rate: 3.25
+    military:
+      manpower: 130000
+      equipment: 68
+      readiness: 72
+      doctrine: "Regional Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 385
+      currentResearch: ["Oil Technology", "Renewable Energy"]
+      completedTech: ["Internet", "Oil Technology"]
+      level: 6.2
+    diplomacy:
+      allies: ["RUS", "CHN"]
+      enemies: []
+      neutrality: 52.5
+
+  MAR:
+    name: "Morocco"
+    capital: "Rabat"
+    flag: "🇲🇦"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Mohammed VI"
+      approval: 68.5
+      stability: 72.5
+      ruling_party: "Justice and Development Party"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 5
+      last_election: "2021-09-08"
+    economy:
+      gdp: 134000000000
+      debt: 95000000000
+      inflation: 6.6
+      trade_balance: -5850000000
+      treasury: 15500000000
+      currency: "MAD"
+      interest_rate: 3.0
+    military:
+      manpower: 195800
+      equipment: 65
+      readiness: 75
+      doctrine: "Regional Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 325
+      currentResearch: ["Renewable Energy", "Agriculture Technology"]
+      completedTech: ["Internet", "Modern Agriculture"]
+      level: 6.0
+    diplomacy:
+      allies: ["USA", "FRA", "SAU"]
+      enemies: []
+      neutrality: 68.5
+
+  SDN:
+    name: "Sudan"
+    capital: "Khartoum"
+    flag: "🇸🇩"
+    government:
+      type: "military_council"
+      leader: "Abdel Fattah al-Burhan"
+      approval: 25.5
+      stability: 22.5
+      ruling_party: "Transitional Military Council"
+      ideology: "Military Rule"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 34000000000
+      debt: 58000000000
+      inflation: 138.8
+      trade_balance: -2850000000
+      treasury: 1250000000
+      currency: "SDG"
+      interest_rate: 16.0
+    military:
+      manpower: 104300
+      equipment: 35
+      readiness: 45
+      doctrine: "Internal Security"
+      nuclearCapability: false
+    technology:
+      researchPoints: 95
+      currentResearch: ["Basic Infrastructure", "Agriculture Technology"]
+      completedTech: ["Basic Manufacturing"]
+      level: 3.8
+    diplomacy:
+      allies: ["EGY", "SAU"]
+      enemies: []
+      neutrality: 38.5

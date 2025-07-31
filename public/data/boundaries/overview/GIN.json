@@ -1,0 +1,648 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "GIN",
+    "generated": "2025-07-31T02:54:50.101Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Guinea",
+        "SOV_A3": "GIN",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Guinea",
+        "ADM0_A3": "GIN",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Guinea",
+        "GU_A3": "GIN",
+        "SU_DIF": 0,
+        "SUBUNIT": "Guinea",
+        "SU_A3": "GIN",
+        "BRK_DIFF": 0,
+        "NAME": "Guinea",
+        "NAME_LONG": "Guinea",
+        "BRK_A3": "GIN",
+        "BRK_NAME": "Guinea",
+        "BRK_GROUP": null,
+        "ABBREV": "Gin.",
+        "POSTAL": "GN",
+        "FORMAL_EN": "Republic of Guinea",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Guinea",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Guinea",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 6,
+        "MAPCOLOR8": 3,
+        "MAPCOLOR9": 7,
+        "MAPCOLOR13": 2,
+        "POP_EST": 12771246,
+        "POP_RANK": 14,
+        "POP_YEAR": 2019,
+        "GDP_MD": 12296,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "5. Low income",
+        "FIPS_10": "GV",
+        "ISO_A2": "GN",
+        "ISO_A2_EH": "GN",
+        "ISO_A3": "GIN",
+        "ISO_A3_EH": "GIN",
+        "ISO_N3": "324",
+        "ISO_N3_EH": "324",
+        "UN_A3": "324",
+        "WB_A2": "GN",
+        "WB_A3": "GIN",
+        "WOE_ID": 23424835,
+        "WOE_ID_EH": 23424835,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "GIN",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "GIN",
+        "ADM0_A3_US": "GIN",
+        "ADM0_A3_FR": "GIN",
+        "ADM0_A3_RU": "GIN",
+        "ADM0_A3_ES": "GIN",
+        "ADM0_A3_CN": "GIN",
+        "ADM0_A3_TW": "GIN",
+        "ADM0_A3_IN": "GIN",
+        "ADM0_A3_NP": "GIN",
+        "ADM0_A3_PK": "GIN",
+        "ADM0_A3_DE": "GIN",
+        "ADM0_A3_GB": "GIN",
+        "ADM0_A3_BR": "GIN",
+        "ADM0_A3_IL": "GIN",
+        "ADM0_A3_PS": "GIN",
+        "ADM0_A3_SA": "GIN",
+        "ADM0_A3_EG": "GIN",
+        "ADM0_A3_MA": "GIN",
+        "ADM0_A3_PT": "GIN",
+        "ADM0_A3_AR": "GIN",
+        "ADM0_A3_JP": "GIN",
+        "ADM0_A3_KO": "GIN",
+        "ADM0_A3_VN": "GIN",
+        "ADM0_A3_TR": "GIN",
+        "ADM0_A3_ID": "GIN",
+        "ADM0_A3_PL": "GIN",
+        "ADM0_A3_GR": "GIN",
+        "ADM0_A3_IT": "GIN",
+        "ADM0_A3_NL": "GIN",
+        "ADM0_A3_SE": "GIN",
+        "ADM0_A3_BD": "GIN",
+        "ADM0_A3_UA": "GIN",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Western Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": -10.016402,
+        "LABEL_Y": 10.618516,
+        "NE_ID": 1159320795,
+        "WIKIDATAID": "Q1006",
+        "NAME_AR": "غينيا",
+        "NAME_BN": "গিনি",
+        "NAME_DE": "Guinea",
+        "NAME_EN": "Guinea",
+        "NAME_ES": "Guinea",
+        "NAME_FA": "گینه",
+        "NAME_FR": "Guinée",
+        "NAME_EL": "Γουινέα",
+        "NAME_HE": "גינאה",
+        "NAME_HI": "गिनी",
+        "NAME_HU": "Guinea",
+        "NAME_ID": "Guinea",
+        "NAME_IT": "Guinea",
+        "NAME_JA": "ギニア",
+        "NAME_KO": "기니",
+        "NAME_NL": "Guinee",
+        "NAME_PL": "Gwinea",
+        "NAME_PT": "Guiné",
+        "NAME_RU": "Гвинея",
+        "NAME_SV": "Guinea",
+        "NAME_TR": "Gine",
+        "NAME_UK": "Гвінея",
+        "NAME_UR": "جمہوریہ گنی",
+        "NAME_VI": "Guinée",
+        "NAME_ZH": "几内亚",
+        "NAME_ZHT": "幾內亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "GIN"
+      },
+      "bbox": [
+        -15.130311,
+        7.309037,
+        -7.8321,
+        12.586183
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -13.700476,
+              12.586183
+            ],
+            [
+              -13.217818,
+              12.575874
+            ],
+            [
+              -12.499051,
+              12.33209
+            ],
+            [
+              -12.278599,
+              12.35444
+            ],
+            [
+              -12.203565,
+              12.465648
+            ],
+            [
+              -11.658301,
+              12.386583
+            ],
+            [
+              -11.513943,
+              12.442988
+            ],
+            [
+              -11.456169,
+              12.076834
+            ],
+            [
+              -11.297574,
+              12.077971
+            ],
+            [
+              -11.036556,
+              12.211245
+            ],
+            [
+              -10.87083,
+              12.177887
+            ],
+            [
+              -10.593224,
+              11.923975
+            ],
+            [
+              -10.165214,
+              11.844084
+            ],
+            [
+              -9.890993,
+              12.060479
+            ],
+            [
+              -9.567912,
+              12.194243
+            ],
+            [
+              -9.327616,
+              12.334286
+            ],
+            [
+              -9.127474,
+              12.30806
+            ],
+            [
+              -8.905265,
+              12.088358
+            ],
+            [
+              -8.786099,
+              11.812561
+            ],
+            [
+              -8.376305,
+              11.393646
+            ],
+            [
+              -8.581305,
+              11.136246
+            ],
+            [
+              -8.620321,
+              10.810891
+            ],
+            [
+              -8.407311,
+              10.909257
+            ],
+            [
+              -8.282357,
+              10.792597
+            ],
+            [
+              -8.335377,
+              10.494812
+            ],
+            [
+              -8.029944,
+              10.206535
+            ],
+            [
+              -8.229337,
+              10.12902
+            ],
+            [
+              -8.309616,
+              9.789532
+            ],
+            [
+              -8.079114,
+              9.376224
+            ],
+            [
+              -7.8321,
+              8.575704
+            ],
+            [
+              -8.203499,
+              8.455453
+            ],
+            [
+              -8.299049,
+              8.316444
+            ],
+            [
+              -8.221792,
+              8.123329
+            ],
+            [
+              -8.280703,
+              7.68718
+            ],
+            [
+              -8.439298,
+              7.686043
+            ],
+            [
+              -8.722124,
+              7.711674
+            ],
+            [
+              -8.926065,
+              7.309037
+            ],
+            [
+              -9.208786,
+              7.313921
+            ],
+            [
+              -9.403348,
+              7.526905
+            ],
+            [
+              -9.33728,
+              7.928534
+            ],
+            [
+              -9.755342,
+              8.541055
+            ],
+            [
+              -10.016567,
+              8.428504
+            ],
+            [
+              -10.230094,
+              8.406206
+            ],
+            [
+              -10.505477,
+              8.348896
+            ],
+            [
+              -10.494315,
+              8.715541
+            ],
+            [
+              -10.65477,
+              8.977178
+            ],
+            [
+              -10.622395,
+              9.26791
+            ],
+            [
+              -10.839152,
+              9.688246
+            ],
+            [
+              -11.117481,
+              10.045873
+            ],
+            [
+              -11.917277,
+              10.046984
+            ],
+            [
+              -12.150338,
+              9.858572
+            ],
+            [
+              -12.425929,
+              9.835834
+            ],
+            [
+              -12.596719,
+              9.620188
+            ],
+            [
+              -12.711958,
+              9.342712
+            ],
+            [
+              -13.24655,
+              8.903049
+            ],
+            [
+              -13.685154,
+              9.494744
+            ],
+            [
+              -14.074045,
+              9.886167
+            ],
+            [
+              -14.330076,
+              10.01572
+            ],
+            [
+              -14.579699,
+              10.214467
+            ],
+            [
+              -14.693232,
+              10.656301
+            ],
+            [
+              -14.839554,
+              10.876572
+            ],
+            [
+              -15.130311,
+              11.040412
+            ],
+            [
+              -14.685687,
+              11.527824
+            ],
+            [
+              -14.382192,
+              11.509272
+            ],
+            [
+              -14.121406,
+              11.677117
+            ],
+            [
+              -13.9008,
+              11.678719
+            ],
+            [
+              -13.743161,
+              11.811269
+            ],
+            [
+              -13.828272,
+              12.142644
+            ],
+            [
+              -13.718744,
+              12.247186
+            ],
+            [
+              -13.700476,
+              12.586183
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

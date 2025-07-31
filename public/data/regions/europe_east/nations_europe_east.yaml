@@ -909,3 +909,255 @@ nations:
       electricity: 85
       steel: 12
       food: 180
+
+  UKR:
+    name: "Ukraine"
+    capital: "Kyiv"
+    flag: "🇺🇦"
+    government:
+      type: "republic"
+      leader: "Volodymyr Zelenskyy"
+      approval: 91.5
+      stability: 45.8
+      ruling_party: "Servant of the People"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2019-04-21"
+    economy:
+      gdp: 181000000000
+      debt: 125000000000
+      inflation: 26.6
+      trade_balance: -8000000000
+      treasury: 12000000000
+      currency: "UAH"
+      interest_rate: 25.0
+      sectors:
+        manufacturing: 11.8
+        services: 48.5
+        agriculture: 9.0
+        technology: 30.7
+    military:
+      manpower: 700000
+      equipment: 65
+      readiness: 95
+      doctrine: "Territorial Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 180
+      currentResearch: ["Defense Technology", "Drone Technology"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 6.8
+    diplomacy:
+      allies: ["USA", "GBR", "POL", "FRA", "DEU"]
+      enemies: ["RUS"]
+      neutrality: 15.2
+
+  BGR:
+    name: "Bulgaria"
+    capital: "Sofia"
+    flag: "🇧🇬"
+    government:
+      type: "republic"
+      leader: "Kiril Petkov"
+      approval: 42.1
+      stability: 68.5
+      ruling_party: "We Continue the Change"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2021-11-14"
+    economy:
+      gdp: 69000000000
+      debt: 19000000000
+      inflation: 5.8
+      trade_balance: -2000000000
+      treasury: 3000000000
+      currency: "BGN"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 15.6
+        services: 65.2
+        agriculture: 4.3
+        technology: 14.9
+    military:
+      manpower: 37000
+      equipment: 68
+      readiness: 72
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 320
+      currentResearch: ["EU Integration", "Tourism Technology"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.1
+    diplomacy:
+      allies: ["USA", "GER", "FRA", "POL"]
+      enemies: []
+      neutrality: 82.5
+
+  CZE:
+    name: "Czech Republic"
+    capital: "Prague"
+    flag: "🇨🇿"
+    government:
+      type: "republic"
+      leader: "Petr Fiala"
+      approval: 54.8
+      stability: 79.2
+      ruling_party: "Civic Democratic Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2021-10-08"
+    economy:
+      gdp: 269000000000
+      debt: 95000000000
+      inflation: 3.8
+      trade_balance: 8000000000
+      treasury: 15000000000
+      currency: "CZK"
+      interest_rate: 2.75
+      sectors:
+        manufacturing: 32.3
+        services: 59.9
+        agriculture: 2.1
+        technology: 5.7
+    military:
+      manpower: 26000
+      equipment: 78
+      readiness: 82
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 580
+      currentResearch: ["Manufacturing Technology", "Defense Systems"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.8
+    diplomacy:
+      allies: ["USA", "GER", "POL", "SVK"]
+      enemies: []
+      neutrality: 85.2
+
+  HUN:
+    name: "Hungary"
+    capital: "Budapest"
+    flag: "🇭🇺"
+    government:
+      type: "republic"
+      leader: "Viktor Orbán"
+      approval: 52.1
+      stability: 71.5
+      ruling_party: "Fidesz"
+      ideology: "Conservative Nationalism"
+      election_cycle: 4
+      last_election: "2022-04-03"
+    economy:
+      gdp: 181000000000
+      debt: 85000000000
+      inflation: 5.1
+      trade_balance: 2000000000
+      treasury: 8000000000
+      currency: "HUF"
+      interest_rate: 5.4
+      sectors:
+        manufacturing: 26.3
+        services: 64.5
+        agriculture: 3.4
+        technology: 5.8
+    military:
+      manpower: 23000
+      equipment: 75
+      readiness: 78
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 420
+      currentResearch: ["Automotive Technology", "Agriculture"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.4
+    diplomacy:
+      allies: ["USA", "POL", "SVK"]
+      enemies: []
+      neutrality: 72.8
+
+  ROU:
+    name: "Romania"
+    capital: "Bucharest"
+    flag: "🇷🇴"
+    government:
+      type: "republic"
+      leader: "Nicolae Ciucă"
+      approval: 42.8
+      stability: 68.5
+      ruling_party: "National Liberal Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2020-12-06"
+    economy:
+      gdp: 249000000000
+      debt: 120000000000
+      inflation: 4.9
+      trade_balance: -18000000000
+      treasury: 12000000000
+      currency: "RON"
+      interest_rate: 3.75
+      sectors:
+        manufacturing: 20.2
+        services: 56.2
+        agriculture: 4.4
+        technology: 19.2
+    military:
+      manpower: 70000
+      equipment: 72
+      readiness: 80
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 480
+      currentResearch: ["IT Technology", "Energy Systems"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.2
+    diplomacy:
+      allies: ["USA", "GER", "POL", "BGR"]
+      enemies: []
+      neutrality: 78.5
+
+  HRV:
+    name: "Croatia"
+    capital: "Zagreb"
+    flag: "🇭🇷"
+    government:
+      type: "republic"
+      leader: "Andrej Plenković"
+      approval: 48.5
+      stability: 75.2
+      ruling_party: "Croatian Democratic Union"
+      ideology: "Conservative Democracy"
+      election_cycle: 4
+      last_election: "2020-07-05"
+    economy:
+      gdp: 60000000000
+      debt: 48000000000
+      inflation: 4.7
+      trade_balance: -8000000000
+      treasury: 4000000000
+      currency: "EUR"
+      interest_rate: 0.0
+      sectors:
+        manufacturing: 17.8
+        services: 70.1
+        agriculture: 3.6
+        technology: 8.5
+    military:
+      manpower: 16000
+      equipment: 78
+      readiness: 82
+      doctrine: "NATO Standard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 380
+      currentResearch: ["Tourism Technology", "Maritime Systems"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.6
+    diplomacy:
+      allies: ["USA", "GER", "SVN", "AUT"]
+      enemies: []
+      neutrality: 83.2

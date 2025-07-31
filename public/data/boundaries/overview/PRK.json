@@ -1,0 +1,566 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "PRK",
+    "generated": "2025-07-31T02:54:50.150Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "North Korea",
+        "SOV_A3": "PRK",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "North Korea",
+        "ADM0_A3": "PRK",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "North Korea",
+        "GU_A3": "PRK",
+        "SU_DIF": 0,
+        "SUBUNIT": "North Korea",
+        "SU_A3": "PRK",
+        "BRK_DIFF": 0,
+        "NAME": "North Korea",
+        "NAME_LONG": "Dem. Rep. Korea",
+        "BRK_A3": "PRK",
+        "BRK_NAME": "Dem. Rep. Korea",
+        "BRK_GROUP": null,
+        "ABBREV": "N.K.",
+        "POSTAL": "KP",
+        "FORMAL_EN": "Democratic People's Republic of Korea",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Korea, North",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Korea, Dem. Rep.",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 3,
+        "MAPCOLOR8": 5,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 9,
+        "POP_EST": 25666161,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 40000,
+        "GDP_YEAR": 2016,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "5. Low income",
+        "FIPS_10": "KN",
+        "ISO_A2": "KP",
+        "ISO_A2_EH": "KP",
+        "ISO_A3": "PRK",
+        "ISO_A3_EH": "PRK",
+        "ISO_N3": "408",
+        "ISO_N3_EH": "408",
+        "UN_A3": "408",
+        "WB_A2": "KP",
+        "WB_A3": "PRK",
+        "WOE_ID": 23424865,
+        "WOE_ID_EH": 23424865,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "PRK",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "PRK",
+        "ADM0_A3_US": "PRK",
+        "ADM0_A3_FR": "PRK",
+        "ADM0_A3_RU": "PRK",
+        "ADM0_A3_ES": "PRK",
+        "ADM0_A3_CN": "PRK",
+        "ADM0_A3_TW": "PRK",
+        "ADM0_A3_IN": "PRK",
+        "ADM0_A3_NP": "PRK",
+        "ADM0_A3_PK": "PRK",
+        "ADM0_A3_DE": "PRK",
+        "ADM0_A3_GB": "PRK",
+        "ADM0_A3_BR": "PRK",
+        "ADM0_A3_IL": "PRK",
+        "ADM0_A3_PS": "PRK",
+        "ADM0_A3_SA": "PRK",
+        "ADM0_A3_EG": "PRK",
+        "ADM0_A3_MA": "PRK",
+        "ADM0_A3_PT": "PRK",
+        "ADM0_A3_AR": "PRK",
+        "ADM0_A3_JP": "PRK",
+        "ADM0_A3_KO": "PRK",
+        "ADM0_A3_VN": "PRK",
+        "ADM0_A3_TR": "PRK",
+        "ADM0_A3_ID": "PRK",
+        "ADM0_A3_PL": "PRK",
+        "ADM0_A3_GR": "PRK",
+        "ADM0_A3_IT": "PRK",
+        "ADM0_A3_NL": "PRK",
+        "ADM0_A3_SE": "PRK",
+        "ADM0_A3_BD": "PRK",
+        "ADM0_A3_UA": "PRK",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Eastern Asia",
+        "REGION_WB": "East Asia & Pacific",
+        "NAME_LEN": 11,
+        "LONG_LEN": 15,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 126.444516,
+        "LABEL_Y": 39.885252,
+        "NE_ID": 1159321181,
+        "WIKIDATAID": "Q423",
+        "NAME_AR": "كوريا الشمالية",
+        "NAME_BN": "উত্তর কোরিয়া",
+        "NAME_DE": "Nordkorea",
+        "NAME_EN": "North Korea",
+        "NAME_ES": "Corea del Norte",
+        "NAME_FA": "کره شمالی",
+        "NAME_FR": "Corée du Nord",
+        "NAME_EL": "Βόρεια Κορέα",
+        "NAME_HE": "קוריאה הצפונית",
+        "NAME_HI": "उत्तर कोरिया",
+        "NAME_HU": "Észak-Korea",
+        "NAME_ID": "Korea Utara",
+        "NAME_IT": "Corea del Nord",
+        "NAME_JA": "朝鮮民主主義人民共和国",
+        "NAME_KO": "조선민주주의인민공화국",
+        "NAME_NL": "Noord-Korea",
+        "NAME_PL": "Korea Północna",
+        "NAME_PT": "Coreia do Norte",
+        "NAME_RU": "КНДР",
+        "NAME_SV": "Nordkorea",
+        "NAME_TR": "Kuzey Kore",
+        "NAME_UK": "Корейська Народно-Демократична Республіка",
+        "NAME_UR": "شمالی کوریا",
+        "NAME_VI": "Cộng hòa Dân chủ Nhân dân Triều Tiên",
+        "NAME_ZH": "朝鲜民主主义人民共和国",
+        "NAME_ZHT": "朝鮮民主主義人民共和國",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "PRK"
+      },
+      "bbox": [
+        124.265625,
+        37.669071,
+        130.780007,
+        42.985387
+      ],
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                130.780004,
+                42.220008
+              ],
+              [
+                130.780005,
+                42.22001
+              ],
+              [
+                130.780007,
+                42.220007
+              ],
+              [
+                130.780004,
+                42.220008
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                130.64,
+                42.395024
+              ],
+              [
+                130.64,
+                42.395
+              ],
+              [
+                130.779992,
+                42.22001
+              ],
+              [
+                130.400031,
+                42.280004
+              ],
+              [
+                129.965949,
+                41.941368
+              ],
+              [
+                129.667362,
+                41.601104
+              ],
+              [
+                129.705189,
+                40.882828
+              ],
+              [
+                129.188115,
+                40.661808
+              ],
+              [
+                129.0104,
+                40.485436
+              ],
+              [
+                128.633368,
+                40.189847
+              ],
+              [
+                127.967414,
+                40.025413
+              ],
+              [
+                127.533436,
+                39.75685
+              ],
+              [
+                127.50212,
+                39.323931
+              ],
+              [
+                127.385434,
+                39.213472
+              ],
+              [
+                127.783343,
+                39.050898
+              ],
+              [
+                128.349716,
+                38.612243
+              ],
+              [
+                128.205746,
+                38.370397
+              ],
+              [
+                127.780035,
+                38.304536
+              ],
+              [
+                127.073309,
+                38.256115
+              ],
+              [
+                126.68372,
+                37.804773
+              ],
+              [
+                126.237339,
+                37.840378
+              ],
+              [
+                126.174759,
+                37.749686
+              ],
+              [
+                125.689104,
+                37.94001
+              ],
+              [
+                125.568439,
+                37.752089
+              ],
+              [
+                125.27533,
+                37.669071
+              ],
+              [
+                125.240087,
+                37.857224
+              ],
+              [
+                124.981033,
+                37.948821
+              ],
+              [
+                124.712161,
+                38.108346
+              ],
+              [
+                124.985994,
+                38.548474
+              ],
+              [
+                125.221949,
+                38.665857
+              ],
+              [
+                125.132859,
+                38.848559
+              ],
+              [
+                125.38659,
+                39.387958
+              ],
+              [
+                125.321116,
+                39.551385
+              ],
+              [
+                124.737482,
+                39.660344
+              ],
+              [
+                124.265625,
+                39.928493
+              ],
+              [
+                125.079942,
+                40.569824
+              ],
+              [
+                126.182045,
+                41.107336
+              ],
+              [
+                126.869083,
+                41.816569
+              ],
+              [
+                127.343783,
+                41.503152
+              ],
+              [
+                128.208433,
+                41.466772
+              ],
+              [
+                128.052215,
+                41.994285
+              ],
+              [
+                129.596669,
+                42.424982
+              ],
+              [
+                129.994267,
+                42.985387
+              ],
+              [
+                130.64,
+                42.395024
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

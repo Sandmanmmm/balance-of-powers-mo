@@ -1,0 +1,620 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "MAR",
+    "generated": "2025-07-31T02:54:50.237Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Morocco",
+        "SOV_A3": "MAR",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Morocco",
+        "ADM0_A3": "MAR",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Morocco",
+        "GU_A3": "MAR",
+        "SU_DIF": 0,
+        "SUBUNIT": "Morocco",
+        "SU_A3": "MAR",
+        "BRK_DIFF": 0,
+        "NAME": "Morocco",
+        "NAME_LONG": "Morocco",
+        "BRK_A3": "MAR",
+        "BRK_NAME": "Morocco",
+        "BRK_GROUP": null,
+        "ABBREV": "Mor.",
+        "POSTAL": "MA",
+        "FORMAL_EN": "Kingdom of Morocco",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Morocco",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Morocco",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 2,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 9,
+        "POP_EST": 36471769,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 119700,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "MO",
+        "ISO_A2": "MA",
+        "ISO_A2_EH": "MA",
+        "ISO_A3": "MAR",
+        "ISO_A3_EH": "MAR",
+        "ISO_N3": "504",
+        "ISO_N3_EH": "504",
+        "UN_A3": "504",
+        "WB_A2": "MA",
+        "WB_A3": "MAR",
+        "WOE_ID": 23424893,
+        "WOE_ID_EH": 23424893,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "MAR",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "MAR",
+        "ADM0_A3_US": "MAR",
+        "ADM0_A3_FR": "MAR",
+        "ADM0_A3_RU": "MAR",
+        "ADM0_A3_ES": "MAR",
+        "ADM0_A3_CN": "MAR",
+        "ADM0_A3_TW": "MAR",
+        "ADM0_A3_IN": "MAR",
+        "ADM0_A3_NP": "MAR",
+        "ADM0_A3_PK": "MAR",
+        "ADM0_A3_DE": "MAR",
+        "ADM0_A3_GB": "MAR",
+        "ADM0_A3_BR": "MAR",
+        "ADM0_A3_IL": "MAR",
+        "ADM0_A3_PS": "MAR",
+        "ADM0_A3_SA": "MAR",
+        "ADM0_A3_EG": "MAR",
+        "ADM0_A3_MA": "MAR",
+        "ADM0_A3_PT": "MAR",
+        "ADM0_A3_AR": "MAR",
+        "ADM0_A3_JP": "MAR",
+        "ADM0_A3_KO": "MAR",
+        "ADM0_A3_VN": "MAR",
+        "ADM0_A3_TR": "MAR",
+        "ADM0_A3_ID": "MAR",
+        "ADM0_A3_PL": "MAR",
+        "ADM0_A3_GR": "MAR",
+        "ADM0_A3_IT": "MAR",
+        "ADM0_A3_NL": "MAR",
+        "ADM0_A3_SE": "MAR",
+        "ADM0_A3_BD": "MAR",
+        "ADM0_A3_UA": "MAR",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Northern Africa",
+        "REGION_WB": "Middle East & North Africa",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2.7,
+        "MAX_LABEL": 8,
+        "LABEL_X": -7.187296,
+        "LABEL_Y": 31.650723,
+        "NE_ID": 1159321035,
+        "WIKIDATAID": "Q1028",
+        "NAME_AR": "المغرب",
+        "NAME_BN": "মরক্কো",
+        "NAME_DE": "Marokko",
+        "NAME_EN": "Morocco",
+        "NAME_ES": "Marruecos",
+        "NAME_FA": "مراکش",
+        "NAME_FR": "Maroc",
+        "NAME_EL": "Μαρόκο",
+        "NAME_HE": "מרוקו",
+        "NAME_HI": "मोरक्को",
+        "NAME_HU": "Marokkó",
+        "NAME_ID": "Maroko",
+        "NAME_IT": "Marocco",
+        "NAME_JA": "モロッコ",
+        "NAME_KO": "모로코",
+        "NAME_NL": "Marokko",
+        "NAME_PL": "Maroko",
+        "NAME_PT": "Marrocos",
+        "NAME_RU": "Марокко",
+        "NAME_SV": "Marocko",
+        "NAME_TR": "Fas",
+        "NAME_UK": "Марокко",
+        "NAME_UR": "مراکش",
+        "NAME_VI": "Maroc",
+        "NAME_ZH": "摩洛哥",
+        "NAME_ZHT": "摩洛哥",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "MAR"
+      },
+      "bbox": [
+        -17.020428,
+        21.420734,
+        -1.124551,
+        35.759988
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -2.169914,
+              35.168396
+            ],
+            [
+              -1.792986,
+              34.527919
+            ],
+            [
+              -1.733455,
+              33.919713
+            ],
+            [
+              -1.388049,
+              32.864015
+            ],
+            [
+              -1.124551,
+              32.651522
+            ],
+            [
+              -1.307899,
+              32.262889
+            ],
+            [
+              -2.616605,
+              32.094346
+            ],
+            [
+              -3.06898,
+              31.724498
+            ],
+            [
+              -3.647498,
+              31.637294
+            ],
+            [
+              -3.690441,
+              30.896952
+            ],
+            [
+              -4.859646,
+              30.501188
+            ],
+            [
+              -5.242129,
+              30.000443
+            ],
+            [
+              -6.060632,
+              29.7317
+            ],
+            [
+              -7.059228,
+              29.579228
+            ],
+            [
+              -8.674116,
+              28.841289
+            ],
+            [
+              -8.66559,
+              27.656426
+            ],
+            [
+              -8.817828,
+              27.656426
+            ],
+            [
+              -8.794884,
+              27.120696
+            ],
+            [
+              -9.413037,
+              27.088476
+            ],
+            [
+              -9.735343,
+              26.860945
+            ],
+            [
+              -10.189424,
+              26.860945
+            ],
+            [
+              -10.551263,
+              26.990808
+            ],
+            [
+              -11.392555,
+              26.883424
+            ],
+            [
+              -11.71822,
+              26.104092
+            ],
+            [
+              -12.030759,
+              26.030866
+            ],
+            [
+              -12.500963,
+              24.770116
+            ],
+            [
+              -13.89111,
+              23.691009
+            ],
+            [
+              -14.221168,
+              22.310163
+            ],
+            [
+              -14.630833,
+              21.86094
+            ],
+            [
+              -14.750955,
+              21.5006
+            ],
+            [
+              -17.002962,
+              21.420734
+            ],
+            [
+              -17.020428,
+              21.42231
+            ],
+            [
+              -16.973248,
+              21.885745
+            ],
+            [
+              -16.589137,
+              22.158234
+            ],
+            [
+              -16.261922,
+              22.67934
+            ],
+            [
+              -16.326414,
+              23.017768
+            ],
+            [
+              -15.982611,
+              23.723358
+            ],
+            [
+              -15.426004,
+              24.359134
+            ],
+            [
+              -15.089332,
+              24.520261
+            ],
+            [
+              -14.824645,
+              25.103533
+            ],
+            [
+              -14.800926,
+              25.636265
+            ],
+            [
+              -14.43994,
+              26.254418
+            ],
+            [
+              -13.773805,
+              26.618892
+            ],
+            [
+              -13.139942,
+              27.640148
+            ],
+            [
+              -13.121613,
+              27.654148
+            ],
+            [
+              -12.618837,
+              28.038186
+            ],
+            [
+              -11.688919,
+              28.148644
+            ],
+            [
+              -10.900957,
+              28.832142
+            ],
+            [
+              -10.399592,
+              29.098586
+            ],
+            [
+              -9.564811,
+              29.933574
+            ],
+            [
+              -9.814718,
+              31.177736
+            ],
+            [
+              -9.434793,
+              32.038096
+            ],
+            [
+              -9.300693,
+              32.564679
+            ],
+            [
+              -8.657476,
+              33.240245
+            ],
+            [
+              -7.654178,
+              33.697065
+            ],
+            [
+              -6.912544,
+              34.110476
+            ],
+            [
+              -6.244342,
+              35.145865
+            ],
+            [
+              -5.929994,
+              35.759988
+            ],
+            [
+              -5.193863,
+              35.755182
+            ],
+            [
+              -4.591006,
+              35.330712
+            ],
+            [
+              -3.640057,
+              35.399855
+            ],
+            [
+              -2.604306,
+              35.179093
+            ],
+            [
+              -2.169914,
+              35.168396
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

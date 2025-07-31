@@ -1,0 +1,540 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "HRV",
+    "generated": "2025-07-31T02:54:50.190Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "SOVEREIGNT": "Croatia",
+        "SOV_A3": "HRV",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Croatia",
+        "ADM0_A3": "HRV",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Croatia",
+        "GU_A3": "HRV",
+        "SU_DIF": 0,
+        "SUBUNIT": "Croatia",
+        "SU_A3": "HRV",
+        "BRK_DIFF": 0,
+        "NAME": "Croatia",
+        "NAME_LONG": "Croatia",
+        "BRK_A3": "HRV",
+        "BRK_NAME": "Croatia",
+        "BRK_GROUP": null,
+        "ABBREV": "Cro.",
+        "POSTAL": "HR",
+        "FORMAL_EN": "Republic of Croatia",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Croatia",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Croatia",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 5,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 1,
+        "POP_EST": 4067500,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 60752,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "2. Developed region: nonG7",
+        "INCOME_GRP": "2. High income: nonOECD",
+        "FIPS_10": "HR",
+        "ISO_A2": "HR",
+        "ISO_A2_EH": "HR",
+        "ISO_A3": "HRV",
+        "ISO_A3_EH": "HRV",
+        "ISO_N3": "191",
+        "ISO_N3_EH": "191",
+        "UN_A3": "191",
+        "WB_A2": "HR",
+        "WB_A3": "HRV",
+        "WOE_ID": 23424843,
+        "WOE_ID_EH": 23424843,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "HRV",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "HRV",
+        "ADM0_A3_US": "HRV",
+        "ADM0_A3_FR": "HRV",
+        "ADM0_A3_RU": "HRV",
+        "ADM0_A3_ES": "HRV",
+        "ADM0_A3_CN": "HRV",
+        "ADM0_A3_TW": "HRV",
+        "ADM0_A3_IN": "HRV",
+        "ADM0_A3_NP": "HRV",
+        "ADM0_A3_PK": "HRV",
+        "ADM0_A3_DE": "HRV",
+        "ADM0_A3_GB": "HRV",
+        "ADM0_A3_BR": "HRV",
+        "ADM0_A3_IL": "HRV",
+        "ADM0_A3_PS": "HRV",
+        "ADM0_A3_SA": "HRV",
+        "ADM0_A3_EG": "HRV",
+        "ADM0_A3_MA": "HRV",
+        "ADM0_A3_PT": "HRV",
+        "ADM0_A3_AR": "HRV",
+        "ADM0_A3_JP": "HRV",
+        "ADM0_A3_KO": "HRV",
+        "ADM0_A3_VN": "HRV",
+        "ADM0_A3_TR": "HRV",
+        "ADM0_A3_ID": "HRV",
+        "ADM0_A3_PL": "HRV",
+        "ADM0_A3_GR": "HRV",
+        "ADM0_A3_IT": "HRV",
+        "ADM0_A3_NL": "HRV",
+        "ADM0_A3_SE": "HRV",
+        "ADM0_A3_BD": "HRV",
+        "ADM0_A3_UA": "HRV",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Europe",
+        "REGION_UN": "Europe",
+        "SUBREGION": "Southern Europe",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4,
+        "MAX_LABEL": 9,
+        "LABEL_X": 16.37241,
+        "LABEL_Y": 45.805799,
+        "NE_ID": 1159320833,
+        "WIKIDATAID": "Q224",
+        "NAME_AR": "كرواتيا",
+        "NAME_BN": "ক্রোয়েশিয়া",
+        "NAME_DE": "Kroatien",
+        "NAME_EN": "Croatia",
+        "NAME_ES": "Croacia",
+        "NAME_FA": "کرواسی",
+        "NAME_FR": "Croatie",
+        "NAME_EL": "Κροατία",
+        "NAME_HE": "קרואטיה",
+        "NAME_HI": "क्रोएशिया",
+        "NAME_HU": "Horvátország",
+        "NAME_ID": "Kroasia",
+        "NAME_IT": "Croazia",
+        "NAME_JA": "クロアチア",
+        "NAME_KO": "크로아티아",
+        "NAME_NL": "Kroatië",
+        "NAME_PL": "Chorwacja",
+        "NAME_PT": "Croácia",
+        "NAME_RU": "Хорватия",
+        "NAME_SV": "Kroatien",
+        "NAME_TR": "Hırvatistan",
+        "NAME_UK": "Хорватія",
+        "NAME_UR": "کروشیا",
+        "NAME_VI": "Croatia",
+        "NAME_ZH": "克罗地亚",
+        "NAME_ZHT": "克羅地亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "HRV"
+      },
+      "bbox": [
+        13.656976,
+        42.479991,
+        19.390476,
+        46.503751
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.564808,
+              46.503751
+            ],
+            [
+              16.882515,
+              46.380632
+            ],
+            [
+              17.630066,
+              45.951769
+            ],
+            [
+              18.456062,
+              45.759481
+            ],
+            [
+              18.829825,
+              45.908872
+            ],
+            [
+              19.072769,
+              45.521511
+            ],
+            [
+              19.390476,
+              45.236516
+            ],
+            [
+              19.005485,
+              44.860234
+            ],
+            [
+              18.553214,
+              45.08159
+            ],
+            [
+              17.861783,
+              45.06774
+            ],
+            [
+              17.002146,
+              45.233777
+            ],
+            [
+              16.534939,
+              45.211608
+            ],
+            [
+              16.318157,
+              45.004127
+            ],
+            [
+              15.959367,
+              45.233777
+            ],
+            [
+              15.750026,
+              44.818712
+            ],
+            [
+              16.23966,
+              44.351143
+            ],
+            [
+              16.456443,
+              44.04124
+            ],
+            [
+              16.916156,
+              43.667722
+            ],
+            [
+              17.297373,
+              43.446341
+            ],
+            [
+              17.674922,
+              43.028563
+            ],
+            [
+              18.56,
+              42.65
+            ],
+            [
+              18.450017,
+              42.479992
+            ],
+            [
+              18.450016,
+              42.479991
+            ],
+            [
+              17.50997,
+              42.849995
+            ],
+            [
+              16.930006,
+              43.209998
+            ],
+            [
+              16.015385,
+              43.507215
+            ],
+            [
+              15.174454,
+              44.243191
+            ],
+            [
+              15.37625,
+              44.317915
+            ],
+            [
+              14.920309,
+              44.738484
+            ],
+            [
+              14.901602,
+              45.07606
+            ],
+            [
+              14.258748,
+              45.233777
+            ],
+            [
+              13.952255,
+              44.802124
+            ],
+            [
+              13.656976,
+              45.136935
+            ],
+            [
+              13.679403,
+              45.484149
+            ],
+            [
+              13.71506,
+              45.500324
+            ],
+            [
+              14.411968,
+              45.466166
+            ],
+            [
+              14.595109,
+              45.634941
+            ],
+            [
+              14.935244,
+              45.471695
+            ],
+            [
+              15.327675,
+              45.452316
+            ],
+            [
+              15.323954,
+              45.731783
+            ],
+            [
+              15.67153,
+              45.834154
+            ],
+            [
+              15.768733,
+              46.238108
+            ],
+            [
+              16.564808,
+              46.503751
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

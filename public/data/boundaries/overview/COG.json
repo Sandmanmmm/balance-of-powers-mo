@@ -1,0 +1,564 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "COG",
+    "generated": "2025-07-31T02:54:50.110Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "SOVEREIGNT": "Republic of the Congo",
+        "SOV_A3": "COG",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Republic of the Congo",
+        "ADM0_A3": "COG",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Republic of the Congo",
+        "GU_A3": "COG",
+        "SU_DIF": 0,
+        "SUBUNIT": "Republic of the Congo",
+        "SU_A3": "COG",
+        "BRK_DIFF": 0,
+        "NAME": "Congo",
+        "NAME_LONG": "Republic of the Congo",
+        "BRK_A3": "COG",
+        "BRK_NAME": "Republic of the Congo",
+        "BRK_GROUP": null,
+        "ABBREV": "Rep. Congo",
+        "POSTAL": "CG",
+        "FORMAL_EN": "Republic of the Congo",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Congo, Republic of the",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Congo, Rep.",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 1,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 10,
+        "POP_EST": 5380508,
+        "POP_RANK": 13,
+        "POP_YEAR": 2019,
+        "GDP_MD": 12267,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "CF",
+        "ISO_A2": "CG",
+        "ISO_A2_EH": "CG",
+        "ISO_A3": "COG",
+        "ISO_A3_EH": "COG",
+        "ISO_N3": "178",
+        "ISO_N3_EH": "178",
+        "UN_A3": "178",
+        "WB_A2": "CG",
+        "WB_A3": "COG",
+        "WOE_ID": 23424779,
+        "WOE_ID_EH": 23424779,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "COG",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "COG",
+        "ADM0_A3_US": "COG",
+        "ADM0_A3_FR": "COG",
+        "ADM0_A3_RU": "COG",
+        "ADM0_A3_ES": "COG",
+        "ADM0_A3_CN": "COG",
+        "ADM0_A3_TW": "COG",
+        "ADM0_A3_IN": "COG",
+        "ADM0_A3_NP": "COG",
+        "ADM0_A3_PK": "COG",
+        "ADM0_A3_DE": "COG",
+        "ADM0_A3_GB": "COG",
+        "ADM0_A3_BR": "COG",
+        "ADM0_A3_IL": "COG",
+        "ADM0_A3_PS": "COG",
+        "ADM0_A3_SA": "COG",
+        "ADM0_A3_EG": "COG",
+        "ADM0_A3_MA": "COG",
+        "ADM0_A3_PT": "COG",
+        "ADM0_A3_AR": "COG",
+        "ADM0_A3_JP": "COG",
+        "ADM0_A3_KO": "COG",
+        "ADM0_A3_VN": "COG",
+        "ADM0_A3_TR": "COG",
+        "ADM0_A3_ID": "COG",
+        "ADM0_A3_PL": "COG",
+        "ADM0_A3_GR": "COG",
+        "ADM0_A3_IT": "COG",
+        "ADM0_A3_NL": "COG",
+        "ADM0_A3_SE": "COG",
+        "ADM0_A3_BD": "COG",
+        "ADM0_A3_UA": "COG",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Middle Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 5,
+        "LONG_LEN": 21,
+        "ABBREV_LEN": 10,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4,
+        "MAX_LABEL": 9,
+        "LABEL_X": 15.9005,
+        "LABEL_Y": 0.142331,
+        "NE_ID": 1159320515,
+        "WIKIDATAID": "Q971",
+        "NAME_AR": "جمهورية الكونغو",
+        "NAME_BN": "কঙ্গো প্রজাতন্ত্র",
+        "NAME_DE": "Republik Kongo",
+        "NAME_EN": "Republic of the Congo",
+        "NAME_ES": "República del Congo",
+        "NAME_FA": "جمهوری کنگو",
+        "NAME_FR": "République du Congo",
+        "NAME_EL": "Δημοκρατία του Κονγκό",
+        "NAME_HE": "הרפובליקה של קונגו",
+        "NAME_HI": "कांगो गणराज्य",
+        "NAME_HU": "Kongói Köztársaság",
+        "NAME_ID": "Republik Kongo",
+        "NAME_IT": "Repubblica del Congo",
+        "NAME_JA": "コンゴ共和国",
+        "NAME_KO": "콩고 공화국",
+        "NAME_NL": "Congo-Brazzaville",
+        "NAME_PL": "Kongo",
+        "NAME_PT": "República do Congo",
+        "NAME_RU": "Республика Конго",
+        "NAME_SV": "Kongo-Brazzaville",
+        "NAME_TR": "Kongo Cumhuriyeti",
+        "NAME_UK": "Республіка Конго",
+        "NAME_UR": "جمہوریہ کانگو",
+        "NAME_VI": "Cộng hòa Congo",
+        "NAME_ZH": "刚果共和国",
+        "NAME_ZHT": "剛果共和國",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "COG"
+      },
+      "bbox": [
+        11.093773,
+        -5.037987,
+        18.453065,
+        3.728197
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              18.453065,
+              3.504386
+            ],
+            [
+              18.393792,
+              2.900443
+            ],
+            [
+              18.094276,
+              2.365722
+            ],
+            [
+              17.898835,
+              1.741832
+            ],
+            [
+              17.774192,
+              0.855659
+            ],
+            [
+              17.82654,
+              0.288923
+            ],
+            [
+              17.663553,
+              -0.058084
+            ],
+            [
+              17.638645,
+              -0.424832
+            ],
+            [
+              17.523716,
+              -0.74383
+            ],
+            [
+              16.865307,
+              -1.225816
+            ],
+            [
+              16.407092,
+              -1.740927
+            ],
+            [
+              15.972803,
+              -2.712392
+            ],
+            [
+              16.00629,
+              -3.535133
+            ],
+            [
+              15.75354,
+              -3.855165
+            ],
+            [
+              15.170992,
+              -4.343507
+            ],
+            [
+              14.582604,
+              -4.970239
+            ],
+            [
+              14.209035,
+              -4.793092
+            ],
+            [
+              14.144956,
+              -4.510009
+            ],
+            [
+              13.600235,
+              -4.500138
+            ],
+            [
+              13.25824,
+              -4.882957
+            ],
+            [
+              12.995517,
+              -4.781103
+            ],
+            [
+              12.62076,
+              -4.438023
+            ],
+            [
+              12.318608,
+              -4.60623
+            ],
+            [
+              11.914963,
+              -5.037987
+            ],
+            [
+              11.093773,
+              -3.978827
+            ],
+            [
+              11.855122,
+              -3.426871
+            ],
+            [
+              11.478039,
+              -2.765619
+            ],
+            [
+              11.820964,
+              -2.514161
+            ],
+            [
+              12.495703,
+              -2.391688
+            ],
+            [
+              12.575284,
+              -1.948511
+            ],
+            [
+              13.109619,
+              -2.42874
+            ],
+            [
+              13.992407,
+              -2.470805
+            ],
+            [
+              14.29921,
+              -1.998276
+            ],
+            [
+              14.425456,
+              -1.333407
+            ],
+            [
+              14.316418,
+              -0.552627
+            ],
+            [
+              13.843321,
+              0.038758
+            ],
+            [
+              14.276266,
+              1.19693
+            ],
+            [
+              14.026669,
+              1.395677
+            ],
+            [
+              13.282631,
+              1.314184
+            ],
+            [
+              13.003114,
+              1.830896
+            ],
+            [
+              13.075822,
+              2.267097
+            ],
+            [
+              14.337813,
+              2.227875
+            ],
+            [
+              15.146342,
+              1.964015
+            ],
+            [
+              15.940919,
+              1.727673
+            ],
+            [
+              16.012852,
+              2.26764
+            ],
+            [
+              16.537058,
+              3.198255
+            ],
+            [
+              17.133042,
+              3.728197
+            ],
+            [
+              17.8099,
+              3.560196
+            ],
+            [
+              18.453065,
+              3.504386
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

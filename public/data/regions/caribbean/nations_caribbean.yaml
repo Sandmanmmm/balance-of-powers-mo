@@ -34,7 +34,353 @@ nations:
         - "Medical 
         - "Basic Medicine"
         - "Tobacco Processing"
-      total_population: 11317000
+            tax_level: "moderate"
+      military_doctrine: "none"
+      trade_policy: "us_integrated"
+      immig      trade_partners:
+        - "USA"
+        - "DOM"
+        - "MEX"
+    policies:
+      tax_level: "moderate"
+      military_doctrine: "none"
+      trade_policy: "us_integrated"
+      immigration_policy: "us_controlled"
+      environmental_policy: "moderate"
+
+  VCT:
+    name: "Saint Vincent and the Grenadines"
+    capital: "Kingstown"
+    flag: "🇻🇨"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Ralph Gonsalves"
+      approval: 54.8
+      stability: 72.5
+      ruling_party: "Unity Labour Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2020-11-05"
+    economy:
+      gdp: 850000000
+      debt: 485000000
+      inflation: 1.7
+      trade_balance: -285000000
+      treasury: 85000000
+      currency: "XCD"
+      interest_rate: 6.5
+    military:
+      manpower: 0
+      equipment: 18
+      readiness: 38
+      doctrine: "Coast Guard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 28
+      currentResearch: ["Agriculture Technology", "Tourism Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 4.2
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      neutrality: 92.5
+
+  KNA:
+    name: "Saint Kitts and Nevis"
+    capital: "Basseterre"
+    flag: "🇰🇳"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Terrance Drew"
+      approval: 58.5
+      stability: 75.5
+      ruling_party: "Saint Kitts and Nevis Labour Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2022-08-05"
+    economy:
+      gdp: 1050000000
+      debt: 485000000
+      inflation: 2.3
+      trade_balance: -185000000
+      treasury: 105000000
+      currency: "XCD"
+      interest_rate: 6.5
+    military:
+      manpower: 0
+      equipment: 15
+      readiness: 35
+      doctrine: "Defense Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 35
+      currentResearch: ["Tourism Technology", "Financial Services"]
+      completedTech: ["Tourism"]
+      level: 4.5
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      neutrality: 88.5
+
+  ATG:
+    name: "Antigua and Barbuda"
+    capital: "Saint John's"
+    flag: "🇦🇬"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Gaston Browne"
+      approval: 58.5
+      stability: 72.5
+      ruling_party: "Antigua and Barbuda Labour Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2023-01-18"
+    economy:
+      gdp: 1850000000
+      debt: 850000000
+      inflation: 4.8
+      trade_balance: -485000000
+      treasury: 185000000
+      currency: "XCD"
+      interest_rate: 6.5
+    military:
+      manpower: 180
+      equipment: 28
+      readiness: 48
+      doctrine: "Defense Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 48
+      currentResearch: ["Tourism Technology", "Renewable Energy"]
+      completedTech: ["Tourism"]
+      level: 4.8
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      neutrality: 88.5
+
+  DMA:
+    name: "Dominica"
+    capital: "Roseau"
+    flag: "🇩🇲"
+    government:
+      type: "parliamentary_republic"
+      leader: "Roosevelt Skerrit"
+      approval: 52.8
+      stability: 68.5
+      ruling_party: "Dominica Labour Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2022-12-06"
+    economy:
+      gdp: 650000000
+      debt: 285000000
+      inflation: 7.8
+      trade_balance: -185000000
+      treasury: 85000000
+      currency: "XCD"
+      interest_rate: 6.5
+    military:
+      manpower: 0
+      equipment: 18
+      readiness: 35
+      doctrine: "Police Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 28
+      currentResearch: ["Eco-Tourism", "Geothermal Energy"]
+      completedTech: ["Traditional Technology"]
+      level: 4.2
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      neutrality: 92.5
+
+  GRD:
+    name: "Grenada"
+    capital: "Saint George's"
+    flag: "🇬🇩"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Dickon Mitchell"
+      approval: 62.8
+      stability: 75.5
+      ruling_party: "National Democratic Congress"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2022-06-23"
+    economy:
+      gdp: 1250000000
+      debt: 485000000
+      inflation: 1.2
+      trade_balance: -285000000
+      treasury: 125000000
+      currency: "XCD"
+      interest_rate: 6.5
+    military:
+      manpower: 0
+      equipment: 22
+      readiness: 42
+      doctrine: "Coast Guard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 35
+      currentResearch: ["Spice Agriculture", "Tourism Technology"]
+      completedTech: ["Agriculture Technology"]
+      level: 4.5
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      neutrality: 85.5
+
+  LCA:
+    name: "Saint Lucia"
+    capital: "Castries"
+    flag: "🇱🇨"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Philip J. Pierre"
+      approval: 48.5
+      stability: 68.5
+      ruling_party: "Saint Lucia Labour Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2021-07-26"
+    economy:
+      gdp: 2150000000
+      debt: 1250000000
+      inflation: 2.9
+      trade_balance: -485000000
+      treasury: 185000000
+      currency: "XCD"
+      interest_rate: 6.5
+    military:
+      manpower: 0
+      equipment: 25
+      readiness: 45
+      doctrine: "Defense Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 48
+      currentResearch: ["Tourism Technology", "Banana Agriculture"]
+      completedTech: ["Tourism", "Agriculture Technology"]
+      level: 4.8
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      neutrality: 88.5icy: "us_controlled"     
+      environmental_policy: "moderate"
+
+  JAM:
+    name: "Jamaica"
+    capital: "Kingston"
+    flag: "🇯🇲"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Andrew Holness"
+      approval: 48.5
+      stability: 65.5
+      ruling_party: "Jamaica Labour Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2020-09-03"
+    economy:
+      gdp: 16000000000
+      debt: 14500000000
+      inflation: 6.4
+      trade_balance: -4850000000
+      treasury: 1850000000
+      currency: "JMD"
+      interest_rate: 5.0
+    military:
+      manpower: 3950
+      equipment: 42
+      readiness: 62
+      doctrine: "Island Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 125
+      currentResearch: ["Tourism Technology", "Bauxite Processing"]
+      completedTech: ["Tourism", "Basic Manufacturing"]
+      level: 5.2
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: []
+      neutrality: 68.5
+
+  DOM:
+    name: "Dominican Republic"
+    capital: "Santo Domingo"
+    flag: "🇩🇴"
+    government:
+      type: "presidential_republic"
+      leader: "Luis Abinader"
+      approval: 58.5
+      stability: 68.5
+      ruling_party: "Modern Revolutionary Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2024-05-19"
+    economy:
+      gdp: 115000000000
+      debt: 85000000000
+      inflation: 3.2
+      trade_balance: -8500000000
+      treasury: 8500000000
+      currency: "DOP"
+      interest_rate: 8.5
+    military:
+      manpower: 56050
+      equipment: 52
+      readiness: 65
+      doctrine: "Border Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 285
+      currentResearch: ["Tourism Technology", "Agriculture Technology"]
+      completedTech: ["Tourism", "Modern Agriculture"]
+      level: 6.2
+    diplomacy:
+      allies: ["USA"]
+      enemies: []
+      neutrality: 72.5
+
+  TTO:
+    name: "Trinidad and Tobago"
+    capital: "Port of Spain"
+    flag: "🇹🇹"
+    government:
+      type: "parliamentary_republic"
+      leader: "Keith Rowley"
+      approval: 42.8
+      stability: 62.5
+      ruling_party: "People's National Movement"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2020-8-10"
+    economy:
+      gdp: 24000000000
+      debt: 18500000000
+      inflation: 5.8
+      trade_balance: 4850000000
+      treasury: 4850000000
+      currency: "TTD"
+      interest_rate: 3.5
+    military:
+      manpower: 4050
+      equipment: 48
+      readiness: 58
+      doctrine: "Maritime Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 185
+      currentResearch: ["Oil Technology", "Natural Gas Technology"]
+      completedTech: ["Oil Refining", "Natural Gas Processing"]
+      level: 6.0
+    diplomacy:
+      allies: ["USA", "BRB"]
+      enemies: []
+      neutrality: 75.5_population: 11317000
         youth: 15.6
         elderly: 16.2
         White: 
@@ -819,4 +1165,5 @@ nations:
       military_doctrine: "none"
       trade_policy: "us_integrated"
       immigration_policy: "us_controlled"
-      environmental_policy: "moderate"
+      environmental_policy: "moderate" 
+ 

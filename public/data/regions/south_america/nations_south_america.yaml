@@ -1,1 +1,585 @@
-nations: {}
+# South America - Regional Nation Data
+
+nations:
+  BRA:
+    name: "Brazil"
+    capital: "Brasília"
+    flag: "🇧🇷"
+    government:
+      type: "federal_republic"
+      leader: "Luiz Inácio Lula da Silva"
+      approval: 58.2
+      stability: 72.5
+      ruling_party: "Workers' Party"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2022-10-30"
+    economy:
+      gdp: 2140000000000
+      debt: 1580000000000
+      inflation: 5.8
+      trade_balance: 61000000000
+      treasury: 185000000000
+      currency: "BRL"
+      interest_rate: 11.75
+      sectors:
+        manufacturing: 18.2
+        services: 63.5
+        agriculture: 6.8
+        technology: 11.5
+    military:
+      manpower: 360000
+      equipment: 72
+      readiness: 75
+      doctrine: "Regional Defense"
+      nuclear_capability: false
+      military_spending_gdp: 1.42
+      conscription: true
+      reserve_forces: 1340000
+    technology:
+      researchPoints: 850
+      currentResearch:
+        - "Aerospace Technology"
+        - "Biofuels"
+        - "Agriculture Technology"
+      completedTech:
+        - "Internet"
+        - "Aircraft Manufacturing"
+        - "Oil Technology"
+        - "Agriculture Technology"
+    demographics:
+      population: 215000000
+      median_age: 33.2
+      birth_rate: 1.73
+      life_expectancy: 76.0
+      literacy_rate: 93.2
+      urbanization: 87.1
+    diplomacy:
+      allies: ["ARG", "USA"]
+      enemies: []
+      trade_partners: ["CHN", "USA", "ARG", "GER", "NLD"]
+      international_relations:
+        NATO: false
+        G20: "member"
+        UN_Security_Council: false
+        BRICS: "member"
+    resource_stockpiles:
+      oil: 1850000
+      steel: 1285000
+      rare_earth: 85000
+      uranium: 18500
+      food: 8500000
+    resource_production:
+      oil: 3850000
+      steel: 485000
+      rare_earth: 8500
+      uranium: 2850
+      food: 4850000
+    resource_consumption:
+      oil: 2850000
+      steel: 585000
+      rare_earth: 18500
+      uranium: 850
+      food: 3850000
+
+  ARG:
+    name: "Argentina"
+    capital: "Buenos Aires"
+    flag: "🇦🇷"
+    government:
+      type: "federal_republic"
+      leader: "Javier Milei"
+      approval: 42.8
+      stability: 58.5
+      ruling_party: "La Libertad Avanza"
+      ideology: "Libertarian"
+      election_cycle: 4
+      last_election: "2023-11-19"
+    economy:
+      gdp: 487000000000
+      debt: 385000000000
+      inflation: 211.4
+      trade_balance: 6900000000
+      treasury: 28500000000
+      currency: "ARS"
+      interest_rate: 133.0
+      sectors:
+        manufacturing: 14.8
+        services: 61.2
+        agriculture: 7.8
+        technology: 16.2
+    military:
+      manpower: 83000
+      equipment: 58
+      readiness: 70
+      doctrine: "Regional Defense"
+      nuclear_capability: false
+      military_spending_gdp: 0.75
+      conscription: false
+      reserve_forces: 250000
+    technology:
+      researchPoints: 580
+      currentResearch:
+        - "Lithium Processing"
+        - "Agriculture Technology"
+        - "Nuclear Technology"
+      completedTech:
+        - "Internet"
+        - "Nuclear Physics"
+        - "Agriculture Technology"
+    demographics:
+      population: 46000000
+      median_age: 32.0
+      birth_rate: 2.25
+      life_expectancy: 77.0
+      literacy_rate: 99.1
+      urbanization: 92.1
+    diplomacy:
+      allies: ["BRA", "CHL"]
+      enemies: []
+      trade_partners: ["BRA", "CHN", "USA", "CHL", "URY"]
+      international_relations:
+        NATO: false
+        G20: "member"
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 285000
+      steel: 185000
+      rare_earth: 28500
+      uranium: 8500
+      food: 2850000
+    resource_production:
+      oil: 485000
+      steel: 85000
+      rare_earth: 850
+      uranium: 285
+      food: 1850000
+    resource_consumption:
+      oil: 685000
+      steel: 118500
+      rare_earth: 4500
+      uranium: 450
+      food: 850000
+
+  CHL:
+    name: "Chile"
+    capital: "Santiago"
+    flag: "🇨🇱"
+    government:
+      type: "presidential_republic"
+      leader: "Gabriel Boric"
+      approval: 48.5
+      stability: 78.2
+      ruling_party: "Broad Front"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2021-12-19"
+    economy:
+      gdp: 317000000000
+      debt: 185000000000
+      inflation: 7.9
+      trade_balance: 18500000000
+      treasury: 28500000000
+      currency: "CLP"
+      interest_rate: 11.25
+      sectors:
+        manufacturing: 10.8
+        services: 63.2
+        agriculture: 3.5
+        technology: 22.5
+    military:
+      manpower: 80000
+      equipment: 82
+      readiness: 85
+      doctrine: "Mountain Defense"
+      nuclear_capability: false
+      military_spending_gdp: 1.85
+      conscription: true
+      reserve_forces: 40000
+    technology:
+      researchPoints: 680
+      currentResearch:
+        - "Mining Technology"
+        - "Renewable Energy"
+        - "Astronomy"
+      completedTech:
+        - "Internet"
+        - "Advanced Mining"
+        - "Copper Processing"
+        - "Renewable Energy"
+    demographics:
+      population: 19500000
+      median_age: 35.5
+      birth_rate: 1.65
+      life_expectancy: 80.6
+      literacy_rate: 96.4
+      urbanization: 87.8
+    diplomacy:
+      allies: ["USA", "ARG", "PER"]
+      enemies: []
+      trade_partners: ["CHN", "USA", "JPN", "ARG", "BRA"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 85000
+      steel: 485000
+      rare_earth: 18500
+      uranium: 2850
+      food: 850000
+    resource_production:
+      oil: 8500
+      steel: 185000
+      rare_earth: 2850
+      uranium: 485
+      food: 485000
+    resource_consumption:
+      oil: 385000
+      steel: 85000
+      rare_earth: 8500
+      uranium: 285
+      food: 385000
+
+  COL:
+    name: "Colombia"
+    capital: "Bogotá"
+    flag: "🇨🇴"
+    government:
+      type: "republic"
+      leader: "Gustavo Petro"
+      approval: 52.1
+      stability: 65.8
+      ruling_party: "Historic Pact"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2022-06-19"
+    economy:
+      gdp: 314000000000
+      debt: 180000000000
+      inflation: 5.6
+      trade_balance: 14000000000
+      treasury: 18000000000
+      currency: "COP"
+      interest_rate: 12.0
+      sectors:
+        manufacturing: 11.2
+        services: 56.9
+        agriculture: 6.6
+        technology: 25.3
+    military:
+      manpower: 293000
+      equipment: 72
+      readiness: 80
+      doctrine: "Counter-Insurgency"
+      nuclearCapability: false
+    technology:
+      researchPoints: 520
+      currentResearch: ["Coffee Technology", "Oil Extraction"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.3
+    diplomacy:
+      allies: ["USA", "BRA", "PER"]
+      enemies: []
+      neutrality: 78.5
+
+  PER:
+    name: "Peru"
+    capital: "Lima"
+    flag: "🇵🇪"
+    government:
+      type: "republic"
+      leader: "Dina Boluarte"
+      approval: 28.5
+      stability: 48.2
+      ruling_party: "Free Peru"
+      ideology: "Left-wing populism"
+      election_cycle: 5
+      last_election: "2021-06-06"
+    economy:
+      gdp: 203000000000
+      debt: 90000000000
+      inflation: 8.8
+      trade_balance: 12000000000
+      treasury: 12000000000
+      currency: "PEN"
+      interest_rate: 7.5
+      sectors:
+        manufacturing: 13.6
+        services: 58.4
+        agriculture: 7.4
+        technology: 20.6
+    military:
+      manpower: 81000
+      equipment: 65
+      readiness: 75
+      doctrine: "Mountain Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 380
+      currentResearch: ["Mining Technology", "Agricultural Technology"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 6.9
+    diplomacy:
+      allies: ["COL", "BRA", "CHL"]
+      enemies: []
+      neutrality: 82.1
+
+  VEN:
+    name: "Venezuela"
+    capital: "Caracas"
+    flag: "🇻🇪"
+    government:
+      type: "federal_republic"
+      leader: "Nicolás Maduro"
+      approval: 28.5
+      stability: 45.2
+      ruling_party: "United Socialist Party"
+      ideology: "Socialism"
+      election_cycle: 6
+      last_election: "2024-07-28"
+    economy:
+      gdp: 48000000000
+      debt: 185000000000
+      inflation: 234.1
+      trade_balance: 15000000000
+      treasury: 8500000000
+      currency: "VES"
+      interest_rate: 45.0
+    military:
+      manpower: 123000
+      equipment: 45
+      readiness: 58
+      doctrine: "Revolutionary Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 180
+      currentResearch: ["Oil Refining", "Mining Technology"]
+      completedTech: ["Oil Technology", "Basic Manufacturing"]
+      level: 4.2
+    diplomacy:
+      allies: ["RUS", "CHN", "CUB"]
+      enemies: ["USA"]
+      neutrality: 25.5
+
+  URY:
+    name: "Uruguay"
+    capital: "Montevideo"
+    flag: "🇺🇾"
+    government:
+      type: "presidential_republic"
+      leader: "Luis Lacalle Pou"
+      approval: 48.5
+      stability: 78.5
+      ruling_party: "National Party"
+      ideology: "Liberal Conservatism"
+      election_cycle: 5
+      last_election: "2019-11-24"
+    economy:
+      gdp: 71000000000
+      debt: 42000000000
+      inflation: 9.1
+      trade_balance: 2800000000
+      treasury: 12500000000
+      currency: "UYU"
+      interest_rate: 8.5
+    military:
+      manpower: 24000
+      equipment: 68
+      readiness: 72
+      doctrine: "Defensive Neutrality"
+      nuclearCapability: false
+    technology:
+      researchPoints: 285
+      currentResearch: ["Renewable Energy", "Agricultural Technology"]
+      completedTech: ["Internet", "Modern Agriculture"]
+      level: 7.2
+    diplomacy:
+      allies: ["BRA", "ARG"]
+      enemies: []
+      neutrality: 85.5
+
+  ECU:
+    name: "Ecuador"
+    capital: "Quito"
+    flag: "🇪🇨"
+    government:
+      type: "presidential_republic"
+      leader: "Daniel Noboa"
+      approval: 52.8
+      stability: 58.5
+      ruling_party: "National Democratic Action"
+      ideology: "Centrism"
+      election_cycle: 4
+      last_election: "2023-10-15"
+    economy:
+      gdp: 115000000000
+      debt: 65000000000
+      inflation: 1.1
+      trade_balance: -1200000000
+      treasury: 8500000000
+      currency: "USD"
+      interest_rate: 5.5
+    military:
+      manpower: 40000
+      equipment: 55
+      readiness: 65
+      doctrine: "Regional Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 225
+      currentResearch: ["Oil Technology", "Agriculture Technology"]
+      completedTech: ["Internet", "Basic Manufacturing"]
+      level: 5.8
+    diplomacy:
+      allies: ["COL", "PER"]
+      enemies: []
+      neutrality: 72.5
+
+  BOL:
+    name: "Bolivia"
+    capital: "La Paz"
+    flag: "🇧🇴"
+    government:
+      type: "presidential_republic"
+      leader: "Luis Arce"
+      approval: 38.5
+      stability: 55.2
+      ruling_party: "Movement for Socialism"
+      ideology: "Democratic Socialism"
+      election_cycle: 5
+      last_election: "2020-10-18"
+    economy:
+      gdp: 43000000000
+      debt: 18500000000
+      inflation: 0.9
+      trade_balance: 1850000000
+      treasury: 4850000000
+      currency: "BOB"
+      interest_rate: 2.8
+    military:
+      manpower: 46000
+      equipment: 42
+      readiness: 58
+      doctrine: "Mountain Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 165
+      currentResearch: ["Mining Technology", "Lithium Processing"]
+      completedTech: ["Basic Manufacturing", "Mining Technology"]
+      level: 4.8
+    diplomacy:
+      allies: ["VEN", "ARG"]
+      enemies: []
+      neutrality: 65.5
+
+  PRY:
+    name: "Paraguay"
+    capital: "Asunción"
+    flag: "🇵🇾"
+    government:
+      type: "presidential_republic"
+      leader: "Santiago Peña"
+      approval: 52.8
+      stability: 68.5
+      ruling_party: "Colorado Party"
+      ideology: "Conservative Democracy"
+      election_cycle: 5
+      last_election: "2023-04-30"
+    economy:
+      gdp: 42000000000
+      debt: 18500000000
+      inflation: 11.5
+      trade_balance: 1850000000
+      treasury: 4850000000
+      currency: "PYG"
+      interest_rate: 8.5
+    military:
+      manpower: 20000
+      equipment: 45
+      readiness: 62
+      doctrine: "River Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 185
+      currentResearch: ["Hydropower", "Agriculture Technology"]
+      completedTech: ["Basic Manufacturing", "Agriculture Technology"]
+      level: 5.2
+    diplomacy:
+      allies: ["BRA", "ARG"]
+      enemies: []
+      neutrality: 78.5
+
+  GUY:
+    name: "Guyana"
+    capital: "Georgetown"
+    flag: "🇬🇾"
+    government:
+      type: "presidential_republic"
+      leader: "Irfaan Ali"
+      approval: 58.5
+      stability: 65.5
+      ruling_party: "People's Progressive Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2020-08-02"
+    economy:
+      gdp: 13000000000
+      debt: 4850000000
+      inflation: 6.1
+      trade_balance: 4850000000
+      treasury: 8500000000
+      currency: "GYD"
+      interest_rate: 5.0
+    military:
+      manpower: 3400
+      equipment: 38
+      readiness: 55
+      doctrine: "Coastal Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 125
+      currentResearch: ["Oil Technology", "Mining Technology"]
+      completedTech: ["Basic Manufacturing"]
+      level: 4.2
+    diplomacy:
+      allies: ["BRA", "USA"]
+      enemies: ["VEN"]
+      neutrality: 65.5
+
+  SUR:
+    name: "Suriname"
+    capital: "Paramaribo"
+    flag: "🇸🇷"
+    government:
+      type: "presidential_republic"
+      leader: "Chan Santokhi"
+      approval: 48.5
+      stability: 62.5
+      ruling_party: "Progressive Reform Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 5
+      last_election: "2020-05-25"
+    economy:
+      gdp: 4000000000
+      debt: 2850000000
+      inflation: 52.4
+      trade_balance: 1250000000
+      treasury: 485000000
+      currency: "SRD"
+      interest_rate: 35.0
+    military:
+      manpower: 1800
+      equipment: 35
+      readiness: 52
+      doctrine: "Rainforest Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 85
+      currentResearch: ["Mining Technology", "Agriculture Technology"]
+      completedTech: ["Basic Manufacturing"]
+      level: 3.8
+    diplomacy:
+      allies: ["BRA", "NLD"]
+      enemies: []
+      neutrality: 75.5

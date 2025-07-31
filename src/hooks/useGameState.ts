@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useKV } from '@github/spark/hooks';
+// import { useKV } from '@github/spark/hooks';
+import { useKV } from './useKV';
 import { GameState, Province, Nation, GameEvent, MapOverlayType, ConstructionProject, Building } from '../lib/types';
 import { getBuildings } from '../data/gameData';
 import { loadGameData } from '../data/gameData';

@@ -1,0 +1,612 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "ZMB",
+    "generated": "2025-07-31T02:54:50.113Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Zambia",
+        "SOV_A3": "ZMB",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Zambia",
+        "ADM0_A3": "ZMB",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Zambia",
+        "GU_A3": "ZMB",
+        "SU_DIF": 0,
+        "SUBUNIT": "Zambia",
+        "SU_A3": "ZMB",
+        "BRK_DIFF": 0,
+        "NAME": "Zambia",
+        "NAME_LONG": "Zambia",
+        "BRK_A3": "ZMB",
+        "BRK_NAME": "Zambia",
+        "BRK_GROUP": null,
+        "ABBREV": "Zambia",
+        "POSTAL": "ZM",
+        "FORMAL_EN": "Republic of Zambia",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Zambia",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Zambia",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 5,
+        "MAPCOLOR8": 8,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 13,
+        "POP_EST": 17861030,
+        "POP_RANK": 14,
+        "POP_YEAR": 2019,
+        "GDP_MD": 23309,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "ZA",
+        "ISO_A2": "ZM",
+        "ISO_A2_EH": "ZM",
+        "ISO_A3": "ZMB",
+        "ISO_A3_EH": "ZMB",
+        "ISO_N3": "894",
+        "ISO_N3_EH": "894",
+        "UN_A3": "894",
+        "WB_A2": "ZM",
+        "WB_A3": "ZMB",
+        "WOE_ID": 23425003,
+        "WOE_ID_EH": 23425003,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "ZMB",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "ZMB",
+        "ADM0_A3_US": "ZMB",
+        "ADM0_A3_FR": "ZMB",
+        "ADM0_A3_RU": "ZMB",
+        "ADM0_A3_ES": "ZMB",
+        "ADM0_A3_CN": "ZMB",
+        "ADM0_A3_TW": "ZMB",
+        "ADM0_A3_IN": "ZMB",
+        "ADM0_A3_NP": "ZMB",
+        "ADM0_A3_PK": "ZMB",
+        "ADM0_A3_DE": "ZMB",
+        "ADM0_A3_GB": "ZMB",
+        "ADM0_A3_BR": "ZMB",
+        "ADM0_A3_IL": "ZMB",
+        "ADM0_A3_PS": "ZMB",
+        "ADM0_A3_SA": "ZMB",
+        "ADM0_A3_EG": "ZMB",
+        "ADM0_A3_MA": "ZMB",
+        "ADM0_A3_PT": "ZMB",
+        "ADM0_A3_AR": "ZMB",
+        "ADM0_A3_JP": "ZMB",
+        "ADM0_A3_KO": "ZMB",
+        "ADM0_A3_VN": "ZMB",
+        "ADM0_A3_TR": "ZMB",
+        "ADM0_A3_ID": "ZMB",
+        "ADM0_A3_PL": "ZMB",
+        "ADM0_A3_GR": "ZMB",
+        "ADM0_A3_IT": "ZMB",
+        "ADM0_A3_NL": "ZMB",
+        "ADM0_A3_SE": "ZMB",
+        "ADM0_A3_BD": "ZMB",
+        "ADM0_A3_UA": "ZMB",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Eastern Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 6,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 26.395298,
+        "LABEL_Y": -14.660804,
+        "NE_ID": 1159321439,
+        "WIKIDATAID": "Q953",
+        "NAME_AR": "زامبيا",
+        "NAME_BN": "জাম্বিয়া",
+        "NAME_DE": "Sambia",
+        "NAME_EN": "Zambia",
+        "NAME_ES": "Zambia",
+        "NAME_FA": "زامبیا",
+        "NAME_FR": "Zambie",
+        "NAME_EL": "Ζάμπια",
+        "NAME_HE": "זמביה",
+        "NAME_HI": "ज़ाम्बिया",
+        "NAME_HU": "Zambia",
+        "NAME_ID": "Zambia",
+        "NAME_IT": "Zambia",
+        "NAME_JA": "ザンビア",
+        "NAME_KO": "잠비아",
+        "NAME_NL": "Zambia",
+        "NAME_PL": "Zambia",
+        "NAME_PT": "Zâmbia",
+        "NAME_RU": "Замбия",
+        "NAME_SV": "Zambia",
+        "NAME_TR": "Zambiya",
+        "NAME_UK": "Замбія",
+        "NAME_UR": "زیمبیا",
+        "NAME_VI": "Zambia",
+        "NAME_ZH": "赞比亚",
+        "NAME_ZHT": "尚比亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "ZMB"
+      },
+      "bbox": [
+        21.887843,
+        -17.961229,
+        33.485688,
+        -8.238257
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.74001,
+              -8.340006
+            ],
+            [
+              31.157751,
+              -8.594579
+            ],
+            [
+              31.556348,
+              -8.762049
+            ],
+            [
+              32.191865,
+              -8.930359
+            ],
+            [
+              32.759375,
+              -9.230599
+            ],
+            [
+              33.231388,
+              -9.676722
+            ],
+            [
+              33.485688,
+              -10.525559
+            ],
+            [
+              33.31531,
+              -10.79655
+            ],
+            [
+              33.114289,
+              -11.607198
+            ],
+            [
+              33.306422,
+              -12.435778
+            ],
+            [
+              32.991764,
+              -12.783871
+            ],
+            [
+              32.688165,
+              -13.712858
+            ],
+            [
+              33.214025,
+              -13.97186
+            ],
+            [
+              30.179481,
+              -14.796099
+            ],
+            [
+              30.274256,
+              -15.507787
+            ],
+            [
+              29.516834,
+              -15.644678
+            ],
+            [
+              28.947463,
+              -16.043051
+            ],
+            [
+              28.825869,
+              -16.389749
+            ],
+            [
+              28.467906,
+              -16.4684
+            ],
+            [
+              27.598243,
+              -17.290831
+            ],
+            [
+              27.044427,
+              -17.938026
+            ],
+            [
+              26.706773,
+              -17.961229
+            ],
+            [
+              26.381935,
+              -17.846042
+            ],
+            [
+              25.264226,
+              -17.73654
+            ],
+            [
+              25.084443,
+              -17.661816
+            ],
+            [
+              25.07695,
+              -17.578823
+            ],
+            [
+              24.682349,
+              -17.353411
+            ],
+            [
+              24.033862,
+              -17.295843
+            ],
+            [
+              23.215048,
+              -17.523116
+            ],
+            [
+              22.562478,
+              -16.898451
+            ],
+            [
+              21.887843,
+              -16.08031
+            ],
+            [
+              21.933886,
+              -12.898437
+            ],
+            [
+              24.016137,
+              -12.911046
+            ],
+            [
+              23.930922,
+              -12.565848
+            ],
+            [
+              24.079905,
+              -12.191297
+            ],
+            [
+              23.904154,
+              -11.722282
+            ],
+            [
+              24.017894,
+              -11.237298
+            ],
+            [
+              23.912215,
+              -10.926826
+            ],
+            [
+              24.257155,
+              -10.951993
+            ],
+            [
+              24.314516,
+              -11.262826
+            ],
+            [
+              24.78317,
+              -11.238694
+            ],
+            [
+              25.418118,
+              -11.330936
+            ],
+            [
+              25.75231,
+              -11.784965
+            ],
+            [
+              26.553088,
+              -11.92444
+            ],
+            [
+              27.16442,
+              -11.608748
+            ],
+            [
+              27.388799,
+              -12.132747
+            ],
+            [
+              28.155109,
+              -12.272481
+            ],
+            [
+              28.523562,
+              -12.698604
+            ],
+            [
+              28.934286,
+              -13.248958
+            ],
+            [
+              29.699614,
+              -13.257227
+            ],
+            [
+              29.616001,
+              -12.178895
+            ],
+            [
+              29.341548,
+              -12.360744
+            ],
+            [
+              28.642417,
+              -11.971569
+            ],
+            [
+              28.372253,
+              -11.793647
+            ],
+            [
+              28.49607,
+              -10.789884
+            ],
+            [
+              28.673682,
+              -9.605925
+            ],
+            [
+              28.449871,
+              -9.164918
+            ],
+            [
+              28.734867,
+              -8.526559
+            ],
+            [
+              29.002912,
+              -8.407032
+            ],
+            [
+              30.346086,
+              -8.238257
+            ],
+            [
+              30.74001,
+              -8.340006
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

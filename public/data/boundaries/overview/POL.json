@@ -5,29 +5,376 @@
     "detailLevel": "overview",
     "featureCount": 1,
     "generatedAt": "2024-01-01T00:00:00.000Z",
-    "source": "generated_placeholder",
-    "note": "Placeholder boundary for Poland"
+    "source": "Natural Earth 110m (Overview)",
+    "note": "Placeholder boundary for Poland",
+    "updated": "2025-07-31T02:54:50.173Z"
   },
   "features": [
     {
       "type": "Feature",
-      "id": "POL",
       "properties": {
-        "id": "POL",
-        "name": "Poland",
-        "country": "Poland",
-        "iso_a3": "POL",
-        "type": "country_boundary"
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Poland",
+        "SOV_A3": "POL",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Poland",
+        "ADM0_A3": "POL",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Poland",
+        "GU_A3": "POL",
+        "SU_DIF": 0,
+        "SUBUNIT": "Poland",
+        "SU_A3": "POL",
+        "BRK_DIFF": 0,
+        "NAME": "Poland",
+        "NAME_LONG": "Poland",
+        "BRK_A3": "POL",
+        "BRK_NAME": "Poland",
+        "BRK_GROUP": null,
+        "ABBREV": "Pol.",
+        "POSTAL": "PL",
+        "FORMAL_EN": "Republic of Poland",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Poland",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Poland",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 3,
+        "MAPCOLOR8": 7,
+        "MAPCOLOR9": 1,
+        "MAPCOLOR13": 2,
+        "POP_EST": 37970874,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 595858,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "2. Developed region: nonG7",
+        "INCOME_GRP": "1. High income: OECD",
+        "FIPS_10": "PL",
+        "ISO_A2": "PL",
+        "ISO_A2_EH": "PL",
+        "ISO_A3": "POL",
+        "ISO_A3_EH": "POL",
+        "ISO_N3": "616",
+        "ISO_N3_EH": "616",
+        "UN_A3": "616",
+        "WB_A2": "PL",
+        "WB_A3": "POL",
+        "WOE_ID": 23424923,
+        "WOE_ID_EH": 23424923,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "POL",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "POL",
+        "ADM0_A3_US": "POL",
+        "ADM0_A3_FR": "POL",
+        "ADM0_A3_RU": "POL",
+        "ADM0_A3_ES": "POL",
+        "ADM0_A3_CN": "POL",
+        "ADM0_A3_TW": "POL",
+        "ADM0_A3_IN": "POL",
+        "ADM0_A3_NP": "POL",
+        "ADM0_A3_PK": "POL",
+        "ADM0_A3_DE": "POL",
+        "ADM0_A3_GB": "POL",
+        "ADM0_A3_BR": "POL",
+        "ADM0_A3_IL": "POL",
+        "ADM0_A3_PS": "POL",
+        "ADM0_A3_SA": "POL",
+        "ADM0_A3_EG": "POL",
+        "ADM0_A3_MA": "POL",
+        "ADM0_A3_PT": "POL",
+        "ADM0_A3_AR": "POL",
+        "ADM0_A3_JP": "POL",
+        "ADM0_A3_KO": "POL",
+        "ADM0_A3_VN": "POL",
+        "ADM0_A3_TR": "POL",
+        "ADM0_A3_ID": "POL",
+        "ADM0_A3_PL": "POL",
+        "ADM0_A3_GR": "POL",
+        "ADM0_A3_IT": "POL",
+        "ADM0_A3_NL": "POL",
+        "ADM0_A3_SE": "POL",
+        "ADM0_A3_BD": "POL",
+        "ADM0_A3_UA": "POL",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Europe",
+        "REGION_UN": "Europe",
+        "SUBREGION": "Eastern Europe",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2.5,
+        "MAX_LABEL": 7,
+        "LABEL_X": 19.490468,
+        "LABEL_Y": 51.990316,
+        "NE_ID": 1159321179,
+        "WIKIDATAID": "Q36",
+        "NAME_AR": "بولندا",
+        "NAME_BN": "পোল্যান্ড",
+        "NAME_DE": "Polen",
+        "NAME_EN": "Poland",
+        "NAME_ES": "Polonia",
+        "NAME_FA": "لهستان",
+        "NAME_FR": "Pologne",
+        "NAME_EL": "Πολωνία",
+        "NAME_HE": "פולין",
+        "NAME_HI": "पोलैंड",
+        "NAME_HU": "Lengyelország",
+        "NAME_ID": "Polandia",
+        "NAME_IT": "Polonia",
+        "NAME_JA": "ポーランド",
+        "NAME_KO": "폴란드",
+        "NAME_NL": "Polen",
+        "NAME_PL": "Polska",
+        "NAME_PT": "Polónia",
+        "NAME_RU": "Польша",
+        "NAME_SV": "Polen",
+        "NAME_TR": "Polonya",
+        "NAME_UK": "Польща",
+        "NAME_UR": "پولینڈ",
+        "NAME_VI": "Ba Lan",
+        "NAME_ZH": "波兰",
+        "NAME_ZHT": "波蘭",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "POL"
       },
+      "bbox": [
+        14.074521,
+        49.027395,
+        24.029986,
+        54.851536
+      ],
       "geometry": {
         "type": "Polygon",
-        "coordinates": [[
-          [16.1343, 48.9194],
-          [22.1343, 48.9194],
-          [22.1343, 54.9194],
-          [16.1343, 54.9194],
-          [16.1343, 48.9194]
-        ]]
+        "coordinates": [
+          [
+            [
+              23.484128,
+              53.912498
+            ],
+            [
+              23.527536,
+              53.470122
+            ],
+            [
+              23.804935,
+              53.089731
+            ],
+            [
+              23.799199,
+              52.691099
+            ],
+            [
+              23.199494,
+              52.486977
+            ],
+            [
+              23.508002,
+              52.023647
+            ],
+            [
+              23.527071,
+              51.578454
+            ],
+            [
+              24.029986,
+              50.705407
+            ],
+            [
+              23.922757,
+              50.424881
+            ],
+            [
+              23.426508,
+              50.308506
+            ],
+            [
+              22.51845,
+              49.476774
+            ],
+            [
+              22.776419,
+              49.027395
+            ],
+            [
+              22.558138,
+              49.085738
+            ],
+            [
+              21.607808,
+              49.470107
+            ],
+            [
+              20.887955,
+              49.328772
+            ],
+            [
+              20.415839,
+              49.431453
+            ],
+            [
+              19.825023,
+              49.217125
+            ],
+            [
+              19.320713,
+              49.571574
+            ],
+            [
+              18.909575,
+              49.435846
+            ],
+            [
+              18.853144,
+              49.49623
+            ],
+            [
+              18.392914,
+              49.988629
+            ],
+            [
+              17.649445,
+              50.049038
+            ],
+            [
+              17.554567,
+              50.362146
+            ],
+            [
+              16.868769,
+              50.473974
+            ],
+            [
+              16.719476,
+              50.215747
+            ],
+            [
+              16.176253,
+              50.422607
+            ],
+            [
+              16.238627,
+              50.697733
+            ],
+            [
+              15.490972,
+              50.78473
+            ],
+            [
+              15.016996,
+              51.106674
+            ],
+            [
+              14.607098,
+              51.745188
+            ],
+            [
+              14.685026,
+              52.089947
+            ],
+            [
+              14.4376,
+              52.62485
+            ],
+            [
+              14.074521,
+              52.981263
+            ],
+            [
+              14.353315,
+              53.248171
+            ],
+            [
+              14.119686,
+              53.757029
+            ],
+            [
+              14.8029,
+              54.050706
+            ],
+            [
+              16.363477,
+              54.513159
+            ],
+            [
+              17.622832,
+              54.851536
+            ],
+            [
+              18.620859,
+              54.682606
+            ],
+            [
+              18.696255,
+              54.438719
+            ],
+            [
+              19.66064,
+              54.426084
+            ],
+            [
+              20.892245,
+              54.312525
+            ],
+            [
+              22.731099,
+              54.327537
+            ],
+            [
+              23.243987,
+              54.220567
+            ],
+            [
+              23.484128,
+              53.912498
+            ]
+          ]
+        ]
       }
     }
   ]

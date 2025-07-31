@@ -1,0 +1,608 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "BOL",
+    "generated": "2025-07-31T02:54:50.059Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Bolivia",
+        "SOV_A3": "BOL",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Bolivia",
+        "ADM0_A3": "BOL",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Bolivia",
+        "GU_A3": "BOL",
+        "SU_DIF": 0,
+        "SUBUNIT": "Bolivia",
+        "SU_A3": "BOL",
+        "BRK_DIFF": 0,
+        "NAME": "Bolivia",
+        "NAME_LONG": "Bolivia",
+        "BRK_A3": "BOL",
+        "BRK_NAME": "Bolivia",
+        "BRK_GROUP": null,
+        "ABBREV": "Bolivia",
+        "POSTAL": "BO",
+        "FORMAL_EN": "Plurinational State of Bolivia",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Bolivia",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Bolivia",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 5,
+        "MAPCOLOR9": 2,
+        "MAPCOLOR13": 3,
+        "POP_EST": 11513100,
+        "POP_RANK": 14,
+        "POP_YEAR": 2019,
+        "GDP_MD": 40895,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "5. Emerging region: G20",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "BL",
+        "ISO_A2": "BO",
+        "ISO_A2_EH": "BO",
+        "ISO_A3": "BOL",
+        "ISO_A3_EH": "BOL",
+        "ISO_N3": "068",
+        "ISO_N3_EH": "068",
+        "UN_A3": "068",
+        "WB_A2": "BO",
+        "WB_A3": "BOL",
+        "WOE_ID": 23424762,
+        "WOE_ID_EH": 23424762,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "BOL",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "BOL",
+        "ADM0_A3_US": "BOL",
+        "ADM0_A3_FR": "BOL",
+        "ADM0_A3_RU": "BOL",
+        "ADM0_A3_ES": "BOL",
+        "ADM0_A3_CN": "BOL",
+        "ADM0_A3_TW": "BOL",
+        "ADM0_A3_IN": "BOL",
+        "ADM0_A3_NP": "BOL",
+        "ADM0_A3_PK": "BOL",
+        "ADM0_A3_DE": "BOL",
+        "ADM0_A3_GB": "BOL",
+        "ADM0_A3_BR": "BOL",
+        "ADM0_A3_IL": "BOL",
+        "ADM0_A3_PS": "BOL",
+        "ADM0_A3_SA": "BOL",
+        "ADM0_A3_EG": "BOL",
+        "ADM0_A3_MA": "BOL",
+        "ADM0_A3_PT": "BOL",
+        "ADM0_A3_AR": "BOL",
+        "ADM0_A3_JP": "BOL",
+        "ADM0_A3_KO": "BOL",
+        "ADM0_A3_VN": "BOL",
+        "ADM0_A3_TR": "BOL",
+        "ADM0_A3_ID": "BOL",
+        "ADM0_A3_PL": "BOL",
+        "ADM0_A3_GR": "BOL",
+        "ADM0_A3_IT": "BOL",
+        "ADM0_A3_NL": "BOL",
+        "ADM0_A3_SE": "BOL",
+        "ADM0_A3_BD": "BOL",
+        "ADM0_A3_UA": "BOL",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "South America",
+        "REGION_UN": "Americas",
+        "SUBREGION": "South America",
+        "REGION_WB": "Latin America & Caribbean",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 7,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 7.5,
+        "LABEL_X": -64.593433,
+        "LABEL_Y": -16.666015,
+        "NE_ID": 1159320439,
+        "WIKIDATAID": "Q750",
+        "NAME_AR": "بوليفيا",
+        "NAME_BN": "বলিভিয়া",
+        "NAME_DE": "Bolivien",
+        "NAME_EN": "Bolivia",
+        "NAME_ES": "Bolivia",
+        "NAME_FA": "بولیوی",
+        "NAME_FR": "Bolivie",
+        "NAME_EL": "Βολιβία",
+        "NAME_HE": "בוליביה",
+        "NAME_HI": "बोलिविया",
+        "NAME_HU": "Bolívia",
+        "NAME_ID": "Bolivia",
+        "NAME_IT": "Bolivia",
+        "NAME_JA": "ボリビア",
+        "NAME_KO": "볼리비아",
+        "NAME_NL": "Bolivia",
+        "NAME_PL": "Boliwia",
+        "NAME_PT": "Bolívia",
+        "NAME_RU": "Боливия",
+        "NAME_SV": "Bolivia",
+        "NAME_TR": "Bolivya",
+        "NAME_UK": "Болівія",
+        "NAME_UR": "بولیویا",
+        "NAME_VI": "Bolivia",
+        "NAME_ZH": "玻利维亚",
+        "NAME_ZHT": "玻利維亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "BOL"
+      },
+      "bbox": [
+        -69.590424,
+        -22.872919,
+        -57.498371,
+        -9.761988
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -69.529678,
+              -10.951734
+            ],
+            [
+              -68.786158,
+              -11.03638
+            ],
+            [
+              -68.271254,
+              -11.014521
+            ],
+            [
+              -68.048192,
+              -10.712059
+            ],
+            [
+              -67.173801,
+              -10.306812
+            ],
+            [
+              -66.646908,
+              -9.931331
+            ],
+            [
+              -65.338435,
+              -9.761988
+            ],
+            [
+              -65.444837,
+              -10.511451
+            ],
+            [
+              -65.321899,
+              -10.895872
+            ],
+            [
+              -65.402281,
+              -11.56627
+            ],
+            [
+              -64.316353,
+              -12.461978
+            ],
+            [
+              -63.196499,
+              -12.627033
+            ],
+            [
+              -62.80306,
+              -13.000653
+            ],
+            [
+              -62.127081,
+              -13.198781
+            ],
+            [
+              -61.713204,
+              -13.489202
+            ],
+            [
+              -61.084121,
+              -13.479384
+            ],
+            [
+              -60.503304,
+              -13.775955
+            ],
+            [
+              -60.459198,
+              -14.354007
+            ],
+            [
+              -60.264326,
+              -14.645979
+            ],
+            [
+              -60.251149,
+              -15.077219
+            ],
+            [
+              -60.542966,
+              -15.09391
+            ],
+            [
+              -60.15839,
+              -16.258284
+            ],
+            [
+              -58.24122,
+              -16.299573
+            ],
+            [
+              -58.388058,
+              -16.877109
+            ],
+            [
+              -58.280804,
+              -17.27171
+            ],
+            [
+              -57.734558,
+              -17.552468
+            ],
+            [
+              -57.498371,
+              -18.174188
+            ],
+            [
+              -57.676009,
+              -18.96184
+            ],
+            [
+              -57.949997,
+              -19.400004
+            ],
+            [
+              -57.853802,
+              -19.969995
+            ],
+            [
+              -58.166392,
+              -20.176701
+            ],
+            [
+              -58.183471,
+              -19.868399
+            ],
+            [
+              -59.115042,
+              -19.356906
+            ],
+            [
+              -60.043565,
+              -19.342747
+            ],
+            [
+              -61.786326,
+              -19.633737
+            ],
+            [
+              -62.265961,
+              -20.513735
+            ],
+            [
+              -62.291179,
+              -21.051635
+            ],
+            [
+              -62.685057,
+              -22.249029
+            ],
+            [
+              -62.846468,
+              -22.034985
+            ],
+            [
+              -63.986838,
+              -21.993644
+            ],
+            [
+              -64.377021,
+              -22.798091
+            ],
+            [
+              -64.964892,
+              -22.075862
+            ],
+            [
+              -66.273339,
+              -21.83231
+            ],
+            [
+              -67.106674,
+              -22.735925
+            ],
+            [
+              -67.82818,
+              -22.872919
+            ],
+            [
+              -68.219913,
+              -21.494347
+            ],
+            [
+              -68.757167,
+              -20.372658
+            ],
+            [
+              -68.442225,
+              -19.405068
+            ],
+            [
+              -68.966818,
+              -18.981683
+            ],
+            [
+              -69.100247,
+              -18.260125
+            ],
+            [
+              -69.590424,
+              -17.580012
+            ],
+            [
+              -68.959635,
+              -16.500698
+            ],
+            [
+              -69.389764,
+              -15.660129
+            ],
+            [
+              -69.160347,
+              -15.323974
+            ],
+            [
+              -69.339535,
+              -14.953195
+            ],
+            [
+              -68.948887,
+              -14.453639
+            ],
+            [
+              -68.929224,
+              -13.602684
+            ],
+            [
+              -68.88008,
+              -12.899729
+            ],
+            [
+              -68.66508,
+              -12.5613
+            ],
+            [
+              -69.529678,
+              -10.951734
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

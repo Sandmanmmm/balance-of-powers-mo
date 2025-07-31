@@ -1,0 +1,668 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "MNG",
+    "generated": "2025-07-31T02:54:50.152Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Mongolia",
+        "SOV_A3": "MNG",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Mongolia",
+        "ADM0_A3": "MNG",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Mongolia",
+        "GU_A3": "MNG",
+        "SU_DIF": 0,
+        "SUBUNIT": "Mongolia",
+        "SU_A3": "MNG",
+        "BRK_DIFF": 0,
+        "NAME": "Mongolia",
+        "NAME_LONG": "Mongolia",
+        "BRK_A3": "MNG",
+        "BRK_NAME": "Mongolia",
+        "BRK_GROUP": null,
+        "ABBREV": "Mong.",
+        "POSTAL": "MN",
+        "FORMAL_EN": "Mongolia",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Mongolia",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Mongolia",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 3,
+        "MAPCOLOR8": 5,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 6,
+        "POP_EST": 3225167,
+        "POP_RANK": 12,
+        "POP_YEAR": 2019,
+        "GDP_MD": 13996,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "MG",
+        "ISO_A2": "MN",
+        "ISO_A2_EH": "MN",
+        "ISO_A3": "MNG",
+        "ISO_A3_EH": "MNG",
+        "ISO_N3": "496",
+        "ISO_N3_EH": "496",
+        "UN_A3": "496",
+        "WB_A2": "MN",
+        "WB_A3": "MNG",
+        "WOE_ID": 23424887,
+        "WOE_ID_EH": 23424887,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "MNG",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "MNG",
+        "ADM0_A3_US": "MNG",
+        "ADM0_A3_FR": "MNG",
+        "ADM0_A3_RU": "MNG",
+        "ADM0_A3_ES": "MNG",
+        "ADM0_A3_CN": "MNG",
+        "ADM0_A3_TW": "MNG",
+        "ADM0_A3_IN": "MNG",
+        "ADM0_A3_NP": "MNG",
+        "ADM0_A3_PK": "MNG",
+        "ADM0_A3_DE": "MNG",
+        "ADM0_A3_GB": "MNG",
+        "ADM0_A3_BR": "MNG",
+        "ADM0_A3_IL": "MNG",
+        "ADM0_A3_PS": "MNG",
+        "ADM0_A3_SA": "MNG",
+        "ADM0_A3_EG": "MNG",
+        "ADM0_A3_MA": "MNG",
+        "ADM0_A3_PT": "MNG",
+        "ADM0_A3_AR": "MNG",
+        "ADM0_A3_JP": "MNG",
+        "ADM0_A3_KO": "MNG",
+        "ADM0_A3_VN": "MNG",
+        "ADM0_A3_TR": "MNG",
+        "ADM0_A3_ID": "MNG",
+        "ADM0_A3_PL": "MNG",
+        "ADM0_A3_GR": "MNG",
+        "ADM0_A3_IT": "MNG",
+        "ADM0_A3_NL": "MNG",
+        "ADM0_A3_SE": "MNG",
+        "ADM0_A3_BD": "MNG",
+        "ADM0_A3_UA": "MNG",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Eastern Asia",
+        "REGION_WB": "East Asia & Pacific",
+        "NAME_LEN": 8,
+        "LONG_LEN": 8,
+        "ABBREV_LEN": 5,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 7,
+        "LABEL_X": 104.150405,
+        "LABEL_Y": 45.997488,
+        "NE_ID": 1159321071,
+        "WIKIDATAID": "Q711",
+        "NAME_AR": "منغوليا",
+        "NAME_BN": "মঙ্গোলিয়া",
+        "NAME_DE": "Mongolei",
+        "NAME_EN": "Mongolia",
+        "NAME_ES": "Mongolia",
+        "NAME_FA": "مغولستان",
+        "NAME_FR": "Mongolie",
+        "NAME_EL": "Μογγολία",
+        "NAME_HE": "מונגוליה",
+        "NAME_HI": "मंगोलिया",
+        "NAME_HU": "Mongólia",
+        "NAME_ID": "Mongolia",
+        "NAME_IT": "Mongolia",
+        "NAME_JA": "モンゴル国",
+        "NAME_KO": "몽골",
+        "NAME_NL": "Mongolië",
+        "NAME_PL": "Mongolia",
+        "NAME_PT": "Mongólia",
+        "NAME_RU": "Монголия",
+        "NAME_SV": "Mongoliet",
+        "NAME_TR": "Moğolistan",
+        "NAME_UK": "Монголія",
+        "NAME_UR": "منگولیا",
+        "NAME_VI": "Mông Cổ",
+        "NAME_ZH": "蒙古国",
+        "NAME_ZHT": "蒙古國",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "MNG"
+      },
+      "bbox": [
+        87.751264,
+        41.59741,
+        119.772824,
+        52.047366
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              87.751264,
+              49.297198
+            ],
+            [
+              88.805567,
+              49.470521
+            ],
+            [
+              90.713667,
+              50.331812
+            ],
+            [
+              92.234712,
+              50.802171
+            ],
+            [
+              93.10421,
+              50.49529
+            ],
+            [
+              94.147566,
+              50.480537
+            ],
+            [
+              94.815949,
+              50.013433
+            ],
+            [
+              95.81402,
+              49.97746
+            ],
+            [
+              97.25976,
+              49.72605
+            ],
+            [
+              98.231762,
+              50.422401
+            ],
+            [
+              97.82574,
+              51.010995
+            ],
+            [
+              98.861491,
+              52.047366
+            ],
+            [
+              99.981732,
+              51.634006
+            ],
+            [
+              100.88948,
+              51.516856
+            ],
+            [
+              102.06521,
+              51.25991
+            ],
+            [
+              102.25589,
+              50.51056
+            ],
+            [
+              103.676545,
+              50.089966
+            ],
+            [
+              104.62158,
+              50.27532
+            ],
+            [
+              105.886591,
+              50.406019
+            ],
+            [
+              106.888804,
+              50.274296
+            ],
+            [
+              107.868176,
+              49.793705
+            ],
+            [
+              108.475167,
+              49.282548
+            ],
+            [
+              109.402449,
+              49.292961
+            ],
+            [
+              110.662011,
+              49.130128
+            ],
+            [
+              111.581231,
+              49.377968
+            ],
+            [
+              112.89774,
+              49.543565
+            ],
+            [
+              114.362456,
+              50.248303
+            ],
+            [
+              114.96211,
+              50.140247
+            ],
+            [
+              115.485695,
+              49.805177
+            ],
+            [
+              116.678801,
+              49.888531
+            ],
+            [
+              116.191802,
+              49.134598
+            ],
+            [
+              115.485282,
+              48.135383
+            ],
+            [
+              115.742837,
+              47.726545
+            ],
+            [
+              116.308953,
+              47.85341
+            ],
+            [
+              117.295507,
+              47.697709
+            ],
+            [
+              118.064143,
+              48.06673
+            ],
+            [
+              118.866574,
+              47.74706
+            ],
+            [
+              119.772824,
+              47.048059
+            ],
+            [
+              119.66327,
+              46.69268
+            ],
+            [
+              118.874326,
+              46.805412
+            ],
+            [
+              117.421701,
+              46.672733
+            ],
+            [
+              116.717868,
+              46.388202
+            ],
+            [
+              115.985096,
+              45.727235
+            ],
+            [
+              114.460332,
+              45.339817
+            ],
+            [
+              113.463907,
+              44.808893
+            ],
+            [
+              112.436062,
+              45.011646
+            ],
+            [
+              111.873306,
+              45.102079
+            ],
+            [
+              111.348377,
+              44.457442
+            ],
+            [
+              111.667737,
+              44.073176
+            ],
+            [
+              111.829588,
+              43.743118
+            ],
+            [
+              111.129682,
+              43.406834
+            ],
+            [
+              110.412103,
+              42.871234
+            ],
+            [
+              109.243596,
+              42.519446
+            ],
+            [
+              107.744773,
+              42.481516
+            ],
+            [
+              106.129316,
+              42.134328
+            ],
+            [
+              104.964994,
+              41.59741
+            ],
+            [
+              104.522282,
+              41.908347
+            ],
+            [
+              103.312278,
+              41.907468
+            ],
+            [
+              101.83304,
+              42.514873
+            ],
+            [
+              100.845866,
+              42.663804
+            ],
+            [
+              99.515817,
+              42.524691
+            ],
+            [
+              97.451757,
+              42.74889
+            ],
+            [
+              96.349396,
+              42.725635
+            ],
+            [
+              95.762455,
+              43.319449
+            ],
+            [
+              95.306875,
+              44.241331
+            ],
+            [
+              94.688929,
+              44.352332
+            ],
+            [
+              93.480734,
+              44.975472
+            ],
+            [
+              92.133891,
+              45.115076
+            ],
+            [
+              90.94554,
+              45.286073
+            ],
+            [
+              90.585768,
+              45.719716
+            ],
+            [
+              90.970809,
+              46.888146
+            ],
+            [
+              90.280826,
+              47.693549
+            ],
+            [
+              88.854298,
+              48.069082
+            ],
+            [
+              88.013832,
+              48.599463
+            ],
+            [
+              87.751264,
+              49.297198
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

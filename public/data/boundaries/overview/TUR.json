@@ -1,72 +1,645 @@
 {
   "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "TUR",
+    "generated": "2025-07-31T02:54:50.186Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
   "features": [
     {
       "type": "Feature",
       "properties": {
-        "id": "TUR_ISTANBUL",
-        "name": "Istanbul"
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "Turkey",
+        "SOV_A3": "TUR",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Turkey",
+        "ADM0_A3": "TUR",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Turkey",
+        "GU_A3": "TUR",
+        "SU_DIF": 0,
+        "SUBUNIT": "Turkey",
+        "SU_A3": "TUR",
+        "BRK_DIFF": 0,
+        "NAME": "Turkey",
+        "NAME_LONG": "Turkey",
+        "BRK_A3": "TUR",
+        "BRK_NAME": "Turkey",
+        "BRK_GROUP": null,
+        "ABBREV": "Tur.",
+        "POSTAL": "TR",
+        "FORMAL_EN": "Republic of Turkey",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Turkey",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Turkey",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 6,
+        "MAPCOLOR8": 3,
+        "MAPCOLOR9": 8,
+        "MAPCOLOR13": 4,
+        "POP_EST": 83429615,
+        "POP_RANK": 16,
+        "POP_YEAR": 2019,
+        "GDP_MD": 761425,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "4. Emerging region: MIKT",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "TU",
+        "ISO_A2": "TR",
+        "ISO_A2_EH": "TR",
+        "ISO_A3": "TUR",
+        "ISO_A3_EH": "TUR",
+        "ISO_N3": "792",
+        "ISO_N3_EH": "792",
+        "UN_A3": "792",
+        "WB_A2": "TR",
+        "WB_A3": "TUR",
+        "WOE_ID": 23424969,
+        "WOE_ID_EH": 23424969,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "TUR",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "TUR",
+        "ADM0_A3_US": "TUR",
+        "ADM0_A3_FR": "TUR",
+        "ADM0_A3_RU": "TUR",
+        "ADM0_A3_ES": "TUR",
+        "ADM0_A3_CN": "TUR",
+        "ADM0_A3_TW": "TUR",
+        "ADM0_A3_IN": "TUR",
+        "ADM0_A3_NP": "TUR",
+        "ADM0_A3_PK": "TUR",
+        "ADM0_A3_DE": "TUR",
+        "ADM0_A3_GB": "TUR",
+        "ADM0_A3_BR": "TUR",
+        "ADM0_A3_IL": "TUR",
+        "ADM0_A3_PS": "TUR",
+        "ADM0_A3_SA": "TUR",
+        "ADM0_A3_EG": "TUR",
+        "ADM0_A3_MA": "TUR",
+        "ADM0_A3_PT": "TUR",
+        "ADM0_A3_AR": "TUR",
+        "ADM0_A3_JP": "TUR",
+        "ADM0_A3_KO": "TUR",
+        "ADM0_A3_VN": "TUR",
+        "ADM0_A3_TR": "TUR",
+        "ADM0_A3_ID": "TUR",
+        "ADM0_A3_PL": "TUR",
+        "ADM0_A3_GR": "TUR",
+        "ADM0_A3_IT": "TUR",
+        "ADM0_A3_NL": "TUR",
+        "ADM0_A3_SE": "TUR",
+        "ADM0_A3_BD": "TUR",
+        "ADM0_A3_UA": "TUR",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Western Asia",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 6,
+        "LONG_LEN": 6,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2,
+        "MAX_LABEL": 7,
+        "LABEL_X": 34.508268,
+        "LABEL_Y": 39.345388,
+        "NE_ID": 1159321331,
+        "WIKIDATAID": "Q43",
+        "NAME_AR": "تركيا",
+        "NAME_BN": "তুরস্ক",
+        "NAME_DE": "Türkei",
+        "NAME_EN": "Turkey",
+        "NAME_ES": "Turquía",
+        "NAME_FA": "ترکیه",
+        "NAME_FR": "Turquie",
+        "NAME_EL": "Τουρκία",
+        "NAME_HE": "טורקיה",
+        "NAME_HI": "तुर्की",
+        "NAME_HU": "Törökország",
+        "NAME_ID": "Turki",
+        "NAME_IT": "Turchia",
+        "NAME_JA": "トルコ",
+        "NAME_KO": "터키",
+        "NAME_NL": "Turkije",
+        "NAME_PL": "Turcja",
+        "NAME_PT": "Turquia",
+        "NAME_RU": "Турция",
+        "NAME_SV": "Turkiet",
+        "NAME_TR": "Türkiye",
+        "NAME_UK": "Туреччина",
+        "NAME_UR": "ترکی",
+        "NAME_VI": "Thổ Nhĩ Kỳ",
+        "NAME_ZH": "土耳其",
+        "NAME_ZHT": "土耳其",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "TUR"
       },
+      "bbox": [
+        26.043351,
+        35.821535,
+        44.79399,
+        42.141485
+      ],
       "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [28.0, 40.8],
-          [29.8, 40.8],
-          [29.8, 41.5],
-          [28.0, 41.5],
-          [28.0, 40.8]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "TUR_ANKARA",
-        "name": "Ankara"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [32.0, 39.5],
-          [33.5, 39.5],
-          [33.5, 40.5],
-          [32.0, 40.5],
-          [32.0, 39.5]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "TUR_ANTALYA",
-        "name": "Antalya"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [29.0, 36.0],
-          [32.0, 36.0],
-          [32.0, 37.5],
-          [29.0, 37.5],
-          [29.0, 36.0]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "TUR_IZMIR",
-        "name": "Izmir"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [26.0, 38.0],
-          [28.0, 38.0],
-          [28.0, 39.5],
-          [26.0, 39.5],
-          [26.0, 38.0]
-        ]]
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                44.772677,
+                37.170437
+              ],
+              [
+                44.293452,
+                37.001514
+              ],
+              [
+                43.942259,
+                37.256228
+              ],
+              [
+                42.779126,
+                37.385264
+              ],
+              [
+                42.349591,
+                37.229873
+              ],
+              [
+                41.212089,
+                37.074352
+              ],
+              [
+                40.673259,
+                37.091276
+              ],
+              [
+                39.52258,
+                36.716054
+              ],
+              [
+                38.699891,
+                36.712927
+              ],
+              [
+                38.167727,
+                36.90121
+              ],
+              [
+                37.066761,
+                36.623036
+              ],
+              [
+                36.739494,
+                36.81752
+              ],
+              [
+                36.685389,
+                36.259699
+              ],
+              [
+                36.41755,
+                36.040617
+              ],
+              [
+                36.149763,
+                35.821535
+              ],
+              [
+                35.782085,
+                36.274995
+              ],
+              [
+                36.160822,
+                36.650606
+              ],
+              [
+                35.550936,
+                36.565443
+              ],
+              [
+                34.714553,
+                36.795532
+              ],
+              [
+                34.026895,
+                36.21996
+              ],
+              [
+                32.509158,
+                36.107564
+              ],
+              [
+                31.699595,
+                36.644275
+              ],
+              [
+                30.621625,
+                36.677865
+              ],
+              [
+                30.391096,
+                36.262981
+              ],
+              [
+                29.699976,
+                36.144357
+              ],
+              [
+                28.732903,
+                36.676831
+              ],
+              [
+                27.641187,
+                36.658822
+              ],
+              [
+                27.048768,
+                37.653361
+              ],
+              [
+                26.318218,
+                38.208133
+              ],
+              [
+                26.8047,
+                38.98576
+              ],
+              [
+                26.170785,
+                39.463612
+              ],
+              [
+                27.28002,
+                40.420014
+              ],
+              [
+                28.819978,
+                40.460011
+              ],
+              [
+                29.240004,
+                41.219991
+              ],
+              [
+                31.145934,
+                41.087622
+              ],
+              [
+                32.347979,
+                41.736264
+              ],
+              [
+                33.513283,
+                42.01896
+              ],
+              [
+                35.167704,
+                42.040225
+              ],
+              [
+                36.913127,
+                41.335358
+              ],
+              [
+                38.347665,
+                40.948586
+              ],
+              [
+                39.512607,
+                41.102763
+              ],
+              [
+                40.373433,
+                41.013673
+              ],
+              [
+                41.554084,
+                41.535656
+              ],
+              [
+                42.619549,
+                41.583173
+              ],
+              [
+                43.582746,
+                41.092143
+              ],
+              [
+                43.752658,
+                40.740201
+              ],
+              [
+                43.656436,
+                40.253564
+              ],
+              [
+                44.400009,
+                40.005
+              ],
+              [
+                44.79399,
+                39.713003
+              ],
+              [
+                44.109225,
+                39.428136
+              ],
+              [
+                44.421403,
+                38.281281
+              ],
+              [
+                44.225756,
+                37.971584
+              ],
+              [
+                44.77267,
+                37.17045
+              ],
+              [
+                44.772677,
+                37.170437
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                26.117042,
+                41.826905
+              ],
+              [
+                27.135739,
+                42.141485
+              ],
+              [
+                27.99672,
+                42.007359
+              ],
+              [
+                28.115525,
+                41.622886
+              ],
+              [
+                28.988443,
+                41.299934
+              ],
+              [
+                28.806438,
+                41.054962
+              ],
+              [
+                27.619017,
+                40.999823
+              ],
+              [
+                27.192377,
+                40.690566
+              ],
+              [
+                26.358009,
+                40.151994
+              ],
+              [
+                26.043351,
+                40.617754
+              ],
+              [
+                26.056942,
+                40.824123
+              ],
+              [
+                26.294602,
+                40.936261
+              ],
+              [
+                26.604196,
+                41.562115
+              ],
+              [
+                26.117042,
+                41.826905
+              ]
+            ]
+          ]
+        ]
       }
     }
   ]

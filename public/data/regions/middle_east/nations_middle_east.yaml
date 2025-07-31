@@ -1,2 +1,801 @@
-# Placeholder regions - prevent import errors
-nations: {}
+# Middle East - Regional Nation Data
+
+nations:
+  TUR:
+    name: "Turkey"
+    capital: "Ankara"
+    flag: "🇹🇷"
+    government:
+      type: "presidential_republic"
+      leader: "Recep Tayyip Erdoğan"
+      approval: 52.1
+      stability: 68.5
+      ruling_party: "AK Party"
+      ideology: "Conservative Democracy"
+      election_cycle: 5
+      last_election: "2023-05-28"
+    economy:
+      gdp: 815000000000
+      debt: 453000000000
+      inflation: 64.3
+      trade_balance: -41000000000
+      treasury: 85000000000
+      currency: "TRY"
+      interest_rate: 35.0
+      sectors:
+        manufacturing: 19.2
+        services: 64.5
+        agriculture: 6.8
+        technology: 9.5
+    military:
+      manpower: 355000
+      equipment: 82
+      readiness: 90
+      doctrine: "NATO Standard"
+      nuclear_capability: false
+      military_spending_gdp: 2.02
+      conscription: true
+      reserve_forces: 380000
+    technology:
+      researchPoints: 580
+      currentResearch:
+        - "Defense Systems"
+        - "Aerospace Technology"
+        - "Energy Independence"
+      completedTech:
+        - "Internet"
+        - "Modern Manufacturing"
+        - "Defense Technology"
+    demographics:
+      population: 84000000
+      median_age: 32.4
+      birth_rate: 1.88
+      life_expectancy: 77.7
+      literacy_rate: 96.2
+      urbanization: 76.0
+    diplomacy:
+      allies: ["USA", "GBR", "POL"]
+      enemies: []
+      trade_partners: ["GER", "GBR", "ITA", "IRQ", "USA", "RUS"]
+      international_relations:
+        NATO: "member"
+        G20: "member"
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 400000
+      steel: 850000
+      rare_earth: 25000
+      uranium: 8500
+      food: 2400000
+    resource_production:
+      oil: 45000
+      steel: 180000
+      rare_earth: 1200
+      uranium: 150
+      food: 920000
+    resource_consumption:
+      oil: 820000
+      steel: 165000
+      rare_earth: 8500
+      uranium: 200
+      food: 880000
+
+  IRN:
+    name: "Iran"
+    capital: "Tehran"
+    flag: "🇮🇷"
+    government:
+      type: "theocratic_republic"
+      leader: "Ebrahim Raisi"
+      approval: 38.2
+      stability: 55.8
+      ruling_party: "Principlist Alliance"
+      ideology: "Islamic Republic"
+      election_cycle: 4
+      last_election: "2021-06-18"
+    economy:
+      gdp: 367000000000
+      debt: 158000000000
+      inflation: 45.2
+      trade_balance: 28000000000
+      treasury: 45000000000
+      currency: "IRR"
+      interest_rate: 22.0
+      sectors:
+        manufacturing: 13.8
+        services: 52.7
+        agriculture: 9.1
+        technology: 24.4
+    military:
+      manpower: 610000
+      equipment: 65
+      readiness: 75
+      doctrine: "Asymmetric Defense"
+      nuclear_capability: true
+      military_spending_gdp: 3.8
+      conscription: true
+      reserve_forces: 350000
+    technology:
+      researchPoints: 720
+      currentResearch:
+        - "Nuclear Technology"
+        - "Missile Systems"
+        - "Oil Refining"
+      completedTech:
+        - "Internet"
+        - "Nuclear Physics"
+        - "Ballistic Missiles"
+    demographics:
+      population: 85000000
+      median_age: 32.0
+      birth_rate: 1.71
+      life_expectancy: 76.7
+      literacy_rate: 85.5
+      urbanization: 76.0
+    diplomacy:
+      allies: ["RUS", "CHN"]
+      enemies: ["USA", "ISR"]
+      trade_partners: ["CHN", "IRQ", "TUR", "IND"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 25000000
+      steel: 320000
+      rare_earth: 85000
+      uranium: 45000
+      food: 1800000
+    resource_production:
+      oil: 3800000
+      steel: 85000
+      rare_earth: 2800
+      uranium: 850
+      food: 750000
+    resource_consumption:
+      oil: 1900000
+      steel: 95000
+      rare_earth: 1200
+      uranium: 1200
+      food: 720000
+
+  SAU:
+    name: "Saudi Arabia"
+    capital: "Riyadh"
+    flag: "🇸🇦"
+    government:
+      type: "absolute_monarchy"
+      leader: "Mohammed bin Salman"
+      approval: 78.5
+      stability: 85.2
+      ruling_party: "House of Saud"
+      ideology: "Islamic Monarchy"
+      election_cycle: 0
+      last_election: "N/A"
+    economy:
+      gdp: 833000000000
+      debt: 185000000000
+      inflation: 2.5
+      trade_balance: 145000000000
+      treasury: 285000000000
+      currency: "SAR"
+      interest_rate: 5.5
+      sectors:
+        manufacturing: 10.2
+        services: 46.7
+        agriculture: 2.6
+        technology: 40.5
+    military:
+      manpower: 230000
+      equipment: 88
+      readiness: 85
+      doctrine: "Modern Combined Arms"
+      nuclear_capability: false
+      military_spending_gdp: 8.4
+      conscription: false
+      reserve_forces: 25000
+    technology:
+      researchPoints: 950
+      currentResearch:
+        - "Renewable Energy"
+        - "Defense Systems"
+        - "Smart Cities"
+      completedTech:
+        - "Internet"
+        - "Oil Technology"
+        - "Modern Manufacturing"
+    demographics:
+      population: 35000000
+      median_age: 31.8
+      birth_rate: 2.27
+      life_expectancy: 75.1
+      literacy_rate: 97.6
+      urbanization: 84.7
+    diplomacy:
+      allies: ["USA", "GBR", "EGY"]
+      enemies: ["IRN"]
+      trade_partners: ["USA", "CHN", "JPN", "IND", "KOR"]
+      international_relations:
+        NATO: false
+        G20: "member"
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 45000000
+      steel: 180000
+      rare_earth: 15000
+      uranium: 2500
+      food: 850000
+    resource_production:
+      oil: 12000000
+      steel: 25000
+      rare_earth: 450
+      uranium: 85
+      food: 280000
+    resource_consumption:
+      oil: 3200000
+      steel: 35000
+      rare_earth: 850
+      uranium: 125
+      food: 320000
+
+  ISR:
+    name: "Israel"
+    capital: "Jerusalem"
+    flag: "🇮🇱"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Benjamin Netanyahu"
+      approval: 45.8
+      stability: 72.5
+      ruling_party: "Likud"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2022-11-01"
+    economy:
+      gdp: 482000000000
+      debt: 285000000000
+      inflation: 4.4
+      trade_balance: 18000000000
+      treasury: 65000000000
+      currency: "ILS"
+      interest_rate: 4.5
+      sectors:
+        manufacturing: 17.1
+        services: 69.5
+        agriculture: 1.2
+        technology: 12.2
+    military:
+      manpower: 170000
+      equipment: 95
+      readiness: 95
+      doctrine: "High-Tech Defense"
+      nuclear_capability: true
+      military_spending_gdp: 5.2
+      conscription: true
+      reserve_forces: 465000
+    technology:
+      researchPoints: 1850
+      currentResearch:
+        - "Cybersecurity"
+        - "AI Systems"
+        - "Defense Technology"
+      completedTech:
+        - "Internet"
+        - "Advanced Computing"
+        - "Precision Manufacturing"
+        - "Defense Systems"
+    demographics:
+      population: 9500000
+      median_age: 30.5
+      birth_rate: 3.01
+      life_expectancy: 83.0
+      literacy_rate: 97.8
+      urbanization: 92.6
+    diplomacy:
+      allies: ["USA", "GBR"]
+      enemies: ["IRN"]
+      trade_partners: ["USA", "GER", "CHN", "GBR", "ITA"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 15000
+      steel: 450000
+      rare_earth: 85000
+      uranium: 12000
+      food: 650000
+    resource_production:
+      oil: 850
+      steel: 95000
+      rare_earth: 8500
+      uranium: 450
+      food: 385000
+    resource_consumption:
+      oil: 285000
+      steel: 85000
+      rare_earth: 4500
+      uranium: 650
+      food: 420000
+
+  EGY:
+    name: "Egypt"
+    capital: "Cairo"
+    flag: "🇪🇬"
+    government:
+      type: "presidential_republic"
+      leader: "Abdel Fattah el-Sisi"
+      approval: 68.5
+      stability: 75.2
+      ruling_party: "Independent"
+      ideology: "Military Authoritarianism"
+      election_cycle: 6
+      last_election: "2018-03-26"
+    economy:
+      gdp: 469000000000
+      debt: 385000000000
+      inflation: 13.9
+      trade_balance: -18000000000
+      treasury: 38000000000
+      currency: "EGP"
+      interest_rate: 19.25
+      sectors:
+        manufacturing: 16.2
+        services: 52.8
+        agriculture: 11.3
+        technology: 19.7
+    military:
+      manpower: 440000
+      equipment: 72
+      readiness: 80
+      doctrine: "Regional Defense"
+      nuclear_capability: false
+      military_spending_gdp: 1.2
+      conscription: true
+      reserve_forces: 480000
+    technology:
+      researchPoints: 420
+      currentResearch:
+        - "Infrastructure"
+        - "Agriculture Technology"
+        - "Energy Systems"
+      completedTech:
+        - "Internet"
+        - "Basic Manufacturing"
+        - "Construction Technology"
+    demographics:
+      population: 104000000
+      median_age: 24.6
+      birth_rate: 2.85
+      life_expectancy: 72.0
+      literacy_rate: 75.8
+      urbanization: 42.8
+    diplomacy:
+      allies: ["SAU", "USA"]
+      enemies: []
+      trade_partners: ["SAU", "TUR", "ITA", "GER", "USA"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+    resource_stockpiles:
+      oil: 850000
+      steel: 285000
+      rare_earth: 8500
+      uranium: 1200
+      food: 1850000
+    resource_production:
+      oil: 185000
+      steel: 45000
+      rare_earth: 850
+      uranium: 85
+      food: 1200000
+    resource_consumption:
+      oil: 845000
+      steel: 58000
+      rare_earth: 2800
+      uranium: 150
+      food: 1350000
+
+  ARE:
+    name: "United Arab Emirates"
+    capital: "Abu Dhabi"
+    flag: "🇦🇪"
+    government:
+      type: "federal_monarchy"
+      leader: "Mohammed bin Rashid Al Maktoum"
+      approval: 88.5
+      stability: 92.1
+      ruling_party: "Federal National Council"
+      ideology: "Moderate Authoritarianism"
+      election_cycle: 4
+      last_election: "2019-10-05"
+    economy:
+      gdp: 421000000000
+      debt: 180000000000
+      inflation: 1.2
+      trade_balance: 58000000000
+      treasury: 145000000000
+      currency: "AED"
+      interest_rate: 4.75
+      sectors:
+        manufacturing: 8.9
+        services: 52.8
+        agriculture: 0.5
+        technology: 37.8
+    military:
+      manpower: 63000
+      equipment: 95
+      readiness: 92
+      doctrine: "Modern Warfare"
+      nuclearCapability: false
+    technology:
+      researchPoints: 1250
+      currentResearch: ["AI Technology", "Space Technology"]
+      completedTech: ["Internet", "Modern Manufacturing", "Advanced Logistics"]
+      level: 8.9
+    diplomacy:
+      allies: ["SAU", "USA", "GBR", "FRA"]
+      enemies: []
+      neutrality: 78.5
+
+  QAT:
+    name: "Qatar"
+    capital: "Doha"
+    flag: "🇶🇦"
+    government:
+      type: "absolute_monarchy"
+      leader: "Tamim bin Hamad Al Thani"
+      approval: 91.2
+      stability: 95.8
+      ruling_party: "Al Thani Family"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 0
+      last_election: "N/A"
+    economy:
+      gdp: 146000000000
+      debt: 65000000000
+      inflation: 0.2
+      trade_balance: 28000000000
+      treasury: 85000000000
+      currency: "QAR"
+      interest_rate: 5.0
+      sectors:
+        manufacturing: 4.2
+        services: 48.1
+        agriculture: 0.2
+        technology: 47.5
+    military:
+      manpower: 12000
+      equipment: 88
+      readiness: 85
+      doctrine: "Defense Partnership"
+      nuclearCapability: false
+    technology:
+      researchPoints: 890
+      currentResearch: ["LNG Technology", "Sports Technology"]
+      completedTech: ["Internet", "Modern Manufacturing", "Natural Gas"]
+      level: 8.5
+    diplomacy:
+      allies: ["USA", "TUR", "GBR"]
+      enemies: []
+      neutrality: 82.1
+
+  KWT:
+    name: "Kuwait"
+    capital: "Kuwait City"
+    flag: "🇰🇼"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Nawaf Al-Ahmad Al-Jaber Al-Sabah"
+      approval: 78.5
+      stability: 85.2
+      ruling_party: "Al-Sabah Family"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 4
+      last_election: "2020-12-05"
+    economy:
+      gdp: 134000000000
+      debt: 45000000000
+      inflation: 2.1
+      trade_balance: 25000000000
+      treasury: 75000000000
+      currency: "KWD"
+      interest_rate: 3.0
+      sectors:
+        manufacturing: 5.8
+        services: 49.2
+        agriculture: 0.4
+        technology: 44.6
+    military:
+      manpower: 17000
+      equipment: 85
+      readiness: 82
+      doctrine: "Gulf Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 620
+      currentResearch: ["Oil Technology", "Desalination"]
+      completedTech: ["Internet", "Modern Manufacturing", "Oil Refining"]
+      level: 8.1
+    diplomacy:
+      allies: ["SAU", "USA", "ARE"]
+      enemies: []
+      neutrality: 85.8
+
+  IRQ:
+    name: "Iraq"
+    capital: "Baghdad"
+    flag: "🇮🇶"
+    government:
+      type: "federal_republic"
+      leader: "Mohammed Shia al-Sudani"
+      approval: 35.2
+      stability: 38.5
+      ruling_party: "State of Law Coalition"
+      ideology: "Islamic Democracy"
+      election_cycle: 4
+      last_election: "2021-10-10"
+    economy:
+      gdp: 234000000000
+      debt: 145000000000
+      inflation: 6.8
+      trade_balance: 45000000000
+      treasury: 18000000000
+      currency: "IQD"
+      interest_rate: 4.0
+      sectors:
+        manufacturing: 8.2
+        services: 31.8
+        agriculture: 3.5
+        technology: 56.5
+    military:
+      manpower: 193000
+      equipment: 58
+      readiness: 65
+      doctrine: "Counter-Insurgency"
+      nuclearCapability: false
+    technology:
+      researchPoints: 320
+      currentResearch: ["Oil Technology", "Reconstruction"]
+      completedTech: ["Internet", "Oil Extraction"]
+      level: 6.2
+    diplomacy:
+      allies: ["USA", "IRN"]
+      enemies: []
+      neutrality: 52.8
+
+  JOR:
+    name: "Jordan"
+    capital: "Amman"
+    flag: "🇯🇴"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Abdullah II"
+      approval: 68.5
+      stability: 72.8
+      ruling_party: "Jordanian Monarchy"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 4
+      last_election: "2020-11-10"
+    economy:
+      gdp: 45000000000
+      debt: 35000000000
+      inflation: 4.2
+      trade_balance: -12000000000
+      treasury: 3000000000
+      currency: "JOD"
+      interest_rate: 5.75
+      sectors:
+        manufacturing: 23.8
+        services: 66.8
+        agriculture: 4.5
+        technology: 4.9
+    military:
+      manpower: 100000
+      equipment: 82
+      readiness: 88
+      doctrine: "Regional Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 380
+      currentResearch: ["Water Technology", "Renewable Energy"]
+      completedTech: ["Internet", "Modern Manufacturing"]
+      level: 7.1
+    diplomacy:
+      allies: ["USA", "SAU", "ISR"]
+      enemies: []
+      neutrality: 85.2
+
+  LBN:
+    name: "Lebanon"
+    capital: "Beirut"
+    flag: "🇱🇧"
+    government:
+      type: "republic"
+      leader: "Najib Mikati"
+      approval: 22.5
+      stability: 28.8
+      ruling_party: "Independent"
+      ideology: "Confessional Democracy"
+      election_cycle: 4
+      last_election: "2022-05-15"
+    economy:
+      gdp: 23000000000
+      debt: 98000000000
+      inflation: 145.0
+      trade_balance: -15000000000
+      treasury: 500000000
+      currency: "LBP"
+      interest_rate: 3.5
+      sectors:
+        manufacturing: 8.7
+        services: 80.8
+        agriculture: 3.9
+        technology: 6.6
+    military:
+      manpower: 85000
+      equipment: 45
+      readiness: 58
+      doctrine: "Internal Security"
+      nuclearCapability: false
+    technology:
+      researchPoints: 180
+      currentResearch: ["Banking Recovery", "Reconstruction"]
+      completedTech: ["Internet", "Banking"]
+      level: 6.8
+    diplomacy:
+      allies: ["FRA", "USA"]
+      enemies: []
+      neutrality: 65.2
+
+  OMN:
+    name: "Oman"
+    capital: "Muscat"
+    flag: "🇴🇲"
+    government:
+      type: "absolute_monarchy"
+      leader: "Haitham bin Tariq"
+      approval: 82.5
+      stability: 88.9
+      ruling_party: "Al Said Dynasty"
+      ideology: "Enlightened Monarchy"
+      election_cycle: 0
+      last_election: "N/A"
+    economy:
+      gdp: 76000000000
+      debt: 32000000000
+      inflation: 1.5
+      trade_balance: 8000000000
+      treasury: 18000000000
+      currency: "OMR"
+      interest_rate: 2.5
+      sectors:
+        manufacturing: 8.9
+        services: 45.2
+        agriculture: 1.7
+        technology: 44.2
+    military:
+      manpower: 42000
+      equipment: 85
+      readiness: 89
+      doctrine: "Gulf Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 580
+      currentResearch: ["Oil Technology", "Tourism"]
+      completedTech: ["Internet", "Modern Manufacturing", "Oil Refining"]
+      level: 8.0
+    diplomacy:
+      allies: ["SAU", "ARE", "USA", "GBR"]
+      enemies: []
+      neutrality: 88.5
+
+  BHR:
+    display_name: "Bahrain"
+    code: "BHR"
+    region: "middle_east"
+    politics:
+      government_type: "Constitutional Monarchy"
+      approval: 45.8
+      stability: 58.5
+      ruling_party: "Al Khalifa Royal Family"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 4
+      last_election: "2022-11-12"
+    economy:
+      gdp: 44000000000
+      debt: 28500000000
+      inflation: 1.7
+      trade_balance: 2850000000
+    military:
+      active_personnel: 8200
+      reserves: 0
+      defense_budget: 1850000000
+      nuclear_weapons: 0
+    resources:
+      oil: 1850000
+      steel: 8500
+      rare_earth: 1850
+      uranium: 485
+      food: 285000
+    resource_consumption:
+      oil: 485000
+      steel: 28500
+      rare_earth: 4850
+      uranium: 285
+      food: 485000
+
+  SYR:
+    name: "Syria"
+    capital: "Damascus"
+    flag: "🇸🇾"
+    government:
+      type: "presidential_republic"
+      leader: "Bashar al-Assad"
+      approval: 35.8
+      stability: 28.5
+      ruling_party: "Arab Socialist Ba'ath Party"
+      ideology: "Ba'athism"
+      election_cycle: 7
+      last_election: "2021-05-26"
+    economy:
+      gdp: 28500000000
+      debt: 18500000000
+      inflation: 139.0
+      trade_balance: -4850000000
+      treasury: 2850000000
+      currency: "SYP"
+      interest_rate: 11.0
+    military:
+      manpower: 169000
+      equipment: 48
+      readiness: 55
+      doctrine: "Regional Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 85
+      currentResearch: ["Military Technology", "Infrastructure"]
+      completedTech: ["Basic Military", "Oil Extraction"]
+      level: 3.8
+    diplomacy:
+      allies: ["RUS", "IRN"]
+      enemies: ["ISR", "TUR"]
+      neutrality: 25.5
+
+  YEM:
+    name: "Yemen"
+    capital: "Sana'a"
+    flag: "🇾🇪"
+    government:
+      type: "presidential_republic"
+      leader: "Rashad al-Alimi"
+      approval: 28.5
+      stability: 18.5
+      ruling_party: "Presidential Leadership Council"
+      ideology: "Nationalism"
+      election_cycle: 0
+      last_election: "none"
+    economy:
+      gdp: 21500000000
+      debt: 18500000000
+      inflation: 18.0
+      trade_balance: -8500000000
+      treasury: 850000000
+      currency: "YER"
+      interest_rate: 27.0
+    military:
+      manpower: 40000
+      equipment: 35
+      readiness: 48
+      doctrine: "Survival"
+      nuclearCapability: false
+    technology:
+      researchPoints: 28
+      currentResearch: ["Basic Infrastructure"]
+      completedTech: ["Traditional Technology"]
+      level: 2.8
+    diplomacy:
+      allies: ["SAU"]
+      enemies: ["IRN"]
+      neutrality: 35.5

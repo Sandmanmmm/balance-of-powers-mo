@@ -404,11 +404,9 @@ export function WorldMap({
           'Rwanda': 'RWA',
           'Benin': 'BEN',
           'Burundi': 'BDI',
-          'Tunisia': 'TUN',
           'South Sudan': 'SSD',
           'Togo': 'TGO',
           'Sierra Leone': 'SLE',
-          'Libya': 'LBY',
           'Liberia': 'LBR',
           'Mauritania': 'MRT',
           'Eritrea': 'ERI',
@@ -457,9 +455,95 @@ export function WorldMap({
         const mappedCountries = countries.filter(country => countryCodeMap[country]);
         const mappedCountryCodes = mappedCountries.map(country => countryCodeMap[country]).filter(Boolean);
         
-        // Get list of actually available boundary files by checking what we've created
+        // Get list of ALL available boundary files from Natural Earth pipeline
         const availableBoundaryFiles = [
-          'AUS', 'BRA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR', 'IND', 'MEX', 'RUS', 'USA'
+          // Major powers from original game
+          'AUS', 'BRA', 'CAN', 'CHN', 'DEU', 'FRA', 'GBR', 'IND', 'MEX', 'RUS', 'USA',
+          // New nations added in expansion
+          'TUR', 'IRN', 'SAU', 'ISR', 'EGY', 'JPN', 'KOR', 'IDN', 'THA', 'VNM', 
+          'NZL', 'ARG', 'CHL', 'NGA', 'ZAF', 'KEN', 'ITA', 'ESP', 'NLD', 'KAZ', 'UZB',
+          // Phase 2 expansion - Europe West
+          'PRT', 'BEL', 'CHE', 'AUT', 'SWE', 'NOR', 'FIN', 'DNK',
+          // Phase 2 expansion - Europe East
+          'UKR', 'BGR',
+          // Phase 2 expansion - Southeast Asia
+          'MYS', 'PHL',
+          // Phase 2 expansion - Middle East
+          'ARE', 'QAT', 'KWT',
+          // Phase 2 expansion - South Asia
+          'PAK',
+          // Phase 2 expansion - South America
+          'COL', 'PER',
+          // Phase 3 expansion - Europe West
+          'IRL', 'LUX',
+          // Phase 3 expansion - Europe East
+          'CZE', 'HUN', 'ROU', 'HRV',
+          // Phase 3 expansion - Southeast Asia
+          'SGP', 'MMR', 'LKA',
+          // Phase 3 expansion - Middle East
+          'IRQ', 'JOR', 'LBN', 'OMN',
+          // Phase 3 expansion - Sub-Saharan Africa
+          'ETH', 'GHA', 'UGA', 'TZA',
+          // Phase 3 expansion - South America
+          'VEN', 'URY', 'ECU', 'BOL',
+          // Phase 3 expansion - South Asia
+          'AFG',
+          // Phase 3 expansion - North Africa
+          'LBY', 'TUN', 'DZA', 'MAR', 'SDN',
+          // Phase 3 expansion - Central Asia
+          'KGZ', 'TJK', 'TKM',
+          // Phase 4 expansion - Europe West
+          'GRC', 'ISL', 'CYP', 'MLT',
+          // Phase 4 expansion - Central Asia (Caucasus)
+          'ARM', 'AZE', 'GEO',
+          // Phase 4 expansion - Southeast Asia
+          'PRK', 'TWN', 'BRN',
+          // Phase 4 expansion - Middle East
+          'BHR',
+          // Phase 4 expansion - Sub-Saharan Africa
+          'CMR', 'CIV',
+          // Phase 5 expansion - Sub-Saharan Africa
+          'AGO', 'ZWE', 'BWA',
+          // Phase 5 expansion - Southeast Asia
+          'KHM', 'LAO',
+          // Phase 5 expansion - Central Asia
+          'MNG',
+          // Phase 5 expansion - Europe West
+          'AND', 'SMR', 'MCO',
+          // Phase 5 expansion - South America
+          'PRY', 'GUY', 'SUR',
+          // Phase 5 expansion - Oceania
+          'FJI', 'TON', 'VUT',
+          // Phase 6 expansion - Sub-Saharan Africa
+          'SEN', 'COD', 'MOZ', 'ZMB',
+          // Phase 6 expansion - South Asia
+          'BTN', 'NPL',
+          // Phase 6 expansion - Caribbean
+          'JAM', 'DOM', 'TTO',
+          // Phase 6 expansion - Europe West
+          'LIE', 'VAT',
+          // Phase 6 expansion - Oceania
+          'PLW', 'WSM', 'FSM',
+          // Phase 7 expansion - Sub-Saharan Africa
+          'NAM', 'RWA', 'MDG', 'MLI', 'MUS', 'SYC', 'BFA', 'NER', 'TCD', 'CAF', 'SLE', 'LBR', 'GIN', 'CPV', 'STP', 'COM', 'DJI', 'ERI', 'SOM', 'BEN', 'TGO', 'GNQ', 'GAB',
+          // Phase 7 expansion - South Asia
+          'MDV',
+          // Phase 7 expansion - Caribbean
+          'ATG', 'DMA', 'GRD', 'LCA', 'VCT', 'KNA',
+          // Phase 8 expansion - Middle East
+          'SYR', 'YEM',
+          // Phase 8 expansion - Southeast Asia
+          'TLS',
+          // Phase 8 expansion - Oceania
+          'NRU', 'TUV', 'KIR', 'MHL',
+          // Phase 9 expansion - Sub-Saharan Africa
+          'BDI', 'COG', 'GMB', 'GNB', 'LSO', 'MRT', 'MWI', 'SSD', 'SWZ',
+          // Phase 9 expansion - Oceania  
+          'PNG', 'SLB', 'COK', 'NIU',
+          // Phase 10 expansion - Missing Caribbean
+          'BHS',
+          // Phase 10 expansion - Arctic Territory
+          'GRL'
         ];
         
         // ALWAYS load Natural Earth boundaries for available countries
@@ -613,7 +697,7 @@ export function WorldMap({
     if (nextDetailLevel !== currentDetailLevel) {
       try {
         console.log(`🔄 Upgrading ${countryCode} to ${nextDetailLevel}`);
-        await geographicDataManager.upgradeNationDetail(countryCode, nextDetailLevel);
+        await geoManager.upgradeRegionDetail(countryCode, nextDetailLevel);
         setCurrentDetailLevel(nextDetailLevel);
       } catch (error) {
         console.error(`Failed to upgrade ${countryCode}:`, error);

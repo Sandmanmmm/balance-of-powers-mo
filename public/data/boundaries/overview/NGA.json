@@ -1,0 +1,600 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "NGA",
+    "generated": "2025-07-31T02:54:50.096Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "Nigeria",
+        "SOV_A3": "NGA",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Nigeria",
+        "ADM0_A3": "NGA",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Nigeria",
+        "GU_A3": "NGA",
+        "SU_DIF": 0,
+        "SUBUNIT": "Nigeria",
+        "SU_A3": "NGA",
+        "BRK_DIFF": 0,
+        "NAME": "Nigeria",
+        "NAME_LONG": "Nigeria",
+        "BRK_A3": "NGA",
+        "BRK_NAME": "Nigeria",
+        "BRK_GROUP": null,
+        "ABBREV": "Nigeria",
+        "POSTAL": "NG",
+        "FORMAL_EN": "Federal Republic of Nigeria",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Nigeria",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Nigeria",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 3,
+        "MAPCOLOR8": 2,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 2,
+        "POP_EST": 200963599,
+        "POP_RANK": 17,
+        "POP_YEAR": 2019,
+        "GDP_MD": 448120,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "5. Emerging region: G20",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "NI",
+        "ISO_A2": "NG",
+        "ISO_A2_EH": "NG",
+        "ISO_A3": "NGA",
+        "ISO_A3_EH": "NGA",
+        "ISO_N3": "566",
+        "ISO_N3_EH": "566",
+        "UN_A3": "566",
+        "WB_A2": "NG",
+        "WB_A3": "NGA",
+        "WOE_ID": 23424908,
+        "WOE_ID_EH": 23424908,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "NGA",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "NGA",
+        "ADM0_A3_US": "NGA",
+        "ADM0_A3_FR": "NGA",
+        "ADM0_A3_RU": "NGA",
+        "ADM0_A3_ES": "NGA",
+        "ADM0_A3_CN": "NGA",
+        "ADM0_A3_TW": "NGA",
+        "ADM0_A3_IN": "NGA",
+        "ADM0_A3_NP": "NGA",
+        "ADM0_A3_PK": "NGA",
+        "ADM0_A3_DE": "NGA",
+        "ADM0_A3_GB": "NGA",
+        "ADM0_A3_BR": "NGA",
+        "ADM0_A3_IL": "NGA",
+        "ADM0_A3_PS": "NGA",
+        "ADM0_A3_SA": "NGA",
+        "ADM0_A3_EG": "NGA",
+        "ADM0_A3_MA": "NGA",
+        "ADM0_A3_PT": "NGA",
+        "ADM0_A3_AR": "NGA",
+        "ADM0_A3_JP": "NGA",
+        "ADM0_A3_KO": "NGA",
+        "ADM0_A3_VN": "NGA",
+        "ADM0_A3_TR": "NGA",
+        "ADM0_A3_ID": "NGA",
+        "ADM0_A3_PL": "NGA",
+        "ADM0_A3_GR": "NGA",
+        "ADM0_A3_IT": "NGA",
+        "ADM0_A3_NL": "NGA",
+        "ADM0_A3_SE": "NGA",
+        "ADM0_A3_BD": "NGA",
+        "ADM0_A3_UA": "NGA",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Western Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 7,
+        "LONG_LEN": 7,
+        "ABBREV_LEN": 7,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 1.7,
+        "MAX_LABEL": 6.7,
+        "LABEL_X": 7.50322,
+        "LABEL_Y": 9.439799,
+        "NE_ID": 1159321089,
+        "WIKIDATAID": "Q1033",
+        "NAME_AR": "نيجيريا",
+        "NAME_BN": "নাইজেরিয়া",
+        "NAME_DE": "Nigeria",
+        "NAME_EN": "Nigeria",
+        "NAME_ES": "Nigeria",
+        "NAME_FA": "نیجریه",
+        "NAME_FR": "Nigeria",
+        "NAME_EL": "Νιγηρία",
+        "NAME_HE": "ניגריה",
+        "NAME_HI": "नाईजीरिया",
+        "NAME_HU": "Nigéria",
+        "NAME_ID": "Nigeria",
+        "NAME_IT": "Nigeria",
+        "NAME_JA": "ナイジェリア",
+        "NAME_KO": "나이지리아",
+        "NAME_NL": "Nigeria",
+        "NAME_PL": "Nigeria",
+        "NAME_PT": "Nigéria",
+        "NAME_RU": "Нигерия",
+        "NAME_SV": "Nigeria",
+        "NAME_TR": "Nijerya",
+        "NAME_UK": "Нігерія",
+        "NAME_UR": "نائجیریا",
+        "NAME_VI": "Nigeria",
+        "NAME_ZH": "尼日利亚",
+        "NAME_ZHT": "奈及利亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "NGA"
+      },
+      "bbox": [
+        2.691702,
+        4.240594,
+        14.577178,
+        13.865924
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.691702,
+              6.258817
+            ],
+            [
+              2.749063,
+              7.870734
+            ],
+            [
+              2.723793,
+              8.506845
+            ],
+            [
+              2.912308,
+              9.137608
+            ],
+            [
+              3.220352,
+              9.444153
+            ],
+            [
+              3.705438,
+              10.06321
+            ],
+            [
+              3.60007,
+              10.332186
+            ],
+            [
+              3.797112,
+              10.734746
+            ],
+            [
+              3.572216,
+              11.327939
+            ],
+            [
+              3.61118,
+              11.660167
+            ],
+            [
+              3.680634,
+              12.552903
+            ],
+            [
+              3.967283,
+              12.956109
+            ],
+            [
+              4.107946,
+              13.531216
+            ],
+            [
+              4.368344,
+              13.747482
+            ],
+            [
+              5.443058,
+              13.865924
+            ],
+            [
+              6.445426,
+              13.492768
+            ],
+            [
+              6.820442,
+              13.115091
+            ],
+            [
+              7.330747,
+              13.098038
+            ],
+            [
+              7.804671,
+              13.343527
+            ],
+            [
+              9.014933,
+              12.826659
+            ],
+            [
+              9.524928,
+              12.851102
+            ],
+            [
+              10.114814,
+              13.277252
+            ],
+            [
+              10.701032,
+              13.246918
+            ],
+            [
+              10.989593,
+              13.387323
+            ],
+            [
+              11.527803,
+              13.32898
+            ],
+            [
+              12.302071,
+              13.037189
+            ],
+            [
+              13.083987,
+              13.596147
+            ],
+            [
+              13.318702,
+              13.556356
+            ],
+            [
+              13.995353,
+              12.461565
+            ],
+            [
+              14.181336,
+              12.483657
+            ],
+            [
+              14.577178,
+              12.085361
+            ],
+            [
+              14.468192,
+              11.904752
+            ],
+            [
+              14.415379,
+              11.572369
+            ],
+            [
+              13.57295,
+              10.798566
+            ],
+            [
+              13.308676,
+              10.160362
+            ],
+            [
+              13.1676,
+              9.640626
+            ],
+            [
+              12.955468,
+              9.417772
+            ],
+            [
+              12.753672,
+              8.717763
+            ],
+            [
+              12.218872,
+              8.305824
+            ],
+            [
+              12.063946,
+              7.799808
+            ],
+            [
+              11.839309,
+              7.397042
+            ],
+            [
+              11.745774,
+              6.981383
+            ],
+            [
+              11.058788,
+              6.644427
+            ],
+            [
+              10.497375,
+              7.055358
+            ],
+            [
+              10.118277,
+              7.03877
+            ],
+            [
+              9.522706,
+              6.453482
+            ],
+            [
+              9.233163,
+              6.444491
+            ],
+            [
+              8.757533,
+              5.479666
+            ],
+            [
+              8.500288,
+              4.771983
+            ],
+            [
+              7.462108,
+              4.412108
+            ],
+            [
+              7.082596,
+              4.464689
+            ],
+            [
+              6.698072,
+              4.240594
+            ],
+            [
+              5.898173,
+              4.262453
+            ],
+            [
+              5.362805,
+              4.887971
+            ],
+            [
+              5.033574,
+              5.611802
+            ],
+            [
+              4.325607,
+              6.270651
+            ],
+            [
+              3.57418,
+              6.2583
+            ],
+            [
+              2.691702,
+              6.258817
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

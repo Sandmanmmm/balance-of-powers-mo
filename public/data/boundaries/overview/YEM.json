@@ -1,0 +1,544 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "YEM",
+    "generated": "2025-07-31T02:54:50.231Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Yemen",
+        "SOV_A3": "YEM",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Yemen",
+        "ADM0_A3": "YEM",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Yemen",
+        "GU_A3": "YEM",
+        "SU_DIF": 0,
+        "SUBUNIT": "Yemen",
+        "SU_A3": "YEM",
+        "BRK_DIFF": 0,
+        "NAME": "Yemen",
+        "NAME_LONG": "Yemen",
+        "BRK_A3": "YEM",
+        "BRK_NAME": "Yemen",
+        "BRK_GROUP": null,
+        "ABBREV": "Yem.",
+        "POSTAL": "YE",
+        "FORMAL_EN": "Republic of Yemen",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Yemen",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Yemen, Rep.",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 5,
+        "MAPCOLOR8": 3,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 11,
+        "POP_EST": 29161922,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 22581,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "YM",
+        "ISO_A2": "YE",
+        "ISO_A2_EH": "YE",
+        "ISO_A3": "YEM",
+        "ISO_A3_EH": "YEM",
+        "ISO_N3": "887",
+        "ISO_N3_EH": "887",
+        "UN_A3": "887",
+        "WB_A2": "RY",
+        "WB_A3": "YEM",
+        "WOE_ID": 23425002,
+        "WOE_ID_EH": 23425002,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "YEM",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "YEM",
+        "ADM0_A3_US": "YEM",
+        "ADM0_A3_FR": "YEM",
+        "ADM0_A3_RU": "YEM",
+        "ADM0_A3_ES": "YEM",
+        "ADM0_A3_CN": "YEM",
+        "ADM0_A3_TW": "YEM",
+        "ADM0_A3_IN": "YEM",
+        "ADM0_A3_NP": "YEM",
+        "ADM0_A3_PK": "YEM",
+        "ADM0_A3_DE": "YEM",
+        "ADM0_A3_GB": "YEM",
+        "ADM0_A3_BR": "YEM",
+        "ADM0_A3_IL": "YEM",
+        "ADM0_A3_PS": "YEM",
+        "ADM0_A3_SA": "YEM",
+        "ADM0_A3_EG": "YEM",
+        "ADM0_A3_MA": "YEM",
+        "ADM0_A3_PT": "YEM",
+        "ADM0_A3_AR": "YEM",
+        "ADM0_A3_JP": "YEM",
+        "ADM0_A3_KO": "YEM",
+        "ADM0_A3_VN": "YEM",
+        "ADM0_A3_TR": "YEM",
+        "ADM0_A3_ID": "YEM",
+        "ADM0_A3_PL": "YEM",
+        "ADM0_A3_GR": "YEM",
+        "ADM0_A3_IT": "YEM",
+        "ADM0_A3_NL": "YEM",
+        "ADM0_A3_SE": "YEM",
+        "ADM0_A3_BD": "YEM",
+        "ADM0_A3_UA": "YEM",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Western Asia",
+        "REGION_WB": "Middle East & North Africa",
+        "NAME_LEN": 5,
+        "LONG_LEN": 5,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 45.874383,
+        "LABEL_Y": 15.328226,
+        "NE_ID": 1159321425,
+        "WIKIDATAID": "Q805",
+        "NAME_AR": "اليمن",
+        "NAME_BN": "ইয়েমেন",
+        "NAME_DE": "Jemen",
+        "NAME_EN": "Yemen",
+        "NAME_ES": "Yemen",
+        "NAME_FA": "یمن",
+        "NAME_FR": "Yémen",
+        "NAME_EL": "Υεμένη",
+        "NAME_HE": "תימן",
+        "NAME_HI": "यमन",
+        "NAME_HU": "Jemen",
+        "NAME_ID": "Yaman",
+        "NAME_IT": "Yemen",
+        "NAME_JA": "イエメン",
+        "NAME_KO": "예멘",
+        "NAME_NL": "Jemen",
+        "NAME_PL": "Jemen",
+        "NAME_PT": "Iémen",
+        "NAME_RU": "Йемен",
+        "NAME_SV": "Jemen",
+        "NAME_TR": "Yemen",
+        "NAME_UK": "Ємен",
+        "NAME_UR": "یمن",
+        "NAME_VI": "Yemen",
+        "NAME_ZH": "也门",
+        "NAME_ZHT": "葉門",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "YEM"
+      },
+      "bbox": [
+        42.604873,
+        12.58595,
+        53.108573,
+        19.000003
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              52.00001,
+              19.000003
+            ],
+            [
+              52.782184,
+              17.349742
+            ],
+            [
+              53.108573,
+              16.651051
+            ],
+            [
+              52.385206,
+              16.382411
+            ],
+            [
+              52.191729,
+              15.938433
+            ],
+            [
+              52.168165,
+              15.59742
+            ],
+            [
+              51.172515,
+              15.17525
+            ],
+            [
+              49.574576,
+              14.708767
+            ],
+            [
+              48.679231,
+              14.003202
+            ],
+            [
+              48.238947,
+              13.94809
+            ],
+            [
+              47.938914,
+              14.007233
+            ],
+            [
+              47.354454,
+              13.59222
+            ],
+            [
+              46.717076,
+              13.399699
+            ],
+            [
+              45.877593,
+              13.347764
+            ],
+            [
+              45.62505,
+              13.290946
+            ],
+            [
+              45.406459,
+              13.026905
+            ],
+            [
+              45.144356,
+              12.953938
+            ],
+            [
+              44.989533,
+              12.699587
+            ],
+            [
+              44.494576,
+              12.721653
+            ],
+            [
+              44.175113,
+              12.58595
+            ],
+            [
+              43.482959,
+              12.6368
+            ],
+            [
+              43.222871,
+              13.22095
+            ],
+            [
+              43.251448,
+              13.767584
+            ],
+            [
+              43.087944,
+              14.06263
+            ],
+            [
+              42.892245,
+              14.802249
+            ],
+            [
+              42.604873,
+              15.213335
+            ],
+            [
+              42.805015,
+              15.261963
+            ],
+            [
+              42.702438,
+              15.718886
+            ],
+            [
+              42.823671,
+              15.911742
+            ],
+            [
+              42.779332,
+              16.347891
+            ],
+            [
+              43.218375,
+              16.66689
+            ],
+            [
+              43.115798,
+              17.08844
+            ],
+            [
+              43.380794,
+              17.579987
+            ],
+            [
+              43.791519,
+              17.319977
+            ],
+            [
+              44.062613,
+              17.410359
+            ],
+            [
+              45.216651,
+              17.433329
+            ],
+            [
+              45.399999,
+              17.333335
+            ],
+            [
+              46.366659,
+              17.233315
+            ],
+            [
+              46.749994,
+              17.283338
+            ],
+            [
+              47.000005,
+              16.949999
+            ],
+            [
+              47.466695,
+              17.116682
+            ],
+            [
+              48.183344,
+              18.166669
+            ],
+            [
+              49.116672,
+              18.616668
+            ],
+            [
+              52.00001,
+              19.000003
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

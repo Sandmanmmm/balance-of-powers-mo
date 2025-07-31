@@ -1,0 +1,576 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "NIC",
+    "generated": "2025-07-31T02:54:50.066Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "SOVEREIGNT": "Nicaragua",
+        "SOV_A3": "NIC",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Nicaragua",
+        "ADM0_A3": "NIC",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Nicaragua",
+        "GU_A3": "NIC",
+        "SU_DIF": 0,
+        "SUBUNIT": "Nicaragua",
+        "SU_A3": "NIC",
+        "BRK_DIFF": 0,
+        "NAME": "Nicaragua",
+        "NAME_LONG": "Nicaragua",
+        "BRK_A3": "NIC",
+        "BRK_NAME": "Nicaragua",
+        "BRK_GROUP": null,
+        "ABBREV": "Nic.",
+        "POSTAL": "NI",
+        "FORMAL_EN": "Republic of Nicaragua",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Nicaragua",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Nicaragua",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 1,
+        "MAPCOLOR13": 9,
+        "POP_EST": 6545502,
+        "POP_RANK": 13,
+        "POP_YEAR": 2019,
+        "GDP_MD": 12520,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "NU",
+        "ISO_A2": "NI",
+        "ISO_A2_EH": "NI",
+        "ISO_A3": "NIC",
+        "ISO_A3_EH": "NIC",
+        "ISO_N3": "558",
+        "ISO_N3_EH": "558",
+        "UN_A3": "558",
+        "WB_A2": "NI",
+        "WB_A3": "NIC",
+        "WOE_ID": 23424915,
+        "WOE_ID_EH": 23424915,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "NIC",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "NIC",
+        "ADM0_A3_US": "NIC",
+        "ADM0_A3_FR": "NIC",
+        "ADM0_A3_RU": "NIC",
+        "ADM0_A3_ES": "NIC",
+        "ADM0_A3_CN": "NIC",
+        "ADM0_A3_TW": "NIC",
+        "ADM0_A3_IN": "NIC",
+        "ADM0_A3_NP": "NIC",
+        "ADM0_A3_PK": "NIC",
+        "ADM0_A3_DE": "NIC",
+        "ADM0_A3_GB": "NIC",
+        "ADM0_A3_BR": "NIC",
+        "ADM0_A3_IL": "NIC",
+        "ADM0_A3_PS": "NIC",
+        "ADM0_A3_SA": "NIC",
+        "ADM0_A3_EG": "NIC",
+        "ADM0_A3_MA": "NIC",
+        "ADM0_A3_PT": "NIC",
+        "ADM0_A3_AR": "NIC",
+        "ADM0_A3_JP": "NIC",
+        "ADM0_A3_KO": "NIC",
+        "ADM0_A3_VN": "NIC",
+        "ADM0_A3_TR": "NIC",
+        "ADM0_A3_ID": "NIC",
+        "ADM0_A3_PL": "NIC",
+        "ADM0_A3_GR": "NIC",
+        "ADM0_A3_IT": "NIC",
+        "ADM0_A3_NL": "NIC",
+        "ADM0_A3_SE": "NIC",
+        "ADM0_A3_BD": "NIC",
+        "ADM0_A3_UA": "NIC",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "North America",
+        "REGION_UN": "Americas",
+        "SUBREGION": "Central America",
+        "REGION_WB": "Latin America & Caribbean",
+        "NAME_LEN": 9,
+        "LONG_LEN": 9,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 4,
+        "MAX_LABEL": 9,
+        "LABEL_X": -85.069347,
+        "LABEL_Y": 12.670697,
+        "NE_ID": 1159321091,
+        "WIKIDATAID": "Q811",
+        "NAME_AR": "نيكاراغوا",
+        "NAME_BN": "নিকারাগুয়া",
+        "NAME_DE": "Nicaragua",
+        "NAME_EN": "Nicaragua",
+        "NAME_ES": "Nicaragua",
+        "NAME_FA": "نیکاراگوئه",
+        "NAME_FR": "Nicaragua",
+        "NAME_EL": "Νικαράγουα",
+        "NAME_HE": "ניקרגואה",
+        "NAME_HI": "निकारागुआ",
+        "NAME_HU": "Nicaragua",
+        "NAME_ID": "Nikaragua",
+        "NAME_IT": "Nicaragua",
+        "NAME_JA": "ニカラグア",
+        "NAME_KO": "니카라과",
+        "NAME_NL": "Nicaragua",
+        "NAME_PL": "Nikaragua",
+        "NAME_PT": "Nicarágua",
+        "NAME_RU": "Никарагуа",
+        "NAME_SV": "Nicaragua",
+        "NAME_TR": "Nikaragua",
+        "NAME_UK": "Нікарагуа",
+        "NAME_UR": "نکاراگوا",
+        "NAME_VI": "Nicaragua",
+        "NAME_ZH": "尼加拉瓜",
+        "NAME_ZHT": "尼加拉瓜",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "NIC"
+      },
+      "bbox": [
+        -87.668493,
+        10.726839,
+        -83.147219,
+        15.016267
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.655612,
+              10.938764
+            ],
+            [
+              -83.895054,
+              10.726839
+            ],
+            [
+              -84.190179,
+              10.79345
+            ],
+            [
+              -84.355931,
+              10.999226
+            ],
+            [
+              -84.673069,
+              11.082657
+            ],
+            [
+              -84.903003,
+              10.952303
+            ],
+            [
+              -85.561852,
+              11.217119
+            ],
+            [
+              -85.71254,
+              11.088445
+            ],
+            [
+              -86.058488,
+              11.403439
+            ],
+            [
+              -86.52585,
+              11.806877
+            ],
+            [
+              -86.745992,
+              12.143962
+            ],
+            [
+              -87.167516,
+              12.458258
+            ],
+            [
+              -87.668493,
+              12.90991
+            ],
+            [
+              -87.557467,
+              13.064552
+            ],
+            [
+              -87.392386,
+              12.914018
+            ],
+            [
+              -87.316654,
+              12.984686
+            ],
+            [
+              -87.005769,
+              13.025794
+            ],
+            [
+              -86.880557,
+              13.254204
+            ],
+            [
+              -86.733822,
+              13.263093
+            ],
+            [
+              -86.755087,
+              13.754845
+            ],
+            [
+              -86.520708,
+              13.778487
+            ],
+            [
+              -86.312142,
+              13.771356
+            ],
+            [
+              -86.096264,
+              14.038187
+            ],
+            [
+              -85.801295,
+              13.836055
+            ],
+            [
+              -85.698665,
+              13.960078
+            ],
+            [
+              -85.514413,
+              14.079012
+            ],
+            [
+              -85.165365,
+              14.35437
+            ],
+            [
+              -85.148751,
+              14.560197
+            ],
+            [
+              -85.052787,
+              14.551541
+            ],
+            [
+              -84.924501,
+              14.790493
+            ],
+            [
+              -84.820037,
+              14.819587
+            ],
+            [
+              -84.649582,
+              14.666805
+            ],
+            [
+              -84.449336,
+              14.621614
+            ],
+            [
+              -84.228342,
+              14.748764
+            ],
+            [
+              -83.975721,
+              14.749436
+            ],
+            [
+              -83.628585,
+              14.880074
+            ],
+            [
+              -83.489989,
+              15.016267
+            ],
+            [
+              -83.147219,
+              14.995829
+            ],
+            [
+              -83.233234,
+              14.899866
+            ],
+            [
+              -83.284162,
+              14.676624
+            ],
+            [
+              -83.182126,
+              14.310703
+            ],
+            [
+              -83.4125,
+              13.970078
+            ],
+            [
+              -83.519832,
+              13.567699
+            ],
+            [
+              -83.552207,
+              13.127054
+            ],
+            [
+              -83.498515,
+              12.869292
+            ],
+            [
+              -83.473323,
+              12.419087
+            ],
+            [
+              -83.626104,
+              12.32085
+            ],
+            [
+              -83.719613,
+              11.893124
+            ],
+            [
+              -83.650858,
+              11.629032
+            ],
+            [
+              -83.85547,
+              11.373311
+            ],
+            [
+              -83.808936,
+              11.103044
+            ],
+            [
+              -83.655612,
+              10.938764
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

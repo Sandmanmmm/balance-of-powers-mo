@@ -1,1 +1,681 @@
-nations: {}
+# Oceania - Regional Nation Data
+
+nations:
+  AUS:
+    name: "Australia"
+    capital: "Canberra"
+    flag: "🇦🇺"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Anthony Albanese"
+      approval: 52.8
+      stability: 88.5
+      ruling_party: "Australian Labor Party"
+      ideology: "Social Democracy"
+      election_cycle: 3
+      last_election: "2022-05-21"
+    economy:
+      gdp: 1550000000000
+      debt: 885000000000
+      inflation: 4.1
+      trade_balance: 58000000000
+      treasury: 185000000000
+      currency: "AUD"
+      interest_rate: 4.35
+      sectors:
+        manufacturing: 5.8
+        services: 70.2
+        agriculture: 2.8
+        technology: 21.2
+    military:
+      manpower: 85000
+      equipment: 92
+      readiness: 90
+      doctrine: "Regional Power Projection"
+      nuclear_capability: false
+      military_spending_gdp: 2.1
+      conscription: false
+      reserve_forces: 44000
+    technology:
+      researchPoints: 1580
+      currentResearch:
+        - "Defense Technology"
+        - "Mining Technology"
+        - "Renewable Energy"
+      completedTech:
+        - "Internet"
+        - "Advanced Mining"
+        - "Precision Manufacturing"
+        - "Agriculture Technology"
+    demographics:
+      population: 26000000
+      median_age: 38.7
+      birth_rate: 1.66
+      life_expectancy: 83.2
+      literacy_rate: 99.0
+      urbanization: 86.2
+    diplomacy:
+      allies: ["USA", "GBR", "JPN", "KOR"]
+      enemies: []
+      trade_partners: ["CHN", "JPN", "USA", "KOR", "IND"]
+      international_relations:
+        NATO: false
+        G20: "member"
+        UN_Security_Council: false
+        Five_Eyes: "member"
+    resource_stockpiles:
+      oil: 285000
+      steel: 4850000
+      rare_earth: 185000
+      uranium: 285000
+      food: 1850000
+    resource_production:
+      oil: 185000
+      steel: 1850000
+      rare_earth: 28500
+      uranium: 8500
+      food: 950000
+    resource_consumption:
+      oil: 1185000
+      steel: 285000
+      rare_earth: 8500
+      uranium: 1850
+      food: 285000
+
+  NZL:
+    name: "New Zealand"
+    capital: "Wellington"
+    flag: "🇳🇿"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Christopher Luxon"
+      approval: 48.5
+      stability: 92.8
+      ruling_party: "National Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 3
+      last_election: "2023-10-14"
+    economy:
+      gdp: 249000000000
+      debt: 185000000000
+      inflation: 5.7
+      trade_balance: 2850000000
+      treasury: 18500000000
+      currency: "NZD"
+      interest_rate: 5.5
+      sectors:
+        manufacturing: 10.8
+        services: 71.2
+        agriculture: 5.8
+        technology: 12.2
+    military:
+      manpower: 15000
+      equipment: 75
+      readiness: 85
+      doctrine: "Peacekeeping"
+      nuclear_capability: false
+      military_spending_gdp: 1.5
+      conscription: false
+      reserve_forces: 2000
+    technology:
+      researchPoints: 380
+      currentResearch:
+        - "Agriculture Technology"
+        - "Clean Energy"
+        - "Tourism Systems"
+      completedTech:
+        - "Internet"
+        - "Agriculture Technology"
+        - "Renewable Energy"
+    demographics:
+      population: 5200000
+      median_age: 37.2
+      birth_rate: 1.61
+      life_expectancy: 82.5
+      literacy_rate: 99.0
+      urbanization: 86.7
+    diplomacy:
+      allies: ["AUS", "USA", "GBR"]
+      enemies: []
+      trade_partners: ["AUS", "CHN", "USA", "JPN"]
+      international_relations:
+        NATO: false
+        G20: false
+        UN_Security_Council: false
+        Five_Eyes: "member"
+    resource_stockpiles:
+      oil: 18500
+      steel: 85000
+      rare_earth: 8500
+      uranium: 850
+      food: 485000
+    resource_production:
+      oil: 2850
+      steel: 18500
+      rare_earth: 850
+      uranium: 85
+      food: 185000
+    resource_consumption:
+      oil: 185000
+      steel: 28500
+      rare_earth: 1850
+      uranium: 185
+      food: 85000
+
+  FJI:
+    name: "Fiji"
+    capital: "Suva"
+    flag: "🇫🇯"
+    government:
+      type: "parliamentary_republic"
+      leader: "Sitiveni Rabuka"
+      approval: 52.8
+      stability: 68.5
+      ruling_party: "People's Alliance"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2022-12-14"
+    economy:
+      gdp: 5500000000
+      debt: 2850000000
+      inflation: 4.3
+      trade_balance: -1250000000
+      treasury: 485000000
+      currency: "FJD"
+      interest_rate: 0.25
+    military:
+      manpower: 3500
+      equipment: 42
+      readiness: 65
+      doctrine: "Island Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 125
+      currentResearch: ["Tourism Technology", "Marine Technology"]
+      completedTech: ["Tourism", "Basic Manufacturing"]
+      level: 5.2
+    diplomacy:
+      allies: ["AUS", "NZL"]
+      enemies: []
+      neutrality: 85.5
+
+  TON:
+    name: "Tonga"
+    capital: "Nuku'alofa"
+    flag: "🇹🇴"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Tupou VI"
+      approval: 68.5
+      stability: 75.5
+      ruling_party: "Tongan Royal Family"
+      ideology: "Constitutional Monarchy"
+      election_cycle: 4
+      last_election: "2021-11-18"
+    economy:
+      gdp: 500000000
+      debt: 285000000
+      inflation: 8.3
+      trade_balance: -185000000
+      treasury: 48500000
+      currency: "TOP"
+      interest_rate: 3.5
+    military:
+      manpower: 450
+      equipment: 28
+      readiness: 55
+      doctrine: "Island Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 28
+      currentResearch: ["Agriculture Technology", "Tourism Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 3.2
+    diplomacy:
+      allies: ["AUS", "NZL"]
+      enemies: []
+      neutrality: 95.5
+
+  VUT:
+    name: "Vanuatu"
+    capital: "Port Vila"
+    flag: "🇻🇺"
+    government:
+      type: "parliamentary_republic"
+      leader: "Bob Loughman"
+      approval: 48.5
+      stability: 62.5
+      ruling_party: "Vanua'aku Pati"
+      ideology: "Social Democracy"
+      election_cycle: 4
+      last_election: "2022-10-13"
+    economy:
+      gdp: 950000000
+      debt: 485000000
+      inflation: 2.8
+      trade_balance: -285000000
+      treasury: 85000000
+      currency: "VUV"
+      interest_rate: 1.75
+    military:
+      manpower: 300
+      equipment: 25
+      readiness: 48
+      doctrine: "Island Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 48
+      currentResearch: ["Tourism Technology", "Marine Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 3.5
+    diplomacy:
+      allies: ["AUS", "NZL"]
+      enemies: []
+      neutrality: 88.5
+
+  PLW:
+    name: "Palau"
+    capital: "Ngerulmud"
+    flag: "🇵🇼"
+    government:
+      type: "presidential_republic"
+      leader: "Surangel Whipps Jr."
+      approval: 68.5
+      stability: 78.5
+      ruling_party: "Palau First Party"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2020-11-03"
+    economy:
+      gdp: 290000000
+      debt: 85000000
+      inflation: 1.2
+      trade_balance: -48500000
+      treasury: 28500000
+      currency: "USD"
+      interest_rate: 2.5
+    military:
+      manpower: 0
+      equipment: 18
+      readiness: 35
+      doctrine: "US Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 18
+      currentResearch: ["Tourism Technology", "Marine Conservation"]
+      completedTech: ["Traditional Technology"]
+      level: 3.2
+    diplomacy:
+      allies: ["USA", "AUS"]
+      enemies: []
+      neutrality: 95.5
+
+  WSM:
+    name: "Samoa"
+    capital: "Apia"
+    flag: "🇼🇸"
+    government:
+      type: "parliamentary_republic"
+      leader: "Fiamē Naomi Mata'afa"
+      approval: 58.5
+      stability: 72.5
+      ruling_party: "FAST Party"
+      ideology: "Social Democracy"
+      election_cycle: 5
+      last_election: "2021-04-09"
+    economy:
+      gdp: 840000000
+      debt: 485000000
+      inflation: 3.8
+      trade_balance: -185000000
+      treasury: 85000000
+      currency: "WST"
+      interest_rate: 1.0
+    military:
+      manpower: 0
+      equipment: 12
+      readiness: 28
+      doctrine: "Police Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 28
+      currentResearch: ["Tourism Technology", "Agriculture Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 3.5
+    diplomacy:
+      allies: ["NZL", "AUS"]
+      enemies: []
+      neutrality: 92.5
+
+  FSM:
+    name: "Micronesia"
+    capital: "Palikir"
+    flag: "🇫🇲"
+    government:
+      type: "federal_republic"
+      leader: "Wesley Simina"
+      approval: 52.8
+      stability: 68.5
+      ruling_party: "Independent"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2023-05-11"
+    economy:
+      gdp: 400000000
+      debt: 185000000
+      inflation: 2.1
+      trade_balance: -128500000
+      treasury: 48500000
+      currency: "USD"
+      interest_rate: 1.5
+    military:
+      manpower: 0
+      equipment: 15
+      readiness: 32
+      doctrine: "US Defense"
+      nuclearCapability: false
+    technology:
+      researchPoints: 22
+      currentResearch: ["Tourism Technology", "Fisheries Management"]
+      completedTech: ["Traditional Technology"]
+      level: 3.0
+    diplomacy:
+      allies: ["USA", "AUS"]
+      enemies: []
+      neutrality: 95.5
+
+  NRU:
+    name: "Nauru"
+    capital: "Yaren"
+    flag: "🇳🇷"
+    government:
+      type: "parliamentary_republic"
+      leader: "David Adeang"
+      approval: 58.5
+      stability: 72.5
+      ruling_party: "Nauru First"
+      ideology: "Liberal Democracy"
+      election_cycle: 3
+      last_election: "2022-09-24"
+    economy:
+      gdp: 150000000
+      debt: 85000000
+      inflation: 3.5
+      trade_balance: -48500000
+      treasury: 15000000
+      currency: "AUD"
+      interest_rate: 1.5
+    military:
+      manpower: 0
+      equipment: 5
+      readiness: 25
+      doctrine: "Police Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 8
+      currentResearch: ["Traditional Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 2.5
+    diplomacy:
+      allies: ["AUS"]
+      enemies: []
+      neutrality: 95.5
+
+  TUV:
+    name: "Tuvalu"
+    capital: "Funafuti"
+    flag: "🇹🇻"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Feleti Teo"
+      approval: 68.5
+      stability: 82.5
+      ruling_party: "Independent"
+      ideology: "Traditional Governance"
+      election_cycle: 4
+      last_election: "2024-01-26"
+    economy:
+      gdp: 85000000
+      debt: 28500000
+      inflation: 4.1
+      trade_balance: -18500000
+      treasury: 8500000
+      currency: "AUD"
+      interest_rate: 1.5
+    military:
+      manpower: 0
+      equipment: 2
+      readiness: 15
+      doctrine: "Police Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 5
+      currentResearch: ["Traditional Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 2.2
+    diplomacy:
+      allies: ["AUS", "NZL"]
+      enemies: []
+      neutrality: 98.5
+
+  KIR:
+    name: "Kiribati"
+    capital: "Tarawa"
+    flag: "🇰🇮"
+    government:
+      type: "presidential_republic"
+      leader: "Taneti Maamau"
+      approval: 62.8
+      stability: 75.5
+      ruling_party: "Tobwaan Kiribati Party"
+      ideology: "Traditional Governance"
+      election_cycle: 4
+      last_election: "2024-06-14"
+    economy:
+      gdp: 285000000
+      debt: 85000000
+      inflation: 2.8
+      trade_balance: -85000000
+      treasury: 28500000
+      currency: "AUD"
+      interest_rate: 1.5
+    military:
+      manpower: 0
+      equipment: 8
+      readiness: 22
+      doctrine: "Police Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 12
+      currentResearch: ["Fishing Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 2.8
+    diplomacy:
+      allies: ["AUS", "NZL"]
+      enemies: []
+      neutrality: 95.5
+
+  MHL:
+    name: "Marshall Islands"
+    capital: "Majuro"
+    flag: "🇲🇭"
+    government:
+      type: "parliamentary_republic"
+      leader: "David Kabua"
+      approval: 55.8
+      stability: 68.5
+      ruling_party: "Aelon Kein Ad"
+      ideology: "Liberal Democracy"
+      election_cycle: 4
+      last_election: "2023-11-20"
+    economy:
+      gdp: 285000000
+      debt: 185000000
+      inflation: 1.9
+      trade_balance: -185000000
+      treasury: 28500000
+      currency: "USD"
+      interest_rate: 2.5
+    military:
+      manpower: 0
+      equipment: 12
+      readiness: 35
+      doctrine: "Coast Guard"
+      nuclearCapability: false
+    technology:
+      researchPoints: 15
+      currentResearch: ["Marine Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 3.2
+    diplomacy:
+      allies: ["USA"]
+      enemies: []
+      neutrality: 88.5
+
+  PNG:
+    name: "Papua New Guinea"
+    capital: "Port Moresby"
+    flag: "🇵🇬"
+    government:
+      type: "constitutional_monarchy"
+      leader: "James Marape"
+      approval: 48.5
+      stability: 55.2
+      ruling_party: "Pangu Party"
+      ideology: "Regional Development"
+      election_cycle: 5
+      last_election: "2022-07-15"
+    economy:
+      gdp: 28500000000
+      debt: 18500000000
+      inflation: 4.5
+      trade_balance: 8500000000
+      treasury: 2850000000
+      currency: "PGK"
+      interest_rate: 7.0
+    military:
+      manpower: 3600
+      equipment: 35
+      readiness: 48
+      doctrine: "Defense Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 85
+      currentResearch: ["Mining Technology", "Agriculture Technology"]
+      completedTech: ["Basic Mining", "Traditional Technology"]
+      level: 4.2
+    diplomacy:
+      allies: ["AUS", "NZL"]
+      enemies: []
+      neutrality: 75.5
+
+  SLB:
+    name: "Solomon Islands"
+    capital: "Honiara"
+    flag: "🇸🇧"
+    government:
+      type: "constitutional_monarchy"
+      leader: "Jeremiah Manele"
+      approval: 52.8
+      stability: 65.5
+      ruling_party: "Ownership, Unity and Responsibility Party"
+      ideology: "Regional Development"
+      election_cycle: 4
+      last_election: "2024-04-17"
+    economy:
+      gdp: 1750000000
+      debt: 485000000
+      inflation: 5.2
+      trade_balance: -285000000
+      treasury: 175000000
+      currency: "SBD"
+      interest_rate: 1.5
+    military:
+      manpower: 0
+      equipment: 12
+      readiness: 25
+      doctrine: "Police Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 28
+      currentResearch: ["Fishing Technology", "Tourism Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 3.5
+    diplomacy:
+      allies: ["AUS", "NZL"]
+      enemies: []
+      neutrality: 85.5
+
+  COK:
+    name: "Cook Islands"
+    capital: "Avarua"
+    flag: "🇨🇰"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Mark Brown"
+      approval: 68.5
+      stability: 82.5
+      ruling_party: "Cook Islands Party"
+      ideology: "Traditional Governance"
+      election_cycle: 4
+      last_election: "2022-08-01"
+    economy:
+      gdp: 385000000
+      debt: 185000000
+      inflation: 2.1
+      trade_balance: -85000000
+      treasury: 38500000
+      currency: "NZD"
+      interest_rate: 1.5
+    military:
+      manpower: 0
+      equipment: 5
+      readiness: 15
+      doctrine: "Police Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 15
+      currentResearch: ["Tourism Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 3.8
+    diplomacy:
+      allies: ["NZL", "AUS"]
+      enemies: []
+      neutrality: 95.5
+
+  NIU:
+    name: "Niue"
+    capital: "Alofi"
+    flag: "🇳🇺"
+    government:
+      type: "parliamentary_democracy"
+      leader: "Dalton Tagelagi"
+      approval: 72.8
+      stability: 85.5
+      ruling_party: "Independent"
+      ideology: "Traditional Governance"
+      election_cycle: 3
+      last_election: "2023-04-29"
+    economy:
+      gdp: 28500000
+      debt: 8500000
+      inflation: 1.8
+      trade_balance: -8500000
+      treasury: 2850000
+      currency: "NZD"
+      interest_rate: 1.5
+    military:
+      manpower: 0
+      equipment: 2
+      readiness: 10
+      doctrine: "Police Force"
+      nuclearCapability: false
+    technology:
+      researchPoints: 5
+      currentResearch: ["Traditional Technology"]
+      completedTech: ["Traditional Technology"]
+      level: 2.5
+    diplomacy:
+      allies: ["NZL"]
+      enemies: []
+      neutrality: 98.5

@@ -1,0 +1,620 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "SSD",
+    "generated": "2025-07-31T02:54:50.253Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "South Sudan",
+        "SOV_A3": "SDS",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "South Sudan",
+        "ADM0_A3": "SDS",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "South Sudan",
+        "GU_A3": "SDS",
+        "SU_DIF": 0,
+        "SUBUNIT": "South Sudan",
+        "SU_A3": "SDS",
+        "BRK_DIFF": 0,
+        "NAME": "S. Sudan",
+        "NAME_LONG": "South Sudan",
+        "BRK_A3": "SDS",
+        "BRK_NAME": "S. Sudan",
+        "BRK_GROUP": null,
+        "ABBREV": "S. Sud.",
+        "POSTAL": "SS",
+        "FORMAL_EN": "Republic of South Sudan",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "South Sudan",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "South Sudan",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 1,
+        "MAPCOLOR8": 3,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 5,
+        "POP_EST": 11062113,
+        "POP_RANK": 14,
+        "POP_YEAR": 2019,
+        "GDP_MD": 11998,
+        "GDP_YEAR": 2015,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "5. Low income",
+        "FIPS_10": "-99",
+        "ISO_A2": "SS",
+        "ISO_A2_EH": "SS",
+        "ISO_A3": "SSD",
+        "ISO_A3_EH": "SSD",
+        "ISO_N3": "728",
+        "ISO_N3_EH": "728",
+        "UN_A3": "728",
+        "WB_A2": "SS",
+        "WB_A3": "SSD",
+        "WOE_ID": -99,
+        "WOE_ID_EH": -99,
+        "WOE_NOTE": "Includes states of 20069899, 20069897, 20069898, 20069901, 20069909, and 20069908 but maybe more?",
+        "ADM0_ISO": "SSD",
+        "ADM0_DIFF": "1",
+        "ADM0_TLC": "SDS",
+        "ADM0_A3_US": "SDS",
+        "ADM0_A3_FR": "SDS",
+        "ADM0_A3_RU": "SDS",
+        "ADM0_A3_ES": "SDS",
+        "ADM0_A3_CN": "SDS",
+        "ADM0_A3_TW": "SDS",
+        "ADM0_A3_IN": "SDS",
+        "ADM0_A3_NP": "SDS",
+        "ADM0_A3_PK": "SDS",
+        "ADM0_A3_DE": "SDS",
+        "ADM0_A3_GB": "SDS",
+        "ADM0_A3_BR": "SDS",
+        "ADM0_A3_IL": "SDS",
+        "ADM0_A3_PS": "SDS",
+        "ADM0_A3_SA": "SDS",
+        "ADM0_A3_EG": "SDS",
+        "ADM0_A3_MA": "SDS",
+        "ADM0_A3_PT": "SDS",
+        "ADM0_A3_AR": "SDS",
+        "ADM0_A3_JP": "SDS",
+        "ADM0_A3_KO": "SDS",
+        "ADM0_A3_VN": "SDS",
+        "ADM0_A3_TR": "SDS",
+        "ADM0_A3_ID": "SDS",
+        "ADM0_A3_PL": "SDS",
+        "ADM0_A3_GR": "SDS",
+        "ADM0_A3_IT": "SDS",
+        "ADM0_A3_NL": "SDS",
+        "ADM0_A3_SE": "SDS",
+        "ADM0_A3_BD": "SDS",
+        "ADM0_A3_UA": "SDS",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Eastern Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 8,
+        "LONG_LEN": 11,
+        "ABBREV_LEN": 7,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 30.390151,
+        "LABEL_Y": 7.230477,
+        "NE_ID": 1159321235,
+        "WIKIDATAID": "Q958",
+        "NAME_AR": "جنوب السودان",
+        "NAME_BN": "দক্ষিণ সুদান",
+        "NAME_DE": "Südsudan",
+        "NAME_EN": "South Sudan",
+        "NAME_ES": "Sudán del Sur",
+        "NAME_FA": "سودان جنوبی",
+        "NAME_FR": "Soudan du Sud",
+        "NAME_EL": "Νότιο Σουδάν",
+        "NAME_HE": "דרום סודאן",
+        "NAME_HI": "दक्षिण सूडान",
+        "NAME_HU": "Dél-Szudán",
+        "NAME_ID": "Sudan Selatan",
+        "NAME_IT": "Sudan del Sud",
+        "NAME_JA": "南スーダン",
+        "NAME_KO": "남수단",
+        "NAME_NL": "Zuid-Soedan",
+        "NAME_PL": "Sudan Południowy",
+        "NAME_PT": "Sudão do Sul",
+        "NAME_RU": "Южный Судан",
+        "NAME_SV": "Sydsudan",
+        "NAME_TR": "Güney Sudan",
+        "NAME_UK": "Південний Судан",
+        "NAME_UR": "جنوبی سوڈان",
+        "NAME_VI": "Nam Sudan",
+        "NAME_ZH": "南苏丹",
+        "NAME_ZHT": "南蘇丹",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "SSD"
+      },
+      "bbox": [
+        23.88698,
+        3.509172,
+        35.298007,
+        12.248008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.833852,
+              3.509172
+            ],
+            [
+              29.9535,
+              4.173699
+            ],
+            [
+              29.715995,
+              4.600805
+            ],
+            [
+              29.159078,
+              4.389267
+            ],
+            [
+              28.696678,
+              4.455077
+            ],
+            [
+              28.428994,
+              4.287155
+            ],
+            [
+              27.979977,
+              4.408413
+            ],
+            [
+              27.374226,
+              5.233944
+            ],
+            [
+              27.213409,
+              5.550953
+            ],
+            [
+              26.465909,
+              5.946717
+            ],
+            [
+              26.213418,
+              6.546603
+            ],
+            [
+              25.796648,
+              6.979316
+            ],
+            [
+              25.124131,
+              7.500085
+            ],
+            [
+              25.114932,
+              7.825104
+            ],
+            [
+              24.567369,
+              8.229188
+            ],
+            [
+              23.88698,
+              8.61973
+            ],
+            [
+              24.194068,
+              8.728696
+            ],
+            [
+              24.537415,
+              8.917538
+            ],
+            [
+              24.794926,
+              9.810241
+            ],
+            [
+              25.069604,
+              10.27376
+            ],
+            [
+              25.790633,
+              10.411099
+            ],
+            [
+              25.962307,
+              10.136421
+            ],
+            [
+              26.477328,
+              9.55273
+            ],
+            [
+              26.752006,
+              9.466893
+            ],
+            [
+              27.112521,
+              9.638567
+            ],
+            [
+              27.833551,
+              9.604232
+            ],
+            [
+              27.97089,
+              9.398224
+            ],
+            [
+              28.966597,
+              9.398224
+            ],
+            [
+              29.000932,
+              9.604232
+            ],
+            [
+              29.515953,
+              9.793074
+            ],
+            [
+              29.618957,
+              10.084919
+            ],
+            [
+              29.996639,
+              10.290927
+            ],
+            [
+              30.837841,
+              9.707237
+            ],
+            [
+              31.352862,
+              9.810241
+            ],
+            [
+              31.850716,
+              10.531271
+            ],
+            [
+              32.400072,
+              11.080626
+            ],
+            [
+              32.314235,
+              11.681484
+            ],
+            [
+              32.073892,
+              11.97333
+            ],
+            [
+              32.67475,
+              12.024832
+            ],
+            [
+              32.743419,
+              12.248008
+            ],
+            [
+              33.206938,
+              12.179338
+            ],
+            [
+              33.086766,
+              11.441141
+            ],
+            [
+              33.206938,
+              10.720112
+            ],
+            [
+              33.721959,
+              10.325262
+            ],
+            [
+              33.842131,
+              9.981915
+            ],
+            [
+              33.824963,
+              9.484061
+            ],
+            [
+              33.963393,
+              9.464285
+            ],
+            [
+              33.97498,
+              8.68456
+            ],
+            [
+              33.8255,
+              8.37916
+            ],
+            [
+              33.2948,
+              8.35458
+            ],
+            [
+              32.95418,
+              7.78497
+            ],
+            [
+              33.56829,
+              7.71334
+            ],
+            [
+              34.0751,
+              7.22595
+            ],
+            [
+              34.25032,
+              6.82607
+            ],
+            [
+              34.70702,
+              6.59422
+            ],
+            [
+              35.298007,
+              5.506
+            ],
+            [
+              34.620196,
+              4.847123
+            ],
+            [
+              34.005,
+              4.249885
+            ],
+            [
+              33.39,
+              3.79
+            ],
+            [
+              32.68642,
+              3.79232
+            ],
+            [
+              31.88145,
+              3.55827
+            ],
+            [
+              31.24556,
+              3.7819
+            ],
+            [
+              30.833852,
+              3.509172
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

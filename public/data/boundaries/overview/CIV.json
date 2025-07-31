@@ -1,0 +1,552 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "CIV",
+    "generated": "2025-07-31T02:54:50.100Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Ivory Coast",
+        "SOV_A3": "CIV",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Ivory Coast",
+        "ADM0_A3": "CIV",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Ivory Coast",
+        "GU_A3": "CIV",
+        "SU_DIF": 0,
+        "SUBUNIT": "Ivory Coast",
+        "SU_A3": "CIV",
+        "BRK_DIFF": 0,
+        "NAME": "Côte d'Ivoire",
+        "NAME_LONG": "Côte d'Ivoire",
+        "BRK_A3": "CIV",
+        "BRK_NAME": "Côte d'Ivoire",
+        "BRK_GROUP": null,
+        "ABBREV": "I.C.",
+        "POSTAL": "CI",
+        "FORMAL_EN": "Republic of Ivory Coast",
+        "FORMAL_FR": "Republic of Cote D'Ivoire",
+        "NAME_CIAWF": "Cote D'ivoire",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Côte d'Ivoire",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 4,
+        "MAPCOLOR8": 6,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 3,
+        "POP_EST": 25716544,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 58539,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "IV",
+        "ISO_A2": "CI",
+        "ISO_A2_EH": "CI",
+        "ISO_A3": "CIV",
+        "ISO_A3_EH": "CIV",
+        "ISO_N3": "384",
+        "ISO_N3_EH": "384",
+        "UN_A3": "384",
+        "WB_A2": "CI",
+        "WB_A3": "CIV",
+        "WOE_ID": 23424854,
+        "WOE_ID_EH": 23424854,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "CIV",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "CIV",
+        "ADM0_A3_US": "CIV",
+        "ADM0_A3_FR": "CIV",
+        "ADM0_A3_RU": "CIV",
+        "ADM0_A3_ES": "CIV",
+        "ADM0_A3_CN": "CIV",
+        "ADM0_A3_TW": "CIV",
+        "ADM0_A3_IN": "CIV",
+        "ADM0_A3_NP": "CIV",
+        "ADM0_A3_PK": "CIV",
+        "ADM0_A3_DE": "CIV",
+        "ADM0_A3_GB": "CIV",
+        "ADM0_A3_BR": "CIV",
+        "ADM0_A3_IL": "CIV",
+        "ADM0_A3_PS": "CIV",
+        "ADM0_A3_SA": "CIV",
+        "ADM0_A3_EG": "CIV",
+        "ADM0_A3_MA": "CIV",
+        "ADM0_A3_PT": "CIV",
+        "ADM0_A3_AR": "CIV",
+        "ADM0_A3_JP": "CIV",
+        "ADM0_A3_KO": "CIV",
+        "ADM0_A3_VN": "CIV",
+        "ADM0_A3_TR": "CIV",
+        "ADM0_A3_ID": "CIV",
+        "ADM0_A3_PL": "CIV",
+        "ADM0_A3_GR": "CIV",
+        "ADM0_A3_IT": "CIV",
+        "ADM0_A3_NL": "CIV",
+        "ADM0_A3_SE": "CIV",
+        "ADM0_A3_BD": "CIV",
+        "ADM0_A3_UA": "CIV",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Western Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 13,
+        "LONG_LEN": 13,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2.5,
+        "MAX_LABEL": 8,
+        "LABEL_X": -5.568618,
+        "LABEL_Y": 7.49139,
+        "NE_ID": 1159320507,
+        "WIKIDATAID": "Q1008",
+        "NAME_AR": "ساحل العاج",
+        "NAME_BN": "কোত দিভোয়ার",
+        "NAME_DE": "Elfenbeinküste",
+        "NAME_EN": "Ivory Coast",
+        "NAME_ES": "Costa de Marfil",
+        "NAME_FA": "ساحل عاج",
+        "NAME_FR": "Côte d'Ivoire",
+        "NAME_EL": "Ακτή Ελεφαντοστού",
+        "NAME_HE": "חוף השנהב",
+        "NAME_HI": "कोत दिव्वार",
+        "NAME_HU": "Elefántcsontpart",
+        "NAME_ID": "Pantai Gading",
+        "NAME_IT": "Costa d'Avorio",
+        "NAME_JA": "コートジボワール",
+        "NAME_KO": "코트디부아르",
+        "NAME_NL": "Ivoorkust",
+        "NAME_PL": "Wybrzeże Kości Słoniowej",
+        "NAME_PT": "Costa do Marfim",
+        "NAME_RU": "Кот-д’Ивуар",
+        "NAME_SV": "Elfenbenskusten",
+        "NAME_TR": "Fildişi Sahili",
+        "NAME_UK": "Кот-д'Івуар",
+        "NAME_UR": "کوت داوواغ",
+        "NAME_VI": "Bờ Biển Ngà",
+        "NAME_ZH": "科特迪瓦",
+        "NAME_ZHT": "象牙海岸",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "CIV"
+      },
+      "bbox": [
+        -8.60288,
+        4.338288,
+        -2.56219,
+        10.524061
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -8.029944,
+              10.206535
+            ],
+            [
+              -7.89959,
+              10.297382
+            ],
+            [
+              -7.622759,
+              10.147236
+            ],
+            [
+              -6.850507,
+              10.138994
+            ],
+            [
+              -6.666461,
+              10.430811
+            ],
+            [
+              -6.493965,
+              10.411303
+            ],
+            [
+              -6.205223,
+              10.524061
+            ],
+            [
+              -6.050452,
+              10.096361
+            ],
+            [
+              -5.816926,
+              10.222555
+            ],
+            [
+              -5.404342,
+              10.370737
+            ],
+            [
+              -4.954653,
+              10.152714
+            ],
+            [
+              -4.779884,
+              9.821985
+            ],
+            [
+              -4.330247,
+              9.610835
+            ],
+            [
+              -3.980449,
+              9.862344
+            ],
+            [
+              -3.511899,
+              9.900326
+            ],
+            [
+              -2.827496,
+              9.642461
+            ],
+            [
+              -2.56219,
+              8.219628
+            ],
+            [
+              -2.983585,
+              7.379705
+            ],
+            [
+              -3.24437,
+              6.250472
+            ],
+            [
+              -2.810701,
+              5.389051
+            ],
+            [
+              -2.856125,
+              4.994476
+            ],
+            [
+              -3.311084,
+              4.984296
+            ],
+            [
+              -4.00882,
+              5.179813
+            ],
+            [
+              -4.649917,
+              5.168264
+            ],
+            [
+              -5.834496,
+              4.993701
+            ],
+            [
+              -6.528769,
+              4.705088
+            ],
+            [
+              -7.518941,
+              4.338288
+            ],
+            [
+              -7.712159,
+              4.364566
+            ],
+            [
+              -7.635368,
+              5.188159
+            ],
+            [
+              -7.539715,
+              5.313345
+            ],
+            [
+              -7.570153,
+              5.707352
+            ],
+            [
+              -7.993693,
+              6.12619
+            ],
+            [
+              -8.311348,
+              6.193033
+            ],
+            [
+              -8.60288,
+              6.467564
+            ],
+            [
+              -8.385452,
+              6.911801
+            ],
+            [
+              -8.485446,
+              7.395208
+            ],
+            [
+              -8.439298,
+              7.686043
+            ],
+            [
+              -8.280703,
+              7.68718
+            ],
+            [
+              -8.221792,
+              8.123329
+            ],
+            [
+              -8.299049,
+              8.316444
+            ],
+            [
+              -8.203499,
+              8.455453
+            ],
+            [
+              -7.8321,
+              8.575704
+            ],
+            [
+              -8.079114,
+              9.376224
+            ],
+            [
+              -8.309616,
+              9.789532
+            ],
+            [
+              -8.229337,
+              10.12902
+            ],
+            [
+              -8.029944,
+              10.206535
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

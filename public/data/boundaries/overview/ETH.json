@@ -1,0 +1,604 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "ETH",
+    "generated": "2025-07-31T02:54:50.240Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "Ethiopia",
+        "SOV_A3": "ETH",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Ethiopia",
+        "ADM0_A3": "ETH",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Ethiopia",
+        "GU_A3": "ETH",
+        "SU_DIF": 0,
+        "SUBUNIT": "Ethiopia",
+        "SU_A3": "ETH",
+        "BRK_DIFF": 0,
+        "NAME": "Ethiopia",
+        "NAME_LONG": "Ethiopia",
+        "BRK_A3": "ETH",
+        "BRK_NAME": "Ethiopia",
+        "BRK_GROUP": null,
+        "ABBREV": "Eth.",
+        "POSTAL": "ET",
+        "FORMAL_EN": "Federal Democratic Republic of Ethiopia",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Ethiopia",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Ethiopia",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 4,
+        "MAPCOLOR8": 4,
+        "MAPCOLOR9": 1,
+        "MAPCOLOR13": 13,
+        "POP_EST": 112078730,
+        "POP_RANK": 17,
+        "POP_YEAR": 2019,
+        "GDP_MD": 95912,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "7. Least developed region",
+        "INCOME_GRP": "5. Low income",
+        "FIPS_10": "ET",
+        "ISO_A2": "ET",
+        "ISO_A2_EH": "ET",
+        "ISO_A3": "ETH",
+        "ISO_A3_EH": "ETH",
+        "ISO_N3": "231",
+        "ISO_N3_EH": "231",
+        "UN_A3": "231",
+        "WB_A2": "ET",
+        "WB_A3": "ETH",
+        "WOE_ID": 23424808,
+        "WOE_ID_EH": 23424808,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "ETH",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "ETH",
+        "ADM0_A3_US": "ETH",
+        "ADM0_A3_FR": "ETH",
+        "ADM0_A3_RU": "ETH",
+        "ADM0_A3_ES": "ETH",
+        "ADM0_A3_CN": "ETH",
+        "ADM0_A3_TW": "ETH",
+        "ADM0_A3_IN": "ETH",
+        "ADM0_A3_NP": "ETH",
+        "ADM0_A3_PK": "ETH",
+        "ADM0_A3_DE": "ETH",
+        "ADM0_A3_GB": "ETH",
+        "ADM0_A3_BR": "ETH",
+        "ADM0_A3_IL": "ETH",
+        "ADM0_A3_PS": "ETH",
+        "ADM0_A3_SA": "ETH",
+        "ADM0_A3_EG": "ETH",
+        "ADM0_A3_MA": "ETH",
+        "ADM0_A3_PT": "ETH",
+        "ADM0_A3_AR": "ETH",
+        "ADM0_A3_JP": "ETH",
+        "ADM0_A3_KO": "ETH",
+        "ADM0_A3_VN": "ETH",
+        "ADM0_A3_TR": "ETH",
+        "ADM0_A3_ID": "ETH",
+        "ADM0_A3_PL": "ETH",
+        "ADM0_A3_GR": "ETH",
+        "ADM0_A3_IT": "ETH",
+        "ADM0_A3_NL": "ETH",
+        "ADM0_A3_SE": "ETH",
+        "ADM0_A3_BD": "ETH",
+        "ADM0_A3_UA": "ETH",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Africa",
+        "REGION_UN": "Africa",
+        "SUBREGION": "Eastern Africa",
+        "REGION_WB": "Sub-Saharan Africa",
+        "NAME_LEN": 8,
+        "LONG_LEN": 8,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2,
+        "MAX_LABEL": 7,
+        "LABEL_X": 39.0886,
+        "LABEL_Y": 8.032795,
+        "NE_ID": 1159320617,
+        "WIKIDATAID": "Q115",
+        "NAME_AR": "إثيوبيا",
+        "NAME_BN": "ইথিওপিয়া",
+        "NAME_DE": "Äthiopien",
+        "NAME_EN": "Ethiopia",
+        "NAME_ES": "Etiopía",
+        "NAME_FA": "اتیوپی",
+        "NAME_FR": "Éthiopie",
+        "NAME_EL": "Αιθιοπία",
+        "NAME_HE": "אתיופיה",
+        "NAME_HI": "इथियोपिया",
+        "NAME_HU": "Etiópia",
+        "NAME_ID": "Ethiopia",
+        "NAME_IT": "Etiopia",
+        "NAME_JA": "エチオピア",
+        "NAME_KO": "에티오피아",
+        "NAME_NL": "Ethiopië",
+        "NAME_PL": "Etiopia",
+        "NAME_PT": "Etiópia",
+        "NAME_RU": "Эфиопия",
+        "NAME_SV": "Etiopien",
+        "NAME_TR": "Etiyopya",
+        "NAME_UK": "Ефіопія",
+        "NAME_UR": "ایتھوپیا",
+        "NAME_VI": "Ethiopia",
+        "NAME_ZH": "埃塞俄比亚",
+        "NAME_ZHT": "衣索比亞",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "ETH"
+      },
+      "bbox": [
+        32.95418,
+        3.42206,
+        47.78942,
+        14.95943
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              47.78942,
+              8.003
+            ],
+            [
+              44.9636,
+              5.00162
+            ],
+            [
+              43.66087,
+              4.95755
+            ],
+            [
+              42.76967,
+              4.25259
+            ],
+            [
+              42.12861,
+              4.23413
+            ],
+            [
+              41.855083,
+              3.918912
+            ],
+            [
+              41.1718,
+              3.91909
+            ],
+            [
+              40.76848,
+              4.25702
+            ],
+            [
+              39.85494,
+              3.83879
+            ],
+            [
+              39.559384,
+              3.42206
+            ],
+            [
+              38.89251,
+              3.50074
+            ],
+            [
+              38.67114,
+              3.61607
+            ],
+            [
+              38.43697,
+              3.58851
+            ],
+            [
+              38.120915,
+              3.598605
+            ],
+            [
+              36.855093,
+              4.447864
+            ],
+            [
+              36.159079,
+              4.447864
+            ],
+            [
+              35.817448,
+              4.776966
+            ],
+            [
+              35.817448,
+              5.338232
+            ],
+            [
+              35.298007,
+              5.506
+            ],
+            [
+              34.70702,
+              6.59422
+            ],
+            [
+              34.25032,
+              6.82607
+            ],
+            [
+              34.0751,
+              7.22595
+            ],
+            [
+              33.56829,
+              7.71334
+            ],
+            [
+              32.95418,
+              7.78497
+            ],
+            [
+              33.2948,
+              8.35458
+            ],
+            [
+              33.8255,
+              8.37916
+            ],
+            [
+              33.97498,
+              8.68456
+            ],
+            [
+              33.96162,
+              9.58358
+            ],
+            [
+              34.25745,
+              10.63009
+            ],
+            [
+              34.73115,
+              10.91017
+            ],
+            [
+              34.83163,
+              11.31896
+            ],
+            [
+              35.26049,
+              12.08286
+            ],
+            [
+              35.86363,
+              12.57828
+            ],
+            [
+              36.27022,
+              13.56333
+            ],
+            [
+              36.42951,
+              14.42211
+            ],
+            [
+              37.59377,
+              14.2131
+            ],
+            [
+              37.90607,
+              14.95943
+            ],
+            [
+              38.51295,
+              14.50547
+            ],
+            [
+              39.0994,
+              14.74064
+            ],
+            [
+              39.34061,
+              14.53155
+            ],
+            [
+              40.02625,
+              14.51959
+            ],
+            [
+              40.8966,
+              14.11864
+            ],
+            [
+              41.1552,
+              13.77333
+            ],
+            [
+              41.59856,
+              13.45209
+            ],
+            [
+              42.00975,
+              12.86582
+            ],
+            [
+              42.35156,
+              12.54223
+            ],
+            [
+              42,
+              12.1
+            ],
+            [
+              41.66176,
+              11.6312
+            ],
+            [
+              41.73959,
+              11.35511
+            ],
+            [
+              41.75557,
+              11.05091
+            ],
+            [
+              42.31414,
+              11.0342
+            ],
+            [
+              42.55493,
+              11.10511
+            ],
+            [
+              42.776852,
+              10.926879
+            ],
+            [
+              42.55876,
+              10.57258
+            ],
+            [
+              42.92812,
+              10.02194
+            ],
+            [
+              43.29699,
+              9.54048
+            ],
+            [
+              43.67875,
+              9.18358
+            ],
+            [
+              46.94834,
+              7.99688
+            ],
+            [
+              47.78942,
+              8.003
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

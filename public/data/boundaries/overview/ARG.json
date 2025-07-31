@@ -1,72 +1,857 @@
 {
   "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "ARG",
+    "generated": "2025-07-31T02:54:50.028Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
   "features": [
     {
       "type": "Feature",
       "properties": {
-        "id": "ARG_BUENOS_AIRES",
-        "name": "Buenos Aires"
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "SOVEREIGNT": "Argentina",
+        "SOV_A3": "ARG",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Argentina",
+        "ADM0_A3": "ARG",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Argentina",
+        "GU_A3": "ARG",
+        "SU_DIF": 0,
+        "SUBUNIT": "Argentina",
+        "SU_A3": "ARG",
+        "BRK_DIFF": 0,
+        "NAME": "Argentina",
+        "NAME_LONG": "Argentina",
+        "BRK_A3": "ARG",
+        "BRK_NAME": "Argentina",
+        "BRK_GROUP": null,
+        "ABBREV": "Arg.",
+        "POSTAL": "AR",
+        "FORMAL_EN": "Argentine Republic",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Argentina",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Argentina",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 3,
+        "MAPCOLOR8": 1,
+        "MAPCOLOR9": 3,
+        "MAPCOLOR13": 13,
+        "POP_EST": 44938712,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 445445,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "5. Emerging region: G20",
+        "INCOME_GRP": "3. Upper middle income",
+        "FIPS_10": "AR",
+        "ISO_A2": "AR",
+        "ISO_A2_EH": "AR",
+        "ISO_A3": "ARG",
+        "ISO_A3_EH": "ARG",
+        "ISO_N3": "032",
+        "ISO_N3_EH": "032",
+        "UN_A3": "032",
+        "WB_A2": "AR",
+        "WB_A3": "ARG",
+        "WOE_ID": 23424747,
+        "WOE_ID_EH": 23424747,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "ARG",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "ARG",
+        "ADM0_A3_US": "ARG",
+        "ADM0_A3_FR": "ARG",
+        "ADM0_A3_RU": "ARG",
+        "ADM0_A3_ES": "ARG",
+        "ADM0_A3_CN": "ARG",
+        "ADM0_A3_TW": "ARG",
+        "ADM0_A3_IN": "ARG",
+        "ADM0_A3_NP": "ARG",
+        "ADM0_A3_PK": "ARG",
+        "ADM0_A3_DE": "ARG",
+        "ADM0_A3_GB": "ARG",
+        "ADM0_A3_BR": "ARG",
+        "ADM0_A3_IL": "ARG",
+        "ADM0_A3_PS": "ARG",
+        "ADM0_A3_SA": "ARG",
+        "ADM0_A3_EG": "ARG",
+        "ADM0_A3_MA": "ARG",
+        "ADM0_A3_PT": "ARG",
+        "ADM0_A3_AR": "ARG",
+        "ADM0_A3_JP": "ARG",
+        "ADM0_A3_KO": "ARG",
+        "ADM0_A3_VN": "ARG",
+        "ADM0_A3_TR": "ARG",
+        "ADM0_A3_ID": "ARG",
+        "ADM0_A3_PL": "ARG",
+        "ADM0_A3_GR": "ARG",
+        "ADM0_A3_IT": "ARG",
+        "ADM0_A3_NL": "ARG",
+        "ADM0_A3_SE": "ARG",
+        "ADM0_A3_BD": "ARG",
+        "ADM0_A3_UA": "ARG",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "South America",
+        "REGION_UN": "Americas",
+        "SUBREGION": "South America",
+        "REGION_WB": "Latin America & Caribbean",
+        "NAME_LEN": 9,
+        "LONG_LEN": 9,
+        "ABBREV_LEN": 4,
+        "TINY": -99,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 2,
+        "MAX_LABEL": 7,
+        "LABEL_X": -64.173331,
+        "LABEL_Y": -33.501159,
+        "NE_ID": 1159320331,
+        "WIKIDATAID": "Q414",
+        "NAME_AR": "الأرجنتين",
+        "NAME_BN": "আর্জেন্টিনা",
+        "NAME_DE": "Argentinien",
+        "NAME_EN": "Argentina",
+        "NAME_ES": "Argentina",
+        "NAME_FA": "آرژانتین",
+        "NAME_FR": "Argentine",
+        "NAME_EL": "Αργεντινή",
+        "NAME_HE": "ארגנטינה",
+        "NAME_HI": "अर्जेण्टीना",
+        "NAME_HU": "Argentína",
+        "NAME_ID": "Argentina",
+        "NAME_IT": "Argentina",
+        "NAME_JA": "アルゼンチン",
+        "NAME_KO": "아르헨티나",
+        "NAME_NL": "Argentinië",
+        "NAME_PL": "Argentyna",
+        "NAME_PT": "Argentina",
+        "NAME_RU": "Аргентина",
+        "NAME_SV": "Argentina",
+        "NAME_TR": "Arjantin",
+        "NAME_UK": "Аргентина",
+        "NAME_UR": "ارجنٹائن",
+        "NAME_VI": "Argentina",
+        "NAME_ZH": "阿根廷",
+        "NAME_ZHT": "阿根廷",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "ARG"
       },
+      "bbox": [
+        -73.415436,
+        -55.25,
+        -53.628349,
+        -21.83231
+      ],
       "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-60.0, -35.5],
-          [-56.5, -35.5],
-          [-56.5, -33.5],
-          [-60.0, -33.5],
-          [-60.0, -35.5]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "ARG_CORDOBA",
-        "name": "Córdoba"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-66.0, -35.0],
-          [-62.0, -35.0],
-          [-62.0, -29.5],
-          [-66.0, -29.5],
-          [-66.0, -35.0]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "ARG_SANTA_FE",
-        "name": "Santa Fe"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-62.0, -34.0],
-          [-58.0, -34.0],
-          [-58.0, -28.0],
-          [-62.0, -28.0],
-          [-62.0, -34.0]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "ARG_PATAGONIA",
-        "name": "Patagonia"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-73.0, -55.0],
-          [-63.0, -55.0],
-          [-63.0, -40.0],
-          [-73.0, -40.0],
-          [-73.0, -55.0]
-        ]]
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -68.63401,
+                -52.63637
+              ],
+              [
+                -68.25,
+                -53.1
+              ],
+              [
+                -67.75,
+                -53.85
+              ],
+              [
+                -66.45,
+                -54.45
+              ],
+              [
+                -65.05,
+                -54.7
+              ],
+              [
+                -65.5,
+                -55.2
+              ],
+              [
+                -66.45,
+                -55.25
+              ],
+              [
+                -66.95992,
+                -54.89681
+              ],
+              [
+                -67.56244,
+                -54.87001
+              ],
+              [
+                -68.63335,
+                -54.8695
+              ],
+              [
+                -68.63401,
+                -52.63637
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -57.625133,
+                -30.216295
+              ],
+              [
+                -57.874937,
+                -31.016556
+              ],
+              [
+                -58.14244,
+                -32.044504
+              ],
+              [
+                -58.132648,
+                -33.040567
+              ],
+              [
+                -58.349611,
+                -33.263189
+              ],
+              [
+                -58.427074,
+                -33.909454
+              ],
+              [
+                -58.495442,
+                -34.43149
+              ],
+              [
+                -57.22583,
+                -35.288027
+              ],
+              [
+                -57.362359,
+                -35.97739
+              ],
+              [
+                -56.737487,
+                -36.413126
+              ],
+              [
+                -56.788285,
+                -36.901572
+              ],
+              [
+                -57.749157,
+                -38.183871
+              ],
+              [
+                -59.231857,
+                -38.72022
+              ],
+              [
+                -61.237445,
+                -38.928425
+              ],
+              [
+                -62.335957,
+                -38.827707
+              ],
+              [
+                -62.125763,
+                -39.424105
+              ],
+              [
+                -62.330531,
+                -40.172586
+              ],
+              [
+                -62.145994,
+                -40.676897
+              ],
+              [
+                -62.745803,
+                -41.028761
+              ],
+              [
+                -63.770495,
+                -41.166789
+              ],
+              [
+                -64.73209,
+                -40.802677
+              ],
+              [
+                -65.118035,
+                -41.064315
+              ],
+              [
+                -64.978561,
+                -42.058001
+              ],
+              [
+                -64.303408,
+                -42.359016
+              ],
+              [
+                -63.755948,
+                -42.043687
+              ],
+              [
+                -63.458059,
+                -42.563138
+              ],
+              [
+                -64.378804,
+                -42.873558
+              ],
+              [
+                -65.181804,
+                -43.495381
+              ],
+              [
+                -65.328823,
+                -44.501366
+              ],
+              [
+                -65.565269,
+                -45.036786
+              ],
+              [
+                -66.509966,
+                -45.039628
+              ],
+              [
+                -67.293794,
+                -45.551896
+              ],
+              [
+                -67.580546,
+                -46.301773
+              ],
+              [
+                -66.597066,
+                -47.033925
+              ],
+              [
+                -65.641027,
+                -47.236135
+              ],
+              [
+                -65.985088,
+                -48.133289
+              ],
+              [
+                -67.166179,
+                -48.697337
+              ],
+              [
+                -67.816088,
+                -49.869669
+              ],
+              [
+                -68.728745,
+                -50.264218
+              ],
+              [
+                -69.138539,
+                -50.73251
+              ],
+              [
+                -68.815561,
+                -51.771104
+              ],
+              [
+                -68.149995,
+                -52.349983
+              ],
+              [
+                -68.571545,
+                -52.299444
+              ],
+              [
+                -69.498362,
+                -52.142761
+              ],
+              [
+                -71.914804,
+                -52.009022
+              ],
+              [
+                -72.329404,
+                -51.425956
+              ],
+              [
+                -72.309974,
+                -50.67701
+              ],
+              [
+                -72.975747,
+                -50.74145
+              ],
+              [
+                -73.328051,
+                -50.378785
+              ],
+              [
+                -73.415436,
+                -49.318436
+              ],
+              [
+                -72.648247,
+                -48.878618
+              ],
+              [
+                -72.331161,
+                -48.244238
+              ],
+              [
+                -72.447355,
+                -47.738533
+              ],
+              [
+                -71.917258,
+                -46.884838
+              ],
+              [
+                -71.552009,
+                -45.560733
+              ],
+              [
+                -71.659316,
+                -44.973689
+              ],
+              [
+                -71.222779,
+                -44.784243
+              ],
+              [
+                -71.329801,
+                -44.407522
+              ],
+              [
+                -71.793623,
+                -44.207172
+              ],
+              [
+                -71.464056,
+                -43.787611
+              ],
+              [
+                -71.915424,
+                -43.408565
+              ],
+              [
+                -72.148898,
+                -42.254888
+              ],
+              [
+                -71.746804,
+                -42.051386
+              ],
+              [
+                -71.915734,
+                -40.832339
+              ],
+              [
+                -71.680761,
+                -39.808164
+              ],
+              [
+                -71.413517,
+                -38.916022
+              ],
+              [
+                -70.814664,
+                -38.552995
+              ],
+              [
+                -71.118625,
+                -37.576827
+              ],
+              [
+                -71.121881,
+                -36.658124
+              ],
+              [
+                -70.364769,
+                -36.005089
+              ],
+              [
+                -70.388049,
+                -35.169688
+              ],
+              [
+                -69.817309,
+                -34.193571
+              ],
+              [
+                -69.814777,
+                -33.273886
+              ],
+              [
+                -70.074399,
+                -33.09121
+              ],
+              [
+                -70.535069,
+                -31.36501
+              ],
+              [
+                -69.919008,
+                -30.336339
+              ],
+              [
+                -70.01355,
+                -29.367923
+              ],
+              [
+                -69.65613,
+                -28.459141
+              ],
+              [
+                -69.001235,
+                -27.521214
+              ],
+              [
+                -68.295542,
+                -26.89934
+              ],
+              [
+                -68.5948,
+                -26.506909
+              ],
+              [
+                -68.386001,
+                -26.185016
+              ],
+              [
+                -68.417653,
+                -24.518555
+              ],
+              [
+                -67.328443,
+                -24.025303
+              ],
+              [
+                -66.985234,
+                -22.986349
+              ],
+              [
+                -67.106674,
+                -22.735925
+              ],
+              [
+                -66.273339,
+                -21.83231
+              ],
+              [
+                -64.964892,
+                -22.075862
+              ],
+              [
+                -64.377021,
+                -22.798091
+              ],
+              [
+                -63.986838,
+                -21.993644
+              ],
+              [
+                -62.846468,
+                -22.034985
+              ],
+              [
+                -62.685057,
+                -22.249029
+              ],
+              [
+                -60.846565,
+                -23.880713
+              ],
+              [
+                -60.028966,
+                -24.032796
+              ],
+              [
+                -58.807128,
+                -24.771459
+              ],
+              [
+                -57.777217,
+                -25.16234
+              ],
+              [
+                -57.63366,
+                -25.603657
+              ],
+              [
+                -58.618174,
+                -27.123719
+              ],
+              [
+                -57.60976,
+                -27.395899
+              ],
+              [
+                -56.486702,
+                -27.548499
+              ],
+              [
+                -55.695846,
+                -27.387837
+              ],
+              [
+                -54.788795,
+                -26.621786
+              ],
+              [
+                -54.625291,
+                -25.739255
+              ],
+              [
+                -54.13005,
+                -25.547639
+              ],
+              [
+                -53.628349,
+                -26.124865
+              ],
+              [
+                -53.648735,
+                -26.923473
+              ],
+              [
+                -54.490725,
+                -27.474757
+              ],
+              [
+                -55.162286,
+                -27.881915
+              ],
+              [
+                -56.2909,
+                -28.852761
+              ],
+              [
+                -57.625133,
+                -30.216295
+              ]
+            ]
+          ]
+        ]
       }
     }
   ]

@@ -1,0 +1,584 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Natural Earth 110m (Overview)",
+    "level": "overview",
+    "country": "UZB",
+    "generated": "2025-07-31T02:54:50.023Z",
+    "properties_available": [
+      "featurecla",
+      "scalerank",
+      "LABELRANK",
+      "SOVEREIGNT",
+      "SOV_A3",
+      "ADM0_DIF",
+      "LEVEL",
+      "TYPE",
+      "TLC",
+      "ADMIN",
+      "ADM0_A3",
+      "GEOU_DIF",
+      "GEOUNIT",
+      "GU_A3",
+      "SU_DIF",
+      "SUBUNIT",
+      "SU_A3",
+      "BRK_DIFF",
+      "NAME",
+      "NAME_LONG",
+      "BRK_A3",
+      "BRK_NAME",
+      "BRK_GROUP",
+      "ABBREV",
+      "POSTAL",
+      "FORMAL_EN",
+      "FORMAL_FR",
+      "NAME_CIAWF",
+      "NOTE_ADM0",
+      "NOTE_BRK",
+      "NAME_SORT",
+      "NAME_ALT",
+      "MAPCOLOR7",
+      "MAPCOLOR8",
+      "MAPCOLOR9",
+      "MAPCOLOR13",
+      "POP_EST",
+      "POP_RANK",
+      "POP_YEAR",
+      "GDP_MD",
+      "GDP_YEAR",
+      "ECONOMY",
+      "INCOME_GRP",
+      "FIPS_10",
+      "ISO_A2",
+      "ISO_A2_EH",
+      "ISO_A3",
+      "ISO_A3_EH",
+      "ISO_N3",
+      "ISO_N3_EH",
+      "UN_A3",
+      "WB_A2",
+      "WB_A3",
+      "WOE_ID",
+      "WOE_ID_EH",
+      "WOE_NOTE",
+      "ADM0_ISO",
+      "ADM0_DIFF",
+      "ADM0_TLC",
+      "ADM0_A3_US",
+      "ADM0_A3_FR",
+      "ADM0_A3_RU",
+      "ADM0_A3_ES",
+      "ADM0_A3_CN",
+      "ADM0_A3_TW",
+      "ADM0_A3_IN",
+      "ADM0_A3_NP",
+      "ADM0_A3_PK",
+      "ADM0_A3_DE",
+      "ADM0_A3_GB",
+      "ADM0_A3_BR",
+      "ADM0_A3_IL",
+      "ADM0_A3_PS",
+      "ADM0_A3_SA",
+      "ADM0_A3_EG",
+      "ADM0_A3_MA",
+      "ADM0_A3_PT",
+      "ADM0_A3_AR",
+      "ADM0_A3_JP",
+      "ADM0_A3_KO",
+      "ADM0_A3_VN",
+      "ADM0_A3_TR",
+      "ADM0_A3_ID",
+      "ADM0_A3_PL",
+      "ADM0_A3_GR",
+      "ADM0_A3_IT",
+      "ADM0_A3_NL",
+      "ADM0_A3_SE",
+      "ADM0_A3_BD",
+      "ADM0_A3_UA",
+      "ADM0_A3_UN",
+      "ADM0_A3_WB",
+      "CONTINENT",
+      "REGION_UN",
+      "SUBREGION",
+      "REGION_WB",
+      "NAME_LEN",
+      "LONG_LEN",
+      "ABBREV_LEN",
+      "TINY",
+      "HOMEPART",
+      "MIN_ZOOM",
+      "MIN_LABEL",
+      "MAX_LABEL",
+      "LABEL_X",
+      "LABEL_Y",
+      "NE_ID",
+      "WIKIDATAID",
+      "NAME_AR",
+      "NAME_BN",
+      "NAME_DE",
+      "NAME_EN",
+      "NAME_ES",
+      "NAME_FA",
+      "NAME_FR",
+      "NAME_EL",
+      "NAME_HE",
+      "NAME_HI",
+      "NAME_HU",
+      "NAME_ID",
+      "NAME_IT",
+      "NAME_JA",
+      "NAME_KO",
+      "NAME_NL",
+      "NAME_PL",
+      "NAME_PT",
+      "NAME_RU",
+      "NAME_SV",
+      "NAME_TR",
+      "NAME_UK",
+      "NAME_UR",
+      "NAME_VI",
+      "NAME_ZH",
+      "NAME_ZHT",
+      "FCLASS_ISO",
+      "TLC_DIFF",
+      "FCLASS_TLC",
+      "FCLASS_US",
+      "FCLASS_FR",
+      "FCLASS_RU",
+      "FCLASS_ES",
+      "FCLASS_CN",
+      "FCLASS_TW",
+      "FCLASS_IN",
+      "FCLASS_NP",
+      "FCLASS_PK",
+      "FCLASS_DE",
+      "FCLASS_GB",
+      "FCLASS_BR",
+      "FCLASS_IL",
+      "FCLASS_PS",
+      "FCLASS_SA",
+      "FCLASS_EG",
+      "FCLASS_MA",
+      "FCLASS_PT",
+      "FCLASS_AR",
+      "FCLASS_JP",
+      "FCLASS_KO",
+      "FCLASS_VN",
+      "FCLASS_TR",
+      "FCLASS_ID",
+      "FCLASS_PL",
+      "FCLASS_GR",
+      "FCLASS_IT",
+      "FCLASS_NL",
+      "FCLASS_SE",
+      "FCLASS_BD",
+      "FCLASS_UA"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "featurecla": "Admin-0 country",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "SOVEREIGNT": "Uzbekistan",
+        "SOV_A3": "UZB",
+        "ADM0_DIF": 0,
+        "LEVEL": 2,
+        "TYPE": "Sovereign country",
+        "TLC": "1",
+        "ADMIN": "Uzbekistan",
+        "ADM0_A3": "UZB",
+        "GEOU_DIF": 0,
+        "GEOUNIT": "Uzbekistan",
+        "GU_A3": "UZB",
+        "SU_DIF": 0,
+        "SUBUNIT": "Uzbekistan",
+        "SU_A3": "UZB",
+        "BRK_DIFF": 0,
+        "NAME": "Uzbekistan",
+        "NAME_LONG": "Uzbekistan",
+        "BRK_A3": "UZB",
+        "BRK_NAME": "Uzbekistan",
+        "BRK_GROUP": null,
+        "ABBREV": "Uzb.",
+        "POSTAL": "UZ",
+        "FORMAL_EN": "Republic of Uzbekistan",
+        "FORMAL_FR": null,
+        "NAME_CIAWF": "Uzbekistan",
+        "NOTE_ADM0": null,
+        "NOTE_BRK": null,
+        "NAME_SORT": "Uzbekistan",
+        "NAME_ALT": null,
+        "MAPCOLOR7": 2,
+        "MAPCOLOR8": 3,
+        "MAPCOLOR9": 5,
+        "MAPCOLOR13": 4,
+        "POP_EST": 33580650,
+        "POP_RANK": 15,
+        "POP_YEAR": 2019,
+        "GDP_MD": 57921,
+        "GDP_YEAR": 2019,
+        "ECONOMY": "6. Developing region",
+        "INCOME_GRP": "4. Lower middle income",
+        "FIPS_10": "UZ",
+        "ISO_A2": "UZ",
+        "ISO_A2_EH": "UZ",
+        "ISO_A3": "UZB",
+        "ISO_A3_EH": "UZB",
+        "ISO_N3": "860",
+        "ISO_N3_EH": "860",
+        "UN_A3": "860",
+        "WB_A2": "UZ",
+        "WB_A3": "UZB",
+        "WOE_ID": 23424980,
+        "WOE_ID_EH": 23424980,
+        "WOE_NOTE": "Exact WOE match as country",
+        "ADM0_ISO": "UZB",
+        "ADM0_DIFF": null,
+        "ADM0_TLC": "UZB",
+        "ADM0_A3_US": "UZB",
+        "ADM0_A3_FR": "UZB",
+        "ADM0_A3_RU": "UZB",
+        "ADM0_A3_ES": "UZB",
+        "ADM0_A3_CN": "UZB",
+        "ADM0_A3_TW": "UZB",
+        "ADM0_A3_IN": "UZB",
+        "ADM0_A3_NP": "UZB",
+        "ADM0_A3_PK": "UZB",
+        "ADM0_A3_DE": "UZB",
+        "ADM0_A3_GB": "UZB",
+        "ADM0_A3_BR": "UZB",
+        "ADM0_A3_IL": "UZB",
+        "ADM0_A3_PS": "UZB",
+        "ADM0_A3_SA": "UZB",
+        "ADM0_A3_EG": "UZB",
+        "ADM0_A3_MA": "UZB",
+        "ADM0_A3_PT": "UZB",
+        "ADM0_A3_AR": "UZB",
+        "ADM0_A3_JP": "UZB",
+        "ADM0_A3_KO": "UZB",
+        "ADM0_A3_VN": "UZB",
+        "ADM0_A3_TR": "UZB",
+        "ADM0_A3_ID": "UZB",
+        "ADM0_A3_PL": "UZB",
+        "ADM0_A3_GR": "UZB",
+        "ADM0_A3_IT": "UZB",
+        "ADM0_A3_NL": "UZB",
+        "ADM0_A3_SE": "UZB",
+        "ADM0_A3_BD": "UZB",
+        "ADM0_A3_UA": "UZB",
+        "ADM0_A3_UN": -99,
+        "ADM0_A3_WB": -99,
+        "CONTINENT": "Asia",
+        "REGION_UN": "Asia",
+        "SUBREGION": "Central Asia",
+        "REGION_WB": "Europe & Central Asia",
+        "NAME_LEN": 10,
+        "LONG_LEN": 10,
+        "ABBREV_LEN": 4,
+        "TINY": 5,
+        "HOMEPART": 1,
+        "MIN_ZOOM": 0,
+        "MIN_LABEL": 3,
+        "MAX_LABEL": 8,
+        "LABEL_X": 64.005429,
+        "LABEL_Y": 41.693603,
+        "NE_ID": 1159321405,
+        "WIKIDATAID": "Q265",
+        "NAME_AR": "أوزبكستان",
+        "NAME_BN": "উজবেকিস্তান",
+        "NAME_DE": "Usbekistan",
+        "NAME_EN": "Uzbekistan",
+        "NAME_ES": "Uzbekistán",
+        "NAME_FA": "ازبکستان",
+        "NAME_FR": "Ouzbékistan",
+        "NAME_EL": "Ουζμπεκιστάν",
+        "NAME_HE": "אוזבקיסטן",
+        "NAME_HI": "उज़्बेकिस्तान",
+        "NAME_HU": "Üzbegisztán",
+        "NAME_ID": "Uzbekistan",
+        "NAME_IT": "Uzbekistan",
+        "NAME_JA": "ウズベキスタン",
+        "NAME_KO": "우즈베키스탄",
+        "NAME_NL": "Oezbekistan",
+        "NAME_PL": "Uzbekistan",
+        "NAME_PT": "Uzbequistão",
+        "NAME_RU": "Узбекистан",
+        "NAME_SV": "Uzbekistan",
+        "NAME_TR": "Özbekistan",
+        "NAME_UK": "Узбекистан",
+        "NAME_UR": "ازبکستان",
+        "NAME_VI": "Uzbekistan",
+        "NAME_ZH": "乌兹别克斯坦",
+        "NAME_ZHT": "烏茲別克",
+        "FCLASS_ISO": "Admin-0 country",
+        "TLC_DIFF": null,
+        "FCLASS_TLC": "Admin-0 country",
+        "FCLASS_US": null,
+        "FCLASS_FR": null,
+        "FCLASS_RU": null,
+        "FCLASS_ES": null,
+        "FCLASS_CN": null,
+        "FCLASS_TW": null,
+        "FCLASS_IN": null,
+        "FCLASS_NP": null,
+        "FCLASS_PK": null,
+        "FCLASS_DE": null,
+        "FCLASS_GB": null,
+        "FCLASS_BR": null,
+        "FCLASS_IL": null,
+        "FCLASS_PS": null,
+        "FCLASS_SA": null,
+        "FCLASS_EG": null,
+        "FCLASS_MA": null,
+        "FCLASS_PT": null,
+        "FCLASS_AR": null,
+        "FCLASS_JP": null,
+        "FCLASS_KO": null,
+        "FCLASS_VN": null,
+        "FCLASS_TR": null,
+        "FCLASS_ID": null,
+        "FCLASS_PL": null,
+        "FCLASS_GR": null,
+        "FCLASS_IT": null,
+        "FCLASS_NL": null,
+        "FCLASS_SE": null,
+        "FCLASS_BD": null,
+        "FCLASS_UA": null,
+        "id": "UZB"
+      },
+      "bbox": [
+        55.928917,
+        37.144994,
+        73.055417,
+        45.586804
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              55.968191,
+              41.308642
+            ],
+            [
+              55.928917,
+              44.995858
+            ],
+            [
+              58.503127,
+              45.586804
+            ],
+            [
+              58.689989,
+              45.500014
+            ],
+            [
+              60.239972,
+              44.784037
+            ],
+            [
+              61.05832,
+              44.405817
+            ],
+            [
+              62.0133,
+              43.504477
+            ],
+            [
+              63.185787,
+              43.650075
+            ],
+            [
+              64.900824,
+              43.728081
+            ],
+            [
+              66.098012,
+              42.99766
+            ],
+            [
+              66.023392,
+              41.994646
+            ],
+            [
+              66.510649,
+              41.987644
+            ],
+            [
+              66.714047,
+              41.168444
+            ],
+            [
+              67.985856,
+              41.135991
+            ],
+            [
+              68.259896,
+              40.662325
+            ],
+            [
+              68.632483,
+              40.668681
+            ],
+            [
+              69.070027,
+              41.384244
+            ],
+            [
+              70.388965,
+              42.081308
+            ],
+            [
+              70.962315,
+              42.266154
+            ],
+            [
+              71.259248,
+              42.167711
+            ],
+            [
+              70.420022,
+              41.519998
+            ],
+            [
+              71.157859,
+              41.143587
+            ],
+            [
+              71.870115,
+              41.3929
+            ],
+            [
+              73.055417,
+              40.866033
+            ],
+            [
+              71.774875,
+              40.145844
+            ],
+            [
+              71.014198,
+              40.244366
+            ],
+            [
+              70.601407,
+              40.218527
+            ],
+            [
+              70.45816,
+              40.496495
+            ],
+            [
+              70.666622,
+              40.960213
+            ],
+            [
+              69.329495,
+              40.727824
+            ],
+            [
+              69.011633,
+              40.086158
+            ],
+            [
+              68.536416,
+              39.533453
+            ],
+            [
+              67.701429,
+              39.580478
+            ],
+            [
+              67.44222,
+              39.140144
+            ],
+            [
+              68.176025,
+              38.901553
+            ],
+            [
+              68.392033,
+              38.157025
+            ],
+            [
+              67.83,
+              37.144994
+            ],
+            [
+              67.075782,
+              37.356144
+            ],
+            [
+              66.518607,
+              37.362784
+            ],
+            [
+              66.54615,
+              37.974685
+            ],
+            [
+              65.215999,
+              38.402695
+            ],
+            [
+              64.170223,
+              38.892407
+            ],
+            [
+              63.518015,
+              39.363257
+            ],
+            [
+              62.37426,
+              40.053886
+            ],
+            [
+              61.882714,
+              41.084857
+            ],
+            [
+              61.547179,
+              41.26637
+            ],
+            [
+              60.465953,
+              41.220327
+            ],
+            [
+              60.083341,
+              41.425146
+            ],
+            [
+              59.976422,
+              42.223082
+            ],
+            [
+              58.629011,
+              42.751551
+            ],
+            [
+              57.78653,
+              42.170553
+            ],
+            [
+              56.932215,
+              41.826026
+            ],
+            [
+              57.096391,
+              41.32231
+            ],
+            [
+              55.968191,
+              41.308642
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-07-31T02:54:49.661Z",
+  "before_pipeline": {
+    "overview": {
+      "files": 14,
+      "countries": [
+        "AUS",
+        "BRA",
+        "CAN",
+        "CHN",
+        "DEU",
+        "FRA",
+        "GBR",
+        "IND",
+        "JPN",
+        "MEX",
+        "POL",
+        "RUS",
+        "UKR",
+        "USA"
+      ]
+    },
+    "detailed": {
+      "files": 5,
+      "countries": [
+        "CAN",
+        "CHN",
+        "POL",
+        "UKR",
+        "USA"
+      ]
+    },
+    "ultra": {
+      "files": 4,
+      "countries": [
+        "CAN",
+        "POL",
+        "UKR",
+        "USA"
+      ]
+    }
+  }
+}
