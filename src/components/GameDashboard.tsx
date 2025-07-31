@@ -25,6 +25,7 @@ import { Nation, GameState } from '../lib/types';
 import { NationOverviewPanel } from './NationOverviewPanel';
 import { NationResourcePanel } from './NationResourcePanel';
 import { NotificationControls } from './NotificationControls';
+import { GameDataSummary } from './GameDataSummary';
 
 interface GameDashboardProps {
   nation: Nation;
@@ -83,7 +84,7 @@ export function GameDashboard({
   onPolicyChange,
   onDecisionMake
 }: GameDashboardProps) {
-  const [selectedTab, setSelectedTab] = useState<'summary' | 'nation' | 'resources' | 'diplomacy'>('summary');
+  const [selectedTab, setSelectedTab] = useState<'summary' | 'nation' | 'resources' | 'diplomacy' | 'system'>('summary');
   const speedOptions = [0.5, 1, 2, 4];
   const currentYear = new Date(gameState.currentDate).getFullYear();
 
@@ -91,7 +92,8 @@ export function GameDashboard({
     { id: 'summary', label: 'Summary', icon: ChartBar },
     { id: 'nation', label: 'Nation', icon: Flag },
     { id: 'resources', label: 'Resources', icon: Package },
-    { id: 'diplomacy', label: 'Diplomacy', icon: Globe }
+    { id: 'diplomacy', label: 'Diplomacy', icon: Globe },
+    { id: 'system', label: 'System', icon: Lightning }
   ];
 
   return (
@@ -405,6 +407,12 @@ export function GameDashboard({
                 )}
               </CardContent>
             </Card>
+          </div>
+        )}
+
+        {selectedTab === 'system' && (
+          <div className="space-y-4">
+            <GameDataSummary />
           </div>
         )}
       </ScrollArea>

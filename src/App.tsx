@@ -21,6 +21,7 @@ import { BoundaryDebugInfo } from './components/BoundaryDebugInfo';
 import { NaturalEarthValidator } from './components/NaturalEarthValidator';
 import { NaturalEarthStatus } from './components/NaturalEarthStatus';
 import { FinalSystemStatus } from './components/FinalSystemStatus';
+import { SystemTest } from './components/SystemTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -284,6 +285,9 @@ function App() {
           <div className="mt-4">
             <NaturalEarthStatus />
           </div>
+          <div className="mt-4">
+            <SystemTest />
+          </div>
         </div>
       </div>
     );
@@ -320,6 +324,17 @@ function App() {
               onProvinceSelect={selectProvince}
               onOverlayChange={setMapOverlay}
             />
+            
+            {/* System Status Debug Overlay (top-right) */}
+            <div className="absolute top-4 right-4 bg-card/90 backdrop-blur border rounded-lg p-3 text-xs space-y-1">
+              <div className="font-medium">System Status</div>
+              <div>Nations: {Array.isArray(nations) ? nations.length : 0}</div>
+              <div>Provinces: {Array.isArray(provinces) ? provinces.length : 0}</div>
+              <div>Initialized: {isInitialized ? '✅' : '❌'}</div>
+              <div>Selected: {selectedNation?.name || 'None'}</div>
+              <div>Game Time: {gameState?.currentDate || 'N/A'}</div>
+              <div>Paused: {gameState?.isPaused ? '⏸️' : '▶️'}</div>
+            </div>
           </div>
 
           {/* Right Sidebar - Province Info (when selected) */}
