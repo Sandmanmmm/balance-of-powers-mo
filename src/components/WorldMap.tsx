@@ -12,7 +12,8 @@ import {
   Users,
   TrendUp,
   Shield,
-  Lightning
+  Lightning,
+  ArrowsOut
 } from '@phosphor-icons/react';
 import { Province, MapOverlayType } from '../lib/types';
 import { cn } from '../lib/utils';
@@ -218,6 +219,12 @@ export function WorldMap({
   const [hoveredProvince, setHoveredProvince] = useState<string | null>(null);
   const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
   const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>('overview');
+  
+  // Pan/drag state
+  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [dragStartOffset, setDragStartOffset] = useState({ x: 0, y: 0 });
 
   // Load Natural Earth country boundaries
   useEffect(() => {
@@ -681,6 +688,11 @@ export function WorldMap({
     setZoomLevel(prev => Math.max(prev - 0.2, 0.5));
   }, []);
 
+  const handleResetView = useCallback(() => {
+    setZoomLevel(1);
+    setPanOffset({ x: 0, y: 0 });
+  }, []);
+
   const handleProvinceClick = useCallback((provinceId: string) => {
     onProvinceSelect(selectedProvince === provinceId ? undefined : provinceId);
   }, [selectedProvince, onProvinceSelect]);
@@ -688,6 +700,43 @@ export function WorldMap({
   const handleProvinceHover = useCallback((provinceId: string | null) => {
     setHoveredProvince(provinceId);
   }, []);
+
+  // Pan/drag handlers
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (e.button === 0) { // Left mouse button only
+      setIsDragging(true);
+      setDragStart({ x: e.clientX, y: e.clientY });
+      setDragStartOffset({ x: panOffset.x, y: panOffset.y });
+      e.preventDefault();
+    }
+  }, [panOffset]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (isDragging) {
+      const deltaX = e.clientX - dragStart.x;
+      const deltaY = e.clientY - dragStart.y;
+      
+      setPanOffset({
+        x: dragStartOffset.x + deltaX,
+        y: dragStartOffset.y + deltaY
+      });
+    }
+  }, [isDragging, dragStart, dragStartOffset]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  // Reset pan when zoom changes significantly
+  useEffect(() => {
+    if (zoomLevel === 1) {
+      setPanOffset({ x: 0, y: 0 });
+    }
+  }, [zoomLevel]);
 
   const handleUpgradeRegion = useCallback(async (countryCode: string) => {
     const nextDetailLevel: DetailLevel = 
@@ -736,6 +785,14 @@ export function WorldMap({
               disabled={zoomLevel <= 0.5}
             >
               <MagnifyingGlassMinus size={16} />
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleResetView}
+              title="Reset View"
+            >
+              <ArrowsOut size={16} />
             </Button>
           </div>
           <div className="text-xs text-muted-foreground mt-1 text-center">
@@ -824,7 +881,15 @@ export function WorldMap({
       {/* Map Container */}
       <div 
         className="w-full h-full relative"
-        style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center' }}
+        style={{ 
+          transform: `scale(${zoomLevel}) translate(${panOffset.x / zoomLevel}px, ${panOffset.y / zoomLevel}px)`, 
+          transformOrigin: 'center center',
+          cursor: isDragging ? 'grabbing' : 'grab'
+        }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
       >
         {/* Interactive Province Map */}
         <svg
@@ -917,7 +982,7 @@ export function WorldMap({
                   className="cursor-pointer transition-all duration-200"
                   onClick={() => {
                     // Allow clicking on any valid feature - prioritize province data, but also show country info
-                    if (provinceId) {
+                    if (provinceId && !isDragging) {
                       handleProvinceClick(provinceId);
                     }
                   }}
@@ -930,46 +995,310 @@ export function WorldMap({
                   }}
                 />
                 
-                {/* Province label (visible when zoomed in or selected) */}
-                {(zoomLevel > 1.2 || isSelected || isHovered) && (
-                  <g>
-                    {/* Text shadow for better readability */}
-                    <text
-                      x={labelX}
-                      y={labelY}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      className="pointer-events-none"
-                      style={{ 
-                        fontSize: isSelected ? '14px' : '12px',
-                        fontWeight: isSelected ? 'bold' : 'normal',
-                        fill: '#ffffff',
-                        stroke: '#ffffff',
-                        strokeWidth: '2px',
-                        strokeOpacity: 0.8
-                      }}
-                    >
-                      {displayName}
-                    </text>
-                    {/* Main text */}
-                    <text
-                      x={labelX}
-                      y={labelY}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      className={cn(
-                        "font-medium pointer-events-none",
-                        isSelected ? "fill-primary" : "fill-foreground"
-                      )}
-                      style={{ 
-                        fontSize: isSelected ? '14px' : '12px',
-                        fontWeight: isSelected ? 'bold' : 'normal'
-                      }}
-                    >
-                      {displayName}
-                    </text>
-                  </g>
-                )}
+                {/* Province label (visible when zoomed in, selected, or hovered when zoomed out) */}
+                {(zoomLevel > 1.2 || isSelected || (zoomLevel <= 1.2 && isHovered)) && (() => {
+                  // Calculate the area of the country/province to determine appropriate text size
+                  let approximateArea = 0;
+                  let boundingBox = { width: 0, height: 0 };
+                  
+                  try {
+                    if (feature.geometry.type === 'Polygon') {
+                      // Simple area calculation for polygon
+                      const coords = feature.geometry.coordinates[0];
+                      approximateArea = Math.abs(coords.reduce((acc, coord, i) => {
+                        const next = coords[(i + 1) % coords.length];
+                        return acc + (coord[0] * next[1] - next[0] * coord[1]);
+                      }, 0) / 2);
+                      
+                      // Calculate bounding box for text fitting
+                      const lons = coords.map(c => c[0]);
+                      const lats = coords.map(c => c[1]);
+                      const minLon = Math.min(...lons);
+                      const maxLon = Math.max(...lons);
+                      const minLat = Math.min(...lats);
+                      const maxLat = Math.max(...lats);
+                      
+                      // Convert to screen coordinates to get pixel dimensions
+                      const [x1, y1] = projectCoordinates(minLon, minLat, projectionConfig);
+                      const [x2, y2] = projectCoordinates(maxLon, maxLat, projectionConfig);
+                      boundingBox = {
+                        width: Math.abs(x2 - x1),
+                        height: Math.abs(y2 - y1)
+                      };
+                      
+                    } else if (feature.geometry.type === 'MultiPolygon') {
+                      // Sum areas of all polygons and find overall bounding box
+                      let allLons: number[] = [];
+                      let allLats: number[] = [];
+                      
+                      approximateArea = feature.geometry.coordinates.reduce((total, polygon) => {
+                        const coords = polygon[0];
+                        const polyArea = Math.abs(coords.reduce((acc, coord, i) => {
+                          const next = coords[(i + 1) % coords.length];
+                          return acc + (coord[0] * next[1] - next[0] * coord[1]);
+                        }, 0) / 2);
+                        
+                        // Collect all coordinates for bounding box
+                        allLons.push(...coords.map(c => c[0]));
+                        allLats.push(...coords.map(c => c[1]));
+                        
+                        return total + polyArea;
+                      }, 0);
+                      
+                      // Calculate overall bounding box
+                      if (allLons.length > 0) {
+                        const minLon = Math.min(...allLons);
+                        const maxLon = Math.max(...allLons);
+                        const minLat = Math.min(...allLats);
+                        const maxLat = Math.max(...allLats);
+                        
+                        const [x1, y1] = projectCoordinates(minLon, minLat, projectionConfig);
+                        const [x2, y2] = projectCoordinates(maxLon, maxLat, projectionConfig);
+                        boundingBox = {
+                          width: Math.abs(x2 - x1),
+                          height: Math.abs(y2 - y1)
+                        };
+                      }
+                    }
+                  } catch (error) {
+                    console.warn('Error calculating area for', provinceId, error);
+                  }
+
+                  // Calculate responsive font size based on both zoom level and country size
+                  const baseFontSize = isSelected ? 14 : 12;
+                  
+                  // When fully zoomed out and hovering, use uniform size for all countries
+                  let initialFontSize: number;
+                  if (zoomLevel <= 1.2 && isHovered && !isSelected) {
+                    // Uniform size for all countries when zoomed out and hovering
+                    initialFontSize = 10;
+                  } else {
+                    // Area-based scaling factor (adjust these thresholds based on your coordinate system)
+                    let areaScale = 1;
+                    if (approximateArea > 10000) {
+                      areaScale = 1.2; // Large countries get bigger text
+                    } else if (approximateArea > 1000) {
+                      areaScale = 1.0; // Medium countries keep normal text
+                    } else if (approximateArea > 100) {
+                      areaScale = 0.8; // Small countries get smaller text
+                    } else if (approximateArea > 10) {
+                      areaScale = 0.6; // Very small countries get much smaller text
+                    } else {
+                      areaScale = 0.4; // Tiny countries get minimal text
+                    }
+                    
+                    // Combine zoom-based and area-based scaling
+                    const zoomScale = 1 / zoomLevel;
+                    initialFontSize = Math.max(2, Math.min(20, baseFontSize * areaScale * zoomScale));
+                  }
+                  
+                  // Get display name and create shortened versions
+                  const fullName = province?.name || feature.properties?.name || feature.properties?.country || provinceId;
+                  const nameVariations = [
+                    fullName,
+                    fullName.length > 15 ? fullName.substring(0, 12) + '...' : fullName,
+                    fullName.length > 10 ? fullName.substring(0, 8) + '...' : fullName,
+                    fullName.length > 6 ? fullName.substring(0, 4) + '...' : fullName,
+                    fullName.substring(0, 3), // Just first 3 characters
+                  ].filter((name, index, arr) => arr.indexOf(name) === index); // Remove duplicates
+                  
+                  // Function to estimate text dimensions (approximate)
+                  const estimateTextDimensions = (text: string, fontSize: number, rotation = 0) => {
+                    const avgCharWidth = fontSize * 0.6; // Rough approximation
+                    const textHeight = fontSize * 1.2; // Include line height
+                    
+                    // Base dimensions
+                    const baseWidth = text.length * avgCharWidth;
+                    const baseHeight = textHeight;
+                    
+                    // If rotated, calculate rotated bounding box
+                    if (rotation !== 0) {
+                      const radians = (rotation * Math.PI) / 180;
+                      const cos = Math.abs(Math.cos(radians));
+                      const sin = Math.abs(Math.sin(radians));
+                      
+                      // Rotated bounding box dimensions
+                      return {
+                        width: baseWidth * cos + baseHeight * sin,
+                        height: baseWidth * sin + baseHeight * cos
+                      };
+                    }
+                    
+                    return {
+                      width: baseWidth,
+                      height: baseHeight
+                    };
+                  };
+                  
+                  // Find the best fitting text, font size, and rotation
+                  let finalDisplayName = '';
+                  let finalFontSize = initialFontSize;
+                  let finalRotation = 0;
+                  let fits = false;
+                  
+                  // When zoomed out and hovering, use simple uniform display without sophisticated fitting
+                  if (zoomLevel <= 1.2 && isHovered && !isSelected) {
+                    // Simple uniform display - just use the full name with uniform size and no rotation
+                    finalDisplayName = fullName;
+                    finalFontSize = initialFontSize; // Keep uniform 10px size
+                    finalRotation = 0; // No rotation when zoomed out
+                    fits = true;
+                  } else {
+                    // Use sophisticated fitting algorithm when zoomed in or selected
+                    // Determine optimal rotation based on bounding box aspect ratio
+                    const aspectRatio = boundingBox.width / boundingBox.height;
+                    
+                    // More comprehensive rotation options for better fitting
+                    let possibleRotations: number[] = [];
+                    
+                    if (aspectRatio > 3) {
+                      // Very wide countries: try small incremental angles only
+                      possibleRotations = [0, 5, -5, 8, -8, 12, -12, 15, -15];
+                    } else if (aspectRatio > 2) {
+                      // Wide countries: try small to moderate rotations
+                      possibleRotations = [0, 8, -8, 15, -15, 20, -20, 25, -25];
+                    } else if (aspectRatio > 1.5) {
+                      // Moderately wide countries: small angles first
+                      possibleRotations = [0, 10, -10, 18, -18, 25, -25, 30, -30];
+                    } else if (aspectRatio < 0.3) {
+                      // Very tall countries: prioritize vertical orientations
+                      possibleRotations = [90, -90, 75, -75, 60, -60, 0];
+                    } else if (aspectRatio < 0.6) {
+                      // Tall countries: try vertical first, then moderate angles
+                      possibleRotations = [90, -90, 70, -70, 45, -45, 0];
+                    } else {
+                      // Square-ish countries: conservative angle testing
+                      possibleRotations = [0, 10, -10, 20, -20, 30, -30, 45, -45];
+                    }
+                    
+                    // Add special handling for specific countries that need unique rotations
+                    const countryName = feature.properties?.NAME || feature.properties?.ADMIN || '';
+                    if (countryName.includes('Uzbekistan')) {
+                      // Uzbekistan has a unique shape - try more diagonal angles (keep what works)
+                      possibleRotations = [22, -22, 35, -35, 15, -15, 30, -30, 0];
+                    } else if (countryName.includes('Kazakhstan')) {
+                      // Kazakhstan is very wide - try very small angles only
+                      possibleRotations = [0, 5, -5, 8, -8, 12, -12];
+                    } else if (countryName.includes('Mongolia')) {
+                      // Mongolia is wide but compact - try small to moderate angles
+                      possibleRotations = [0, 10, -10, 18, -18, 25, -25];
+                    } else if (countryName.includes('Chile')) {
+                      // Chile is very tall - prioritize vertical text
+                      possibleRotations = [90, -90, 75, -75, 0];
+                    } else if (countryName.includes('Norway') || countryName.includes('Sweden') || countryName.includes('Finland')) {
+                      // Scandinavian countries are tall - rotate opposite direction for better fit
+                      possibleRotations = [-60, -45, -30, -75, -15, 0, 60, 45, 30];
+                    } else if (countryName.includes('Turkey')) {
+                      // Turkey is wide - try small angles
+                      possibleRotations = [0, 8, -8, 15, -15, 20, -20];
+                    } else if (countryName.includes('Italy')) {
+                      // Italy is tall and diagonal - try moderate angles
+                      possibleRotations = [45, -45, 30, -30, 15, -15, 0];
+                    }
+                    
+                    console.log(`🔄 Text rotation for ${countryName}: trying ${possibleRotations.length} angles:`, possibleRotations);
+                    
+                    // Try each name variation with different rotations
+                    outerLoop: for (const nameVariation of nameVariations) {
+                      for (const rotation of possibleRotations) {
+                        // Normal area-proportional sizing - try reducing font size until it fits
+                        for (let fontSize = initialFontSize; fontSize >= 2; fontSize -= 0.5) {
+                          const textDims = estimateTextDimensions(nameVariation, fontSize, rotation);
+                          
+                          // Check if text fits within bounding box (with some padding)
+                          const padding = 4; // pixels
+                          if (textDims.width <= (boundingBox.width - padding) && 
+                              textDims.height <= (boundingBox.height - padding)) {
+                            finalDisplayName = nameVariation;
+                            finalFontSize = fontSize;
+                            finalRotation = rotation;
+                            fits = true;
+                            
+                            // Debug logging for successful fits
+                            if (rotation !== 0) {
+                              console.log(`✅ ${countryName}: Found fit with rotation ${rotation}°, font ${fontSize}px, text "${nameVariation}"`);
+                            }
+                            
+                            break outerLoop;
+                          }
+                        }
+                      }
+                    }
+                    
+                    // Fallback for sophisticated fitting: use shortest name with minimum font size
+                    if (!fits) {
+                      finalDisplayName = nameVariations[nameVariations.length - 1];
+                      finalFontSize = 2; // Minimum size for area-proportional mode
+                      finalRotation = 0;
+                    }
+                  }
+                  
+                  // If nothing fits, don't show text for very small countries (only for sophisticated fitting)
+                  if (!fits && zoomLevel > 1.2 && (boundingBox.width < 20 || boundingBox.height < 15)) {
+                    return null; // Don't render text for tiny countries when zoomed in
+                  }
+                  
+                  // Calculate stroke width - use uniform scaling when zoomed out and hovering
+                  let strokeWidth: number;
+                  if (zoomLevel <= 1.2 && isHovered && !isSelected) {
+                    strokeWidth = 0.5; // Uniform stroke width when zoomed out and hovering
+                  } else {
+                    // Calculate areaScale for stroke width
+                    let areaScale = 1;
+                    if (approximateArea > 10000) {
+                      areaScale = 1.2;
+                    } else if (approximateArea > 1000) {
+                      areaScale = 1.0;
+                    } else if (approximateArea > 100) {
+                      areaScale = 0.8;
+                    } else if (approximateArea > 10) {
+                      areaScale = 0.6;
+                    } else {
+                      areaScale = 0.4;
+                    }
+                    strokeWidth = Math.max(0.3, (2 * areaScale) / zoomLevel);
+                  }
+                  
+                  return (
+                    <g transform={`translate(${labelX}, ${labelY}) rotate(${finalRotation})`}>
+                      {/* Text shadow for better readability */}
+                      <text
+                        x={0}
+                        y={0}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        className="pointer-events-none"
+                        style={{ 
+                          fontSize: `${finalFontSize}px`,
+                          fontWeight: isSelected ? 'bold' : 'normal',
+                          fill: '#ffffff',
+                          stroke: '#ffffff',
+                          strokeWidth: `${strokeWidth}px`,
+                          strokeOpacity: 0.8
+                        }}
+                      >
+                        {finalDisplayName}
+                      </text>
+                      {/* Main text */}
+                      <text
+                        x={0}
+                        y={0}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        className={cn(
+                          "font-medium pointer-events-none",
+                          isSelected ? "fill-primary" : "fill-foreground"
+                        )}
+                        style={{ 
+                          fontSize: `${finalFontSize}px`,
+                          fontWeight: isSelected ? 'bold' : 'normal'
+                        }}
+                      >
+                        {finalDisplayName}
+                      </text>
+                    </g>
+                  );
+                })()}
               </g>
             );
               } catch (error) {
