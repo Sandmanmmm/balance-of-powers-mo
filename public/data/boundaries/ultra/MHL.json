@@ -174,7 +174,8 @@
       "FCLASS_SE",
       "FCLASS_BD",
       "FCLASS_UA"
-    ]
+    ],
+    "updated": "2025-08-02T04:53:40.077Z"
   },
   "features": [
     {
@@ -309,7 +310,7 @@
         "NAME_RU": "Маршалловы Острова",
         "NAME_SV": "Marshallöarna",
         "NAME_TR": "Marshall Adaları",
-        "NAME_UK": "Маршаллові Острови",
+        "NAME_UK": "Маршаллові Остр��ви",
         "NAME_UR": "جزائر مارشل",
         "NAME_VI": "Quần đảo Marshall",
         "NAME_ZH": "马绍尔群岛",

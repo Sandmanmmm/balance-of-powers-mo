@@ -4,6 +4,7 @@ import { Province, MapOverlayType } from '../lib/types';
 import { GeoJSONFeature } from '../types/geo';
 import { geoManager } from '../managers/GeographicDataManager';
 import { DetailLevel } from '../types/geo';
+import { ProvinceLoadingTest } from './ProvinceLoadingTest';
 
 interface WorldMapWebGLProps {
   provinces: Province[];
@@ -372,7 +373,10 @@ function createWorldCopy(
   hoveredCountry: string | null,
   borderHighlightRef: React.MutableRefObject<PIXI.Graphics | null>,
   provinceBoundariesData: any,
-  copyLabel: string = ""
+  copyLabel: string = "",
+  setProvinceDetailBoundaries: React.Dispatch<React.SetStateAction<Record<string, any>>>,
+  setSelectedCountryForProvinces: React.Dispatch<React.SetStateAction<string | null>>,
+  currentDetailLevel: DetailLevel
 ): PIXI.Graphics {
   const graphics = new PIXI.Graphics();
   
@@ -398,10 +402,63 @@ function createWorldCopy(
   graphics.cursor = 'pointer';
   
   // Add click handler
-  graphics.on('pointerdown', () => {
+  graphics.on('pointerdown', async () => {
     const provinceId = featureId || countryName || feature.properties?.name;
     console.log(`🖱️ Clicked on province${copyLabel}: ${provinceId}`);
-    onProvinceSelect(provinceId);
+    
+    // If clicking on a country, try to load its province boundaries
+    const countryCode = feature.properties?.ISO_A3 || feature.properties?.id;
+    if (countryCode && countryName) {
+      console.log(`🗺️ Attempting to load province boundaries for ${countryName} (${countryCode})`);
+      
+      try {
+        // Use consistent casing for the key - always uppercase for storage
+        const storageKey = countryCode.toUpperCase();
+        const loadKey = countryCode.toLowerCase(); // File paths are lowercase
+        
+        console.log(`🔑 Storage key: ${storageKey}, Load key: ${loadKey}`);
+        
+        // Try to load province boundaries for this country
+        const provinceData = await geoManager.loadRegion(loadKey, currentDetailLevel);
+        
+        console.log(`📊 Province data result:`, {
+          hasData: !!provinceData,
+          keyCount: provinceData ? Object.keys(provinceData).length : 0,
+          sampleKeys: provinceData ? Object.keys(provinceData).slice(0, 3) : []
+        });
+        
+        if (provinceData && Object.keys(provinceData).length > 0) {
+          console.log(`✅ Loaded ${Object.keys(provinceData).length} provinces for ${countryName}`);
+          console.log(`📝 Province IDs:`, Object.keys(provinceData));
+          
+          // Update state to show this country's provinces - use consistent uppercase key
+          setProvinceDetailBoundaries(prev => {
+            const newState = {
+              ...prev,
+              [storageKey]: provinceData
+            };
+            console.log(`💾 Updated provinceDetailBoundaries:`, Object.keys(newState));
+            return newState;
+          });
+          
+          setSelectedCountryForProvinces(storageKey);
+          console.log(`🎯 Set selectedCountryForProvinces to: ${storageKey}`);
+          
+          // Also notify the parent about the province selection
+          onProvinceSelect(storageKey);
+        } else {
+          console.log(`ℹ️ No province data available for ${countryName}, treating as single province`);
+          onProvinceSelect(provinceId);
+        }
+      } catch (error) {
+        console.warn(`⚠️ Failed to load province boundaries for ${countryName}:`, error);
+        // Fall back to treating country as a single province
+        onProvinceSelect(provinceId);
+      }
+    } else {
+      // For individual provinces or countries without ISO codes
+      onProvinceSelect(provinceId);
+    }
   });
   
   // Add hover effects with border highlighting
@@ -453,6 +510,98 @@ function createWorldCopy(
   return graphics;
 }
 
+/**
+ * Renders province boundaries on top of country boundaries
+ */
+function renderProvinceBoundaries(
+  provinceData: Record<string, GeoJSONFeature>,
+  worldContainer: PIXI.Container,
+  app: PIXI.Application,
+  zoomLevel: number,
+  zoomCenter: { x: number; y: number },
+  selectedProvince: string | undefined,
+  onProvinceSelect: (provinceId: string | undefined) => void
+) {
+  console.log(`🏛️ Rendering ${Object.keys(provinceData).length} provinces`);
+  console.log(`🏛️ Province IDs:`, Object.keys(provinceData));
+  console.log(`🏛️ Container children before adding provinces:`, worldContainer.children.length);
+  
+  const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
+  const worldWidth = 360 * baseScale;
+  
+  let totalProvincesAdded = 0;
+  
+  // Render provinces for each world copy (left, center, right)
+  [-worldWidth, 0, worldWidth].forEach((offsetX, copyIndex) => {
+    const copyLabel = copyIndex === 0 ? " (left)" : copyIndex === 1 ? " (center)" : " (right)";
+    
+    Object.entries(provinceData).forEach(([provinceId, province]) => {
+      console.log(`🎨 Creating province graphics for ${provinceId}${copyLabel}`);
+      
+      const graphics = new PIXI.Graphics();
+      
+      // Check if this province is selected
+      const isSelected = selectedProvince === provinceId || selectedProvince === province.properties?.name;
+      
+      // Different styling for provinces vs countries - make them MUCH more visible!
+      const fillColor = isSelected ? 0xff4444 : 0x90EE90; // Light green for provinces, bright red for selected
+      const strokeColor = 0x000000; // Black border for maximum contrast
+      const strokeWidth = isSelected ? 4 : 3; // Even thicker borders for visibility
+      
+      console.log(`🎨 Styling province ${provinceId}: fill=${fillColor.toString(16)}, stroke=${strokeColor.toString(16)}, width=${strokeWidth}`);
+      
+      // Draw the province
+      drawProvinceFeature(
+        province,
+        graphics,
+        fillColor,
+        app.screen.width,
+        app.screen.height,
+        offsetX,
+        zoomLevel,
+        zoomCenter,
+        0
+      );
+      
+      // Add border with enhanced visibility
+      graphics.lineStyle(strokeWidth, strokeColor, 1);
+      
+      // Set full opacity for maximum visibility
+      graphics.alpha = 1.0;
+      
+      // Make interactive
+      graphics.eventMode = 'static';
+      graphics.cursor = 'pointer';
+      
+      // Add click handler for provinces
+      graphics.on('pointerdown', (event) => {
+        // Stop propagation to prevent country click
+        event.stopPropagation();
+        console.log(`🏛️ Clicked on province${copyLabel}: ${provinceId}`);
+        onProvinceSelect(provinceId);
+      });
+      
+      // Add hover effects
+      graphics.on('pointerover', () => {
+        graphics.tint = 0xdddddd;
+        console.log(`🏛️ Hovering province${copyLabel}: ${provinceId}`);
+      });
+      
+      graphics.on('pointerout', () => {
+        graphics.tint = 0xffffff;
+      });
+      
+      worldContainer.addChild(graphics);
+      totalProvincesAdded++;
+      
+      console.log(`✅ Added province ${provinceId}${copyLabel} to container (total: ${totalProvincesAdded})`);
+    });
+  });
+  
+  console.log(`🏛️ Final result: ${totalProvincesAdded} total province graphics added to container`);
+  console.log(`🏛️ Container children after adding provinces:`, worldContainer.children.length);
+}
+
 export function WorldMapWebGL({
   provinces,
   selectedProvince,
@@ -466,6 +615,8 @@ export function WorldMapWebGL({
   const worldContainerRef = useRef<PIXI.Container | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
   const [provinceBoundariesData, setProvinceBoundariesData] = useState<any>(null);
+  const [provinceDetailBoundaries, setProvinceDetailBoundaries] = useState<Record<string, any>>({});
+  const [selectedCountryForProvinces, setSelectedCountryForProvinces] = useState<string | null>(null);
   const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>(detailLevel);
   const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -477,6 +628,13 @@ export function WorldMapWebGL({
   const zoomLevelRef = useRef(1);
   const panOffsetRef = useRef({ x: 0, y: 0 });
   const isDraggingRef = useRef(false);
+
+  // Debug hook
+  useEffect(() => {
+    (window as any).testProvinceURL = (countryCode: string, detailLevel: string) => {
+      geoManager.testProvinceURL(countryCode, detailLevel as DetailLevel);
+    };
+  }, []);
   const lastPointerRef = useRef({ x: 0, y: 0 });
   const animationFrameRef = useRef<number | null>(null);
   const pendingUpdateRef = useRef(false);
@@ -487,6 +645,19 @@ export function WorldMapWebGL({
       setCurrentDetailLevel(detailLevel);
     }
   }, [detailLevel, currentDetailLevel]);
+
+  // Clear province cache when quality level changes and reload provinces
+  useEffect(() => {
+    if (selectedCountryForProvinces) {
+      // Clear cached province data to force reload with new quality
+      geoManager.clearProvinceCache(selectedCountryForProvinces);
+      
+      // Reset province detail boundaries to force reload
+      setProvinceDetailBoundaries({});
+      
+      console.log(`🔄 Quality changed to ${currentDetailLevel}, clearing province cache for ${selectedCountryForProvinces}`);
+    }
+  }, [currentDetailLevel, selectedCountryForProvinces]);
 
   // Sync zoom level ref
   useEffect(() => {
@@ -539,7 +710,8 @@ export function WorldMapWebGL({
 
         worldContainer.eventMode = 'static';
         // Expand hit area to cover all three world copies (left, center, right)
-        const worldWidth = app.screen.width * 1.0;
+        const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
+        const worldWidth = 360 * baseScale; // Match the coordinate transformation scale
         worldContainer.hitArea = new PIXI.Rectangle(-worldWidth, 0, worldWidth * 3, app.screen.height);
 
         worldContainer.on('pointerup', () => {
@@ -578,8 +750,9 @@ export function WorldMapWebGL({
               
               animationFrameRef.current = requestAnimationFrame(() => {
                 if (worldContainerRef.current) {
-                  // Apply infinite scrolling wrap-around with exact screen width
-                  const worldWidth = app.screen.width * 1.0; // Match the rendering world width
+                  // Apply infinite scrolling wrap-around with coordinate-based world width
+                  const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
+                  const worldWidth = 360 * baseScale; // Match the coordinate transformation scale
                   let wrappedX = panOffsetRef.current.x;
                   
                   // Wrap horizontally when container moves too far
@@ -787,8 +960,9 @@ export function WorldMapWebGL({
     }
     setHoveredCountry(null);
 
-    // Calculate world width for infinite scrolling - exact screen width for seamless connection
-    const worldWidth = app.screen.width * 1.0; // Exactly screen width to connect without gaps or overlap
+    // Calculate world width for infinite scrolling based on coordinate system
+    const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
+    const worldWidth = 360 * baseScale; // Match the coordinate transformation scale
 
     // Loop through provinceBoundariesData.features and render each one with infinite scrolling
     provinceBoundariesData.features.forEach((feature: GeoJSONFeature, index: number) => {
@@ -801,7 +975,8 @@ export function WorldMapWebGL({
         const centerGraphics = createWorldCopy(
           feature, worldContainer, app, 0, zoomLevel, zoomCenter, 
           selectedProvince, onProvinceSelect, setHoveredCountry, hoveredCountry,
-          borderHighlightRef, provinceBoundariesData, " (center)"
+          borderHighlightRef, provinceBoundariesData, " (center)",
+          setProvinceDetailBoundaries, setSelectedCountryForProvinces, currentDetailLevel
         );
         worldContainer.addChild(centerGraphics);
         
@@ -809,7 +984,8 @@ export function WorldMapWebGL({
         const leftGraphics = createWorldCopy(
           feature, worldContainer, app, -worldWidth, zoomLevel, zoomCenter,
           selectedProvince, onProvinceSelect, setHoveredCountry, hoveredCountry,
-          borderHighlightRef, provinceBoundariesData, " (left)"
+          borderHighlightRef, provinceBoundariesData, " (left)",
+          setProvinceDetailBoundaries, setSelectedCountryForProvinces, currentDetailLevel
         );
         worldContainer.addChild(leftGraphics);
         
@@ -817,7 +993,8 @@ export function WorldMapWebGL({
         const rightGraphics = createWorldCopy(
           feature, worldContainer, app, worldWidth, zoomLevel, zoomCenter,
           selectedProvince, onProvinceSelect, setHoveredCountry, hoveredCountry,
-          borderHighlightRef, provinceBoundariesData, " (right)"
+          borderHighlightRef, provinceBoundariesData, " (right)",
+          setProvinceDetailBoundaries, setSelectedCountryForProvinces, currentDetailLevel
         );
         worldContainer.addChild(rightGraphics);
         
@@ -841,17 +1018,51 @@ export function WorldMapWebGL({
 
     console.log(`✅ PixiJS: Completed real-time infinite scrolling rendering - ${provinceBoundariesData.features.length} countries × 3 copies = ${provinceBoundariesData.features.length * 3} total graphics (selected: ${selectedProvince || 'none'})`);
     
-  }, [isInitialized, provinceBoundariesData, selectedProvince, zoomLevel, zoomCenter, panOffset]);
+    // Update hit area to match the coordinate-based world width
+    if (worldContainer && app) {
+      const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
+      const worldWidth = 360 * baseScale;
+      worldContainer.hitArea = new PIXI.Rectangle(-worldWidth, 0, worldWidth * 3, app.screen.height);
+      console.log(`🎯 Updated hit area: width=${worldWidth * 3}, positions: ${-worldWidth} to ${worldWidth * 2}`);
+    }
+    
+    // Render province boundaries for selected country
+    console.log(`🔍 Checking province rendering conditions:`);
+    console.log(`  selectedCountryForProvinces: ${selectedCountryForProvinces}`);
+    console.log(`  provinceDetailBoundaries keys: [${Object.keys(provinceDetailBoundaries).join(', ')}]`);
+    console.log(`  Has data for selected country: ${selectedCountryForProvinces ? !!provinceDetailBoundaries[selectedCountryForProvinces] : false}`);
+    
+    if (selectedCountryForProvinces && provinceDetailBoundaries[selectedCountryForProvinces]) {
+      console.log(`🏛️ Rendering province boundaries for ${selectedCountryForProvinces}`);
+      console.log(`🏛️ Province data:`, provinceDetailBoundaries[selectedCountryForProvinces]);
+      renderProvinceBoundaries(
+        provinceDetailBoundaries[selectedCountryForProvinces],
+        worldContainer,
+        app,
+        zoomLevel,
+        zoomCenter,
+        selectedProvince,
+        onProvinceSelect
+      );
+    }
+    
+  }, [isInitialized, provinceBoundariesData, selectedProvince, zoomLevel, zoomCenter, panOffset, selectedCountryForProvinces, provinceDetailBoundaries]);
 
   // Handle window resize
   const handleResize = useCallback(() => {
-    if (!appRef.current || !containerRef.current) return;
+    if (!appRef.current || !containerRef.current || !worldContainerRef.current) return;
 
     const newWidth = containerRef.current.clientWidth;
     const newHeight = containerRef.current.clientHeight;
 
     appRef.current.renderer.resize(newWidth, newHeight);
-    console.log(`🔄 PixiJS resized to: ${newWidth}x${newHeight}`);
+    
+    // Update hit area after resize to match new coordinate-based world width
+    const baseScale = Math.min(newWidth / 360, newHeight / 180);
+    const worldWidth = 360 * baseScale;
+    worldContainerRef.current.hitArea = new PIXI.Rectangle(-worldWidth, 0, worldWidth * 3, newHeight);
+    
+    console.log(`🔄 PixiJS resized to: ${newWidth}x${newHeight}, updated hit area to world width: ${worldWidth.toFixed(0)}`);
   }, []);
 
   // Set up resize listener
@@ -885,6 +1096,9 @@ export function WorldMapWebGL({
 
   return (
     <div className="relative w-full h-full bg-slate-50 overflow-hidden">
+      {/* Province Loading Test Component */}
+      <ProvinceLoadingTest />
+
       {/* Loading state */}
       {!isInitialized && (
         <div className="absolute inset-0 flex items-center justify-center z-20">
@@ -912,16 +1126,21 @@ export function WorldMapWebGL({
             <div>PixiJS WebGL Renderer</div>
             <div>Countries: {provinceBoundariesData?.features?.length || 0}</div>
             <div>Graphics: {(provinceBoundariesData?.features?.length || 0) * 3} (3× copies)</div>
-            <div>World Width: {appRef.current ? (appRef.current.screen.width * 1.0).toFixed(0) : 'N/A'}px</div>
+            <div>World Width: {appRef.current ? (360 * Math.min(appRef.current.screen.width / 360, appRef.current.screen.height / 180)).toFixed(0) : 'N/A'}px (coordinate-based)</div>
+            <div>Screen Width: {appRef.current ? appRef.current.screen.width.toFixed(0) : 'N/A'}px</div>
             <div>Detail: {currentDetailLevel}</div>
             <div>Provinces: {provinces.length}</div>
             <div>Overlay: {mapOverlay}</div>
             <div>Selected: {selectedProvince || 'None'}</div>
             <div>Hovered: {hoveredCountry || 'None'}</div>
+            <div>Country w/ Provinces: {selectedCountryForProvinces || 'None'}</div>
+            <div>Province Data: {Object.keys(provinceDetailBoundaries).length} countries loaded</div>
             <div>Pan: ({Math.round(panOffset.x)}, {Math.round(panOffset.y)})</div>
             <div>Zoom: {zoomLevel.toFixed(2)}x</div>
             <div>{isDragging ? 'Dragging...' : 'Ready'}</div>
-            <div>🌍 Infinite Scrolling: Active</div>
+            <div>� Hit Area: {worldContainerRef.current?.hitArea ? 
+              `Hit Area Active` : 'None'}</div>
+            <div>�🌍 Infinite Scrolling: Active</div>
             <div>🔴 🟢 🔵 World Markers: Visible</div>
           </div>
         </div>
@@ -930,22 +1149,56 @@ export function WorldMapWebGL({
       {/* Map Controls */}
       <div className="absolute top-4 right-4 z-10">
         <div className="bg-white/90 p-2 rounded shadow">
-          <div className="text-sm font-medium mb-2">WebGL Controls</div>
+          <div className="text-sm font-medium mb-2">Quality Level: {currentDetailLevel}</div>
           <div className="space-y-1">
             <button 
-              className="block w-full text-left px-2 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600"
-              onClick={() => setCurrentDetailLevel('detailed')}
-              disabled={currentDetailLevel === 'detailed'}
+              className={`block w-full text-left px-2 py-1 text-xs rounded ${
+                currentDetailLevel === 'low' 
+                  ? 'bg-gray-400 text-white cursor-not-allowed' 
+                  : 'bg-green-500 text-white hover:bg-green-600'
+              }`}
+              onClick={() => setCurrentDetailLevel('low')}
+              disabled={currentDetailLevel === 'low'}
             >
-              Load Detailed
+              🔸 Low Quality (Fast)
             </button>
             <button 
-              className="block w-full text-left px-2 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600"
+              className={`block w-full text-left px-2 py-1 text-xs rounded ${
+                currentDetailLevel === 'overview' 
+                  ? 'bg-gray-400 text-white cursor-not-allowed' 
+                  : 'bg-blue-500 text-white hover:bg-blue-600'
+              }`}
               onClick={() => setCurrentDetailLevel('overview')}
               disabled={currentDetailLevel === 'overview'}
             >
-              Load Overview
+              🔹 Overview Quality
             </button>
+            <button 
+              className={`block w-full text-left px-2 py-1 text-xs rounded ${
+                currentDetailLevel === 'detailed' 
+                  ? 'bg-gray-400 text-white cursor-not-allowed' 
+                  : 'bg-blue-600 text-white hover:bg-blue-700'
+              }`}
+              onClick={() => setCurrentDetailLevel('detailed')}
+              disabled={currentDetailLevel === 'detailed'}
+            >
+              🔺 Detailed Quality
+            </button>
+            <button 
+              className={`block w-full text-left px-2 py-1 text-xs rounded ${
+                currentDetailLevel === 'ultra' 
+                  ? 'bg-gray-400 text-white cursor-not-allowed' 
+                  : 'bg-purple-500 text-white hover:bg-purple-600'
+              }`}
+              onClick={() => setCurrentDetailLevel('ultra')}
+              disabled={currentDetailLevel === 'ultra'}
+            >
+              🔶 Ultra Quality
+            </button>
+          </div>
+          
+          <div className="text-sm font-medium mt-3 mb-2">Map Controls</div>
+          <div className="space-y-1">
             <button 
               className="block w-full text-left px-2 py-1 text-xs bg-green-500 text-white rounded hover:bg-green-600"
               onClick={() => setPanOffset({ x: 0, y: 0 })}
@@ -977,6 +1230,16 @@ export function WorldMapWebGL({
               }}
             >
               Reset View
+            </button>
+            <button 
+              className="block w-full text-left px-2 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
+              onClick={() => {
+                setProvinceDetailBoundaries({});
+                setSelectedCountryForProvinces(null);
+                console.log('🧹 Cleared all province boundaries');
+              }}
+            >
+              Clear Provinces
             </button>
           </div>
           <div className="mt-2 text-xs text-gray-600">

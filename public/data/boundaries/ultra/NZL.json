@@ -174,7 +174,8 @@
       "FCLASS_SE",
       "FCLASS_BD",
       "FCLASS_UA"
-    ]
+    ],
+    "updated": "2025-08-02T04:53:40.025Z"
   },
   "features": [
     {
@@ -293,7 +294,7 @@
         "NAME_DE": "Neuseeland",
         "NAME_EN": "New Zealand",
         "NAME_ES": "Nueva Zelanda",
-        "NAME_FA": "نیوزیلند",
+        "NAME_FA": "نیو��یلند",
         "NAME_FR": "Nouvelle-Zélande",
         "NAME_EL": "Νέα Ζηλανδία",
         "NAME_HE": "ניו זילנד",

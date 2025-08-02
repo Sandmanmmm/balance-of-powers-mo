@@ -174,7 +174,8 @@
       "FCLASS_SE",
       "FCLASS_BD",
       "FCLASS_UA"
-    ]
+    ],
+    "updated": "2025-08-02T04:53:37.796Z"
   },
   "features": [
     {
@@ -301,7 +302,7 @@
         "NAME_HU": "Bissau-Guinea",
         "NAME_ID": "Guinea-Bissau",
         "NAME_IT": "Guinea-Bissau",
-        "NAME_JA": "ギニア��サウ",
+        "NAME_JA": "ギニアビサウ",
         "NAME_KO": "기니비사우",
         "NAME_NL": "Guinee-Bissau",
         "NAME_PL": "Gwinea Bissau",

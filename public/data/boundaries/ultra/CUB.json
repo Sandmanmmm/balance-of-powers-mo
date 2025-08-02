@@ -174,7 +174,8 @@
       "FCLASS_SE",
       "FCLASS_BD",
       "FCLASS_UA"
-    ]
+    ],
+    "updated": "2025-08-02T04:53:39.646Z"
   },
   "features": [
     {
@@ -289,7 +290,7 @@
         "NE_ID": 1159320527,
         "WIKIDATAID": "Q241",
         "NAME_AR": "كوبا",
-        "NAME_BN": "কিউব��",
+        "NAME_BN": "কিউবা",
         "NAME_DE": "Kuba",
         "NAME_EN": "Cuba",
         "NAME_ES": "Cuba",

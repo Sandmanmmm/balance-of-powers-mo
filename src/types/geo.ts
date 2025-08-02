@@ -1,4 +1,4 @@
-export type DetailLevel = 'overview' | 'detailed' | 'ultra';
+export type DetailLevel = 'low' | 'overview' | 'detailed' | 'ultra';
 
 // Standard GeoJSON types
 export interface GeoJSONGeometry {

@@ -174,7 +174,8 @@
       "FCLASS_SE",
       "FCLASS_BD",
       "FCLASS_UA"
-    ]
+    ],
+    "updated": "2025-08-02T04:53:37.165Z"
   },
   "features": [
     {
@@ -295,7 +296,7 @@
         "NAME_ES": "Tayikistán",
         "NAME_FA": "تاجیکستان",
         "NAME_FR": "Tadjikistan",
-        "NAME_EL": "Τατζι��ιστάν",
+        "NAME_EL": "Τατζικιστάν",
         "NAME_HE": "טג׳יקיסטן",
         "NAME_HI": "ताजिकिस्तान",
         "NAME_HU": "Tádzsikisztán",

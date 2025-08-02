@@ -174,7 +174,8 @@
       "FCLASS_SE",
       "FCLASS_BD",
       "FCLASS_UA"
-    ]
+    ],
+    "updated": "2025-08-02T04:53:37.819Z"
   },
   "features": [
     {
@@ -297,7 +298,7 @@
         "NAME_FR": "Terres australes et antarctiques françaises",
         "NAME_EL": "Γαλλικά Νότια και Ανταρκτικά Εδάφη",
         "NAME_HE": "הארצות הדרומיות והאנטארקטיות של צרפת",
-        "NAME_HI": "दक्षिण फ्रांसीसी और अंटार्कटिक ���ैंड",
+        "NAME_HI": "दक्षिण फ्रांसीसी और अंटार्कटिक लैंड",
         "NAME_HU": "Francia déli és antarktiszi területek",
         "NAME_ID": "Daratan Selatan dan Antarktika Perancis",
         "NAME_IT": "Terre australi e antartiche francesi",

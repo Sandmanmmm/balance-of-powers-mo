@@ -3,6 +3,7 @@ import { useGameState } from './hooks/useGameState';
 import { WorldMapWebGL } from './components/WorldMapWebGL';
 import { ProvinceInfoPanel } from './components/ProvinceInfoPanel';
 import { GameDashboard } from './components/GameDashboard';
+import { DetailLevelTest } from './components/DetailLevelTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -137,6 +138,11 @@ function App() {
               <div>Selected: {selectedNation?.name || 'None'}</div>
               <div>Game Time: {gameState?.currentDate?.toLocaleDateString() || 'N/A'}</div>
               <div>Paused: {gameState?.isPaused ? '⏸️' : '▶️'}</div>
+            </div>
+            
+            {/* Detail Level Test Component (bottom-left) */}
+            <div className="absolute bottom-4 left-4 z-50">
+              <DetailLevelTest />
             </div>
           </div>
 

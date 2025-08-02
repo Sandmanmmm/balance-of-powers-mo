@@ -174,7 +174,8 @@
       "FCLASS_SE",
       "FCLASS_BD",
       "FCLASS_UA"
-    ]
+    ],
+    "updated": "2025-08-02T04:53:39.191Z"
   },
   "features": [
     {
@@ -310,7 +311,7 @@
         "NAME_SV": "Indien",
         "NAME_TR": "Hindistan",
         "NAME_UK": "Індія",
-        "NAME_UR": "بھ��رت",
+        "NAME_UR": "بھارت",
         "NAME_VI": "Ấn Độ",
         "NAME_ZH": "印度",
         "NAME_ZHT": "印度",

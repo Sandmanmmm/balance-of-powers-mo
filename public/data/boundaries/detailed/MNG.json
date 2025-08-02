@@ -174,7 +174,8 @@
       "FCLASS_SE",
       "FCLASS_BD",
       "FCLASS_UA"
-    ]
+    ],
+    "updated": "2025-08-02T04:53:37.724Z"
   },
   "features": [
     {
@@ -289,7 +290,7 @@
         "NE_ID": 1159321071,
         "WIKIDATAID": "Q711",
         "NAME_AR": "منغوليا",
-        "NAME_BN": "মঙ্গোলিয়���",
+        "NAME_BN": "মঙ্গোলিয়া",
         "NAME_DE": "Mongolei",
         "NAME_EN": "Mongolia",
         "NAME_ES": "Mongolia",
