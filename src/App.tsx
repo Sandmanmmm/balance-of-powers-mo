@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useGameState } from './hooks/useGameState';
-import { WorldMap } from './components/WorldMap';
+import { WorldMapWebGL } from './components/WorldMapWebGL';
 import { ProvinceInfoPanel } from './components/ProvinceInfoPanel';
 import { GameDashboard } from './components/GameDashboard';
 import { Toaster } from '@/components/ui/sonner';
@@ -120,7 +120,7 @@ function App() {
 
           {/* Main Map Area */}
           <div className="flex-1 relative">
-            <WorldMap
+            <WorldMapWebGL
               provinces={Array.isArray(provinces) ? provinces : []}
               selectedProvince={gameState.selectedProvince}
               mapOverlay={gameState.mapOverlay}
