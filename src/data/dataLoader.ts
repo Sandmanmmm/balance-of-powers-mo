@@ -585,16 +585,43 @@ export async function loadWorldData(): Promise<WorldData> {
     
     for (const nationCode of allNationCodes) {
       try {
-        console.log(`DataLoader: Loading boundaries for nation ${nationCode}...`);
+        console.log(`DataLoader: Loading tile data for nation ${nationCode}...`);
         const { geographicDataManager } = await import('../managers/GeographicDataManager');
-        const nationBoundaries = await geographicDataManager.loadNationBoundaries(nationCode, detailLevel);
+        
+        // Convert country codes to approximate tile coordinates
+        const countryTileMap: Record<string, string> = {
+          'USA': 'detailed_40_-100',
+          'CAN': 'detailed_60_-100', 
+          'MEX': 'detailed_20_-100',
+          'CHN': 'detailed_35_105',
+          'RUS': 'detailed_60_100',
+          'DEU': 'detailed_51_10',
+          'FRA': 'detailed_46_2',
+          'GBR': 'detailed_54_-2',
+          'JPN': 'detailed_36_138',
+          'AUS': 'detailed_-25_135',
+          'BRA': 'detailed_-10_-55',
+          'IND': 'detailed_20_77'
+        };
+        
+        const tileKey = countryTileMap[nationCode] || 'detailed_0_0';
+        const tileData = await geographicDataManager.loadTile(detailLevel, tileKey);
+        
+        // Convert tile data to legacy boundary format
+        const nationBoundaries: Record<string, any> = {};
+        if (tileData.features) {
+          tileData.features.forEach((feature, index) => {
+            const id = feature.properties?.id || feature.properties?.name || `${nationCode}_feature_${index}`;
+            nationBoundaries[id] = feature;
+          });
+        }
         
         // Merge nation boundaries into the main boundaries object
         Object.assign(boundaries, nationBoundaries);
         const boundaryCount = Object.keys(nationBoundaries).length;
         boundariesLoaded += boundaryCount;
         
-        console.log(`DataLoader: ✓ Loaded ${boundaryCount} boundaries for ${nationCode}`);
+        console.log(`DataLoader: ✓ Loaded ${boundaryCount} features from tile ${tileKey} for ${nationCode}`);
         context.fileMetrics.boundaries.successful++;
         
       } catch (error) {
@@ -662,10 +689,36 @@ export async function loadWorldData(): Promise<WorldData> {
     console.log(`🌍 Boundaries: ${context.fileMetrics.boundaries.successful}/${context.fileMetrics.boundaries.total} files → ${Object.keys(boundaries).length} boundaries loaded`);
     console.log(`⚠️ Warnings: ${context.warnings.length}`);
     
+    // Suppress detailed warning output to avoid console spam
     if (context.warnings.length > 0) {
-      console.log(`\n=== Warnings Summary ===`);
-      context.warnings.forEach((warning, index) => {
+      console.log(`\n=== Warnings Summary (${context.warnings.length} total) ===`);
+      
+      // Show only the first 10 warnings to avoid console spam
+      const maxWarningsToShow = 10;
+      const warningsToShow = context.warnings.slice(0, maxWarningsToShow);
+      
+      warningsToShow.forEach((warning, index) => {
         console.log(`${index + 1}. ${warning}`);
+      });
+      
+      if (context.warnings.length > maxWarningsToShow) {
+        console.log(`... and ${context.warnings.length - maxWarningsToShow} more warnings (suppressed to avoid console spam)`);
+      }
+      
+      // Group warnings by type for summary
+      const warningTypes = new Map<string, number>();
+      context.warnings.forEach(warning => {
+        const type = warning.includes('schema validation') ? 'Schema Validation' :
+                    warning.includes('YAML parsing') ? 'YAML Parsing' :
+                    warning.includes('Duplicate') ? 'Duplicate IDs' :
+                    warning.includes('No valid') ? 'No Valid Data' :
+                    'Other';
+        warningTypes.set(type, (warningTypes.get(type) || 0) + 1);
+      });
+      
+      console.log('\n📊 Warning Types Summary:');
+      warningTypes.forEach((count, type) => {
+        console.log(`  - ${type}: ${count} warnings`);
       });
     }
     

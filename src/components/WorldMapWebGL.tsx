@@ -5,6 +5,32 @@ import { GeoJSONFeature } from '../types/geo';
 import { geoManager } from '../managers/GeographicDataManager';
 import { DetailLevel } from '../types/geo';
 import { ProvinceLoadingTest } from './ProvinceLoadingTest';
+import { TileVisibilityDebug } from './TileVisibilityDebug';
+import { 
+  getVisibleTilesWithLOD,
+  getDetailLevelFromZoom,
+  filterTilesForCulling
+} from '../utils/tileVisibility';
+
+type RenderMode = 'legacy' | 'tiles';
+
+// Tile system types
+interface TileInfo {
+  id: string;
+  detailLevel: DetailLevel;
+  x: number;
+  y: number;
+  lat: number;
+  lon: number;
+}
+
+interface ViewportState {
+  center: { x: number; y: number }; // World center (longitude, latitude)
+  zoom: number;
+  screenWidth: number;
+  screenHeight: number;
+  panOffset: { x: number; y: number };
+}
 
 interface WorldMapWebGLProps {
   provinces: Province[];
@@ -13,6 +39,40 @@ interface WorldMapWebGLProps {
   onProvinceSelect: (provinceId: string | undefined) => void;
   onOverlayChange: (overlay: MapOverlayType) => void;
   detailLevel?: DetailLevel;
+  renderMode?: RenderMode;
+}
+
+/**
+ * Convert screen coordinates back to world coordinates (longitude, latitude)
+ * This is the inverse of transformCoordinates function
+ */
+function screenToWorldCoordinates(
+  screenX: number,
+  screenY: number,
+  screenWidth: number,
+  screenHeight: number,
+  offsetX: number = 0,
+  zoomLevel: number = 1,
+  zoomCenter: { x: number; y: number } = { x: 0, y: 0 },
+  offsetY: number = 0
+): { lon: number; lat: number } {
+  const baseScale = Math.min(screenWidth / 360, screenHeight / 180);
+  const centerX = screenWidth / 2;
+  const centerY = screenHeight / 2;
+  
+  // Reverse the zoom transformation
+  const unzoomedX = centerX + (screenX - centerX - zoomCenter.x) / zoomLevel + zoomCenter.x;
+  const unzoomedY = centerY + (screenY - centerY - zoomCenter.y) / zoomLevel + zoomCenter.y;
+  
+  // Reverse the pan offset
+  const unpannedX = unzoomedX - offsetX;
+  const unpannedY = unzoomedY - offsetY;
+  
+  // Convert back to world coordinates
+  const lon = (unpannedX - centerX) / baseScale;
+  const lat = -(unpannedY - centerY) / baseScale;
+  
+  return { lon, lat };
 }
 
 /**
@@ -608,7 +668,8 @@ export function WorldMapWebGL({
   mapOverlay,
   onProvinceSelect,
   onOverlayChange,
-  detailLevel = 'overview'
+  detailLevel = 'overview',
+  renderMode = 'legacy'
 }: WorldMapWebGLProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<PIXI.Application | null>(null);
@@ -618,6 +679,7 @@ export function WorldMapWebGL({
   const [provinceDetailBoundaries, setProvinceDetailBoundaries] = useState<Record<string, any>>({});
   const [selectedCountryForProvinces, setSelectedCountryForProvinces] = useState<string | null>(null);
   const [currentDetailLevel, setCurrentDetailLevel] = useState<DetailLevel>(detailLevel);
+  const [currentRenderMode, setCurrentRenderMode] = useState<RenderMode>(renderMode);
   const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [lastPointerPosition, setLastPointerPosition] = useState({ x: 0, y: 0 });
@@ -626,18 +688,227 @@ export function WorldMapWebGL({
   const [zoomLevel, setZoomLevel] = useState(1);
   const [zoomCenter, setZoomCenter] = useState({ x: 0, y: 0 });
   const zoomLevelRef = useRef(1);
+
+  // Debug: Log initial render mode
+  console.log(`🔧 WorldMapWebGL initialized with renderMode prop: "${renderMode}", currentRenderMode state: "${currentRenderMode}"`);
+
+  // Debug: Track renderMode changes
+  const setCurrentRenderModeWithDebug = useCallback((newMode: RenderMode) => {
+    console.log(`🔄 setCurrentRenderMode called: "${currentRenderMode}" -> "${newMode}"`);
+    console.trace('🔍 setCurrentRenderMode call stack:');
+    setCurrentRenderMode(newMode);
+  }, [currentRenderMode]);
   const panOffsetRef = useRef({ x: 0, y: 0 });
   const isDraggingRef = useRef(false);
 
+  // Camera center tracking in map coordinates (lat, lon)
+  const [cameraCenter, setCameraCenter] = useState({ lat: 0, lon: 0 });
+  const cameraCenterRef = useRef({ lat: 0, lon: 0 });
+
+  // Function to update camera center based on current pan/zoom state
+  const updateCameraCenter = useCallback(() => {
+    if (!appRef.current) return;
+    
+    const app = appRef.current;
+    const screenWidth = app.screen.width;
+    const screenHeight = app.screen.height;
+    
+    // Calculate the world coordinates of the screen center
+    const worldCoords = screenToWorldCoordinates(
+      screenWidth / 2,  // Screen center X
+      screenHeight / 2, // Screen center Y
+      screenWidth,
+      screenHeight,
+      panOffsetRef.current.x,
+      zoomLevelRef.current,
+      zoomCenter,
+      panOffsetRef.current.y
+    );
+    
+    // Update both state and ref
+    cameraCenterRef.current = worldCoords;
+    setCameraCenter(worldCoords);
+    
+    // Debug logging (throttled)
+    const now = Date.now();
+    if (now - lastLogTimeRef.current > 500) { // Log at most every 500ms
+      console.log(`📍 Camera center: (${worldCoords.lat.toFixed(2)}, ${worldCoords.lon.toFixed(2)}) at zoom ${zoomLevelRef.current.toFixed(2)}`);
+      lastLogTimeRef.current = now;
+    }
+  }, [zoomCenter, panOffset, zoomLevel]);
+
+  // Tile Visibility & Culling System State
+  const [loadedTiles, setLoadedTiles] = useState<Set<string>>(new Set());
+  const [visibleTiles, setVisibleTiles] = useState<TileInfo[]>([]);
+  const [viewportState, setViewportState] = useState<ViewportState>({
+    center: { x: 0, y: 0 }, // World center (longitude, latitude)
+    zoom: 1,
+    screenWidth: 800,
+    screenHeight: 600,
+    panOffset: { x: 0, y: 0 }
+  });
+  const tileContainersRef = useRef<Map<string, PIXI.Container>>(new Map());
+  const lastVisibilityUpdateRef = useRef<number>(0);
+  const lastLogTimeRef = useRef<number>(0);
+  const [showTileDebug, setShowTileDebug] = useState(false);
+  const lastDetailLevelChangeRef = useRef<number>(0);
+  const detailLevelStabilityRef = useRef<{ level: DetailLevel; startTime: number } | null>(null);
+  const detailLevelLockedRef = useRef<boolean>(false);
+  const zoomHistoryRef = useRef<number[]>([]);
+  const lastZoomChangeRef = useRef<number>(0);
+
   // Debug hook
   useEffect(() => {
+    // General debug functions (available in all modes)
     (window as any).testProvinceURL = (countryCode: string, detailLevel: string) => {
       geoManager.testProvinceURL(countryCode, detailLevel as DetailLevel);
     };
-  }, []);
+    
+    // Add camera state debug to window for easy access
+    (window as any).getCameraState = () => {
+      const state = {
+        center: cameraCenterRef.current,
+        zoom: zoomLevelRef.current,
+        panOffset: panOffsetRef.current,
+        zoomCenter: zoomCenter
+      };
+      console.log('📷 Current camera state:', state);
+      return state;
+    };
+
+    // Conditional debug functions based on render mode
+    if (currentRenderMode === 'tiles') {
+      // TILE MODE: Tile-specific debug functions
+      (window as any).toggleTileDebug = () => {
+        setShowTileDebug(prev => !prev);
+        console.log('🔍 Tile debug visibility toggled');
+      };
+      
+      // Add visible tiles calculation to window for testing
+      (window as any).getVisibleTilesFromCamera = () => {
+        const center = cameraCenterRef.current;
+        const zoom = zoomLevelRef.current;
+        console.log(`🔍 Calculating visible tiles for camera at (${center.lat.toFixed(2)}, ${center.lon.toFixed(2)}) zoom ${zoom.toFixed(2)}`);
+        
+        if (getVisibleTilesWithLOD) {
+          const tiles = getVisibleTilesWithLOD(center, zoom);
+          console.log(`📍 Visible tiles:`, tiles);
+          return tiles;
+        } else {
+          console.warn('⚠️ getVisibleTilesWithLOD not available');
+          return [];
+        }
+      };
+
+      // Add comprehensive tile system debug function
+      (window as any).debugTileSystem = () => {
+        const center = cameraCenterRef.current;
+        const zoom = zoomLevelRef.current;
+        const loadedCount = loadedTiles.size;
+        const visibleCount = visibleTiles.length;
+        const containerCount = tileContainersRef.current.size;
+        
+        console.log('🔧 TILE SYSTEM DEBUG REPORT:');
+        console.log(`📍 Camera: (${center.lat.toFixed(3)}, ${center.lon.toFixed(3)}) @ zoom ${zoom.toFixed(2)}`);
+        console.log(`📊 Tiles: ${visibleCount} visible, ${loadedCount} loaded, ${containerCount} containers`);
+        console.log(`🎯 Detail level: ${currentDetailLevel}`);
+        
+        // List loaded tiles
+        console.log(`📋 Loaded tiles:`, Array.from(loadedTiles).sort());
+        
+        // List visible tiles
+        console.log(`👀 Visible tiles:`, visibleTiles.map(t => t.id).sort());
+        
+        // Show GeographicDataManager cache stats
+        const geoStats = geoManager.getCacheStats();
+        console.log(`💾 GeographicDataManager cache: ${geoStats.entryCount} entries, ${geoStats.totalSizeMB.toFixed(1)}MB`);
+        
+        // Show tile containers
+        const containers = Array.from(tileContainersRef.current.entries()).map(([id, container]) => ({
+          id,
+          name: container.name,
+          children: container.children.length,
+          visible: container.visible
+        }));
+        console.log(`🗂️ Tile containers:`, containers);
+        
+        // Show what tiles should be visible now
+        const currentVisible = getVisibleTilesWithLOD(
+          { lat: center.lat, lon: center.lon },
+          zoom,
+          5
+        );
+        console.log(`🔍 Should be visible (GeographicDataManager):`, currentVisible.sort());
+        
+        // Show tile rendering info
+        const renderedTiles = Array.from(tileContainersRef.current.entries()).map(([tileKey, container]) => {
+          const tileInfo = (container as any).tileInfo;
+          return {
+            tileKey,
+            rendered: container.children.length > 0,
+            featureCount: tileInfo?.featureCount || 0,
+            failed: tileInfo?.failed || false,
+            position: { x: container.position.x, y: container.position.y },
+            scale: container.scale.x
+          };
+        });
+        console.log(`🎨 Rendered tiles:`, renderedTiles);
+        
+        return {
+          camera: { lat: center.lat, lon: center.lon, zoom },
+          tiles: { visible: visibleCount, loaded: loadedCount, containers: containerCount },
+          detailLevel: currentDetailLevel,
+          loadedTiles: Array.from(loadedTiles).sort(),
+          visibleTiles: visibleTiles.map(t => t.id).sort(),
+          shouldBeVisible: currentVisible.sort(),
+          renderedTiles,
+          geoManagerStats: geoStats,
+          containers
+        };
+      };
+
+      // Add tile cleanup function
+      (window as any).cleanupTiles = () => {
+        console.log('🧹 Manual tile cleanup initiated...');
+        // We'll call the culling function when it's defined
+        console.log('✅ Manual tile cleanup function registered');
+      };
+    } else if (currentRenderMode === 'legacy') {
+      // LEGACY MODE: Clear tile-specific debug functions and add legacy-specific ones
+      (window as any).toggleTileDebug = () => {
+        console.log('ℹ️ Tile debug not available in legacy mode');
+      };
+      
+      (window as any).getVisibleTilesFromCamera = () => {
+        console.log('ℹ️ Tile visibility calculation not available in legacy mode');
+        return [];
+      };
+      
+      (window as any).debugTileSystem = () => {
+        console.log('ℹ️ Tile system debug not available in legacy mode');
+        return { message: 'Not available in legacy mode' };
+      };
+      
+      (window as any).cleanupTiles = () => {
+        console.log('ℹ️ Tile cleanup not needed in legacy mode');
+      };
+    }
+  }, [zoomCenter, currentDetailLevel, loadedTiles, visibleTiles, currentRenderMode]);
   const lastPointerRef = useRef({ x: 0, y: 0 });
   const animationFrameRef = useRef<number | null>(null);
   const pendingUpdateRef = useRef(false);
+
+  // Sync zoom level with ref and update camera center
+  useEffect(() => {
+    zoomLevelRef.current = zoomLevel;
+    updateCameraCenter();
+  }, [zoomLevel, updateCameraCenter]);
+
+  // Update camera center when pan offset changes
+  useEffect(() => {
+    panOffsetRef.current = panOffset;
+    updateCameraCenter();
+  }, [panOffset, updateCameraCenter]);
 
   // Sync detail level with prop
   useEffect(() => {
@@ -645,6 +916,69 @@ export function WorldMapWebGL({
       setCurrentDetailLevel(detailLevel);
     }
   }, [detailLevel, currentDetailLevel]);
+
+  // Track previous render mode for cleanup logic
+  const prevRenderModeRef = useRef<RenderMode>(currentRenderMode);
+  
+  // Handle cleanup when render mode changes internally
+  useEffect(() => {
+    const prevMode = prevRenderModeRef.current;
+    const currentMode = currentRenderMode;
+    
+    if (prevMode !== currentMode) {
+      console.log(`🔄 Internal render mode change detected: ${prevMode} → ${currentMode}`);
+      
+      // Cleanup tiles when switching away from tile mode
+      if (prevMode === 'tiles') {
+        console.log('🧹 Cleaning up tiles when switching from tile mode...');
+        // Clear all tile containers
+        tileContainersRef.current.forEach((tileContainer, tileKey) => {
+          if (worldContainerRef.current && tileContainer.parent === worldContainerRef.current) {
+            worldContainerRef.current.removeChild(tileContainer);
+          }
+          tileContainer.destroy({ children: true, texture: false });
+        });
+        tileContainersRef.current.clear();
+        setLoadedTiles(new Set());
+        console.log('✅ Tile cleanup completed');
+      }
+      
+      // Clear tiles when switching TO tile mode to start fresh
+      if (currentMode === 'tiles') {
+        console.log('🧹 Clearing tiles when switching to tile mode for fresh start...');
+        // Clear any existing tile containers
+        tileContainersRef.current.forEach((tileContainer, tileKey) => {
+          if (worldContainerRef.current && tileContainer.parent === worldContainerRef.current) {
+            worldContainerRef.current.removeChild(tileContainer);
+          }
+          tileContainer.destroy({ children: true, texture: false });
+        });
+        tileContainersRef.current.clear();
+        setLoadedTiles(new Set());
+        
+        // Also clear any visual artifacts from world container
+        if (worldContainerRef.current) {
+          // Remove any orphaned tile containers that might be attached
+          const childrenToRemove = worldContainerRef.current.children.filter(child => 
+            child.name && child.name.startsWith('tile_')
+          );
+          childrenToRemove.forEach(child => {
+            worldContainerRef.current!.removeChild(child);
+            if (typeof (child as any).destroy === 'function') {
+              (child as any).destroy({ children: true, texture: false });
+            }
+          });
+          console.log(`🧹 Removed ${childrenToRemove.length} orphaned tile containers from world container`);
+        }
+        
+        console.log('✅ Tile fresh start cleanup completed');
+      }
+      
+      // Update the ref to track the current mode for next comparison
+      prevRenderModeRef.current = currentMode;
+      console.log(`🔄 Render mode change completed: ${currentMode}`);
+    }
+  }, [currentRenderMode]);
 
   // Clear province cache when quality level changes and reload provinces
   useEffect(() => {
@@ -673,6 +1007,504 @@ export function WorldMapWebGL({
   useEffect(() => {
     isDraggingRef.current = isDragging;
   }, [isDragging]);
+
+  // Update viewport state when camera tracking variables change
+  useEffect(() => {
+    const app = appRef.current;
+    if (!app) return;
+
+    setViewportState(prev => ({
+      ...prev,
+      center: { x: cameraCenterRef.current.lon, y: cameraCenterRef.current.lat },
+      zoom: zoomLevel,
+      panOffset,
+      screenWidth: app.screen.width,
+      screenHeight: app.screen.height
+    }));
+  }, [cameraCenter, zoomLevel, panOffset]);
+
+  // Tile Visibility Management
+  const updateVisibleTiles = useCallback(() => {
+    const now = Date.now();
+    
+    // Throttle updates to avoid excessive computation
+    if (now - lastVisibilityUpdateRef.current < 100) return;
+    lastVisibilityUpdateRef.current = now;
+
+    if (!appRef.current) return;
+
+    const app = appRef.current;
+    const currentViewport: ViewportState = {
+      center: viewportState.center,
+      zoom: zoomLevel,
+      screenWidth: app.screen.width,
+      screenHeight: app.screen.height,
+      panOffset
+    };
+
+    // Use getVisibleTilesWithLOD for accurate tile calculation
+    const geoManagerTileKeys = getVisibleTilesWithLOD(
+      { lat: currentViewport.center.y, lon: currentViewport.center.x },
+      currentViewport.zoom,
+      5 // 5x5 grid of tiles
+    );
+
+    // Convert tile keys to TileInfo objects for compatibility with existing system
+    const newVisibleTiles = geoManagerTileKeys.map(tileKey => {
+      const parsed = geoManager.parseTileKey(tileKey);
+      if (!parsed) {
+        console.warn(`⚠️ Invalid tile key: ${tileKey}`);
+        return null;
+      }
+
+      // Calculate distance from center for prioritization
+      const deltaX = parsed.worldX - currentViewport.center.x;
+      const deltaY = parsed.worldY - currentViewport.center.y;
+      const distanceFromCenter = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+      return {
+        id: tileKey,
+        detailLevel: parsed.detailLevel,
+        x: parsed.tileX,           // Tile coordinate X
+        y: parsed.tileY,           // Tile coordinate Y
+        lat: parsed.worldY,        // World Y coordinate (latitude)
+        lon: parsed.worldX,        // World X coordinate (longitude)
+        distanceFromCenter,
+        isLoaded: loadedTiles.has(tileKey)
+      } as TileInfo & { distanceFromCenter: number; isLoaded: boolean };
+    }).filter(Boolean) as (TileInfo & { distanceFromCenter: number; isLoaded: boolean })[];
+
+    // Use GeographicDataManager tiles as primary source
+    setVisibleTiles(newVisibleTiles);
+
+    // Log tile information for debugging
+    if (now - lastLogTimeRef.current > 2000) { // Log every 2 seconds
+      console.log(`🔍 Visible tiles: ${newVisibleTiles.length} tiles at ${currentDetailLevel} (zoom: ${zoomLevel.toFixed(2)})`);
+      console.log(`📍 Center: (${currentViewport.center.y.toFixed(2)}, ${currentViewport.center.x.toFixed(2)})`);
+      console.log(`� Tile keys:`, geoManagerTileKeys.slice(0, 5).map(key => key));
+      lastLogTimeRef.current = now;
+    }
+
+    // Track zoom changes for stability analysis
+    if (Math.abs(zoomLevel - (zoomHistoryRef.current[zoomHistoryRef.current.length - 1] || 0)) > 0.01) {
+      zoomHistoryRef.current.push(zoomLevel);
+      lastZoomChangeRef.current = now;
+      
+      // Keep only last 10 zoom changes
+      if (zoomHistoryRef.current.length > 10) {
+        zoomHistoryRef.current.shift();
+      }
+    }
+
+    // Check if zoom is stabilizing
+    const zoomStabilized = now - lastZoomChangeRef.current > 1500;
+    const recentZoomVariance = zoomHistoryRef.current.length > 1 ? 
+      Math.abs(zoomHistoryRef.current[zoomHistoryRef.current.length - 1] - zoomHistoryRef.current[0]) : 0;
+    const zoomIsStable = zoomStabilized && recentZoomVariance < 0.2;
+
+    // Aggressive anti-oscillation system with zoom tracking
+    const newDetailLevel = getDetailLevelFromZoom(zoomLevel, currentDetailLevel);
+    
+    // Check if we're locked (prevent changes during unstable periods)
+    if (detailLevelLockedRef.current) {
+      const lockDuration = 3000; // 3 second lock after any change
+      if (now - lastDetailLevelChangeRef.current > lockDuration && zoomIsStable) {
+        detailLevelLockedRef.current = false;
+        console.log(`🔓 Detail level unlocked after ${lockDuration}ms stability period`);
+      } else {
+        // Still locked, ignore any detail level change requests
+        return;
+      }
+    }
+    
+    if (newDetailLevel !== currentDetailLevel) {
+      // AGGRESSIVE stability requirements - increased all timings
+      const stabilityTime = 2000; // Doubled from 1000ms
+      // Also require minimum 4 seconds between any detail level changes
+      const minTimeBetweenChanges = 4000; // Doubled from 2000ms
+      const timeSinceLastChange = now - lastDetailLevelChangeRef.current;
+      
+      if (timeSinceLastChange < minTimeBetweenChanges) {
+        // Too soon since last change, ignore this request
+        console.log(`⏸️ Detail level change blocked - too soon (need ${minTimeBetweenChanges}ms, only ${timeSinceLastChange}ms)`);
+        return;
+      }
+      
+      if (!zoomIsStable) {
+        console.log(`⏸️ Detail level change blocked - zoom not stable (variance: ${recentZoomVariance.toFixed(3)})`);
+        detailLevelStabilityRef.current = null; // Reset any pending change
+        return;
+      }
+      
+      if (!detailLevelStabilityRef.current || detailLevelStabilityRef.current.level !== newDetailLevel) {
+        // Start new stability period
+        detailLevelStabilityRef.current = { level: newDetailLevel, startTime: now };
+        console.log(`⏳ Detail level change pending: ${currentDetailLevel} → ${newDetailLevel} (zoom: ${zoomLevel.toFixed(2)}) - waiting ${stabilityTime}ms`);
+      } else if (now - detailLevelStabilityRef.current.startTime >= stabilityTime) {
+        // Stability period completed, change detail level
+        console.log(`� Detail level change: ${currentDetailLevel} → ${newDetailLevel} (zoom: ${zoomLevel.toFixed(2)})`);
+        setCurrentDetailLevel(newDetailLevel);
+        lastDetailLevelChangeRef.current = now;
+        detailLevelStabilityRef.current = null;
+      }
+    } else {
+      // Reset stability tracker if we're back to current level
+      if (detailLevelStabilityRef.current) {
+        console.log(`↩️ Detail level change cancelled - back to ${currentDetailLevel} (zoom: ${zoomLevel.toFixed(2)})`);
+        detailLevelStabilityRef.current = null;
+      }
+    }
+
+    // Only log every 1 second to reduce console spam
+    if (now - lastLogTimeRef.current > 1000) {
+      console.log(`🔍 Visible tiles: ${newVisibleTiles.length} at ${currentDetailLevel} (zoom: ${zoomLevel.toFixed(2)})`);
+      lastLogTimeRef.current = now;
+    }
+  }, [viewportState.center, zoomLevel, panOffset, currentDetailLevel]);
+
+  // Enhanced Tile Culling Management
+  const cullInvisibleTiles = useCallback(() => {
+    if (loadedTiles.size === 0) return; // No tiles to cull
+
+    const currentTileIds = Array.from(loadedTiles);
+    const currentCenter = { lat: viewportState.center.y, lon: viewportState.center.x };
+    
+    // Simple culling logic: remove tiles that are too far from center
+    const cullDistance = 4; // Keep tiles up to 4 tile-widths away
+    const keep: string[] = [];
+    const cull: string[] = [];
+    
+    currentTileIds.forEach(tileId => {
+      try {
+        const parsed = geoManager.parseTileKey(tileId);
+        if (!parsed) {
+          cull.push(tileId);
+          return;
+        }
+        
+        // Calculate distance from center
+        const deltaLat = Math.abs(parsed.worldY - currentCenter.lat);
+        const deltaLon = Math.abs(parsed.worldX - currentCenter.lon);
+        const distance = Math.max(deltaLat / 10, deltaLon / 10); // Convert to tile units
+        
+        if (distance > cullDistance) {
+          cull.push(tileId);
+        } else {
+          keep.push(tileId);
+        }
+      } catch (error) {
+        // If parsing fails, cull the tile
+        cull.push(tileId);
+      }
+    });
+
+    const finalCull = cull;
+    const finalKeep = keep;
+
+    if (finalCull.length > 0) {
+      console.log(`🗑️ Culling ${finalCull.length} tiles: ${finalCull.slice(0, 3).join(', ')}${finalCull.length > 3 ? '...' : ''}`);
+      console.log(`📌 Keeping ${finalKeep.length} tiles in view`);
+      
+      // Remove culled tiles from containers
+      finalCull.forEach(tileId => {
+        const container = tileContainersRef.current.get(tileId);
+        if (container && worldContainerRef.current) {
+          worldContainerRef.current.removeChild(container);
+          tileContainersRef.current.delete(tileId);
+          console.log(`🗂️ Removed tile container: ${tileId}`);
+        }
+      });
+
+      // Update loaded tiles set
+      setLoadedTiles(prev => {
+        const newSet = new Set(prev);
+        finalCull.forEach(tileId => newSet.delete(tileId));
+        console.log(`📊 Tile count: ${prev.size} → ${newSet.size} (culled ${finalCull.length})`);
+        return newSet;
+      });
+
+      // Optionally clear GeographicDataManager cache for culled tiles
+      // Note: We don't clear ALL cache to preserve performance
+      console.log(`💾 Preserving cache for performance (${finalCull.length} tiles culled from render)`);
+    }
+  }, [loadedTiles, viewportState.center, zoomLevel]);
+
+  // Render geographic features for a tile
+  const renderTileFeatures = useCallback(async (
+    tileContainer: PIXI.Container, 
+    tileData: any, 
+    tileKey: string
+  ) => {
+    if (!tileData || !tileData.features || !Array.isArray(tileData.features)) {
+      console.warn(`⚠️ Invalid tile data for ${tileKey}`);
+      return;
+    }
+
+    const app = appRef.current;
+    if (!app) return;
+
+    console.log(`🎨 Rendering ${tileData.features.length} features for tile ${tileKey}`);
+
+    // Clear any existing graphics in this tile container
+    tileContainer.removeChildren();
+
+    // Create a graphics object for this tile
+    const tileGraphics = new PIXI.Graphics();
+    tileGraphics.name = `graphics_${tileKey}`;
+
+    // Render each feature in the tile
+    for (const feature of tileData.features) {
+      try {
+        // Use the existing drawProvinceFeature function to render each feature
+        const featureGraphics = new PIXI.Graphics();
+        
+        // Set appropriate colors based on feature type or properties
+        const color = getFeatureColor(feature);
+        
+        drawProvinceFeature(
+          feature,
+          featureGraphics,
+          color,
+          app.screen.width,
+          app.screen.height,
+          panOffsetRef.current.x,
+          zoomLevelRef.current,
+          zoomCenter,
+          panOffsetRef.current.y
+        );
+
+        // Add the feature graphics to the tile graphics
+        tileGraphics.addChild(featureGraphics);
+        
+      } catch (error) {
+        console.warn(`⚠️ Failed to render feature in tile ${tileKey}:`, error);
+      }
+    }
+
+    // Add the completed graphics to the tile container
+    tileContainer.addChild(tileGraphics);
+    
+    console.log(`✅ Rendered tile ${tileKey} with ${tileData.features.length} features`);
+  }, [panOffsetRef, zoomLevelRef, zoomCenter]);
+
+  // Get appropriate color for a geographic feature
+  const getFeatureColor = useCallback((feature: any): number => {
+    // Default color scheme for geographic features
+    const featureType = feature.properties?.type || 'unknown';
+    
+    switch (featureType) {
+      case 'country':
+      case 'nation':
+        return 0x4CAF50; // Green for countries
+      case 'province':
+      case 'state':
+        return 0x2196F3; // Blue for provinces/states
+      case 'city':
+        return 0xFF9800; // Orange for cities
+      case 'water':
+      case 'ocean':
+        return 0x03A9F4; // Light blue for water
+      default:
+        return 0x9E9E9E; // Gray for unknown features
+    }
+  }, []);
+
+  // Update tile positions and scale when viewport changes
+  const updateTileTransforms = useCallback(() => {
+    if (!appRef.current) return;
+    
+    const app = appRef.current;
+    
+    // Update all loaded tile containers with new transformations
+    tileContainersRef.current.forEach((tileContainer, tileKey) => {
+      try {
+        // Parse tile key to get world coordinates
+        const parsed = geoManager.parseTileKey(tileKey);
+        if (!parsed) return;
+        
+        // Transform tile world coordinates to screen coordinates
+        const [screenX, screenY] = transformCoordinates(
+          parsed.worldX,
+          parsed.worldY,
+          app.screen.width,
+          app.screen.height,
+          panOffsetRef.current.x,
+          zoomLevelRef.current,
+          zoomCenter,
+          panOffsetRef.current.y
+        );
+        
+        // Update tile container position
+        tileContainer.position.set(screenX, screenY);
+        
+        // Scale the tile based on zoom level
+        const tileScale = zoomLevelRef.current;
+        tileContainer.scale.set(tileScale);
+        
+      } catch (error) {
+        console.warn(`⚠️ Failed to update transform for tile ${tileKey}:`, error);
+      }
+    });
+  }, [zoomCenter]);
+
+  // Enhanced Tile Loading with GeographicDataManager Integration
+  const loadVisibleTiles = useCallback(async () => {
+    if (!worldContainerRef.current) return;
+
+    // Get visible tiles using getVisibleTilesWithLOD for accurate tile calculation
+    const visibleTileKeys = getVisibleTilesWithLOD(
+      { lat: viewportState.center.y, lon: viewportState.center.x },
+      zoomLevel,
+      5 // 5x5 grid
+    );
+
+    // Filter to only tiles that aren't already loaded
+    const tilesToLoad = visibleTileKeys.filter(tileKey => !loadedTiles.has(tileKey));
+    
+    if (tilesToLoad.length === 0) return;
+
+    // Parse tile information for distance sorting
+    const tilesWithInfo = tilesToLoad.map(tileKey => {
+      const parsed = geoManager.parseTileKey(tileKey);
+      if (!parsed) return null;
+      
+      // Calculate distance from center for prioritization
+      const deltaX = parsed.worldX - viewportState.center.x;
+      const deltaY = parsed.worldY - viewportState.center.y;
+      const distanceFromCenter = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+      
+      return {
+        tileKey,
+        detailLevel: parsed.detailLevel,
+        worldX: parsed.worldX,
+        worldY: parsed.worldY,
+        distanceFromCenter
+      };
+    }).filter(Boolean);
+
+    // Sort by distance from center for optimal loading order
+    const sortedTiles = tilesWithInfo.sort((a, b) => a!.distanceFromCenter - b!.distanceFromCenter);
+
+    console.log(`📦 Loading ${sortedTiles.length} visible tiles (closest first):`, sortedTiles.slice(0, 3).map(t => t!.tileKey));
+
+    // Load tiles in parallel with concurrency limit
+    const CONCURRENT_LOADS = 3;
+
+    for (let i = 0; i < sortedTiles.length; i += CONCURRENT_LOADS) {
+      const batch = sortedTiles.slice(i, i + CONCURRENT_LOADS);
+      
+      const batchPromises = batch.map(async (tileInfo) => {
+        if (!tileInfo) return;
+        
+        const { tileKey, detailLevel } = tileInfo;
+        
+        try {
+          // Use the new GeographicDataManager.loadTile method
+          const tileData = await geoManager.loadTile(detailLevel, tileKey);
+          
+          // Create container for this tile if it doesn't exist
+          if (!tileContainersRef.current.has(tileKey)) {
+            const tileContainer = new PIXI.Container();
+            tileContainer.name = `tile_${tileKey}`;
+            
+            // Add tile metadata for debugging
+            (tileContainer as any).tileInfo = {
+              id: tileKey,
+              detailLevel: detailLevel,
+              worldX: tileInfo.worldX,
+              worldY: tileInfo.worldY,
+              loadTime: Date.now(),
+              featureCount: tileData.features.length
+            };
+            
+            // Render geographic features if available
+            if (tileData.features && tileData.features.length > 0) {
+              await renderTileFeatures(tileContainer, tileData, tileKey);
+            }
+            
+            tileContainersRef.current.set(tileKey, tileContainer);
+            if (worldContainerRef.current) {
+              worldContainerRef.current.addChild(tileContainer);
+            }
+          }
+
+          // Mark tile as loaded
+          setLoadedTiles(prev => new Set(prev).add(tileKey));
+          
+          console.log(`✅ Loaded tile ${tileKey} at ${detailLevel} (${tileData.features.length} features)`);
+          
+        } catch (error) {
+          console.error(`❌ Failed to load tile ${tileKey}:`, error);
+          
+          // Still create an empty container to mark the tile as "attempted"
+          if (!tileContainersRef.current.has(tileKey)) {
+            const emptyContainer = new PIXI.Container();
+            emptyContainer.name = `tile_${tileKey}_failed`;
+            (emptyContainer as any).tileInfo = {
+              id: tileKey,
+              detailLevel: detailLevel,
+              loadTime: Date.now(),
+              failed: true
+            };
+            tileContainersRef.current.set(tileKey, emptyContainer);
+            if (worldContainerRef.current) {
+              worldContainerRef.current.addChild(emptyContainer);
+            }
+          }
+          
+          // Mark as loaded even if failed to prevent retry loops
+          setLoadedTiles(prev => new Set(prev).add(tileKey));
+        }
+      });
+
+      // Wait for current batch before starting next batch
+      await Promise.all(batchPromises);
+    }
+
+    console.log(`🎯 Completed loading ${sortedTiles.length} visible tiles`);
+  }, [viewportState.center, zoomLevel, loadedTiles]);
+
+  // TILE SYSTEM: Update visible tiles when viewport changes (only in tile mode)
+  useEffect(() => {
+    if (currentRenderMode === 'tiles' && renderMode === 'tiles') {
+      updateVisibleTiles();
+    }
+  }, [updateVisibleTiles, currentRenderMode, renderMode]);
+
+  // TILE SYSTEM: Load new visible tiles (only in tile mode)
+  useEffect(() => {
+    if (currentRenderMode === 'tiles' && renderMode === 'tiles') {
+      loadVisibleTiles();
+    }
+  }, [loadVisibleTiles, currentRenderMode, renderMode]);
+
+  // TILE SYSTEM: Update tile transforms when viewport changes (only in tile mode)
+  useEffect(() => {
+    if (currentRenderMode === 'tiles' && renderMode === 'tiles') {
+      updateTileTransforms();
+    }
+  }, [updateTileTransforms, panOffset, zoomLevel, zoomCenter, currentRenderMode, renderMode]);
+
+  // TILE SYSTEM: Cull invisible tiles periodically (only in tile mode)
+  useEffect(() => {
+    if (currentRenderMode === 'tiles' && renderMode === 'tiles') {
+      const cullInterval = setInterval(cullInvisibleTiles, 2000); // Cull every 2 seconds
+      return () => clearInterval(cullInterval);
+    }
+  }, [cullInvisibleTiles, currentRenderMode, renderMode]);
+
+  // TILE SYSTEM: Expose working tile cleanup function to window after cullInvisibleTiles is defined
+  useEffect(() => {
+    (window as any).cleanupTilesNow = () => {
+      if (currentRenderMode === 'tiles' && renderMode === 'tiles') {
+        console.log('🧹 Manual tile cleanup initiated...');
+        cullInvisibleTiles();
+        console.log('✅ Manual tile cleanup completed');
+      } else {
+        console.log('ℹ️ Tile cleanup skipped - not in tile mode');
+      }
+    };
+  }, [cullInvisibleTiles, currentRenderMode, renderMode]);
 
   // Initialize PixiJS application
   useEffect(() => {
@@ -768,6 +1600,9 @@ export function WorldMapWebGL({
                   
                   worldContainerRef.current.x = wrappedX;
                   worldContainerRef.current.y = panOffsetRef.current.y;
+                  
+                  // Update camera center during pan
+                  updateCameraCenter();
                 }
                 pendingUpdateRef.current = false;
               });
@@ -796,6 +1631,10 @@ export function WorldMapWebGL({
             
             setZoomLevel(prev => Math.min(prev * 2, 10));
             setZoomCenter(zoomPoint);
+            zoomLevelRef.current = Math.min(zoomLevelRef.current * 2, 10);
+            
+            // Update camera center after double-click zoom
+            setTimeout(() => updateCameraCenter(), 0);
           }
           
           lastClickTime = currentTime;
@@ -816,8 +1655,12 @@ export function WorldMapWebGL({
             
             setZoomLevel(newZoomLevel);
             setZoomCenter({ x: mouseX, y: mouseY });
+            zoomLevelRef.current = newZoomLevel;
             
             console.log(`🎯 Mouse wheel zoom: ${newZoomLevel.toFixed(2)}x at (${mouseX}, ${mouseY})`);
+            
+            // Update camera center after zoom
+            setTimeout(() => updateCameraCenter(), 0);
           }
         };
         
@@ -834,6 +1677,9 @@ export function WorldMapWebGL({
 
         console.log('✅ PixiJS WorldMap initialized successfully');
         setIsInitialized(true);
+        
+        // Initialize camera center after PIXI setup
+        setTimeout(() => updateCameraCenter(), 100);
 
       } catch (error) {
         console.error('❌ Failed to initialize PixiJS:', error);
@@ -845,48 +1691,49 @@ export function WorldMapWebGL({
     initializePixi();
   }, []);
 
-  // Load Natural Earth country boundaries
+  // Load Natural Earth country boundaries (Legacy Mode Only)
   useEffect(() => {
-    const loadBoundaries = async () => {
-      try {
-        console.log('🌍 PixiJS WorldMap: Starting to load Natural Earth boundaries');
-        
-        const allFeatures: any[] = [];
-        
-        const countryCodeMap: Record<string, string> = {
-          'United States': 'USA',
-          'Canada': 'CAN',
-          'Mexico': 'MEX',
-          'China': 'CHN',
-          'India': 'IND',
-          'Russia': 'RUS',
-          'Germany': 'DEU',
-          'France': 'FRA',
-          'United Kingdom': 'GBR',
-          'Japan': 'JPN',
-          'Australia': 'AUS',
-          'Brazil': 'BRA',
-          'Argentina': 'ARG',
-        };
-        
-        const availableBoundaryFiles = [
-          'USA', 'CAN', 'MEX', 'CHN', 'IND', 'RUS', 'DEU', 'FRA', 'GBR', 'JPN', 
-          'AUS', 'BRA', 'ARG', 'TUR', 'IRN', 'SAU', 'ISR', 'EGY',
-          'ZAF', 'NGA', 'KEN', 'IDN', 'THA', 'VNM', 'KOR', 'NZL', 'CHL'
-        ];
-        
-        console.log(`🌍 PixiJS: Attempting to load boundaries for ${availableBoundaryFiles.length} countries with detail level: ${currentDetailLevel}`);
-        
-        let successCount = 0;
-        let errorCount = 0;
-        
-        for (const countryCode of availableBoundaryFiles) {
-          try {
-            console.log(`📍 Loading boundaries for ${countryCode}...`);
-            const countryBoundaries = await geoManager.loadCountryBoundaries(countryCode, currentDetailLevel);
-            
-            const features = countryBoundaries.features || [];
-            if (features.length > 0) {
+    if (currentRenderMode === 'legacy') {
+      const loadBoundaries = async () => {
+        try {
+          console.log('🌍 LEGACY: Starting to load Natural Earth boundaries');
+          
+          const allFeatures: any[] = [];
+          
+          const countryCodeMap: Record<string, string> = {
+            'United States': 'USA',
+            'Canada': 'CAN',
+            'Mexico': 'MEX',
+            'China': 'CHN',
+            'India': 'IND',
+            'Russia': 'RUS',
+            'Germany': 'DEU',
+            'France': 'FRA',
+            'United Kingdom': 'GBR',
+            'Japan': 'JPN',
+            'Australia': 'AUS',
+            'Brazil': 'BRA',
+            'Argentina': 'ARG',
+          };
+          
+          const availableBoundaryFiles = [
+            'USA', 'CAN', 'MEX', 'CHN', 'IND', 'RUS', 'DEU', 'FRA', 'GBR', 'JPN', 
+            'AUS', 'BRA', 'ARG', 'TUR', 'IRN', 'SAU', 'ISR', 'EGY',
+            'ZAF', 'NGA', 'KEN', 'IDN', 'THA', 'VNM', 'KOR', 'NZL', 'CHL'
+          ];
+          
+          console.log(`🌍 LEGACY: Attempting to load boundaries for ${availableBoundaryFiles.length} countries with detail level: ${currentDetailLevel}`);
+          
+          let successCount = 0;
+          let errorCount = 0;
+          
+          for (const countryCode of availableBoundaryFiles) {
+            try {
+              console.log(`📍 Loading boundaries for ${countryCode}...`);
+              const countryBoundaries = await geoManager.loadCountryBoundaries(countryCode, currentDetailLevel);
+              
+              const features = countryBoundaries.features || [];
+              if (features.length > 0) {
               features.forEach((feature) => {
                 if (feature && feature.geometry) {
                   if (!feature.properties) {
@@ -919,7 +1766,7 @@ export function WorldMapWebGL({
         };
         
         setProvinceBoundariesData(boundariesData);
-        console.log(`✅ PixiJS WorldMap: Successfully loaded ${allFeatures.length} total features`);
+        console.log(`✅ LEGACY: Successfully loaded ${allFeatures.length} total features`);
         
       } catch (error) {
         console.error('❌ Critical error loading province boundaries:', error);
@@ -928,12 +1775,17 @@ export function WorldMapWebGL({
     };
     
     if (isInitialized) {
-      console.log('🚀 Starting boundary loading process...');
+      console.log('🚀 LEGACY: Starting boundary loading process...');
       loadBoundaries();
     } else {
-      console.log('⏳ Waiting for PixiJS initialization...');
+      console.log('⏳ LEGACY: Waiting for PixiJS initialization...');
     }
-  }, [currentDetailLevel, isInitialized]);
+    } else if (currentRenderMode === 'tiles') {
+      // TILE MODE: Clear legacy boundary data and let tile system handle data loading
+      console.log('🗂️ TILES: Clearing legacy boundary data for tile mode');
+      setProvinceBoundariesData({ type: "FeatureCollection", features: [] });
+    }
+  }, [currentDetailLevel, isInitialized, currentRenderMode]);
 
   // Render province boundaries when data is loaded or selection changes
   useEffect(() => {
@@ -944,32 +1796,36 @@ export function WorldMapWebGL({
     const worldContainer = worldContainerRef.current;
     const app = appRef.current;
 
-    console.log(`🗺️ PixiJS: Rendering ${provinceBoundariesData.features.length} province features with real-time infinite scrolling (selected: ${selectedProvince || 'none'})`);
+    console.log(`🗺️ PixiJS: Render mode = ${currentRenderMode}`);
 
-    // Clear previous graphics and border highlights
-    const childrenToRemove = worldContainer.children.filter(child => child instanceof PIXI.Graphics);
-    childrenToRemove.forEach(child => {
-      child.destroy();
-      worldContainer.removeChild(child);
-    });
-    
-    // Clear any existing border highlight
-    if (borderHighlightRef.current) {
-      borderHighlightRef.current.destroy();
-      borderHighlightRef.current = null;
-    }
-    setHoveredCountry(null);
+    if (currentRenderMode === 'legacy') {
+      // LEGACY MODE: Country-based rendering with infinite scrolling
+      console.log(`🗺️ LEGACY: Rendering ${provinceBoundariesData.features.length} province features with real-time infinite scrolling (selected: ${selectedProvince || 'none'})`);
 
-    // Calculate world width for infinite scrolling based on coordinate system
-    const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
-    const worldWidth = 360 * baseScale; // Match the coordinate transformation scale
+      // Clear previous graphics and border highlights
+      const childrenToRemove = worldContainer.children.filter(child => child instanceof PIXI.Graphics);
+      childrenToRemove.forEach(child => {
+        child.destroy();
+        worldContainer.removeChild(child);
+      });
+      
+      // Clear any existing border highlight
+      if (borderHighlightRef.current) {
+        borderHighlightRef.current.destroy();
+        borderHighlightRef.current = null;
+      }
+      setHoveredCountry(null);
 
-    // Loop through provinceBoundariesData.features and render each one with infinite scrolling
-    provinceBoundariesData.features.forEach((feature: GeoJSONFeature, index: number) => {
-      try {
-        if (index < 3) { // Enhanced logging for first few features
-          console.log(`🌍 Creating 3 visible world copies for feature ${index}: ${feature.properties?.NAME || 'Unknown'}`);
-        }
+      // Calculate world width for infinite scrolling based on coordinate system
+      const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
+      const worldWidth = 360 * baseScale; // Match the coordinate transformation scale
+
+      // Loop through provinceBoundariesData.features and render each one with infinite scrolling
+      provinceBoundariesData.features.forEach((feature: GeoJSONFeature, index: number) => {
+        try {
+          if (index < 3) { // Enhanced logging for first few features
+            console.log(`🌍 Creating 3 visible world copies for feature ${index}: ${feature.properties?.NAME || 'Unknown'}`);
+          }
         
         // Create center world copy (main world)
         const centerGraphics = createWorldCopy(
@@ -1012,41 +1868,67 @@ export function WorldMapWebGL({
       } catch (error) {
         console.warn(`❌ Error rendering feature ${index}:`, error);
       }
-    });
+      });
 
 
 
-    console.log(`✅ PixiJS: Completed real-time infinite scrolling rendering - ${provinceBoundariesData.features.length} countries × 3 copies = ${provinceBoundariesData.features.length * 3} total graphics (selected: ${selectedProvince || 'none'})`);
-    
-    // Update hit area to match the coordinate-based world width
-    if (worldContainer && app) {
-      const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
-      const worldWidth = 360 * baseScale;
-      worldContainer.hitArea = new PIXI.Rectangle(-worldWidth, 0, worldWidth * 3, app.screen.height);
-      console.log(`🎯 Updated hit area: width=${worldWidth * 3}, positions: ${-worldWidth} to ${worldWidth * 2}`);
+      console.log(`✅ LEGACY: Completed real-time infinite scrolling rendering - ${provinceBoundariesData.features.length} countries × 3 copies = ${provinceBoundariesData.features.length * 3} total graphics (selected: ${selectedProvince || 'none'})`);
+      
+      // Update hit area to match the coordinate-based world width
+      if (worldContainer && app) {
+        const baseScale = Math.min(app.screen.width / 360, app.screen.height / 180);
+        const worldWidth = 360 * baseScale;
+        worldContainer.hitArea = new PIXI.Rectangle(-worldWidth, 0, worldWidth * 3, app.screen.height);
+        console.log(`🎯 Updated hit area: width=${worldWidth * 3}, positions: ${-worldWidth} to ${worldWidth * 2}`);
+      }
+      
+      // Render province boundaries for selected country
+      console.log(`🔍 Checking province rendering conditions:`);
+      console.log(`  selectedCountryForProvinces: ${selectedCountryForProvinces}`);
+      console.log(`  provinceDetailBoundaries keys: [${Object.keys(provinceDetailBoundaries).join(', ')}]`);
+      console.log(`  Has data for selected country: ${selectedCountryForProvinces ? !!provinceDetailBoundaries[selectedCountryForProvinces] : false}`);
+      
+      if (selectedCountryForProvinces && provinceDetailBoundaries[selectedCountryForProvinces]) {
+        console.log(`🏛️ Rendering province boundaries for ${selectedCountryForProvinces}`);
+        console.log(`🏛️ Province data:`, provinceDetailBoundaries[selectedCountryForProvinces]);
+        renderProvinceBoundaries(
+          provinceDetailBoundaries[selectedCountryForProvinces],
+          worldContainer,
+          app,
+          zoomLevel,
+          zoomCenter,
+          selectedProvince,
+          onProvinceSelect
+        );
+      }
+
+    } else if (currentRenderMode === 'tiles') {
+      // TILE MODE: Clear legacy graphics and use tile-based rendering
+      console.log(`🎯 TILES: Clearing legacy graphics and using tile-based rendering`);
+      
+      // Clear all graphics (legacy country graphics)
+      const childrenToRemove = worldContainer.children.filter(child => child instanceof PIXI.Graphics);
+      childrenToRemove.forEach(child => {
+        child.destroy();
+        worldContainer.removeChild(child);
+      });
+      
+      // Clear any existing border highlight
+      if (borderHighlightRef.current) {
+        borderHighlightRef.current.destroy();
+        borderHighlightRef.current = null;
+      }
+      setHoveredCountry(null);
+
+      console.log(`🗂️ TILES: Mode active - tile system will handle rendering via separate effects`);
+      
+      // Note: Tile rendering is handled by the tile system effects when currentRenderMode === 'tiles'
+      // The loadVisibleTiles, updateVisibleTiles, etc. effects will take over
+    } else {
+      console.warn(`⚠️ Unknown render mode: ${currentRenderMode}`);
     }
     
-    // Render province boundaries for selected country
-    console.log(`🔍 Checking province rendering conditions:`);
-    console.log(`  selectedCountryForProvinces: ${selectedCountryForProvinces}`);
-    console.log(`  provinceDetailBoundaries keys: [${Object.keys(provinceDetailBoundaries).join(', ')}]`);
-    console.log(`  Has data for selected country: ${selectedCountryForProvinces ? !!provinceDetailBoundaries[selectedCountryForProvinces] : false}`);
-    
-    if (selectedCountryForProvinces && provinceDetailBoundaries[selectedCountryForProvinces]) {
-      console.log(`🏛️ Rendering province boundaries for ${selectedCountryForProvinces}`);
-      console.log(`🏛️ Province data:`, provinceDetailBoundaries[selectedCountryForProvinces]);
-      renderProvinceBoundaries(
-        provinceDetailBoundaries[selectedCountryForProvinces],
-        worldContainer,
-        app,
-        zoomLevel,
-        zoomCenter,
-        selectedProvince,
-        onProvinceSelect
-      );
-    }
-    
-  }, [isInitialized, provinceBoundariesData, selectedProvince, zoomLevel, zoomCenter, panOffset, selectedCountryForProvinces, provinceDetailBoundaries]);
+  }, [isInitialized, provinceBoundariesData, selectedProvince, zoomLevel, zoomCenter, panOffset, selectedCountryForProvinces, provinceDetailBoundaries, currentRenderMode]);
 
   // Handle window resize
   const handleResize = useCallback(() => {
@@ -1099,6 +1981,16 @@ export function WorldMapWebGL({
       {/* Province Loading Test Component */}
       <ProvinceLoadingTest />
 
+      {/* Tile Visibility Debug - Only shown in tile mode */}
+      {currentRenderMode === 'tiles' && (
+        <TileVisibilityDebug 
+          visibleTiles={visibleTiles}
+          loadedTiles={loadedTiles}
+          viewportState={viewportState}
+          isVisible={showTileDebug}
+        />
+      )}
+
       {/* Loading state */}
       {!isInitialized && (
         <div className="absolute inset-0 flex items-center justify-center z-20">
@@ -1106,6 +1998,14 @@ export function WorldMapWebGL({
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
             <p className="text-muted-foreground">Initializing WebGL renderer...</p>
           </div>
+        </div>
+      )}
+
+      {/* Debug Controls - Only show tile debug in tile mode */}
+      {showTileDebug && currentRenderMode === 'tiles' && (
+        <div className="absolute bottom-4 left-4 bg-black bg-opacity-80 text-white p-2 rounded text-xs">
+          <div className="mb-1">🔍 Tile Debug Active</div>
+          <div>Press F12 → Console → toggleTileDebug() to hide</div>
         </div>
       )}
 
@@ -1124,6 +2024,7 @@ export function WorldMapWebGL({
         <div className="absolute top-4 left-4 z-10">
           <div className="bg-black/80 text-white p-2 rounded text-sm">
             <div>PixiJS WebGL Renderer</div>
+            <div>Render Mode: {currentRenderMode}</div>
             <div>Countries: {provinceBoundariesData?.features?.length || 0}</div>
             <div>Graphics: {(provinceBoundariesData?.features?.length || 0) * 3} (3× copies)</div>
             <div>World Width: {appRef.current ? (360 * Math.min(appRef.current.screen.width / 360, appRef.current.screen.height / 180)).toFixed(0) : 'N/A'}px (coordinate-based)</div>
@@ -1135,6 +2036,13 @@ export function WorldMapWebGL({
             <div>Hovered: {hoveredCountry || 'None'}</div>
             <div>Country w/ Provinces: {selectedCountryForProvinces || 'None'}</div>
             <div>Province Data: {Object.keys(provinceDetailBoundaries).length} countries loaded</div>
+            {currentRenderMode === 'tiles' && (
+              <>
+                <div>Visible Tiles: {visibleTiles.length}</div>
+                <div>Loaded Tiles: {loadedTiles.size}</div>
+                <div>Tile Containers: {tileContainersRef.current.size}</div>
+              </>
+            )}
             <div>Pan: ({Math.round(panOffset.x)}, {Math.round(panOffset.y)})</div>
             <div>Zoom: {zoomLevel.toFixed(2)}x</div>
             <div>{isDragging ? 'Dragging...' : 'Ready'}</div>
@@ -1194,6 +2102,37 @@ export function WorldMapWebGL({
               disabled={currentDetailLevel === 'ultra'}
             >
               🔶 Ultra Quality
+            </button>
+          </div>
+          
+          <div className="text-sm font-medium mt-3 mb-2">Render Mode: {currentRenderMode}</div>
+          {/* Debug button states */}
+          {(() => {
+            console.log(`🎮 Button states - currentRenderMode: "${currentRenderMode}", Legacy disabled: ${currentRenderMode === 'legacy'}, Tiles disabled: ${currentRenderMode === 'tiles'}`);
+            return null;
+          })()}
+          <div className="space-y-1">
+            <button 
+              className={`block w-full text-left px-2 py-1 text-xs rounded ${
+                currentRenderMode === 'legacy' 
+                  ? 'bg-gray-400 text-white cursor-not-allowed' 
+                  : 'bg-indigo-500 text-white hover:bg-indigo-600'
+              }`}
+              onClick={() => setCurrentRenderModeWithDebug('legacy')}
+              disabled={currentRenderMode === 'legacy'}
+            >
+              🌍 Legacy (Country-based)
+            </button>
+            <button 
+              className={`block w-full text-left px-2 py-1 text-xs rounded ${
+                currentRenderMode === 'tiles' 
+                  ? 'bg-gray-400 text-white cursor-not-allowed' 
+                  : 'bg-teal-500 text-white hover:bg-teal-600'
+              }`}
+              onClick={() => setCurrentRenderModeWithDebug('tiles')}
+              disabled={currentRenderMode === 'tiles'}
+            >
+              🗂️ Tiles (Performance)
             </button>
           </div>
           

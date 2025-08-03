@@ -1,4 +1,6 @@
 import { DetailLevel, GeoJSONFeatureCollection, GeoJSONFeature } from '@/types/geo';
+import * as geobuf from 'geobuf';
+import Pbf from 'pbf';
 
 // Re-export types for convenience
 export type { DetailLevel, GeoJSONFeatureCollection, GeoJSONFeature } from '@/types/geo';
@@ -674,6 +676,251 @@ export class GeographicDataManager {
 
     await Promise.all(promises);
     console.log(`✅ Preload complete`);
+  }
+
+  /**
+   * Parse a tile key like "detailed_40_-80" into components
+   * @param tileKey - The tile key string to parse
+   * @returns Object with lod (detail level), x and y coordinates
+   * @throws Error if the tile key format is invalid
+   */
+  parseTileKey(tileKey: string): { lod: string; x: number; y: number; worldX: number; worldY: number; tileX: number; tileY: number; detailLevel: DetailLevel } {
+    if (!tileKey || typeof tileKey !== 'string') {
+      throw new Error(`Invalid tile key: expected string, got ${typeof tileKey}`);
+    }
+
+    const parts = tileKey.split('_');
+    
+    if (parts.length !== 3) {
+      throw new Error(`Invalid tile key format: expected "lod_x_y", got "${tileKey}"`);
+    }
+
+    const [lod, xStr, yStr] = parts;
+    
+    // Validate LOD is a known detail level
+    const validLODs = ['low', 'overview', 'detailed', 'ultra'];
+    if (!validLODs.includes(lod)) {
+      throw new Error(`Invalid LOD in tile key: expected one of [${validLODs.join(', ')}], got "${lod}"`);
+    }
+
+    // Parse coordinates
+    const x = parseInt(xStr, 10);
+    const y = parseInt(yStr, 10);
+    
+    if (isNaN(x) || isNaN(y)) {
+      throw new Error(`Invalid coordinates in tile key: x="${xStr}", y="${yStr}" (must be integers)`);
+    }
+
+    // Calculate world coordinates (these are the actual lat/lon center points)
+    const worldX = x; // Longitude (x coordinate in world space)
+    const worldY = y; // Latitude (y coordinate in world space)
+    
+    // Calculate tile coordinates (for tile index lookup)
+    const tileX = Math.floor((worldX + 180) / 10);
+    const tileY = Math.floor((worldY + 90) / 10);
+
+    return {
+      lod,
+      x,
+      y,
+      worldX,
+      worldY,
+      tileX,
+      tileY,
+      detailLevel: lod as DetailLevel
+    };
+  }
+
+  /**
+   * Load and cache a tile from .pbf file
+   * @param detailLevel - The detail level (overview, detailed, ultra)
+   * @param tileKey - The tile key like "detailed_40_-80"
+   * @returns Promise<GeoJSONFeatureCollection> - The decoded tile data
+   */
+  async loadTile(detailLevel: DetailLevel, tileKey: string): Promise<GeoJSONFeatureCollection> {
+    const cacheKey = `tile_${detailLevel}_${tileKey}`;
+    
+    // Check cache first
+    const cached = this.cache.get(cacheKey);
+    if (cached) {
+      console.log(`📦 Tile cache hit: ${cacheKey}`);
+      return cached.data;
+    }
+
+    // Check if already loading
+    const existingPromise = this.loadingPromises.get(cacheKey);
+    if (existingPromise) {
+      console.log(`⏳ Waiting for existing tile load: ${cacheKey}`);
+      return existingPromise;
+    }
+
+    // Start new load
+    const loadPromise = this.performTileLoad(detailLevel, tileKey, cacheKey);
+    this.loadingPromises.set(cacheKey, loadPromise);
+
+    try {
+      const result = await loadPromise;
+      return result;
+    } finally {
+      this.loadingPromises.delete(cacheKey);
+    }
+  }
+
+  /**
+   * Perform the actual tile loading from .pbf file
+   */
+  private async performTileLoad(detailLevel: DetailLevel, tileKey: string, cacheKey: string): Promise<GeoJSONFeatureCollection> {
+    const startTime = performance.now();
+    
+    // Parse the tileKey to extract coordinates (tileKey format: "detailLevel_y_x")
+    const tileKeyParts = tileKey.split('_');
+    if (tileKeyParts.length !== 3) {
+      throw new Error(`Invalid tileKey format: ${tileKey}. Expected format: detailLevel_y_x`);
+    }
+    
+    const [, y, x] = tileKeyParts;
+    const coordinateKey = `${y}_${x}`;
+    
+    // Construct the .pbf file path using just the coordinates
+    const filePath = `/data/tiles/${detailLevel}/${coordinateKey}.pbf`;
+    
+    try {
+      console.log(`🗂️ Loading tile ${tileKey} at ${detailLevel} from ${filePath}...`);
+      
+      // Fetch the .pbf file as ArrayBuffer
+      const response = await fetch(filePath);
+      
+      if (!response.ok) {
+        console.error(`❌ Failed to load tile ${filePath}: ${response.status} ${response.statusText}`);
+        throw new Error(`Failed to load tile ${filePath}: ${response.status} ${response.statusText}`);
+      }
+
+      const arrayBuffer = await response.arrayBuffer();
+      console.log(`📥 Fetched tile ${tileKey}: ${arrayBuffer.byteLength} bytes`);
+
+      // Decode using geobuf with error handling for unsupported geometry types
+      const uint8Array = new Uint8Array(arrayBuffer);
+      const pbf = new Pbf(uint8Array);
+      
+      let geoJSON: GeoJSONFeatureCollection;
+      try {
+        geoJSON = geobuf.decode(pbf) as GeoJSONFeatureCollection;
+      } catch (error) {
+        // Handle geobuf decoding errors (e.g., "Unimplemented type: 4")
+        if (error instanceof Error && error.message.includes('Unimplemented type')) {
+          console.warn(`⚠️ Geobuf decoding error in tile ${tileKey}: ${error.message}`);
+          console.warn(`📄 This tile contains unsupported geometry types - returning empty collection`);
+          return { type: 'FeatureCollection', features: [] };
+        } else {
+          // Re-throw other types of errors
+          console.error(`❌ Unexpected geobuf decoding error in tile ${tileKey}:`, error);
+          throw error;
+        }
+      }
+
+      // Validate the decoded data
+      if (!geoJSON || geoJSON.type !== 'FeatureCollection') {
+        console.warn(`⚠️ Invalid GeoJSON structure in tile ${tileKey}, creating empty collection`);
+        return { type: 'FeatureCollection', features: [] };
+      }
+
+      // Process features: handle GeometryCollections and filter unsupported types
+      const processedFeatures: any[] = [];
+      let unpackedGeometryCollections = 0;
+      
+      geoJSON.features.forEach((feature, featureIndex) => {
+        const geometryType = feature.geometry?.type;
+        
+        // Handle GeometryCollection by unpacking into individual features
+        if (geometryType === 'GeometryCollection') {
+          const geometryCollection = feature.geometry as any;
+          if (geometryCollection.geometries && Array.isArray(geometryCollection.geometries)) {
+            console.log(`📦 Unpacking GeometryCollection in tile ${tileKey} with ${geometryCollection.geometries.length} sub-geometries`);
+            
+            geometryCollection.geometries.forEach((subGeometry: any, subIndex: number) => {
+              // Only add if the sub-geometry type is supported
+              const subGeometryType = subGeometry?.type;
+              if (['Point', 'LineString', 'Polygon', 'MultiPoint', 'MultiLineString', 'MultiPolygon'].includes(subGeometryType || '')) {
+                // Create individual feature for each sub-geometry with minimal metadata
+                const newFeature = {
+                  type: 'Feature',
+                  geometry: subGeometry,
+                  properties: feature.properties || {}  // Keep original properties but don't add extra metadata
+                };
+                
+                processedFeatures.push(newFeature);
+              } else {
+                console.warn(`⚠️ Unsupported sub-geometry type in GeometryCollection: ${subGeometryType}`);
+              }
+            });
+            
+            unpackedGeometryCollections++;
+          } else {
+            console.warn(`⚠️ Invalid GeometryCollection structure in tile ${tileKey} - missing geometries array`);
+          }
+        } else {
+          // Handle regular geometry types
+          const supported = ['Point', 'LineString', 'Polygon', 'MultiPoint', 'MultiLineString', 'MultiPolygon'].includes(geometryType || '');
+          
+          if (supported) {
+            processedFeatures.push(feature);
+          } else if (geometryType) {
+            console.warn(`⚠️ Unsupported geometry type in tile ${tileKey}: ${geometryType}`);
+          }
+        }
+      });
+
+      // Log GeometryCollection unpacking statistics
+      if (unpackedGeometryCollections > 0) {
+        console.log(`📦 Successfully unpacked ${unpackedGeometryCollections} GeometryCollection(s) in tile ${tileKey}`);
+        console.log(`📊 Original features: ${geoJSON.features.length}, Processed features: ${processedFeatures.length}`);
+      }
+
+      const filteredGeoJSON: GeoJSONFeatureCollection = {
+        type: 'FeatureCollection',
+        features: processedFeatures
+      };
+
+      const loadTime = performance.now() - startTime;
+      const size = this.estimateSize(filteredGeoJSON);
+      
+      console.log(`✅ Loaded tile ${tileKey} at ${detailLevel}: ${filteredGeoJSON.features.length} features in ${loadTime.toFixed(1)}ms (${(size / 1024).toFixed(1)}KB)`);
+
+      // Cache the result
+      this.evictOldEntries();
+      this.cache.set(cacheKey, {
+        data: filteredGeoJSON,
+        size,
+        timestamp: Date.now()
+      });
+
+      // Update stats
+      this.loadStats.totalFiles++;
+      this.loadStats.totalSize += size;
+      this.loadStats.loadTime += loadTime;
+
+      return filteredGeoJSON;
+      
+    } catch (error) {
+      console.error(`❌ Failed to load tile ${tileKey} at ${detailLevel}: ${error}`);
+      this.loadStats.errors.push(`${detailLevel}/${tileKey}: ${error}`);
+      
+      // Return empty collection as fallback
+      const emptyCollection: GeoJSONFeatureCollection = {
+        type: 'FeatureCollection',
+        features: []
+      };
+      
+      // Cache the empty result to prevent repeated failed attempts
+      const size = this.estimateSize(emptyCollection);
+      this.cache.set(cacheKey, {
+        data: emptyCollection,
+        size,
+        timestamp: Date.now()
+      });
+      
+      return emptyCollection;
+    }
   }
 }
 
