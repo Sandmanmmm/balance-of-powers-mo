@@ -700,6 +700,23 @@ export function WorldMapWebGL({
   }, [currentRenderMode]);
   const panOffsetRef = useRef({ x: 0, y: 0 });
   const isDraggingRef = useRef(false);
+  
+  // Single loading lock to prevent concurrent tile loading
+  const isLoadingTilesRef = useRef(false);
+  // Set to track tiles being processed to prevent duplicates
+  const tilesBeingLoadedRef = useRef<Set<string>>(new Set());
+  // Debounce timer ref for tile loading
+  const tileLoadDebounceRef = useRef<NodeJS.Timeout | null>(null);
+  // Ref to access loaded tiles without causing re-renders
+  const loadedTilesRef = useRef<Set<string>>(new Set());
+  // Atomic lock for adding tiles to world container
+  const addingTileRef = useRef<string | null>(null);
+  // Version counter to detect stale updates
+  const loadVersionRef = useRef(0);
+  // Track last activity to detect idle periods
+  const lastActivityRef = useRef(Date.now());
+  // Flag to prevent initial load race conditions
+  const initialLoadCompleteRef = useRef(false);
 
   // Camera center tracking in map coordinates (lat, lon)
   const [cameraCenter, setCameraCenter] = useState({ lat: 0, lon: 0 });
@@ -800,6 +817,51 @@ export function WorldMapWebGL({
         }
       };
 
+      // Add function to check for duplicate tiles
+      (window as any).checkDuplicateTiles = () => {
+        if (!worldContainerRef.current) {
+          console.log('❌ No world container');
+          return;
+        }
+        
+        const tileNames = new Map<string, number>();
+        const positionMap = new Map<string, string[]>(); // position -> tile names
+        
+        worldContainerRef.current.children.forEach(child => {
+          if (child.name && child.name.startsWith('tile_')) {
+            const count = tileNames.get(child.name) || 0;
+            tileNames.set(child.name, count + 1);
+            
+            // Track positions
+            const posKey = `${Math.round(child.position.x)},${Math.round(child.position.y)}`;
+            if (!positionMap.has(posKey)) {
+              positionMap.set(posKey, []);
+            }
+            positionMap.get(posKey)!.push(child.name);
+          }
+        });
+        
+        const duplicates = Array.from(tileNames.entries()).filter(([name, count]) => count > 1);
+        const overlaps = Array.from(positionMap.entries()).filter(([pos, names]) => names.length > 1);
+        
+        if (duplicates.length > 0) {
+          console.error('🚨 DUPLICATE TILES FOUND:', duplicates);
+        }
+        
+        if (overlaps.length > 0) {
+          console.error('🚨 OVERLAPPING TILES FOUND:');
+          overlaps.forEach(([pos, names]) => {
+            console.error(`  Position ${pos}: ${names.join(', ')}`);
+          });
+        }
+        
+        if (duplicates.length === 0 && overlaps.length === 0) {
+          console.log('✅ No duplicate or overlapping tiles found');
+        }
+        
+        return { duplicates, overlaps };
+      };
+      
       // Add comprehensive tile system debug function
       (window as any).debugTileSystem = () => {
         const center = cameraCenterRef.current;
@@ -813,8 +875,16 @@ export function WorldMapWebGL({
         console.log(`📊 Tiles: ${visibleCount} visible, ${loadedCount} loaded, ${containerCount} containers`);
         console.log(`🎯 Detail level: ${currentDetailLevel}`);
         
-        // List loaded tiles
-        console.log(`📋 Loaded tiles:`, Array.from(loadedTiles).sort());
+        // List loaded tiles with positions
+        if (worldContainerRef.current && appRef.current) {
+          console.log(`📋 Loaded tiles with positions:`);
+          worldContainerRef.current.children.forEach(child => {
+            if (child.name?.startsWith('tile_')) {
+              const info = (child as any).tileInfo;
+              console.log(`  ${child.name}: screen=(${child.position.x.toFixed(1)}, ${child.position.y.toFixed(1)}), world=(${info?.worldX}, ${info?.worldY})`);
+            }
+          });
+        }
         
         // List visible tiles
         console.log(`👀 Visible tiles:`, visibleTiles.map(t => t.id).sort());
@@ -872,6 +942,93 @@ export function WorldMapWebGL({
         console.log('🧹 Manual tile cleanup initiated...');
         // We'll call the culling function when it's defined
         console.log('✅ Manual tile cleanup function registered');
+      };
+      
+      // Add function to clear ALL tiles for debugging
+      (window as any).clearAllTiles = () => {
+        console.log('🗑️ Clearing ALL tiles...');
+        
+        // Clear all tile containers
+        tileContainersRef.current.forEach((tileContainer, tileKey) => {
+          if (worldContainerRef.current && tileContainer.parent === worldContainerRef.current) {
+            worldContainerRef.current.removeChild(tileContainer);
+          }
+          tileContainer.destroy({ children: true, texture: false });
+        });
+        tileContainersRef.current.clear();
+        
+        // Clear loaded tiles
+        setLoadedTiles(new Set());
+        loadedTilesRef.current.clear();
+        
+        // Clear loading state
+        isLoadingTilesRef.current = false;
+        tilesBeingLoadedRef.current.clear();
+        loadVersionRef.current++;
+        
+        console.log('✅ All tiles cleared');
+      };
+      
+      // Add function to check loading state
+      (window as any).checkLoadingState = () => {
+        console.log('🔍 Loading State Check:');
+        console.log(`  isLoadingTiles: ${isLoadingTilesRef.current}`);
+        console.log(`  tilesBeingLoaded: ${tilesBeingLoadedRef.current.size} tiles`, Array.from(tilesBeingLoadedRef.current));
+        console.log(`  loadedTiles: ${loadedTilesRef.current.size} tiles`);
+        console.log(`  tileContainers: ${tileContainersRef.current.size} containers`);
+        console.log(`  addingTile: ${addingTileRef.current}`);
+        console.log(`  loadVersion: ${loadVersionRef.current}`);
+        console.log(`  initialLoadComplete: ${initialLoadCompleteRef.current}`);
+        console.log(`  lastActivity: ${Date.now() - lastActivityRef.current}ms ago`);
+        console.log(`  worldContainer children: ${worldContainerRef.current?.children.filter(c => c.name?.startsWith('tile_')).length || 0} tiles`);
+      };
+      
+      // Add emergency cleanup function
+      (window as any).emergencyCleanup = () => {
+        console.log('🚨 Emergency cleanup initiated...');
+        
+        // Stop all operations
+        isLoadingTilesRef.current = false;
+        tilesBeingLoadedRef.current.clear();
+        addingTileRef.current = null;
+        if (tileLoadDebounceRef.current) {
+          clearTimeout(tileLoadDebounceRef.current);
+          tileLoadDebounceRef.current = null;
+        }
+        
+        // Force sync world container with our state
+        if (worldContainerRef.current) {
+          const actualTiles = new Map<string, PIXI.Container>();
+          const duplicates: string[] = [];
+          
+          // Find all tile containers and remove duplicates
+          worldContainerRef.current.children.forEach(child => {
+            if (child.name?.startsWith('tile_')) {
+              const tileKey = child.name.replace('tile_', '');
+              if (actualTiles.has(tileKey)) {
+                // Duplicate found - remove it
+                worldContainerRef.current!.removeChild(child);
+                (child as any).destroy({ children: true, texture: false });
+                duplicates.push(tileKey);
+              } else {
+                actualTiles.set(tileKey, child as PIXI.Container);
+              }
+            }
+          });
+          
+          // Update our refs to match reality
+          tileContainersRef.current.clear();
+          actualTiles.forEach((container, tileKey) => {
+            tileContainersRef.current.set(tileKey, container);
+          });
+          
+          // Update state
+          const actualTileKeys = new Set(actualTiles.keys());
+          setLoadedTiles(actualTileKeys);
+          loadedTilesRef.current = actualTileKeys;
+          
+          console.log(`✅ Emergency cleanup complete: removed ${duplicates.length} duplicates, synced ${actualTileKeys.size} tiles`);
+        }
       };
     } else if (currentRenderMode === 'legacy') {
       // LEGACY MODE: Clear tile-specific debug functions and add legacy-specific ones
@@ -931,6 +1088,15 @@ export function WorldMapWebGL({
       // Cleanup tiles when switching away from tile mode
       if (prevMode === 'tiles') {
         console.log('🧹 Cleaning up tiles when switching from tile mode...');
+        
+        // Clear loading locks and refs
+        isLoadingTilesRef.current = false;
+        tilesBeingLoadedRef.current.clear();
+        if (tileLoadDebounceRef.current) {
+          clearTimeout(tileLoadDebounceRef.current);
+          tileLoadDebounceRef.current = null;
+        }
+        
         // Clear all tile containers
         tileContainersRef.current.forEach((tileContainer, tileKey) => {
           if (worldContainerRef.current && tileContainer.parent === worldContainerRef.current) {
@@ -940,12 +1106,27 @@ export function WorldMapWebGL({
         });
         tileContainersRef.current.clear();
         setLoadedTiles(new Set());
+        loadedTilesRef.current.clear();
         console.log('✅ Tile cleanup completed');
       }
       
       // Clear tiles when switching TO tile mode to start fresh
       if (currentMode === 'tiles') {
         console.log('🧹 Clearing tiles when switching to tile mode for fresh start...');
+        
+        // Reset initial load flag
+        initialLoadCompleteRef.current = false;
+        lastActivityRef.current = Date.now();
+        
+        // Clear loading locks and refs for fresh start
+        isLoadingTilesRef.current = false;
+        tilesBeingLoadedRef.current.clear();
+        addingTileRef.current = null;
+        if (tileLoadDebounceRef.current) {
+          clearTimeout(tileLoadDebounceRef.current);
+          tileLoadDebounceRef.current = null;
+        }
+        
         // Clear any existing tile containers
         tileContainersRef.current.forEach((tileContainer, tileKey) => {
           if (worldContainerRef.current && tileContainer.parent === worldContainerRef.current) {
@@ -955,6 +1136,7 @@ export function WorldMapWebGL({
         });
         tileContainersRef.current.clear();
         setLoadedTiles(new Set());
+        loadedTilesRef.current.clear();
         
         // Also clear any visual artifacts from world container
         if (worldContainerRef.current) {
@@ -1165,6 +1347,12 @@ export function WorldMapWebGL({
   // Enhanced Tile Culling Management
   const cullInvisibleTiles = useCallback(() => {
     if (loadedTiles.size === 0) return; // No tiles to cull
+    
+    // Don't cull while loading to prevent race conditions
+    if (isLoadingTilesRef.current) {
+      console.log('🔒 Skipping culling - tiles are being loaded');
+      return;
+    }
 
     const currentTileIds = Array.from(loadedTiles);
     const currentCenter = { lat: viewportState.center.y, lon: viewportState.center.x };
@@ -1209,16 +1397,37 @@ export function WorldMapWebGL({
       finalCull.forEach(tileId => {
         const container = tileContainersRef.current.get(tileId);
         if (container && worldContainerRef.current) {
-          worldContainerRef.current.removeChild(container);
+          // Also check if container is actually in world
+          if (container.parent === worldContainerRef.current) {
+            worldContainerRef.current.removeChild(container);
+          }
+          container.destroy({ children: true, texture: false });
           tileContainersRef.current.delete(tileId);
           console.log(`🗂️ Removed tile container: ${tileId}`);
         }
+        // Also clear from being loaded set
+        tilesBeingLoadedRef.current.delete(tileId);
+        
+        // Double-check world container doesn't have any orphaned tiles with this name
+        const orphaned = worldContainerRef.current?.children.filter(
+          child => child.name === `tile_${tileId}`
+        );
+        if (orphaned && orphaned.length > 0) {
+          console.warn(`⚠️ Found ${orphaned.length} orphaned tile(s) ${tileId}, removing`);
+          orphaned.forEach(child => {
+            worldContainerRef.current!.removeChild(child);
+            if (typeof (child as any).destroy === 'function') {
+              (child as any).destroy({ children: true, texture: false });
+            }
+          });
+        }
       });
 
-      // Update loaded tiles set
+      // Update loaded tiles set - both state and ref
       setLoadedTiles(prev => {
         const newSet = new Set(prev);
         finalCull.forEach(tileId => newSet.delete(tileId));
+        loadedTilesRef.current = newSet; // Keep ref in sync
         console.log(`📊 Tile count: ${prev.size} → ${newSet.size} (culled ${finalCull.length})`);
         return newSet;
       });
@@ -1313,26 +1522,33 @@ export function WorldMapWebGL({
   const updateTileTransforms = useCallback(() => {
     if (!appRef.current) return;
     
+    // Skip transform updates if we're loading to prevent interference
+    if (isLoadingTilesRef.current) {
+      console.log('⏸️ Skipping transform update - tiles are being loaded');
+      return;
+    }
+    
     const app = appRef.current;
     
     // Update all loaded tile containers with new transformations
+    let updateCount = 0;
     tileContainersRef.current.forEach((tileContainer, tileKey) => {
       try {
         // Parse tile key to get world coordinates
         const parsed = geoManager.parseTileKey(tileKey);
         if (!parsed) return;
         
-        // Transform tile world coordinates to screen coordinates
-        const [screenX, screenY] = transformCoordinates(
-          parsed.worldX,
-          parsed.worldY,
-          app.screen.width,
-          app.screen.height,
-          panOffsetRef.current.x,
-          zoomLevelRef.current,
-          zoomCenter,
-          panOffsetRef.current.y
-        );
+        // Calculate tile position consistently with initial positioning
+        const pixelsPerDegreeX = app.screen.width / 360;
+        const pixelsPerDegreeY = app.screen.height / 180;
+        
+        // Convert world coordinates to screen coordinates
+        const baseX = parsed.worldX * pixelsPerDegreeX;
+        const baseY = -parsed.worldY * pixelsPerDegreeY;
+        
+        // Apply pan offset and zoom
+        const screenX = (baseX * zoomLevelRef.current) + panOffsetRef.current.x;
+        const screenY = (baseY * zoomLevelRef.current) + panOffsetRef.current.y;
         
         // Update tile container position
         tileContainer.position.set(screenX, screenY);
@@ -1341,69 +1557,172 @@ export function WorldMapWebGL({
         const tileScale = zoomLevelRef.current;
         tileContainer.scale.set(tileScale);
         
+        updateCount++;
+        
       } catch (error) {
         console.warn(`⚠️ Failed to update transform for tile ${tileKey}:`, error);
       }
     });
+    
+    // Only log if significant updates
+    if (updateCount > 0 && Date.now() - lastLogTimeRef.current > 1000) {
+      console.log(`🔄 Updated transforms for ${updateCount} tiles`);
+      lastLogTimeRef.current = Date.now();
+    }
   }, [zoomCenter]);
 
-  // Enhanced Tile Loading with GeographicDataManager Integration
+  // Enhanced Tile Loading with GeographicDataManager Integration and Duplicate Prevention
   const loadVisibleTiles = useCallback(async () => {
     if (!worldContainerRef.current) return;
 
-    // Get visible tiles using getVisibleTilesWithLOD for accurate tile calculation
-    const visibleTileKeys = getVisibleTilesWithLOD(
-      { lat: viewportState.center.y, lon: viewportState.center.x },
-      zoomLevel,
-      5 // 5x5 grid
-    );
+    // Update activity timestamp
+    lastActivityRef.current = Date.now();
 
-    // Filter to only tiles that aren't already loaded
-    const tilesToLoad = visibleTileKeys.filter(tileKey => !loadedTiles.has(tileKey));
+    // Single loading lock - prevent any concurrent loading
+    if (isLoadingTilesRef.current) {
+      console.log('🔒 Tile loading already in progress, skipping');
+      console.trace('🔍 Attempted concurrent load from:');
+      return;
+    }
+
+    // Detect idle period and clean stale state
+    const timeSinceLastActivity = Date.now() - lastActivityRef.current;
+    if (timeSinceLastActivity > 5000) { // 5 seconds idle
+      console.log(`🧹 Idle period detected (${timeSinceLastActivity}ms), cleaning stale state`);
+      tilesBeingLoadedRef.current.clear();
+      addingTileRef.current = null;
+      loadVersionRef.current++; // Invalidate any pending operations
+    }
+
+    const loadSessionId = Math.random().toString(36).substr(2, 9);
+    const loadVersion = ++loadVersionRef.current;
+    console.log(`🏁 Starting load session: ${loadSessionId} (version ${loadVersion})`);
     
-    if (tilesToLoad.length === 0) return;
+    try {
+      // Acquire loading lock
+      isLoadingTilesRef.current = true;
 
-    // Parse tile information for distance sorting
-    const tilesWithInfo = tilesToLoad.map(tileKey => {
-      const parsed = geoManager.parseTileKey(tileKey);
-      if (!parsed) return null;
+      // Get visible tiles using getVisibleTilesWithLOD for accurate tile calculation
+      const visibleTileKeys = getVisibleTilesWithLOD(
+        { lat: viewportState.center.y, lon: viewportState.center.x },
+        zoomLevel,
+        5 // 5x5 grid
+      );
+
+      // Comprehensive duplicate prevention - check all refs before loading
+      const tilesToLoad = visibleTileKeys.filter(tileKey => {
+        // Check if already loaded (use ref to avoid stale closure)
+        if (loadedTilesRef.current.has(tileKey)) {
+          console.log(`⏭️ Tile ${tileKey} already in loadedTilesRef`);
+          return false;
+        }
+        // Check if currently being loaded
+        if (tilesBeingLoadedRef.current.has(tileKey)) {
+          console.log(`⏭️ Tile ${tileKey} already in tilesBeingLoadedRef`);
+          return false;
+        }
+        // Check if container already exists
+        if (tileContainersRef.current.has(tileKey)) {
+          console.log(`⏭️ Tile ${tileKey} already has container`);
+          return false;
+        }
+        return true;
+      });
       
-      // Calculate distance from center for prioritization
-      const deltaX = parsed.worldX - viewportState.center.x;
-      const deltaY = parsed.worldY - viewportState.center.y;
-      const distanceFromCenter = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-      
-      return {
-        tileKey,
-        detailLevel: parsed.detailLevel,
-        worldX: parsed.worldX,
-        worldY: parsed.worldY,
-        distanceFromCenter
-      };
-    }).filter(Boolean);
+      if (tilesToLoad.length === 0) {
+        return;
+      }
 
-    // Sort by distance from center for optimal loading order
-    const sortedTiles = tilesWithInfo.sort((a, b) => a!.distanceFromCenter - b!.distanceFromCenter);
+      // Parse tile information for distance sorting
+      const tilesWithInfo = tilesToLoad.map(tileKey => {
+        const parsed = geoManager.parseTileKey(tileKey);
+        if (!parsed) return null;
+        
+        // Calculate distance from center for prioritization
+        const deltaX = parsed.worldX - viewportState.center.x;
+        const deltaY = parsed.worldY - viewportState.center.y;
+        const distanceFromCenter = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        
+        return {
+          tileKey,
+          detailLevel: parsed.detailLevel,
+          worldX: parsed.worldX,
+          worldY: parsed.worldY,
+          distanceFromCenter
+        };
+      }).filter(Boolean);
 
-    console.log(`📦 Loading ${sortedTiles.length} visible tiles (closest first):`, sortedTiles.slice(0, 3).map(t => t!.tileKey));
+      // Sort by distance from center for optimal loading order
+      const sortedTiles = tilesWithInfo.sort((a, b) => a!.distanceFromCenter - b!.distanceFromCenter);
 
-    // Load tiles in parallel with concurrency limit
-    const CONCURRENT_LOADS = 3;
+      console.log(`📦 [${loadSessionId}] Loading ${sortedTiles.length} new tiles (sequential):`, sortedTiles.slice(0, 3).map(t => t!.tileKey));
 
-    for (let i = 0; i < sortedTiles.length; i += CONCURRENT_LOADS) {
-      const batch = sortedTiles.slice(i, i + CONCURRENT_LOADS);
-      
-      const batchPromises = batch.map(async (tileInfo) => {
-        if (!tileInfo) return;
+      // For initial load, be extra cautious with timing
+      if (!initialLoadCompleteRef.current && sortedTiles.length > 0) {
+        console.log(`🚀 [${loadSessionId}] Initial load detected - adding extra safety delays`);
+      }
+
+      // Sequential processing - process tiles one by one instead of in parallel
+      for (const tileInfo of sortedTiles) {
+        if (!tileInfo) continue;
+        
+        // Check if this load session is still current
+        if (loadVersion !== loadVersionRef.current) {
+          console.log(`⏹️ [${loadSessionId}] Load session outdated (${loadVersion} vs ${loadVersionRef.current}), aborting`);
+          break;
+        }
         
         const { tileKey, detailLevel } = tileInfo;
+        
+        // Double-check before loading (use ref to avoid stale closure)
+        if (loadedTilesRef.current.has(tileKey) || 
+            tilesBeingLoadedRef.current.has(tileKey) || 
+            tileContainersRef.current.has(tileKey)) {
+          console.log(`⏭️ Skipping ${tileKey} - already loaded or being loaded`);
+          continue;
+        }
+        
+        // Immediate marking - mark as being loaded immediately
+        tilesBeingLoadedRef.current.add(tileKey);
         
         try {
           // Use the new GeographicDataManager.loadTile method
           const tileData = await geoManager.loadTile(detailLevel, tileKey);
           
+          // Add small delay for initial load to prevent race conditions
+          if (!initialLoadCompleteRef.current) {
+            await new Promise(resolve => setTimeout(resolve, 50)); // 50ms delay for initial load
+          }
+          
           // Create container for this tile if it doesn't exist
-          if (!tileContainersRef.current.has(tileKey)) {
+          if (!tileContainersRef.current.has(tileKey) && worldContainerRef.current) {
+            // Atomic lock check - wait if another tile is being added
+            while (addingTileRef.current !== null) {
+              await new Promise(resolve => setTimeout(resolve, 10));
+            }
+            
+            // Acquire atomic lock
+            addingTileRef.current = tileKey;
+            
+            try {
+              // Double-check after acquiring lock
+              if (tileContainersRef.current.has(tileKey)) {
+                console.log(`⏭️ [${loadSessionId}] Tile ${tileKey} was added while waiting for lock`);
+                continue;
+              }
+              
+              // Final check - make sure no duplicate container exists in world
+              const existingContainers = worldContainerRef.current.children.filter(
+                child => child.name === `tile_${tileKey}`
+              );
+              if (existingContainers.length > 0) {
+                console.warn(`⚠️ [${loadSessionId}] Found ${existingContainers.length} existing container(s) for ${tileKey} in world, removing all`);
+                existingContainers.forEach(existing => {
+                  worldContainerRef.current!.removeChild(existing);
+                  existing.destroy({ children: true, texture: false });
+                });
+              }
+            
             const tileContainer = new PIXI.Container();
             tileContainer.name = `tile_${tileKey}`;
             
@@ -1417,52 +1736,278 @@ export function WorldMapWebGL({
               featureCount: tileData.features.length
             };
             
-            // Render geographic features if available
+            // Inline rendering - render features directly to avoid race conditions
             if (tileData.features && tileData.features.length > 0) {
-              await renderTileFeatures(tileContainer, tileData, tileKey);
+              const app = appRef.current;
+              if (app) {
+                console.log(`🎨 [${loadSessionId}] Inline rendering ${tileData.features.length} features for tile ${tileKey} at world pos (${tileInfo.worldX}, ${tileInfo.worldY})`);
+
+                // Create a graphics object for this tile
+                const tileGraphics = new PIXI.Graphics();
+                tileGraphics.name = `graphics_${tileKey}`;
+
+                // Render each feature in the tile
+                for (const feature of tileData.features) {
+                  try {
+                    // Get appropriate color
+                    const color = getFeatureColor(feature);
+                    
+                    // Begin fill for this feature
+                    tileGraphics.beginFill(color);
+                    tileGraphics.lineStyle(1, 0x666666, 1);
+                    
+                    // Draw the feature geometry directly into the tile graphics
+                    // Features are already in tile-local coordinates (0-10 degrees relative to tile origin)
+                    if (feature.geometry && feature.geometry.type === 'Polygon') {
+                      const coordinates = feature.geometry.coordinates as number[][][];
+                      if (coordinates && coordinates[0]) {
+                        const ring = coordinates[0];
+                        if (ring.length >= 3) {
+                          // Convert degrees to pixels within tile (no global transform)
+                          const pixelsPerDegreeX = app.screen.width / 360;
+                          const pixelsPerDegreeY = app.screen.height / 180;
+                          
+                          // First point - relative to tile origin
+                          const [firstLon, firstLat] = ring[0];
+                          const firstX = (firstLon - tileInfo.worldX) * pixelsPerDegreeX;
+                          const firstY = -(firstLat - tileInfo.worldY) * pixelsPerDegreeY;
+                          
+                          tileGraphics.moveTo(firstX, firstY);
+                          
+                          // Draw the rest of the ring
+                          for (let i = 1; i < ring.length; i++) {
+                            const [lon, lat] = ring[i];
+                            const x = (lon - tileInfo.worldX) * pixelsPerDegreeX;
+                            const y = -(lat - tileInfo.worldY) * pixelsPerDegreeY;
+                            tileGraphics.lineTo(x, y);
+                          }
+                          
+                          // Close the path
+                          tileGraphics.lineTo(firstX, firstY);
+                        }
+                      }
+                    } else if (feature.geometry && feature.geometry.type === 'MultiPolygon') {
+                      const multiCoords = feature.geometry.coordinates as number[][][][];
+                      const pixelsPerDegreeX = app.screen.width / 360;
+                      const pixelsPerDegreeY = app.screen.height / 180;
+                      
+                      multiCoords.forEach(polygonCoords => {
+                        if (polygonCoords && polygonCoords[0]) {
+                          const ring = polygonCoords[0];
+                          if (ring.length >= 3) {
+                            const [firstLon, firstLat] = ring[0];
+                            const firstX = (firstLon - tileInfo.worldX) * pixelsPerDegreeX;
+                            const firstY = -(firstLat - tileInfo.worldY) * pixelsPerDegreeY;
+                            
+                            tileGraphics.moveTo(firstX, firstY);
+                            
+                            for (let i = 1; i < ring.length; i++) {
+                              const [lon, lat] = ring[i];
+                              const x = (lon - tileInfo.worldX) * pixelsPerDegreeX;
+                              const y = -(lat - tileInfo.worldY) * pixelsPerDegreeY;
+                              tileGraphics.lineTo(x, y);
+                            }
+                            
+                            tileGraphics.lineTo(firstX, firstY);
+                          }
+                        }
+                      });
+                    }
+                    
+                    // End fill for this feature
+                    tileGraphics.endFill();
+                    
+                  } catch (error) {
+                    console.warn(`⚠️ Failed to render feature in tile ${tileKey}:`, error);
+                  }
+                }
+
+                // Add graphics to tile container
+                tileContainer.addChild(tileGraphics);
+              }
+              
+              // Add debug border if debug mode is on
+              if (showTileDebug && appRef.current) {
+                const debugGraphics = new PIXI.Graphics();
+                debugGraphics.lineStyle(2, 0xff0000, 0.5); // Red border
+                const tileSize = 10; // 10 degree tiles
+                const tileWidth = tileSize * appRef.current.screen.width / 360;
+                const tileHeight = tileSize * appRef.current.screen.height / 180;
+                debugGraphics.drawRect(0, 0, tileWidth, tileHeight);
+                const debugText = new PIXI.Text(tileKey, {
+                  fontSize: 12,
+                  fill: 0xff0000,
+                  fontWeight: 'bold'
+                });
+                debugText.position.set(5, 5);
+                debugGraphics.addChild(debugText);
+                tileContainer.addChild(debugGraphics);
+              }
             }
             
+            // Store container reference first to claim it
+            if (tileContainersRef.current.has(tileKey)) {
+              console.error(`🚨 [${loadSessionId}] Container ref already exists for ${tileKey}, aborting add`);
+              tileContainer.destroy({ children: true, texture: false });
+              return; // Skip this tile entirely
+            }
             tileContainersRef.current.set(tileKey, tileContainer);
-            if (worldContainerRef.current) {
-              worldContainerRef.current.addChild(tileContainer);
+            
+            // Add to world only if ref was successfully set
+            worldContainerRef.current.addChild(tileContainer);
+            
+            // Verify no duplicates after adding
+            const duplicateCheck = worldContainerRef.current.children.filter(
+              child => child.name === `tile_${tileKey}`
+            );
+            if (duplicateCheck.length > 1) {
+              console.error(`🚨 [${loadSessionId}] DUPLICATE DETECTED: ${duplicateCheck.length} containers for ${tileKey}`);
+              // Remove all but the first one
+              for (let i = 1; i < duplicateCheck.length; i++) {
+                worldContainerRef.current.removeChild(duplicateCheck[i]);
+                duplicateCheck[i].destroy({ children: true, texture: false });
+              }
+            }
+            
+            // Log container hierarchy
+            console.log(`📦 [${loadSessionId}] Container ${tileKey} added. Total world children: ${worldContainerRef.current.children.length}`);
+            
+            // Check for overlapping tiles at same position - more aggressive
+            const myPosition = { x: tileContainer.position.x, y: tileContainer.position.y };
+            const overlapping = worldContainerRef.current.children.filter(child => {
+              if (child === tileContainer || !child.name?.startsWith('tile_')) return false;
+              // Check position overlap (tiles at exact same position) - more precise check
+              const deltaX = Math.abs(child.position.x - myPosition.x);
+              const deltaY = Math.abs(child.position.y - myPosition.y);
+              return deltaX < 5 && deltaY < 5; // Increased tolerance to catch near-overlaps
+            });
+            
+            if (overlapping.length > 0) {
+              console.error(`🚨 [${loadSessionId}] Tile ${tileKey} overlaps with ${overlapping.length} other tiles at position (${myPosition.x.toFixed(1)}, ${myPosition.y.toFixed(1)}):`, 
+                overlapping.map(c => `${c.name}@(${c.position.x.toFixed(1)},${c.position.y.toFixed(1)})`));
+              
+              // Check if any overlapping tile has the same tileKey
+              const sameKeyOverlaps = overlapping.filter(child => child.name === `tile_${tileKey}`);
+              if (sameKeyOverlaps.length > 0) {
+                console.error(`🚨 [${loadSessionId}] CRITICAL: Found exact duplicate of ${tileKey}! Removing this one.`);
+                worldContainerRef.current.removeChild(tileContainer);
+                tileContainer.destroy({ children: true, texture: false });
+                tileContainersRef.current.delete(tileKey);
+                console.log(`🗑️ [${loadSessionId}] Removed exact duplicate tile ${tileKey}`);
+                continue; // Skip to next tile
+              }
+              
+              // For position overlaps with different keys, just log warning but keep both
+              console.warn(`⚠️ [${loadSessionId}] Position overlap detected but different tile keys - keeping both`);
+            }
+            
+            // Update transform immediately
+            const parsed = geoManager.parseTileKey(tileKey);
+            if (parsed && appRef.current) {
+              // Calculate tile position - tiles are positioned by their bottom-left corner
+              const tileSize = 10; // degrees
+              const pixelsPerDegreeX = appRef.current.screen.width / 360;
+              const pixelsPerDegreeY = appRef.current.screen.height / 180;
+              
+              // Convert world coordinates to screen coordinates
+              // Note: Y is inverted (positive Y goes up in world coords, down in screen coords)
+              const baseX = parsed.worldX * pixelsPerDegreeX;
+              const baseY = -parsed.worldY * pixelsPerDegreeY;
+              
+              // Apply pan offset and zoom
+              const screenX = (baseX * zoomLevelRef.current) + panOffsetRef.current.x;
+              const screenY = (baseY * zoomLevelRef.current) + panOffsetRef.current.y;
+              
+              tileContainer.position.set(screenX, screenY);
+              tileContainer.scale.set(zoomLevelRef.current);
+              
+              console.log(`📍 [${loadSessionId}] Positioned tile ${tileKey} at (${screenX.toFixed(1)}, ${screenY.toFixed(1)}) scale: ${zoomLevelRef.current.toFixed(2)}`);
+            }
+            } finally {
+              // Always release atomic lock
+              addingTileRef.current = null;
             }
           }
 
-          // Mark tile as loaded
-          setLoadedTiles(prev => new Set(prev).add(tileKey));
+          // Mark tile as loaded - update both state and ref
+          setLoadedTiles(prev => {
+            const newSet = new Set(prev).add(tileKey);
+            loadedTilesRef.current = newSet;
+            return newSet;
+          });
           
-          console.log(`✅ Loaded tile ${tileKey} at ${detailLevel} (${tileData.features.length} features)`);
+          console.log(`✅ [${loadSessionId}] Loaded and rendered tile ${tileKey} at ${detailLevel} (${tileData.features.length} features)`);
           
         } catch (error) {
           console.error(`❌ Failed to load tile ${tileKey}:`, error);
           
-          // Still create an empty container to mark the tile as "attempted"
-          if (!tileContainersRef.current.has(tileKey)) {
-            const emptyContainer = new PIXI.Container();
-            emptyContainer.name = `tile_${tileKey}_failed`;
-            (emptyContainer as any).tileInfo = {
-              id: tileKey,
-              detailLevel: detailLevel,
-              loadTime: Date.now(),
-              failed: true
-            };
-            tileContainersRef.current.set(tileKey, emptyContainer);
-            if (worldContainerRef.current) {
-              worldContainerRef.current.addChild(emptyContainer);
-            }
-          }
-          
-          // Mark as loaded even if failed to prevent retry loops
-          setLoadedTiles(prev => new Set(prev).add(tileKey));
+          // Still mark as loaded to prevent retry loops - update both state and ref
+          setLoadedTiles(prev => {
+            const newSet = new Set(prev).add(tileKey);
+            loadedTilesRef.current = newSet;
+            return newSet;
+          });
+        } finally {
+          // Always remove from being loaded set
+          tilesBeingLoadedRef.current.delete(tileKey);
         }
+      }
+
+      console.log(`🎯 [${loadSessionId}] Completed loading ${sortedTiles.length} visible tiles`);
+      
+      // Mark initial load as complete
+      if (!initialLoadCompleteRef.current && sortedTiles.length > 0) {
+        initialLoadCompleteRef.current = true;
+        console.log(`✅ [${loadSessionId}] Initial load completed successfully`);
+      }
+      
+      // Final sync - ensure refs match state
+      setLoadedTiles(prev => {
+        loadedTilesRef.current = prev;
+        console.log(`🔄 [${loadSessionId}] Final sync: ${prev.size} loaded tiles`);
+        return prev;
       });
-
-      // Wait for current batch before starting next batch
-      await Promise.all(batchPromises);
+      
+    } finally {
+      // Always release loading lock
+      isLoadingTilesRef.current = false;
+      console.log(`🔓 [${loadSessionId}] Released loading lock`);
     }
+  }, [viewportState.center, zoomLevel, zoomCenter, getFeatureColor]); // Removed loadedTiles to prevent re-creation
 
-    console.log(`🎯 Completed loading ${sortedTiles.length} visible tiles`);
-  }, [viewportState.center, zoomLevel, loadedTiles]);
+  // Debounced tile loading function
+  const debouncedLoadVisibleTiles = useCallback(() => {
+    if (currentRenderMode !== 'tiles' || renderMode !== 'tiles') return;
+    
+    // Update activity timestamp
+    lastActivityRef.current = Date.now();
+    
+    // Clear any existing debounce timer
+    if (tileLoadDebounceRef.current) {
+      clearTimeout(tileLoadDebounceRef.current);
+      console.log('🔄 Cleared existing debounce timer');
+    }
+    
+    // Set new debounce timer - increased to 300ms for more stability
+    const timerId = setTimeout(() => {
+      console.log('⏱️ Debounced tile loading triggered');
+      // Double-check we're still in tile mode
+      if (currentRenderMode === 'tiles' && renderMode === 'tiles') {
+        // Check for stale state before loading
+        const timeSinceActivity = Date.now() - lastActivityRef.current;
+        if (timeSinceActivity > 5000) {
+          console.log(`⚠️ Stale debounce detected (${timeSinceActivity}ms old), cleaning state`);
+          tilesBeingLoadedRef.current.clear();
+          addingTileRef.current = null;
+        }
+        
+        loadVisibleTiles();
+      }
+    }, 300);
+    
+    tileLoadDebounceRef.current = timerId;
+    console.log('⏲️ Set new debounce timer');
+  }, [currentRenderMode, renderMode, loadVisibleTiles]);
 
   // TILE SYSTEM: Update visible tiles when viewport changes (only in tile mode)
   useEffect(() => {
@@ -1471,12 +2016,19 @@ export function WorldMapWebGL({
     }
   }, [updateVisibleTiles, currentRenderMode, renderMode]);
 
-  // TILE SYSTEM: Load new visible tiles (only in tile mode)
+  // TILE SYSTEM: Single trigger effect with debouncing - combines all tile loading triggers
   useEffect(() => {
     if (currentRenderMode === 'tiles' && renderMode === 'tiles') {
-      loadVisibleTiles();
+      debouncedLoadVisibleTiles();
     }
-  }, [loadVisibleTiles, currentRenderMode, renderMode]);
+    
+    // Cleanup debounce timer on unmount
+    return () => {
+      if (tileLoadDebounceRef.current) {
+        clearTimeout(tileLoadDebounceRef.current);
+      }
+    };
+  }, [debouncedLoadVisibleTiles, currentRenderMode, renderMode, viewportState.center, zoomLevel, panOffset]);
 
   // TILE SYSTEM: Update tile transforms when viewport changes (only in tile mode)
   useEffect(() => {
@@ -1489,7 +2041,68 @@ export function WorldMapWebGL({
   useEffect(() => {
     if (currentRenderMode === 'tiles' && renderMode === 'tiles') {
       const cullInterval = setInterval(cullInvisibleTiles, 2000); // Cull every 2 seconds
-      return () => clearInterval(cullInterval);
+      
+      // Also run periodic duplicate cleanup
+      const duplicateCleanupInterval = setInterval(() => {
+        if (!worldContainerRef.current) return;
+        
+        const tileCount = new Map<string, PIXI.Container[]>();
+        
+        // Find all tile containers
+        worldContainerRef.current.children.forEach(child => {
+          if (child.name?.startsWith('tile_')) {
+            const tileName = child.name;
+            if (!tileCount.has(tileName)) {
+              tileCount.set(tileName, []);
+            }
+            tileCount.get(tileName)!.push(child as PIXI.Container);
+          }
+        });
+        
+        // Remove duplicates - more aggressive checking
+        let duplicatesRemoved = 0;
+        tileCount.forEach((containers, tileName) => {
+          if (containers.length > 1) {
+            console.warn(`🚨 Periodic cleanup: Found ${containers.length} duplicates of ${tileName}`);
+            // Keep the first one, remove the rest
+            for (let i = 1; i < containers.length; i++) {
+              worldContainerRef.current!.removeChild(containers[i]);
+              containers[i].destroy({ children: true, texture: false });
+              duplicatesRemoved++;
+            }
+            
+            // Also clean up from our refs if the tile container was duplicated
+            const tileKey = tileName.replace('tile_', '');
+            if (tileContainersRef.current.has(tileKey)) {
+              // Make sure our ref points to the remaining container
+              tileContainersRef.current.set(tileKey, containers[0]);
+            }
+          }
+        });
+        
+        if (duplicatesRemoved > 0) {
+          console.log(`🧹 Periodic cleanup: Removed ${duplicatesRemoved} duplicate tiles`);
+          
+          // Force state sync after cleanup
+          const actualTileNames = new Set<string>();
+          worldContainerRef.current.children.forEach(child => {
+            if (child.name?.startsWith('tile_')) {
+              const tileKey = child.name.replace('tile_', '');
+              actualTileNames.add(tileKey);
+            }
+          });
+          
+          // Sync loaded tiles state to match actual world container
+          setLoadedTiles(actualTileNames);
+          loadedTilesRef.current = actualTileNames;
+          console.log(`🔄 Synced loaded tiles: ${actualTileNames.size} tiles after cleanup`);
+        }
+      }, 1000); // Check every second
+      
+      return () => {
+        clearInterval(cullInterval);
+        clearInterval(duplicateCleanupInterval);
+      };
     }
   }, [cullInvisibleTiles, currentRenderMode, renderMode]);
 

@@ -740,6 +740,8 @@ export class GeographicDataManager {
   async loadTile(detailLevel: DetailLevel, tileKey: string): Promise<GeoJSONFeatureCollection> {
     const cacheKey = `tile_${detailLevel}_${tileKey}`;
     
+    console.log(`🎯 GEOMANAGER: loadTile called with detailLevel=${detailLevel}, tileKey=${tileKey}`);
+    
     // Check cache first
     const cached = this.cache.get(cacheKey);
     if (cached) {
@@ -760,6 +762,24 @@ export class GeographicDataManager {
 
     try {
       const result = await loadPromise;
+      console.log(`🎯 GEOMANAGER: Successfully loaded tile ${tileKey} with ${result.features.length} features`);
+      
+      // Add debug info about what types of features we loaded
+      if (result.features.length > 0) {
+        const featureTypes = result.features.map(f => f.geometry?.type).filter(Boolean);
+        const uniqueTypes = [...new Set(featureTypes)];
+        console.log(`📊 Feature types in ${tileKey}:`, uniqueTypes);
+        
+        // Log country names if available
+        const countryNames = result.features
+          .map(f => f.properties?.NAME || f.properties?.ADMIN || f.properties?.name)
+          .filter(Boolean)
+          .slice(0, 3); // First 3 countries
+        if (countryNames.length > 0) {
+          console.log(`🌍 Countries in ${tileKey}:`, countryNames);
+        }
+      }
+      
       return result;
     } finally {
       this.loadingPromises.delete(cacheKey);
@@ -772,63 +792,64 @@ export class GeographicDataManager {
   private async performTileLoad(detailLevel: DetailLevel, tileKey: string, cacheKey: string): Promise<GeoJSONFeatureCollection> {
     const startTime = performance.now();
     
-    // Parse the tileKey to extract coordinates (tileKey format: "detailLevel_y_x")
-    const tileKeyParts = tileKey.split('_');
-    if (tileKeyParts.length !== 3) {
-      throw new Error(`Invalid tileKey format: ${tileKey}. Expected format: detailLevel_y_x`);
+    // Try to load from new PBF tile structure first, then fallback to legacy
+    const tilePaths = this.generateTilePaths(detailLevel, tileKey);
+    
+    let successfulPaths: string[] = [];
+    let allFeatures: any[] = [];
+    let loadedTileCount = 0;
+    
+    // NEW STRATEGY: Try to load multiple country tiles and combine their features
+    console.log(`🔄 Attempting to load tile ${tileKey} from ${tilePaths.length} potential paths...`);
+    
+    for (const path of tilePaths) {
+      try {
+        console.log(`🔍 Trying PBF tile path: ${path}`);
+        const geoJSON = await this.loadPBFFromPath(path);
+        
+        if (geoJSON && geoJSON.features && geoJSON.features.length > 0) {
+          console.log(`✅ Successfully loaded ${geoJSON.features.length} features from: ${path}`);
+          allFeatures.push(...geoJSON.features);
+          successfulPaths.push(path);
+          loadedTileCount++;
+          
+          // For overview level, collect features from multiple countries
+          // For detailed level, stop after finding first few successful tiles to avoid performance issues
+          if (detailLevel === 'detailed' && loadedTileCount >= 3) {
+            console.log(`📊 Stopping detailed tile loading after ${loadedTileCount} successful tiles`);
+            break;
+          }
+          if (detailLevel === 'overview' && loadedTileCount >= 10) {
+            console.log(`📊 Stopping overview tile loading after ${loadedTileCount} successful tiles`);
+            break;
+          }
+        }
+      } catch (error) {
+        // Continue to next path without logging every failure to reduce noise
+        continue;
+      }
     }
     
-    const [, y, x] = tileKeyParts;
-    const coordinateKey = `${y}_${x}`;
-    
-    // Construct the .pbf file path using just the coordinates
-    const filePath = `/data/tiles/${detailLevel}/${coordinateKey}.pbf`;
-    
+    if (allFeatures.length === 0) {
+      console.warn(`⚠️ No valid PBF tiles found for ${tileKey} at ${detailLevel}`);
+      // Return empty collection instead of throwing error
+      return { type: 'FeatureCollection', features: [] };
+    }
+
     try {
-      console.log(`🗂️ Loading tile ${tileKey} at ${detailLevel} from ${filePath}...`);
-      
-      // Fetch the .pbf file as ArrayBuffer
-      const response = await fetch(filePath);
-      
-      if (!response.ok) {
-        console.error(`❌ Failed to load tile ${filePath}: ${response.status} ${response.statusText}`);
-        throw new Error(`Failed to load tile ${filePath}: ${response.status} ${response.statusText}`);
-      }
+      console.log(`🗂️ Successfully loaded tile ${tileKey} at ${detailLevel} from ${loadedTileCount} files (${allFeatures.length} total features)`);
 
-      const arrayBuffer = await response.arrayBuffer();
-      console.log(`📥 Fetched tile ${tileKey}: ${arrayBuffer.byteLength} bytes`);
-
-      // Decode using geobuf with error handling for unsupported geometry types
-      const uint8Array = new Uint8Array(arrayBuffer);
-      const pbf = new Pbf(uint8Array);
-      
-      let geoJSON: GeoJSONFeatureCollection;
-      try {
-        geoJSON = geobuf.decode(pbf) as GeoJSONFeatureCollection;
-      } catch (error) {
-        // Handle geobuf decoding errors (e.g., "Unimplemented type: 4")
-        if (error instanceof Error && error.message.includes('Unimplemented type')) {
-          console.warn(`⚠️ Geobuf decoding error in tile ${tileKey}: ${error.message}`);
-          console.warn(`📄 This tile contains unsupported geometry types - returning empty collection`);
-          return { type: 'FeatureCollection', features: [] };
-        } else {
-          // Re-throw other types of errors
-          console.error(`❌ Unexpected geobuf decoding error in tile ${tileKey}:`, error);
-          throw error;
-        }
-      }
-
-      // Validate the decoded data
-      if (!geoJSON || geoJSON.type !== 'FeatureCollection') {
-        console.warn(`⚠️ Invalid GeoJSON structure in tile ${tileKey}, creating empty collection`);
-        return { type: 'FeatureCollection', features: [] };
-      }
+      // Create combined GeoJSON with all loaded features
+      const combinedGeoJSON: GeoJSONFeatureCollection = {
+        type: 'FeatureCollection',
+        features: allFeatures
+      };
 
       // Process features: handle GeometryCollections and filter unsupported types
       const processedFeatures: any[] = [];
       let unpackedGeometryCollections = 0;
       
-      geoJSON.features.forEach((feature, featureIndex) => {
+      combinedGeoJSON.features.forEach((feature, featureIndex) => {
         const geometryType = feature.geometry?.type;
         
         // Handle GeometryCollection by unpacking into individual features
@@ -873,7 +894,7 @@ export class GeographicDataManager {
       // Log GeometryCollection unpacking statistics
       if (unpackedGeometryCollections > 0) {
         console.log(`📦 Successfully unpacked ${unpackedGeometryCollections} GeometryCollection(s) in tile ${tileKey}`);
-        console.log(`📊 Original features: ${geoJSON.features.length}, Processed features: ${processedFeatures.length}`);
+        console.log(`📊 Original features: ${combinedGeoJSON.features.length}, Processed features: ${processedFeatures.length}`);
       }
 
       const filteredGeoJSON: GeoJSONFeatureCollection = {
@@ -921,6 +942,156 @@ export class GeographicDataManager {
       
       return emptyCollection;
     }
+  }
+
+  /**
+   * Generate potential tile paths for both new PBF structure and legacy format
+   */
+  private generateTilePaths(detailLevel: DetailLevel, tileKey: string): string[] {
+    const paths: string[] = [];
+    
+    // Parse the tileKey to extract coordinates (tileKey format: "detailLevel_lat_lon")
+    const tileKeyParts = tileKey.split('_');
+    if (tileKeyParts.length >= 3) {
+      const [, latStr, lonStr] = tileKeyParts;
+      const lat = parseFloat(latStr);
+      const lon = parseFloat(lonStr);
+      
+      console.log(`🌍 Generating paths for coordinate region: lat=${lat}, lon=${lon}`);
+      
+      // SPATIAL FILTERING: Only load countries that might be relevant to this coordinate region
+      // This prevents loading all 195 countries for every tile request
+      
+      const getRelevantCountries = (lat: number, lon: number) => {
+        // Define approximate geographic regions to reduce country loading
+        const countries: string[] = [];
+        
+        // North America
+        if (lat >= 15 && lat <= 85 && lon >= -170 && lon <= -50) {
+          countries.push('USA', 'CAN', 'MEX', 'GRL');
+        }
+        
+        // South America  
+        if (lat >= -60 && lat <= 15 && lon >= -85 && lon <= -30) {
+          countries.push('BRA', 'ARG', 'CHL', 'COL', 'PER', 'VEN', 'ECU', 'BOL', 'URY', 'PRY', 'GUY', 'SUR', 'FLK');
+        }
+        
+        // Europe
+        if (lat >= 35 && lat <= 75 && lon >= -25 && lon <= 45) {
+          countries.push('RUS', 'FRA', 'ESP', 'SWE', 'NOR', 'DEU', 'FIN', 'POL', 'ITA', 'GBR', 'ROU', 'BLR', 'GRC', 'BGR', 'SVK', 'HUN', 'PRT', 'AUT', 'CZE', 'SRB', 'IRL', 'GEO', 'LTU', 'LVA', 'EST', 'SVN', 'HRV', 'BIH', 'ALB', 'MKD', 'MNE', 'LUX', 'BEL', 'NLD', 'CHE', 'DNK', 'MDA');
+        }
+        
+        // Africa
+        if (lat >= -40 && lat <= 40 && lon >= -20 && lon <= 55) {
+          countries.push('DZA', 'AGO', 'BEN', 'BWA', 'BFA', 'BDI', 'CMR', 'CAF', 'TCD', 'COG', 'COD', 'CIV', 'DJI', 'EGY', 'GNQ', 'ERI', 'ETH', 'GAB', 'GMB', 'GHA', 'GIN', 'GNB', 'KEN', 'LSO', 'LBR', 'LBY', 'MDG', 'MWI', 'MLI', 'MRT', 'MAR', 'MOZ', 'NAM', 'NER', 'NGA', 'RWA', 'SEN', 'SLE', 'SOM', 'ZAF', 'SSD', 'SDN', 'SWZ', 'TZA', 'TGO', 'TUN', 'UGA', 'ZMB', 'ZWE', 'ESH');
+        }
+        
+        // Asia
+        if (lat >= -10 && lat <= 80 && lon >= 25 && lon <= 180) {
+          countries.push('CHN', 'IND', 'IDN', 'IRN', 'IRQ', 'JPN', 'KAZ', 'MNG', 'PAK', 'RUS', 'SAU', 'TUR', 'UZB', 'AFG', 'ARM', 'AZE', 'BHR', 'BTN', 'BRN', 'KHM', 'CYP', 'GEO', 'JOR', 'KWT', 'KGZ', 'LAO', 'LBN', 'MYS', 'MDV', 'NPL', 'PRK', 'KOR', 'OMN', 'PHL', 'QAT', 'LKA', 'SYR', 'TJK', 'THA', 'TLS', 'TKM', 'ARE', 'VNM', 'YEM', 'ISR', 'PSE');
+        }
+        
+        // Oceania
+        if (lat >= -50 && lat <= 25 && lon >= 110 && lon <= 180) {
+          countries.push('AUS', 'NZL', 'FJI', 'PNG', 'SLB', 'VUT', 'NCL');
+        }
+        
+        // Antarctica and remote territories
+        if (lat <= -60) {
+          countries.push('ATA', 'ATF');
+        }
+        
+        // Caribbean and Central America
+        if (lat >= 5 && lat <= 30 && lon >= -90 && lon <= -60) {
+          countries.push('CUB', 'HTI', 'DOM', 'JAM', 'TTO', 'BHS', 'CRI', 'PAN', 'GTM', 'BLZ', 'HND', 'SLV', 'NIC', 'PRI');
+        }
+        
+        // If no specific region matches, include major countries to ensure something loads
+        if (countries.length === 0) {
+          countries.push('USA', 'CHN', 'RUS', 'BRA', 'IND', 'AUS', 'CAN');
+        }
+        
+        return countries;
+      };
+      
+      // Load from our actual generated tile structure
+      if (detailLevel === 'overview') {
+        const relevantCountries = getRelevantCountries(lat, lon);
+        console.log(`🗺️ Loading ${relevantCountries.length} relevant countries for region lat=${lat}, lon=${lon}:`, relevantCountries.slice(0, 5));
+        
+        relevantCountries.forEach(country => {
+          paths.push(`/data/tiles/overview/0/0/${country}_0.pbf`);
+        });
+      }
+      
+      if (detailLevel === 'detailed') {
+        // For detailed level, try the detailed directory structure
+        const majorCountries = ['USA', 'CAN', 'MEX', 'BRA', 'CHN', 'RUS', 'IND', 'GBR', 'FRA', 'DEU', 'JPN', 'AUS'];
+        
+        majorCountries.forEach(country => {
+          // Try multiple zoom levels for detailed tiles
+          for (let z = 4; z <= 8; z++) {
+            paths.push(`/data/tiles/detailed/${z}/0/${country}_0.pbf`);
+          }
+        });
+      }
+      
+      // NOTE: Removed legacy fallback to prevent loading incorrect tile format
+    }
+    
+    console.log(`📁 Generated ${paths.length} potential tile paths for ${tileKey}`);
+    return paths;
+  }
+
+  /**
+   * Load and decode a file from a specific path (now supports GeoJSON fallback)
+   */
+  private async loadPBFFromPath(filePath: string): Promise<GeoJSONFeatureCollection> {
+    // Convert PBF path to GeoJSON path temporarily due to PBF compatibility issues
+    // PBF files contain "Unimplemented type: 4" which geobuf cannot decode
+    let geoJsonPath = filePath;
+    
+    if (filePath.includes('/tiles/')) {
+      // Extract detail level and country code from PBF path
+      // Examples: 
+      // - /data/tiles/detailed/4/8/USA_8.pbf -> detailed level, USA country
+      // - /data/tiles/overview/0/0/USA_0.pbf -> overview level, USA country
+      const detailMatch = filePath.match(/\/tiles\/([^\/]+)\//);
+      const countryMatch = filePath.match(/\/([A-Z]{3})_\d+\.pbf$/);
+      
+      if (detailMatch && countryMatch) {
+        const detailLevel = detailMatch[1]; // 'detailed', 'overview', 'ultra'
+        const countryCode = countryMatch[1]; // 'USA', 'CAN', etc.
+        geoJsonPath = `/data/boundaries/${detailLevel}/${countryCode}.json`;
+        console.log(`🔄 PBF→GeoJSON conversion: ${filePath} -> ${geoJsonPath}`);
+      }
+    }
+
+    // Fetch the GeoJSON file
+    const response = await fetch(geoJsonPath);
+    
+    if (!response.ok) {
+      console.error(`❌ Failed to load file ${geoJsonPath}: ${response.status} ${response.statusText}`);
+      throw new Error(`Failed to load file ${geoJsonPath}: ${response.status} ${response.statusText}`);
+    }
+
+    const geoJSON = await response.json() as GeoJSONFeatureCollection;
+    console.log(`✅ SUCCESS: Loaded ${geoJSON.features?.length || 0} features from ${geoJsonPath}`);
+    
+    // Log feature types and bounds for debugging
+    if (geoJSON.features && geoJSON.features.length > 0) {
+      const geometryTypes = [...new Set(geoJSON.features.map(f => f.geometry?.type))];
+      console.log(`📊 Geometry types: ${geometryTypes.join(', ')}`);
+      
+      // Log first feature's coordinate sample for debugging coordinate transformation
+      const firstFeature = geoJSON.features[0];
+      if (firstFeature.geometry?.type === 'MultiPolygon') {
+        const coords = (firstFeature.geometry as any).coordinates[0][0][0];
+        console.log(`🌍 Sample coordinates (lon,lat): [${coords[0].toFixed(3)}, ${coords[1].toFixed(3)}]`);
+      }
+    }
+    
+    return geoJSON;
   }
 }
 

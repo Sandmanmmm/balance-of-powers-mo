@@ -1,0 +1,424 @@
+
+
+featurecla
+	scalerank
+	LABELRANK
+
+SOVEREIGNT
+SOV_A3
+ADM0_DIF
+LEVEL
+TYPE
+TLC
+ADMIN
+ADM0_A3
+GEOU_DIF
+GEOUNIT
+GU_A3
+SU_DIF
+SUBUNIT
+SU_A3
+BRK_DIFF
+NAME
+	NAME_LONG
+BRK_A3
+BRK_NAME
+	BRK_GROUP
+ABBREV
+POSTAL
+	FORMAL_EN
+	FORMAL_FR
+
+NAME_CIAWF
+	NOTE_ADM0
+NOTE_BRK
+	NAME_SORT
+NAME_ALT
+	MAPCOLOR7
+	MAPCOLOR8
+	MAPCOLOR9
+
+MAPCOLOR13
+POP_EST
+POP_RANK
+POP_YEAR
+GDP_MD
+GDP_YEAR
+ECONOMY
+
+INCOME_GRP
+FIPS_10
+ISO_A2
+	ISO_A2_EH
+ISO_A3
+	ISO_A3_EH
+ISO_N3
+	ISO_N3_EH
+UN_A3
+WB_A2
+WB_A3
+WOE_ID
+	WOE_ID_EH
+WOE_NOTE
+ADM0_ISO
+	ADM0_DIFF
+ADM0_TLC
+
+ADM0_A3_US
+
+ADM0_A3_FR
+
+ADM0_A3_RU
+
+ADM0_A3_ES
+
+ADM0_A3_CN
+
+ADM0_A3_TW
+
+ADM0_A3_IN
+
+ADM0_A3_NP
+
+ADM0_A3_PK
+
+ADM0_A3_DE
+
+ADM0_A3_GB
+
+ADM0_A3_BR
+
+ADM0_A3_IL
+
+ADM0_A3_PS
+
+ADM0_A3_SA
+
+ADM0_A3_EG
+
+ADM0_A3_MA
+
+ADM0_A3_PT
+
+ADM0_A3_AR
+
+ADM0_A3_JP
+
+ADM0_A3_KO
+
+ADM0_A3_VN
+
+ADM0_A3_TR
+
+ADM0_A3_ID
+
+ADM0_A3_PL
+
+ADM0_A3_GR
+
+ADM0_A3_IT
+
+ADM0_A3_NL
+
+ADM0_A3_SE
+
+ADM0_A3_BD
+
+ADM0_A3_UA
+
+ADM0_A3_UN
+
+ADM0_A3_WB
+	CONTINENT
+	REGION_UN
+	SUBREGION
+	REGION_WB
+NAME_LEN
+LONG_LEN
+
+ABBREV_LEN
+TINY
+HOMEPART
+MIN_ZOOM
+	MIN_LABEL
+	MAX_LABEL
+LABEL_X
+LABEL_Y
+NE_ID
+
+WIKIDATAID
+NAME_AR
+NAME_BN
+NAME_DE
+NAME_EN
+NAME_ES
+NAME_FA
+NAME_FR
+NAME_EL
+NAME_HE
+NAME_HI
+NAME_HU
+NAME_ID
+NAME_IT
+NAME_JA
+NAME_KO
+NAME_NL
+NAME_PL
+NAME_PT
+NAME_RU
+NAME_SV
+NAME_TR
+NAME_UK
+NAME_UR
+NAME_VI
+NAME_ZH
+NAME_ZHT
+
+FCLASS_ISO
+TLC_DIFF
+
+FCLASS_TLC
+	FCLASS_US
+	FCLASS_FR
+	FCLASS_RU
+	FCLASS_ES
+	FCLASS_CN
+	FCLASS_TW
+	FCLASS_IN
+	FCLASS_NP
+	FCLASS_PK
+	FCLASS_DE
+	FCLASS_GB
+	FCLASS_BR
+	FCLASS_IL
+	FCLASS_PS
+	FCLASS_SA
+	FCLASS_EG
+	FCLASS_MA
+	FCLASS_PT
+	FCLASS_AR
+	FCLASS_JP
+	FCLASS_KO
+	FCLASS_VN
+	FCLASS_TR
+	FCLASS_ID
+	FCLASS_PL
+	FCLASS_GR
+	FCLASS_IT
+	FCLASS_NL
+	FCLASS_SE
+	FCLASS_BD
+	FCLASS_UA
+id
+bbox
+metadata"žW
+üF
+ü7c0ëF/2346¾ 
+				’7ôó¾sæ¯àÄÕªÚ¨)¥éèŽåÔÐÜ×„¹› ÌŒ¬œ˜ÙÌ«¾Á˜ƒžŒ	ÞÛà´‰Ì—íë„îÍˆ
+Ë¥À
+§Õ·µ	¿¥«Å½çÈ%®óž†åŸê
+êÂ©˜Æ÷Ýêœ±­“Ö‰‹ÓöSï¬òä»­þ®«çŒ¡Ù‰«»”½ô¦—“­·»³õ¥/·Õ›
+·Ò	×¬Ë¯¤åÚ©é	·ÑÍÓåû
+«ù	™ûÿèÌµùü¤Ã¬É!‘îï²ÍØ•ô
+ðÁÎ«‘óŠÙ²•—âg§‡†³é‘ð¦åÀô‡Ì”ˆøÊ˜¹·Ý³ä®Ó£úÁ“•°Î£˜¶æƒ‰¼‘íÎÀ¹¹™¾çšþ¾•ùÔó‡áîœÕ'ö„È‚”›ö„»Ì°ö…ãþ•Ÿ,²¸ÂÎô¥úÀ¶ö¤«®õò‰€’ÒÃKþ«³þØÌÃ”ÚÄ	ÍÓæç	·›úñÑÉ•þ‘×õþ¦/áõûÙ¨ç-ðÿÎï
+œƒäœ›Ð¦ßË¬ƒÆî‚ÀÒüßƒÆÙƒÏÐ¼û¢Œ¡ñÎŽ­Æ¤ú
+ááÌŽ÷ÉÍ¢ïÀ	¡§‹Žß‚…•€’×®¨ÔÇãÞ¼÷Ã	ôÑƒ¡
+—)ïÀ	«ë½ò	ÜØ
+Údì‡
+‰ŽÚôù¢ò©«lÎÔÎ¨·U©îÅ»	­ýûÒ³Ýž
+ŒÈ„‹¦‰ÚÅ„ÍËÝÞï«Íù¥Á“ˆ‰Œƒ‡¹«øç»²òç›”Ö«·À¦Ú¬O’÷
+¨ë¥àªƒÁº¦ß£Í æª“ÿš‹¡ƒ
+¢Ð©Üøèé®°Ãö†Mížù£ê’¢£ÑüÇ>¨ŠzƒÔîá
+ÏÉ€Î‘½€’ãîöpÕ­÷–	±š÷ª
+š…Û*ÚÅ­ãÜ‹ŽÀãÅÚð²³ôªÊÍ–ÒÏþ#¦œå£˜€ÇŸŸ°ãñÕ¢Ý°ç€	é‘¯£—FóÐ	‡¼¯Ô¡•‹ŠÏ—Òä—ô
+ªÌ	Ç	à:¡—Èÿ‰Ð˜÷±ÙÜ›´È¥“	ªÃ®”ÖïÊÈ¶ÜúÄàÒêÌ˜õ› ŠÑ
+Í¿ÞÐ“š
+” ‹å¼–ù¿þéûÔ€ùãÀ‡Ä±·÷Š]ÇÎßƒ§Œñ¨¥ÉùþÍçšŒð—âÜ„…÷	Ô¤	£…¦ãÀìñÍ¡	›ƒåèö—»Ë–ÁË{ÔÓ±î’€ÉÈ”ÆƒŸäˆõƒ†Ô1ÙžòÆ¡ÔÔà‘¤ÞÑ³åÜò±oŠ×î§¦·–”‚ñ ù”ë–áïãœ³ï÷‚Ø×ìäñ—â‚ˆ­¹¾®õ¡ÆÎà:ö‚þêôïÖ¡è¸Ð¢Ðª´ƒì®è´”ÞÛæ—¸†ìš Ú
+¬Ó¼¯’µ›ƒôùŠñÌ‡—)ä¿³³’èÏÕÊÊðóÜ‚@–ÍÐ°°‹àã„îÎýÈ±ŒÓ–ßþæË—F–þõ×¾¶ª¾ºšðoàœ†Ã¦õéÒ›øô
+ž«ì¤
+¶½þˆ¾¤¨½žÙ„ÌäÜö‚ØÁ–îˆ‰À±òÚÈ¥’¤È!èýÊÿŽÒ±	ÚûÎ¡šª¦ºÙœ»Ä¦ÐÊÐ†ò•®èòîë¨øžÛšî²ŸÀ×ÂÎ¤Ï Û°ç¦‘üæúøåµ«Ú¿æ·¦×æ£šž‚›²ìÄ±º¶¤­‚¬lÚ§‘‘¶ÁñÞâÉÍìë¦Û¢Úõ
+Ñ€ÌªŸ€Ö'Í¢å˜ï«¿Ö×¶ã´í…‰¾·§³©
+ƒ	¿¹Ñ“…Ñ¤Õ¦ßêíÒÕ ÙôÙ±õ´å†™¨çËÀ¦ŸÑÍöÕÿ)áùÏÿ
+µ¾ç­	Ïµ
+™Ôï×¯‹ÝÏÓòû°•à	™ÿá©“Ð	é£ù¿û˜¹™…“ÿ¯üåÔ‹èõþÉå‘¥õÍòþ’étàí‰°œß›ÎîÌ«Ó¿¿Ø¯éŒ‰Ü­Óa¹Ï–µäœžä§\ÿ³­ŸÀÕÑ	Ã€«¯	•°©ý
+Ï™åç	Ë¾	ÛóžÙ­Ë«ËúÉÒ÷úøÅÀËÇé‘èçåÅ¸Ñ§ûÌ'…¶Ëï
+…ä‡øÅÀ¥Þ¡ç™·ÙÕõ¢ž—FÄã¢Ó´ØÅxž®ëØ€’ÜÛ†ú¸ð¼ŽÀ×ê·ª‰Âï­èÜ&É!æÐ™î·³–œ‘‡ðüÊƒêßÐè’ îÿÁ¢„—ö†òá‘
+ ŸÿÂÖÏ¶uÞºÒÅŠë§ÁÄºUµÜÂÿÃõ	²îù¾ô¤‹–ÌáíÎº×ëÞê•À˜âÁ²þá´—®õ”ÍªþÜ¨˜”¡Ð$Ôó¤†ä³’èœ ŒÓØ
+ò´ŸÝþÉ¯¨‚ ÜÚ’‡ê‘Âÿö´òØà¡îœ¢öÌŒÔŽ”²‚Ö‰æ‹ð°	à ²Rè€ãÓžªÍ‡¬OË§Çî»¿Ý Ý	á¾
+—‡¥Þ±§ÉåÝÂõÒÿËÛ	Ç¬Á€å¶Ö
+Ó¡ÁÏ³àŽë¾‚®£µÊÒ›é­å·™¨ßåò³Ú¶¯‹¢îæv´Óè
+¾Á¡¢Øá	šÚ”èä×	¬¥§¾ºçŸ£Ôý¹²Ú•áª	ÛGë°ƒŸ…¥úÁç–äŽõÒˆªÀš¼ÃâÞï×µ‚”§ÊÖÖÃ‘œƒËŽÁìñ­ãæ¤†ƒ‡ÃÖ'•Í­ÅôÂã¿ÌêùñÚ±Î—è¸£õý	¨/ƒ„
+éò’Õ©™‚Ý½ôÎŠòªþÿÇ!ä»ŸªžÙ”¸âÌñ°†¡£’‡ÝîÈ€‘£	æ„
+ë×èêÇ†×ÿŠ«ùŒ×Ê’óå£šñÃã”›úÞþý‚§í»òÅÅ†ð“	‹‰ðÆñÂþƒ¸w’¤ù¢Òïú	ÆŒ“›·rÉý¾ôùÅ¾óË{šì›‚öÑ…²‰ùýä–áô	‡øÅºÆx¹‹Òý§‡ê0Û•€·ºšÚãŽÎÒ
+ý¡žúÞÇ Å¨©‰×„âÈñCè­	Ç·úÀ•‘ÇÒÍöÝ¼°Ø¡Ó¼¯ûÑ¯ñ×îÏÙÄ	¾+Å»	êñÿ¥²½ÛÅ¤Ê‰î
+Äê¿º Ö	´Çžã	®öå«2ŠÒÝŸû Ï¢âÅÛˆ­	™‹œ³×Î¨Â­õø×
+åæê–©œø—
+àýÏ¶–‘“›ŽÁ›å®šê‹!Õ¡š¾!º‚Ôì%ÊÑ–¶Žsˆ¹íÀœß„²ÃüÕ¬þßëÒ®õþüÔá˜¸¢çÌ¢æ	„žÒû	µšìÃ¡Îµ
+õ³	îê	•þÜø»•»üÍº¹éçÞ
+¦L¥Ä’¸™¤•Î…ËÛ¼Û§	Êß®
+Æ[É—£š÷µƒZ÷«÷É¨ÃÑš”¯‹¯¤ç®ëˆÃõ	ò‘™Ù„‹½’¦µú°¨Ý ˆÈ¥À
+ØÈ
+—ö€ù×
+Ö½ëØÔó©¹¨‡É–à´Ù²¤™wÌ’«O”Þ—
+®ÐÓÃüÙ›Æ	„í—õÈŸé¯ÀœÕ‰Îˆ
+Í”º³–ß:ýýŒ§âÞæ²°öø°¢˜öS‚ÊÉƒŠË•xæçñÒû	Ù¬Âô¾ù­ýÃ„‹ß´¨Ô…Øºé÷Œ½óÛ¦©œÏè©Ì	ƒ¶… ±î°‹•¬º«ŸÄ€‘
+÷áêá‘—ôÐ	«ƒ ÉÌçé³‚–ÉÆ”›ë 	 áö¦‘ç”ëÉö‰@ý†ÅxŸ¹	Ý çãÁ‘§ú÷ÙÛï·µ	è‡Éƒ™Ù ð÷½Å©ñÉ·ñÃšµÜ¦Ý
+“ÿòžïÏìß§Âì³ñ‹Î ×ìàø
+Á°š
+«¯	ê³¹™ù­­¦
+õ›Å©¥üÑ›«Ä•±»ãÍƒ·æ
+ƒº	ùï±äéŠ±½¥õ¬°÷
+žÇí‰ÔÁ	‘†	ìõÛä„
+…²Û*ƒ‰÷«ŸŸ£Æ§‘ý¬…üÁ“¨ˆµÜæ›‰zÎ¢ôïÊ¨ø6àãÀ²¸ùímÁ‰Íòõøå–çý—¬ù«…MÕë¦–Ã#Æÿ÷þüêåÚêí—¸îòƒ¼úÑ³Â­»­¦ýïm˜’ÖDšè®§´Ùšìö¸âúêªü®ö°Ú¶ôÓaæìµú¶õ©üÔï’ÞË
+ýî¶Â	…äªœÕ¥êùÉùØØßåÐù«µú‘ôÓ¥ÐA›Ð³R‘½‘·
+‰½­¥žôÿÕèü¥®ðÊ“º¢×Õ’ÆÁýþŒ“ê‡Á
+ÝŸÃ§Ÿïµö‹ƒ	‰µúžÈ‘¥úÀ	˜§³÷Ó«ë·™„Ýïùé’À	“ÞÅûËªËã¹˜	ùž·Ž™ÔÝ´Á±×ÍØè¥ÞàêµªÌ‡ô¾º– Ö	îëœ­
+¸¡¤–$¬Oúï”ºúÀÆÎ¶·ì¸Ê•
+”‡‘ÜßêäÐ˜
+äíì…”	äƒÄãÈ²
+þèÚdÌƒ=ª¸ü¤Ú”àƒ˜¬€Ä¶ÜŒ¡Š¦Îä¾¨ó¶Äêà¾ÂôÑžÚ
+Èí¡ÔÔóÃ”ìšÏ£°Î‡óº„Û„€±õü‡ïí­÷éª‰Ÿ¡Í
+¢ÓÕŽ´Š‚×	ö‚ÌÝˆëâ—’ÖØ¶º·ìœÎþºù–ÿÂœúÝÜ÷æÔ¼e–è×›
+þ¬˜öÎÝ®½’ˆŒÀ®Ü‹’Õæñ®’	±ó–Âã‰ÊÆ¡Ô¨¥Á°‹ìéÐÔ“	ìË™Ÿ„ÊæØ¸³“ëâ¼ýÞ¼0ØÿÜØ
+’‡Ð$ÜëýâˆËÙ ˜Ã	•Ç
+’íÓu’Â	ÝÚÇ ÓõÀ‡¶¬®ð
+è­	œþ%‘‘À	úÑô’èÊ	Ìì¶¼€ìþêšç
+ìé¾ÍÈ€Øµ³RØ´	¢Ž°ÕšÚúŽê0î„þßºÉ
+Æ©Õï•Î¥¿ò3§½®Æ©„š…Éé’«£æò… £Ó³Ò¿¹Ï˜
+›Æ	˜‹´
+ãÀïá
+¥Ñü‘™½’ë‚™’‹Ê( ‚£tŽ¾‚éß¥âßƒâµ¶«€ÃŸ¶úÚÆ‚Ø¸Ó §è·ßÈ„ŒòsÖÂ»à¡ˆ×œ¤ñ
+®ÝÙð²°ºí’ôº³öÙ§tÚˆ¶û¤û½Ý©¢Yš¨žÁ ®”Šð¹ŸÚÙtúìè­öïú	éàÞÆ[¦ÆÐ¢ÊÆˆ«… žûÅsæÓå¸ÓíæÚ°ü¤ð¦‹»Ðé»Ë¹8£ñáÃÛ§	äðç¿Õˆ‰ïÖÓ¥Ý
+‹¢±ÐüñæÕ²Ðú‚Ìï
+–ýÓoŒªÂÕ¥Ë¡	É–ÔÕ
+Ôa€îÜ•¾‘Ð˜
+Ø¢æš®rÄƒ€
+Í‚ñßÍÀ¤áÜØ
+œç
+Àý¯¨¶×Û©ÇêÀÒÄrø§ÍÀÖåî¬âðäÒšÞ¸ˆù÷Ã	¶ï	åìÍ£øëÖwÿÂøçýü­”÷
+Ìâ—Äô¸‘¸¤¯¿×Î¼þ9Ö¾°ÚÈ½·šsÀX†¸ôªŒÔœ´ÀXÊåÓøðŸïä•½r°Ð”­’	’¨´ÍÿÍ’‡æ¦•…ãÈôÌÜ‚¬žùËÉº…¹·ŠÓÙèœŸáõÙÑäî§£ÏÐîût‚´þ	é¯ÏÕ…‚¤É–ç³ßÒôŸ‚Å¾…²ã
+¸Ö
+‚âÄ­òøèþÎÀž²´é–}»©©ê÷ŠðšévŽÝª	Å•Ý½©Ì	¨/¹·ßW‘†	Ë¹Å¨‰õ³ýùâÿæ¦¹çÚ¨Ç‹²¶
+ñÇôî°Ùä¿¸¿èý¾µìê	Ä”š»¸Ò	ª‚	”ñ†‚˜÷õ¡àÒí·ÒýË1ªé	‘¸ˆ‹ãÝëØë€š¨‘‡®€×r Ö™¨ÿ®¯î±´ƒŠ¶ö±î†éÙ•åÔ‘Ô
+—Þ»Þëê	®íëÜ‘È[ŽâÖûÀÐšëŠ¦Ô¸
+þ²¬œäw–Î‹ëŽõ·tÀÚ±±‘×Ã÷ê×	üµûsÜÁ³äÂœØìÊ’¼
+þ½€Àìï²†Ý¶ò©û¼ÁáùÞ¹™ÕéÞœx†•¨	ëÄ×T›äÌ¾	üsœç
+ö–	¤‘àå³“	³³Ñ~•Ü¨¥ûù¬ãöô…ïwª¡º	•”“µëõ¢„ó‹ªÍëëî›ÁëŠ¿š¨Æñ˜)Š·žä†Ë¦‘ÜøÔ‘”þÀ¦ò3Ú•¿ïƒÐó€õ™¨á Ò~ÓùòÆÙr¸ÆŽ¶™¢™Ë¬‘áJ”œÈ>äŠŽÐòÆ‰µÈ¸—¢tØïô¬Äã-Š«¾’€Á‘š
+õp»•þêÁæµ¡Éã¡À«û÷ÉÃç×ß¬¯	¯Ù¶ÜŸÝÔÙÈŸ†¦¶‡¸t†•ä›ã	ç¶áÈ¾¼
+¤Ô¤Ê¡ÓšÀåÁ¬ÿÜ•ªÍêôÞ‹œ½ÀöÌ½ˆ®öƒ¤µæÍñ°Ñ”	¸¼ütÒÈÞÇŸ™î‡ÙÞüÁ°ÒËÛøä¼ü‚À´Š©ˆÆ‹œˆ—¯Ø†ÉuÔ‚¡Ðµ
+—ÐÑ¬ðÜÉ”¢ÒÙ”­óí	Ø„»ýÌöâ„Îõä¢°ŒÂ½+Žî­±¾¦…v¤ ðþ9»Ù
+»Ë¦ø…áŠÿë‰’ÕÊ—‚ŠÎÒ
+ÝéôþuôõÛ¦³ë·þŽíØÈï±ù×žõ›‘Õ®Žá¼¬Çë¸ÆÆ‘Â‚‹°©†žÛ¼†äõp®›äÄÆùð	ºþÙÿæ¸ÃÙ—Þ·³É¢»«ÂÃ¼•ÀÖþõœŸöƒæÕÐŸ«¦Ž³5äë
+Ô£±‚°°“ƒøÛ™ñš÷ƒÐšñËvÆ‹€ƒŸ—õüÊæ¡Ó›9¥ò­Ý¯¹Î„	ç›Âƒþ­
+àÅÛ°Œ–âªÖŽüŠ‰ Ü¦šŽ—
+íø„¼ù÷ªé	µªÅÆåáÆxýÏ¾þÁtøø²é0çýŸ¯ž‰š¾¢ñ€Î¢ñ°Õ°tÊÕ§¤š§¥ßµ¼éá—c÷ÝóéÎ¢Ñ¦¿ôãïÿô­_µÝ¢£†´ÞîäÁìØ…´¦ÞùÈî‘¥¾¸	‘æÔ˜±‚	ø‹ø€æ¨ÇvìÖŽ
+«±ùFÞÑì”¹Çï¼¯…´ŸÃâô‡½wÄÃÂ	ªlí„Ûàòï•ôžîå=ÌÜ©ªüžuÖ·ˆôª¹íÕD…‚ÉÚÅÕÝ ®Ó~ ¹	äÈ¤þýáæŠªè³ôÇúwðøÑ‘ô«úá¿¨±ÿþæ†ªëÄÛ¢µÅÙœþêv¸íú
+ËŸ—c½Ö”ÍÑ­È°ô³	ÜÆ€ýÍ{æËçäÚÿ¯€â—ƒwÆ…ÜÍÀƒ¢Û×†‰¢¬œâÞØ˜‚ØÈŒÎÀ¤ÔÂ§½¬¦Ñsì²™ûVÇš³–Ôª½¯Ø˜¬OøÉ–ëŒºîìÿùäÂ§r¼óþ
+ØÏƒ»õµã×	µúË½ôÀ„Ù°´êÓDÈ›€°èüŠÎ‡ƒvÊ­á
+Ä“±—óÐ	ºÛÆªäúàæðÂÒtÒ²ùåëÜ½¦âJ»ÌÄÉ¾×¤²‚”›9˜¡‘x¦‹“	¥šãÅÚ–ÄÂº¯Ì¬Â¶Ø‰ŸŒ	ö‰w®°‡± ¤áÉâÞã´êµÈ®¿	ñÇ¦÷à‚Å÷¢…Ûò’ÌõoðáêÉªŸñ³æÈÐ¢†ÄÀ¶ù»eòøË¬ðçûuòÌç¤†ŸÕ©š¡Øƒ€	àœÃâ¤ÎÄšî‚ŠÁÌŒÀÖ’Â„¤j
+Admin-0 countryjjj
+Philippinesj
+PHLj jj
+Sovereign countryj
+1j
+Philippinesj
+PHLj j
+Philippinesj
+PHLj j
+Philippinesj
+PHLj j
+Philippinesj
+Philippinesj
+PHLj
+Philippinesj j
+Phil.j
+PHj
+Republic of the Philippinesj j
+Philippinesj j j
+Philippinesj jjjjj‡õÆ3jjãjÛÿjãj
+5. Emerging region: G20j
+4. Lower middle incomej
+RPj
+PHj
+PHj
+PHLj
+PHLj
+608j
+608j
+608j
+PHj
+PHLj¦ß•j¦ß•j
+Exact WOE match as countryj
+PHLj j
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj
+PHLj cj cj
+Asiaj
+Asiaj
+South-Eastern Asiaj
+East Asia & Pacificjjjj cjj j	      @jj	ö(\Â^@j	L7‰A`e&@jÑ¬ç¨j
+Q928j
+Ø§Ù„ÙÙ„Ø¨ÙŠÙ†j
+à¦«à¦¿à¦²à¦¿à¦ªà¦¾à¦‡à¦¨j
+Philippinenj
+Philippinesj
+	Filipinasj
+ÙÛŒÙ„ÛŒÙ¾ÛŒÙ†j
+Philippinesj
+Î¦Î¹Î»Î¹Ï€Ï€Î¯Î½ÎµÏ‚j
+×”×¤×™×œ×™×¤×™× ×™×j 
+à¤«à¤¼à¤¿à¤²à¥€à¤ªà¥€à¤¨à¥à¤¸j
+FÃ¼lÃ¶p-szigetekj
+
+Filipinaj
+	Filippinej
+ãƒ•ã‚£ãƒªãƒ”ãƒ³j
+	í•„ë¦¬í•€j
+
+Filipijnenj
+
+Filipinyj
+	Filipinasj
+Ð¤Ð¸Ð»Ð¸Ð¿Ð¿Ð¸Ð½Ñ‹j
+Filippinernaj
+
+Filipinlerj
+Ð¤Ñ–Ð»Ñ–Ð¿Ð¿Ñ–Ð½Ð¸j
+ÙÙ„Ù¾Ø§Ø¦Ù†j
+Philippinesj
+	è²å¾‹å®¾j
+	è²å¾‹è³“j
+Admin-0 countryj j
+Admin-0 countryj j j j j j j j j j j j j j j j j j j j j j j j j j j j j j j j
+PHLr¤  		
+
+  !!""##$$%%&&''(())**++,,--..//00112233445566778899::;;<<==>>??@@AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ[[\\]]^^__``aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~€€‚‚ƒƒ„„……††‡‡ˆˆ‰‰ŠŠ‹‹ŒŒŽŽ‘‘’’““””••––——˜˜™™šš››œœžžŸŸ  ¡¡¢¢££¤¤¥¥¦¦§§¨¨j+2)[116.969531,5.060205,126.593359,20.84126]z© j—2”{"source":"Natural Earth 50m (Detailed)","level":"detailed","country":"PHL","generated":"2025-07-31T02:54:50.870Z","properties_available":["featurecla","scalerank","LABELRANK","SOVEREIGNT","SOV_A3","ADM0_DIF","LEVEL","TYPE","TLC","ADMIN","ADM0_A3","GEOU_DIF","GEOUNIT","GU_A3","SU_DIF","SUBUNIT","SU_A3","BRK_DIFF","NAME","NAME_LONG","BRK_A3","BRK_NAME","BRK_GROUP","ABBREV","POSTAL","FORMAL_EN","FORMAL_FR","NAME_CIAWF","NOTE_ADM0","NOTE_BRK","NAME_SORT","NAME_ALT","MAPCOLOR7","MAPCOLOR8","MAPCOLOR9","MAPCOLOR13","POP_EST","POP_RANK","POP_YEAR","GDP_MD","GDP_YEAR","ECONOMY","INCOME_GRP","FIPS_10","ISO_A2","ISO_A2_EH","ISO_A3","ISO_A3_EH","ISO_N3","ISO_N3_EH","UN_A3","WB_A2","WB_A3","WOE_ID","WOE_ID_EH","WOE_NOTE","ADM0_ISO","ADM0_DIFF","ADM0_TLC","ADM0_A3_US","ADM0_A3_FR","ADM0_A3_RU","ADM0_A3_ES","ADM0_A3_CN","ADM0_A3_TW","ADM0_A3_IN","ADM0_A3_NP","ADM0_A3_PK","ADM0_A3_DE","ADM0_A3_GB","ADM0_A3_BR","ADM0_A3_IL","ADM0_A3_PS","ADM0_A3_SA","ADM0_A3_EG","ADM0_A3_MA","ADM0_A3_PT","ADM0_A3_AR","ADM0_A3_JP","ADM0_A3_KO","ADM0_A3_VN","ADM0_A3_TR","ADM0_A3_ID","ADM0_A3_PL","ADM0_A3_GR","ADM0_A3_IT","ADM0_A3_NL","ADM0_A3_SE","ADM0_A3_BD","ADM0_A3_UA","ADM0_A3_UN","ADM0_A3_WB","CONTINENT","REGION_UN","SUBREGION","REGION_WB","NAME_LEN","LONG_LEN","ABBREV_LEN","TINY","HOMEPART","MIN_ZOOM","MIN_LABEL","MAX_LABEL","LABEL_X","LABEL_Y","NE_ID","WIKIDATAID","NAME_AR","NAME_BN","NAME_DE","NAME_EN","NAME_ES","NAME_FA","NAME_FR","NAME_EL","NAME_HE","NAME_HI","NAME_HU","NAME_ID","NAME_IT","NAME_JA","NAME_KO","NAME_NL","NAME_PL","NAME_PT","NAME_RU","NAME_SV","NAME_TR","NAME_UK","NAME_UR","NAME_VI","NAME_ZH","NAME_ZHT","FCLASS_ISO","TLC_DIFF","FCLASS_TLC","FCLASS_US","FCLASS_FR","FCLASS_RU","FCLASS_ES","FCLASS_CN","FCLASS_TW","FCLASS_IN","FCLASS_NP","FCLASS_PK","FCLASS_DE","FCLASS_GB","FCLASS_BR","FCLASS_IL","FCLASS_PS","FCLASS_SA","FCLASS_EG","FCLASS_MA","FCLASS_PT","FCLASS_AR","FCLASS_JP","FCLASS_KO","FCLASS_VN","FCLASS_TR","FCLASS_ID","FCLASS_PL","FCLASS_GR","FCLASS_IT","FCLASS_NL","FCLASS_SE","FCLASS_BD","FCLASS_UA"],"updated":"2025-08-02T04:53:37.680Z"}zª 

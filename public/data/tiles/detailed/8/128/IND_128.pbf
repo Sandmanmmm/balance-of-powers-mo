@@ -1,0 +1,442 @@
+
+
+featurecla
+	scalerank
+	LABELRANK
+
+SOVEREIGNT
+SOV_A3
+ADM0_DIF
+LEVEL
+TYPE
+TLC
+ADMIN
+ADM0_A3
+GEOU_DIF
+GEOUNIT
+GU_A3
+SU_DIF
+SUBUNIT
+SU_A3
+BRK_DIFF
+NAME
+	NAME_LONG
+BRK_A3
+BRK_NAME
+	BRK_GROUP
+ABBREV
+POSTAL
+	FORMAL_EN
+	FORMAL_FR
+
+NAME_CIAWF
+	NOTE_ADM0
+NOTE_BRK
+	NAME_SORT
+NAME_ALT
+	MAPCOLOR7
+	MAPCOLOR8
+	MAPCOLOR9
+
+MAPCOLOR13
+POP_EST
+POP_RANK
+POP_YEAR
+GDP_MD
+GDP_YEAR
+ECONOMY
+
+INCOME_GRP
+FIPS_10
+ISO_A2
+	ISO_A2_EH
+ISO_A3
+	ISO_A3_EH
+ISO_N3
+	ISO_N3_EH
+UN_A3
+WB_A2
+WB_A3
+WOE_ID
+	WOE_ID_EH
+WOE_NOTE
+ADM0_ISO
+	ADM0_DIFF
+ADM0_TLC
+
+ADM0_A3_US
+
+ADM0_A3_FR
+
+ADM0_A3_RU
+
+ADM0_A3_ES
+
+ADM0_A3_CN
+
+ADM0_A3_TW
+
+ADM0_A3_IN
+
+ADM0_A3_NP
+
+ADM0_A3_PK
+
+ADM0_A3_DE
+
+ADM0_A3_GB
+
+ADM0_A3_BR
+
+ADM0_A3_IL
+
+ADM0_A3_PS
+
+ADM0_A3_SA
+
+ADM0_A3_EG
+
+ADM0_A3_MA
+
+ADM0_A3_PT
+
+ADM0_A3_AR
+
+ADM0_A3_JP
+
+ADM0_A3_KO
+
+ADM0_A3_VN
+
+ADM0_A3_TR
+
+ADM0_A3_ID
+
+ADM0_A3_PL
+
+ADM0_A3_GR
+
+ADM0_A3_IT
+
+ADM0_A3_NL
+
+ADM0_A3_SE
+
+ADM0_A3_BD
+
+ADM0_A3_UA
+
+ADM0_A3_UN
+
+ADM0_A3_WB
+	CONTINENT
+	REGION_UN
+	SUBREGION
+	REGION_WB
+NAME_LEN
+LONG_LEN
+
+ABBREV_LEN
+TINY
+HOMEPART
+MIN_ZOOM
+	MIN_LABEL
+	MAX_LABEL
+LABEL_X
+LABEL_Y
+NE_ID
+
+WIKIDATAID
+NAME_AR
+NAME_BN
+NAME_DE
+NAME_EN
+NAME_ES
+NAME_FA
+NAME_FR
+NAME_EL
+NAME_HE
+NAME_HI
+NAME_HU
+NAME_ID
+NAME_IT
+NAME_JA
+NAME_KO
+NAME_NL
+NAME_PL
+NAME_PT
+NAME_RU
+NAME_SV
+NAME_TR
+NAME_UK
+NAME_UR
+NAME_VI
+NAME_ZH
+NAME_ZHT
+
+FCLASS_ISO
+TLC_DIFF
+
+FCLASS_TLC
+	FCLASS_US
+	FCLASS_FR
+	FCLASS_RU
+	FCLASS_ES
+	FCLASS_CN
+	FCLASS_TW
+	FCLASS_IN
+	FCLASS_NP
+	FCLASS_PK
+	FCLASS_DE
+	FCLASS_GB
+	FCLASS_BR
+	FCLASS_IL
+	FCLASS_PS
+	FCLASS_SA
+	FCLASS_EG
+	FCLASS_MA
+	FCLASS_PT
+	FCLASS_AR
+	FCLASS_JP
+	FCLASS_KO
+	FCLASS_VN
+	FCLASS_TR
+	FCLASS_ID
+	FCLASS_PL
+	FCLASS_GR
+	FCLASS_IT
+	FCLASS_NL
+	FCLASS_SE
+	FCLASS_BD
+	FCLASS_UA
+id
+bbox
+metadata"Çb
+¥R
+…EË
+	
+
+6àDÞö€AØ¢àª¸š£¨óä¬Ô†èå¼ŽÊÿºúó	¸äáÈ>€Þ$†´þ›®†î°Ú¼eÀ¦½HÀº—Àª¥ô&ðÆ•š
+®â–àÎ€¦—”‹œ¸²o–í#ð“	¹ìÞ
+×µŠî
+™sÊÙ’`’Ô
+Œ»–°þý¢…˜ÝÈ¥þ²ˆ¸æèÞ‚’`¬ü·½Öœî¥­àä	ý‚ˆøÓ~ÀœüsÂÎÒ‚€ô	öý	ÎŽØ¢ÀÖÍÜ¼®âìôÒ­â¨àßƒô Î^æ£”Œ„žf¶Üò•¨¥ˆÇÜ™¨ÄÄÿÂà¬ñöôõû¶	®¸¹ú˜¤ï”Š›ðP‚â©‰”ƒóŒð…ÄÜÛïâÛÂ×ÿå=—‡ÔD…²‚ÅÉ‰øë›ÑØá	Ýœ€
+ÆÙÌ·´ƒ¸š‚wÊ·‚£ßƒ„ŠÑßòßÙ‡šsÿµ¬ÿïÂŒæ§·Æ¨§‘Àº»¯ÎŠþþ–£â—¾ÍÚã˜§ÚÅ¶Ã„í”¹êß‚ñ¸÷ÔÒØÞÌþŒÈðêŒ„´Ì®“´å’†	¬æŒ´
+ ¦þ­
+ß°ì	÷æ°§ƒÔæ¸¥»â—ëŒÐËëð†²ñ®²²	ÄKÐé%ˆ§¶î ñÀîäÄš¾Âœàèäô¡Â¯
+ØœÔìêƒ¦Ñö—Þš	ÀÖÖÊò‹ì…Þ‹ÜÕÖÐ"ÞÍÌó!’˜ÄÅ´ªŒö´Ê!àÆ¾åÈ ´ª¢¡‚èÈíÂÙž½
+òÆ€¡¦Áˆºø«¾¸	Ú°¶Ü´ª©‰æ¢ËŽÖÍîŠÎŽÄxº…È±Ì¥
+âœÈ·¤¢šð€¥æå¨‹Ì‚ð“	ímÄ”‰ñø°›ÏàµëØ„»ŠŽŠ 	Ð™Èó™½â’…ãª‰ úÌ¯ªÎÔÂàä	®Ø¾Ô”›þÃ(Þ“¬›ŒñˆŠ¶«šÏŽ“	ª‰Øæ•â¢ì£µÎ¿éèäñù ìËœÕD©Ë¦²±´ôˆëá„ë
+¤·þ¦•âàÎÙ±•”åæÚ•ÏÜí#Áÿ¨Œþþ®“óp†™‰«”åå¸¤Ð§Á¢íïØ®Ý¹µ	‚¦ÿÃºÏ™ÚôïÔDŠÈ²í”›ìœÚŽ
+ÊƒÙüs¶¦û¤ŒÓ¥ÁÎØõ‚¦üÁ©ã¶Ã€ÿž•‚º	ð”îß¸ìì¦„¢ÕDø°÷ÉàÎƒâÊîàë¥®–û©Ôý‡ˆùŽ™¾¾öƒŒ×±o€Ä“êª ¯ÿøÉ‹ñ¢ºÔ’Ø±ÊÑ¸×ÞƒÌ«ÚÄ	ü—ÊÆú¨¤–ÔôÄÖ†·ìŽ‹‰€ß‡þŠá©Òšô—ò”«“æ¶¬"¦¬	Ìø€ò†×“üÒ¬ÂÕ´ý˜¦	Ž±žÅº€ê…©"êÙ"öä
+Î¿…îò§
+ÉN¾·„žü·Ê³â„‚ÙÜŒ¶Ýê£üÙø©®À²Ñ´Ëâ˜ŒçäÑêÂü—œèÈöÂ—âŠ˜¦	ž§ìïÒÀ¸¶ê0é0žƒ÷€àúãòÀ¥ï·Àœ á®áÖ¢æ†¡£âJÅÚ‘ÖŸ²¦/Éé¬á¡–¶Œ
+—€Š½	§È”Í›“ô½«æÄ…éôŒ÷åíú¡£ûüµ‹Ò¼ÞÕ×¶ŽÇ‚èjç·—cóÒ¥ß³å­è«®ÑÌö«O•“æ£©­ìØ±Ï	`Ý«”ºÕ± Ûõ¯˜§ß´öïÕôÀêËÜ¤ÊÏØÎñø€â“ÑÇÒ•å¿¦›ä„ZõÒäÀËÄö÷á¸ráô	Ç>…è¸Ý‡‘Š]ÁæÍëüÖ'ûñÊ»e‹„¡<£™÷Îÿ®ÙØ
+¯»èíÍ	«l»ò	€ÈÓÎìÙ•Äç¹†ô›ÿ¯¾Û¯»£š¯ë³•ó»ÌÅ÷Ê… «„ð²ë¾ªô¯»˜Úùë˜âßéÊ˜Õ¿˜™§ÃØë³åŽšË“ÓõÑÊ•ÿŸƒ
+ÚdáùÂ°«å€þé‘×ëù¢¿º…Ê	¸ñë¦ýê±ââÞÑÌü‹Š‚»ìzŠÛ”Ò¨ÖÆ[´´£†®Åô·
+Òýœ½¦Þ¿ðà¨ñÑÒúÅÍ–âé’À¦ÕõÞã×Í”é©¹˜ˆÄü†õ¨/ü¶	‰ªîº§ÛÂCŠ]ÅŠ”§…‚¦Ì{ô½­ÞòÇÁ›	ÅÆ£É	êMãÀ¾ÁÏn°’ªì…÷Í¾¤ïä´øá“ò×ÒÌ¼ÿÂÔÔµÃÊƒ½îÙ±Îòÿ‘Ñ~Ÿ¡ãöý¸ó¾¿Ê¡­Ø™Ù÷åëë¿û÷Ø¿¯
+õ§÷Èó“äÓíÉæù‡éßÑÊ«âéõ•Í³û›‚ÉÆ©óôÐ	«Í²²	û·†ÿËùì¸óÑ†²±oö„øâìØ¦Ëª¸±óê¤
+ñÁÆÙ»•Â€ÞÂÞË×øÚÑ™®ÌÿŒ	òÆËÈ–ÿ­ö†ãëï¶±ß÷ “ý	 íµ‘äÒÚœ³šs¨óÊƒà—ÌâÊ‚ÿÍ¬’	ù¬ÊºÛ°ýÙ«
+¨å†îÊåïÔ°‹©¯	¼àë½	î«ë¡ä‚ÑéØ¤÷“Î¡	…éÝ	´å¬ã”œ Û¸ÀØà¯Œâëá¯Øþ	…›Ž¬öþªÊ†ŸÆŠîÏ¢øÉà„Ó­Ü	¢äÍ…ÎÝ÷úÜÛßÑŸµÕîìõ—žßÿö¼
+‡ôè™±óŒÓÁø˜¥à¼àÿø˜”›êêô¥ýþ·Û‘¨ú’î˜Ö†šÚá	¯©¤…äÀu…¶öÒ‡ó”þ—¬š»å=ØÁ¤€®ó›ÌžÙ±Ö¾™¿ð¨ó…›Þâ®¦ ‘¸š»Èk¤ÿŠíÚÏó×˜§Ýü¶	éàºÜ’¸³ìÒð’á˜ð×Å[Ì‹À×Î ‚wÔç™Ô¸ñÎÅ´´‚£€õÚ‹ –òC®‰
+ßÑîäÝ±âž©‰Øë„íŽÈ!Ì«À¬þÌÒ”	þ†Æ„¸rî„Ç>ª¹ù¼ª¯© ’”æ¼‚öÜø„¯¤·ü³Œø«¦äˆÇèå¢Ó¤²¸¢Ñè¿é®ÊåõÿŒ…••î»½Û¨©®·ï	‡üš÷¯¸¡Á—Œ˜óÚÉ˜Õ¢‘çã×	›ÑÁ˜Î£™†ší‹¦œÑÍŠúÞÉÚ¨ÁÿÈâîç™øŒÙûž¹®û¦­íØú„ÏéØÍ“pð€‰ŽŽè×…§/ËÉÂ;ÝÒâ©›V‚»ÁÂñ¶Ý’ùßÄ’
+ð«Ð·àg¶Ñ¬µüµýéžÙíÎÄ°ÉÿÎÈÁ…¤–Ì^Úù!¨‘øÐÉÒ–ºµ	ÚÆ…®Äå¢¨æ“S¢ƒ
+°Áöä
+’Û¾óÐnúÀšüÔÇ[Î¢Ä¶æòìð³Rþ®ñÆ²Ã÷šÙ—cúÁœ ÊåŠ¿€–¬°¼¨	—Ù°…	«Íô·
+ÅîÔ~õ•»³×š„=Á¯
+†ž£Þüè‹ñ€ÈîžÐ€þ¸ž®Î^€â°ì	¥Ú×ƒÑøª
+Ù…ÌªØ
+â‹ü¶	¶ð¾H’òÒåü¸®ãÚ²°æÓ”È	¢<¸„´ÍÀ‡È‡Ö®¾ÁœîÎñÉ¾¾åÕôø¯Úª¶ô¸ñÈ‚€ÈšüÜñ	ÊØð’ê¤
+ÄŽ	ÞÚü„´ùÞüÄÅ Üä âÿ””%ªµòØþé€£¼û¶ÛÀƒÀë’ÚÖDÂ¬®ºÌÿœ€
+‚¡
+º—Ú«
+¨«¼ÞÊõþÞèË©ð¶ðÃÅðÏÉ’˜cÝŒ¼–·ñèéŽPÖçùÀÎ³·ÓÎ„	ÏÕÊ´ÒÚãþ‡Ð·üí®Åºž”ë Ý§ÞÈßœæ©Ø´	ª¬ôîœ³è¼üÉ›ÆŠ¦ÔôÇ Ì½¢í¸£“ºáû³åë¹÷áø
+Ã¨ÿ‘—¬Æ©•½‘CËþ”ˆ³É¸Å¸¯Æì
+–ëèéƒ¼”·×¨òë–âû…ËÎ‘—Éªÿó	Ö'©¾ý9Ý¹ÃâùöÖ'áûÖ×ƒì×Ë¬‚âö	žÜŒÓî¬¤Ê¦×žŠµŒ
+–þ½H–†…‚ˆÅ¤è¼Á‰¿ Ï·Ñàƒ½¦Ý¾¯Ô¿uí¹”¹­ÝÖD­öƒÇ¸—Åß›ã	¡ŠÉªë¾“™í°	ƒÎ
+­ÄÛÙÕÒ‡åÑü¦i…ãîž×—	¼ÐÛÜ!÷·ì¹ç…Ñ÷ª
+¤èñöæ·é‡
+®¹ÅŠÎ§û…¨yŸå/±·—
+ƒ‹ãå¹²¿†ëî
+±Éø	ÿ¥Ù€Û‰¥ÞŸÁ!ŸÝ‰±™
+ùÒ—âãð×±³åÃáíÏñ¤íŠé»¤šñ‡ºèõ•ÆÆ‡Èê0»Ç¹è…Ë«°×Î¡Ž£»“ëŸ²¡ÓÉ³©
+åÉ¹˜	ñÀ	å´Á°ñ½Ùû±Ÿ“ŸŽ©	¯«±ÊÒµúÂÿ¯¤¨¤Ó–„¼£ü„=Ãÿß´·¯½Õ	óþËŒëèë¸ÿŠ¯Ú—ö§£
+ÝÄõùå¼‹„ß“çšýÞ¿¹ÕD¹ç˜âÕûŒ€³”àƒ™ìŽÏáŽ§ë¹­­ÑÊßÎƒŠ¬ã‹åþÊ
+ßÉïšƒ¨»•¦û±žœ–óžçj‰ç·†…‡™‹ßœ³ƒçû†ûÔ·Ó×è“‡ºÐƒíéMýÍ¹ž†´•ô
+ãñË½µ«—×
+‚”Á¯
+ü‡éÁ
+ÌùÃèŒ««»¯¿½ïÏ½ýš°Bç¯¿‡È‘Ö›í©ËÜ÷çÞðË»
+ÊÆ­“ê¯½ôñãÞí…ëØãõóÛÇÑÙâÇ‡ÏÕ¦Å£Ë œ,óÛêŠç›È¿‘¥€þÿ’ÔÕ
+ñÆö–	íìÞóó¾¨˜ûsžˆŽÊø	±¼˜Ëù£”ªÑ™ñ}™Ÿ„Ô™‹Ýÿ
+™£íÿ‚Þ»üë]ÃÿÚ
+žƒãµû¤Õ›áó¶ÿ¯ƒ€	þ9åº	Üø»Ô…å×µíëÓøý™	óˆ½‡²¹Û”´’Åîâ©¥¤”Ÿ¿šÚ‘Âù÷¿;‘ŸþÇéùó`·À†‡¡ñ‚¬á¿ìî ³ã
+ü¨«OÌÛ	¾ôÌ½þé€ž–ßÈ€’×Æ‹þ‡àƒä€gö¨Ý‘¸¿š÷„íÀÒ¢„Æ¨‡œê–ÍþV„€	¯¨Ôàæ¸ìØÊýÀô˜õúÁÂçŒ„ ÝÜÙ–6ÆÆÒ¸ü‡æÕÎò€¾
+îê	ê´Š¿Œ´
+„=„î‹#œÎÌæ°Öö¨¡Ó¶ö	¸ñ¨ª¢£üŸƒ‹êý‘Ë¨ÕÛÌðØÉõâ’«ø"‰Š™Ò"“¡ÿ
+€”·Ñ€œÅŽ…=‘Î%äÃ¥ø€©‡Å›“íŠÇˆÜ©“û„£×‘Ö×·äüŸßƒË¬ìÄÿÍÔàÛG¢ìŠ¿ŒÀ™‹¨Ž"ØìÜ¶ûæ”‡éà¤™ª€©ˆÏ÷ÊÇ¸£¨¿ˆ…™ý
+¿ÓŸî¾à©é	ŒìßÆŽ¬ÙÄ	Âà—cðù§¥”¯¡ðŒ‰ë¦ú©ëûsï²¥ÂòøëÃªˆªù­ë¦íÏ›V³ÂìÑ­Ù‰ü¨ƒí’&õæŽšÉ!À½…²ê½	½·ŠÑ
+ƒœ€Èãñûs¯÷ûžþV‘ÛšŸµ¬ò”ï™ú­ç³ûsíì…Ïû•°·Ó—ˆ§Ù	­¦
+ËŒ¡Ô¡µ±îÑÆñÇ§¨îØàèýíÏúïýÑ˜¹£—Ôò
+…ŽâŽ³ÈŽÇ‹ˆ¹ÁKºšé–Œ…Å‰ÒšÛó˜ô
+«œ¾u‹ìåÕí¶¿ë‰¿§òç›»Á×q‡Æˆ´½Ôüs“­²É•
+±Ùã¢Ý	½‘ÄˆžÜ«â‰]ßã•Î÷ç÷åj™¼àåÓÁ	ÌÝéˆÚ	óˆºÊ¦ª®“­”¢¡­ñô²…šŒÆÛÂÄõ	…ž–³¯ïm‹ºïÇñ™Ú£˜û¶	×ÀÞ¡ÆŠ¿±èô¾…Ì®Ãã´Ç«ú¸¢™ñŸ¿íÆô¾£Ï†”
+™‹Úõ
+­­žåÅóÅ»	Ûê¬€·´–ÿÒæòé„ö6«€Óaãº™‹äèÊ	ÏìÆ[õä
+ÓD“®Ýïé„«Ì	¸ÒÊÏÝ¶Ý“	ˆ—™â³©
+‘Ç§¤Ž·Û‹¤—ÑéÉ•
+•ô
+“³	¿ô¼Ë©Ú÷÷6ìÖþýè˜!Ñ›ß§×È¹µùÎ¨ß˜ìÛé	ç°#àƒ­¹ÁìÉÌßö¥ÆÝ“´¨á˜Þ ÙŸ¾ŸŽ	ñˆÊÒ£ûÜ¤™¬‘Òû	ö›„î¢‚÷©¼Å	…¨šíÇ¼Ä¡î»íÇÂÿ–”éÕÓÚ§	ó¸Þû‰	‘Á¡Ó¿¥¸ÅœÝüÅáÇ	Å¥:Å¡¿š÷°«ò±Ä‡ÅÉÙ‰Ž…õ˜ÄÇ—Ä¨·õÊ´ó½¿œåç	ûç
+‘·
+»ûá‡¤iÜ½¦çš™ÜÁ¤»µŒ
+ë¹ƒ„
+½
+ÜÞéô¹–’£û¯ŒÕ¡›î·ŠáÜ¡ñ¡¬,éÙÓö!—ˆÙÄ	È>äÞ¸Ôò÷†ŸŸI¨ì¿œ€ÅÙ±–€ÿåïïŸ½
+ÿØâ˜Ñ–”êÚdÜ°¨¼	À‡‰Ø IåÙŸ¯‡·û¾7Ýß.Ë¹˜	Ñ™±¶
+Éø	åç	«ò§à½§"¦#‡½	‹–™ô6¥™Ý
+§‹«¿Ý½Ÿ“«ØÙ„¿û•ë.ã÷óÁÙ­õÅµÙGš‹ß‚ªœñÁÌ˜›–ËÉÛ§	‡´—“¬×àÉ¨Œ	‹«.§ƒ¥êMÏé%Òà“™¸çö™ÿéñ$Åº…ç	™¼ð³æ«““¸ÌÅ¼¾àáÝéþÙ±Ð°Ï„	 ÄÛ¼¬l­ùÍ½›”Ý
+ý½É /Ïè“¼¾Â‰Õ!Ú“óóÂÏï’£†“Þ½‘óÕýþù‰	úòíÚôí	¹Àž´Ù«
+ø»Ù
+Œµ™Á«ÿŒ¶Å÷ò§
+·µ	Ð—ù¾ÿê®Å»	”¿¯¦­ý™	ê§ôQ§À
+ó‹»ñÑˆ£çÿ®Ó…­Ž‰Ñ
+Ï¸$‰Žùƒ²åÉÙ¡¶Õ¤	£ç‹†ö–˜Ž¶ÿÂ†ÑÉä´õŸ4Õ»¡½6Ãõ	Éœ÷
+½H±Ï	ÎÅÉùŠŽóœƒò£	ç“¸·ÿ	ÎAŸ…¥öÇý*·ð«©ÿÄóã€““›Ú“Á°ŠÑ
+»ý’Èùû¸ï	­ûÌÜé¥žŽâ©½ŠÄ³D‹û·øµ‚ß
+éùñÃâ‡—åÇÅŠË¼ç°#Ëâ­ñ¨ù¿Õ¥á°â–µàÚé‹º“ÓÖ*æ×5õåÂæ×Í¨ùù­êÆÑ¯´´©ˆÄ©Ûø˜ÅçÊ	è£Ã÷Ú±Ÿ–ÌÚ”©¼­‰
+ ÈÅÒð3ï¸Ò®Ó¯´å¶öáÚÂ/³÷ÔÙï•¶b™¨ÒÆá-Š½	ª‰‚ÀÙÄ	¾¶Û©Ø—	½—˜Î.ÓÁ	œ±!Áß‘%Ë¾	 ‚ÛëºÓ¿·´¨Ï—€íý­
+úõ¡…ˆ–ÇÔ®ò=û¶	º—"çüæ’Ëú’¢ïá
+¬¸4Õ
+Œ°	í§Þž
+ƒÏžœ‘¶·ñœúÊÐèÿÂŒ§¹é’Ô
+ÿàí	¿Ö²…	×ÿÞŸ‰²¼Ì¡ð€á›”ž§Ûö’¤Ï˜
+À†¢ Ùá	ô·
+‹ÓÎìÓ‘ÒšØ¹ðÄ
+¿š‘&ƒ»â«Ïç¾æñˆä­µÝøø¡–æÈ%‹‚à•Z±€”“(ðm¦Ä­¥œâ"Í¿î§åÕÈÜÓÃØýñ•„ÙÅ‹–’ÛGÖôð²´ÚÚÄ	¤ŒÎÀ’»¯‹„’³Ûƒù¿‡‡à±î¾ÔÉú‚•€Œ‰„‹ÔÛÄ·ÙÏ§ªÖ¸
+ëõ¨¿uÒÇ²ŸÎº¥òž‘ÛÆÔê×Ïèý—€àƒöƒ¼”‚Êœ;ìÄ„°÷çäÕ×Œ‘¥ýÀ€¡£ôŒÁÍôºÕœÎõ•¯ÀÜÎÓ²äæñæ£ÍÙèËÜ¨\ÒÝÜõ
+Ò¬Ø°”ïŽÝ	îþ
+œš«¤íÊ·¯Ï›$Ü‘Œ„œŒÖ¥à¯°í ’µŒ
+¹ŸÛÏÌâÒàø¶®’	Àë¶ï	¢vÎ –˜µ‹äÙÓÌâÇ°™Õ—‡ÎÙ×¤Ïê¥áÿöå©ê½ô’ûÕ¹ÊñŠ
+©›•õ¿¦­úÕ×‰ðö‚å¼€¦Ï¼¼è™Ð¢Óá–™)ßòÁÔë»%¡¾¬×›6‡Í£¨Û¦Å²-·ý³ØÙü½É•ÉÌØ–¥Õ+¸ˆÑ¬Æ¢
+áó"ðó'Û™æŒý¶Ó«Ó¢Æû©²‡¥ß„µŒÔšÎˆ©‚«Ý	éÈÔÖßä	ª¹á°€ÍÑå ¤!¨€Ê÷£LÖêÌÃà•çÑ€ç–ÛâÇ	æZ”®Ì¬°¯’ÕðàÚî®õäö‹@žÌ©ºªƒ¿ÖãÁ‘ÖùÝ¿ºõÇ½—±ã
+àæ¡¡ÏQ¹û¹£Ñâ Ÿ‡™¹Ãõ	ï“	áûÍª4Úõ
+½3ð…ÝÃÌÐÇÎÔ ÍÑú¨Ò·°Š¶”ä›Ô¡¼úÍ³§©Çá£±Éäÿ–ú	Ÿê
+ÛÁ¶±Ÿºî—ÅYžïÁÛ¼‰‡
+×ËÄá‰¡¨ð÷ÌÕð²ˆäÒðÆ¼Öº±ÑœÏ‹¾´‹²Yœ‚™ÎÉÆõƒêøÀ‰öæÜ÷†ÕÀÎßæÛéXÐ‚ïôÒ•É•áÚd¿œúñÂÏ„»Ô¯ØÏ¤ÈŽYÓÁÅ»	ëè¬œÑýŒº”ˆÐžî€Ô«¶µ¾ÐÕç¤ŠšY‚½×µÜ­ÅÏ¸ÊNÛdþ¸ƒ „¸á„Ä±áJâÜ¼ËÞ¸¼Ëªç¸çËØÌ¾X¼¨ÛÑ®¡Y‘¥¦•ñ3æíš‹ê’ÞïàÎ¢ñÑ4Þïƒ™àì›X†¸ˆ
+¿×¥•©ËÈ ‚wŒÌ÷ûò¢ž—ž–ºµ	ªåÈÐüòˆªïõ°½‰ÕØŠ³XÀ¦í
+ñ÷ßµ÷ú”ˆÐÔ˜ö–cŠ‡
+šŠÊŸ,Ë¯„Ù¶X¨›€©×ÝïËúø˜É©ÈôÛøÄˆé’ŒðÒýÒüð€ä¨øûÆíª‰È€€°àä	¬ÔÜžŒ	ÞÆ©ºŸ§¦¬¯	Å¨î‰Áì”Î¼€º€±ú‰	š¨¶Ã‰«¦¿¼ÌÖ„¤Ê°Š¨ô¦åÕÆÁÈŸì§Ÿ,æÈª›îË¤å°Šœ‚–ÔDï¦Ò›¯Ç³ëï¨‡ã¡
+ÅxëÜÏé•’“ÖïÿÁÍ£û†‘Ô
+åò›‚²Ï	©šÖ‰µŠ&¡„‘·
+¡µ¡Š˜÷Ñ³ŸÀ©Ö¬é¼ëÄÇ¸ÛÚÍŽêþí±Ø€éåœíÍÝó¶Ï$ß¨ÎÔÚX «½ìºóâåç	¶ªý›°ŸÜ÷ÄÊ”ˆ¶Xúµ¢·ñÛöË^Ö€´æò‘¦ýâJì»ÙË¦©´Eô¾×
+·r÷c“	è›¾’úÅ°©Ò¯¬2í#¥/Ÿ§çMÅî­×EÈ´ñÝÛåÁéáÿIÝ¡¶«OäÁ˜)¾’¶É¡£ü‡ê—®Öð’CØžŒ@¹UÁ;á˜j
+Admin-0 countryjjj
+Indiaj
+INDj jj
+Sovereign countryj
+1j
+Indiaj
+INDj j
+Indiaj
+INDj j
+Indiaj
+INDj j
+Indiaj
+Indiaj
+INDj
+Indiaj j
+Indiaj
+INDj
+Republic of Indiaj j
+Indiaj j j
+Indiaj jjjjjÚÂÇ‹jjãjÁ¯jãj
+3. Emerging region: BRICj
+4. Lower middle incomej
+INj
+INj
+INj
+INDj
+INDj
+356j
+356j
+356j
+INj
+INDjÐÞ•jÐÞ•j
+Exact WOE match as countryj
+INDj j
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj
+INDj cj cj
+Asiaj
+Asiaj
+Southern Asiaj
+
+South Asiajjjj cjj j	333333û?j	ÍÌÌÌÌÌ@j	.â;1ëÖS@j	31]ˆÕ¯6@jªç¨j
+Q668j
+
+Ø§Ù„Ù‡Ù†Ø¯j
+à¦­à¦¾à¦°à¦¤j
+Indienj
+Indiaj
+Indiaj
+Ù‡Ù†Ø¯j
+Indej
+
+Î™Î½Î´Î¯Î±j
+
+×”×•×“×•j
+à¤­à¤¾à¤°à¤¤j
+Indiaj
+Indiaj
+Indiaj
+	ã‚¤ãƒ³ãƒ‰j
+ì¸ë„j
+Indiaj
+Indiej
+Ãndiaj
+
+Ð˜Ð½Ð´Ð¸Ñj
+Indienj
+	Hindistanj
+
+Ð†Ð½Ð´Ñ–Ñj
+
+Ø¨Ú¾Ø§Ø±Øªj
+
+áº¤n Äá»™j
+å°åº¦j
+å°åº¦j
+Admin-0 countryj j
+Admin-0 countryj j j j j j j j j j j j j j j j j j j j j j j j j j j j j j j j
+INDr¤  		
+
+  !!""##$$%%&&''(())**++,,--..//00112233445566778899::;;<<==>>??@@AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ[[\\]]^^__``aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~€€‚‚ƒƒ„„……††‡‡ˆˆ‰‰ŠŠ‹‹ŒŒŽŽ‘‘’’““””••––——˜˜™™šš››œœžžŸŸ  ¡¡¢¢££¤¤¥¥¦¦§§¨¨j*2([68.165039,6.748682,97.343555,35.495898]z© j—2”{"source":"Natural Earth 50m (Detailed)","level":"detailed","country":"IND","generated":"2025-07-31T02:54:50.966Z","properties_available":["featurecla","scalerank","LABELRANK","SOVEREIGNT","SOV_A3","ADM0_DIF","LEVEL","TYPE","TLC","ADMIN","ADM0_A3","GEOU_DIF","GEOUNIT","GU_A3","SU_DIF","SUBUNIT","SU_A3","BRK_DIFF","NAME","NAME_LONG","BRK_A3","BRK_NAME","BRK_GROUP","ABBREV","POSTAL","FORMAL_EN","FORMAL_FR","NAME_CIAWF","NOTE_ADM0","NOTE_BRK","NAME_SORT","NAME_ALT","MAPCOLOR7","MAPCOLOR8","MAPCOLOR9","MAPCOLOR13","POP_EST","POP_RANK","POP_YEAR","GDP_MD","GDP_YEAR","ECONOMY","INCOME_GRP","FIPS_10","ISO_A2","ISO_A2_EH","ISO_A3","ISO_A3_EH","ISO_N3","ISO_N3_EH","UN_A3","WB_A2","WB_A3","WOE_ID","WOE_ID_EH","WOE_NOTE","ADM0_ISO","ADM0_DIFF","ADM0_TLC","ADM0_A3_US","ADM0_A3_FR","ADM0_A3_RU","ADM0_A3_ES","ADM0_A3_CN","ADM0_A3_TW","ADM0_A3_IN","ADM0_A3_NP","ADM0_A3_PK","ADM0_A3_DE","ADM0_A3_GB","ADM0_A3_BR","ADM0_A3_IL","ADM0_A3_PS","ADM0_A3_SA","ADM0_A3_EG","ADM0_A3_MA","ADM0_A3_PT","ADM0_A3_AR","ADM0_A3_JP","ADM0_A3_KO","ADM0_A3_VN","ADM0_A3_TR","ADM0_A3_ID","ADM0_A3_PL","ADM0_A3_GR","ADM0_A3_IT","ADM0_A3_NL","ADM0_A3_SE","ADM0_A3_BD","ADM0_A3_UA","ADM0_A3_UN","ADM0_A3_WB","CONTINENT","REGION_UN","SUBREGION","REGION_WB","NAME_LEN","LONG_LEN","ABBREV_LEN","TINY","HOMEPART","MIN_ZOOM","MIN_LABEL","MAX_LABEL","LABEL_X","LABEL_Y","NE_ID","WIKIDATAID","NAME_AR","NAME_BN","NAME_DE","NAME_EN","NAME_ES","NAME_FA","NAME_FR","NAME_EL","NAME_HE","NAME_HI","NAME_HU","NAME_ID","NAME_IT","NAME_JA","NAME_KO","NAME_NL","NAME_PL","NAME_PT","NAME_RU","NAME_SV","NAME_TR","NAME_UK","NAME_UR","NAME_VI","NAME_ZH","NAME_ZHT","FCLASS_ISO","TLC_DIFF","FCLASS_TLC","FCLASS_US","FCLASS_FR","FCLASS_RU","FCLASS_ES","FCLASS_CN","FCLASS_TW","FCLASS_IN","FCLASS_NP","FCLASS_PK","FCLASS_DE","FCLASS_GB","FCLASS_BR","FCLASS_IL","FCLASS_PS","FCLASS_SA","FCLASS_EG","FCLASS_MA","FCLASS_PT","FCLASS_AR","FCLASS_JP","FCLASS_KO","FCLASS_VN","FCLASS_TR","FCLASS_ID","FCLASS_PL","FCLASS_GR","FCLASS_IT","FCLASS_NL","FCLASS_SE","FCLASS_BD","FCLASS_UA"],"updated":"2025-08-02T04:53:37.787Z"}zª 

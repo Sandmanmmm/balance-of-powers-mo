@@ -10,7 +10,11 @@
     "natural-earth:validate": "node scripts/validate-natural-earth.js",
     "natural-earth:status": "node scripts/natural-earth-complete.js status",
     "boundaries:setup": "npm run natural-earth:simple && npm run natural-earth:validate",
-    "boundaries:update": "npm run natural-earth:download"
+    "boundaries:update": "npm run natural-earth:download",
+    "generate-tiles": "node scripts/generate-production-tiles.cjs",
+    "test-tiles": "node scripts/test-final-integration.cjs",
+    "build-with-tiles": "npm run generate-tiles && npm run build",
+    "dev-with-tiles": "npm run generate-tiles && npm run dev"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
@@ -46,6 +50,10 @@
     "zod": "^4.0.14"
   },
   "devDependencies": {
-    "@types/node": "^24.1.0"
+    "@mapbox/tilebelt": "^2.0.2",
+    "@mapbox/vector-tile": "^2.0.4",
+    "@turf/turf": "^7.2.0",
+    "@types/node": "^24.1.0",
+    "sharp": "^0.34.3"
   }
 }

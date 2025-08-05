@@ -10,35 +10,32 @@ export function getDetailLevelFromZoom(zoomLevel: number, currentLevel: DetailLe
   // Add hysteresis to prevent oscillation
   const hysteresis = 0.2;
   
-  // Base zoom thresholds
-  const lowThreshold = 1.5;
-  const overviewThreshold = 2.5;
-  const detailedThreshold = 4.0;
+  // Adjusted zoom thresholds to match our tile structure
+  // Since we have 'overview' and 'detailed' tiles (not 'low'), adjust accordingly
+  const overviewThreshold = 1.5;  // Use overview for low zoom levels
+  const detailedThreshold = 3.0;   // Switch to detailed at higher zoom
+  const ultraThreshold = 6.0;      // Ultra detailed for very high zoom
   
   // Apply hysteresis based on current level
-  let actualLowThreshold = lowThreshold;
   let actualOverviewThreshold = overviewThreshold;
   let actualDetailedThreshold = detailedThreshold;
+  let actualUltraThreshold = ultraThreshold;
   
   // Adjust thresholds based on current level to add hysteresis
-  if (currentLevel === 'low') {
-    actualLowThreshold += hysteresis;
-  } else if (currentLevel === 'overview') {
-    actualLowThreshold -= hysteresis;
+  if (currentLevel === 'overview') {
     actualOverviewThreshold += hysteresis;
   } else if (currentLevel === 'detailed') {
     actualOverviewThreshold -= hysteresis;
     actualDetailedThreshold += hysteresis;
   } else if (currentLevel === 'ultra') {
     actualDetailedThreshold -= hysteresis;
+    actualUltraThreshold += hysteresis;
   }
   
-  // Determine detail level
-  if (zoomLevel < actualLowThreshold) {
-    return 'low';
-  } else if (zoomLevel < actualOverviewThreshold) {
-    return 'overview';
-  } else if (zoomLevel < actualDetailedThreshold) {
+  // Determine detail level - always start with overview for our tile structure
+  if (zoomLevel < actualDetailedThreshold) {
+    return 'overview';  // Changed from 'low' to 'overview'
+  } else if (zoomLevel < actualUltraThreshold) {
     return 'detailed';
   } else {
     return 'ultra';

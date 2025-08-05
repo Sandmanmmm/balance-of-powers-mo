@@ -4,6 +4,7 @@ import { WorldMapWebGL } from './components/WorldMapWebGL';
 import { ProvinceInfoPanel } from './components/ProvinceInfoPanel';
 import { GameDashboard } from './components/GameDashboard';
 import { DetailLevelTest } from './components/DetailLevelTest';
+import { PBFTileTest } from './components/PBFTileTest';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -127,6 +128,7 @@ function App() {
               mapOverlay={gameState.mapOverlay}
               onProvinceSelect={selectProvince}
               onOverlayChange={setMapOverlay}
+              renderMode="tiles"
             />
             
             {/* System Status Debug Overlay (top-right) */}
@@ -143,6 +145,11 @@ function App() {
             {/* Detail Level Test Component (bottom-left) */}
             <div className="absolute bottom-4 left-4 z-50">
               <DetailLevelTest />
+            </div>
+            
+            {/* PBF Tile Test Component (bottom-right) */}
+            <div className="absolute bottom-4 right-4 z-50">
+              <PBFTileTest />
             </div>
           </div>
 
